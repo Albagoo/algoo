@@ -1,0 +1,17 @@
+mvcexam 흐름
+
+라이브러리,dispatcherservlet,web.xml,controller
+
+1.라이브러리 추가
+
+2.dispatcherServlet 생성
+
+3.web.xml에서 추가
+
+4.server.xml 에서 새로운 프로젝트 추가
+
+5.컨트롤러 인터페이스 생성
+
+프로퍼티
+bookList.do => BookListController
+=>bookList.jsp 

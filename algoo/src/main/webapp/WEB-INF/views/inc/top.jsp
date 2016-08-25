@@ -1,12 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>index</title>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/clear.css" />
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/includeLayout.css" />
+<meta charset="utf-8" />
+<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/clear.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/includeLayout.css" />
+<script type="text/javascript" 
+	src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 </head>
 <body>
 	<div id="wrap">
@@ -24,7 +30,7 @@
 				</div>
 				<div id="header_search">
 					<div id="header_logo">
-						<img alt="로고" src="<%=request.getContextPath()%>/images/mainLogo-red.png">
+						<img alt="로고" src="${pageContext.request.contextPath}/images/mainLogo-red.png">
 					</div>
 					<div id="header_searchBar">
 						<div>
@@ -41,7 +47,7 @@
 						</div>
 					</div>
 					<div id="header_advertise">
-						<img alt="광고" src="<%=request.getContextPath()%>/images/findjobLogo.png">
+						<img alt="광고" src="${pageContext.request.contextPath}/images/findjobLogo.png">
 					</div>
 				</div>
 				

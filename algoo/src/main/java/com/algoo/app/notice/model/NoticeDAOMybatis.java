@@ -1,4 +1,4 @@
-package com.algoo.app.notice.model;
+/*package com.algoo.app.notice.model;
 
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 
@@ -12,4 +12,4 @@ implements NoticeDAO{
 		return getSqlSession().insert(namespace
 				+".insertNotice", vo);
 	}
-}
+}*/

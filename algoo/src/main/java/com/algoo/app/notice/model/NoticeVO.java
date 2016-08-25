@@ -1,4 +1,4 @@
-package com.algoo.app.notice.model;
+/*package com.algoo.app.notice.model;
 
 import java.sql.Timestamp;
 
@@ -74,3 +74,4 @@ public class NoticeVO {
 				+ ", readCount=" + readCount + ", regdate=" + regdate + ", authcode=" + authcode + "]";
 	}
 }
+*/

@@ -1,4 +1,4 @@
-package com.algoo.app.notice.model;
+/*package com.algoo.app.notice.model;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -10,4 +10,4 @@ public class NoticeServiceImpl implements NoticeService{
 		int cnt = noticeDao.insertNotice(vo);
 		return cnt;
 	}
-}
+}*/

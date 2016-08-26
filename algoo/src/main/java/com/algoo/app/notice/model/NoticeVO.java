@@ -1,11 +1,11 @@
-/*package com.algoo.app.notice.model;
+package com.algoo.app.notice.model;
 
 import java.sql.Timestamp;
 
 public class NoticeVO {
 	private int mainNo;
 	private String title;
-	private String contetn;
+	private String content;
 	private String writer;
 	private int readCount;
 	private Timestamp regdate;
@@ -14,12 +14,12 @@ public class NoticeVO {
 	public NoticeVO() {
 		super();
 	}
-	public NoticeVO(int mainNo, String title, String contetn, String writer, int readCount, Timestamp regdate,
+	public NoticeVO(int mainNo, String title, String content, String writer, int readCount, Timestamp regdate,
 			int authcode) {
 		super();
 		this.mainNo = mainNo;
 		this.title = title;
-		this.contetn = contetn;
+		this.content = content;
 		this.writer = writer;
 		this.readCount = readCount;
 		this.regdate = regdate;
@@ -37,11 +37,11 @@ public class NoticeVO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getContetn() {
-		return contetn;
+	public String getContent() {
+		return content;
 	}
-	public void setContetn(String contetn) {
-		this.contetn = contetn;
+	public void setContent(String content) {
+		this.content = content;
 	}
 	public String getWriter() {
 		return writer;
@@ -70,8 +70,7 @@ public class NoticeVO {
 	
 	@Override
 	public String toString() {
-		return "NoticeVO [mainNo=" + mainNo + ", title=" + title + ", contetn=" + contetn + ", writer=" + writer
+		return "NoticeVO [mainNo=" + mainNo + ", title=" + title + ", content=" + content + ", writer=" + writer
 				+ ", readCount=" + readCount + ", regdate=" + regdate + ", authcode=" + authcode + "]";
 	}
 }
-*/

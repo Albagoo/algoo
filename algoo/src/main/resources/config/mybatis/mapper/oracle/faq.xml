@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mybatis.mapper.oracle.faq">
+	<insert id="insertFaq" parameterType="FaqVO">
+		<selectKey keyProperty="faqNo" resultType="int"
+			order="BEFORE">
+			select faq_seq.nextval from dual
+		</selectKey>
+		insert into faq
+		values(#{faqNo},#{category},#{title},#{content},sysdate,#{adminCode})
+	</insert>
+</mapper>

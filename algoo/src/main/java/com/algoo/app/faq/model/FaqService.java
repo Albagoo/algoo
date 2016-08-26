@@ -1,5 +1,5 @@
 package com.algoo.app.faq.model;
 
-public interface FaqDAO {
+public interface FaqService {
 	public int WriteFaq(FaqVO faqVo);
 }

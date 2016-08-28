@@ -3,7 +3,9 @@ package com.algoo.app.notice.model;
 import java.util.List;
 
 import org.mybatis.spring.support.SqlSessionDaoSupport;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class NoticeDAOMybatis extends SqlSessionDaoSupport 
 implements NoticeDAO{
 	

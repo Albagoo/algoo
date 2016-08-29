@@ -3,6 +3,15 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.mybatis.mapper.oracle.faq">
+	<sql id="searchWhere">
+		<where>
+			<if test="searchKeyword!=null and searchKeyword!=''">
+				${searchCondition} 
+				like '%' || #{searchKeyword} || '%'
+			</if>
+		</where>
+	</sql>
+	
 	<insert id="insertFaq" parameterType="FaqVO">
 		<selectKey keyProperty="faqNo" resultType="int"
 			order="BEFORE">
@@ -11,4 +20,50 @@
 		insert into faq
 		values(#{faqNo},#{category},#{title},#{content},sysdate,#{adminCode})
 	</insert>
+	
+	<select id="selectAllFaq" resultType="FaqVO" 
+		parameterType="SearchVO">
+		select *
+		from
+		(
+		    select rownum as RNUM, LIST_ALL.*
+		    from
+		        (select faqNo, category, title, content, regdate, adminCode,
+					(sysdate-regdate)*24 as newImgTerm
+		        from faq 
+		        <include refid="searchWhere"></include>
+		        order by faqNo desc) LIST_ALL
+		) 
+		<![CDATA[
+		where  RNUM> #{firstRecordIndex} 
+			and RNUM<= #{firstRecordIndex}
+			+ #{recordCountPerPage}
+		]]>
+	</select>
+	
+	<select id="selectTotalCount" resultType="int" 
+		parameterType="SearchVO">
+		select count(*) from faq
+		<include refid="searchWhere"></include>
+	</select>
+	
+	<update id="updateReadCount" parameterType="string">
+		update faq
+			set readcount=readcount+1
+		where faqNo=#{faqNo}
+	</update>
+	
+	<select id="selectByNo" parameterType="string" resultType="FaqVO">
+		select * from faq where faqNo=#{faqNo}
+	</select>
+	
+	<update id="editFaq" parameterType="FaqVO">
+		update faq 
+			set title=#{title}, content=#{content}
+		where faqNo=#{faqNo}
+	</update>
+	
+	<delete id="deleteFaq" parameterType="String">
+		delete from faq where faqNo=#{faqNo}
+	</delete>	
 </mapper>

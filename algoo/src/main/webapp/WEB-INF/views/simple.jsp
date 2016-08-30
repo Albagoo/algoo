@@ -32,3 +32,30 @@
 		<!-- /헤더영역 -->
 		
 		<div id="container">
+			<!-- 네비게이션 영역 -->
+			<nav>
+			
+			</nav>
+			<!-- /네비게이션 영역 -->
+			
+			<!-- 섹션 영역 -->
+			<section>
+				<img alt="메인테스트 사진" src="../images/simpleTestMain.png">
+			</section>
+			<!-- /섹션 영역 -->
+			
+			<!-- 어사이드 영역 -->
+			<aside>
+			
+			</aside>
+			<!-- /어사이드영역 -->
+		</div>
+			
+		<!-- 푸터영역 -->
+		<footer>
+			<address>© <a href="#">Algoo<a> Corp. All rights reserved.</address>
+		</footer>
+		<!-- /푸터영역 -->
+	</div>
+</body>
+</html>

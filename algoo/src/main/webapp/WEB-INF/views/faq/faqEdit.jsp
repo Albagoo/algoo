@@ -7,7 +7,8 @@
 <title>FAQ 수정</title>
 <meta charset="utf-8">
 <script type="text/javascript" src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
-<script src="<c:url value='/ckeditor/ckeditor.js'/>" type="text/javascript"></script>
+<script src="<c:url value='/ckeditor/ckeditor.js'/>" 
+type="text/javascript"></script>
 </head>
 <body>
 <div class="divForm">

@@ -9,11 +9,12 @@
 <title>FAQ 쓰기</title>
 <script type="text/javascript" 
 src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
-<script src="<c:url value='/ckeditor/ckeditor.js'/>" type="text/javascript"></script>
+<script src="<c:url value='/ckeditor/ckeditor.js'/>" 
+type="text/javascript"></script>
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		CKEDITOR.replace('content');	
+		CKEDITOR.replace('content');		
 		
 		$("#frmWrite").submit(function(event){
 			if($("#title").val().length<1){
@@ -55,7 +56,8 @@ src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
         <div>	        
  			<textarea id="content" name="content" 
  			rows="12" cols="40"></textarea>
-        </div>
+ 		</div>
+ 		<br>
         <div class="center">
             <input type = "submit" value="FAQ 등록"/>
             <input type = "Button" value="FAQ 목록" 

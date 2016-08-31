@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE HTML>
 <html lang="ko">
 <head>
@@ -10,12 +12,12 @@
 	<h2>FAQ 상세보기</h2>
 	<div class="divForm">
 		<div class="firstDiv">
-			<span class="sp1">질문</span> 
+			<span class="sp1">[${faqVo.category }] Q.</span> 
 			<span>${faqVo.title }</span>
 		</div>
 		<div>
 			<span class="sp1">등록일</span> 
-			<span>${faqVo.regdate }</span>
+			<span><fmt:formatDate value="${faqVo.regdate }" pattern="yyyy-MM-dd"/></span>
 		</div>
 		<div>
 			<span class="sp1">조회수</span> 

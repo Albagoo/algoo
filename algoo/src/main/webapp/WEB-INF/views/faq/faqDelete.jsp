@@ -13,7 +13,7 @@ src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
 <div class="divForm">
 <form name="frmDelete" id="frmDelete" method="post" 
 action="<c:url value='/faq/faqDelete.ag'/>">
-		<input type="text" name="faqNo" value="${param.faqNo }">
+		<input type="hidden" name="faqNo" value="${param.faqNo }">
 		
 		<fieldset>
 		<legend>FAQ 삭제</legend>

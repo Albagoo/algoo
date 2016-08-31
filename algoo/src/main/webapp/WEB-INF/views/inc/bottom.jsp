@@ -33,7 +33,7 @@
 					<div id="footer_customer">
 						<h2>고객지원센터</h2>
 						<h2>1633-1919</h2>
-						<a href="#">
+						<a href="<%=request.getContextPath()%>/faq/faqList.ag">
 						<span id="span_faq">FAQ</span>
 						</a>
 						<p>

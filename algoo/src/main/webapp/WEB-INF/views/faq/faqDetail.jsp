@@ -1,14 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=utf-8"
-    pageEncoding="utf-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<!DOCTYPE HTML>
-<html lang="ko">
-<head>
-<meta charset="utf-8">
-</head>
-<body>
+<%@ include file="../inc/simple_top.jsp" %>
+
+<section>
 	<h2>FAQ 상세보기</h2>
 	<div class="divForm">
 		<div class="firstDiv">
@@ -37,5 +34,6 @@
 ="<c:url value='/faq/faqList.ag'/>">목록</a>			
 		</div>
 	</div>
-</body>
-</html>
+</section>
+
+<%@ include file="../inc/simple_bottom.jsp" %>

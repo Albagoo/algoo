@@ -1,12 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<meta charset="utf-8">
-<title>FAQ 쓰기</title>
+<%@ include file="../inc/simple_top.jsp" %>
+
 <script type="text/javascript" 
 src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
 <script src="<c:url value='/ckeditor/ckeditor.js'/>" 
@@ -17,7 +13,11 @@ type="text/javascript"></script>
 		CKEDITOR.replace('content');		
 		
 		$("#frmWrite").submit(function(event){
-			if($("#title").val().length<1){
+			if($("#category").val()==''){
+				alert("카테고리를 선택하세요");
+				$("#category").focus();
+				event.preventDefault();
+			}else if($("#title").val().length<1){
 				alert("질문을 입력하세요");
 				$("#title").focus();
 				event.preventDefault();
@@ -30,8 +30,7 @@ type="text/javascript"></script>
 	});
 	
 </script>
-</head>
-<body>
+<section>
 <div class="divForm">
 <form name="frmWrite" id="frmWrite" method="post" 
   action="<c:url value='/faq/faqWrite.ag'/>" >
@@ -40,6 +39,7 @@ type="text/javascript"></script>
         <div>
         	<label for="category">카테고리 분류</label>
         	<select name="category" id="category" title="카테고리">
+        		<option value="">선택하세요</option>
         		<option value="회원가입탈퇴">회원가입 및 탈퇴</option>
         		<option value="회원정보관리">회원정보관리</option>
         	 	<option value="이력서관리활용">이력서 관리 및 활용</option>
@@ -66,6 +66,6 @@ type="text/javascript"></script>
         </div>
     </fieldset>
 </form>
-</div>   
-</body>
-</html>
+</div>
+</section>
+<%@ include file="../inc/simple_bottom.jsp" %>

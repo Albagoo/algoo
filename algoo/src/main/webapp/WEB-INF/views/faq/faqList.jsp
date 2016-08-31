@@ -3,12 +3,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ include file="../inc/simple_top.jsp" %>
 
-<!DOCTYPE HTML>
-<html lang="ko">
-<head>
-<title>FAQ 목록</title>
-<meta charset="utf-8">
 <script type="text/javascript" src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 <script type="text/javascript">	
 	$(document).ready(function(){
@@ -25,8 +21,8 @@
 		document.frmPage.submit();
 	}
 </script>	
-</head>	
-<body>
+
+<section>
 <form name="frmPage" method="post" 
 	action="<c:url value='/faq/faqList.ag'/>">
 <input type="hidden" name="currentPage">
@@ -130,9 +126,11 @@
 		<input type="submit" value="검색">
     </form>
 </div>
-
+<br>
 <div class="divBtn">
-    <a href="<c:url value='/faq/faqWrite.ag'/>" > FAQ 쓰기</a>
+    <input type = "Button" value="FAQ 쓰기" 
+      	onclick="location.href='<c:url value="/faq/faqWrite.ag"/>';" />
 </div>
-</body>
-</html>
+</section>
+
+<%@ include file="../inc/simple_bottom.jsp" %>

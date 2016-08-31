@@ -36,6 +36,15 @@ src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
   action="<c:url value='/faq/faqWrite.ag'/>" >
  <fieldset>
 	<legend>FAQ 쓰기</legend>
+        <div>
+        	<label for="category">카테고리 분류</label>
+        	<select name="category" id="category" title="카테고리">
+        		<option value="회원가입탈퇴">회원가입 및 탈퇴</option>
+        		<option value="회원정보관리">회원정보관리</option>
+        	 	<option value="이력서관리활용">이력서 관리 및 활용</option>
+        	 	<option value="기타문의">기타 문의</option>
+        	 </select>	
+        </div>
         <div class="firstDiv">
             <label for="title">질문</label>
             <input type="text" id="title" name="title"  />

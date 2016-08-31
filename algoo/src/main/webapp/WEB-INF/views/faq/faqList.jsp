@@ -77,7 +77,7 @@
 				</td>
 				<td><fmt:formatDate value="${vo.regdate}" pattern="yyyy-MM-dd"/>
 				</td>
-				<td>${vo.readcount}</td>
+				<td>${vo.readCount}</td>
 			</tr>				
 		</c:forEach>
 	</c:if>

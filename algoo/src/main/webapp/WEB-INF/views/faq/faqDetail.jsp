@@ -19,7 +19,7 @@
 		</div>
 		<div>
 			<span class="sp1">조회수</span> 
-			<span>${faqVo.readcount }</span>
+			<span>${faqVo.readCount }</span>
 		</div>
 		<div class="lastDiv">			
 			<p class="content">${faqVo.content }</p>

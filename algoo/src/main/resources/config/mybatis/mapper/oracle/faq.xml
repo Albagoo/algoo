@@ -17,22 +17,19 @@
 			order="BEFORE">
 			select faq_seq.nextval from dual
 		</selectKey>
-		insert into faq
-		values(#{faqNo},#{category},#{title},#{content},sysdate,#{adminCode})
+		insert into faq(faq_no, category, title, content, regdate)
+		values(#{faqNo}, #{category}, #{title}, #{content}, sysdate)
 	</insert>
 	
-	<select id="selectAllFaq" resultType="FaqVO" 
-		parameterType="SearchVO">
+	<select id="selectAllFaq" resultType="FaqVO" parameterType="SearchVO">
 		select *
 		from
 		(
 		    select rownum as RNUM, LIST_ALL.*
 		    from
-		        (select faqNo, category, title, content, regdate, adminCode,
-					(sysdate-regdate)*24 as newImgTerm
-		        from faq 
+		        (select faq_no, category, title, content, regdate from faq 
 		        <include refid="searchWhere"></include>
-		        order by faqNo desc) LIST_ALL
+		        order by faq_no desc) LIST_ALL
 		) 
 		<![CDATA[
 		where  RNUM> #{firstRecordIndex} 
@@ -47,23 +44,23 @@
 		<include refid="searchWhere"></include>
 	</select>
 	
-	<update id="updateReadCount" parameterType="string">
+	<update id="updateReadCount" parameterType="int">
 		update faq
-			set readcount=readcount+1
-		where faqNo=#{faqNo}
+			set read_count=read_count+1
+		where faq_no=#{faqNo}
 	</update>
 	
-	<select id="selectByNo" parameterType="string" resultType="FaqVO">
-		select * from faq where faqNo=#{faqNo}
+	<select id="selectByNo" parameterType="int" resultType="FaqVO">
+		select * from faq where faq_no=#{faqNo}
 	</select>
 	
 	<update id="editFaq" parameterType="FaqVO">
 		update faq 
 			set title=#{title}, content=#{content}
-		where faqNo=#{faqNo}
+		where faq_no=#{faqNo}
 	</update>
 	
-	<delete id="deleteFaq" parameterType="String">
-		delete from faq where faqNo=#{faqNo}
+	<delete id="deleteFaq" parameterType="int">
+		delete from faq where faq_no=#{faqNo}
 	</delete>	
 </mapper>

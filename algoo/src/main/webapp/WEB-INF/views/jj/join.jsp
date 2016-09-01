@@ -1,4 +1,4 @@
-<%@ include file="../inc/simple_top" %>
+<%@ include file="../inc/simple_top.jsp" %>
 <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>      
     <![endif]-->
@@ -13,4 +13,4 @@
 		</div>	
 	</div>
 </section>
-<%@ include file="../inc/simple_bottom" %>
+<%@ include file="../inc/simple_bottom.jsp" %>

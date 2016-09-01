@@ -228,7 +228,7 @@ margin:10px;
            <dl>
             <dt>
                <span class="tit">담당자명</span> 
-               <input type="text" class="txt">
+               <input type="text" class="txt" name="">
             </dt>
             <dt>
                <span class="tit">전화번호</span>

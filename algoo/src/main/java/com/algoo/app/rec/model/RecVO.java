@@ -1,38 +1,63 @@
 package com.algoo.app.rec.model;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 public class RecVO {
-	private String recCode;
-	private String title;
-	private String compCode;
-	private String name;
-	private Timestamp regdate;
-	private	int recruitMember;
-	private String gender;
-	private int age;
-	private String educateLv;//	학력	문자	VARCHAR2(255)	 	 	 
-	private String recruitType;//	고용형태	문자	VARCHAR2(255)	 	 	 
-	private String map;//	지도	파일명	VARCHAR2(255)	 	 	 
-	private String dedailRecruit;//	상세모집요강	문자	VARCHAR2(255)	 	 	 
-	private int readcount;//	조회수	숫자	NUMBER	 	 	 
-	private String accuse;//	신고여부	짧은문자	VARCHAR2(50)	 	 	 
-	private String admin_agree;//	관리자승인	코드	VARCHAR2(30)	 	 	 
-	private String jobname;//	직종명	문자	VARCHAR2(255)	 	 	 
-	private String jobname2;//	2차직종명	문자	VARCHAR2(255)	 	 	 
-	private String term;//	근무기간	문자	VARCHAR2(255)	 	 	 
-	private String days;//	근무요일	짧은문자	VARCHAR2(50)	 	 	 
-	private String time;//	근무시간	문자	VARCHAR2(255)	 	 	 
-	private String welfare;//	복리후생	문자	VARCHAR2(255)	 	 	 
-	private int pay;//	급여	숫자	NUMBER	 	 	 
-	private String regionCode;//	근무지역	코드	VARCHAR2(30)	 	 	FK
-	private String subwayCode;//	지하철코드	코드	VARCHAR2(30)	 	 	FK
-	private String serviceCode;//	서비스코드	코드	VARCHAR2(30)
-	public String getRecCode() {
+	private int recCode;// NUMBER NOT NULL,
+	private String compName;// VARCHAR2(255 BYTE),
+	private String title;// VARCHAR2(255 BYTE) NOT NULL,
+	private String jobName;/// VARCHAR2(255 BYTE),
+	private String jobName2;// VARCHAR2(255 BYTE),
+	private String jobName3;// VARCHAR2(255 BYTE),
+	private String zipcode;// VARCHAR2(255 BYTE),
+	private String address;// VARCHAR2(255 BYTE),
+	private String addressDetail;// VARCHAR2(255 BYTE),
+	private String subRegion;// VARCHAR2(255 BYTE),
+	private String subNum;// VARCHAR2(50 BYTE),
+	private String subName;// VARCHAR2(255 BYTE),
+	private String subInfo;// VARCHAR2(255 BYTE),
+	private String workTerm;// VARCHAR2(255 BYTE),
+	private String workDays;// varchar2(50 BYTE),
+	private String workTime;// varchar2(50 BYTE),
+	private String workTime2;// varchar2(50 BYTE),
+	private String workTime3;// varchar2(50 BYTE),
+	private String workTime4;// varchar2(50 BYTE),
+	private int pay;// NUMBER,
+	private String recruitType;// VARCHAR2(255 BYTE),
+	private String welfare;// VARCHAR2(255 BYTE),
+	private String gender;// VARCHAR2(50 BYTE),
+	private String age;// VARCHAR2(255 BYTE),
+	private String educateLv ;// VARCHAR2(255 BYTE),
+	private String careers          ;// VARCHAR2(255 BYTE),
+	private String preference ;//       varchar2(255 byte),
+	private String recruitMember  ;//  VARCHAR2(255 BYTE),
+	private String recruitPerson ;//   VARCHAR2(255 BYTE),
+	private Date recruitDeadline  ;//DATE,
+	private String recruitMethod;//    VARCHAR2(255 BYTE),
+	private String documents        ;// VARCHAR2(255 BYTE),
+	private String dedailRecruit   ;// VARCHAR2(255 BYTE),
+	private String service_grade    ;// VARCHAR2(50 BYTE),
+	private String serviceDays;//      VARCHAR2(50 BYTE),
+	private Date service_deadline;//  DATE,
+	private Date regdate     ;//      DATE,
+	private String maps;//              VARCHAR2(255 BYTE),
+	private int readcount ;//         NUMBER,
+	private String accuse          ;//  VARCHAR2(50 BYTE),
+	private String adminAgree;//       VARCHAR2(50 BYTE)           DEFAULT 'N',
+	private int compCode;//         NUMBER,
+	private int serviceCode;//      NUMBER	
+	public int getRecCode() {
 		return recCode;
 	}
-	public void setRecCode(String recCode) {
+	public void setRecCode(int recCode) {
 		this.recCode = recCode;
+	}
+	public String getCompName() {
+		return compName;
+	}
+	public void setCompName(String compName) {
+		this.compName = compName;
 	}
 	public String getTitle() {
 		return title;
@@ -40,29 +65,119 @@ public class RecVO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getCompCode() {
-		return compCode;
+	public String getJobName() {
+		return jobName;
 	}
-	public void setCompCode(String compCode) {
-		this.compCode = compCode;
+	public void setJobName(String jobName) {
+		this.jobName = jobName;
 	}
-	public String getName() {
-		return name;
+	public String getJobName2() {
+		return jobName2;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setJobName2(String jobName2) {
+		this.jobName2 = jobName2;
 	}
-	public Timestamp getRegdate() {
-		return regdate;
+	public String getJobName3() {
+		return jobName3;
 	}
-	public void setRegdate(Timestamp regdate) {
-		this.regdate = regdate;
+	public void setJobName3(String jobName3) {
+		this.jobName3 = jobName3;
 	}
-	public int getRecruitMember() {
-		return recruitMember;
+	public String getZipcode() {
+		return zipcode;
 	}
-	public void setRecruitMember(int recruitMember) {
-		this.recruitMember = recruitMember;
+	public void setZipcode(String zipcode) {
+		this.zipcode = zipcode;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getAddressDetail() {
+		return addressDetail;
+	}
+	public void setAddressDetail(String addressDetail) {
+		this.addressDetail = addressDetail;
+	}
+	public String getSubRegion() {
+		return subRegion;
+	}
+	public void setSubRegion(String subRegion) {
+		this.subRegion = subRegion;
+	}
+	public String getSubNum() {
+		return subNum;
+	}
+	public void setSubNum(String subNum) {
+		this.subNum = subNum;
+	}
+	public String getSubName() {
+		return subName;
+	}
+	public void setSubName(String subName) {
+		this.subName = subName;
+	}
+	public String getSubInfo() {
+		return subInfo;
+	}
+	public void setSubInfo(String subInfo) {
+		this.subInfo = subInfo;
+	}
+	public String getWorkTerm() {
+		return workTerm;
+	}
+	public void setWorkTerm(String workTerm) {
+		this.workTerm = workTerm;
+	}
+	public String getWorkDays() {
+		return workDays;
+	}
+	public void setWorkDays(String workDays) {
+		this.workDays = workDays;
+	}
+	public String getWorkTime() {
+		return workTime;
+	}
+	public void setWorkTime(String workTime) {
+		this.workTime = workTime;
+	}
+	public String getWorkTime2() {
+		return workTime2;
+	}
+	public void setWorkTime2(String workTime2) {
+		this.workTime2 = workTime2;
+	}
+	public String getWorkTime3() {
+		return workTime3;
+	}
+	public void setWorkTime3(String workTime3) {
+		this.workTime3 = workTime3;
+	}
+	public String getWorkTime4() {
+		return workTime4;
+	}
+	public void setWorkTime4(String workTime4) {
+		this.workTime4 = workTime4;
+	}
+	public int getPay() {
+		return pay;
+	}
+	public void setPay(int pay) {
+		this.pay = pay;
+	}
+	public String getRecruitType() {
+		return recruitType;
+	}
+	public void setRecruitType(String recruitType) {
+		this.recruitType = recruitType;
+	}
+	public String getWelfare() {
+		return welfare;
+	}
+	public void setWelfare(String welfare) {
+		this.welfare = welfare;
 	}
 	public String getGender() {
 		return gender;
@@ -70,10 +185,10 @@ public class RecVO {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public int getAge() {
+	public String getAge() {
 		return age;
 	}
-	public void setAge(int age) {
+	public void setAge(String age) {
 		this.age = age;
 	}
 	public String getEducateLv() {
@@ -82,23 +197,83 @@ public class RecVO {
 	public void setEducateLv(String educateLv) {
 		this.educateLv = educateLv;
 	}
-	public String getRecruitType() {
-		return recruitType;
+	public String getCareers() {
+		return careers;
 	}
-	public void setRecruitType(String recruitType) {
-		this.recruitType = recruitType;
+	public void setCareers(String careers) {
+		this.careers = careers;
 	}
-	public String getMap() {
-		return map;
+	public String getPreference() {
+		return preference;
 	}
-	public void setMap(String map) {
-		this.map = map;
+	public void setPreference(String preference) {
+		this.preference = preference;
+	}
+	public String getRecruitMember() {
+		return recruitMember;
+	}
+	public void setRecruitMember(String recruitMember) {
+		this.recruitMember = recruitMember;
+	}
+	public String getRecruitPerson() {
+		return recruitPerson;
+	}
+	public void setRecruitPerson(String recruitPerson) {
+		this.recruitPerson = recruitPerson;
+	}
+	public Date getRecruitDeadline() {
+		return recruitDeadline;
+	}
+	public void setRecruitDeadline(Date recruitDeadline) {
+		this.recruitDeadline = recruitDeadline;
+	}
+	public String getRecruitMethod() {
+		return recruitMethod;
+	}
+	public void setRecruitMethod(String recruitMethod) {
+		this.recruitMethod = recruitMethod;
+	}
+	public String getDocuments() {
+		return documents;
+	}
+	public void setDocuments(String documents) {
+		this.documents = documents;
 	}
 	public String getDedailRecruit() {
 		return dedailRecruit;
 	}
 	public void setDedailRecruit(String dedailRecruit) {
 		this.dedailRecruit = dedailRecruit;
+	}
+	public String getService_grade() {
+		return service_grade;
+	}
+	public void setService_grade(String service_grade) {
+		this.service_grade = service_grade;
+	}
+	public String getServiceDays() {
+		return serviceDays;
+	}
+	public void setServiceDays(String serviceDays) {
+		this.serviceDays = serviceDays;
+	}
+	public Date getService_deadline() {
+		return service_deadline;
+	}
+	public void setService_deadline(Date service_deadline) {
+		this.service_deadline = service_deadline;
+	}
+	public Date getRegdate() {
+		return regdate;
+	}
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
+	}
+	public String getMaps() {
+		return maps;
+	}
+	public void setMaps(String maps) {
+		this.maps = maps;
 	}
 	public int getReadcount() {
 		return readcount;
@@ -112,82 +287,40 @@ public class RecVO {
 	public void setAccuse(String accuse) {
 		this.accuse = accuse;
 	}
-	public String getAdmin_agree() {
-		return admin_agree;
+	public String getAdminAgree() {
+		return adminAgree;
 	}
-	public void setAdmin_agree(String admin_agree) {
-		this.admin_agree = admin_agree;
+	public void setAdminAgree(String adminAgree) {
+		this.adminAgree = adminAgree;
 	}
-	public String getJobname() {
-		return jobname;
+	public int getCompCode() {
+		return compCode;
 	}
-	public void setJobname(String jobname) {
-		this.jobname = jobname;
+	public void setCompCode(int compCode) {
+		this.compCode = compCode;
 	}
-	public String getJobname2() {
-		return jobname2;
-	}
-	public void setJobname2(String jobname2) {
-		this.jobname2 = jobname2;
-	}
-	public String getTerm() {
-		return term;
-	}
-	public void setTerm(String term) {
-		this.term = term;
-	}
-	public String getDays() {
-		return days;
-	}
-	public void setDays(String days) {
-		this.days = days;
-	}
-	public String getTime() {
-		return time;
-	}
-	public void setTime(String time) {
-		this.time = time;
-	}
-	public String getWelfare() {
-		return welfare;
-	}
-	public void setWelfare(String welfare) {
-		this.welfare = welfare;
-	}
-	public int getPay() {
-		return pay;
-	}
-	public void setPay(int pay) {
-		this.pay = pay;
-	}
-	public String getRegionCode() {
-		return regionCode;
-	}
-	public void setRegionCode(String regionCode) {
-		this.regionCode = regionCode;
-	}
-	public String getSubwayCode() {
-		return subwayCode;
-	}
-	public void setSubwayCode(String subwayCode) {
-		this.subwayCode = subwayCode;
-	}
-	public String getServiceCode() {
+	public int getServiceCode() {
 		return serviceCode;
 	}
-	public void setServiceCode(String serviceCode) {
+	public void setServiceCode(int serviceCode) {
 		this.serviceCode = serviceCode;
 	}
 	@Override
 	public String toString() {
-		return "RecVO [recCode=" + recCode + ", title=" + title + ", compCode=" + compCode + ", name=" + name
-				+ ", regdate=" + regdate + ", recruitMember=" + recruitMember + ", gender=" + gender + ", age=" + age
-				+ ", educateLv=" + educateLv + ", recruitType=" + recruitType + ", map=" + map + ", dedailRecruit="
-				+ dedailRecruit + ", readcount=" + readcount + ", accuse=" + accuse + ", admin_agree=" + admin_agree
-				+ ", jobname=" + jobname + ", jobname2=" + jobname2 + ", term=" + term + ", days=" + days + ", time="
-				+ time + ", welfare=" + welfare + ", pay=" + pay + ", regionCode=" + regionCode + ", subwayCode="
-				+ subwayCode + ", serviceCode=" + serviceCode + "]";
+		return "RecVO [recCode=" + recCode + ", compName=" + compName + ", title=" + title + ", jobName=" + jobName
+				+ ", jobName2=" + jobName2 + ", jobName3=" + jobName3 + ", zipcode=" + zipcode + ", address=" + address
+				+ ", addressDetail=" + addressDetail + ", subRegion=" + subRegion + ", subNum=" + subNum + ", subName="
+				+ subName + ", subInfo=" + subInfo + ", workTerm=" + workTerm + ", workDays=" + workDays + ", workTime="
+				+ workTime + ", workTime2=" + workTime2 + ", workTime3=" + workTime3 + ", workTime4=" + workTime4
+				+ ", pay=" + pay + ", recruitType=" + recruitType + ", welfare=" + welfare + ", gender=" + gender
+				+ ", age=" + age + ", educateLv=" + educateLv + ", careers=" + careers + ", preference=" + preference
+				+ ", recruitMember=" + recruitMember + ", recruitPerson=" + recruitPerson + ", recruitDeadline="
+				+ recruitDeadline + ", recruitMethod=" + recruitMethod + ", documents=" + documents + ", dedailRecruit="
+				+ dedailRecruit + ", service_grade=" + service_grade + ", serviceDays=" + serviceDays
+				+ ", service_deadline=" + service_deadline + ", regdate=" + regdate + ", maps=" + maps + ", readcount="
+				+ readcount + ", accuse=" + accuse + ", adminAgree=" + adminAgree + ", compCode=" + compCode
+				+ ", serviceCode=" + serviceCode + "]";
 	}
 	
+	
 }
-

@@ -5,30 +5,51 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.algoo.app.notice.common.ListNoticeVO;
+
 @Service
 public class NoticeServiceImpl implements NoticeService{
 	
 	@Autowired
 	private NoticeDAO noticeDao;
-	
-	public int insertNotice(NoticeVO noticeVo){
+
+	@Override
+	public int insertNotice(NoticeVO noticeVo) {
 		int cnt = noticeDao.insertNotice(noticeVo);
 		return cnt;
 	}
 	
+	@Override
 	public List<NoticeVO> selectAll(NoticeVO noticeVo){
 		return noticeDao.selectAll(noticeVo);
 	}
 	
-	public NoticeVO selectByNo(int mainNo){
-		return noticeDao.selectByNo(mainNo);
+	@Override	//08-31
+	public List<NoticeVO> selectByCategory(ListNoticeVO vo) {
+		return noticeDao.selectByCategory(vo);
 	}
 	
+	@Override //08-31
+	public int selectTotalCount(ListNoticeVO vo) {
+		return noticeDao.selectTotalCount(vo);
+	}
+
+	@Override
+	public int updateReadCount(int no) {
+		return noticeDao.updateReadCount(no);
+	}
+
+	@Override
+	public NoticeVO selectByNo(int no){
+		return noticeDao.selectByNo(no);
+	}
+	
+	@Override
 	public int updateNotice(NoticeVO noticeVo){
 		return noticeDao.updateNotice(noticeVo);
 	}
 	
-	public int deleteNotice(int mainNo){
-		return noticeDao.deleteNotice(mainNo);
+	public int deleteNotice(int no){
+		return noticeDao.deleteNotice(no);
 	}
 }

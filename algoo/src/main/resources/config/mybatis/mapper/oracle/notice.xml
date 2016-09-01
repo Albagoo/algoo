@@ -4,14 +4,61 @@
 
 <mapper namespace="config.mybatis.mapper.oracle.notice">
 	<insert id="insertNotice" parameterType="NoticeVO">
-		<selectKey keyProperty="main_no" resultType="int"
+		<selectKey keyProperty="mainNo" resultType="int"
 		 order="BEFORE">
-			select notice_seq.nextval from dual
+			select main_board_seq.nextval from dual
 		</selectKey>
-		insert into notice(main_no, title, content,
-	 		writer, read_count, regdate, authcode)
-		values(#{mainNo},#{title},#{content},#{writer},
-			#{readCount},#{regdate},#{authcode})
+			insert into main_board(
+				main_no, category, title, content, writer, regdate, userid)
+			values(#{mainNo}, #{category}, #{title}, #{content},
+			#{writer}, sysdate, '관리자')
 	</insert>
 	
+	<!-- <select id="selectAll" resultType="NoticeVO">
+		select * from main_board order by main_no desc
+	</select> -->
+	
+	<!-- 08-31 paging -->
+	<select id="selectByCategory"  parameterType="ListNoticeVO"
+	 resultType="NoticeVO">
+		select *
+		from
+		(
+		    select rownum as RNUM, LIST_ALL.*
+		    from
+		        (
+		        	select * from main_board
+		        	order by main_no desc
+		        ) LIST_ALL    
+		)
+		<![CDATA[
+			where  RNUM> #{firstRecordIndex} 
+			and RNUM<= #{firstRecordIndex}
+			+ #{recordCountPerPage}
+		]]>	 
+	</select>
+	
+	<select id="selectTotalCount" resultType="int">
+		select count(*) from main_board
+	</select>
+	
+	<update id="updateReadCount" parameterType="int">
+		update main_board
+			set read_count=read_count+1
+		where main_no=#{mainNo}
+	</update>
+	
+	<select id="selectByNo" parameterType="int"
+	 resultType="NoticeVO">
+		select * from main_board where main_no=#{mainNo}
+	</select>
+	
+	<update id="updateNotice" parameterType="NoticeVO">
+		update main_board set title=#{title}, writer=#{writer},
+			content=#{content} where main_no=#{mainNo}
+	</update>
+	
+	<delete id="deleteNotice" parameterType="int">
+		delete from main_board where main_no=#{mainNo}
+	</delete>
 </mapper>

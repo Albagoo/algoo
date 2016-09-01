@@ -105,6 +105,19 @@ body input::-webkit-input-placeholder { color: silver; }
 	font-family: 돋움;
 	font-size:12px;
 }
+/* 이메일 */
+#email_div div{
+	display: inline;
+	width:33%;
+}
+#email1, #email2, #email3{
+	width:32%;
+	border:1px solid #DEDBDE;
+}
+#email2{
+	height:32px;
+}
+
 /* 생년월일 */
 #birth_div{
 	display:inline-block;

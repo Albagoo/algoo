@@ -1,12 +1,16 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-
-</body>
-</html>
+<%@ include file="../inc/simple_top" %>
+<!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>      
+    <![endif]-->
+<section>
+	<div id="join_div">
+		<div id="joinMessage">
+			<h1>알구 회원가입</h1>
+			<p>통합회원 가입을 환영합니다</p>
+		</div>
+		<div>
+		
+		</div>	
+	</div>
+</section>
+<%@ include file="../inc/simple_bottom" %>

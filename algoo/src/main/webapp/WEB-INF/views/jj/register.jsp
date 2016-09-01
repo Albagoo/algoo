@@ -91,6 +91,24 @@
 			</span>
 			</div>
 			
+			<div id="email_div">
+				<div>
+					<input type="text" name="email1" id="email1" placeholder="이메일">
+				</div>
+				<div>
+					<select name="email2" id="email2">
+						<option>naver.com</option>
+						<option>nate.com</option>
+						<option>hanmail.net</option>
+						<option>google.com</option>
+						<option>직접입력</option>
+					</select>
+				</div>
+				<div>
+					<input type="text" name="email3" id="email3" placeholder="직접입력">
+				</div>
+			</div>
+			
 			<div id="birth_div">
 				<div class="birth_title">
 					<label>성별</label>

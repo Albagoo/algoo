@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mybatis.mapper.oracle.rec">
+	
+	<select id="selectRecByCode" parameterType="String"
+	resultType="RecVO">
+	select * from  RECRUITMENT 
+   where REC_CODE=#{recCode}
+	</select>
+	
+	<select id="selectCompanyByCode" parameterType="String"
+	resultType="CompanyVO">
+	  select * from company
+	  where comp_code=#{compCode}
+	</select>
+	
+	<select id="selectServiceByCode" parameterType="String"
+	resultType="ServiceVO">
+	  select service_code,grade,deadline, 
+	  trunc(deadline-sysdate)as days from service
+	  where service_code=#{serviceCode}
+	</select>
+</mapper>

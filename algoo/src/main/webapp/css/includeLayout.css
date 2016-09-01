@@ -1,5 +1,8 @@
 @CHARSET "UTF-8";
-@import url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+@font-face{
+   font-family:'bon godic';
+   src:url('../font/NotoSans-Regular.ttf') format('truetype');
+}
 #wrap{
 	width:2110px;
 }
@@ -27,7 +30,7 @@
 	margin-top:5px;
 }
 #header_action a{
-	font-family: 'nanum gothic', 맑은 고딕, 한컴돋움, 돋움;
+	font-family: 'bon godic';
 	font-size: 1.2em;
 	text-align: right;
 	margin:0 3px 0 3px;
@@ -35,7 +38,7 @@
 }
 
 #header_searchKeyword{
-	font-family: 'nanum gothic', 맑은 고딕, 한컴돋움, 돋움;
+	font-family: 'bon godic';
 	font-size: 0.9em;
 	color:#ccc;
 }
@@ -58,12 +61,12 @@
 	width:500px;
 	height:150px;
 	float:left;
-	font-family: 'nanum gothic', 맑은 고딕, 한컴돋움, 돋움;
+	font-family: 'bon godic';
 	font-size: 0.9em;
 	color:#aaa;
 }
 #header_searchBar a{
-	font-family: 'nanum gothic', 맑은 고딕, 한컴돋움, 돋움;
+	font-family: 'bon godic';
 	font-size: 0.9em;
 	color:#aaa;
 	margin-bottom:10px;
@@ -154,7 +157,7 @@
 #footer_menu a{
 	margin-left:10px;
 	margin-right:10px;
-	font-family:nanumgothic;
+	font-family: 'bon godic';
 	font-size: 1em;
 	color:white;
 }
@@ -184,7 +187,7 @@
 }
 #footer_comintro address{
 	margin-top:25px;
-	font-family: 'nanum gothic', 맑은 고딕, 한컴돋움, 돋움;
+	font-family: 'bon godic';
 	font-size: 0.8em;
 	color:black;
 }

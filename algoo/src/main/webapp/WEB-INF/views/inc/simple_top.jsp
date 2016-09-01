@@ -8,6 +8,8 @@
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/clear.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleInc.css'/>" />
+<script type="text/javascript" 
+	src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>      
     <![endif]-->

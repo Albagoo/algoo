@@ -37,8 +37,35 @@
 </style>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$()
-	});
+    	$("#simple_top span").html("이력서 등록");
+    	
+    	$("#ability1").change(function(){
+    		if($("#ability1 option:selected").val()=="초등학교"){
+	  		 	$("#ability2 option").remove();
+		  		$("#ability2").append("<option value=''>상태</option>");
+		  		$("#ability2").append("<option value='졸업'>졸업</option>");
+       		}else if($("#ability1 option:selected").val()=="중학교"
+       				|| $("#ability1 option:selected").val()=="고등학교"){
+       			$("#ability2 option").remove();
+		  		$("#ability2").append("<option value=''>상태</option>");
+		  		$("#ability2").append("<option value='졸업'>졸업</option>");
+		  		$("#ability2").append("<option value='재학'>재학</option>");
+		  		$("#ability2").append("<option value='중퇴'>중퇴</option>");
+       		}else if($("#ability1 option:selected").val()=="대학교 (2, 3년제)"
+       				|| $("#ability1 option:selected").val()=="대학교 (4년제)"
+           			|| $("#ability1 option:selected").val()=="대학원"){
+       			$("#ability2 option").remove();
+		  		$("#ability2").append("<option value=''>상태</option>");
+		  		$("#ability2").append("<option value='졸업'>졸업</option>");
+		  		$("#ability2").append("<option value='재학'>재학</option>");
+		  		$("#ability2").append("<option value='중퇴'>중퇴</option>");
+		  		$("#ability2").append("<option value='휴학'>휴학</option>");
+		  		$("#ability2").append("<option value='수료'>수료</option>");
+       		}
+    	
+    		
+    	});
+ 	});
 </script>
 <div id="resume">
 <form action="<c:url value = '/resume/write.ag'/>"
@@ -92,7 +119,7 @@
 				<span>최종학력</span>
 			</td>
 			<td id="td2">
-				<select name="ability1">
+				<select id="ability1" name="ability1">
 					<option value="">학교</option>
 					<option value="초등학교">초등학교</option>
 					<option value="중학교">중학교</option>
@@ -101,13 +128,8 @@
 					<option value="대학교 (4년제)">대학교 (4년제)</option>
 					<option value="대학원">대학원</option>
 				</select>
-				<select name="ability2">
+				<select id="ability2" name="ability2">
 					<option value="">상태</option>
-					<option value="졸업">졸업</option>
-					<option value="재학">재학</option>
-					<option value="중퇴">중퇴</option>
-					<option value="휴학">휴학</option>
-					<option value="수료">수료</option>
 				</select>
 			</td>
 		</tr>
@@ -197,7 +219,7 @@
 				<input checked="checked" 
 			 		id="Career_0__IsWorkOver" name="Career[0].IsWorkOver" type="radio" value="1" />
 			 	<label for="Career_0__IsWorkOver">1개월 이상 근무</label>
-			 	<select name="term1">
+			 	<select name="term1" disabled="disabled">
 				<option value="">년도</option>
 				<c:forEach var="i" begin="1989" end="2016">
 					<option value="${i}">${i}</option>

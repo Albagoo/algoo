@@ -1,0 +1,250 @@
+@CHARSET "UTF-8";
+@font-face{
+   font-family:'bon godic';
+   src:url('../font/NotoSans-Regular.ttf') format('truetype');
+}
+/* body {
+   background: #ededed;
+   width: 900px;
+   margin: 30px auto;
+   color: #999;
+} */
+p {
+   margin: 0 0 2em;
+}
+h1 {
+   margin: 0;
+}
+a {
+   color: #339;
+   text-decoration: none;
+}
+a:hover {
+   text-decoration: underline;
+}
+/* div {
+   padding: 20px 0;
+   border-bottom: solid 1px #ccc;
+}
+ */
+/* button 
+---------------------------------------------- */
+.recWrite {
+   width: 820px;
+   background: #FaFaFa;
+   margin: 0 auto;
+}
+.recWrite input[type=checkbox] {
+   color: #ffa;
+}
+
+.companyInfo {
+   width: 800px;
+   height: 300px;
+}
+
+.personInfo {
+   width: 800px;
+   height: 210px;
+}
+
+.workInfo {
+   width: 800px;
+   height: 210px;
+}
+
+.workCondition {
+   width: 800px;
+   height: 280px;
+}
+
+.requestCondition {
+   width: 800px;
+   height: 320px;
+}
+
+.recContent {
+   width: 800px;
+   height: 250px;
+}
+
+.detailContent {
+   width: 800px;
+   height: 300px;
+}
+.detailContent textarea{
+   margin: 30px;
+}
+
+.bg {
+   background: #FFF;
+   border: 1px solid gray;
+}
+
+.tit {
+   margin:10px;
+   
+}
+.by{
+ margin:10px 0 0 0;
+   font-family:'bon godic';
+   float: left;
+   font-size: 10pt;
+}
+.titc {
+   margin:10px 10px 0 10px;
+}
+
+.tit, .titc{
+   text-align:right;
+   width: 150px;
+   float: left;
+   font-family:'bon godic';
+   font-weight: bold;
+   font-size: 10pt;
+   color: #511;
+}
+.radio{
+   margin:10px 0;
+   float: left;
+}
+.prefe{
+   margin:10px 0 0 0;
+   width:115px;
+   float: left;
+}
+.rence{
+   margin: 10px 0 0 1px;
+   float: left;
+}
+.txt{
+   margin:10px;
+   width: 580px;
+   float: left;
+}
+
+.txt_30,.txt_35,.txt_40,.txt_45,.txt_50,.txt_55,.txt_60,.txt_65,.txt_70,.txt_75,.txt_80,.txt_85,.txt_90,.txt_95,.txt_100,.txt_105,.txt_110,.txt_115,.txt_120,.txt_125,.txt_130,.txt_135,.txt_140,.txt_145,.txt_150,.txt_155,.txt_160,.txt_165,.txt_170,.txt_175,.txt_180,.txt_185,.txt_190,.txt_195,.txt_200,.txt_205,.txt_210,.txt_220,.txt_230,.txt_240,.txt_250,.txt_260,.txt_270,.txt_280,.txt_290,.txt_300,.txt_350,.txt_400{
+   margin:10px;
+   float: left;
+}
+.txth_30,.txth_35,.txth_40,.txth_45,.txth_50,.txth_55,.txth_60,.txth_65,.txth_70,.txth_75,.txth_80,.txth_85,.txth_90,.txth_95,.txth_100,.txth_105,.txth_110,.txth_115,.txth_120,.txth_125,.txth_130,.txth_135,.txth_140,.txth_145,.txth_150,.txth_155,.txth_160,.txth_165,.txth_170,.txth_175,.txth_180,.txth_185,.txth_190,.txth_195,.txth_200,.txth_205,.txth_210,.txth_220,.txth_230,.txth_240,.txth_250,.txth_260,.txth_270,.txth_280,.txth_290,.txth_300,.txth_350,.txth_400{
+   margin:10px 0;
+   float: left;
+}
+.txt_30,.txth_30 {
+   width: 30px;
+}
+.txt_35 ,.txth_35{
+   width: 35px;
+}
+.txt_40 ,.txth_40{
+   width: 40px;
+}
+.txt_50 ,.txth_50{
+   width: 50px;
+}
+.txt_60 ,.txth_60{
+   width: 60px;
+}
+.txt_65 ,.txth_65{
+   width: 65px;
+}
+.txt_70 ,.txth_70{
+   width: 70px;
+}
+.txt_75 ,.txth_75{
+   width: 75px;
+}
+.txt_80 ,.txth_80{
+   width: 80px;
+}
+.txt_85 ,.txth_85{
+   width: 85px;
+}
+.txt_90 ,.txth_90{
+   width: 90px;
+}
+.txt_95 ,.txth_95{
+   width: 95px;
+}
+.txt_100 ,.txth_100{
+   width: 100px;
+}
+.txt_105,.txth_105{
+   width: 105px;
+}
+.txt_300 ,.txth_300{
+   width: 300px;
+}
+.txt_250 ,.txth_250{
+   width: 250px;
+}
+.txt_200 ,.txth_200{
+   width: 200px;
+}
+.txt_180 ,.txth_180{
+   width: 180px;
+}
+.txt_150 ,.txth_150{
+   width: 150px;
+}
+.phone1{
+margin:10px;
+   width: 50px;
+   float: left;
+}
+.phone2, .phone3{
+margin:10px;
+   width: 80px;
+   float: left;
+}
+.email1{
+   margin:10px;
+   width: 80px;
+   float: left;
+}
+.email2{
+   margin:10px;
+   width: 100px;
+   float: left;
+}
+.email3{
+   margin:10px;
+   width: 120px;
+   float: left;
+}
+.clearBoth, .clearBoth dt{
+   clear: both;
+}
+.recWrite h2{
+   width: 150px;
+   text-align: right;
+   margin: 20px 10px;
+ font-family:'bon godic';
+   font-variant:small-caps;
+   font-weight: bold;
+   font-size: 10.5pt; 
+}
+.font_11{
+   font-size: 10pt;
+}
+.bgg{
+ background: #F7F7F7
+}
+
+
+input[type="text"]{
+   border: none;
+   border-bottom: 1px solid #faa;
+}
+
+.align_center{
+	text-align: center;
+}
+.align_left{
+	text-align: left;
+}
+.align_right{
+	text-align: right;
+}
+

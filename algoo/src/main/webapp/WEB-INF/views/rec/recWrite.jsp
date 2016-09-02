@@ -2,197 +2,24 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../inc/simple_top.jsp" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <style>
-.recWrite {
-	width: 820px;
-	background: #F7F7F7;
-}
 
-.companyInfo {
-	width: 800px;
-	height: 300px;
-}
-
-.personInfo {
-	width: 800px;
-	height: 300px;
-}
-
-.workInfo {
-	width: 800px;
-	height: 300px;
-}
-
-.workCondition {
-	width: 800px;
-	height: 300px;
-}
-
-.requestCondition {
-	width: 800px;
-	height: 300px;
-}
-
-.recContent {
-	width: 800px;
-	height: 300px;
-}
-
-.detailContent {
-	width: 800px;
-	height: 300px;
-}
-.detailContent textarea{
-   margin: 30px;
-}
-
-.bg {
-	background: #FFF;
-	border: 1px solid gray;
-}
-
-.tit {
-   margin:10px;
-   text-align:right;
-	width: 150px;
-	float: left;
-}
-.titc {
-   margin:10px 10px 0 10px;
-   text-align:right;
-	width: 150px;
-	float: left;
-}
-.radio{
-   margin:10px 0;
-   float: left;
-}
-.prefe{
-   margin:10px 0 0 0;
-   width:115px;
-   float: left;
-}
-.rence{
-   margin: 10px 0 0 10px;
-   float: left;
-}
-.txt{
-   margin:10px;
-	width: 580px;
-	float: left;
-}
-.txt_300 {
-   margin:10px;
-	width: 300px;
-	float: left;
-}
-.txt_250 {
-   margin:10px;
-	width: 250px;
-	float: left;
-}
-.txt_200 {
-   margin:10px;
-	width: 200px;
-	float: left;
-}
-.txt_180 {
-   margin:10px;
-	width: 180px;
-	float: left;
-}
-.txt_150 {
-   margin:10px;
-	width: 150px;
-	float: left;
-}
-.txt_100 {
-   margin:10px;
-	width: 100px;
-	float: left;
-}
-.txt_30 {
-   text-align:center;
-   margin:10px 0;
-	width: 30px;
-	float: left;
-}
-.txt_50 {
-   margin:10px 3px;
-	width: 50px;
-	float: left;
-}
-.txt_60 {
-   margin:10px;
-	width: 60px;
-	float: left;
-}
-.txt_65 {
-   margin:10px;
-	width: 65px;
-	float: left;
-}
-.txt_70 {
-   margin:10px;
-	width: 70px;
-	float: left;
-}
-.txt_75 {
-   margin:10px;
-	width: 75px;
-	float: left;
-}
-.phone1{
-margin:10px;
-   width: 50px;
-   float: left;
-}
-.phone2, .phone3{
-margin:10px;
-   width: 80px;
-   float: left;
-}
-.email1{
-   margin:10px;
-   width: 80px;
-   float: left;
-}
-.email2{
-   margin:10px;
-   width: 100px;
-   float: left;
-}
-.email3{
-   margin:10px;
-   width: 120px;
-   float: left;
-}
-.clearBoth, .clearBoth dt{
-	clear: both;
-}
-.recWrite h2{
-   margin: 20px;
-}
-.font_11{
-   font-size: 10pt;
-}
-.bgg{
- background: #F7F7F7
-}
-
-
-input[type="text"]{
-   border: none;
-   border-bottom: 1px solid #faa;
-}
 </style>
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/clear.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/recLayout.css'/>" />
+
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
 <script type="text/javascript">
    $(document).ready(function(){
+      CKEDITOR.replace('content');  
       $("#simple_top span").html("채용공고 등록");
       //simple_top 이용시 자기가 맡은화면 명칭 innerHTML로 붙여주기
    });
   </script>
+  <script src="<c:url value='/ckeditor/ckeditor.js'/>" 
+type="text/javascript"></script>
+
 <form name="frmWrite" method="post" 
    action="<c:url value='/rec/recWrite.ag'/>">
 	<div class="recWrite">
@@ -227,35 +54,45 @@ input[type="text"]{
            <dl class="clearBoth">
             <dt>
                <span class="tit">담당자명</span> 
-               <input type="text" class="txt" placeholder="이름" name="">
+               <input type="text" class="txt_60" placeholder="이름" name="">
             </dt>
             <dt>
                <span class="tit">전화번호</span>
              
                <input type="text" class="phone1"
-               placeholder=" 02">
-               <input type="text" class="phone2">
-               <input type="text" class="phone3">
+               placeholder=" 02" maxlength="3">
+               <input type="text" class="phone2" 
+               maxlength="4">
+               <input type="text" class="phone3"
+               maxlength="4">
             </dt>
             <dt class="clearBoth">
                <span class="tit">휴대폰</span>
                <input type="text" class="phone1"
-               placeholder=" 010">
-               <input type="text" class="phone2">
-               <input type="text" class="phone3">
+               placeholder=" 010" maxlength="3">
+               <input type="text" class="phone2"
+               maxlength="4">
+               <input type="text" class="phone3"
+               maxlength="4">
             </dt>
             <dt>
                <span class="tit">팩스번호</span>
              <input type="text" class="phone1"
-               placeholder=" 02">
-               <input type="text" class="phone2">
-               <input type="text" class="phone3">
+               placeholder=" 02" maxlength="3">
+               <input type="text" class="phone2"
+               maxlength="4">
+               <input type="text" class="phone3"
+               maxlength="4">
             </dt>
             <dt>
                <span class="tit">e-mail</span>
-               <input type="text" class="email1">
-               <input type="text" class="email2">
-               <select class="email3 medium white button">
+               <input type="text" class="email1"
+               placeholder="exam123">
+               <span class="txt_30">@</span>
+               <input type="text" class="email2"
+               placeholder=naver.com>
+               <select class="email3 medium white button"
+               id=email3>
                <option>naver.com</option>
                <option>hanmail.net</option>
                <option>google.com</option>
@@ -272,29 +109,31 @@ input[type="text"]{
 		 <dl class="clearBoth">
             <dt>
                <span class="tit">근무회사/점포명</span> 
-               <input type="text" class="txt_200">
+               <input type="text" class="txt_200"
+               placeholder="알구(본사)">
             </dt>
             <dt >
                <span class="tit">채용제목</span>
-               <input type="text" class="txt">
+               <input type="text" class="txt"
+               placeholder="알바 구할땐? 알구!">
             </dt>
             <dt>
                <span class="tit">업직종</span>
-               <select class="txt_180">
+               <select class="txt_180 button white medium">
                <option>1차직종</option>
                <option>hanmail.net</option>
                <option>google.com</option>
                <option>nate.com</option>
                <option>직접입력</option>
                </select>
-               <select class="txt_180">
+               <select class="txt_180 button white medium">
                <option>2차직종</option>
                <option>hanmail.net</option>
                <option>google.com</option>
                <option>nate.com</option>
                <option>직접입력</option>
                </select>
-               <select class="txt_180">
+               <select class="txt_180 button white medium">
                <option>3차직종</option>
                <option>hanmail.net</option>
                <option>google.com</option>
@@ -328,7 +167,7 @@ input[type="text"]{
                </select>
                     <select class="txt_100 white medium button">
                <option>호선</option>
-                    <c:forEach var="" items=""> </c:forEach>
+                    <%-- <c:forEach var="" items=""> </c:forEach> --%>
                <option>1호선</option>
               
                </select>
@@ -348,7 +187,7 @@ input[type="text"]{
                
                <label class="radio" for="one">
                <input type="radio" id="one"
-               name="term"></label>
+               name="term" ></label>
                <span class="font_11 radio">하루(1일)</span>
                
                <label class="radio" for="week">
@@ -451,41 +290,66 @@ input[type="text"]{
             <dt>
                <span class="tit">근무시간</span>
                
-               <select class="txt_50">
-               <option>선택</option>
-               <option>00시</option>
-               <option>01시</option>
-               <option>02시</option>
-               <option>03시</option>
+               <select class="txt_85 white button medium">
+               <option>시작</option>
+               <c:forEach var="i" begin="0" end="24" step="1">
+               <option value="${i} ">
+               <c:if test="${i<10 }">
+               0${i }시
+               </c:if>
+               <c:if test="${i>=10 }">
+               ${i }시
+               </c:if>
+               </option>
+               </c:forEach>
                </select>
-               <select class="txt_50">
-               <option>선택</option>
-               <option>00분</option>
-               <option>10분</option>
-               <option>20분</option>
-               <option>30분</option>
+               <select class="txt_85 white button medium">
+               <option>시간</option>
+              <c:forEach var="i" begin="0" end="60" step="10">
+               <option value="${i} ">
+               <c:if test="${i<10 }">
+               0${i }분
+               </c:if>
+               <c:if test="${i>=10 }">
+               ${i }분
+               </c:if>
+               </option>
+               </c:forEach>
                </select>
-               <span class="txt_30">~</span>
+               <span style="float: left;">~</span>
                
-               <select class="txt_50">
-               <option>선택</option>
-               <option>00시</option>
-               <option>01시</option>
-               <option>02시</option>
-               <option>03시</option>
+               <select class="txt_85 white button medium">
+               <option>종료</option>
+               <c:forEach var="i" begin="0" end="24" step="1">
+               <option value="${i} ">
+               <c:if test="${i<10 }">
+               0${i }시
+               </c:if>
+               <c:if test="${i>=10 }">
+               ${i }시
+               </c:if>
+               </option>
+               </c:forEach>
                </select>
-               <select class="txt_50">
-               <option>선택</option>
-               <option>00분</option>
-               <option>10분</option>
-               <option>20분</option>
-               <option>30분</option>
+               <select class="txt_85 white button medium">
+               <option>시간</option>
+                <c:forEach var="i" begin="0" end="60" step="10">
+               <option value="${i} ">
+               <c:if test="${i<10 }">
+               0${i }분
+               </c:if>
+               <c:if test="${i>=10 }">
+               ${i }분
+               </c:if>
+               </option>
+               </c:forEach>
                </select>
+
             </dt>
             <dt>
-               <span class="tit">급여</span>
-               <select class="txt_70">
-               <option>==급여==</option>
+               <span class="tit">선택</span>
+               <select class="txt_85 white button medium">
+               <option>급여</option>
                <option>00분</option>
                <option>10분</option>
                <option>20분</option>
@@ -697,7 +561,7 @@ input[type="text"]{
                <label class="rence" for="experience">
                <input type="checkbox" id="experience"
                name="preference"></label>
-               <span class="font_11 prefe">운전면허 솟지자
+               <span class="font_11 prefe">운전면허 소지자
                </span>
                <label class="rence" for="experience">
                <input type="checkbox" id="experience"
@@ -735,44 +599,172 @@ input[type="text"]{
 		   <dl class="clearBoth">
             <dt>
                <span class="tit">모집인원</span> 
-               <span class="txt_50"></span>
-               <input type="text" class="">
+               <input type="text" class="txt_35"
+               placeholder="10">
+               <span class="by">명</span>
                <label class="rence" for="experience">
                <input type="checkbox" id="experience"
                name="preference"></label>
-               <span class="font_11 prefe">0명
+               <span class="font_11 txt_30">0명
                </span>
                <label class="rence" for="experience">
                <input type="checkbox" id="experience"
                name="preference"></label>
-               <span class="font_11 prefe">00명
+               <span class="font_11 txt_30">00명
                </span>
             </dt>
             <dt>
                <span class="tit">모집대상</span>
-               <input type="text" class="txt">
+               <span class="txt_60 font_11">
+               <input type="checkbox" 
+               value="A">청소년</span>
+               
+                <span class="txt_60 font_11">
+                <input type="checkbox" 
+               value="J">대학생</span>
+               
+                <span class="txth_50 font_11">
+                <input type="checkbox" 
+               value="G">주부</span>
+               
+                <span class="txt_50 font_11">
+                <input type="checkbox" 
+               value="F">장년</span>
+               
+                <span class="txt_60 font_11">
+                <input type="checkbox" 
+               value="I">장애인</span>
+               
+                <span class="txt_60 font_11">
+                <input type="checkbox" 
+               value="W">초보자</span>
+               
+               <span class="txt_75 font_11">
+                <input type="checkbox" 
+               value="W">재택가능</span>
             </dt>
             <dt>
                <span class="tit">모집종료일</span>
-               <input type="text" class="txt">
+               
+               <label class="radio" for="one">
+               <input type="radio" id="one"
+               name="term" ></label>
+               
+               <span class="font_11 radio">
+               <input type="text" >
+               <button>날짜선택</button> </span>
+               
+               <label class="radio" for="week">
+               <input type="radio" id="week"
+               name="term"></label>
+               <span class="font_11 radio">1주일이하</span>
+               
+               <label class="radio" for="month">
+               <input type="radio" id="month"
+               name="term"></label>
+               <span class="font_11 radio">1주일~1개월
+               </span>
             </dt>
             <dt>
                <span class="tit">접수방법</span>
-               <input type="text" class="txt">
+                <label class="rence" for="experience">
+               <input type="checkbox" id="experience"
+               name="preference"></label>
+               <span class="font_11 txth_70">온라인지원
+               </span>
+                <label class="rence" for="experience">
+               <input type="checkbox" id="experience"
+               name="preference"></label>
+               <span class="font_11 txth_70">e-메일지원
+               </span>
+                <label class="rence" for="experience">
+               <input type="checkbox" id="experience"
+               name="preference"></label>
+               <span class="font_11 txth_60">전화연락
+               </span>
+                <label class="rence" for="experience">
+               <input type="checkbox" id="experience"
+               name="preference"></label>
+               <span class="font_11 txth_60">방문접수
+               </span>
+               <label class="rence" for="experience">
+               <input type="checkbox" id="experience"
+               name="preference"></label>
+               <span class="font_11 txth_30">우편
+               </span>
+               <label class="rence" for="experience">
+               <input type="checkbox" id="experience"
+               name="preference"></label>
+               <span class="font_11 txth_30">팩스
+               </span>
+               <label class="rence" for="experience">
+               <input type="checkbox" id="experience"
+               name="preference"></label>
+               <span class="font_11 txth_60">홈페이지
+               </span>
+               <span class="tit"></span>
+               <label class="rence" for="experience">
+               <input type="checkbox" id="experience"
+               name="preference"></label>
+               <span class="font_11 txth_200">자사지원양식
+               (<input type="radio">필수,
+               <input type="radio">선택 )
+               </span>
+               
             </dt>
             <dt>
                <span class="tit">제출서류</span>
-               <input type="text" class="txt">
+               
+                <label class="rence" for="experience">
+               <input type="checkbox" id="experience"
+               name="preference"></label>
+               <span class="font_11 txth_45">이력서
+               </span>
+               
+               <label class="rence" for="experience">
+               <input type="checkbox" id="experience"
+               name="preference"></label>
+               <span class="font_11 txth_80">주민등록등본
+               </span>
+               
+               <label class="rence" for="experience">
+               <input type="checkbox" id="experience"
+               name="preference"></label>
+               <span class="font_11 txth_45">보건증
+               </span>
+               
+               <label class="rence" for="experience">
+               <input type="checkbox" id="experience"
+               name="preference"></label>
+               <span class="font_11 txth_45">보건증
+               </span>
+               
+               <label class="rence" for="experience">
+               <input type="checkbox" id="experience"
+               name="preference"></label>
+               <span class="font_11 txth_70">자기소개서
+               </span>
+               
+               <label class="rence" for="experience">
+               <input type="checkbox" id="experience"
+               name="preference"></label>
+               <span class="font_11 txth_80">부모님동의서
+               </span>
             </dt>
          </dl>
 		</div>
 		<h2>상세모집요강</h2>
 		<div class="detailContent">
-		<textarea rows="15" cols="100"></textarea>
+		<div>
+		 <textarea id="content" name="content" 
+         rows="12" cols="40"></textarea>
+         </div>
 		</div>
 	</div>
-	<input type="submit" value="확인">
-	<input type="reset" value="취소">
+	<div class="align_center">
+	<input class="white button " type="submit" value="확인">
+	<input class="white button " type="reset" value="취소">
+	</div>
 </form>
 
 <%@ include file="../inc/simple_bottom.jsp" %>

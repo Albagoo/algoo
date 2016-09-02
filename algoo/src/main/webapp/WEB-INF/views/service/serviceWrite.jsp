@@ -281,9 +281,9 @@ src= "<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 			   alert("등급을 선택하세요");
 			   $("#grade").focus();
 			   return false;
-		   }else if($("#deadline").val()==0){
+		   }else if($("#days").val()==0){
 			   alert("기간을 선택하세요");
-			   $("#deadline").focus();
+			   $("#days").focus();
 			   return false;
 		   }else{
 			   frmService.action
@@ -306,7 +306,7 @@ src= "<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
                <option value="b">B급</option>
                </select>
     
-    <select class="button white" name="deadline" id="deadline">
+    <select class="button white" name="days" id="days">
                <option value="0">기간선택</option>
                <option value="1">1일</option>
                <option value="7">7일</option>

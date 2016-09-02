@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ include file="../inc/simple_top.jsp" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <style type="text/css">
 	#divAgree{
 		width:700px;
@@ -23,12 +24,12 @@
 </script>
     
 	<h2>회원약관</h2>
-	<iframe src="<c:url value='jj/inc/provision.html'/>" 
+	<iframe src="<c:url value='/inc/provision.html'/>" 
 		width="700px" height="300px"></iframe>
 	
 	<div id="divAgree">
 		<form name="frmAgree" id="frmAgree" method="post" 
-			action="<c:url value='/jj/member/register.do'/>">
+			action="<c:url value='/member/register.ag'/>">
 			<div id="divAgreeFirst">
 				<input type="checkbox" name="chkAgree" 
 					id="chkAgree">
@@ -40,7 +41,7 @@
 			</div>
 		</form>
 	</div>
-
+<%@ include file="../inc/simple_bottom.jsp" %>
 
 
 

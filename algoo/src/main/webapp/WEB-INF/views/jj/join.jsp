@@ -15,14 +15,14 @@
 	<div id="join_div">
 		<div id="joinMessage">
 			<h1>개인/기업 회원가입</h1>
-			<p>통합회원 가입을 환영합니다 다양한 가입을통해 보다나은 서비스를 누리세요</p>
+			<p>개인/기업회원 가입을 환영합니다 다양한 가입을 통해서 다양한 서비스를 누리세요</p>
 		</div>
 		<div id="joinType">
 			<div id="join_personal">
-				<h2><span class="point_p">개인</span>회원가입</h2>
+				<h2><span class="point_p">개인&nbsp;</span>회원가입</h2>
 				<p>원하는 기업을 쏙쏙</p>
-				<img alt="개인이미지" src="../images/suit.png"><br>
-				<input type="button" id="bt_personal" value="개인회원가입">
+				<img alt="개인이미지" src="<c:url value='/images/suit.png'/>"><br>
+				<input type="button" id="bt_personal" value="개인 회원가입">
 				<p style="color:sliver;font-size:14px;font-weight:normal;">간편하게 가입하는 방법도 있어요</p>
 				
 				<div id="join_google">
@@ -46,10 +46,14 @@
 				</div>
 			</div>
 			<div id="join_business">
-				<h2><span class="point_b">기업</span>회원가입</h2>
+				<h2><span class="point_b">기업&nbsp;</span>회원가입</h2>
 				<p>원하는 인재를 쏙쏙</p>
-				<img alt="기업이미지" src="../images/briefcase.png"><br>
-				<input type="button" id="bt_business" value="기업회원가입">
+				<img alt="기업이미지" src="<c:url value='/images/briefcase.png'/>"><br>
+				<input type="button" id="bt_business" value="기업 회원가입">
+				<p>※ 채용공고를 등록하거나, 인재를 채용하고자 하는<br>
+					 개인사업주, 사업체직원이라면<br>
+				      기업 회원가입( 업체정보필수 )을 하시면 됩니다.</p>
+				
 			</div>
 			<div>
 				<p>

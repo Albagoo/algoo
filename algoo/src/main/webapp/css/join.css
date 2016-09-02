@@ -54,10 +54,12 @@ section{
 }
 #join_personal{
 	border:1px solid #ddd;
+	box-shadow:3px 5px 5px #ccc;
 }
 #join_business{
 	float:right;
 	border:1px solid #ddd;
+	box-shadow:3px 5px 5px #ccc;
 	
 }
 
@@ -67,13 +69,14 @@ section{
 	margin-bottom:30px;
 	width:300px;
 	height:50px;
-	background:#FFCB00;
-	border:1px solid #FFCB00;
-	border-radius:6px;
-	color:white;
+	/* background:#FFCB00; */
+	color:#333;
+	background:white;
+	border:1px solid silver;
 	font-size:20px;
 	font-weight: 500;
 	line-height: 14px;
+	box-shadow:2px 1px 1px #eee;
 }
 
 #bt_business{
@@ -81,13 +84,14 @@ section{
 	margin-bottom:30px;
 	width:300px;
 	height:50px;
-	background:#FF6531;
-	border:1px solid #FF6531;
-	border-radius:6px;
-	color:white;
+	/* background:#FF6531; */
+	color:#333;
+	background:white;
+	border:1px solid silver;
 	font-size:20px;
 	font-weight:500;
 	line-height: 14px;
+	box-shadow:2px 1px 1px #eee;
 }
 
 .point_p{
@@ -102,7 +106,7 @@ section{
 /* 개인회원가입 아래 이미지,라벨 */
 #join_personal div{
 	display:inline-block;
-	width:145px;
+	width:149px;
 	height:40px;
 	margin-top:10px;
 	margin-bottom:5px;
@@ -124,6 +128,7 @@ section{
 	font-weight:bold;
 	padding-right:0;
 	padding-left:0;
+	padding-bottom:2px;
 }
 #join_google{
 	border-radius: 12px;

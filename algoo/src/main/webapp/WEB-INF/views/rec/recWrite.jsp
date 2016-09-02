@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="../inc/simple_top.jsp" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
 <style>
 .recWrite {
 	width: 820px;
@@ -83,7 +78,7 @@
 }
 .txt{
    margin:10px;
-	width: 600px;
+	width: 580px;
 	float: left;
 }
 .txt_300 {
@@ -149,27 +144,22 @@
 }
 .phone1{
 margin:10px;
-   width: 120px;
+   width: 50px;
    float: left;
 }
-.phone2{
+.phone2, .phone3{
 margin:10px;
-   width: 150px;
-   float: left;
-}
-.phone3{
-margin:10px;
-   width: 150px;
+   width: 80px;
    float: left;
 }
 .email1{
    margin:10px;
-   width: 150px;
+   width: 80px;
    float: left;
 }
 .email2{
    margin:10px;
-   width: 200px;
+   width: 100px;
    float: left;
 }
 .email3{
@@ -189,17 +179,26 @@ margin:10px;
 .bgg{
  background: #F7F7F7
 }
-.pink{
-   color: pink;
+
+
+input[type="text"]{
+   border: none;
+   border-bottom: 1px solid #faa;
 }
 </style>
-<body>
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
+<script type="text/javascript">
+   $(document).ready(function(){
+      $("#simple_top span").html("채용공고 등록");
+      //simple_top 이용시 자기가 맡은화면 명칭 innerHTML로 붙여주기
+   });
+  </script>
 <form name="frmWrite" method="post" 
    action="<c:url value='/rec/recWrite.ag'/>">
 	<div class="recWrite">
 		<h2>기업 정보</h2>
 		<div class="companyInfo bg">
-			<dl>
+			<dl class="clearBoth">
 				<dt>
 					<span class="tit">회사/점포명</span> 
 					<input type="text" class="txt">
@@ -225,44 +224,30 @@ margin:10px;
 		<h2 class="clearBoth">담당자 정보</h2>
 		<div class="personInfo bg">
 		 <dl>
-           <dl>
+           <dl class="clearBoth">
             <dt>
                <span class="tit">담당자명</span> 
-               <input type="text" class="txt" name="">
+               <input type="text" class="txt" placeholder="이름" name="">
             </dt>
             <dt>
                <span class="tit">전화번호</span>
-               <select class="phone1">
-               <option>010</option>
-               <option>011</option>
-               <option>016</option>
-               <option>018</option>
-               <option>019</option>
-               </select>
+             
+               <input type="text" class="phone1"
+               placeholder=" 02">
                <input type="text" class="phone2">
                <input type="text" class="phone3">
             </dt>
             <dt class="clearBoth">
                <span class="tit">휴대폰</span>
-                <select class="phone1">
-               <option>010</option>
-               <option>011</option>
-               <option>016</option>
-               <option>018</option>
-               <option>019</option>
-               </select>
+               <input type="text" class="phone1"
+               placeholder=" 010">
                <input type="text" class="phone2">
                <input type="text" class="phone3">
             </dt>
             <dt>
                <span class="tit">팩스번호</span>
-                <select class="phone1">
-               <option>010</option>
-               <option>011</option>
-               <option>016</option>
-               <option>018</option>
-               <option>019</option>
-               </select>
+             <input type="text" class="phone1"
+               placeholder=" 02">
                <input type="text" class="phone2">
                <input type="text" class="phone3">
             </dt>
@@ -270,7 +255,7 @@ margin:10px;
                <span class="tit">e-mail</span>
                <input type="text" class="email1">
                <input type="text" class="email2">
-               <select class="email3">
+               <select class="email3 medium white button">
                <option>naver.com</option>
                <option>hanmail.net</option>
                <option>google.com</option>
@@ -319,51 +304,37 @@ margin:10px;
             </dt>
             <dt>
                <span class="tit">근무지주소</span>
-                 <select class="txt_70">
-               <option>시도</option>
-               <option>hanmail.net</option>
-               <option>google.com</option>
-               <option>nate.com</option>
-               <option>직접입력</option>
-               </select>
-                  <select class="txt_75">
-               <option>시군구</option>
-               <option>시군구</option>
-               <option>google.com</option>
-               <option>nate.com</option>
-               <option>직접입력</option>
-               </select>
-                  <select class="txt_70">
-               <option>읍면동</option>
-               <option>hanmail.net</option>
-               <option>google.com</option>
-               <option>nate.com</option>
-               <option>직접입력</option>
-               </select>
-               <input type="text" class="txt_150">
+                 <input type="text" class="txt_70"
+                 placeholder="우편번호">
+               
+                   <input type="text" class="txt_100"
+                 placeholder="주소">
+               
+                  <input type="text" class="txt_150"
+                 placeholder="상세주소">
+               
+               <input type="button" class="white medium button txt_120"
+               value="우편번호 찾기">
             </dt>
             <dt>
                <span class="tit">인근지하철</span>
-                    <select class="txt_100">
-               <option>지역</option>
-               <option>hanmail.net</option>
-               <option>google.com</option>
-               <option>nate.com</option>
-               <option>직접입력</option>
+                    <select class="txt_100 white medium button">
+               <option value="">지역</option>
+               <option value="S">서울</option>
+               <option value="I">인천</option>
+               <option value="D">대전</option>
+               <option value="G">광주</option>
+               <option value="B">부산</option>
                </select>
-                    <select class="txt_75">
+                    <select class="txt_100 white medium button">
                <option>호선</option>
-               <option>hanmail.net</option>
-               <option>google.com</option>
-               <option>nate.com</option>
-               <option>직접입력</option>
+                    <c:forEach var="" items=""> </c:forEach>
+               <option>1호선</option>
+              
                </select>
-                    <select class="txt_100">
-               <option>지하철역</option>
-               <option>hanmail.net</option>
-               <option>google.com</option>
-               <option>nate.com</option>
-               <option>직접입력</option>
+                    <select class="txt_150 white medium button">
+               <option value="">지하철역</option>
+               <option value="c">청량리역</option>
                </select>
                <input type="text" class="txt_200">
             </dt>
@@ -764,7 +735,8 @@ margin:10px;
 		   <dl class="clearBoth">
             <dt>
                <span class="tit">모집인원</span> 
-               <span class="txt_50"></span><input type="text" class="">
+               <span class="txt_50"></span>
+               <input type="text" class="">
                <label class="rence" for="experience">
                <input type="checkbox" id="experience"
                name="preference"></label>
@@ -802,5 +774,5 @@ margin:10px;
 	<input type="submit" value="확인">
 	<input type="reset" value="취소">
 </form>
-</body>
-</html>
+
+<%@ include file="../inc/simple_bottom.jsp" %>

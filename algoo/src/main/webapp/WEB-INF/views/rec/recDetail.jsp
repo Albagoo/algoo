@@ -202,6 +202,12 @@
 <script type="text/javascript"
 src= "<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 <script type="text/javascript"></script>
+<script type="text/javascript">
+   $(document).ready(function(){
+      $("#simple_top span").html("채용정보");
+      //simple_top 이용시 자기가 맡은화면 명칭 innerHTML로 붙여주기
+   });
+</script>
 <div class="Wrap">
 	<p class="recDetail">채용정보 상세보기</p>
 	<div>

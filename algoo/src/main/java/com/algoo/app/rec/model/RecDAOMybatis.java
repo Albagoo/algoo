@@ -14,19 +14,19 @@ implements RecDAO{
 	private String namespace="com.mybatis.mapper.oracle.rec";
 	
 	@Override
-	public RecVO selectRecByCode(String recCode) {
+	public RecVO selectRecByCode(int recCode) {
 		return getSqlSession().selectOne(namespace+
 				".selectRecByCode", recCode);
 	}
 
 	@Override
-	public CompanyVO selectCompanyByCode(String compCode) {
+	public CompanyVO selectCompanyByCode(int compCode) {
 		return getSqlSession().selectOne(namespace+
 				".selectCompanyByCode", compCode);
 	}
 
 	@Override
-	public ServiceVO selectServiceByCode(String serviceCode) {
+	public ServiceVO selectServiceByCode(int serviceCode) {
 		return getSqlSession().selectOne(namespace+
 				".selectServiceByCode",serviceCode);
 	}

@@ -223,6 +223,7 @@ body input::-webkit-input-placeholder { color: silver; }
 /* 회원가입 footer */
 #footer{
 	width:400px;
+	height:40px;
 	margin:0 auto;
 	text-align: center;
 	font-size: 0.9em;

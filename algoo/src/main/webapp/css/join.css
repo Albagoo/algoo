@@ -17,8 +17,8 @@ section{
 }
 #joinMessage h1{
 	font-size:40px;
-	margin-top:60px;
-	margin-bottom:40px;
+	margin-top:45px;
+	margin-bottom:20px;
 	color:#333;
 }
 #joinMessage p{
@@ -49,18 +49,22 @@ section{
 #joinType #join_personal, #join_business{
 	display:inline-block;
 	width:440px;
-	height:500px;
+	height:600px;
+	
 }
 #join_personal{
 	border:1px solid #ddd;
 }
 #join_business{
+	float:right;
 	border:1px solid #ddd;
+	
 }
 
 /* 개인,기업회원가입 버튼 */
 #bt_personal{
 	margin-top:40px;
+	margin-bottom:30px;
 	width:300px;
 	height:50px;
 	background:#FFCB00;
@@ -74,6 +78,7 @@ section{
 
 #bt_business{
 	margin-top:40px;
+	margin-bottom:30px;
 	width:300px;
 	height:50px;
 	background:#FF6531;
@@ -92,6 +97,72 @@ section{
 .point_b{
 	color:#FF6531;
 	padding:0;
+}
+
+/* 개인회원가입 아래 이미지,라벨 */
+#join_personal div{
+	display:inline-block;
+	width:145px;
+	height:40px;
+	margin-top:10px;
+	margin-bottom:5px;
+	margin-right:5px;
+	text-align: left;
+}
+#join_personal div img{
+	width:40px;
+	float:left;
+}
+#join_personal div input[type="button"]{
+	float:left;
+	/* margin-top:13px;  */
+	height:40px;
+	border:none;
+	border-radius: 5px;
+	font-family: 'bon godic';
+	font-size:14px;
+	font-weight:bold;
+	padding-right:0;
+	padding-left:0;
+}
+#join_google{
+	border-radius: 12px;
+	border:1px solid #DE4D42;
+	background: #DE4D42;
+}
+#bt_google{
+	background: #DE4D42;
+	color:white;
+}
+
+#join_naver{
+	border-radius: 12px;
+	border:1px solid #18CB00;
+	background: #18CB00;
+}
+#bt_naver{
+	background: #18CB00;
+	color:white;
+}
+
+#join_kakao{
+	border-radius: 12px;
+	border:1px solid #F7EF00;
+	background: #F7EF00;
+}
+#bt_kakao{
+	background: #F7EF00;
+	color:#333;
+}
+
+#join_facebook{
+	border-radius: 12px;
+	border:1px solid #395994;
+	background: #395994;
+}
+#bt_facebook{
+	background: #395994;
+	color:white;
 }
 
 

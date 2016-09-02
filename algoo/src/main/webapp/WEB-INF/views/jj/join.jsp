@@ -6,7 +6,10 @@
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>      
     <![endif]-->
 <script type="text/javascript">
-	
+	$(document).ready(function(){
+		$("#simple_top span").html("회원가입");
+		//simple_top 이용시 자기가 맡은화면 명칭 innerHTML로 붙여주기
+	});
 </script>
 <section>
 	<div id="join_div">
@@ -20,6 +23,27 @@
 				<p>원하는 기업을 쏙쏙</p>
 				<img alt="개인이미지" src="../images/suit.png"><br>
 				<input type="button" id="bt_personal" value="개인회원가입">
+				<p style="color:sliver;font-size:14px;font-weight:normal;">간편하게 가입하는 방법도 있어요</p>
+				
+				<div id="join_google">
+					<img alt="구글로고" src="<c:url value='/images/icon_google.png'/>"/>
+					<input type="button" id="bt_google" value="구글 로그인">
+				</div>
+				
+				<div id="join_naver">
+					<img alt="네이버로고" src="<c:url value='/images/icon_naver.png'/>"/>
+					<input type="button" id="bt_naver" value="네이버 로그인">
+				</div>
+				
+				<div id="join_kakao">
+					<img alt="카카오로고" src="<c:url value='/images/icon_kakao.png'/>"/>
+					<input type="button" id="bt_kakao" value="카카오 로그인">
+				</div>
+					
+				<div id="join_facebook">
+					<img alt="페이스북로고" src="<c:url value='/images/icon_facebook.png'/>"/>
+					<input type="button" id="bt_facebook" value="페이스북 로그인">
+				</div>
 			</div>
 			<div id="join_business">
 				<h2><span class="point_b">기업</span>회원가입</h2>

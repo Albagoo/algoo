@@ -21,7 +21,7 @@
 			<div id="simple_top">
 				<a href=""><img alt="로고" src="<c:url value='/images/simple_Logo.png'/> ">
 				</a>
-				<span>로그인</span>
+				<span></span>
 				<ul>
 					<li><a href="#">홈</a> |</li>
 					<li><a href="#">채용정보</a> |</li>

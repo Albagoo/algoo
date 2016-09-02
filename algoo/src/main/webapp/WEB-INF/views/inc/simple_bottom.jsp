@@ -5,7 +5,9 @@
 		</div>
 
 		<footer>
-			<address>Algoo© <a href="<c:url value='/index.do'/> ">Algoo<a> Corp. All rights reserved.</address>
+			<address>
+			<img alt="미니로고" src="<c:url value='/images/simple_Logo.png'/>">&nbsp;
+			<a href="<c:url value='/index.do'/> ">©Algoo<a> Corp. All rights reserved.</address>
 		</footer>
 	</div>
 </body>

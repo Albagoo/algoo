@@ -25,7 +25,7 @@ public class RecController {
 	private RecService recService;
 	
 	@RequestMapping("/recDetail.ag")
-	public String recDetail(@RequestParam String recCode,
+	public String recDetail(@RequestParam int recCode,
 			Model model){
 		//채용화면 보여주기
 		//1

@@ -13,17 +13,17 @@ public class RecServiceImpl implements RecService{
 	private RecDAO recDao;
 
 	@Override
-	public RecVO selectRecByCode(String recCode) {
+	public RecVO selectRecByCode(int recCode) {
 		return recDao.selectRecByCode(recCode);
 	}
 
 	@Override
-	public CompanyVO selectCompanyByCode(String compCode) {
+	public CompanyVO selectCompanyByCode(int compCode) {
 		return recDao.selectCompanyByCode(compCode);
 	}
 
 	@Override
-	public ServiceVO selectServiceByCode(String serviceCode) {
+	public ServiceVO selectServiceByCode(int serviceCode) {
 		return recDao.selectServiceByCode(serviceCode);
 	}
 }

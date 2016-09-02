@@ -6,7 +6,7 @@
 	
 	<insert id="insertSevice" parameterType="ServiceVO">
 	  <selectKey keyProperty="serviceCode"
-	  resultType="String"  order="BEFORE">
+	  resultType="int"  order="BEFORE">
 	     select service_seq.nextval from dual
 	  </selectKey>
 	  insert into service 

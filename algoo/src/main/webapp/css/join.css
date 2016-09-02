@@ -1,0 +1,100 @@
+@CHARSET "UTF-8";
+@font-face{
+   font-family:'bon godic';
+   src:url('../font/NotoSans-Regular.ttf') format('truetype');
+}
+section{
+	width:960px;
+	margin:0 auto;
+	padding:0;
+}
+#join_div{
+	font-family:'bon godic';
+	font-weight: bold;
+}
+#joinMessage{
+	text-align: center;
+}
+#joinMessage h1{
+	font-size:40px;
+	margin-top:60px;
+	margin-bottom:40px;
+	color:#333;
+}
+#joinMessage p{
+	font-size:16px;
+	color:#333;
+}
+#joinType{
+	width:900px;
+	margin:0 auto;
+	text-align: center;
+	margin-top:30px;
+}
+#joinType h2{
+	font-size:30px;
+	margin-top:20px;
+	margin-bottom:20px;
+	color:#333;
+}
+#joinType p{
+	font-size:15px;
+	margin-bottom:30px;
+	color:#333;
+}
+#joinType img{
+	width:130px;
+}
+
+#joinType #join_personal, #join_business{
+	display:inline-block;
+	width:440px;
+	height:500px;
+}
+#join_personal{
+	border:1px solid #ddd;
+}
+#join_business{
+	border:1px solid #ddd;
+}
+
+/* 개인,기업회원가입 버튼 */
+#bt_personal{
+	margin-top:40px;
+	width:300px;
+	height:50px;
+	background:#FFCB00;
+	border:1px solid #FFCB00;
+	border-radius:6px;
+	color:white;
+	font-size:20px;
+	font-weight: 500;
+	line-height: 14px;
+}
+
+#bt_business{
+	margin-top:40px;
+	width:300px;
+	height:50px;
+	background:#FF6531;
+	border:1px solid #FF6531;
+	border-radius:6px;
+	color:white;
+	font-size:20px;
+	font-weight:500;
+	line-height: 14px;
+}
+
+.point_p{
+	color:#FFCB00;
+	padding:0;
+}
+.point_b{
+	color:#FF6531;
+	padding:0;
+}
+
+
+
+
+

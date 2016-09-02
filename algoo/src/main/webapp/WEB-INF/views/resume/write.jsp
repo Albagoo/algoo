@@ -7,7 +7,6 @@
 		margin: 30px;
 	}
 	
-	
 	h2{
 		font-size: 1.2em;
 		font-weight: bold;
@@ -20,10 +19,8 @@
 	#box{
 		width: 860px;
 		margin-left: 50px;
-		
-		
 	}
-	
+		
 	#tr{
 		border-bottom: 2px solid silver;
 	}
@@ -38,9 +35,55 @@
 		padding: 20px;
 	}
 </style>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$()
+	});
+</script>
 <div id="resume">
-<form action="<c:url value = '/resume/write.do'/>"
+<form action="<c:url value = '/resume/write.ag'/>"
 	method="post" name="frmResume">
+	<!-- 개인 기본 정보 -->
+	<h2>개인 기본 정보</h2>
+	<table id="box">
+		<tr id="tr">
+			<td style="text-align: center; padding-top:0">
+				<img alt="사람이미지" src="<c:url value='/images/saram.PNG'/>"><br>
+				<button>
+					사진등록
+				</button>
+			</td>
+			<td id="td2">
+				<table style="width: 100%">
+					<tr>
+						<td id="td1">이름</td>
+						<td id="td2" style="padding: 10px"><input type="text"></td>
+					</tr>
+					<tr>
+						<td id="td1">휴대폰</td>
+						<td id="td2" style="padding: 10px"><input type="text"></td>
+					</tr>
+					<tr>
+						<td id="td1">e-메일</td>
+						<td id="td2" style="padding: 10px"><input type="text"></td>
+					</tr>
+					<tr>
+						<td id="td1">주소</td>
+						<td id="td2" style="padding: 10px"><input type="text"></td>
+					</tr>
+					<tr>
+						<td id="td1">홈페이지</td>
+						<td id="td2" style="padding: 10px"><input type="text"></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table><br><br>
+	<!-- HOPE(희망 근무 조건) -->
+	<h2>희망근무조건</h2>
+	
+	
+	<br><br>
 	<!-- ability (학력사항)-->
 	<h2>학력사항</h2>
 	<table id="box">

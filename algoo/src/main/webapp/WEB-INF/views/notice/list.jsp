@@ -160,5 +160,31 @@
 		</a>
 	</c:if>
 </div>
+<!-- 09-01 search part -->
+<div class="divSearch" style="text-align:center;width:1024px">
+	<form name="frmSearch" method="post" 
+   	action="<c:url value='/notice/list.ag' />" >
+        <select name="searchCondition">
+            <option value="title"
+           	   <c:if test="${param.searchCondition=='title'}">
+            		selected
+               </c:if>
+            >제목</option>
+            <option value="content" 
+            	<c:if test="${param.searchCondition=='content'}">
+            		selected
+               </c:if>
+            >내용</option>
+            <option value="writer" 
+            	<c:if test="${param.searchCondition=='writer'}">
+            		selected
+               </c:if>
+            >작성자</option>
+        </select>   
+        <input type="text" name="searchKeyword" 
+        	title="검색어 입력" value="${param.searchKeyword}" >   
+		<input type="submit" value="검색">
+    </form>
+</div>
 </body>
 </html>

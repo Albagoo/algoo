@@ -22,4 +22,29 @@
 	  trunc(deadline-sysdate)as days from service
 	  where service_code=#{serviceCode}
 	</select>
+	
+	<insert id="insertRec" parameterType="RecVO">
+	insert into RECRUITMENT
+	(recCode,compName,title,jobName,jobName2,jobName3,
+	zipcode,address,addressDetail,subRegion,subNum,
+	subName,subInfo,workTerm,workDays,workTime,workTime2,
+	workTime3,workTime4,pay,recruitType,welfare,gender,
+	age,educateLv,career,preference,recruitMember,
+	recruitPerson,recruitDeadline,recruitMethod,documents,
+	detailRecruit,maps,accuse,compCode,serviceCode
+	)
+	values(RECRUITMENT_seq.nextval, #{compName},
+	#{title},#{jobName},#{jobName2},#{jobName3},
+	#{zipcode},#{address},#{addressDetail},
+	#{subRegion},#{subNum},#{subName},#{subInfo},
+	#{workTerm},#{workDays},#{workTime},#{workTime2},
+	#{workTime3},#{workTime4},#{pay},
+	#{recruitType},#{welfare},#{gender},#{age},
+	#{educateLv},#{career},#{preference},#{recruitMember},
+	#{recruitPerson},<!-- #{recruitDeadline}, 달력기능추가후 주석제거-->
+	#{recruitMethod},
+	#{documents},#{detailRecruit},#{maps},
+	#{accuse},#{compCode},#{serviceCode}
+       )
+	</insert>
 </mapper>

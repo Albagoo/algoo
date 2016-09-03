@@ -14,4 +14,10 @@ implements ServiceDAO{
 				".insertSevice", vo);
 	}
 
+	@Override
+	public ServiceVO selectByNew() {
+		return getSqlSession().selectOne(namespace+
+				".selectByNew");
+	}
+
 }

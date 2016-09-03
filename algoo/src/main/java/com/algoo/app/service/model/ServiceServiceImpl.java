@@ -12,6 +12,11 @@ public class ServiceServiceImpl implements ServiceService {
 	public int insertSevice(ServiceVO vo) {
 		return ServiceDao.insertSevice(vo);
 	}
+
+	@Override
+	public ServiceVO selectByNew() {
+		return ServiceDao.selectByNew();
+	}
 	
 	
 }

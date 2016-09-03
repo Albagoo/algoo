@@ -31,4 +31,10 @@ implements RecDAO{
 				".selectServiceByCode",serviceCode);
 	}
 
+	@Override
+	public int intsertRec(RecVO vo) {
+		return getSqlSession().insert(namespace+
+				".insertRec",vo);
+	}
+
 }

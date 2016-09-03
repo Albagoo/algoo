@@ -26,4 +26,9 @@ public class RecServiceImpl implements RecService{
 	public ServiceVO selectServiceByCode(int serviceCode) {
 		return recDao.selectServiceByCode(serviceCode);
 	}
+
+	@Override
+	public int intsertRec(RecVO vo) {
+		return recDao.intsertRec(vo);
+	}
 }

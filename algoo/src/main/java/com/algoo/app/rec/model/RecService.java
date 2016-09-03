@@ -7,4 +7,5 @@ public interface RecService{
 	public RecVO selectRecByCode(int recCode);
 	public CompanyVO selectCompanyByCode(int i);
 	public ServiceVO selectServiceByCode(int i);
+	public int intsertRec(RecVO vo);
 }

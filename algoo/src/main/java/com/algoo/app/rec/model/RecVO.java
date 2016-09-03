@@ -29,17 +29,14 @@ public class RecVO {
 	private String gender;// VARCHAR2(50 BYTE),
 	private String age;// VARCHAR2(255 BYTE),
 	private String educateLv ;// VARCHAR2(255 BYTE),
-	private String careers          ;// VARCHAR2(255 BYTE),
+	private String career         ;// VARCHAR2(255 BYTE),
 	private String preference ;//       varchar2(255 byte),
 	private String recruitMember  ;//  VARCHAR2(255 BYTE),
 	private String recruitPerson ;//   VARCHAR2(255 BYTE),
 	private Date recruitDeadline  ;//DATE,
 	private String recruitMethod;//    VARCHAR2(255 BYTE),
 	private String documents        ;// VARCHAR2(255 BYTE),
-	private String dedailRecruit   ;// VARCHAR2(255 BYTE),
-	private String service_grade    ;// VARCHAR2(50 BYTE),
-	private String serviceDays;//      VARCHAR2(50 BYTE),
-	private Date service_deadline;//  DATE,
+	private String detailRecruit   ;// VARCHAR2(255 BYTE),
 	private Date regdate     ;//      DATE,
 	private String maps;//              VARCHAR2(255 BYTE),
 	private int readcount ;//         NUMBER,
@@ -197,11 +194,11 @@ public class RecVO {
 	public void setEducateLv(String educateLv) {
 		this.educateLv = educateLv;
 	}
-	public String getCareers() {
-		return careers;
+	public String getCareer() {
+		return career;
 	}
-	public void setCareers(String careers) {
-		this.careers = careers;
+	public void setCareer(String career) {
+		this.career = career;
 	}
 	public String getPreference() {
 		return preference;
@@ -239,29 +236,11 @@ public class RecVO {
 	public void setDocuments(String documents) {
 		this.documents = documents;
 	}
-	public String getDedailRecruit() {
-		return dedailRecruit;
+	public String getDetailRecruit() {
+		return detailRecruit;
 	}
-	public void setDedailRecruit(String dedailRecruit) {
-		this.dedailRecruit = dedailRecruit;
-	}
-	public String getService_grade() {
-		return service_grade;
-	}
-	public void setService_grade(String service_grade) {
-		this.service_grade = service_grade;
-	}
-	public String getServiceDays() {
-		return serviceDays;
-	}
-	public void setServiceDays(String serviceDays) {
-		this.serviceDays = serviceDays;
-	}
-	public Date getService_deadline() {
-		return service_deadline;
-	}
-	public void setService_deadline(Date service_deadline) {
-		this.service_deadline = service_deadline;
+	public void setDetailRecruit(String detailRecruit) {
+		this.detailRecruit = detailRecruit;
 	}
 	public Date getRegdate() {
 		return regdate;
@@ -313,13 +292,12 @@ public class RecVO {
 				+ subName + ", subInfo=" + subInfo + ", workTerm=" + workTerm + ", workDays=" + workDays + ", workTime="
 				+ workTime + ", workTime2=" + workTime2 + ", workTime3=" + workTime3 + ", workTime4=" + workTime4
 				+ ", pay=" + pay + ", recruitType=" + recruitType + ", welfare=" + welfare + ", gender=" + gender
-				+ ", age=" + age + ", educateLv=" + educateLv + ", careers=" + careers + ", preference=" + preference
+				+ ", age=" + age + ", educateLv=" + educateLv + ", career=" + career + ", preference=" + preference
 				+ ", recruitMember=" + recruitMember + ", recruitPerson=" + recruitPerson + ", recruitDeadline="
-				+ recruitDeadline + ", recruitMethod=" + recruitMethod + ", documents=" + documents + ", dedailRecruit="
-				+ dedailRecruit + ", service_grade=" + service_grade + ", serviceDays=" + serviceDays
-				+ ", service_deadline=" + service_deadline + ", regdate=" + regdate + ", maps=" + maps + ", readcount="
-				+ readcount + ", accuse=" + accuse + ", adminAgree=" + adminAgree + ", compCode=" + compCode
-				+ ", serviceCode=" + serviceCode + "]";
+				+ recruitDeadline + ", recruitMethod=" + recruitMethod + ", documents=" + documents + ", detailRecruit="
+				+ detailRecruit + ", regdate=" + regdate + ", maps=" + maps + ", readcount=" + readcount + ", accuse="
+				+ accuse + ", adminAgree=" + adminAgree + ", compCode=" + compCode + ", serviceCode=" + serviceCode
+				+ "]";
 	}
 	
 	

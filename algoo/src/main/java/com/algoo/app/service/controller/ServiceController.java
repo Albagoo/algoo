@@ -21,7 +21,7 @@ public class ServiceController {
 	=LoggerFactory.getLogger(ServiceController.class);
 	
 	@Autowired
-	private ServiceService Serviceservice;
+	private ServiceService serviceService;
 	
 	@RequestMapping(value="/serviceWrite.ag",
 			method=RequestMethod.GET)
@@ -38,22 +38,27 @@ public class ServiceController {
 		//1
 		logger.info("서비스 등록 하기, 파라미터"
 				+ "serviceVo={} ",serviceVo);
-		
 		//2
 		int cnt
-		=Serviceservice.insertSevice(serviceVo);
-		String msg="",url="/service/serviceWrite.ag";
+		=serviceService.insertSevice(serviceVo);
+		logger.info("서비스등록결과 cnt={}",cnt);
 		//3
-		if(cnt>0){
-			msg="서비스 등급을 입력하였습니다.";
-		}else{
-			msg="서비스 등급을 입력실패하였습니다.";
-		}
-		model.addAttribute("msg", msg);
-		model.addAttribute("url", url);
+		model.addAttribute("serviceVo", serviceVo);
 		
-		
-		return "common/message";
+		return "redirect:/service/serviceNew.ag";
 	}
 	
+	@RequestMapping("/serviceNew.ag")
+	public String serviceNew(
+			@ModelAttribute ServiceVO serviceVo
+			,Model model){
+		logger.info("방금등록한 서비스 값 찾아오기");
+		
+		serviceVo=serviceService.selectByNew();
+		logger.info("서비스 값 serviceVo={}",
+				serviceVo);
+		model.addAttribute("serviceVo", serviceVo);
+		
+		return "service/serviceWrite";
+	}
 }

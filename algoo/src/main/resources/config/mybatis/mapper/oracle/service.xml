@@ -13,7 +13,16 @@
 	  values( #{serviceCode}, #{grade}, #{days}, sysdate+#{days} )
 	</insert>
 	
-	
+	<select id="selectByNew" resultType="ServiceVO">
+	select * from service where service_code =
+   (
+      select max(service_code) from
+      (
+         select * from  service
+         order by service_code desc
+      )
+   )
+	</select>
 
 	
 

@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" 
 href="<c:url value='/css/clear.css'/>" />
 <link rel="stylesheet" type="text/css" 
-href="<c:url value='/css/recLayout.css'/>" />
+href="<c:url value='/css/recLayout.css'/>"/>
 
 <link rel="stylesheet" type="text/css" 
 href="<c:url value='/css/simpleButton.css'/>" />
@@ -27,26 +27,47 @@ href="<c:url value='/css/simpleButton.css'/>" />
 "width=450, height=200, left=10,top=50,resizable=yes,location=yes");
       });//serviceWrite
       
+      $("#regBt").click(function() {
+		 
+    	  if($("#grade").val().length<1){
+    		  alert("서비스기간을 설정해주세요");
+    		  $("#serviceBt").focus();
+    	  }else{
+    		  frmWrite.action
+              ="<c:url value='/rec/recWrite.ag'/>";
+              frmWrite.submit()
+    	  }
+	});
+      
       
    });
   </script>
   <script src="<c:url value='/ckeditor/ckeditor.js'/>" 
 type="text/javascript"></script>
-<input class="txt_35" type="text"
-id="serviceCode" name="serviceCode">
-<span class="txt_85">서비스등급</span>
-<input class="txth_35" type="text"
-id="grade" name="grade">
-<span class="txt_85">서비스기간</span>
-<input class="txt_35" type="text"
- id="days" name="days">
-<input type="button" value="서비스기간설정"
- id="serviceBt" title="새창열림" class="white medium button">
+
+
 
 
 <form name="frmWrite" method="post" 
    action="<c:url value='/rec/recWrite.ag'/>">
 	<div class="recWrite">
+<div>
+<input class="tit" type="text"
+id="serviceCode" name="serviceCode"
+readonly="readonly">
+<span class="txt_85">서비스등급</span>
+<input class="txth_35" type="text"
+id="grade" name="grade"
+readonly="readonly">
+<span class="txt_85">서비스기간</span>
+<input class="txt_35" type="text"
+ id="days" name="days"
+ readonly="readonly">
+<input type="button" value="서비스기간설정"
+ id="serviceBt" title="새창열림" class="white medium button">
+ <input type="text" value="${compVo.compCode }"
+ name="compCode" readonly="readonly">
+ </div>
 	<div id="div1"></div>
 		<h2>기업 정보</h2>
 		<div class="companyInfo bg">
@@ -205,7 +226,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <span class="tit">근무지주소</span>
                  <input type="text" class="txt_70"
                  placeholder="우편번호" name="zipcode"
-                 id="zipcode">
+                 id="zipcode" maxlength="5">
                
                    <input type="text" class="txt_100"
                  placeholder="주소" name="address"
@@ -422,7 +443,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <option>월급</option>
                </select>
                <input type="text" class="txt_150"
-               name="pay" id="pay">
+               name="pay" id="pay" value="0">
                  <span class="txt_30">원</span>
                <span class="txt_150 font_11 pink">최저임금 6030원</span> 
             </dt>
@@ -830,7 +851,9 @@ style="width: 150px;height: 100px;border: 1px solid gray">
 		</div>
 	</div>
 	<div class="align_center">
-	<input class="white button " type="submit" value="확인">
+	<input class="white button "
+	id="regBt" 
+	type="button" value="확인">
 	<input class="white button " type="reset" value="취소">
 	</div>
 </form>

@@ -14,6 +14,7 @@ import com.algoo.app.company.model.CompanyService;
 import com.algoo.app.company.model.CompanyVO;
 import com.algoo.app.rec.model.RecService;
 import com.algoo.app.rec.model.RecVO;
+import com.algoo.app.service.model.ServiceService;
 import com.algoo.app.service.model.ServiceVO;
 
 @Controller
@@ -27,6 +28,8 @@ public class RecController {
 	private RecService recService;
 	@Autowired
 	private CompanyService companyService;
+	@Autowired
+	private ServiceService serviceService;
 	
 	
 	@RequestMapping("/recDetail.ag")
@@ -71,6 +74,8 @@ public class RecController {
 		//3
 		model.addAttribute("compVo", compVo);
 		
+		
+		
 		return "rec/recWrite";
 	}
 	
@@ -82,12 +87,35 @@ public class RecController {
 			@ModelAttribute ServiceVO serviceVo,
 			Model model
 			){
-		//채용공고 입력 하 보여주기
+		//채용공고 입력처리하기
 		//1
-		logger.info("채용공고 입력창 보여주기");
+		logger.info("채용공고 처리하기,파라미터"
+				+ "compVo={},recVo={},serviceVo={}"
+				+ compVo,recVo,serviceVo);
 		//2
+		
+		int res 
+		=serviceService.insertSevice(serviceVo);
+		logger.info("서비스등록 결과,res={}",res);
+		
+		serviceVo
+		=serviceService.selectByNew();
+		logger.info("서비스 조회하기결과,파라미터"
+				+ "serviceVo={}"
+				+ serviceVo);
+		
+		recVo.setServiceCode(serviceVo.getServiceCode());
+		logger.info("채용정보등록결과,res={}",res);
+		
+		res
+		=recService.intsertRec(recVo);
 		//3
-		return "rec/recWrite";		
+		model.addAttribute("compVo", compVo);
+		model.addAttribute("recVo", recVo);
+		model.addAttribute("serviceVo", serviceVo);
+		
+		
+		return "rec/recDetail";		
 	}
 	
 }

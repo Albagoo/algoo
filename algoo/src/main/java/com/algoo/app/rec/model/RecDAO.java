@@ -7,4 +7,5 @@ public interface RecDAO {
 	public RecVO selectRecByCode(int recCode);
 	public CompanyVO selectCompanyByCode(int compCode);
 	public ServiceVO selectServiceByCode(int serviceCode);
+	public int intsertRec(RecVO vo);
 }

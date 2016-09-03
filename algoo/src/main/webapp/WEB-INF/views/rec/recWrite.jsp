@@ -6,45 +6,81 @@
 <style>
 
 </style>
-<link rel="stylesheet" type="text/css" href="<c:url value='/css/clear.css'/>" />
-<link rel="stylesheet" type="text/css" href="<c:url value='/css/recLayout.css'/>" />
+<link rel="stylesheet" type="text/css" 
+href="<c:url value='/css/clear.css'/>" />
+<link rel="stylesheet" type="text/css" 
+href="<c:url value='/css/recLayout.css'/>" />
 
-<link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
+<link rel="stylesheet" type="text/css" 
+href="<c:url value='/css/simpleButton.css'/>" />
 <script type="text/javascript">
    $(document).ready(function(){
       CKEDITOR.replace('content');  
       $("#simple_top span").html("채용공고 등록");
       //simple_top 이용시 자기가 맡은화면 명칭 innerHTML로 붙여주기
+      
+      $("#serviceBt").click(function() {
+        /* var userid
+          = $("#userid").val(); */
+       window.open(
+            "<c:url value='/service/serviceWrite.ag'/>", "serviceWrite",
+"width=450, height=200, left=10,top=50,resizable=yes,location=yes");
+      });//serviceWrite
+      
+      
    });
   </script>
   <script src="<c:url value='/ckeditor/ckeditor.js'/>" 
 type="text/javascript"></script>
+<input class="txt_35" type="text"
+id="serviceCode" name="serviceCode">
+<span class="txt_85">서비스등급</span>
+<input class="txth_35" type="text"
+id="grade" name="grade">
+<span class="txt_85">서비스기간</span>
+<input class="txt_35" type="text"
+ id="days" name="days">
+<input type="button" value="서비스기간설정"
+ id="serviceBt" title="새창열림" class="white medium button">
+
 
 <form name="frmWrite" method="post" 
    action="<c:url value='/rec/recWrite.ag'/>">
 	<div class="recWrite">
+	<div id="div1"></div>
 		<h2>기업 정보</h2>
 		<div class="companyInfo bg">
 			<dl class="clearBoth">
 				<dt>
 					<span class="tit">회사/점포명</span> 
-					<input type="text" class="txt">
+					<input type="text" class="txt"
+					readonly="readonly" value="${compVo.compName }">				
 				</dt>
 				<dt>
 					<span class="tit">대표자명(ceo)</span>
-					<input type="text" class="txt">
+					<input type="text" class="txt"
+					readonly="readonly" value="${compVo.ceo }"
+					>
 				</dt>
 				<dt>
 					<span class="tit">사업자등록번호</span>
-					<input type="text" class="txt">
+					<input type="text" class="txt"
+					readonly="readonly" value="${compVo.compNum }">
 				</dt>
 				<dt>
 					<span class="tit">회사/점포주소</span>
-					<input type="text" class="txt">
+					<input type="text" class="txt"
+					readonly="readonly" value="${compVo.address } 
+					${compVo.addressDetail}">
 				</dt>
 				<dt>
 					<span class="tit">회사이미지</span>
-					<input type="text" class="txt">
+					<img alt="회사이미지1" src="#" 
+style="width: 150px;height: 100px;border: 1px solid gray"> 
+					<img alt="회사이미지2" src="#" 
+style="width: 150px;height: 100px;border: 1px solid gray"> 
+					<img alt="회사이미지3" src="#" 
+style="width: 150px;height: 100px;border: 1px solid gray"> 
 				</dt>
 			</dl>
 		</div>
@@ -54,43 +90,62 @@ type="text/javascript"></script>
            <dl class="clearBoth">
             <dt>
                <span class="tit">담당자명</span> 
-               <input type="text" class="txt_60" placeholder="이름" name="">
+               <input type="text" class="txt_60" placeholder="이름" name="detpName"
+               value="${compVo.deptName }">
             </dt>
             <dt>
                <span class="tit">전화번호</span>
              
                <input type="text" class="phone1"
-               placeholder=" 02" maxlength="3">
-               <input type="text" class="phone2" 
-               maxlength="4">
+               name="phone1"
+               placeholder="02" maxlength="3"
+               value="${compVo.phone1 }">
+               <input type="text" class="phone2"
+               name="phone2" 
+               placeholder="0000" maxlength="4"
+               value="${compVo.phone2 }" >
                <input type="text" class="phone3"
-               maxlength="4">
+               name="phone3"
+               placeholder="0000" maxlength="4"
+               value="${compVo.phone3 }">
             </dt>
             <dt class="clearBoth">
                <span class="tit">휴대폰</span>
-               <input type="text" class="phone1"
-               placeholder=" 010" maxlength="3">
+            <input type="text" class="phone1"
+               name="hp1"
+               placeholder="010" maxlength="3"
+               value="${compVo.hp1 }">
                <input type="text" class="phone2"
-               maxlength="4">
+               name="hp2" 
+               placeholder="0000" maxlength="4"
+               value="${compVo.hp2 }" >
                <input type="text" class="phone3"
-               maxlength="4">
+               name="hp3"
+               placeholder="0000" maxlength="4"
+               value="${compVo.hp3 }">
             </dt>
             <dt>
                <span class="tit">팩스번호</span>
              <input type="text" class="phone1"
-               placeholder=" 02" maxlength="3">
+               name="fax1"
+               placeholder="010" maxlength="3"
+               value="${compVo.fax1 }">
                <input type="text" class="phone2"
-               maxlength="4">
+               name="fax2" 
+               placeholder="0000" maxlength="4"
+               value="${compVo.fax2 }" >
                <input type="text" class="phone3"
-               maxlength="4">
+               name="fax3"
+               placeholder="0000" maxlength="4"
+               value="${compVo.fax3 }">
             </dt>
             <dt>
                <span class="tit">e-mail</span>
                <input type="text" class="email1"
-               placeholder="exam123">
+               placeholder="exam123" value="${compVo.email1 }">
                <span class="txt_30">@</span>
                <input type="text" class="email2"
-               placeholder=naver.com>
+               placeholder=naver.com value="${compVo.email2 }">
                <select class="email3 medium white button"
                id=email3>
                <option>naver.com</option>
@@ -110,30 +165,35 @@ type="text/javascript"></script>
             <dt>
                <span class="tit">근무회사/점포명</span> 
                <input type="text" class="txt_200"
-               placeholder="알구(본사)">
+               placeholder="회사명(지점명)" 
+               name="compName">
             </dt>
             <dt >
                <span class="tit">채용제목</span>
                <input type="text" class="txt"
-               placeholder="알바 구할땐? 알구!">
+               placeholder="알바 구할땐? 알구!"
+               name="title">
             </dt>
             <dt>
                <span class="tit">업직종</span>
-               <select class="txt_180 button white medium">
+               <select class="txt_180 button white medium"
+               name="jobName" id="jobName">
                <option>1차직종</option>
                <option>hanmail.net</option>
                <option>google.com</option>
                <option>nate.com</option>
                <option>직접입력</option>
                </select>
-               <select class="txt_180 button white medium">
+               <select class="txt_180 button white medium"
+               name="jobName2" id="jobName2">
                <option>2차직종</option>
                <option>hanmail.net</option>
                <option>google.com</option>
                <option>nate.com</option>
                <option>직접입력</option>
                </select>
-               <select class="txt_180 button white medium">
+               <select class="txt_180 button white medium"
+               name="jobName3" id="jobName3">
                <option>3차직종</option>
                <option>hanmail.net</option>
                <option>google.com</option>
@@ -144,20 +204,24 @@ type="text/javascript"></script>
             <dt>
                <span class="tit">근무지주소</span>
                  <input type="text" class="txt_70"
-                 placeholder="우편번호">
+                 placeholder="우편번호" name="zipcode"
+                 id="zipcode">
                
                    <input type="text" class="txt_100"
-                 placeholder="주소">
+                 placeholder="주소" name="address"
+                 id="address">
                
                   <input type="text" class="txt_150"
-                 placeholder="상세주소">
+                 placeholder="상세주소" name="addressDetail"
+                 id="addressDetail">
                
                <input type="button" class="white medium button txt_120"
-               value="우편번호 찾기">
+               value="우편번호 찾기" id="zipcodeBt">
             </dt>
             <dt>
                <span class="tit">인근지하철</span>
-                    <select class="txt_100 white medium button">
+                    <select class="txt_100 white medium button"
+                    name="subRegion" id="subRegion">
                <option value="">지역</option>
                <option value="S">서울</option>
                <option value="I">인천</option>
@@ -165,17 +229,20 @@ type="text/javascript"></script>
                <option value="G">광주</option>
                <option value="B">부산</option>
                </select>
-                    <select class="txt_100 white medium button">
+                    <select class="txt_100 white medium button"
+                    name="subNum" id="subNum">
                <option>호선</option>
                     <%-- <c:forEach var="" items=""> </c:forEach> --%>
                <option>1호선</option>
               
                </select>
-                    <select class="txt_150 white medium button">
+                    <select class="txt_150 white medium button"
+                    name="subName" id="subName">
                <option value="">지하철역</option>
                <option value="c">청량리역</option>
                </select>
-               <input type="text" class="txt_200">
+               <input type="text" class="txt_200"
+               name="subInfo" id="subInfo">
             </dt>
          </dl>
 		</div>
@@ -184,7 +251,7 @@ type="text/javascript"></script>
 		  <dl class="clearBoth">
             <dt>
                <span class="tit">근무기간</span> 
-               
+
                <label class="radio" for="one">
                <input type="radio" id="one"
                name="term" ></label>
@@ -350,12 +417,12 @@ type="text/javascript"></script>
                <span class="tit">선택</span>
                <select class="txt_85 white button medium">
                <option>급여</option>
-               <option>00분</option>
-               <option>10분</option>
-               <option>20분</option>
-               <option>30분</option>
+               <option>일급</option>
+               <option>주급</option>
+               <option>월급</option>
                </select>
-               <input type="text" class="txt_150">
+               <input type="text" class="txt_150"
+               name="pay" id="pay">
                  <span class="txt_30">원</span>
                <span class="txt_150 font_11 pink">최저임금 6030원</span> 
             </dt>
@@ -389,7 +456,8 @@ type="text/javascript"></script>
             </dt>
             <dt>
                <span class="tit">복리후생</span>
-               <input type="text" class="txt">
+               <input type="text" class="txt"
+               name="welfare" id="welfare">
              
             </dt>
          </dl>

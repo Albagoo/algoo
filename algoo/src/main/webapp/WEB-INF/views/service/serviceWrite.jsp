@@ -2,7 +2,17 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <style>
+#grade,#days,#submitBt,input[type="reset"]{
+float: left;
+}
+#submitBt{
+clear: both;
+margin: 20px 10px 0 40px;
+}
+input[type="reset"]{
+margin: 20px 0 0 10px;
 
+}
 </style>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
 
@@ -20,24 +30,32 @@ src= "<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 			   $("#days").focus();
 			   return false;
 		   }else{
-			   frmService.action
-			   ="<c:url value='/service/serviceWrite.ag'/>";
-			   frmService.submit();
+			   var grade=$("#grade option:selected").val();
+			   var days=$("#days option:selected").val();
+			   $("#grade",opener.document).val(grade);
+			   $("#days",opener.document).val(days);
+			   self.close();
 		   }
+			  /*  frmService.action
+			   ="<c:url value='/service/serviceWrite.ag'/>";
+			   frmService.submit(); */
+		   
 	   });
-   });
+});
+	 
+   
 </script>
 <div>
 <h2>서비스 선택</h2>
-   <form method="post" name="frmService"
+   <form method="post" name="frmService" id="frmService"
     action="<c:url value='/service/serviceWrite.ag'/>" >
     <select class="button white" name="grade" id="grade">
                <option value="">등급선택</option>
-               <option value="sss">SSS급</option>
-               <option value="ss">SS급</option>
-               <option value="s">S급</option>
-               <option value="a">A급</option>
-               <option value="b">B급</option>
+               <option value="SSS">SSS급</option>
+               <option value="SS">SS급</option>
+               <option value="S">S급</option>
+               <option value="A">A급</option>
+               <option value="B">B급</option>
                </select>
     
     <select class="button white" name="days" id="days">
@@ -48,7 +66,9 @@ src= "<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
                <option value="90">90일</option>
                <option value="180">180일</option>
                </select>
-    <input class="button white" type="button" id="submitBt" value="등록">
+               
+    <input class="button white" type="button"
+     id="submitBt" value="등록">
     <input class="button white" type="reset" value="취소">
    </form>
 </div>

@@ -169,11 +169,11 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                placeholder=naver.com value="${compVo.email2 }">
                <select class="email3 medium white button"
                id=email3>
-               <option>naver.com</option>
-               <option>hanmail.net</option>
-               <option>google.com</option>
-               <option>nate.com</option>
-               <option>직접입력</option>
+               <option value="naver">naver.com</option>
+               <option value="hanmail">hanmail.net</option>
+               <option value="google">google.com</option>
+               <option value="nate">nate.com</option>
+               <option value="etc">직접입력</option>
                </select>
             </dt>
          </dl>
@@ -199,27 +199,15 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <span class="tit">업직종</span>
                <select class="txt_180 button white medium"
                name="jobName" id="jobName">
-               <option>1차직종</option>
-               <option>hanmail.net</option>
-               <option>google.com</option>
-               <option>nate.com</option>
-               <option>직접입력</option>
+               <option value="">1차직종</option>
                </select>
                <select class="txt_180 button white medium"
                name="jobName2" id="jobName2">
-               <option>2차직종</option>
-               <option>hanmail.net</option>
-               <option>google.com</option>
-               <option>nate.com</option>
-               <option>직접입력</option>
+               <option value="">2차직종</option>
                </select>
                <select class="txt_180 button white medium"
                name="jobName3" id="jobName3">
-               <option>3차직종</option>
-               <option>hanmail.net</option>
-               <option>google.com</option>
-               <option>nate.com</option>
-               <option>직접입력</option>
+               <option value="">3차직종</option>
                </select>
             </dt>
             <dt>
@@ -252,9 +240,8 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                </select>
                     <select class="txt_100 white medium button"
                     name="subNum" id="subNum">
-               <option>호선</option>
-                    <%-- <c:forEach var="" items=""> </c:forEach> --%>
-               <option>1호선</option>
+               <option value="">호선</option>
+               <option value="1">1호선</option>
               
                </select>
                     <select class="txt_150 white medium button"
@@ -263,7 +250,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <option value="c">청량리역</option>
                </select>
                <input type="text" class="txt_200"
-               name="subInfo" id="subInfo">
+               name="subInfo" id="subInfo" value="출구정보">
             </dt>
          </dl>
 		</div>
@@ -379,7 +366,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <span class="tit">근무시간</span>
                
                <select class="txt_85 white button medium">
-               <option>시작</option>
+               <option value="">시작</option>
                <c:forEach var="i" begin="0" end="24" step="1">
                <option value="${i} ">
                <c:if test="${i<10 }">
@@ -392,7 +379,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                </c:forEach>
                </select>
                <select class="txt_85 white button medium">
-               <option>시간</option>
+               <option value="">시간</option>
               <c:forEach var="i" begin="0" end="60" step="10">
                <option value="${i} ">
                <c:if test="${i<10 }">
@@ -407,7 +394,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <span style="float: left;">~</span>
                
                <select class="txt_85 white button medium">
-               <option>종료</option>
+               <option value="">종료</option>
                <c:forEach var="i" begin="0" end="24" step="1">
                <option value="${i} ">
                <c:if test="${i<10 }">
@@ -420,7 +407,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                </c:forEach>
                </select>
                <select class="txt_85 white button medium">
-               <option>시간</option>
+               <option value="">시간</option>
                 <c:forEach var="i" begin="0" end="60" step="10">
                <option value="${i} ">
                <c:if test="${i<10 }">
@@ -437,10 +424,10 @@ style="width: 150px;height: 100px;border: 1px solid gray">
             <dt>
                <span class="tit">선택</span>
                <select class="txt_85 white button medium">
-               <option>급여</option>
-               <option>일급</option>
-               <option>주급</option>
-               <option>월급</option>
+               <option value="">급여</option>
+               <option value="day">일급</option>
+               <option value="week">주급</option>
+               <option value="month">월급</option>
                </select>
                <input type="text" class="txt_150"
                name="pay" id="pay" value="0">

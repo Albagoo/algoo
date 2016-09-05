@@ -249,8 +249,8 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <option value="null">지하철역</option>
                <option value="c">청량리역</option>
                </select>
-               <input type="text" class="txt_200"
-               name="subInfo" id="subInfo" >
+               <input type="text" class="txt_200" 
+               name="subInfo" id="subInfo">
             </dt>
          </dl>
 		</div>
@@ -262,104 +262,99 @@ style="width: 150px;height: 100px;border: 1px solid gray">
 
                <label class="radio" for="one">
                <input type="radio" id="one"
-               name="term" ></label>
-               <span class="font_11 radio">하루(1일)</span>
+               name="term" >
+               <span class="font_11">하루(1일)</span></label>
                
                <label class="radio" for="week">
                <input type="radio" id="week"
-               name="term"></label>
-               <span class="font_11 radio">1주일이하</span>
+               name="term">
+               <span class="font_11">1주일이하</span></label>
                
                <label class="radio" for="month">
                <input type="radio" id="month"
-               name="term"></label>
-               <span class="font_11 radio">1주일~1개월
-               </span>
+               name="term">
+               <span class="font_11">1주일~1개월</span></label>
                
                <label class="radio" for="threeMonth">
                <input type="radio" id="threeMonth"
-               name="term"></label>
-               <span class="font_11 radio">1개월~3개월
-               </span>
+               name="term">
+               <span class="font_11">1개월~3개월</span></label>
                
                <label class="radio" for="sixMonth">
                <input type="radio" id="sixMonth"
-               name="term"></label>
-               <span class="font_11 radio">3개월~6개월
-               </span>
+               name="term">
+               <span class="font_11">3개월~6개월 </span></label>
                
                <label class="radio" for="year">
                <input type="radio" id="year"
-               name="term"></label>
-               <span class="font_11 radio">6개월~1년
-               </span>
+               name="term">
+               <span class="font_11">6개월~1년</span></label>
                
                <label class="radio" for="consult">
                <input type="radio" id="consult"
-               name="term"></label>
-               <span class="font_11 radio">기간협의
-               </span>
+               name="term">
+               <span class="font_11">기간협의</span></label>
                
             </dt>
             <dt>
                <span class="tit">근무요일</span>
                 <label class="radio" for="MontoSun">
                <input type="radio" id="MontoSun" 
-               name="days"></label>
-               <span class="font_11 radio">월~일</span>
+               name="days">
+               <span class="font_11">월~일</span></label>
                
                <label class="radio" for="MontoSat">
                <input type="radio" id="MontoSat"
-               name="days"></label>
-               <span class="font_11 radio">월~토</span>
+               name="days">
+               <span class="font_11">월~토</span></label>
                
                <label class="radio" for="MontoFri">
                <input type="radio" id="MontoFri"
-               name="days"></label>
-               <span class="font_11 radio">월~금
-               </span>
+               name="days">
+               <span class="font_11">월~금</span></label>
+               
                
                <label class="radio" for="SatSun">
                <input type="radio" id="threeMonth"
-               name="days"></label>
-               <span class="font_11 radio">주말(토,일)
-               </span>
+               name="days">
+               <span class="font_11">주말(토,일)</span></label>
+               
                
                <label class="radio" for="sixDay">
                <input type="radio" id="sixDay"
-               name="days"></label>
-               <span class="font_11 radio">주 6일
-               </span>
+               name="days">
+               <span class="font_11">주 6일</span></label>
+               
                
                <label class="radio" for="fiveDay">
                <input type="radio" id="fiveDay"
-               name="days"></label>
-               <span class="font_11 radio">주 5일
-               </span>
+               name="days">
+               <span class="font_11">주 5일v</label>
+               
                
                <label class="radio" for="fourDay">
                <input type="radio" id="fourDay"
-               name="days"></label>
-               <span class="font_11 radio">주 4일
-               </span>
+               name="days">
+               <span class="font_11">주 4일</span></label>
+               
                
                <label class="radio" for="threeDay">
                <input type="radio" id="threeDay"
-               name="days"></label>
-               <span class="font_11 radio">주 3일
-               </span>
+               name="days">
+               <span class="font_11">주 3일</span></label>
+               
                
                <label class="radio" for="twoDay">
                <input type="radio" id="twoDay"
-               name="days"></label>
-               <span class="font_11 radio">주 2일
-               </span>
+               name="days">
+               <span class="font_11">주 2일</span></label>
+               
                
                <label class="radio" for="oneDay">
                <input type="radio" id="oneDay"
-               name="days"></label>
-               <span class="font_11 radio">주 1일
-               </span>
+               name="days">
+               <span class="font_11">주 1일</span></label>
+               
                
             </dt>
             <dt>
@@ -478,91 +473,91 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                   
                <label class="radio" for="gender">
                <input type="radio" id="gender"
-               name="gender"></label>
-               <span class="font_11 radio">성별무관
-               </span>
+               name="gender">
+               <span class="font_11">성별무관</span></label>
+               
                
                <label class="radio" for="male">
                <input type="radio" id="male"
-               name="gender"></label>
-               <span class="font_11 radio">남성
-               </span>
+               name="gender">
+               <span class="font_11">남성</span></label>
+               
 
                <label class="radio" for="female">
                <input type="radio" id="female"
-               name="gender"></label>
-               <span class="font_11 radio">여성
-               </span>
+               name="gender">
+               <span class="font_11">여성</span></label>
+               
             </dt>
             <dt>
                <span class="tit">연령</span>
                
-               <label class="radio" for="gender">
-               <input type="radio" id="gender"
-               name="gender"></label>
-               <span class="font_11 radio">연령무관
-               </span>
+               <label class="radio" for="donAge">
+               <input type="radio" id="donAge"
+               name="age">
+               <span class="font_11">연령무관</span></label>
                
-               <label class="radio" for="male">
-               <input type="radio" id="male"
-               name="gender"></label>
-               <span class="font_11 radio">연령제한 있음
-               </span>
+               
+               <label class="radio" for="dontAge">
+               <input type="radio" id="dontAge"
+               name="age">
+               <span class="font_11 ">연령제한 있음</span></label>
+               
                
                <label class="radio" for=oldAge>
                <input type="checkbox" id="oldAge"
-               name="oldAge"></label>
-               <span class="font_11 radio">고연령자 가능(65세이상)
-               </span>
+               name="oldAge">
+               <span class="font_11">고연령자 가능(65세이상)</span></label>
+               
                
                <label class="radio" for=housewife>
                <input type="checkbox" id="housewife"
-               name="housewife"></label>
-               <span class="font_11 radio">주부 가능
-               </span>
+               name="housewife">
+               <span class="font_11">주부 가능</span></label>
+               
                
                <label class="radio" for=youngAge>
                <input type="checkbox" id="youngAge"
-               name="youngAge"></label>
-               <span class="font_11 radio">청소년가능(만18세 이상)
-               </span>
+               name="youngAge">
+               <span class="font_11">청소년가능(만18세 이상)</span></label>
+               
             </dt>
             <dt>
                <span class="tit">학력조건</span>
                <label class="radio" for="eduLv">
                <input type="radio" id="eduLv"
-               name="eduLv"></label>
-               <span class="font_11 radio">학력무관
-               </span>
+               name="eduLv">
+               <span class="font_11">학력무관</span></label>
+               
                
                <label class="radio" for="middle">
                <input type="radio" id="middle"
                name="eduLv"></label>
-               <span class="font_11 radio">중학교졸업
+               <span class="font_11">중학교졸업
                </span>
                
                <label class="radio" for="high">
                <input type="radio" id="high"
                name="eduLv"></label>
-               <span class="font_11 radio">고등학교졸업
+               <span class="font_11">고등학교졸업
                </span>
                
                <label class="radio" for="university2">
                <input type="radio" id="univ23"
                name="eduLv"></label>
-               <span class="font_11 radio">대학(2,3년제)졸업
+               <span class="font_11">대학(2,3년제)졸업
                </span>
                
                <label class="radio" for="university4">
                <input type="radio" id="univ4"
                name="eduLv"></label>
-               <span class="font_11 radio">대학(4년제)졸업
+               <span class="font_11">대학(4년제)졸업
                </span>
                
                <label class="radio" for="graduate">
                <input type="radio" id="graduate"
                name="eduLv"></label>
-               <span class="font_11 radio">대학원졸업~
+               <span class="font_11">대학원졸업~
                </span>
                
             </dt>
@@ -571,101 +566,111 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                 <label class="radio" for="work">
                <input type="radio" id="work"
                name="work"></label>
-               <span class="font_11 radio">경력무관
+               <span class="font_11">경력무관
                </span>
                
                <label class="radio" for="newcomer">
                <input type="radio" id="high"
                name="work"></label>
-               <span class="font_11 radio">신입
+               <span class="font_11">신입
                </span>
                
                <label class="radio" for="experience">
                <input type="radio" id="experience"
                name="work"></label>
-               <span class="font_11 radio">경력
+               <span class="font_11">경력
                </span>
                
             </dt>
             <dt>
                <span class="titc">우대조건</span>
                
-               <label class="rence" for="experience">
-               <input type="checkbox" id="experience"
-               name="preference"></label>
-               <span class="font_11 prefe">동종업계 경력자
-               </span>
-               <label class="rence" for="experience">
-               <input type="checkbox" id="experience"
-               name="preference"></label>
-               <span class="font_11 prefe">관련자격증 소지자
-               </span>
-               <label class="rence" for="experience">
-               <input type="checkbox" id="experience"
-               name="preference"></label>
-               <span class="font_11 prefe">컴퓨터활용 가능자
-               </span>
-               <label class="rence" for="experience">
-               <input type="checkbox" id="experience"
-               name="preference"></label>
-               <span class="font_11 prefe">장기근무 가능자
-               </span>
+               <label class="rence" for="expPre">
+               <input type="checkbox" id="exp"
+               name="exp">
+               <span class="font_11">동종업계 경력자
+               </span></label>
+               
+               <label class="rence" for="licensePre">
+               <input type="checkbox" id="licensePre"
+               name="licensePre">
+               <span class="font_11">관련자격증 소지자
+               </span></label>
+               
+               <label class="rence" for="pcPre">
+               <input type="checkbox" id="pcPre"
+               name="pcPre">
+               <span class="font_11">컴퓨터활용 가능자
+               </span></label>
+               
+               <label class="rence" for="longPre">
+               <input type="checkbox" id="longPre"
+               name="longPre">
+               <span class="font_11">장기근무 가능자
+               </span></label>
                
                <span class="clearBoth tit"></span>
-               <label class="rence" for="experience">
-               <input type="checkbox" id="experience"
-               name="preference"></label>
-               <span class="font_11 prefe">영어 가능자
-               </span>
-               <label class="rence" for="experience">
-               <input type="checkbox" id="experience"
-               name="preference"></label>
-               <span class="font_11 prefe">일어 가능자
-               </span>
-               <label class="rence" for="experience">
-               <input type="checkbox" id="experience"
-               name="preference"></label>
-               <span class="font_11 prefe">중국어 가능자
-               </span>
-               <label class="rence" for="experience">
-               <input type="checkbox" id="experience"
-               name="preference"></label>
-               <span class="font_11 prefe">인근 거주자
-               </span>
+               <label class="rence" for="engPre">
+               <input type="checkbox" id="engPre"
+               name="engPre">
+               <span class="font_11">영어 가능자
+               </span></label>
+               
+               <label class="rence" for="jpPre">
+               <input type="checkbox" id="jpPre"
+               name="jpPre">
+               <span class="font_11">일어 가능자
+               </span></label>
+               
+               <label class="rence" for="cnPre">
+               <input type="checkbox" id="cnPre"
+               name="cnPre">
+               <span class="font_11">중국어 가능자
+               </span></label>
+               
+               <label class="rence" for="insidePre">
+               <input type="checkbox" id="insidePre"
+               name="insidePre">
+               <span class="font_11">인근 거주자
+               </span></label>
                
                <span class="clearBoth tit"></span>
-               <label class="rence" for="experience">
-               <input type="checkbox" id="experience"
-               name="preference"></label>
-               <span class="font_11 prefe">운전면허 소지자
-               </span>
-               <label class="rence" for="experience">
-               <input type="checkbox" id="experience"
-               name="preference"></label>
-               <span class="font_11 prefe">원동기면허 소지자
-               </span>
-               <label class="rence" for="experience">
-               <input type="checkbox" id="experience"
-               name="preference"></label>
-               <span class="font_11 prefe">차량 소지자
-               </span>
-               <label class="rence" for="experience">
-               <input type="checkbox" id="experience"
-               name="preference"></label>
-               <span class="font_11 prefe">군필자
-               </span>
+               <label class="rence" for="drivePre">
+               <input type="checkbox" id="drivePre"
+               name="drivePre">
+               <span class="font_11">운전면허 소지자
+               </span></label>
+               
+               <label class="rence" for="byclePre">
+               <input type="checkbox" id="byclePre"
+               name="byclePre">
+               <span class="font_11">원동기면허 소지자
+               </span></label>
+               
+               <label class="rence" for="carPre">
+               <input type="checkbox" id="carPre"
+               name="carPre">
+               <span class="font_11">차량 소지자
+               </span></label>
+               
+               <label class="rence" for="militaryPre">
+               <input type="checkbox" id="militaryPre"
+               name="militaryPre">
+               <span class="font_11">군필자
+               </span></label>
                
                <span class="clearBoth tit"></span>
-               <label class="rence" for="experience">
-               <input type="checkbox" id="experience"
-               name="preference"></label>
-               <span class="font_11 prefe">여성
-               </span>
-               <label class="rence" for="experience">
-               <input type="checkbox" id="experience"
-               name="preference"></label>
-               <span class="font_11 prefe">경력단절여성
-               </span>
+               <label class="rence" for="femailPre">
+               <input type="checkbox" id="femailPre"
+               name="femailPre">
+               <span class="font_11">여성
+               </span></label>
+               
+               <label class="rence" for="mrsPre">
+               <input type="checkbox" id="mrsPre"
+               name="mrsPre">
+               <span class="font_11">경력단절여성
+               </span></label>
                
             </dt>
          </dl>
@@ -678,114 +683,125 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <input type="text" class="txt_35"
                placeholder="10">
                <span class="by">명</span>
-               <label class="rence" for="experience">
+               <label class="rence" for="tenPeople">
                <input type="checkbox" id="experience"
-               name="preference"></label>
-               <span class="font_11 txt_30">0명
-               </span>
-               <label class="rence" for="experience">
-               <input type="checkbox" id="experience"
-               name="preference"></label>
-               <span class="font_11 txt_30">00명
-               </span>
+               name="experience">
+               <span class="font_11">0명
+               </span></label>
+               
+               <label class="rence" for="hundredPeople">
+               <input type="checkbox" id="hundredPeople"
+               name="hundredPeople">
+               <span class="font_11">00명
+               </span></label>
             </dt>
             <dt>
                <span class="tit">모집대상</span>
                <span class="txt_60 font_11">
                <input type="checkbox" 
-               value="A">청소년</span>
+               value="청소년">청소년</span>
                
                 <span class="txt_60 font_11">
                 <input type="checkbox" 
-               value="J">대학생</span>
+               value="대학생">대학생</span>
                
                 <span class="txth_50 font_11">
                 <input type="checkbox" 
-               value="G">주부</span>
+               value="주부">주부</span>
                
                 <span class="txt_50 font_11">
                 <input type="checkbox" 
-               value="F">장년</span>
+               value="장년">장년</span>
                
                 <span class="txt_60 font_11">
                 <input type="checkbox" 
-               value="I">장애인</span>
+               value="장애인">장애인</span>
                
                 <span class="txt_60 font_11">
                 <input type="checkbox" 
-               value="W">초보자</span>
+               value="초보자">초보자</span>
                
                <span class="txt_75 font_11">
                 <input type="checkbox" 
-               value="W">재택가능</span>
+               value="재택가능">재택가능</span>
             </dt>
             <dt>
                <span class="tit">모집종료일</span>
                
                <label class="radio" for="one">
                <input type="radio" id="one"
-               name="term" ></label>
+               name="lastday" ></label>
                
-               <span class="font_11 radio">
+               <span class="font_11">
                <input type="text" >
                <button>날짜선택</button> </span>
                
                <label class="radio" for="week">
                <input type="radio" id="week"
-               name="term"></label>
-               <span class="font_11 radio">1주일이하</span>
+               name="lastday"></label>
+               <span class="font_11">1주일이하</span>
                
                <label class="radio" for="month">
                <input type="radio" id="month"
-               name="term"></label>
-               <span class="font_11 radio">1주일~1개월
+               name="lastday"></label>
+               <span class="font_11">1주일~1개월
                </span>
             </dt>
             <dt>
                <span class="tit">접수방법</span>
-                <label class="rence" for="experience">
-               <input type="checkbox" id="experience"
-               name="preference"></label>
-               <span class="font_11 txth_70">온라인지원
-               </span>
-                <label class="rence" for="experience">
-               <input type="checkbox" id="experience"
-               name="preference"></label>
-               <span class="font_11 txth_70">e-메일지원
-               </span>
-                <label class="rence" for="experience">
-               <input type="checkbox" id="experience"
-               name="preference"></label>
-               <span class="font_11 txth_60">전화연락
-               </span>
-                <label class="rence" for="experience">
-               <input type="checkbox" id="experience"
-               name="preference"></label>
-               <span class="font_11 txth_60">방문접수
-               </span>
-               <label class="rence" for="experience">
-               <input type="checkbox" id="experience"
-               name="preference"></label>
-               <span class="font_11 txth_30">우편
-               </span>
-               <label class="rence" for="experience">
-               <input type="checkbox" id="experience"
-               name="preference"></label>
-               <span class="font_11 txth_30">팩스
-               </span>
-               <label class="rence" for="experience">
-               <input type="checkbox" id="experience"
-               name="preference"></label>
-               <span class="font_11 txth_60">홈페이지
-               </span>
+               
+               <label class="rence" for="onlineRec">
+               <input type="checkbox" id="onlineRec"
+               name="onlineRec">
+               <span class="font_11">온라인지원
+               </span></label>
+               
+                <label class="rence" for="emailRec">
+               <input type="checkbox" id="emailRec"
+               name="emailRec">
+               <span class="font_11">e-메일지원
+               </span></label>
+               
+                <label class="rence" for="phoneRec">
+               <input type="checkbox" id="phoneRec"
+               name="phoneRec">
+               <span class="font_11">전화연락
+               </span></label>
+               
+                <label class="rence" for="offlineRec">
+               <input type="checkbox" id="offlineRec"
+               name="offlineRec">
+               <span class="font_11">방문접수
+               </span></label>
+               
+               <label class="rence" for="postRec">
+               <input type="checkbox" id="postRec"
+               name="postRec">
+               <span class="font_11">우편
+               </span></label>
+               
+               <label class="rence" for="faxRec">
+               <input type="checkbox" id="faxRec"
+               name="faxRec">
+               <span class="font_11">팩스
+               </span></label>
+               
+               <label class="rence" for="homepageRec">
+               <input type="checkbox" id="homepageRec"
+               name="homepageRec">
+               <span class="font_11">홈페이지
+               </span></label>
+               <p class="clearBoth">
                <span class="tit"></span>
-               <label class="rence" for="experience">
-               <input type="checkbox" id="experience"
-               name="preference"></label>
-               <span class="font_11 txth_200">자사지원양식
+               
+               <label class="rence" for="recForm">
+               <input type="checkbox" id="recForm"
+               name="recForm">
+               <span class="font_11">자사지원양식
+               
                (<input type="radio">필수,
                <input type="radio">선택 )
-               </span>
+               </span></label>
                
             </dt>
             <dt>
@@ -793,39 +809,39 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                
                 <label class="rence" for="experience">
                <input type="checkbox" id="experience"
-               name="preference"></label>
+               name="preference">
                <span class="font_11 txth_45">이력서
-               </span>
+               </span></label>
                
                <label class="rence" for="experience">
                <input type="checkbox" id="experience"
-               name="preference"></label>
+               name="preference">
                <span class="font_11 txth_80">주민등록등본
-               </span>
+               </span></label>
                
                <label class="rence" for="experience">
                <input type="checkbox" id="experience"
-               name="preference"></label>
+               name="preference">
                <span class="font_11 txth_45">보건증
-               </span>
+               </span></label>
                
                <label class="rence" for="experience">
                <input type="checkbox" id="experience"
-               name="preference"></label>
-               <span class="font_11 txth_45">보건증
-               </span>
+               name="preference">
+               <span class="font_11 txth_45">보건증</span></label>
+               
                
                <label class="rence" for="experience">
                <input type="checkbox" id="experience"
-               name="preference"></label>
-               <span class="font_11 txth_70">자기소개서
-               </span>
+               name="preference">
+               <span class="font_11 txth_70">자기소개서</span></label>
+               
                
                <label class="rence" for="experience">
                <input type="checkbox" id="experience"
-               name="preference"></label>
-               <span class="font_11 txth_80">부모님동의서
-               </span>
+               name="preference">
+               <span class="font_11 txth_80">부모님동의서</span></label>
+               
             </dt>
          </dl>
 		</div>

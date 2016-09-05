@@ -30,7 +30,7 @@ a:hover {
 /* button 
 ---------------------------------------------- */
 .recWrite {
-   width: 820px;
+   width: 900px;
    background: #FaFaFa;
    margin: 0 auto;
 }
@@ -39,37 +39,37 @@ a:hover {
 }
 
 .companyInfo {
-   width: 800px;
+   width: 880px;
    height: 300px;
 }
 
 .personInfo {
-   width: 800px;
+   width: 880px;
    height: 210px;
 }
 
 .workInfo {
-   width: 800px;
+   width: 880px;
    height: 210px;
 }
 
 .workCondition {
-   width: 800px;
+   width: 880px;
    height: 280px;
 }
 
 .requestCondition {
-   width: 800px;
+   width: 880px;
    height: 320px;
 }
 
 .recContent {
-   width: 800px;
+   width: 880px;
    height: 250px;
 }
 
 .detailContent {
-   width: 800px;
+   width: 880px;
    height: 300px;
 }
 .detailContent textarea{
@@ -106,6 +106,7 @@ a:hover {
 }
 .radio{
    margin:10px 0;
+   height:
    float: left;
 }
 .prefe{

@@ -1,0 +1,3264 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<style>
+table {width:50%;text-align: center;font-size: 1.1em;}
+th {background-color:#ccc;}
+div {margin-bottom:30px;font-family: 나눔바른펜;}
+</style>
+</head>
+<body>
+<div>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #eee;">엔티티 타입명</th>
+<td colSpan="2">개인회원</td>
+<th colSpan="2" style="background-color: #eee;">작성일</th>
+<td colSpan="2">2016  9  1</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블명</th>
+<td colSpan="2">MEMBER</td>
+<th colSpan="2" style="background-color: #eee;">작성자</th>
+<td colSpan="2">eXERD</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #eee;">번호</th>
+<th colSpan="1" style="background-color: #eee;">컬럼명</th>
+<th colSpan="1" style="background-color: #eee;">속성명</th>
+<th colSpan="1" style="background-color: #eee;">도메인</th>
+<th colSpan="1" style="background-color: #eee;">데이터 타입</th>
+<th colSpan="1" style="background-color: #eee;">NULL 여부</th>
+<th colSpan="1" style="background-color: #eee;">기본값</th>
+<th colSpan="1" style="background-color: #eee;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">MEMBER_CODE</td>
+<td colSpan="1">개인회원코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">USERID</td>
+<td colSpan="1">아이디</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">NICKNAME</td>
+<td colSpan="1">닉네임</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">4</td>
+<td colSpan="1">PASSWORD</td>
+<td colSpan="1">비밀번호</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">5</td>
+<td colSpan="1">USERNAME</td>
+<td colSpan="1">이름</td>
+<td colSpan="1">이름</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">6</td>
+<td colSpan="1">BIRTH</td>
+<td colSpan="1">생년월일</td>
+<td colSpan="1">주민등록번호</td>
+<td colSpan="1">VARCHAR2(13)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">7</td>
+<td colSpan="1">GENDER</td>
+<td colSpan="1">성별</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">8</td>
+<td colSpan="1">EMAIL1</td>
+<td colSpan="1">이메일1</td>
+<td colSpan="1">이메일</td>
+<td colSpan="1">VARCHAR2(40)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">9</td>
+<td colSpan="1">EMAIL2</td>
+<td colSpan="1">이메일2</td>
+<td colSpan="1">이메일</td>
+<td colSpan="1">VARCHAR2(40)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">10</td>
+<td colSpan="1">PHONE1</td>
+<td colSpan="1">전화번호1</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">11</td>
+<td colSpan="1">PHONE2</td>
+<td colSpan="1">전화번호2</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">12</td>
+<td colSpan="1">PHONE3</td>
+<td colSpan="1">전화번호3</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">13</td>
+<td colSpan="1">HP1</td>
+<td colSpan="1">휴대폰번호</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">14</td>
+<td colSpan="1">HP2</td>
+<td colSpan="1">휴대폰번호2</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">15</td>
+<td colSpan="1">HP3</td>
+<td colSpan="1">휴대폰번호3</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">16</td>
+<td colSpan="1">ZIPCODE</td>
+<td colSpan="1">우편번호</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">17</td>
+<td colSpan="1">ADDRESS</td>
+<td colSpan="1">주소</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">18</td>
+<td colSpan="1">ADDRESS_DETAIL</td>
+<td colSpan="1">상세주소</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">19</td>
+<td colSpan="1">AUTHCODE</td>
+<td colSpan="1">권한코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">1</td>
+<td colSpan="1">FK</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #eee;">엔티티 타입명</th>
+<td colSpan="2">희망근무조건</td>
+<th colSpan="2" style="background-color: #eee;">작성일</th>
+<td colSpan="2">2016  9  1</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블명</th>
+<td colSpan="2">HOPE</td>
+<th colSpan="2" style="background-color: #eee;">작성자</th>
+<td colSpan="2">eXERD</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #eee;">번호</th>
+<th colSpan="1" style="background-color: #eee;">컬럼명</th>
+<th colSpan="1" style="background-color: #eee;">속성명</th>
+<th colSpan="1" style="background-color: #eee;">도메인</th>
+<th colSpan="1" style="background-color: #eee;">데이터 타입</th>
+<th colSpan="1" style="background-color: #eee;">NULL 여부</th>
+<th colSpan="1" style="background-color: #eee;">기본값</th>
+<th colSpan="1" style="background-color: #eee;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">HOPE_CODE</td>
+<td colSpan="1">희망근무코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">CATEGORY</td>
+<td colSpan="1">업직종</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">TYPE</td>
+<td colSpan="1">근무형태</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">4</td>
+<td colSpan="1">DAY</td>
+<td colSpan="1">근무일시</td>
+<td colSpan="1">일시</td>
+<td colSpan="1">DATE</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">5</td>
+<td colSpan="1">PAY</td>
+<td colSpan="1">급여</td>
+<td colSpan="1">금액</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">6</td>
+<td colSpan="1">AGREE_DAY</td>
+<td colSpan="1">근무가능일</td>
+<td colSpan="1">일시</td>
+<td colSpan="1">DATE</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">7</td>
+<td colSpan="1">ZIPCODE</td>
+<td colSpan="1">우편번호</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">8</td>
+<td colSpan="1">ADDRESS</td>
+<td colSpan="1">주소</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">9</td>
+<td colSpan="1">ADDRESS_DETAIL</td>
+<td colSpan="1">상세주소</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #eee;">엔티티 타입명</th>
+<td colSpan="2">채용정보</td>
+<th colSpan="2" style="background-color: #eee;">작성일</th>
+<td colSpan="2">2016  9  1</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블명</th>
+<td colSpan="2">RECRUITMENT</td>
+<th colSpan="2" style="background-color: #eee;">작성자</th>
+<td colSpan="2">eXERD</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #eee;">번호</th>
+<th colSpan="1" style="background-color: #eee;">컬럼명</th>
+<th colSpan="1" style="background-color: #eee;">속성명</th>
+<th colSpan="1" style="background-color: #eee;">도메인</th>
+<th colSpan="1" style="background-color: #eee;">데이터 타입</th>
+<th colSpan="1" style="background-color: #eee;">NULL 여부</th>
+<th colSpan="1" style="background-color: #eee;">기본값</th>
+<th colSpan="1" style="background-color: #eee;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">REC_CODE</td>
+<td colSpan="1">채용정보코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">TITLE</td>
+<td colSpan="1">제목</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">COMP_CODE</td>
+<td colSpan="1">회사코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">FK</td>
+</tr>
+<tr>
+<td colSpan="1">4</td>
+<td colSpan="1">NAME</td>
+<td colSpan="1">기업명</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">5</td>
+<td colSpan="1">REGDATE</td>
+<td colSpan="1">등록일</td>
+<td colSpan="1">일시</td>
+<td colSpan="1">DATE</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">6</td>
+<td colSpan="1">RECRUIT_MEMBER</td>
+<td colSpan="1">모집인원</td>
+<td colSpan="1">숫자</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">7</td>
+<td colSpan="1">GENDER</td>
+<td colSpan="1">성별</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">8</td>
+<td colSpan="1">AGE</td>
+<td colSpan="1">연령</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">9</td>
+<td colSpan="1">EDUCATE_LV</td>
+<td colSpan="1">학력</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">10</td>
+<td colSpan="1">RECRUIT_TYPE</td>
+<td colSpan="1">고용형태</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">11</td>
+<td colSpan="1">MAP</td>
+<td colSpan="1">지도</td>
+<td colSpan="1">파일명</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">12</td>
+<td colSpan="1">DEDAIL_RECRUIT</td>
+<td colSpan="1">상세모집요강</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">13</td>
+<td colSpan="1">READCOUNT</td>
+<td colSpan="1">조회수</td>
+<td colSpan="1">숫자</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">14</td>
+<td colSpan="1">ACCUSE</td>
+<td colSpan="1">신고여부</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">15</td>
+<td colSpan="1">ADMIN_AGREE</td>
+<td colSpan="1">관리자승인</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">16</td>
+<td colSpan="1">JOBNAME</td>
+<td colSpan="1">1차직종명</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">17</td>
+<td colSpan="1">JOBNAME2</td>
+<td colSpan="1">2차직종명</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">18</td>
+<td colSpan="1">JOBNAME3</td>
+<td colSpan="1">3차직종명</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">19</td>
+<td colSpan="1">WORK_TERM</td>
+<td colSpan="1">근무기간</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">20</td>
+<td colSpan="1">WORK_DAYS</td>
+<td colSpan="1">근무요일</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">21</td>
+<td colSpan="1">WORK_TIME</td>
+<td colSpan="1">근무시간</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">22</td>
+<td colSpan="1">WELFARE</td>
+<td colSpan="1">복리후생</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">23</td>
+<td colSpan="1">PAY</td>
+<td colSpan="1">급여</td>
+<td colSpan="1">금액</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">24</td>
+<td colSpan="1">REGION</td>
+<td colSpan="1">지역구분</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">25</td>
+<td colSpan="1">NUM</td>
+<td colSpan="1">호선구분</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">26</td>
+<td colSpan="1">NAME2</td>
+<td colSpan="1">역이름</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">27</td>
+<td colSpan="1">INFO</td>
+<td colSpan="1">역정보</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">28</td>
+<td colSpan="1">GRADE</td>
+<td colSpan="1">등급</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">29</td>
+<td colSpan="1">DAYS2</td>
+<td colSpan="1">남은기간</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">30</td>
+<td colSpan="1">DEADLINE</td>
+<td colSpan="1">마감일</td>
+<td colSpan="1">일시</td>
+<td colSpan="1">DATE</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">31</td>
+<td colSpan="1">SERVICE_CODE</td>
+<td colSpan="1">서비스코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">1</td>
+<td colSpan="1">FK</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #eee;">엔티티 타입명</th>
+<td colSpan="2">이력서</td>
+<th colSpan="2" style="background-color: #eee;">작성일</th>
+<td colSpan="2">2016  9  1</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블명</th>
+<td colSpan="2">HISTORY</td>
+<th colSpan="2" style="background-color: #eee;">작성자</th>
+<td colSpan="2">eXERD</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #eee;">번호</th>
+<th colSpan="1" style="background-color: #eee;">컬럼명</th>
+<th colSpan="1" style="background-color: #eee;">속성명</th>
+<th colSpan="1" style="background-color: #eee;">도메인</th>
+<th colSpan="1" style="background-color: #eee;">데이터 타입</th>
+<th colSpan="1" style="background-color: #eee;">NULL 여부</th>
+<th colSpan="1" style="background-color: #eee;">기본값</th>
+<th colSpan="1" style="background-color: #eee;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">HIS_CODE</td>
+<td colSpan="1">이력서코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">HOPE_CODE</td>
+<td colSpan="1">희망근무코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">FK</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">ABILITY</td>
+<td colSpan="1">최종학력</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">4</td>
+<td colSpan="1">DETAIL</td>
+<td colSpan="1">학력상세</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">5</td>
+<td colSpan="1">UNIVERSITY</td>
+<td colSpan="1">대학교</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">6</td>
+<td colSpan="1">PICTURE</td>
+<td colSpan="1">증명사진</td>
+<td colSpan="1">파일명</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">7</td>
+<td colSpan="1">CONTATCT_HOUR</td>
+<td colSpan="1">연락가능시간</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">8</td>
+<td colSpan="1">MEMBER_CODE</td>
+<td colSpan="1">개인회원코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">FK</td>
+</tr>
+<tr>
+<td colSpan="1">9</td>
+<td colSpan="1">PHOTOBOOK</td>
+<td colSpan="1">사진첩</td>
+<td colSpan="1">파일명</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">10</td>
+<td colSpan="1">AWARD</td>
+<td colSpan="1">수상,수료,활동내역</td>
+<td colSpan="1">긴문자</td>
+<td colSpan="1">CLOB</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">11</td>
+<td colSpan="1">CONTENT</td>
+<td colSpan="1">자기소개서</td>
+<td colSpan="1">긴문자</td>
+<td colSpan="1">CLOB</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">12</td>
+<td colSpan="1">CAREER_CODE</td>
+<td colSpan="1">경력사항</td>
+<td colSpan="1">숫자</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">FK</td>
+</tr>
+<tr>
+<td colSpan="1">13</td>
+<td colSpan="1">LANGUAGE_CODE</td>
+<td colSpan="1">외국어능력</td>
+<td colSpan="1">숫자</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">FK</td>
+</tr>
+<tr>
+<td colSpan="1">14</td>
+<td colSpan="1">LICENSE_CODE</td>
+<td colSpan="1">자격증</td>
+<td colSpan="1">숫자</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">FK</td>
+</tr>
+<tr>
+<td colSpan="1">15</td>
+<td colSpan="1">COM_ABILITY_CODE</td>
+<td colSpan="1">컴퓨터활용능력</td>
+<td colSpan="1">숫자</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">FK</td>
+</tr>
+<tr>
+<td colSpan="1">16</td>
+<td colSpan="1">PERSONAL_INFO_CODE</td>
+<td colSpan="1">개인부가정보</td>
+<td colSpan="1">숫자</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">FK</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #eee;">엔티티 타입명</th>
+<td colSpan="2">회사정보</td>
+<th colSpan="2" style="background-color: #eee;">작성일</th>
+<td colSpan="2">2016  9  1</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블명</th>
+<td colSpan="2">COMPANY</td>
+<th colSpan="2" style="background-color: #eee;">작성자</th>
+<td colSpan="2">eXERD</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #eee;">번호</th>
+<th colSpan="1" style="background-color: #eee;">컬럼명</th>
+<th colSpan="1" style="background-color: #eee;">속성명</th>
+<th colSpan="1" style="background-color: #eee;">도메인</th>
+<th colSpan="1" style="background-color: #eee;">데이터 타입</th>
+<th colSpan="1" style="background-color: #eee;">NULL 여부</th>
+<th colSpan="1" style="background-color: #eee;">기본값</th>
+<th colSpan="1" style="background-color: #eee;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">COMP_CODE</td>
+<td colSpan="1">회사코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">COMP_NAME</td>
+<td colSpan="1">회사명</td>
+<td colSpan="1">이름</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">SORT</td>
+<td colSpan="1">회사분류</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">4</td>
+<td colSpan="1">NUM</td>
+<td colSpan="1">사업자등록번호</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">5</td>
+<td colSpan="1">CONTENT</td>
+<td colSpan="1">주요사업내용</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">6</td>
+<td colSpan="1">HP1</td>
+<td colSpan="1">회사번호1</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">7</td>
+<td colSpan="1">HP2</td>
+<td colSpan="1">회사번호2</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">8</td>
+<td colSpan="1">HP3</td>
+<td colSpan="1">회사번호3</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">9</td>
+<td colSpan="1">IMAGE</td>
+<td colSpan="1">회사사진</td>
+<td colSpan="1">파일명</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">10</td>
+<td colSpan="1">FAX1</td>
+<td colSpan="1">팩스번호1</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">11</td>
+<td colSpan="1">FAX2</td>
+<td colSpan="1">팩스번호2</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">12</td>
+<td colSpan="1">FAX3</td>
+<td colSpan="1">팩스번호3</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">13</td>
+<td colSpan="1">HOMEPAGE</td>
+<td colSpan="1">홈페이지</td>
+<td colSpan="1">웹주소</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">14</td>
+<td colSpan="1">REVIEW</td>
+<td colSpan="1">리뷰</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">15</td>
+<td colSpan="1">TYPE</td>
+<td colSpan="1">기업형태</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">16</td>
+<td colSpan="1">COSDAC</td>
+<td colSpan="1">상장여부</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">17</td>
+<td colSpan="1">ZIPCODE</td>
+<td colSpan="1">우편번호</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">18</td>
+<td colSpan="1">ADDRESS</td>
+<td colSpan="1">주소</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">19</td>
+<td colSpan="1">ADDRESS_DETAIL</td>
+<td colSpan="1">상세주소</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #eee;">엔티티 타입명</th>
+<td colSpan="2">지원현황</td>
+<th colSpan="2" style="background-color: #eee;">작성일</th>
+<td colSpan="2">2016  9  1</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블명</th>
+<td colSpan="2">APPLY</td>
+<th colSpan="2" style="background-color: #eee;">작성자</th>
+<td colSpan="2">eXERD</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #eee;">번호</th>
+<th colSpan="1" style="background-color: #eee;">컬럼명</th>
+<th colSpan="1" style="background-color: #eee;">속성명</th>
+<th colSpan="1" style="background-color: #eee;">도메인</th>
+<th colSpan="1" style="background-color: #eee;">데이터 타입</th>
+<th colSpan="1" style="background-color: #eee;">NULL 여부</th>
+<th colSpan="1" style="background-color: #eee;">기본값</th>
+<th colSpan="1" style="background-color: #eee;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">APPLY_CODE</td>
+<td colSpan="1">지원코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">DAYS</td>
+<td colSpan="1">지원일</td>
+<td colSpan="1">일시</td>
+<td colSpan="1">DATE</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">CONTENT</td>
+<td colSpan="1">지원내역</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">4</td>
+<td colSpan="1">STATUS</td>
+<td colSpan="1">지원상태</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">5</td>
+<td colSpan="1">READ_CHECK</td>
+<td colSpan="1">열람여부</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">6</td>
+<td colSpan="1">MEMO</td>
+<td colSpan="1">메모</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">7</td>
+<td colSpan="1">MSG_CODE</td>
+<td colSpan="1">메세지</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">1</td>
+<td colSpan="1">FK</td>
+</tr>
+<tr>
+<td colSpan="1">8</td>
+<td colSpan="1">MEMBER_CODE</td>
+<td colSpan="1">개인회원코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">1</td>
+<td colSpan="1">FK</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #eee;">엔티티 타입명</th>
+<td colSpan="2">근로계약서</td>
+<th colSpan="2" style="background-color: #eee;">작성일</th>
+<td colSpan="2">2016  9  1</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블명</th>
+<td colSpan="2">EMPLOY</td>
+<th colSpan="2" style="background-color: #eee;">작성자</th>
+<td colSpan="2">eXERD</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #eee;">번호</th>
+<th colSpan="1" style="background-color: #eee;">컬럼명</th>
+<th colSpan="1" style="background-color: #eee;">속성명</th>
+<th colSpan="1" style="background-color: #eee;">도메인</th>
+<th colSpan="1" style="background-color: #eee;">데이터 타입</th>
+<th colSpan="1" style="background-color: #eee;">NULL 여부</th>
+<th colSpan="1" style="background-color: #eee;">기본값</th>
+<th colSpan="1" style="background-color: #eee;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">EMP_CODE</td>
+<td colSpan="1">근로계약서코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">TYPE</td>
+<td colSpan="1">계약서유형</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">NAME</td>
+<td colSpan="1">근로자명</td>
+<td colSpan="1">이름</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">4</td>
+<td colSpan="1">ZIPCODE</td>
+<td colSpan="1">우편번호</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">5</td>
+<td colSpan="1">ADDRESS</td>
+<td colSpan="1">주소</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">6</td>
+<td colSpan="1">ADDRESS_DETAIL</td>
+<td colSpan="1">상세주소</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">7</td>
+<td colSpan="1">PHONE</td>
+<td colSpan="1">근로자연락처</td>
+<td colSpan="1">전화번호</td>
+<td colSpan="1">VARCHAR2(30)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">8</td>
+<td colSpan="1">SIGN</td>
+<td colSpan="1">근로자서명</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">9</td>
+<td colSpan="1">TERM</td>
+<td colSpan="1">계약기간</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">10</td>
+<td colSpan="1">LOCATION</td>
+<td colSpan="1">근무장소</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">11</td>
+<td colSpan="1">CONTENT</td>
+<td colSpan="1">업무의내용</td>
+<td colSpan="1">긴문자</td>
+<td colSpan="1">CLOB</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">12</td>
+<td colSpan="1">TIME</td>
+<td colSpan="1">근로시간</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">13</td>
+<td colSpan="1">DAYS</td>
+<td colSpan="1">근무일</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">14</td>
+<td colSpan="1">PAY</td>
+<td colSpan="1">임금</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">15</td>
+<td colSpan="1">PAYDAY</td>
+<td colSpan="1">임금지급일</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">16</td>
+<td colSpan="1">METHOD</td>
+<td colSpan="1">지급방법</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">17</td>
+<td colSpan="1">INSURE</td>
+<td colSpan="1">사회보험적용여부</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">18</td>
+<td colSpan="1">REGDATE</td>
+<td colSpan="1">작성일</td>
+<td colSpan="1">일시</td>
+<td colSpan="1">DATE</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">19</td>
+<td colSpan="1">MEMBER_CODE</td>
+<td colSpan="1">개인회원코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">1</td>
+<td colSpan="1">FK</td>
+</tr>
+<tr>
+<td colSpan="1">20</td>
+<td colSpan="1">COMP_MEMBER_CODE</td>
+<td colSpan="1">기업회원코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">1</td>
+<td colSpan="1">FK</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #eee;">엔티티 타입명</th>
+<td colSpan="2">메세지</td>
+<th colSpan="2" style="background-color: #eee;">작성일</th>
+<td colSpan="2">2016  9  1</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블명</th>
+<td colSpan="2">MESSAGE</td>
+<th colSpan="2" style="background-color: #eee;">작성자</th>
+<td colSpan="2">eXERD</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #eee;">번호</th>
+<th colSpan="1" style="background-color: #eee;">컬럼명</th>
+<th colSpan="1" style="background-color: #eee;">속성명</th>
+<th colSpan="1" style="background-color: #eee;">도메인</th>
+<th colSpan="1" style="background-color: #eee;">데이터 타입</th>
+<th colSpan="1" style="background-color: #eee;">NULL 여부</th>
+<th colSpan="1" style="background-color: #eee;">기본값</th>
+<th colSpan="1" style="background-color: #eee;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">MSG_CODE</td>
+<td colSpan="1">메세지코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">TITLE</td>
+<td colSpan="1">제목</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">CONTENT</td>
+<td colSpan="1">내용</td>
+<td colSpan="1">긴문자</td>
+<td colSpan="1">CLOB</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">4</td>
+<td colSpan="1">SENDER</td>
+<td colSpan="1">보낸사람</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">5</td>
+<td colSpan="1">RECEIVER</td>
+<td colSpan="1">받는사람</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #eee;">엔티티 타입명</th>
+<td colSpan="2">기업회원</td>
+<th colSpan="2" style="background-color: #eee;">작성일</th>
+<td colSpan="2">2016  9  1</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블명</th>
+<td colSpan="2">COMP_MEMBER</td>
+<th colSpan="2" style="background-color: #eee;">작성자</th>
+<td colSpan="2">eXERD</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #eee;">번호</th>
+<th colSpan="1" style="background-color: #eee;">컬럼명</th>
+<th colSpan="1" style="background-color: #eee;">속성명</th>
+<th colSpan="1" style="background-color: #eee;">도메인</th>
+<th colSpan="1" style="background-color: #eee;">데이터 타입</th>
+<th colSpan="1" style="background-color: #eee;">NULL 여부</th>
+<th colSpan="1" style="background-color: #eee;">기본값</th>
+<th colSpan="1" style="background-color: #eee;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">COMP_MEMBER_CODE</td>
+<td colSpan="1">기업회원코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">USERID</td>
+<td colSpan="1">아이디</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">NICKNAME</td>
+<td colSpan="1">닉네임</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">4</td>
+<td colSpan="1">PASSWORD</td>
+<td colSpan="1">비밀번호</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">5</td>
+<td colSpan="1">USERNAME</td>
+<td colSpan="1">이름</td>
+<td colSpan="1">이름</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">6</td>
+<td colSpan="1">BIRTH</td>
+<td colSpan="1">생년월일</td>
+<td colSpan="1">주민등록번호</td>
+<td colSpan="1">VARCHAR2(13)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">7</td>
+<td colSpan="1">GENDER</td>
+<td colSpan="1">성별</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">8</td>
+<td colSpan="1">EMAIL1</td>
+<td colSpan="1">이메일1</td>
+<td colSpan="1">이메일</td>
+<td colSpan="1">VARCHAR2(40)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">9</td>
+<td colSpan="1">EMAIL2</td>
+<td colSpan="1">이메일2</td>
+<td colSpan="1">이메일</td>
+<td colSpan="1">VARCHAR2(40)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">10</td>
+<td colSpan="1">PHONE1</td>
+<td colSpan="1">전화번호1</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">11</td>
+<td colSpan="1">PHONE2</td>
+<td colSpan="1">전화번호2</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">12</td>
+<td colSpan="1">PHONE3</td>
+<td colSpan="1">전화번호3</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">13</td>
+<td colSpan="1">HP1</td>
+<td colSpan="1">휴대폰번호</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">14</td>
+<td colSpan="1">HP2</td>
+<td colSpan="1">휴대폰번호2</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">15</td>
+<td colSpan="1">HP3</td>
+<td colSpan="1">휴대폰번호3</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">16</td>
+<td colSpan="1">FAX1</td>
+<td colSpan="1">팩스1</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">17</td>
+<td colSpan="1">FAX2</td>
+<td colSpan="1">팩스2</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">18</td>
+<td colSpan="1">FAX3</td>
+<td colSpan="1">팩스3</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">19</td>
+<td colSpan="1">AUTHCODE</td>
+<td colSpan="1">권한코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">1</td>
+<td colSpan="1">FK</td>
+</tr>
+<tr>
+<td colSpan="1">20</td>
+<td colSpan="1">COMP_CODE</td>
+<td colSpan="1">회사코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">1</td>
+<td colSpan="1">FK</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #eee;">엔티티 타입명</th>
+<td colSpan="2">관리자</td>
+<th colSpan="2" style="background-color: #eee;">작성일</th>
+<td colSpan="2">2016  9  1</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블명</th>
+<td colSpan="2">ADMIN_MEMBER</td>
+<th colSpan="2" style="background-color: #eee;">작성자</th>
+<td colSpan="2">eXERD</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #eee;">번호</th>
+<th colSpan="1" style="background-color: #eee;">컬럼명</th>
+<th colSpan="1" style="background-color: #eee;">속성명</th>
+<th colSpan="1" style="background-color: #eee;">도메인</th>
+<th colSpan="1" style="background-color: #eee;">데이터 타입</th>
+<th colSpan="1" style="background-color: #eee;">NULL 여부</th>
+<th colSpan="1" style="background-color: #eee;">기본값</th>
+<th colSpan="1" style="background-color: #eee;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">ADMIN_CODE</td>
+<td colSpan="1">관리자코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">USERID</td>
+<td colSpan="1">아이디</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">NICKNAME</td>
+<td colSpan="1">닉네임</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">4</td>
+<td colSpan="1">PASSWORD</td>
+<td colSpan="1">비밀번호</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">5</td>
+<td colSpan="1">NAME</td>
+<td colSpan="1">이름</td>
+<td colSpan="1">이름</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">6</td>
+<td colSpan="1">BIRTH</td>
+<td colSpan="1">생년월일</td>
+<td colSpan="1">주민등록번호</td>
+<td colSpan="1">VARCHAR2(13)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">7</td>
+<td colSpan="1">GENDER</td>
+<td colSpan="1">성별</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">8</td>
+<td colSpan="1">EMAIL1</td>
+<td colSpan="1">이메일1</td>
+<td colSpan="1">이메일</td>
+<td colSpan="1">VARCHAR2(40)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">9</td>
+<td colSpan="1">EMAIL2</td>
+<td colSpan="1">이메일2</td>
+<td colSpan="1">이메일</td>
+<td colSpan="1">VARCHAR2(40)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">10</td>
+<td colSpan="1">PHONE1</td>
+<td colSpan="1">전화번호1</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">11</td>
+<td colSpan="1">PHONE2</td>
+<td colSpan="1">전화번호2</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">12</td>
+<td colSpan="1">PHONE3</td>
+<td colSpan="1">전화번호3</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">13</td>
+<td colSpan="1">HP1</td>
+<td colSpan="1">휴대폰번호</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">14</td>
+<td colSpan="1">HP2</td>
+<td colSpan="1">휴대폰번호2</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">15</td>
+<td colSpan="1">HP3</td>
+<td colSpan="1">휴대폰번호3</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">16</td>
+<td colSpan="1">AUTHCODE</td>
+<td colSpan="1">권한코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">1</td>
+<td colSpan="1">FK</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #eee;">엔티티 타입명</th>
+<td colSpan="2">자유게시판</td>
+<th colSpan="2" style="background-color: #eee;">작성일</th>
+<td colSpan="2">2016  9  1</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블명</th>
+<td colSpan="2">FREE_BOARD</td>
+<th colSpan="2" style="background-color: #eee;">작성자</th>
+<td colSpan="2">eXERD</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #eee;">번호</th>
+<th colSpan="1" style="background-color: #eee;">컬럼명</th>
+<th colSpan="1" style="background-color: #eee;">속성명</th>
+<th colSpan="1" style="background-color: #eee;">도메인</th>
+<th colSpan="1" style="background-color: #eee;">데이터 타입</th>
+<th colSpan="1" style="background-color: #eee;">NULL 여부</th>
+<th colSpan="1" style="background-color: #eee;">기본값</th>
+<th colSpan="1" style="background-color: #eee;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">FREE_NO</td>
+<td colSpan="1">게시번호</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">CATEGORY</td>
+<td colSpan="1">구분</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">TITLE</td>
+<td colSpan="1">제목</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">4</td>
+<td colSpan="1">CONTENT</td>
+<td colSpan="1">내용</td>
+<td colSpan="1">긴문자</td>
+<td colSpan="1">CLOB</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">5</td>
+<td colSpan="1">WITER</td>
+<td colSpan="1">작성자</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">6</td>
+<td colSpan="1">READ_COUNT</td>
+<td colSpan="1">조회수</td>
+<td colSpan="1">숫자</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">7</td>
+<td colSpan="1">REGDATE</td>
+<td colSpan="1">등록일자</td>
+<td colSpan="1">일시</td>
+<td colSpan="1">DATE</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">8</td>
+<td colSpan="1">GROUP_NO</td>
+<td colSpan="1">그룹번호</td>
+<td colSpan="1">숫자</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">9</td>
+<td colSpan="1">SORT_NO</td>
+<td colSpan="1">정렬번호</td>
+<td colSpan="1">숫자</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">10</td>
+<td colSpan="1">STEP</td>
+<td colSpan="1">단계번호</td>
+<td colSpan="1">숫자</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">11</td>
+<td colSpan="1">ADMIN_CODE</td>
+<td colSpan="1">관리자코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">1</td>
+<td colSpan="1">FK</td>
+</tr>
+<tr>
+<td colSpan="1">12</td>
+<td colSpan="1">COMP_MEMBER_CODE</td>
+<td colSpan="1">기업회원코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">1</td>
+<td colSpan="1">FK</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #eee;">엔티티 타입명</th>
+<td colSpan="2">공지사항</td>
+<th colSpan="2" style="background-color: #eee;">작성일</th>
+<td colSpan="2">2016  9  1</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블명</th>
+<td colSpan="2">MAIN_BOARD</td>
+<th colSpan="2" style="background-color: #eee;">작성자</th>
+<td colSpan="2">eXERD</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #eee;">번호</th>
+<th colSpan="1" style="background-color: #eee;">컬럼명</th>
+<th colSpan="1" style="background-color: #eee;">속성명</th>
+<th colSpan="1" style="background-color: #eee;">도메인</th>
+<th colSpan="1" style="background-color: #eee;">데이터 타입</th>
+<th colSpan="1" style="background-color: #eee;">NULL 여부</th>
+<th colSpan="1" style="background-color: #eee;">기본값</th>
+<th colSpan="1" style="background-color: #eee;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">MAIN_NO</td>
+<td colSpan="1">게시번호</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">CATEGORY</td>
+<td colSpan="1">구분</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">TITLE</td>
+<td colSpan="1">제목</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">4</td>
+<td colSpan="1">CONTENT</td>
+<td colSpan="1">내용</td>
+<td colSpan="1">긴문자</td>
+<td colSpan="1">CLOB</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">5</td>
+<td colSpan="1">WITER</td>
+<td colSpan="1">작성자</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">6</td>
+<td colSpan="1">READ_COUNT</td>
+<td colSpan="1">조회수</td>
+<td colSpan="1">숫자</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">7</td>
+<td colSpan="1">REGDATE</td>
+<td colSpan="1">등록일자</td>
+<td colSpan="1">일시</td>
+<td colSpan="1">DATE</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">8</td>
+<td colSpan="1">ADMIN_CODE</td>
+<td colSpan="1">관리자코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">1</td>
+<td colSpan="1">FK</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #eee;">엔티티 타입명</th>
+<td colSpan="2">FAQ</td>
+<th colSpan="2" style="background-color: #eee;">작성일</th>
+<td colSpan="2">2016  9  1</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블명</th>
+<td colSpan="2">FAQ</td>
+<th colSpan="2" style="background-color: #eee;">작성자</th>
+<td colSpan="2">eXERD</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #eee;">번호</th>
+<th colSpan="1" style="background-color: #eee;">컬럼명</th>
+<th colSpan="1" style="background-color: #eee;">속성명</th>
+<th colSpan="1" style="background-color: #eee;">도메인</th>
+<th colSpan="1" style="background-color: #eee;">데이터 타입</th>
+<th colSpan="1" style="background-color: #eee;">NULL 여부</th>
+<th colSpan="1" style="background-color: #eee;">기본값</th>
+<th colSpan="1" style="background-color: #eee;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">FAQ_NO</td>
+<td colSpan="1">게시번호</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">CATEGORY</td>
+<td colSpan="1">구분</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">TITLE</td>
+<td colSpan="1">제목</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">4</td>
+<td colSpan="1">CONTENT</td>
+<td colSpan="1">내용</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">5</td>
+<td colSpan="1">READ_COUNT</td>
+<td colSpan="1">조회수</td>
+<td colSpan="1">숫자</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">6</td>
+<td colSpan="1">REGDATE</td>
+<td colSpan="1">등록일자</td>
+<td colSpan="1">일시</td>
+<td colSpan="1">DATE</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">7</td>
+<td colSpan="1">ADMIN_CODE</td>
+<td colSpan="1">관리자코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">1</td>
+<td colSpan="1">FK</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #eee;">엔티티 타입명</th>
+<td colSpan="2">댓글</td>
+<th colSpan="2" style="background-color: #eee;">작성일</th>
+<td colSpan="2">2016  9  1</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블명</th>
+<td colSpan="2">REPLY</td>
+<th colSpan="2" style="background-color: #eee;">작성자</th>
+<td colSpan="2">eXERD</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #eee;">번호</th>
+<th colSpan="1" style="background-color: #eee;">컬럼명</th>
+<th colSpan="1" style="background-color: #eee;">속성명</th>
+<th colSpan="1" style="background-color: #eee;">도메인</th>
+<th colSpan="1" style="background-color: #eee;">데이터 타입</th>
+<th colSpan="1" style="background-color: #eee;">NULL 여부</th>
+<th colSpan="1" style="background-color: #eee;">기본값</th>
+<th colSpan="1" style="background-color: #eee;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">REPLY_NO</td>
+<td colSpan="1">게시번호</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">TITLE</td>
+<td colSpan="1">제목</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">CONTENT</td>
+<td colSpan="1">내용</td>
+<td colSpan="1">긴문자</td>
+<td colSpan="1">CLOB</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">4</td>
+<td colSpan="1">WRITER</td>
+<td colSpan="1">작성자</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">5</td>
+<td colSpan="1">REGDATE</td>
+<td colSpan="1">등록일자</td>
+<td colSpan="1">일시</td>
+<td colSpan="1">DATE</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">6</td>
+<td colSpan="1">GROUP_NO</td>
+<td colSpan="1">그룹번호</td>
+<td colSpan="1">숫자</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">7</td>
+<td colSpan="1">SORT_NO</td>
+<td colSpan="1">정렬번호</td>
+<td colSpan="1">숫자</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">8</td>
+<td colSpan="1">STEP</td>
+<td colSpan="1">단계번호</td>
+<td colSpan="1">숫자</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">9</td>
+<td colSpan="1">ADMIN_CODE</td>
+<td colSpan="1">관리자코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">1</td>
+<td colSpan="1">FK</td>
+</tr>
+<tr>
+<td colSpan="1">10</td>
+<td colSpan="1">MEMBER_CODE</td>
+<td colSpan="1">개인회원코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">1</td>
+<td colSpan="1">FK</td>
+</tr>
+<tr>
+<td colSpan="1">11</td>
+<td colSpan="1">COMP_MEMBER_CODE</td>
+<td colSpan="1">기업회원코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">1</td>
+<td colSpan="1">FK</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #eee;">엔티티 타입명</th>
+<td colSpan="2">권한</td>
+<th colSpan="2" style="background-color: #eee;">작성일</th>
+<td colSpan="2">2016  9  1</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블명</th>
+<td colSpan="2">AUTH</td>
+<th colSpan="2" style="background-color: #eee;">작성자</th>
+<td colSpan="2">eXERD</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #eee;">번호</th>
+<th colSpan="1" style="background-color: #eee;">컬럼명</th>
+<th colSpan="1" style="background-color: #eee;">속성명</th>
+<th colSpan="1" style="background-color: #eee;">도메인</th>
+<th colSpan="1" style="background-color: #eee;">데이터 타입</th>
+<th colSpan="1" style="background-color: #eee;">NULL 여부</th>
+<th colSpan="1" style="background-color: #eee;">기본값</th>
+<th colSpan="1" style="background-color: #eee;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">AUTHCODE</td>
+<td colSpan="1">권한코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #eee;">엔티티 타입명</th>
+<td colSpan="2">채용스크랩</td>
+<th colSpan="2" style="background-color: #eee;">작성일</th>
+<td colSpan="2">2016  9  1</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블명</th>
+<td colSpan="2">REC_SCRAP</td>
+<th colSpan="2" style="background-color: #eee;">작성자</th>
+<td colSpan="2">eXERD</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #eee;">번호</th>
+<th colSpan="1" style="background-color: #eee;">컬럼명</th>
+<th colSpan="1" style="background-color: #eee;">속성명</th>
+<th colSpan="1" style="background-color: #eee;">도메인</th>
+<th colSpan="1" style="background-color: #eee;">데이터 타입</th>
+<th colSpan="1" style="background-color: #eee;">NULL 여부</th>
+<th colSpan="1" style="background-color: #eee;">기본값</th>
+<th colSpan="1" style="background-color: #eee;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">REC_SCRAP_CODE</td>
+<td colSpan="1">스크랩코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">REC_CODE</td>
+<td colSpan="1">채용정보코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">1</td>
+<td colSpan="1">FK</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">MEMBER_CODE</td>
+<td colSpan="1">개인회원코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">1</td>
+<td colSpan="1">FK</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #eee;">엔티티 타입명</th>
+<td colSpan="2">이력서스크랩</td>
+<th colSpan="2" style="background-color: #eee;">작성일</th>
+<td colSpan="2">2016  9  1</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블명</th>
+<td colSpan="2">HIS_SCRAP</td>
+<th colSpan="2" style="background-color: #eee;">작성자</th>
+<td colSpan="2">eXERD</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #eee;">번호</th>
+<th colSpan="1" style="background-color: #eee;">컬럼명</th>
+<th colSpan="1" style="background-color: #eee;">속성명</th>
+<th colSpan="1" style="background-color: #eee;">도메인</th>
+<th colSpan="1" style="background-color: #eee;">데이터 타입</th>
+<th colSpan="1" style="background-color: #eee;">NULL 여부</th>
+<th colSpan="1" style="background-color: #eee;">기본값</th>
+<th colSpan="1" style="background-color: #eee;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">HIS_SCRAP_CODE</td>
+<td colSpan="1">이력서스크랩코드</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">COMP_MEMBER_CODE</td>
+<td colSpan="1">기업회원코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">FK</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">HIS_CODE</td>
+<td colSpan="1">이력서코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">FK</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #eee;">엔티티 타입명</th>
+<td colSpan="2">서비스</td>
+<th colSpan="2" style="background-color: #eee;">작성일</th>
+<td colSpan="2">2016  9  1</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블명</th>
+<td colSpan="2">SERVICE</td>
+<th colSpan="2" style="background-color: #eee;">작성자</th>
+<td colSpan="2">eXERD</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #eee;">번호</th>
+<th colSpan="1" style="background-color: #eee;">컬럼명</th>
+<th colSpan="1" style="background-color: #eee;">속성명</th>
+<th colSpan="1" style="background-color: #eee;">도메인</th>
+<th colSpan="1" style="background-color: #eee;">데이터 타입</th>
+<th colSpan="1" style="background-color: #eee;">NULL 여부</th>
+<th colSpan="1" style="background-color: #eee;">기본값</th>
+<th colSpan="1" style="background-color: #eee;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">SERVICE_CODE</td>
+<td colSpan="1">서비스코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">GRADE</td>
+<td colSpan="1">등급</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">DAYS</td>
+<td colSpan="1">남은기간</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">4</td>
+<td colSpan="1">DEADLINE</td>
+<td colSpan="1">마감일</td>
+<td colSpan="1">일시</td>
+<td colSpan="1">DATE</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #eee;">엔티티 타입명</th>
+<td colSpan="2">결제</td>
+<th colSpan="2" style="background-color: #eee;">작성일</th>
+<td colSpan="2">2016  9  1</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블명</th>
+<td colSpan="2">PAYMENT</td>
+<th colSpan="2" style="background-color: #eee;">작성자</th>
+<td colSpan="2">eXERD</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #eee;">번호</th>
+<th colSpan="1" style="background-color: #eee;">컬럼명</th>
+<th colSpan="1" style="background-color: #eee;">속성명</th>
+<th colSpan="1" style="background-color: #eee;">도메인</th>
+<th colSpan="1" style="background-color: #eee;">데이터 타입</th>
+<th colSpan="1" style="background-color: #eee;">NULL 여부</th>
+<th colSpan="1" style="background-color: #eee;">기본값</th>
+<th colSpan="1" style="background-color: #eee;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">PAYMENT_CODE</td>
+<td colSpan="1">결제코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">INFO</td>
+<td colSpan="1">결제정보</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">METHOD</td>
+<td colSpan="1">결제수단</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">4</td>
+<td colSpan="1">STATE</td>
+<td colSpan="1">진행상태</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">5</td>
+<td colSpan="1">DICOUNT</td>
+<td colSpan="1">할인금액</td>
+<td colSpan="1">금액</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">6</td>
+<td colSpan="1">AMOUNT</td>
+<td colSpan="1">결제금액</td>
+<td colSpan="1">금액</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">7</td>
+<td colSpan="1">PAYMENT_DAY</td>
+<td colSpan="1">결제일</td>
+<td colSpan="1">일시</td>
+<td colSpan="1">DATE</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">8</td>
+<td colSpan="1">DEL_YN</td>
+<td colSpan="1">삭제여부</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">9</td>
+<td colSpan="1">ADMIN_CODE</td>
+<td colSpan="1">관리자코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">1</td>
+<td colSpan="1">FK</td>
+</tr>
+<tr>
+<td colSpan="1">10</td>
+<td colSpan="1">MEMBER_CODE</td>
+<td colSpan="1">개인회원코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">1</td>
+<td colSpan="1">FK</td>
+</tr>
+<tr>
+<td colSpan="1">11</td>
+<td colSpan="1">COMP_MEMBER_CODE</td>
+<td colSpan="1">기업회원코드</td>
+<td colSpan="1">시퀀스</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">1</td>
+<td colSpan="1">FK</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #eee;">엔티티 타입명</th>
+<td colSpan="2">경력사항</td>
+<th colSpan="2" style="background-color: #eee;">작성일</th>
+<td colSpan="2">2016  9  1</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블명</th>
+<td colSpan="2">CAREER</td>
+<th colSpan="2" style="background-color: #eee;">작성자</th>
+<td colSpan="2">eXERD</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #eee;">번호</th>
+<th colSpan="1" style="background-color: #eee;">컬럼명</th>
+<th colSpan="1" style="background-color: #eee;">속성명</th>
+<th colSpan="1" style="background-color: #eee;">도메인</th>
+<th colSpan="1" style="background-color: #eee;">데이터 타입</th>
+<th colSpan="1" style="background-color: #eee;">NULL 여부</th>
+<th colSpan="1" style="background-color: #eee;">기본값</th>
+<th colSpan="1" style="background-color: #eee;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">CAREER_CODE</td>
+<td colSpan="1">구분코드</td>
+<td colSpan="1">숫자</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">COMPANY</td>
+<td colSpan="1">회사</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">PERIOD</td>
+<td colSpan="1">근무기간</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">4</td>
+<td colSpan="1">WORK</td>
+<td colSpan="1">담당업무</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #eee;">엔티티 타입명</th>
+<td colSpan="2">외국어능력</td>
+<th colSpan="2" style="background-color: #eee;">작성일</th>
+<td colSpan="2">2016  9  1</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블명</th>
+<td colSpan="2">LANGUAGE</td>
+<th colSpan="2" style="background-color: #eee;">작성자</th>
+<td colSpan="2">eXERD</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #eee;">번호</th>
+<th colSpan="1" style="background-color: #eee;">컬럼명</th>
+<th colSpan="1" style="background-color: #eee;">속성명</th>
+<th colSpan="1" style="background-color: #eee;">도메인</th>
+<th colSpan="1" style="background-color: #eee;">데이터 타입</th>
+<th colSpan="1" style="background-color: #eee;">NULL 여부</th>
+<th colSpan="1" style="background-color: #eee;">기본값</th>
+<th colSpan="1" style="background-color: #eee;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">LANGUAGE_CODE</td>
+<td colSpan="1">구분코드</td>
+<td colSpan="1">숫자</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">LANGUAGE </td>
+<td colSpan="1">외국어</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">LANGUAGE_STUDY </td>
+<td colSpan="1">어학연수</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">4</td>
+<td colSpan="1">LANGUAGE_COMMAND</td>
+<td colSpan="1">구사능력</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">5</td>
+<td colSpan="1">OFFICIAL_TEST</td>
+<td colSpan="1">공인시험</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #eee;">엔티티 타입명</th>
+<td colSpan="2">자격증</td>
+<th colSpan="2" style="background-color: #eee;">작성일</th>
+<td colSpan="2">2016  9  1</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블명</th>
+<td colSpan="2">LICENSE</td>
+<th colSpan="2" style="background-color: #eee;">작성자</th>
+<td colSpan="2">eXERD</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #eee;">번호</th>
+<th colSpan="1" style="background-color: #eee;">컬럼명</th>
+<th colSpan="1" style="background-color: #eee;">속성명</th>
+<th colSpan="1" style="background-color: #eee;">도메인</th>
+<th colSpan="1" style="background-color: #eee;">데이터 타입</th>
+<th colSpan="1" style="background-color: #eee;">NULL 여부</th>
+<th colSpan="1" style="background-color: #eee;">기본값</th>
+<th colSpan="1" style="background-color: #eee;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">LICENSE_CODE</td>
+<td colSpan="1">구분코드</td>
+<td colSpan="1">숫자</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">LICENSE_NAME</td>
+<td colSpan="1">자격증</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">COLLICENSE_PLACE</td>
+<td colSpan="1">발행처</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #eee;">엔티티 타입명</th>
+<td colSpan="2">컴퓨터활용능력</td>
+<th colSpan="2" style="background-color: #eee;">작성일</th>
+<td colSpan="2">2016  9  1</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블명</th>
+<td colSpan="2">COMPUTER_ABILITY</td>
+<th colSpan="2" style="background-color: #eee;">작성자</th>
+<td colSpan="2">eXERD</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #eee;">번호</th>
+<th colSpan="1" style="background-color: #eee;">컬럼명</th>
+<th colSpan="1" style="background-color: #eee;">속성명</th>
+<th colSpan="1" style="background-color: #eee;">도메인</th>
+<th colSpan="1" style="background-color: #eee;">데이터 타입</th>
+<th colSpan="1" style="background-color: #eee;">NULL 여부</th>
+<th colSpan="1" style="background-color: #eee;">기본값</th>
+<th colSpan="1" style="background-color: #eee;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">COM_ABILITY_CODE</td>
+<td colSpan="1">구분코드</td>
+<td colSpan="1">숫자</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">WORD</td>
+<td colSpan="1">워드</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">POWER_POINT</td>
+<td colSpan="1">파워포인트</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">4</td>
+<td colSpan="1">EXCEL</td>
+<td colSpan="1">엑셀</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">5</td>
+<td colSpan="1">INTERNET</td>
+<td colSpan="1">인터넷</td>
+<td colSpan="1">짧은문자</td>
+<td colSpan="1">VARCHAR2(50)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">6</td>
+<td colSpan="1">IT_DESIGN_ABILITY</td>
+<td colSpan="1">디자인</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+</table>
+</div>
+<p />
+<div>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="2" style="background-color: #eee;">엔티티 타입명</th>
+<td colSpan="2">개인부가정보</td>
+<th colSpan="2" style="background-color: #eee;">작성일</th>
+<td colSpan="2">2016  9  1</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블명</th>
+<td colSpan="2">PERSONAL_INFO</td>
+<th colSpan="2" style="background-color: #eee;">작성자</th>
+<td colSpan="2">eXERD</td>
+</tr>
+<tr>
+<th colSpan="2" style="background-color: #eee;">테이블 설명</th>
+<td colSpan="6">&nbsp;</td>
+</tr>
+</table>
+<table border=1 cellspacing="0" bordercolor="#000000">
+<tr>
+<th colSpan="1" style="background-color: #eee;">번호</th>
+<th colSpan="1" style="background-color: #eee;">컬럼명</th>
+<th colSpan="1" style="background-color: #eee;">속성명</th>
+<th colSpan="1" style="background-color: #eee;">도메인</th>
+<th colSpan="1" style="background-color: #eee;">데이터 타입</th>
+<th colSpan="1" style="background-color: #eee;">NULL 여부</th>
+<th colSpan="1" style="background-color: #eee;">기본값</th>
+<th colSpan="1" style="background-color: #eee;">KEY</th>
+</tr>
+<tr>
+<td colSpan="1">1</td>
+<td colSpan="1">PERSONAL_INFO_CODE</td>
+<td colSpan="1">구분코드</td>
+<td colSpan="1">숫자</td>
+<td colSpan="1">NUMBER</td>
+<td colSpan="1">NOT NULL</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">PK</td>
+</tr>
+<tr>
+<td colSpan="1">2</td>
+<td colSpan="1">OBSTACLE</td>
+<td colSpan="1">장애여부</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">3</td>
+<td colSpan="1">MILITARY</td>
+<td colSpan="1">병역사항</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">4</td>
+<td colSpan="1">VETERANS</td>
+<td colSpan="1">국가보훈</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+<tr>
+<td colSpan="1">5</td>
+<td colSpan="1">EMPLOYMENT</td>
+<td colSpan="1">고용지원금</td>
+<td colSpan="1">문자</td>
+<td colSpan="1">VARCHAR2(255)</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+<td colSpan="1">&nbsp;</td>
+</tr>
+</table>
+</div>
+<p />
+</body>
+</html>

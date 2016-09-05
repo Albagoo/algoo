@@ -30,9 +30,53 @@
     color:#fff;
     text-align: left;
 }
+
+#container	{
+	/*clear: both;*/
+	width:96%;margin: 0 auto;
+
+	overflow: auto;
+	background: white;
+	}
+	#container #leftNavi	{
+		float: left; /*background:#FFCCCC;*/
+		width: 20%;
+		padding: 35px 0 0 0;
+		}
+		#container #leftNavi dt	{
+			padding: 7px 5px 25px 20px;
+			font-weight: bold;
+			}
+			
+		#container #leftNavi dd	{
+			display: block;
+			padding: 0 20px;
+			}
+			#container #leftNavi dd a	{
+				text-decoration: none;
+				display: block;
+				color: #585721;
+				border-bottom: 1px solid #ddd;
+				padding: 10px 5px;
+				}
+				#container #leftNavi dd a:hover, #container #leftNavi dd a:focus	{
+					background:#EDF2C6 ;
+					}
+}
 </style>
 
 <section>
+<div id="container">
+	<nav>
+		<dl id="leftNavi">
+			<dt>자주묻는 질문과 답변</dt>
+			<dd><a href="#">회원가입 및 탈퇴</a></dd>
+			<dd><a href="#">회원정보관리</a></dd>
+			<dd><a href="#">이력서 관리 및 활용</a></dd>
+			<dd><a href="#">기타 문의</a></dd>
+		</dl>
+	</nav>
+</div>
 <div id="jQuery_accordion">
 	<c:forEach var="i" items="${ulist}">
 		<h3>[${i.category }] ${i.title}</h3>

@@ -30,6 +30,7 @@ type="text/javascript"></script>
 	});
 	
 </script>
+
 <section>
 <div class="divForm">
 <form name="frmWrite" id="frmWrite" method="post" 

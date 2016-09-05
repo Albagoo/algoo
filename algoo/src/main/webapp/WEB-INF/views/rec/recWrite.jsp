@@ -199,15 +199,15 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <span class="tit">업직종</span>
                <select class="txt_180 button white medium"
                name="jobName" id="jobName">
-               <option value="">1차직종</option>
+               <option value="null">1차직종</option>
                </select>
                <select class="txt_180 button white medium"
                name="jobName2" id="jobName2">
-               <option value="">2차직종</option>
+               <option value="null">2차직종</option>
                </select>
                <select class="txt_180 button white medium"
                name="jobName3" id="jobName3">
-               <option value="">3차직종</option>
+               <option value="null">3차직종</option>
                </select>
             </dt>
             <dt>
@@ -231,7 +231,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <span class="tit">인근지하철</span>
                     <select class="txt_100 white medium button"
                     name="subRegion" id="subRegion">
-               <option value="">지역</option>
+               <option value="null">지역</option>
                <option value="S">서울</option>
                <option value="I">인천</option>
                <option value="D">대전</option>
@@ -240,17 +240,17 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                </select>
                     <select class="txt_100 white medium button"
                     name="subNum" id="subNum">
-               <option value="">호선</option>
+               <option value="null">호선</option>
                <option value="1">1호선</option>
               
                </select>
                     <select class="txt_150 white medium button"
                     name="subName" id="subName">
-               <option value="">지하철역</option>
+               <option value="null">지하철역</option>
                <option value="c">청량리역</option>
                </select>
                <input type="text" class="txt_200"
-               name="subInfo" id="subInfo" value="출구정보">
+               name="subInfo" id="subInfo" >
             </dt>
          </dl>
 		</div>
@@ -366,7 +366,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <span class="tit">근무시간</span>
                
                <select class="txt_85 white button medium">
-               <option value="">시작</option>
+               <option value="null">시작</option>
                <c:forEach var="i" begin="0" end="24" step="1">
                <option value="${i} ">
                <c:if test="${i<10 }">
@@ -379,7 +379,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                </c:forEach>
                </select>
                <select class="txt_85 white button medium">
-               <option value="">시간</option>
+               <option value="null">시간</option>
               <c:forEach var="i" begin="0" end="60" step="10">
                <option value="${i} ">
                <c:if test="${i<10 }">
@@ -394,7 +394,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <span style="float: left;">~</span>
                
                <select class="txt_85 white button medium">
-               <option value="">종료</option>
+               <option value="null">종료</option>
                <c:forEach var="i" begin="0" end="24" step="1">
                <option value="${i} ">
                <c:if test="${i<10 }">
@@ -407,7 +407,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                </c:forEach>
                </select>
                <select class="txt_85 white button medium">
-               <option value="">시간</option>
+               <option value="null">시간</option>
                 <c:forEach var="i" begin="0" end="60" step="10">
                <option value="${i} ">
                <c:if test="${i<10 }">
@@ -424,7 +424,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
             <dt>
                <span class="tit">선택</span>
                <select class="txt_85 white button medium">
-               <option value="">급여</option>
+               <option value="null">급여</option>
                <option value="day">일급</option>
                <option value="week">주급</option>
                <option value="month">월급</option>

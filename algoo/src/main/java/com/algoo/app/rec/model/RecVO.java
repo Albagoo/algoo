@@ -299,6 +299,10 @@ public class RecVO {
 				+ accuse + ", adminAgree=" + adminAgree + ", compCode=" + compCode + ", serviceCode=" + serviceCode
 				+ "]";
 	}
+
+	
+	
+
 	
 	
 }

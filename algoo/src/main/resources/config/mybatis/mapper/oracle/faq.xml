@@ -17,8 +17,8 @@
 			order="BEFORE">
 			select faq_seq.nextval from dual
 		</selectKey>
-		insert into faq(faq_no, category, title, content, regdate)
-		values(#{faqNo}, #{category}, #{title}, #{content}, sysdate)
+insert into faq(faq_no, category, title, content, regdate,userid)
+values(#{faqNo}, #{category}, #{title}, #{content}, sysdate,#{userid})
 	</insert>
 	
 	<select id="selectAllFaq" resultType="FaqVO" parameterType="SearchVO">

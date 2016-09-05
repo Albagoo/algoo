@@ -25,13 +25,13 @@
 	
 	<insert id="insertRec" parameterType="RecVO">
 	insert into RECRUITMENT
-	(recCode,compName,title,jobName,jobName2,
-	jobName3,zipcode,address,addressDetail,subRegion,
-	subNum,subName,subInfo,workTerm,workDays,workTime,
-	workTime2,workTime3,workTime4,pay,recruitType,
-	welfare,gender,age,educateLv,career,
-	preference,recruitMember,recruitPerson,recruitMethod,documents,
-	detailRecruit,maps,accuse,compCode,serviceCode
+	(rec_Code,comp_Name,title,job_Name,job_Name2,
+	job_Name3,zipcode,address,address_Detail,sub_Region,
+	sub_Num,sub_Name,sub_Info,work_Term,work_Days,work_Time,
+	work_Time2,work_Time3,work_Time4,pay,recruit_Type,
+	welfare,gender,age,educate_Lv,career,
+	preference,recruit_Member,recruit_Person,recruit_Method,documents,
+	detail_Recruit,comp_Code,service_Code
 	)
 	values(
 RECRUITMENT_seq.nextval, #{compName},#{title},#{jobName},#{jobName2},
@@ -40,7 +40,7 @@ RECRUITMENT_seq.nextval, #{compName},#{title},#{jobName},#{jobName2},
 #{workTime2},#{workTime3},#{workTime4},#{pay},#{recruitType},
 #{welfare},#{gender},#{age},#{educateLv},#{career},
 #{preference},#{recruitMember},#{recruitPerson},#{recruitMethod},#{documents},
-#{detailRecruit},#{maps},#{accuse},#{compCode},#{serviceCode}
+#{detailRecruit},#{compCode},#{serviceCode}
        )
 	</insert>
 </mapper>

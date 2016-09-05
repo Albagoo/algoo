@@ -240,7 +240,7 @@ src= "<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 		<a href="" class="detail_right">자세히보기></a> <br class="br">
 		<div>
 			<dl style="display: block;">
-				<dt>${compVo.name }</dt>
+				<dt>${compVo.compName }</dt>
 				<dt>
 					 <a href="${compVo.homepage }">
 					 ${compVo.homepage }</a>
@@ -248,12 +248,11 @@ src= "<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 				<br>
 				<dt>
 					<span class="tit">대표자</span> 
-					<span class="txt_180">최순일</span>
+					<span class="txt_180">${compVo.ceo }</span>
 				</dt>
 				<dt>
 					<span class="tit">회사주소</span> 
-					<span class="txt_180">서울 영등포구
-						문래동6가 5 번지 동신타워 4층</span>
+					<span class="txt_180">${compVo.address }</span>
 				</dt>
 				<dt>
 					<span class="tit">사업내용</span> 
@@ -264,7 +263,7 @@ src= "<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 		</div>
 	</div>
 	<div class="main_right detail_right">
-	  <p class="right_title">${compVo.name }</p>
+	  <p class="right_title">${compVo.compName }</p>
 	  <dl>
 	     <dt>
 	     <span class="tit_15">마감일</span>
@@ -294,7 +293,7 @@ src= "<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 	  <p class="right_title"></p>
         <dt>
         <span class="tit_15">담  당 자</span>
-        <span class="txt_400">??</span>
+        <span class="txt_400">${compVo.deptName }</span>
         </dt>	     
         <dt>
         <span class="tit_15">e - 메일</span>
@@ -357,18 +356,22 @@ src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_comm/icon_sameex.gif"></
 			</dt>
 			<dt>
             <span class="tit_15">근무기간</span> 
-            <span class="txt_720">${recVo.term }
+            <span class="txt_720">${recVo.workTerm }
             <img alt="협의가능" 
 src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_comm/icon_consult.gif">
             </span>
          </dt>
          <dt>
             <span class="tit_15">근무요일</span> 
-            <span class="txt_720">${recVo.days }</span>
+            <span class="txt_720">${recVo.workDays }</span>
          </dt>
          <dt>
             <span class="tit_15">근무시간</span> 
-            <span class="txt_720">${recVo.time }</span>
+            <span class="txt_720">
+            ${recVo.workTime }:${recVo.workTime2 }
+            ~
+            ${recVo.workTime3 }:${recVo.workTime4 }
+            </span>
          </dt>
          <dt>
             <span class="tit_15">급여</span> 
@@ -389,7 +392,7 @@ src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_comm/fee_w_day.gif">
 	<dl>
       <dt>
          <span class="tit_15">근무지역</span>
-         <span class="txt_720">서울 영등포구 문래동6가<br>[상세정보] 서울 영등포구 문래동6가 5 번지 동신타워 4층</span>
+         <span class="txt_720">${recVo.address }<br>[상세정보] ${rec.addressDetail }</span>
       </dt>	
          
 	   <dt>
@@ -397,7 +400,10 @@ src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_comm/fee_w_day.gif">
          <span class="txt_720">
             <img alt="2호선" 
             src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_comm/icon_metro_line2.gif">
-                           문래 3번 출구 500m 이내
+            ${recVo.subRegion }
+            ${recVo.subNum }
+            ${recVo.subName }
+            ${recVo.subInfo }
          </span>
       </dt> 
       <dt>

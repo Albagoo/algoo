@@ -234,7 +234,7 @@
 					   id="address_detail" placeholder="상세주소">
 			</div>
 		</div>
-	<input type ="text" name="chkId" id="chkId">
+	<input type ="hidden" name="chkId" id="chkId">
 		<div class="regi_group" id="regi_submit" >
 			<input type="submit" id="bt_register" value="가입하기">
 		</div>

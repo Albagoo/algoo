@@ -15,7 +15,7 @@ action="<c:url value='/faq/faqDelete.ag'/>">
 		<fieldset>
 		<legend>FAQ 삭제</legend>
 	        <div>           
-	        	<span class="sp">${param.faqNo } FAQ를 삭제하겠습니까?</span>                        
+	        	<span class="sp">FAQ ${param.faqNo }번 질문을 삭제하겠습니까?</span>                        
 	        </div>
 	        <div class="center">
 	            <input type ="submit"  value="삭제" />

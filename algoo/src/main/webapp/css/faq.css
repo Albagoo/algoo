@@ -1,0 +1,40 @@
+#userList{
+	/*clear: both;*/
+	width:96%;
+	margin: 0 auto;
+	overflow: auto;
+	background: white;
+}
+#container #leftNavi{
+	float: left; /*background:#FFCCCC;*/
+	width: 20%;
+	padding: 20px 0 35px 0;
+	border: 1px solid #eee;
+	margin-top: 16px;
+}
+#container #leftNavi dt	{
+	padding: 7px 5px 25px 20px;
+	font-weight: bold;
+}			
+#container #leftNavi dd	{
+	display: block;
+	padding: 0 20px;
+}
+#container #leftNavi dd a	{
+	text-decoration: none;
+	display: block;
+	color: #585721;
+	border-bottom: 1px solid #ddd;
+	padding: 10px 5px;
+}
+#container #leftNavi dd a:hover, #container #leftNavi dd a:focus{
+	background:#EDF2C6 ;
+}
+#answer p{
+	font-size: 0.8em;
+}
+#jQuery_accordion{
+	float:left;
+	width: 75%;
+	padding: 16px 0 16px 16px;
+}

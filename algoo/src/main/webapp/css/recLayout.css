@@ -31,46 +31,56 @@ a:hover {
 ---------------------------------------------- */
 .recWrite {
    width: 900px;
-   background: #FaFaFa;
+   background: #fffdfd;
    margin: 0 auto;
 }
-.recWrite input[type=checkbox] {
-   color: #ffa;
+.recWrite dl dt {
+   padding-bottom: 15px; 
 }
-
+.recWrite dl{
+	background: #fffcfc;
+}
 .companyInfo {
    width: 880px;
    height: 300px;
+   padding-top: 15px;
+   
 }
 
 .personInfo {
    width: 880px;
    height: 210px;
+   padding-top: 15px;
 }
 
 .workInfo {
    width: 880px;
-   height: 210px;
+   height: 250px;
+   padding-top: 15px;
 }
 
 .workCondition {
    width: 880px;
    height: 280px;
+   padding-top: 15px;
 }
 
 .requestCondition {
    width: 880px;
    height: 320px;
+   padding-top: 15px;
 }
 
 .recContent {
    width: 880px;
    height: 250px;
+   padding-top: 15px;
 }
 
 .detailContent {
    width: 880px;
    height: 300px;
+   padding-top: 15px;
 }
 .detailContent textarea{
    margin: 30px;
@@ -82,11 +92,11 @@ a:hover {
 }
 
 .tit {
-   margin:10px;
+   margin:5px 10px 10px 10px;
    
 }
 .by{
- margin:10px 0 0 0;
+ margin:5px 0 0 0;
    font-family:'bon godic';
    float: left;
    font-size: 10pt;
@@ -104,18 +114,19 @@ a:hover {
    font-size: 10pt;
    color: #511;
 }
+
 .radio{
    margin:10px 0;
    height:
    float: left;
 }
 .prefe{
-   margin:10px 0 0 0;
+   margin:5px 0 0 0;
    width:115px;
    float: left;
 }
 .rence{
-   margin: 10px 0 0 1px;
+   margin: 5px 0 0 0px;
    float: left;
 }
 .txt{
@@ -124,8 +135,9 @@ a:hover {
    float: left;
 }
 
-.txt_30,.txt_35,.txt_40,.txt_45,.txt_50,.txt_55,.txt_60,.txt_65,.txt_70,.txt_75,.txt_80,.txt_85,.txt_90,.txt_95,.txt_100,.txt_105,.txt_110,.txt_115,.txt_120,.txt_125,.txt_130,.txt_135,.txt_140,.txt_145,.txt_150,.txt_155,.txt_160,.txt_165,.txt_170,.txt_175,.txt_180,.txt_185,.txt_190,.txt_195,.txt_200,.txt_205,.txt_210,.txt_220,.txt_230,.txt_240,.txt_250,.txt_260,.txt_270,.txt_280,.txt_290,.txt_300,.txt_350,.txt_400{
-   margin:10px;
+
+.txt_30,.txt_35,.txt_40,.txt_45,.txt_50,.txt_55,.txt_60,.txt_65,.txt_70,.txt_75,.txt_80,.txt_85,.txt_90,.txt_95,.txt_100,.txt_105,.txt_110,.txt_115,.txt_120,.txt_125,.txt_130,.txt_135,.txt_140,.txt_145,.txt_150,.txt_155,.txt_160,.txt_165,.txt_170,.txt_175,.txt_180,.txt_185,.txt_190,.txt_195,.txt_200,.txt_205,.txt_210,.txt_220,.txt_230,.txt_240,.txt_250,.txt_260,.txt_270,.txt_280,.txt_290,.txt_300,.txt_350,.txt_400.txt_500{
+   margin:5px 10px;
    float: left;
 }
 .txth_30,.txth_35,.txth_40,.txth_45,.txth_50,.txth_55,.txth_60,.txth_65,.txth_70,.txth_75,.txth_80,.txth_85,.txth_90,.txth_95,.txth_100,.txth_105,.txth_110,.txth_115,.txth_120,.txth_125,.txth_130,.txth_135,.txth_140,.txth_145,.txth_150,.txth_155,.txth_160,.txth_165,.txth_170,.txth_175,.txth_180,.txth_185,.txth_190,.txth_195,.txth_200,.txth_205,.txth_210,.txth_220,.txth_230,.txth_240,.txth_250,.txth_260,.txth_270,.txth_280,.txth_290,.txth_300,.txth_350,.txth_400{
@@ -189,6 +201,12 @@ a:hover {
 .txt_150 ,.txth_150{
    width: 150px;
 }
+.txt_300 ,.txth_300{
+   width: 300px;
+}
+.txt_500 ,.txth_500{
+   width: 500px;
+}
 .phone1{
 margin:10px;
    width: 50px;
@@ -224,7 +242,7 @@ margin:10px;
  font-family:'bon godic';
    font-variant:small-caps;
    font-weight: bold;
-   font-size: 10.5pt; 
+   font-size: 13.5pt; 
 }
 .font_11{
    font-size: 10pt;

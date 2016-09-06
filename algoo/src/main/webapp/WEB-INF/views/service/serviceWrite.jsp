@@ -123,11 +123,11 @@ src= "<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
      </c:if>
      
                  
-    <input type="text" name="serviceCode"
+    <input type="hidden" name="serviceCode"
      id="serviceCode" value="${sCode }">
-    <input type="text" name="grade"
+    <input type="hidden" name="grade"
      value="${serviceVo.grade }"> 
-    <input type="text" name="days"
+    <input type="hidden" name="days"
      value="${serviceVo.days }"> 
     <input class="button white" type="button"
      id="submitBt" value="등록">

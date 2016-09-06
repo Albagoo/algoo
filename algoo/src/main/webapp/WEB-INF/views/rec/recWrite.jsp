@@ -3,14 +3,15 @@
 <%@ include file="../inc/simple_top.jsp" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<style>
 
-</style>
 <link rel="stylesheet" type="text/css" 
 href="<c:url value='/css/clear.css'/>" />
 <link rel="stylesheet" type="text/css" 
 href="<c:url value='/css/recLayout.css'/>"/>
-
+<script type="text/javascript"
+src="<c:url value='/js/member.js'/>"></script>
+<script type="text/javascript"
+src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 <link rel="stylesheet" type="text/css" 
 href="<c:url value='/css/simpleButton.css'/>" />
 <script type="text/javascript">
@@ -32,10 +33,13 @@ href="<c:url value='/css/simpleButton.css'/>" />
     	  if($("#grade").val().length<1){
     		  alert("서비스기간을 설정해주세요");
     		  $("#serviceBt").focus();
+    	  }else if($("#title").val().length<1){
+    		  alert("채용 제목을 설정해주세요");
+              $("#title").focus();     		  
     	  }else{
     		  frmWrite.action
               ="<c:url value='/rec/recWrite.ag'/>";
-              frmWrite.submit()
+              frmWrite.submit();
     	  }
 	});
       
@@ -52,7 +56,7 @@ type="text/javascript"></script>
    action="<c:url value='/rec/recWrite.ag'/>">
 	<div class="recWrite">
 <div>
-<input class="tit" type="text"
+<input class="tit" type="hidden"
 id="serviceCode" name="serviceCode"
 readonly="readonly">
 <span class="txt_85">서비스등급</span>
@@ -65,8 +69,8 @@ readonly="readonly">
  readonly="readonly">
 <input type="button" value="서비스기간설정"
  id="serviceBt" title="새창열림" class="white medium button">
- <input type="text" value="${compVo.compCode }"
- name="compCode" readonly="readonly">
+ <input type="hidden" value="${compVo.compCode }"
+ name="compCode" readonly="readonly" >
  </div>
 	<div id="div1"></div>
 		<h2>기업 정보</h2>
@@ -74,18 +78,18 @@ readonly="readonly">
 			<dl class="clearBoth">
 				<dt>
 					<span class="tit">회사/점포명</span> 
-					<input type="text" class="txt"
+					<input type="text" class="txt_150"
 					readonly="readonly" value="${compVo.compName }">				
 				</dt>
 				<dt>
 					<span class="tit">대표자명(ceo)</span>
-					<input type="text" class="txt"
+					<input type="text" class="txt_150"
 					readonly="readonly" value="${compVo.ceo }"
 					>
 				</dt>
 				<dt>
 					<span class="tit">사업자등록번호</span>
-					<input type="text" class="txt"
+					<input type="text" class="txt_150"
 					readonly="readonly" value="${compVo.compNum }">
 				</dt>
 				<dt>
@@ -107,7 +111,6 @@ style="width: 150px;height: 100px;border: 1px solid gray">
 		</div>
 		<h2 class="clearBoth">담당자 정보</h2>
 		<div class="personInfo bg">
-		 <dl>
            <dl class="clearBoth">
             <dt>
                <span class="tit">담당자명</span> 
@@ -177,7 +180,6 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                </select>
             </dt>
          </dl>
-         </dl>
 		</div>
 
 		<h2>업무내용 및 근무지정보</h2>
@@ -189,11 +191,11 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                placeholder="회사명(지점명)" 
                name="compName">
             </dt>
-            <dt >
+            <dt>
                <span class="tit">채용제목</span>
                <input type="text" class="txt"
-               placeholder="알바 구할땐? 알구!"
-               name="title">
+               placeholder="성실하게 함께할 가족 구합니다"
+               name="title" id="title">
             </dt>
             <dt>
                <span class="tit">업직종</span>
@@ -214,18 +216,19 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <span class="tit">근무지주소</span>
                  <input type="text" class="txt_70"
                  placeholder="우편번호" name="zipcode"
-                 id="zipcode" maxlength="5">
-               
-                   <input type="text" class="txt_100"
+                 id="zipcode" readonly="readonly">
+                   <input type="text" class="txt_500"
                  placeholder="주소" name="address"
-                 id="address">
-               
-                  <input type="text" class="txt_150"
+                 id="address" readonly="readonly">
+             </dt>
+             <dt>  
+               <span class="tit">상세주소</span>
+                  <input type="text" class="txt_500"
                  placeholder="상세주소" name="addressDetail"
                  id="addressDetail">
-               
-               <input type="button" class="white medium button txt_120"
-               value="우편번호 찾기" id="zipcodeBt">
+                                 
+               <input type="button" class="white button"
+               value="우편번호 찾기" id="btnZipcode">
             </dt>
             <dt>
                <span class="tit">인근지하철</span>
@@ -262,97 +265,99 @@ style="width: 150px;height: 100px;border: 1px solid gray">
 
                <label class="radio" for="one">
                <input type="radio" id="one"
-               name="workTerm" >
+               name="workTerm" value="하루(1일)" 
+               checked="checked">
                <span class="font_11">하루(1일)</span></label>
                
                <label class="radio" for="week">
                <input type="radio" id="week"
-               name="workTerm">
+               name="workTerm" value="1주일이하">
                <span class="font_11">1주일이하</span></label>
                
                <label class="radio" for="month">
                <input type="radio" id="month"
-               name="workTerm">
+               name="workTerm" value="1주일~1개월">
                <span class="font_11">1주일~1개월</span></label>
                
                <label class="radio" for="threeMonth">
                <input type="radio" id="threeMonth"
-               name="workTerm">
+               name="workTerm" value="1개월~3개월">
                <span class="font_11">1개월~3개월</span></label>
                
                <label class="radio" for="sixMonth">
                <input type="radio" id="sixMonth"
-               name="workTerm">
+               name="workTerm" value="3개월~6개월">
                <span class="font_11">3개월~6개월 </span></label>
                
                <label class="radio" for="year">
                <input type="radio" id="year"
-               name="workTerm">
+               name="workTerm" value="6개월~1년">
                <span class="font_11">6개월~1년</span></label>
                
                <label class="radio" for="consult">
                <input type="radio" id="consult"
-               name="workTerm">
+               name="workTerm" value="기간협의">
                <span class="font_11">기간협의</span></label>
                
             </dt>
             <dt>
                <span class="tit">근무요일</span>
-                <label class="radio" for="MontoSun">
+               <label class="radio" for="MontoSun">
                <input type="radio" id="MontoSun" 
-               name="workDays">
+               name="workDays" checked="checked"
+               value="월~일">
                <span class="font_11">월~일</span></label>
                
                <label class="radio" for="MontoSat">
                <input type="radio" id="MontoSat"
-               name="workDays">
+               name="workDays" value="월~토">
                <span class="font_11">월~토</span></label>
                
                <label class="radio" for="MontoFri">
                <input type="radio" id="MontoFri"
-               name="workDays">
+               name="workDays" value="월~금">
                <span class="font_11">월~금</span></label>
                
                
                <label class="radio" for="SatSun">
                <input type="radio" id="threeMonth"
-               name="workDays">
+               name="workDays" value="주말(토,일)">
                <span class="font_11">주말(토,일)</span></label>
                
                
                <label class="radio" for="sixDay">
                <input type="radio" id="sixDay"
-               name="workDays">
+               name="workDays" value="주 6일">
                <span class="font_11">주 6일</span></label>
                
                
                <label class="radio" for="fiveDay">
                <input type="radio" id="fiveDay"
-               name="workDays">
+               name="workDays" value="주 5일">
                <span class="font_11">주 5일</span></label>
                
                
                <label class="radio" for="fourDay">
                <input type="radio" id="fourDay"
-               name="workDays">
+               name="workDays" value="주 4일">
                <span class="font_11">주 4일</span></label>
                
                
                <label class="radio" for="threeDay">
                <input type="radio" id="threeDay"
-               name="workDays">
+               name="workDays" value="주 3일">
                <span class="font_11">주 3일</span></label>
                
                
                <label class="radio" for="twoDay">
                <input type="radio" id="twoDay"
-               name="workDays">
+               name="workDays" value="주 2일">
                <span class="font_11">주 2일</span></label>
                
                
                <label class="radio" for="oneDay">
                <input type="radio" id="oneDay"
-               name="workDays">
+               name="workDays" value="주 1일">
                <span class="font_11">주 1일</span></label>
                
                
@@ -420,14 +425,14 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <span class="tit">선택</span>
                <select class="txt_85 white button medium">
                <option value="null">급여</option>
-               <option value="day">일급</option>
-               <option value="week">주급</option>
-               <option value="month">월급</option>
+               <option value="일급">일급</option>
+               <option value="주급">주급</option>
+               <option value="월급">월급</option>
                </select>
                <input type="text" class="txt_150"
                name="pay" id="pay" value="0">
                  <span class="txt_30">원</span>
-               <span class="txt_150 font_11 pink">최저임금 6030원</span> 
+               <span class="txt_150 font_11 white">최저임금 6030원</span> 
             </dt>
             <dt>
                <span class="tit">근무형태</span>
@@ -473,7 +478,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                   
                <label class="radio" for="gender">
                <input type="radio" id="gender"
-               name="gender">
+               name="gender" checked="checked">
                <span class="font_11">성별무관</span></label>
                
                
@@ -494,7 +499,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                
                <label class="radio" for="donAge">
                <input type="radio" id="donAge"
-               name="age">
+               name="age" checked="checked">
                <span class="font_11">연령무관</span></label>
                
                
@@ -526,60 +531,60 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <span class="tit">학력조건</span>
                <label class="radio" for="eduLv">
                <input type="radio" id="eduLv"
-               name="educateLv">
+               name="educateLv" checked="checked">
                <span class="font_11">학력무관</span></label>
                
                
                <label class="radio" for="middle">
                <input type="radio" id="middle"
-               name="educateLv"></label>
+               name="educateLv">
                <span class="font_11">중학교졸업
-               </span>
+               </span></label>
                
                <label class="radio" for="high">
                <input type="radio" id="high"
-               name="educateLv"></label>
+               name="educateLv">
                <span class="font_11">고등학교졸업
-               </span>
+               </span></label>
                
-               <label class="radio" for="university2">
+               <label class="radio" for="univ23">
                <input type="radio" id="univ23"
-               name="educateLv"></label>
+               name="educateLv">
                <span class="font_11">대학(2,3년제)졸업
-               </span>
+               </span></label>
                
-               <label class="radio" for="university4">
+               <label class="radio" for="univ4">
                <input type="radio" id="univ4"
-               name="educateLv"></label>
+               name="educateLv">
                <span class="font_11">대학(4년제)졸업
-               </span>
+               </span></label>
                
                <label class="radio" for="graduate">
                <input type="radio" id="graduate"
-               name="educateLv"></label>
+               name="educateLv">
                <span class="font_11">대학원졸업~
-               </span>
+               </span></label>
                
             </dt>
             <dt>
                <span class="tit">경력사항</span>
                 <label class="radio" for="work">
                <input type="radio" id="work"
-               name="career"></label>
+               name="career" checked="checked">
                <span class="font_11">경력무관
-               </span>
+               </span></label>
                
                <label class="radio" for="newcomer">
-               <input type="radio" id="high"
-               name="career"></label>
+               <input type="radio" id="newcomer"
+               name="career">
                <span class="font_11">신입
-               </span>
+               </span></label>
                
                <label class="radio" for="experience">
                <input type="radio" id="experience"
-               name="career"></label>
+               name="career">
                <span class="font_11">경력
-               </span>
+               </span></label>
                
             </dt>
             <dt>
@@ -587,88 +592,88 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                
                <label class="rence" for="expPre">
                <input type="checkbox" id="exp"
-               name="preference">
+               name="preference" value="동종업계 경력자">
                <span class="font_11">동종업계 경력자
                </span></label>
                
                <label class="rence" for="licensePre">
                <input type="checkbox" id="licensePre"
-               name="licensePre">
+               name="preference" value="관련자격증 소시자">
                <span class="font_11">관련자격증 소지자
                </span></label>
                
                <label class="rence" for="pcPre">
                <input type="checkbox" id="pcPre"
-               name="pcPre">
+               name="preference" value="컴퓨터활용 가능자">
                <span class="font_11">컴퓨터활용 가능자
                </span></label>
                
                <label class="rence" for="longPre">
                <input type="checkbox" id="longPre"
-               name="longPre">
+               name="preference" value="장기근무 가능자">
                <span class="font_11">장기근무 가능자
                </span></label>
                
                <span class="clearBoth tit"></span>
                <label class="rence" for="engPre">
                <input type="checkbox" id="engPre"
-               name="engPre">
+               name="preference" value="영어 가능자">
                <span class="font_11">영어 가능자
                </span></label>
                
                <label class="rence" for="jpPre">
                <input type="checkbox" id="jpPre"
-               name="jpPre">
+               name="preference" value="일어 가능자">
                <span class="font_11">일어 가능자
                </span></label>
                
                <label class="rence" for="cnPre">
                <input type="checkbox" id="cnPre"
-               name="cnPre">
+               name="preference" value="중국어 가능자">
                <span class="font_11">중국어 가능자
                </span></label>
                
                <label class="rence" for="insidePre">
                <input type="checkbox" id="insidePre"
-               name="insidePre">
+               name="preference" value="인근 거주자">
                <span class="font_11">인근 거주자
                </span></label>
                
                <span class="clearBoth tit"></span>
                <label class="rence" for="drivePre">
                <input type="checkbox" id="drivePre"
-               name="drivePre">
+               name="preference" value="운전면허 소지자">
                <span class="font_11">운전면허 소지자
                </span></label>
                
                <label class="rence" for="byclePre">
                <input type="checkbox" id="byclePre"
-               name="byclePre">
+               name="preference" value="원동기면허 소지자">
                <span class="font_11">원동기면허 소지자
                </span></label>
                
                <label class="rence" for="carPre">
                <input type="checkbox" id="carPre"
-               name="carPre">
+               name="preference" value="차량 소지자">
                <span class="font_11">차량 소지자
                </span></label>
                
                <label class="rence" for="militaryPre">
                <input type="checkbox" id="militaryPre"
-               name="militaryPre">
+               name="preference" value="군필자">
                <span class="font_11">군필자
                </span></label>
                
                <span class="clearBoth tit"></span>
                <label class="rence" for="femailPre">
                <input type="checkbox" id="femailPre"
-               name="femailPre">
+               name="preference" value="여성">
                <span class="font_11">여성
                </span></label>
                
                <label class="rence" for="mrsPre">
                <input type="checkbox" id="mrsPre"
-               name="mrsPre">
+               name="preference" value="경력단절여성">
                <span class="font_11">경력단절여성
                </span></label>
                
@@ -685,67 +690,68 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <span class="by">명</span>
                <label class="rence" for="tenPeople">
                <input type="checkbox" id="experience"
-               name="recruitMember">
+               name="recruitMember" value="0명">
                <span class="font_11">0명
                </span></label>
                
                <label class="rence" for="hundredPeople">
                <input type="checkbox" id="hundredPeople"
-               name="recruitMember">
+               name="recruitMember" value="00명">
                <span class="font_11">00명
                </span></label>
             </dt>
             <dt>
                <span class="tit">모집대상</span>
-               <span class="txt_60 font_11">
+               <label class="txt_60 font_11">
                <input type="checkbox" name="recruitPerson"
-               value="청소년">청소년</span>
+               value="청소년">청소년</label>
                
-                <span class="txt_60 font_11">
-                <input type="checkbox" 
-               value="대학생">대학생</span>
+                <label class="txt_60 font_11">
+                <input type="checkbox" name="recruitPerson"
+               value="대학생">대학생</label>
                
-                <span class="txth_50 font_11">
-                <input type="checkbox" 
-               value="주부">주부</span>
+                <label class="txt_50 font_11">
+                <input type="checkbox" name="recruitPerson"
+               value="주부">주부</label>
                
-                <span class="txt_50 font_11">
-                <input type="checkbox" 
-               value="장년">장년</span>
+                <label class="txt_50 font_11">
+                <input type="checkbox" name="recruitPerson"
+               value="장년">장년</label>
                
-                <span class="txt_60 font_11">
-                <input type="checkbox" 
-               value="장애인">장애인</span>
+                <label class="txt_60 font_11">
+                <input type="checkbox" name="recruitPerson"
+               value="장애인">장애인</label>
                
-                <span class="txt_60 font_11">
-                <input type="checkbox" 
-               value="초보자">초보자</span>
+                <label class="txt_60 font_11">
+                <input type="checkbox" name="recruitPerson"
+               value="초보자">초보자</label>
                
-               <span class="txt_75 font_11">
-                <input type="checkbox" 
-               value="재택가능">재택가능</span>
+               <label class="txt_75 font_11">
+                <input type="checkbox" name="recruitPerson"
+               value="재택가능">재택가능</label>
             </dt>
             <dt>
                <span class="tit">모집종료일</span>
                
-               <label class="radio" for="one">
-               <input type="radio" id="one" 
-               name="recruitDeadline" ></label>
-               
+               <label class="radio" for="oneCal">
+               <input type="radio" id="oneCal" 
+               name="recruitDeadlineTest" checked="checked" >
                <span class="font_11">
-               <input type="text" >
-               <button>날짜선택</button> </span>
+               <input type="text" id="calText">
+               <input type="button" class="button white medium"
+               value="날짜선택" id="calBt"> </span></label>
                
-               <label class="radio" for="week">
-               <input type="radio" id="week"
-               name="recruitDeadline"></label>
-               <span class="font_11">1주일이하</span>
+               <label class="radio" for="weekCal">
+               <input type="radio" id="weekCal"
+               name="recruitDeadlineTest" value="sysdate+7">
+               <span class="font_11">1주일이하
+               </span></label>
                
-               <label class="radio" for="month">
-               <input type="radio" id="month"
-               name="lastday"></label>
+               <label class="radio" for="monthCal">
+               <input type="radio" id="monthCal"
+               name="recruitDeadlineTest" value="sysdate+30" >
                <span class="font_11">1주일~1개월
-               </span>
+               </span></label>
             </dt>
             <dt>
                <span class="tit">접수방법</span>
@@ -799,8 +805,8 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                name="recForm">
                <span class="font_11">자사지원양식
                
-               (<input type="radio">필수,
-               <input type="radio">선택 )
+               (<input type="radio" name="recForm">필수,
+               <input type="radio" name="recForm">선택 )
                </span></label>
                
             </dt>

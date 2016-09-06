@@ -29,7 +29,7 @@
 		    from
 		        (select faq_no, category, title, content, regdate from faq 
 		        <include refid="searchWhere"></include>
-		        order by faq_no desc) LIST_ALL
+		        order by category desc) LIST_ALL
 		) 
 		<![CDATA[
 		where  RNUM> #{firstRecordIndex} 

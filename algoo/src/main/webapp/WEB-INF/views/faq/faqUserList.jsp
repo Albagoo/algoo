@@ -29,7 +29,7 @@
 	min-height: 0; /* support: IE7 */
 	font-size: 0.8em;
     border:1px solid lightgray;
-    background:#eee;
+    background:#fffafa;
     color:black;
     text-align: left;
 
@@ -38,10 +38,19 @@
 
 <section>
 <div id="userList">
+	<div id="Qmark">
+	<img src="<c:url value='/images/faq-1.png'/>" style="height: 70px;">
+	</div>
 	<div id="container">
 		<nav>
 			<dl id="leftNavi">
-				<dt>자주묻는 질문과 답변</dt>
+				<dt><a href="#">개인회원</a></dt>
+				<dd><a href="#">회원가입 및 탈퇴</a></dd>
+				<dd><a href="#">회원정보관리</a></dd>
+				<dd><a href="#">이력서 관리 및 활용</a></dd>
+				<dd><a href="#">기타문의</a></dd>
+				<br><br>
+				<dt><a href="#">기업회원</a></dt>
 				<dd><a href="#">회원가입 및 탈퇴</a></dd>
 				<dd><a href="#">회원정보관리</a></dd>
 				<dd><a href="#">이력서 관리 및 활용</a></dd>
@@ -49,15 +58,20 @@
 			</dl>
 		</nav>
 	</div>
-	<div id="jQuery_accordion">
-		<c:forEach var="i" items="${ulist}">
-			<h3>&nbsp; [${i.category }] ${i.title}</h3>
-	  		<div id="answer">
-	    		<p>
-	    			${i.content}
-				</p>
-			</div>
-		</c:forEach>  
+	<div id="faqBody">
+		<div id="faqinfo">
+			<p> FAQ > 개인회원 </p>
+		</div>
+		<div id="jQuery_accordion">
+			<c:forEach var="i" items="${ulist}">
+				<h3>&nbsp; [${i.category }] ${i.title}</h3>
+		  		<div id="answer">
+		    		<p>
+		    			${i.content}
+					</p>
+				</div>
+			</c:forEach>  
+		</div>
 	</div>
 </div>
 </section> 

@@ -146,8 +146,6 @@
 			<div id="pwd2_div">
 				<input type="password" name="password2" id="pwd2" placeholder="비밀번호 확인">
 			</div>
-			
-			
 		</div>
 		<div class="regi_group">
 			<div id="info_div">

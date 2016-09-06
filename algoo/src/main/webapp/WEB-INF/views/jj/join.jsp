@@ -27,17 +27,17 @@
 				
 				<div id="join_google">
 					<img alt="구글로고" src="<c:url value='/images/icon_google.png'/>"/>
-					<input type="button" id="bt_google" value="구글 로그인">
+					<input type="button" id="bt_google" value="구글로 로그인">
 				</div>
 				
 				<div id="join_naver">
 					<img alt="네이버로고" src="<c:url value='/images/icon_naver.png'/>"/>
-					<input type="button" id="bt_naver" value="네이버 로그인">
+					<input type="button" id="bt_naver" value="네이버로 로그인">
 				</div>
 				
 				<div id="join_kakao">
 					<img alt="카카오로고" src="<c:url value='/images/icon_kakao.png'/>"/>
-					<input type="button" id="bt_kakao" value="카카오 로그인">
+					<input type="button" id="bt_kakao" value="카카오로 로그인">
 				</div>
 					
 				<div id="join_facebook">

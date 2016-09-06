@@ -1,18 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta charset="utf-8">
-<script type="text/javascript" 
-	src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
+<%@ include file="../inc/top.jsp" %>
+
 <script type="text/javascript">	
 	$(document).ready(function(){
 		$(".divList .box2 tbody tr")
 			.hover(function(){
-				$(this).css("background","azure")
+				$(this).css("background","LavenderBlush")
 					.css("cursor","pointer");
 			}, function(){
 				$(this).css("background","");
@@ -30,22 +24,20 @@
 		document.frmPaging.currentPage.value=curPage;
 		frmPaging.submit();
 	}
-	
 </script>
 
 <style type="text/css">
-	body{
+	section{
 		padding:5px;
 		margin:5px;
 	}
-	
+	span{
+		font-size:24px;
+		text-align:left;
+	}
 </style>
 
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>공지사항 목록</title>
-</head>
-<body>
-
+<section>
 <!-- 08-31 paging form start-->
 <form name="frmPaging" method="post"
  action="<c:url value='/notice/list.ag'/>"
@@ -62,7 +54,8 @@ action="<c:url value='/notice/list.ag'/>">
 	<input type="hidden" name="categoryName" id="categoryName2" value="${param.categoryName }">
 	<input type="hidden" name="currentPage" id="currentPage2" value="1" >	
 </form>
-<h2>공지사항</h2>
+<div class="divListAll" align="center">
+<span>공지사항</span>
 <p>
 	<c:if test="${!empty param.searchKeyword }">
 		<!-- search case -->
@@ -82,7 +75,7 @@ action="<c:url value='/notice/list.ag'/>">
 	 	style="border:1px solid;
 	 	 		width:1024px">
 	<thead>
-	  <tr style="background-color:#d0d0d0">
+	  <tr style="background-color:LightPink">
 	    <th scope="col" style="width: 53px;">
 	    <select name="categoryInput" id="categoryInput">
 	    <!--  onchange="location.href=this.value"> -->
@@ -144,9 +137,7 @@ action="<c:url value='/notice/list.ag'/>">
 	<!-- move to last block -->
 	<c:if test="${pagingInfo.firstPage>1 }">	
 		<a href="#" onclick="pageFunc(${pagingInfo.firstPage-1})">
-			<%-- <img src="<c:url value='/images/first.JPG'/>" 
-					alt="이전블럭으로"> --%>&lt;&lt;
-		</a>
+			&lt;&lt;</a>
 	</c:if>
 	<!-- add page number -->						
 	<!-- [1][2][3][4][5][6][7][8][9][10] -->
@@ -154,7 +145,7 @@ action="<c:url value='/notice/list.ag'/>">
 		begin="${pagingInfo.firstPage }" 
 		end="${pagingInfo.lastPage }">
 		<c:if test="${i==pagingInfo.currentPage }">					
-			<span style="color:blue;font-weight: bold">
+			<span style="color:HotPink;font-weight:bold">
 				${i}</span>
 		</c:if>		
 		<c:if test="${i!=pagingInfo.currentPage }">
@@ -168,9 +159,7 @@ action="<c:url value='/notice/list.ag'/>">
 	="${pagingInfo.lastPage<pagingInfo.totalPage}">				
 		<a href="#" 
 	onclick="pageFunc(${pagingInfo.lastPage+1})">
-			<%-- <img src="<c:url value='/images/last.JPG'/>" 
-					alt="다음블럭으로"> --%>&gt;&gt;
-		</a>
+			&gt;&gt;</a>
 	</c:if>
 </div>
 <!-- 09-01 search part -->
@@ -199,5 +188,7 @@ action="<c:url value='/notice/list.ag'/>">
 		<input type="submit" value="검색">
     </form>
 </div>
-</body>
-</html>
+</div>
+</section>
+
+<%@ include file="../inc/bottom.jsp" %> 

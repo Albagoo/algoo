@@ -17,6 +17,12 @@
 			}, function(){
 				$(this).css("background","");
 			});
+		
+		//09-02 searching category
+		 $("#categoryInput").change(function(){
+		    	$("#categoryName2").val($("#categoryInput").val());
+		    	$("#frmPage").submit();
+		    });
 	});
 	
 	//08-31 paging
@@ -24,6 +30,7 @@
 		document.frmPaging.currentPage.value=curPage;
 		frmPaging.submit();
 	}
+	
 </script>
 
 <style type="text/css">
@@ -41,14 +48,19 @@
 
 <!-- 08-31 paging form start-->
 <form name="frmPaging" method="post"
- action="<c:url value='/notice/list.ag'/>">
-	<%-- <input type="hidden" name="categoryName" value="${param.categoryName }"> --%>
-	<input type="hidden" name="currentPage">	
+ action="<c:url value='/notice/list.ag'/>"
+ id="frmPaging">
+ 	<!-- 09-02 category searching -->
+	<input type="hidden" name="categoryName" id="categoryName" value="${param.categoryName }">
+	<input type="hidden" name="currentPage" id="currentPage"  >	
 </form>
 <!-- paging form end -->
 
-<form name="frmPage" method="post" 
-	action="<c:url value='/notice/list.ag'/>">
+<!-- 09-05 search for category -->
+<form name="frmPage" id="frmPage" method="post" 
+action="<c:url value='/notice/list.ag'/>">
+	<input type="hidden" name="categoryName" id="categoryName2" value="${param.categoryName }">
+	<input type="hidden" name="currentPage" id="currentPage2" value="1" >	
 </form>
 <h2>공지사항</h2>
 <p>
@@ -72,29 +84,30 @@
 	<thead>
 	  <tr style="background-color:#d0d0d0">
 	    <th scope="col" style="width: 53px;">
-	    <select name="noticeSelect" onchange="location.href=this.value">
-		<option value="#">구분</option>
-		<option value="#"
-		 <c:if test="${param.noticeSelect=='공지' }">selected</c:if>>
+	    <select name="categoryInput" id="categoryInput">
+	    <!--  onchange="location.href=this.value"> -->
+		<option value="">구분</option>
+		<option value="공지"
+		 <c:if test="${param.categoryName=='공지' }">selected</c:if>>
 		 공지</option>
-		<option value="#"
-		 <c:if test="${param.noticeSelect=='이벤트' }">selected</c:if>>
+		<option value="이벤트"
+		 <c:if test="${param.categoryName=='이벤트' }">selected</c:if>>
 		 이벤트</option>
-		<option value="#"
-		 <c:if test="${param.noticeSelect=='점검' }">selected</c:if>>
+		<option value="점검"
+		 <c:if test="${param.categoryName=='점검' }">selected</c:if>>
 		 점검</option>
 		</select>
 		</th>
-	    <th scope="col" style="width: 354px; ">제목</th>
+	    <th scope="col" style="width: 370px; ">제목</th>
 	    <th scope="col" style="width: 130px; ">작성자</th>
-	    <th scope="col" style="width: 235px; ">작성일</th>
-	    <th scope="col" style="width: 67px; ">조회수</th>
+	    <th scope="col" style="width: 130px; ">작성일</th>
+	    <th scope="col" style="width: 70px; ">조회수</th>
 	  </tr>
 	</thead>
 	<tbody>
 	<c:if test="${empty noticeList}">
 		<tr>
-			<td colspan="5">
+			<td colspan="5" style="text-align:center">
 				등록된 공지사항이 없습니다
 			</td>
 		</tr>
@@ -163,7 +176,7 @@
 <!-- 09-01 search part -->
 <div class="divSearch" style="text-align:center;width:1024px">
 	<form name="frmSearch" method="post" 
-   	action="<c:url value='/notice/list.ag' />" >
+   	 action="<c:url value='/notice/list.ag' />" >
         <select name="searchCondition">
             <option value="title"
            	   <c:if test="${param.searchCondition=='title'}">

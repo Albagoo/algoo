@@ -67,13 +67,16 @@ type="text/javascript"></script>
         </div>
         <div>  
         	<label for="content">내용</label>
+        	<hr>
         </div>
         <div>	        
  			<textarea id="content" name="content" 
  			rows="12" cols="40"
- 			value=${noticeVo.content }></textarea>
+ 			value=${noticeVo.content } 
+ 			></textarea>
         </div>
         <div class="center" style="text-align:center">
+        <hr>
             <input type = "submit" value="수정"/>
             <input type = "Button" value="공지목록" 
       			onclick

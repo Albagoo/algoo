@@ -29,9 +29,14 @@ public class NoticeServiceImpl implements NoticeService{
 		return noticeDao.selectByCategory(vo);
 	}
 	
-	@Override //08-31
+	@Override	//08-31
 	public int selectTotalCount(ListNoticeVO vo) {
 		return noticeDao.selectTotalCount(vo);
+	}
+
+	@Override	//09-02
+	public List<NoticeVO> searchCategory(ListNoticeVO vo) {
+		return noticeDao.searchCategory(vo);
 	}
 
 	@Override

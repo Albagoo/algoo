@@ -18,31 +18,43 @@
 <body>
 	<h2>공지사항 상세내용</h2>
 	<div class="divForm">
+	<table style="border:1px solid;width:1024px">
+		<tr>
 		<div class="firstDiv">
-			<span class="sp1">제목</span> 
-			<span>${noticeVo.title}</span>
+			<th width="120px" style="background-color:#d0d0d0">
+				<span class="sp1">제목</span></th> 
+			<td width="200px"><span>${noticeVo.title}</span></td>
+		</div>
+		</tr><tr>
+		<div>
+			<th width="120px" style="background-color:#d0d0d0">
+				<span class="sp1">작성자</span></th> 
+			<td><span>${noticeVo.writer}</span></td>
 		</div>
 		<div>
-			<span class="sp1">작성자</span> 
-			<span>${noticeVo.writer}</span>
+			<th width="120px" style="background-color:#d0d0d0">
+				<span class="sp1">조회수</span></th> 
+			<td width="200px"><span>${noticeVo.readCount}</span></td>
 		</div>
 		<div>
-			<span class="sp1">등록일</span> 
-			<span>${noticeVo.regdate}</span>
+			<th width="120px" style="background-color:#d0d0d0">
+				<span class="sp1">등록일</span></th> 
+			<td><span>${noticeVo.regdate}</span></td>
 		</div>
-		<div>
-			<span class="sp1">조회수</span> 
-			<span>${noticeVo.readCount}</span>
-		</div>
+		</tr><tr>
 		<div class="lastDiv">			
-			<p class="content">${noticeVo.content}</p>
+			<td colspan="6"><hr>
+				<p class="content">${noticeVo.content}</p><td>
 		</div>
-		<div class="center">
+		</tr>
+	</table>
+		<div class="center" style="text-align:center;width:1024px">
+		<hr>
 			<a href
 			="<c:url value='/notice/edit.ag?no=${noticeVo.mainNo}'/>">
 			수정</a> |
         	<a href="#" onclick="del(${noticeVo.mainNo})">삭제</a> |
-        	<a href="<c:url value='/notice/list.ag'/>">목록</a>			
+        	<a href="<c:url value='/notice/list.ag'/>">목록</a>
 		</div>
 	</div>
 </body>

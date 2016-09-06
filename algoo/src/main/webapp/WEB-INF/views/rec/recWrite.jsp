@@ -730,7 +730,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                 <input type="checkbox" name="recruitPerson"
                value="재택가능">재택가능</label>
             </dt>
-            <!-- <dt>
+             <dt>
                <span class="tit">모집종료일</span>
                
                <label class="radio" for="oneCal">
@@ -752,7 +752,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                name="recruitDeadlineTest" value="sysdate+30" >
                <span class="font_11">1주일~1개월
                </span></label>
-            </dt> -->
+            </dt> 
             <dt>
                <span class="tit">접수방법</span>
                

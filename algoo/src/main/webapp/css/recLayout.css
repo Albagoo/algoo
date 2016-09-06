@@ -114,6 +114,16 @@ a:hover {
    font-size: 10pt;
    color: #511;
 }
+.titd, .titcd{
+   text-align:right;
+   width: 70px;
+   float: left;
+   font-family:'bon godic';
+   font-weight: bold;
+   font-size: 10pt;
+   color: #511;
+}
+
 
 .radio{
    margin:10px 0;

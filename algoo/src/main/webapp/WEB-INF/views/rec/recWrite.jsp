@@ -816,7 +816,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <label class="rence" for="juminDoc">
                <input type="checkbox" id="juminDoc"
                name="juminDoc">
-               <span class="font_11">주민등록등본
+               <span class="font_11">주민.등록등본
                </span></label>
                
                <label class="rence" for="mediDoc">

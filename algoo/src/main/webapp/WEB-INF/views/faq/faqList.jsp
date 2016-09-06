@@ -52,7 +52,6 @@
 	    <th scope="col">번호</th>
 	    <th scope="col">제목</th>
 	    <th scope="col">작성일</th>
-	    <th scope="col">조회수</th>
 	  </tr>
 	</thead> 
 	<tbody>  
@@ -73,7 +72,6 @@
 				</td>
 				<td><fmt:formatDate value="${vo.regdate}" pattern="yyyy-MM-dd"/>
 				</td>
-				<td>${vo.readCount}</td>
 			</tr>				
 		</c:forEach>
 	</c:if>

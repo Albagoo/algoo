@@ -7,9 +7,8 @@ public class FaqVO {
 	private String category;
 	private String title;
 	private String content;
-	private Timestamp regdate;
-	private String adminCode;
 	private int readCount;
+	private Timestamp regdate;
 	
 	public int getFaqNo() {
 		return faqNo;
@@ -41,12 +40,6 @@ public class FaqVO {
 	public void setRegdate(Timestamp regdate) {
 		this.regdate = regdate;
 	}
-	public String getAdminCode() {
-		return adminCode;
-	}
-	public void setAdminCode(String adminCode) {
-		this.adminCode = adminCode;
-	}
 	public int getReadCount() {
 		return readCount;
 	}
@@ -57,6 +50,6 @@ public class FaqVO {
 	@Override
 	public String toString() {
 		return "FaqVO [faqNo=" + faqNo + ", category=" + category + ", title=" + title + ", content=" + content
-				+ ", regdate=" + regdate + ", adminCode=" + adminCode + ", readCount=" + readCount + "]";
+				+ ", regdate=" + regdate + ", readCount=" + readCount + "]";
 	}
 }

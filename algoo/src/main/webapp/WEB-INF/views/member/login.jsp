@@ -3,7 +3,7 @@
 <%@ include file="../inc/simple_top.jsp" %>
 <%@ taglib prefix="frm" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/registerLayout.css" />
 <script type="text/javascript" src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -57,11 +57,3 @@
 		</form>
 	</div>
 <%@ include file="../inc/simple_bottom.jsp" %>
-
-
-
-
-
-
-
-

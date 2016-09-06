@@ -10,18 +10,18 @@ type="text/javascript"></script>
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		CKEDITOR.replace('content');		
+		var answer=CKEDITOR.replace('content');
 		
 		$("#frmWrite").submit(function(event){
-			if($("#category").val()==''){
+			if($("#category").val()==""){
 				alert("카테고리를 선택하세요");
 				$("#category").focus();
 				event.preventDefault();
-			}else if($("#title").val().length<1){
+			}else if($("#title").val()==""){
 				alert("질문을 입력하세요");
 				$("#title").focus();
 				event.preventDefault();
-			}else if($("#content").val().length<1){
+			}else if(answer.val()==""){
 				alert("답변을 입력하세요");
 				$("#content").focus();
 				event.preventDefault();
@@ -30,6 +30,7 @@ type="text/javascript"></script>
 	});
 	
 </script>
+
 <section>
 <div class="divForm">
 <form name="frmWrite" id="frmWrite" method="post" 
@@ -51,9 +52,7 @@ type="text/javascript"></script>
             <input type="text" id="title" name="title"  />
         </div>
         <div>  
-        	<label for="content">답변</label>
-        </div>
-        <div>	        
+        	<label for="content">답변</label>       
  			<textarea id="content" name="content" 
  			rows="12" cols="40"></textarea>
  		</div>
@@ -61,8 +60,7 @@ type="text/javascript"></script>
         <div class="center">
             <input type = "submit" value="FAQ 등록"/>
             <input type = "Button" value="FAQ 목록" 
-      			onclick
-="location.href='<c:url value="/faq/faqList.ag"/>';" />         
+      			onclick="location.href='<c:url value="/faq/faqList.ag"/>';" />         
         </div>
     </fieldset>
 </form>

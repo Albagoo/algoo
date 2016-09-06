@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html lang="ko">
-<head>
+<%@ include file="../inc/top.jsp" %>
 
-<script type="text/javascript" 
-src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
 <script src="<c:url value='/ckeditor/ckeditor.js'/>" 
 type="text/javascript"></script>
 
@@ -27,15 +22,26 @@ type="text/javascript"></script>
 		});
 	});
 </script>
-<title>공지사항 등록</title>
-</head>
-<body>
+
+<style type="text/css">
+	section{
+		padding:5px;
+		margin:5px;
+	}
+	.title{
+		font-size:24px;
+		text-align:left;
+	}
+</style>
+
+<section>
+<div class="divListAll" align="center">
 <div class="divForm" style="width:1024px">
 <form name="frmWrite" id="frmWrite" method="post"
   enctype="multipart/form-data" 
   action="<c:url value='/notice/write.ag'/>" >
  <fieldset>
-	<legend>공지등록</legend>
+	<span class="title">공지등록</span>
 		<div class="cgDiv">
 			<label for="category">구분</label>
 			<select id="category" name="category">
@@ -43,23 +49,25 @@ type="text/javascript"></script>
 				<option value="이벤트">이벤트</option>
 				<option value="점검">점검</option>
 			</select>
-		</div>
-        <div class="firstDiv">
+		<!-- </div>
+        <div class="firstDiv"> -->|
             <label for="title">제목</label>
-            <input type="text" id="title" name="title"  />
-        </div>
-        <div>
+            <input type="text" id="title" name="title" size="80" />
+        <!-- </div>
+        <div> -->|
             <label for="writer">작성자</label>
-            <input type="text" id="writer" name="writer" />
-        </div>
+            <input type="text" id="writer" name="writer"/>
+            <hr>
+        <!-- </div>
         <div>  
-        	<label for="content">내용</label>
+        	<label for="content">내용</label> -->
         </div>
         <div>	        
  			<textarea id="content" name="content" 
  			rows="12" cols="40"></textarea>
         </div>
         <div class="center" style="text-align:center">
+        <hr>
             <input type = "submit" value="등록"/>
             <input type = "Button" value="공지목록" 
       			onclick
@@ -68,5 +76,7 @@ type="text/javascript"></script>
     </fieldset>
 </form>
 </div>
-</body>
-</html>
+</div>
+</section>
+
+<%@ include file="../inc/bottom.jsp" %> 

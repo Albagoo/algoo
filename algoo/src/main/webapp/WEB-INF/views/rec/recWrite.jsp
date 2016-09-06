@@ -511,19 +511,19 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                
                <label class="radio" for=oldAge>
                <input type="checkbox" id="oldAge"
-               name="oldAge">
+               name="age">
                <span class="font_11">고연령자 가능(65세이상)</span></label>
                
                
                <label class="radio" for=housewife>
                <input type="checkbox" id="housewife"
-               name="housewife">
+               name="age">
                <span class="font_11">주부 가능</span></label>
                
                
                <label class="radio" for=youngAge>
                <input type="checkbox" id="youngAge"
-               name="youngAge">
+               name="age">
                <span class="font_11">청소년가능(만18세 이상)</span></label>
                
             </dt>
@@ -730,7 +730,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                 <input type="checkbox" name="recruitPerson"
                value="재택가능">재택가능</label>
             </dt>
-            <dt>
+            <!-- <dt>
                <span class="tit">모집종료일</span>
                
                <label class="radio" for="oneCal">
@@ -752,7 +752,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                name="recruitDeadlineTest" value="sysdate+30" >
                <span class="font_11">1주일~1개월
                </span></label>
-            </dt>
+            </dt> -->
             <dt>
                <span class="tit">접수방법</span>
                

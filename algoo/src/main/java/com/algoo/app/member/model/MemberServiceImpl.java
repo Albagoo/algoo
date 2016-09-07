@@ -54,9 +54,9 @@ public class MemberServiceImpl implements MemberService{
 	public int updateMember(MemberVO vo) {
 		return memberDao.updateMember(vo);
 	}
-	/*
+	
 	public int withdrawMember(String userid){
 		return memberDao.withdrawMember(userid);
-	}*/
+	}
 	
 }

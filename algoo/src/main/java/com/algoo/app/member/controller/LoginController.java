@@ -70,7 +70,7 @@ public class LoginController {
 			}
 			
 			msg=memberVo.getUserName()+"님 로그인되었습니다";
-			url="/member/memberEdit.ag";
+			url="/index.ag";
 		}else if(result==MemberService.PWD_DISAGREE){
 			msg="비밀번호가 일치하지 않습니다";
 		}else if(result==MemberService.ID_NONE){
@@ -85,7 +85,7 @@ public class LoginController {
 		
 		return "common/message";
 	}
-	/*
+	
 	@RequestMapping("/logout.ag")
 	public String logout(HttpSession session, Model model){
 		//1.
@@ -98,8 +98,8 @@ public class LoginController {
 		session.removeAttribute("authCode");
 		//3.
 		model.addAttribute("msg", "로그아웃되었습니다");
-		model.addAttribute("url", "/index.do");
+		model.addAttribute("url", "/index.ag");
 		
 		return "common/message";
-	}*/
+	}
 }

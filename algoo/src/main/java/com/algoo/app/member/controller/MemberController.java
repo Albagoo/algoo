@@ -178,7 +178,7 @@ public class MemberController {
 		
 		return "common/message";
 	}
-	/*
+	
 	@RequestMapping(value="/memberOut.ag", 
 			method=RequestMethod.GET)
 	public String memberout_get(HttpSession session,
@@ -233,6 +233,6 @@ public class MemberController {
 		model.addAttribute("url", url);
 		
 		return "common/message";
-	}*/
+	}
 	
 }

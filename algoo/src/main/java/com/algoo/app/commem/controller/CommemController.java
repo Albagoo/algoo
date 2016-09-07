@@ -71,7 +71,7 @@ public class CommemController {
 		int result = commemService.insertCompMember(commemVo);
 		logger.info("기업회원가입 처리, result={}",result);
 		
-		return "/index.ag";
+		return "redirect:/index.ag";
 	}
 	
 }

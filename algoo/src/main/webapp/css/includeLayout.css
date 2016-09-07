@@ -4,28 +4,28 @@
    src:url('../font/NotoSans-Regular.ttf') format('truetype');
 }
 #wrap{
-	width:2110px;
+	width:1900px;
 }
 
 /* header css */
 #header{
-	width:100%;
+	width:1900px;
 }
 #header_div{
-	width:100%;
+	width:1900px;
 	text-align: center;
+	margin:0 auto;
 }
 #header_top{
-	width:100%;
+	width:1900px;
 	height:25px;
 	border-bottom:1px solid #ccc;
 	
 }
 #header_action{
-	width:60%;
+	width:100%;
 	text-align: right;
 	margin:0 auto;
-	padding-right:150px;
 	font-size:10px;
 	margin-top:5px;
 }
@@ -34,7 +34,9 @@
 	font-size: 1.2em;
 	text-align: right;
 	margin:0 3px 0 3px;
-	color:black;
+}
+#header_action a:last-of-type{
+	margin-right:30px;
 }
 
 #header_searchKeyword{
@@ -43,23 +45,24 @@
 	color:#ccc;
 }
 #header_search{
-	width:60%;
-	height:150px;
+	width:880px;
+	height:130px;
+	text-align: center;
 	margin:0 auto;
 }
 #header_logo{
-	width:383px;
-	height:150px;
+	width:240px;
+	height:120px;
 	float:left;
 	text-align:right;
 }
 #header_logo img{
-	margin-top:25px;
-	height:100px;
+	height:70px;
+	padding-top:20px;
 }
 #header_searchBar{
-	width:500px;
-	height:150px;
+	width:380px;
+	height:120px;
 	float:left;
 	font-family: 'bon godic';
 	font-size: 0.9em;
@@ -76,57 +79,60 @@
 	margin:0;
 }
 #header_searchBar div{
-	margin-top:45px;
+	margin-top:30px;
 }
 #header_searchBar form{
 	margin-top:5px;
 }
 #header_advertise{
-	width:383px;
-	height:150px;
+	width:240px;
+	height:120px;
 	float:left;
 	text-align:left;
 }
 #header_advertise img{
-	margin-top:50px;
+	padding-top:30px;
 }
 #header_menu{
 	clear:both;
+	width:880px;
 	margin:0 auto;
-	height:30px;
-	padding-top:10px;
-	border-bottom:3px solid #E70400;
-	background: #E70400;
+	height:40px;
+	border-top:1px solid #ccc;
+	border-bottom:2px solid #E70400;
+	padding-top:5px;
 }
 #header_menu a{
-	margin-left:10px;
-	margin-right:10px;
-	font-size: 1em;
-	color:white;
+	margin:0 10px 0 10px;
+	vertical-align:bottom;
+	line-height:10px;
+	font-size:0.9em;
+	font-weight:bold;
+	color:#333;
 }
 /* 검색창디자인 */
 #span_keyword{
 	display: inline-block;
-	width:370px;
-	height:42px;
+	width:270px;
+	height:30px;
 	border:3px solid #E70400;
 	background: white;
 	text-align: center;
 }
 #keyword{
 	width:90%;
-	height:30px;
+	height:20px;
 	margin-top:3px;
 	border:1px solid white;
 	outline:none;
 }
 #bt_search{
 	display: inline-block;
-	height:45px;
+	height:36px;
 	border:3px solid #E70400;
 	background:#E70400;
 	color:white;
-	font-size: 1.2em;
+	font-size: 1em;
 	vertical-align:top;
 	cursor:pointer;
 }
@@ -142,74 +148,79 @@
 	width:100%;
 }
 #footer_div{
-	width:100%;
+	width:60%;
 	text-align:center;
+	margin:0 auto;
 }
 #footer_menu{
-	width:100%;
+	width:960px;
+	margin:0 auto;
 	height:30px;
-	border-top:3px solid #E70400;
-	padding-top:8px;
-	padding-bottom:3px;
-	background:#E70400;
-	
+	border-top:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	padding-top:5px;
 }
 #footer_menu a{
-	margin-left:10px;
-	margin-right:10px;
-	font-family: 'bon godic';
-	font-size: 1em;
-	color:white;
+	margin:0 10px 0 10px;
+	vertical-align:bottom;
+	line-height:18px;
+	font-size:0.8em;
+	font-weight:bold;
+	color:#333;
 }
 #footer{
-	width:100%;
-}
-#footer_div{
-	width:100%;
+	width:1900px;
 	text-align: center;
 }
 #footer_main{
-	width:60%;
+	width:880px;
 	height:200px;
 	margin:0 auto;
 	margin-top:50px;
 }
 #footer_advertise{
-	width:25%;
+	width:20%;
 	float:left;
 }
 #footer_advertise img{
 	width:60%;
 }
 #footer_comintro{
-	width:50%;
+	width:60%;
 	float:left;
 }
 #footer_comintro address{
-	margin-top:25px;
+	margin-top:5px;
 	font-family: 'bon godic';
-	font-size: 0.8em;
-	color:black;
+	font-size: 0.7em;
+	color:#333;
+	text-align: left;
 }
 #footer_comintro img{
 	height:40px;
 	margin-top:20px;
 }
 #footer_customer{
-	width:25%;
+	width:20%;
+	font-size:0.7em;
 	float:left;
 }
 #footer_customer h2{
-	font-size: 1.5em;
+	font-size: 1em;
 	color:#E70400;
 }
 #span_faq{
-	font-size: 1.2em;
+	font-size: 0.8em;
 }
 #footer_copyright{
 	clear:both;
 	width:100%;
 	text-align: center;
 	margin:15px;
+	font-size: 13px;
+	font-weight: 200;
+}
+#footer_copyright img{
+	height:12px;
 }
 

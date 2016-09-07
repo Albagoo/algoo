@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </div>
 		<!-- container끝 -->
 		
@@ -43,7 +44,8 @@
 						</p>
 					</div>
 					<div id="footer_copyright">
-						<p>© Alba9 Corp. All rights reserved</p>
+						<a href="/index.ag"><img alt="로고이미지" src="<c:url value='/images/simple_Logo.png'/>"></a>
+						<span>© ALGOO Corp. All rights reserved</span>
 					</div>
 				</div>
 			</div><!-- footer_div -->

@@ -52,12 +52,12 @@
 				</div>
 				
 				<div id="header_menu">
-					<a href="#">채용정보 </a> 
+					<a href="#">채용정보 </a>
 					<a href="#">브랜드알바 </a> 
-					<a href="#">굿잡 </a> 
-					<a href="#">신입공채 </a> 
-					<a href="#">알바토크 </a> 
-					<a href="#">인재정보	</a> 
+					<a href="#">굿잡 </a>
+					<a href="#">신입공채 </a>
+					<a href="#">알바토크 </a>
+					<a href="#">인재정보	</a>
 					<a href="#">개인서비스 </a>
 					<a href="#">기업서비스 </a>
 				</div>

@@ -42,7 +42,7 @@ type="text/javascript"></script>
   action="<c:url value='/notice/write.ag'/>" >
  <p id="firstTitle">공지등록</p>
  <div class="funcDiv">
-		<div class="cgDiv">
+		<div class="editCgDiv">
 			<label for="category">구분</label>
 			<select id="category" name="category">
 				<option value="공지">공지</option>
@@ -57,7 +57,6 @@ type="text/javascript"></script>
         <div> -->|
             <label for="writer">작성자</label>
             <input type="text" id="writer" name="writer"/>
-            <hr>
         <!-- </div>
         <div>  
         	<label for="content">내용</label> -->
@@ -66,8 +65,7 @@ type="text/javascript"></script>
  			<textarea id="content" name="content" 
  			rows="12" cols="40"></textarea>
         </div>
-        <div class="center" style="text-align:center">
-        <hr>
+        <div class="editEndDiv" style="text-align:center">
             <input type = "submit" value="등록"
              style="font-weight:bold;background-color:MistyRose"/>
             <input type = "Button" value="공지목록" 

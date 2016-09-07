@@ -44,7 +44,7 @@ type="text/javascript"></script>
   
 <p id="firstTitle">공지 수정</p>
 	<div class="funcDiv">
-			<div class="cgDiv">
+			<div class="editCgDiv">
 				<label for="category">구분</label>
 				<select id="category" name="category">
 					<option value="공지"
@@ -70,7 +70,6 @@ type="text/javascript"></script>
 	            <label for="writer">작성자</label>
 	            <input type="text" id="writer" name="writer"
 	             value="${noticeVo.writer }"/>
-	        	<hr>
 	        <!-- </div>
 	        <div>
 	        	<label for="content">내용</label> -->
@@ -81,8 +80,7 @@ type="text/javascript"></script>
 	 			value=${noticeVo.content } 
 	 			></textarea>
 	        </div>
-	        <div class="center" style="text-align:center">
-	        <hr>
+	        <div class="editEndDiv" style="text-align:center">
 	            <input type = "submit" value="수정"
 	             style="font-weight:bold;background-color:MistyRose"/>
 	            <input type = "Button" value="공지목록" 

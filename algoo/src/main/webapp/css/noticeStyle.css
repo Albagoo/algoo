@@ -1,0 +1,106 @@
+@CHARSET "UTF-8";
+	section{
+		padding:5px;
+		margin:5px;
+	}
+	.divListAll{
+		margin:auto;
+		width:1024px;
+	}
+	.detailTitle{
+		font-size:24px;
+	}
+	
+	/* span{
+		font-size:24px;
+		text-align:left;
+	} */
+	
+	#firstTitle{
+		text-align:left;
+		font-size:1.5em;
+		font-weight:bold;
+		margin-bottom:4px;
+	}
+	.searchResult{
+		text-align:left;
+		margin-bottom:4px;
+	}
+	
+	.divList{
+		width:1024px;
+		border:1px solid gray;
+		margin:2px;
+		border-radius:4px;
+		font-weight:bold;
+	}
+	.divList td{
+		height:30px;
+	}
+	.divList td a, .divBtn a{
+		text-decoration:none;
+		color:black;
+		font-weight:bold;
+	}
+	.divBtn a{
+		padding:2px;
+		border-radius:4px;
+		border:1px solid gray;
+		background-color:LightPink;
+	}
+	select{
+		font-weight:bold;
+	}
+	.searchBox{
+		margin:auto;
+		width:320px;
+		padding:2px;
+		border-radius:4px;
+		border:1px solid gray;
+		background-color:LightPink;
+		margin-top:5px;
+	}
+	
+	/* detail */
+	.divForm{
+		width:1024px;
+		border:1px solid gray;
+		border-radius:4px;
+	}
+	.detailTable #sp1{
+		text-align:center;
+	}
+	.detailTable th{
+		background-color:LightPink;
+	}
+	#contentTd{
+		vertical-align:top;
+	}
+	#bottomDiv{
+		width:1024px;
+		padding:10px;
+		text-align:center;
+	}
+	.bottomBox{
+		margin:auto;
+		width:180px;
+		padding:2px;
+		border-radius:4px;
+		border:1px solid gray;
+		background-color:LightPink;
+		margin-top:5px;
+	}
+	#titleTd, #content{
+		padding-left:20px;
+	}
+	
+	/* edit */
+	.funcDiv{
+		width:1024px;
+		border:1px solid gray;
+		padding-top:10px;
+		padding-bottom:10px;
+		margin:2px;
+		border-radius:4px;
+		font-weight:bold;
+	}

@@ -2,15 +2,17 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../inc/top.jsp" %>
 
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/noticeStyle.css" />
 <script type="text/javascript">	
 	$(document).ready(function(){
-		$(".divList .box2 tbody tr")
-			.hover(function(){
-				$(this).css("background","LavenderBlush")
-					.css("cursor","pointer");
-			}, function(){
-				$(this).css("background","");
-			});
+		//09-06
+		$(".divList .box tbody tr")
+		.hover(function(){
+			$(this).css("background","LavenderBlush")
+				.css("cursor","pointer");
+		}, function(){
+			$(this).css("background","");
+		});
 		
 		//09-02 searching category
 		 $("#categoryInput").change(function(){
@@ -25,17 +27,6 @@
 		frmPaging.submit();
 	}
 </script>
-
-<style type="text/css">
-	section{
-		padding:5px;
-		margin:5px;
-	}
-	span{
-		font-size:24px;
-		text-align:left;
-	}
-</style>
 
 <section>
 <!-- 08-31 paging form start-->
@@ -55,29 +46,25 @@ action="<c:url value='/notice/list.ag'/>">
 	<input type="hidden" name="currentPage" id="currentPage2" value="1" >	
 </form>
 <div class="divListAll" align="center">
-<span>공지사항</span>
-<p>
+<p id="firstTitle">
+	공지사항
 	<c:if test="${!empty param.searchKeyword }">
 		<!-- search case -->
-		<p>검색어 ${param.searchKeyword}(으)로  
+		<p class="searchResult">검색어 ${param.searchKeyword}(으)로  
 			${pagingInfo.totalRecord}건 검색되었습니다.</p>
 	</c:if>
 	<c:if test="${empty param.searchKeyword }">
 		<!-- whole case -->
-		<p>등록된 공지사항은 ${pagingInfo.totalRecord}건 입니다</p>
+		<p class="searchResult">등록된 공지사항은 ${pagingInfo.totalRecord}건 입니다</p>
 	</c:if>
 </p>
 
-<%-- <p>등록된 공지사항은 ${pagingInfo.totalRecord }건입니다.</p> --%>
+<!-- 09-06 -->
 <div class="divList">
-<table class="box2"
-	 	summary="공지사항에 관한 표"
-	 	style="border:1px solid;
-	 	 		width:1024px">
-	<thead>
-	  <tr style="background-color:LightPink">
-	    <th scope="col" style="width: 53px;">
-	    <select name="categoryInput" id="categoryInput">
+	<table style="background-color:LightPink"
+		summary="공지사항에 관한 표">
+		<th width="102px">
+		<select name="categoryInput" id="categoryInput">
 	    <!--  onchange="location.href=this.value"> -->
 		<option value="">구분</option>
 		<option value="공지"
@@ -91,45 +78,31 @@ action="<c:url value='/notice/list.ag'/>">
 		 점검</option>
 		</select>
 		</th>
-	    <th scope="col" style="width: 370px; ">제목</th>
-	    <th scope="col" style="width: 130px; ">작성자</th>
-	    <th scope="col" style="width: 130px; ">작성일</th>
-	    <th scope="col" style="width: 70px; ">조회수</th>
-	  </tr>
-	</thead>
-	<tbody>
-	<c:if test="${empty noticeList}">
-		<tr>
-			<td colspan="5" style="text-align:center">
-				등록된 공지사항이 없습니다
-			</td>
-		</tr>
-	</c:if>
-	
-	<c:if test="${!empty noticeList}">
-	<!-- repeat start -->
+		<th width="514px">제목</th>
+		<th width="102px">작성자</th>
+		<th width="204px">작성일</th>
+		<th width="102px">조회수</th>
+	</table>
 	<c:forEach var="vo" items="${noticeList }">
+		<table class="box" style="text-align:center">
 		<tr>
-			<td style="text-align:center">${vo.category }</td>
-			<td><a href="<c:url value='/notice/updateReadCount.ag?no=${vo.mainNo}'/>">
-				${vo.title }</a></td>
-			<td style="text-align:center">${vo.writer }</td>
-			<td style="text-align:center">
-			 <fmt:formatDate value="${vo.regdate }"
-			 pattern="yyyy-MM-dd"></fmt:formatDate></td>
-			<td style="text-align:center">${vo.readCount }</td>
+		<td width="102px">${vo.category } </td>
+		<td width="514px">
+		<a href="<c:url value='/notice/updateReadCount.ag?no=${vo.mainNo}'/>">
+		${vo.title } </a></td>
+		<td width="102px">${vo.writer } </td>
+		<td width="204px"><fmt:formatDate value="${vo.regdate }"
+			 pattern="yyyy-MM-dd"></fmt:formatDate> </td>
+		<td width="102px">${vo.readCount } </td>
 		</tr>
+		</table>
 	</c:forEach>
-	<!-- repeat end -->
-	</c:if>
-	</tbody>
-</table>
-</div>
+	</div>
 
 <div class="divBtn" style="text-align:right;width:1024px">
 <hr>
-	<a href="<c:url value='/notice/write.ag'/>" >
-	공지 등록</a>
+	<p><a href="<c:url value='/notice/write.ag'/>" >
+	공지 등록</a></p>
 </div>
 
 <!-- 08-31 Paging-->
@@ -145,7 +118,7 @@ action="<c:url value='/notice/list.ag'/>">
 		begin="${pagingInfo.firstPage }" 
 		end="${pagingInfo.lastPage }">
 		<c:if test="${i==pagingInfo.currentPage }">					
-			<span style="color:HotPink;font-weight:bold">
+			<span style="color:MediumVioletRed;font-weight:bold">
 				${i}</span>
 		</c:if>		
 		<c:if test="${i!=pagingInfo.currentPage }">
@@ -162,10 +135,12 @@ action="<c:url value='/notice/list.ag'/>">
 			&gt;&gt;</a>
 	</c:if>
 </div>
+
 <!-- 09-01 search part -->
 <div class="divSearch" style="text-align:center;width:1024px">
 	<form name="frmSearch" method="post" 
    	 action="<c:url value='/notice/list.ag' />" >
+   		<div class="searchBox"> 
         <select name="searchCondition">
             <option value="title"
            	   <c:if test="${param.searchCondition=='title'}">
@@ -182,10 +157,12 @@ action="<c:url value='/notice/list.ag'/>">
             		selected
                </c:if>
             >작성자</option>
-        </select>   
+        </select>
         <input type="text" name="searchKeyword" 
-        	title="검색어 입력" value="${param.searchKeyword}" >   
-		<input type="submit" value="검색">
+        	title="검색어 입력" value="${param.searchKeyword}" >
+		<input type="submit" value="검색"
+			style="font-weight:bold;background-color:MistyRose">
+		</div>
     </form>
 </div>
 </div>

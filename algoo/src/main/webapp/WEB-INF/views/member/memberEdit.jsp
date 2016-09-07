@@ -3,6 +3,8 @@
 <%@ include file="../inc/simple_top.jsp" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/registerLayout.css" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/mainstyle.css'/>" />
 <script type="text/javascript" src="<c:url value='/js/member.js'/>"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -181,8 +183,8 @@
         	</c:if>        	
         	>
     </div>
-    <div class="center">
-         <input type="submit" id="wr_submit" value="수정">
+    <div class="align_center">
+         <input class="button white"  type="submit" id="wr_submit" value="수정">
     </div>
 </fieldset>
     

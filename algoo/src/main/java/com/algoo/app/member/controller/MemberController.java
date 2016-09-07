@@ -211,7 +211,7 @@ public class MemberController {
 		int result = memberService.loginCheck(memVo);
 		String msg="", url="/member/memberOut.ag";
 		if(result==MemberService.LOGIN_OK){
-			int cnt = memberService.withdrawMember(userid);
+			int cnt = memberService.deleteMember(userid);
 			logger.info("회원탈퇴 처리 결과, cnt={}", cnt);
 			
 			if(cnt>0){

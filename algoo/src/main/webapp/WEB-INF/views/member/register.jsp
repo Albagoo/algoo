@@ -43,17 +43,17 @@
 		});
 		
 		$("#bt_register").click(function(event){
-			if($("#id").val()<1){
+			if($("#userid").val()<1){
 				alert("아이디를 입력하셔야 합니다");
-				$("#id").focus();
+				$("#userid").focus();
 				return false;
 			}else if($("#chkId").val()!='Y'){
 				alert("아이디 중복확인을 하셔야 합니다!");
-				$("#id").focus();
+				$("#userid").focus();
 				return false;
-			}else if(!validate_userid($("#id").val())){
+			}else if(!validate_userid($("#userid").val())){
 				alert("아이디는 영문이나 숫자 _만 가능합니다!");
-				$("#id").focus();
+				$("#userid").focus();
 				return false;
 			}else if($("#pwd").val().length<1){
 				alert("비밀번호를 입력하세요");
@@ -104,7 +104,7 @@
 		});//bt_register
 		
 		$("#btnChkId").click(function(){
-			var userid=$("#id").val();
+			var userid=$("#userid").val();
 					
 			window.open(
 			"<c:url value='/member/checkUserid.ag?userid="
@@ -131,7 +131,7 @@
 	<div id="content">
 		<div class="regi_group">
 			<div id="id_div">
-				<input type="text" name="userid" id="id" placeholder="아이디">
+				<input type="text" name="userid" id="userid" placeholder="아이디">
 				<input type="button" value="중복확인" id="btnChkId" title="새창열림">
 			</div>
 			
@@ -208,15 +208,10 @@
 		</div>
 		<div class="regi_group">
 			<div id="hp_div">
-				<input type="text" name="hp1" id="hp1" placeholder="010" maxlength="3"> -
+				<input type="text" name="hp1" id="hp1" placeholder="ex) 010" maxlength="3"> -
 				<input type="text" name="hp2" id="hp2" maxlength="4"> -
 				<input type="text" name="hp3" id="hp3" maxlength="4">
 				<input type="button" id="btHp" value="인증">
-			</div>
-			<div>
-				<input type="hidden" name="phone1" value="1" >
-				<input type="hidden" name="phone2" value="1" >
-				<input type="hidden" name="phone3" value="1" >
 			</div>
 			<div id="zipcode_div">
 				<input type="text" name="zipcode" id="zipcode" placeholder="우편번호">

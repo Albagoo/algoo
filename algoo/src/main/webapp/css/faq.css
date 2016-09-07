@@ -104,10 +104,16 @@ table.box, table.box2{
 table.box2 th{
 	background-color: #eeeeee;
 	border: solid silver 1px;
+	height:35px;
 }
 table.box2 td{
 	border: solid silver 1px;
 	text-decoration: none;
+	height:25px
+}
+table.box2 td a{
+	color: black;
+	text-decoration:none;
 }
 .list p{
 	font-size: 0.8em;
@@ -124,4 +130,34 @@ table.box2 td{
 }
 .align_center{
 	text-align: center;
+}
+/*faqEdit*/
+.firstDiv label{
+	line-height: 20px;
+}
+/*faqDetail*/
+.firstDiv2{
+	background-color: #eee;
+	height: 30px;
+}
+.firstDiv2 .sp1{
+	width:48%;
+	float: left;
+	padding-left: 10px;
+	line-height: 25px;
+	font-weight: bold;
+}
+.secondDiv{
+	border: 1px solid #eee;
+	height:500px;
+}
+.firstDiv2 .sp2{
+	float: right;
+	font-size: 0.9em;
+	line-height: 30px;
+	padding-right: 10px;
+}
+.secondDiv p{
+	padding-left: 10px;
+	font-size: 0.9em;
 }

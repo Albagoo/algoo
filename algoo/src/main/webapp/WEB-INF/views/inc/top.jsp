@@ -21,8 +21,18 @@
 			<div id="header_div">
 				<div id="header_top">
 					<div id="header_action">
-						<a href="#">로그인</a> |
-						<a href="#">회원가입</a> |
+					<!-- 로그인이 안된 경우 -->
+					<c:if test="${empty sessionScope.userid }">
+						<a href="<c:url value='/member/login.ag'/>">로그인</a> |
+						<a href="<c:url value='/member/agreement.ag'/>">회원가입</a> |
+					</c:if>
+					<!-- 로그인이된 경우 -->
+					<c:if test="${!empty sessionScope.userid }">
+						<span style="font-size:1em">${sessionScope.userName}님</span>
+						<a href="<c:url value='/member/logout.ag' />">로그아웃</a>
+						<a href="<c:url value='/member/memberEdit.ag' />">회원정보수정</a>
+						<a href="<c:url value='/member/memberOut.ag' />">회원탈퇴</a>
+					</c:if>
 						<a href="#">고객센터</a> |
 						<a href="#">FAQ</a> |
 						<a href="#">이벤트</a>

@@ -46,4 +46,8 @@ public class FaqDAOMybatis extends SqlSessionDaoSupport implements FaqDAO{
 		return getSqlSession().delete(namespace+".deleteFaq", faqNo);
 	}
 
+	@Override
+	public List<FaqVO> selectUserFaq(SearchVO searchVo) {
+		return getSqlSession().selectList(namespace+".selectUserFaq", searchVo);
+	}
 }

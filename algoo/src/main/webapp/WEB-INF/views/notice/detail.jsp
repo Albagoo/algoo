@@ -14,12 +14,12 @@
 
 <section>
 <div class="divListAll" align="center">
-	<p id="firstTitle">공지상세</p>
+	<p id="firstTitle">공지 상세</p>
 	<div class="divForm">
 	<table class="detailTable" width="1024px">
 		<tr>
 		<div class="firstDiv">
-			<th width="120px">
+			<th width="120px" style="border-bottom:1px solid white">
 				<span class="sp1">제목</span></th> 
 			<td id="titleTd" colspan="5" width="200px"><span>${noticeVo.title}</span></td>
 		</div>

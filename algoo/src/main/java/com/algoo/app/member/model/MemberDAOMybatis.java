@@ -37,9 +37,9 @@ public class MemberDAOMybatis extends SqlSessionDaoSupport implements MemberDAO{
 		//회원정보 수정 처리-update
 		return getSqlSession().update(namespace+".updateMember",vo);
 	}
-	/*
+	
 	public int withdrawMember(String userid){
 		//회원 탈퇴
 		return getSqlSession().delete(namespace+".outMember", userid);
-	}*/
+	}
 }

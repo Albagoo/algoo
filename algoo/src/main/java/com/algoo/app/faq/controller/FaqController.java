@@ -181,7 +181,7 @@ public class FaqController {
 		searchVo.setRecordCountPerPage(pagingInfo.getRecordCountPerPage());
 		searchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
 				
-		List<FaqVO> ulist = faqService.selectAllFaq(searchVo);
+		List<FaqVO> ulist = faqService.selectUserFaq(searchVo);
 		logger.info("FAQ UserList 조회 결과 ulist.size()={}", ulist.size());
 		
 		int totalRecord=faqService.selectTotalCount(searchVo);

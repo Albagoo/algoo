@@ -11,7 +11,7 @@ type="text/javascript"></script>
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		var answer=CKEDITOR.replace('content');
+		CKEDITOR.replace('content', {uiColor: '#ffffff'});	
 		
 		$("#frmWrite").submit(function(event){
 			if($("#category").val()==""){
@@ -22,7 +22,7 @@ type="text/javascript"></script>
 				alert("질문을 입력하세요");
 				$("#title").focus();
 				event.preventDefault();
-			}else if(answer.val()==""){
+			}else if($("#content").val()==""){
 				alert("답변을 입력하세요");
 				$("#content").focus();
 				event.preventDefault();
@@ -57,8 +57,8 @@ type="text/javascript"></script>
  		</div>
  		<br>
         <div class="center">
-            <input class="button white" type = "submit" value="FAQ 등록" style="margin-right: 15px"/>
-            <input class="button white" type = "button" value="FAQ 목록" 
+            <input class="button white medium" type = "submit" value="FAQ 등록" style="margin-right: 10px"/>
+            <input class="button white medium" type = "button" value="FAQ 목록" 
       			onclick="location.href='<c:url value="/faq/faqList.ag"/>';" />         
         </div>
     </fieldset>

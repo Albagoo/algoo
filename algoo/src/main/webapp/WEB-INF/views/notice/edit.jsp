@@ -8,7 +8,7 @@ type="text/javascript"></script>
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		CKEDITOR.replace('content');	
+		CKEDITOR.replace('content', {uiColor: '#ff8d8b'});	
 		
 		$("#frmWrite").submit(function(event){
 			if($("#title").val()==""){
@@ -42,9 +42,9 @@ type="text/javascript"></script>
   action="<c:url value='/notice/edit.ag'/>" >
   <input type="hidden" name="mainNo" value="${noticeVo.mainNo }">
   
-<p id="firstTitle">공지수정</p>
+<p id="firstTitle">공지 수정</p>
 	<div class="funcDiv">
-			<div class="cgDiv">
+			<div class="editCgDiv">
 				<label for="category">구분</label>
 				<select id="category" name="category">
 					<option value="공지"
@@ -70,7 +70,6 @@ type="text/javascript"></script>
 	            <label for="writer">작성자</label>
 	            <input type="text" id="writer" name="writer"
 	             value="${noticeVo.writer }"/>
-	        	<hr>
 	        <!-- </div>
 	        <div>
 	        	<label for="content">내용</label> -->
@@ -81,8 +80,7 @@ type="text/javascript"></script>
 	 			value=${noticeVo.content } 
 	 			></textarea>
 	        </div>
-	        <div class="center" style="text-align:center">
-	        <hr>
+	        <div class="editEndDiv" style="text-align:center">
 	            <input type = "submit" value="수정"
 	             style="font-weight:bold;background-color:MistyRose"/>
 	            <input type = "Button" value="공지목록" 

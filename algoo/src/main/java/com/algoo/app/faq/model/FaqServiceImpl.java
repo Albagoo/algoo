@@ -46,4 +46,9 @@ public class FaqServiceImpl implements FaqService{
 	public int deleteFaq(int faqNo) {
 		return faqDao.deleteFaq(faqNo);
 	}
+
+	@Override
+	public List<FaqVO> selectUserFaq(SearchVO searchVo) {
+		return faqDao.selectUserFaq(searchVo);
+	}
 }

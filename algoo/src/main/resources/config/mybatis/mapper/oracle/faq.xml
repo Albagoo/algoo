@@ -29,7 +29,7 @@
 		    from
 		        (select faq_no, category, title, content, regdate from faq 
 		        <include refid="searchWhere"></include>
-		        order by category desc) LIST_ALL
+		        order by faq_no desc) LIST_ALL
 		) 
 		<![CDATA[
 		where  RNUM> #{firstRecordIndex} 
@@ -56,11 +56,28 @@
 	
 	<update id="editFaq" parameterType="FaqVO">
 		update faq 
-			set title=#{title}, content=#{content}
+			set category=#{category} title=#{title}, content=#{content}
 		where faq_no=#{faqNo}
 	</update>
 	
 	<delete id="deleteFaq" parameterType="int">
 		delete from faq where faq_no=#{faqNo}
 	</delete>	
+	
+	<select id="selectUserFaq" resultType="FaqVO" parameterType="SearchVO">
+		select *
+		from
+		(
+		    select rownum as RNUM, LIST_ALL.*
+		    from
+		        (select faq_no, category, title, content, regdate from faq 
+		        <include refid="searchWhere"></include>
+		        order by category desc) LIST_ALL
+		) 
+		<![CDATA[
+		where  RNUM> #{firstRecordIndex} 
+			and RNUM<= #{firstRecordIndex}
+			+ #{recordCountPerPage}
+		]]>
+	</select>
 </mapper>

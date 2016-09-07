@@ -10,9 +10,9 @@
 <script type="text/javascript" src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 <script type="text/javascript">	
 	$(document).ready(function(){
-		$(".divList .box2 tbody tr")
+		$(".divList .box2 tbody td:nth-of-type(2)")
 		.hover(function(){
-			$(this).css("background","eee").css("cursor","pointer");
+			$(this).css("background","#eee").css("cursor","pointer");
 		}, function(){
 			$(this).css("background","");
 		});
@@ -44,10 +44,9 @@
 </div>
 <table class="box2">
 	<colgroup>
-		<col style="width:15%;" />
-		<col style="width:55%;" />
-		<col style="width:15%;" />
-		<col style="width:15%;" />		
+		<col style="width:10%;" />
+		<col style="width:75%;" />
+		<col style="width:15%;" />	
 	</colgroup>
 	<thead>
 	  <tr>

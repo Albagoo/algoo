@@ -10,19 +10,15 @@
 <section>
 	<div class="divForm">
 	<legend>FAQ 상세보기</legend>
-		<div class="firstDiv">
-			<span class="sp1">[${faqVo.category }] Q.</span> 
-			<span>${faqVo.title }</span>
+		<div class="firstDiv2">
+			<span class="sp1">[${faqVo.category }] ${faqVo.title }</span>
+			<span class="sp2">등록일 <fmt:formatDate value="${faqVo.regdate }" pattern="yyyy-MM-dd"/></span>
 		</div>
-		<div>
-			<span class="sp1">등록일</span> 
-			<span><fmt:formatDate value="${faqVo.regdate }" pattern="yyyy-MM-dd"/></span>
-		</div>
-		<div class="lastDiv">			
+		<div class="secondDiv">
 			<p class="content">${faqVo.content }</p>
 		</div>
 		<div class="center">
-			<a href
+			<br><a href
 ="<c:url value='/faq/faqEdit.ag?faqNo=${faqVo.faqNo}'/>" class="button white medium">
 수정</a>
         	<a href

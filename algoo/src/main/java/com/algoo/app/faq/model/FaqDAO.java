@@ -12,4 +12,5 @@ public interface FaqDAO {
 	public FaqVO selectByNo(int faqNo);
 	public int updateFaq(FaqVO faqVo);
 	public int deleteFaq(int faqNo);
+	public List<FaqVO> selectUserFaq(SearchVO searchVo);
 }

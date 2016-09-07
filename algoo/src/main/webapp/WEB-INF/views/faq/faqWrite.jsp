@@ -11,7 +11,7 @@ type="text/javascript"></script>
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		var answer=CKEDITOR.replace('content');
+		var answer=CKEDITOR.replace('content', {uiColor: '#ffffff'});	
 		
 		$("#frmWrite").submit(function(event){
 			if($("#category").val()==""){

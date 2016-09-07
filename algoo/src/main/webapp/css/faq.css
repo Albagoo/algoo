@@ -1,3 +1,4 @@
+/*faqUserList*/
 #userList{
 	/*clear: both;*/
 	width:96%;
@@ -8,27 +9,35 @@
 #container #leftNavi{
 	float: left; /*background:#FFCCCC;*/
 	width: 20%;
-	padding: 20px 0 35px 0;
+	padding: 20px 0 35px 5px;
 	border: 1px solid #eee;
 	margin-top: 16px;
 }
 #container #leftNavi dt	{
-	padding: 7px 5px 25px 20px;
+	padding: 7px 5px 15px 20px;
 	font-weight: bold;
-}			
+}		
+#container #leftNavi dt a {
+	text-decoration: none;
+	display: block;
+	color: black;
+}
+	
 #container #leftNavi dd	{
 	display: block;
 	padding: 0 20px;
+	font-size: 0.9em;
 }
 #container #leftNavi dd a	{
 	text-decoration: none;
+	font-size: 0.9em;
 	display: block;
-	color: #585721;
+	color: black;
 	border-bottom: 1px solid #ddd;
 	padding: 10px 5px;
 }
 #container #leftNavi dd a:hover, #container #leftNavi dd a:focus{
-	background:#EDF2C6 ;
+	background:#fffafa ;
 }
 #answer p{
 	font-size: 0.8em;
@@ -36,5 +45,83 @@
 #jQuery_accordion{
 	float:left;
 	width: 75%;
-	padding: 16px 0 16px 16px;
+	padding: 10px 0 0 30px;
+}
+#faqBody{
+	padding: 16px 0 0 0;
+}
+#faqinfo{
+	font-size: 0.8em;
+	text-align: right;
+}
+
+/* faqWrite */
+.center{
+	width:100%;
+	text-align: center;
+}
+.divForm div{
+	clear: both;
+	padding: 5px 0;
+	margin: 0;
+	overflow: auto;
+}
+.divForm legend{
+	font-weight: bold;
+	padding: 10px 0;
+	margin:10px 0;
+	font-size: 1.4em; 
+}
+.divForm label, .divForm .sp1{
+	width: 12%;
+	float: left;
+	text-align: left;
+	padding: 3px 0 0 0;
+	font-size: 0.9em;
+	line-height: 16px;
+}
+
+/*faqList*/
+.divList legend{
+	font-weight: bold;
+	padding: 10px 0;
+	margin:10px 0;
+	font-size: 1.4em; 
+}
+table{
+	margin: 0;
+	padding: 0;
+	border-collapse: collapse;
+	width: 100%;
+	font-size: 0.9em;
+}
+table.box, table.box2{
+	margin: 0;
+	padding: 0;
+	border: solid silver 1px;
+	border-collapse: collapse;
+}
+table.box2 th{
+	background-color: #eeeeee;
+	border: solid silver 1px;
+}
+table.box2 td{
+	border: solid silver 1px;
+	text-decoration: none;
+}
+.list p{
+	font-size: 0.8em;
+}
+.divSearch, .divPage{
+	text-align: center;
+	padding-top: 20px;
+}
+.divBtn{
+	float: right;
+}
+.clearboth{
+	clear: both;	
+}
+.align_center{
+	text-align: center;
 }

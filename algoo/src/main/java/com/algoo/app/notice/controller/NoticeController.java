@@ -1,5 +1,6 @@
 package com.algoo.app.notice.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -44,19 +45,20 @@ public class NoticeController {
 		//2. db process
 		int cnt = noticeService.insertNotice(noticeVo);
 		logger.info("공지 등록 결과, cnt={}", cnt);
-			
+		
 		//3. result save
 		return "redirect:list.ag";
 	}
 	
 	@RequestMapping("/list.ag")
 	public String listNotice(
-			@ModelAttribute ListNoticeVO searchVo, 
+			@ModelAttribute ListNoticeVO searchVo,
+			@RequestParam(required=false) String categoryName,	//09-02 searching category
 			Model model){
-		//2-1) 공지 리스트(전체)
+		//2) 공지 리스트(전체)
 		//1. parameter
 		logger.info("공지 리스트 조회, 파라미터 noticeVo={}", searchVo);
-		
+		logger.info("카테고리 ={}",categoryName);
 		//paging 08-31
 		//[1] pagingInfo
 		PaginationInfo pagingInfo = new PaginationInfo();
@@ -70,11 +72,20 @@ public class NoticeController {
 		searchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
 		
 		//2. db process
-		List<NoticeVO> alist
-		=noticeService.selectByCategory(searchVo);
-		logger.info("공지사항 목록 조회 결과, alist.size()={}",
-				alist.size());
+		List<NoticeVO> alist = new ArrayList<NoticeVO>();
 		
+		//09-05
+		searchVo.setCategory(categoryName);
+		
+		if(categoryName!=null && !categoryName.isEmpty()){
+			alist=noticeService.searchCategory(searchVo);
+			logger.info("공지사항 목록 조회 결과, alist.size()={}",
+					alist.size());
+		}else{
+			alist=noticeService.selectByCategory(searchVo);
+			logger.info("공지사항 목록 조회 결과, alist.size()={}",
+					alist.size());
+		}
 		//record counting 08-31
 		int totalRecord
 		=noticeService.selectTotalCount(searchVo);
@@ -86,9 +97,11 @@ public class NoticeController {
 		model.addAttribute("noticeList", alist);
 		model.addAttribute("pagingInfo", pagingInfo); //08-31
 		
+		logger.info("페이징인포={}",pagingInfo.getCurrentPage());
+		
 		return "notice/list";
 	}
-
+	
 	@RequestMapping("/updateReadCount.ag")
 	public String UpdateReadCount(
 			@RequestParam(defaultValue="0") int no,

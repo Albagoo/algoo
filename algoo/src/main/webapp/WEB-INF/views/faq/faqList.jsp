@@ -4,6 +4,8 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ include file="../inc/simple_top.jsp" %>
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/faq.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
 
 <script type="text/javascript" src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 <script type="text/javascript">	
@@ -30,17 +32,17 @@
 <input type="hidden" name="searchKeyword" value="${searchVO.searchKeyword }">	
 </form>
 
-<h2>FAQ</h2>
 <div class="divList">
+<legend>FAQ 리스트</legend>
+<div class="list">
 <c:if test="${!empty param.searchKeyword }">
 	<p>검색어 : ${param.searchKeyword }, ${pagingInfo.totalRecord }건 검색되었습니다.</p>
 </c:if>
 <c:if test="${empty searchVO.searchKeyword }">
 	<p>전체 조회 결과 - ${pagingInfo.totalRecord }건 조회되었습니다</p>
 </c:if>
-
+</div>
 <table class="box2">
-	<caption>FAQ</caption>
 	<colgroup>
 		<col style="width:15%;" />
 		<col style="width:55%;" />
@@ -68,7 +70,7 @@
 				<td>${vo.faqNo}</td>
 				<td style="text-align: left;">
 					<a href="<c:url value='/faq/updateCount.ag?faqNo=${vo.faqNo}'/>">
-						${vo.title}</a>
+						&nbsp; [${vo.category }] ${vo.title}</a>
 				</td>
 				<td><fmt:formatDate value="${vo.regdate}" pattern="yyyy-MM-dd"/>
 				</td>
@@ -107,7 +109,8 @@
 <div class="divSearch">
    	<form name="frmSearch" method="post" 
    	action="<c:url value='/faq/faqList.ag' />" >
-        <select name="searchCondition">
+        <select name="searchCondition" class="button white small"
+        	style="font-size: 0.75em;">
             <option value="title"
            	   <c:if test="${param.searchCondition=='title'}">
             		selected
@@ -121,14 +124,15 @@
         </select>   
         <input type="text" name="searchKeyword" 
         	title="검색어 입력" value="${param.searchKeyword}" >   
-		<input type="submit" value="검색">
+		<input type="submit" class="button white medium" value="검색">
     </form>
 </div>
 <br>
 <div class="divBtn">
-    <input type = "Button" value="FAQ 쓰기" 
+    <input type = "Button" class="button white medium" value="FAQ 쓰기" 
       	onclick="location.href='<c:url value="/faq/faqWrite.ag"/>';" />
 </div>
+<p class="clearboth"></p> 
 </section>
 
 <%@ include file="../inc/simple_bottom.jsp" %>

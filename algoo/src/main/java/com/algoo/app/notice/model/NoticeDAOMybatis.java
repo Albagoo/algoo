@@ -40,6 +40,12 @@ implements NoticeDAO{
 		return getSqlSession().selectOne(namespace
 				+".selectTotalCount", vo);
 	}
+	
+	@Override	//09-02
+	public List<NoticeVO> searchCategory(ListNoticeVO vo) {
+		return getSqlSession().selectList(namespace
+				+".searchCategory", vo);
+	}
 
 	@Override
 	public int updateReadCount(int no) {

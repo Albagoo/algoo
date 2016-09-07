@@ -13,9 +13,9 @@ $(document).ready(function(){
 		});//chang
 		
 		$("#btnZipcode").click(function(){
-			window.open("/springherb/zipcode/zipcode.do",
+			window.open("/algoo/zipcode/zipcode.ag",
 				"zip",
-			"width=500,height=500,left=10, top=50,resizable=yes,location=yes");	
+			"width=500,height=550,left=10, top=50,resizable=yes,location=yes");	
 		});//zipcode click
 		
 		

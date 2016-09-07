@@ -13,6 +13,14 @@
 		</where>
 	</sql>
 	
+	<sql id="categoryName">
+		<where>
+			<if test="category!=null and category!=''">
+				category= #{category}
+			</if>
+		</where>
+	</sql>
+	
 	<insert id="insertNotice" parameterType="NoticeVO">
 		<selectKey keyProperty="mainNo" resultType="int"
 		 order="BEFORE">
@@ -24,9 +32,38 @@
 			#{writer}, sysdate, '관리자')
 	</insert>
 	
+	<!-- <select id="selectAll" resultType="NoticeVO">
+		select * from main_board order by main_no desc
+	</select> -->
+	
+	<!-- 08-31 paging -->
+	<!-- <select id="selectByCategory"  parameterType="ListNoticeVO"
+	 resultType="NoticeVO">
+		select *
+		from
+		(
+		    select rownum as RNUM, LIST_ALL.*
+		    from
+		        (
+		        	select * from main_board
+		        	order by main_no desc
+		        ) LIST_ALL    
+		)
+		<![CDATA[
+			where  RNUM> #{firstRecordIndex} 
+			and RNUM<= #{firstRecordIndex}
+			+ #{recordCountPerPage}
+		]]>	 
+	</select>
+	
+	<select id="selectTotalCount" resultType="int">
+		select count(*) from main_board
+	</select> -->
+	
 	<!-- 09-02 searching -->
-	<select id="selectByCategory" resultType="NoticeVO"
-		parameterType="ListNoticeVO">
+	<select id="selectByCategory" 
+		parameterType="ListNoticeVO"
+		resultType="NoticeVO">
 		select *
 		from
 		(
@@ -40,6 +77,28 @@
 		where RNUM>#{firstRecordIndex}
 		 and RNUM<=#{firstRecordIndex}
 		 +#{recordCountPerPage}
+		]]>
+	</select>
+	
+	<!-- 09-02 searching category -->
+	<select id="searchCategory"
+	 parameterType="ListNoticeVO"
+	 resultType="NoticeVO">
+		select *
+		from
+		(
+		    select rownum as RNUM, LIST_ALL.*
+		    from
+		        (
+		        	select * from main_board
+		        	<include refid="categoryName"></include>
+		        	order by main_no desc
+		        ) LIST_ALL    
+		)
+		<![CDATA[
+			where  RNUM> #{firstRecordIndex} 
+			and RNUM<= #{firstRecordIndex}
+			+ #{recordCountPerPage}
 		]]>
 	</select>
 	

@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ include file="../inc/simple_top.jsp" %>
-
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/faq.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
 <script type="text/javascript" 
 src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
 <script src="<c:url value='/ckeditor/ckeditor.js'/>" 
@@ -28,7 +29,6 @@ type="text/javascript"></script>
 			}
 		});
 	});
-	
 </script>
 
 <section>
@@ -36,10 +36,10 @@ type="text/javascript"></script>
 <form name="frmWrite" id="frmWrite" method="post" 
   action="<c:url value='/faq/faqWrite.ag'/>" >
  <fieldset>
-	<legend>FAQ 쓰기</legend>
-        <div>
+	<legend>FAQ 작성</legend>
+        <div class="category">
         	<label for="category">카테고리 분류</label>
-        	<select name="category" id="category" title="카테고리">
+        	<select name="category" id="category" title="카테고리" class="button white medium">
         		<option value="">선택하세요</option>
         		<option value="회원가입탈퇴">회원가입 및 탈퇴</option>
         		<option value="회원정보관리">회원정보관리</option>
@@ -49,17 +49,16 @@ type="text/javascript"></script>
         </div>
         <div class="firstDiv">
             <label for="title">질문</label>
-            <input type="text" id="title" name="title"  />
+            <input type="text" id="title" name="title" style="width: 300px;font-size: 0.75em;text-align: left" 
+            	class="button white" placeholder="질문을 입력하세요"/>
         </div>
-        <div>  
-        	<label for="content">답변</label>       
- 			<textarea id="content" name="content" 
- 			rows="12" cols="40"></textarea>
+        <div>    
+ 			<textarea id="content" name="content"></textarea>
  		</div>
  		<br>
         <div class="center">
-            <input type = "submit" value="FAQ 등록"/>
-            <input type = "Button" value="FAQ 목록" 
+            <input class="button white" type = "submit" value="FAQ 등록" style="margin-right: 15px"/>
+            <input class="button white" type = "button" value="FAQ 목록" 
       			onclick="location.href='<c:url value="/faq/faqList.ag"/>';" />         
         </div>
     </fieldset>

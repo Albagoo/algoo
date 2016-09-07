@@ -83,7 +83,7 @@ body input::-webkit-input-placeholder { color: silver; }
 	display:inline-block;
 	border:1px solid #DEDBDE;
 	float:left;
-	width:49.5%;
+	width:49.4%;
 	height:100%;
 	margin:0;
 	padding:0;
@@ -94,12 +94,11 @@ body input::-webkit-input-placeholder { color: silver; }
 }
 #gender_div input[type="radio"]{
 	-webkit-appearance: none;
-	z-index:9;
 }
 #gender_div label{
 	display:block;
-	margin-top:5px;
-	vertical-align:middle;
+	height:100%;
+	line-height:25px;
 	cursor: pointer;
 	color:#999;
 	font-family: 돋움;
@@ -108,14 +107,16 @@ body input::-webkit-input-placeholder { color: silver; }
 /* 이메일 */
 #email_div div{
 	display: inline;
-	width:33%;
+	width:32.9%;
 }
 #email1, #email2, #email3{
-	width:32%;
+	width:31.5%;
 	border:1px solid #DEDBDE;
+	font-size: 0.9em;
 }
 #email2{
 	height:32px;
+	margin-top:2px;
 }
 
 /* 생년월일 */
@@ -136,7 +137,7 @@ body input::-webkit-input-placeholder { color: silver; }
 	padding:0;
 }
 .birth_title{
-	width:46px;
+	width:73px;
 	text-align: center;
 	font-size: 14px;
 	line-height:48px;
@@ -144,18 +145,18 @@ body input::-webkit-input-placeholder { color: silver; }
 	background: #F7F7F7;
 }
 .birth_yy{
-	width:134px;
+	width:125px;
 	line-height: 3em;
 	border-right:1px solid #DEDBDE;
 	line-width:5px;
 }
 .birth_mm{
-	width:134px;
+	width:125px;
 	line-height: 3em;
 	border-right:1px solid #DEDBDE;
 }
 .birth_dd{
-	width:134px;
+	width:125px;
 	line-height: 3em;
 }
 
@@ -167,16 +168,16 @@ body input::-webkit-input-placeholder { color: silver; }
 #b_mm{
 	width:100px;
 	height:30px;
-	margin:10px 3px 10px 20px;
+	margin:10px 10px 10px 10px;
 	border:2px solid #E70400;
 	border-radius:4px;
 	font-size:14px;
 	font-family:돋움;
-	color:silver;
 	font-weight:bold;
+	text-align: right;
 }
 
-/* 핸드폰 번호 */
+/* 핸드폰 번호 - 개인회원*/
 #hp_div{
 	width:452px;
 	height:50px;
@@ -185,17 +186,17 @@ body input::-webkit-input-placeholder { color: silver; }
 	margin:0;
 	padding:0;
 }
-#hp1, #hp2 , #hp3{
+#hp_div #hp1, #hp2 , #hp3{
 	width:90px;
 	border:1px solid #DEDBDE;
 	border-radius:3px;
 	margin-top:10px;
 	text-align: center;
 }
-#hp1{
+#hp_div #hp1{
 	margin-left:10px;
 }
-#btHp{
+#hp_div #btHp{
 	width:70px;
 	height:30px;
 	border:1px solid #DEDBDE;
@@ -203,6 +204,32 @@ body input::-webkit-input-placeholder { color: silver; }
 	background-color: white;
 	color:#999;
 	margin-left:20px;
+}
+/* 핸드폰번호, 전화번호, 팩스번호 - 기업회원*/
+#hp_div2, #phone_div, #fax_div{
+	width:452px;
+	height:50px;
+	color:#999;
+	margin:0;
+	padding:0;
+}
+#hp_title, #phone_title, #fax_title{
+	display:inline-block;
+	width:73px;
+	height:50px;
+	text-align: center;
+	font-size: 14px;
+	line-height:48px;
+	border-right:1px solid #DEDBDE;
+	background: #F7F7F7;
+	margin-right:20px;
+}
+#hp_div2 input[type="text"], #phone_div input[type="text"], #fax_div input[type="text"]{
+	width:90px;
+	border:1px solid #DEDBDE;
+	border-radius:3px;
+	margin-top:10px;
+	text-align: center;
 }
 
 /* 우편번호 */
@@ -223,7 +250,6 @@ body input::-webkit-input-placeholder { color: silver; }
 /* 회원가입 footer */
 #footer{
 	width:400px;
-	height:40px;
 	margin:0 auto;
 	text-align: center;
 	font-size: 0.9em;

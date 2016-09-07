@@ -111,7 +111,7 @@
 			
 			<div id="birth_div">
 				<div class="birth_title">
-					<label>성별</label>
+					<label>생년월일</label>
 				</div>
 				<div class="birth_yy">
 					<input type="text" name="b_yy" id="b_yy" placeholder="년(4자)">

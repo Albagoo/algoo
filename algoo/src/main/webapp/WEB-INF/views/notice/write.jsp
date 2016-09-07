@@ -2,12 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../inc/top.jsp" %>
 
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/noticeStyle.css" />
 <script src="<c:url value='/ckeditor/ckeditor.js'/>" 
 type="text/javascript"></script>
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		CKEDITOR.replace('content');	
+		CKEDITOR.replace('content', {uiColor: '#ff8d8b'});
 		
 		$("#frmWrite").submit(function(event){
 			if($("#title").val()==""){
@@ -36,12 +37,11 @@ type="text/javascript"></script>
 
 <section>
 <div class="divListAll" align="center">
-<div class="divForm" style="width:1024px">
 <form name="frmWrite" id="frmWrite" method="post"
   enctype="multipart/form-data" 
   action="<c:url value='/notice/write.ag'/>" >
- <fieldset>
-	<span class="title">공지등록</span>
+ <p id="firstTitle">공지등록</p>
+ <div class="funcDiv">
 		<div class="cgDiv">
 			<label for="category">구분</label>
 			<select id="category" name="category">
@@ -68,14 +68,15 @@ type="text/javascript"></script>
         </div>
         <div class="center" style="text-align:center">
         <hr>
-            <input type = "submit" value="등록"/>
+            <input type = "submit" value="등록"
+             style="font-weight:bold;background-color:MistyRose"/>
             <input type = "Button" value="공지목록" 
       			onclick
-	="location.href='<c:url value="/notice/list.ag"/>'" />         
+	="location.href='<c:url value="/notice/list.ag"/>'" 
+			 style="font-weight:bold;background-color:MistyRose"/>         
         </div>
-    </fieldset>
+    </div>
 </form>
-</div>
 </div>
 </section>
 

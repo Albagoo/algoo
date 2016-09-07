@@ -8,7 +8,7 @@ type="text/javascript"></script>
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		CKEDITOR.replace('content');	
+		CKEDITOR.replace('content', {uiColor: '#ff8d8b'});	
 		
 		$("#frmWrite").submit(function(event){
 			if($("#title").val()==""){
@@ -42,7 +42,7 @@ type="text/javascript"></script>
   action="<c:url value='/notice/edit.ag'/>" >
   <input type="hidden" name="mainNo" value="${noticeVo.mainNo }">
   
-<p id="firstTitle">공지수정</p>
+<p id="firstTitle">공지 수정</p>
 	<div class="funcDiv">
 			<div class="cgDiv">
 				<label for="category">구분</label>

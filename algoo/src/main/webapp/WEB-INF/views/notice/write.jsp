@@ -8,7 +8,7 @@ type="text/javascript"></script>
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		CKEDITOR.replace('content');	
+		CKEDITOR.replace('content', {uiColor: '#ff8d8b'});
 		
 		$("#frmWrite").submit(function(event){
 			if($("#title").val()==""){

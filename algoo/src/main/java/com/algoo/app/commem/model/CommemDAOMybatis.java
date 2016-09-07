@@ -8,4 +8,9 @@ public class CommemDAOMybatis extends SqlSessionDaoSupport
 	implements CommemDAO{
 	
 	private String namespace="com.mybatis.mapper.oracle.commem";
+
+	@Override
+	public int insertCompMember(CommemVO commemVo) {
+		return getSqlSession().insert(namespace+".insertCompMember", commemVo);
+	}
 }

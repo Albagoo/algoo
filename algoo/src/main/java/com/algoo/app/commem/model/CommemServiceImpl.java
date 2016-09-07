@@ -8,4 +8,9 @@ public class CommemServiceImpl implements CommemService {
 	
 	@Autowired
 	private CommemDAO commemDao;
+
+	@Override
+	public int insertCompMember(CommemVO commemVo) {
+		return commemDao.insertCompMember(commemVo);
+	}
 }

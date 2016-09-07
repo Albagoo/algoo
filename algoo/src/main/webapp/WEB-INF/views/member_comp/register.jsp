@@ -11,16 +11,7 @@
 </script>
 <script type="text/javascript" src="<c:url value='/js/member_com.js' />"></script>
 <script type="text/javascript">
-	$(document).ready(function(){
-		$("#frmMember_comp").submit(function(){
-			if($("#b_yy").val().length==4 && $("#b_mm").val()!='0' && $("#b_dd").val()!=''){
-				var yy = $("#b_yy").val();
-				var mm = $("#b_mm").val();
-				var dd = $("#b_dd").val();
-				$("#birth").val(yy+mm+dd);
-			}
-		});
-	});
+
 </script>
 <title>회원가입</title>
 </head>
@@ -41,7 +32,7 @@
 	<div id="content">
 		<div class="regi_group">
 			<div id="id_div">
-				<input type="text" name="userid" id="id" placeholder="아이디">
+				<input type="text" name="userid" id="userid" placeholder="아이디">
 			</div>
 			
 			<div id="nickName_div">
@@ -80,15 +71,16 @@
 				</div>
 				<div>
 					<select name="email2" id="email2">
-						<option>naver.com</option>
-						<option>nate.com</option>
-						<option>hanmail.net</option>
-						<option>google.com</option>
-						<option>직접입력</option>
+						<option value="naver.com">naver.com</option>
+						<option value="nate.com">nate.com</option>
+						<option value="hanmail.net">hanmail.net</option>
+						<option value="google.com">google.com</option>
+						<option value="etc">직접입력</option>
 					</select>
 				</div>
 				<div>
-					<input type="text" name="email3" id="email3" placeholder="직접입력">
+					<input type="text" name="email3" id="email3" placeholder="직접입력"
+					style="visibility: hidden">
 				</div>
 			</div>
 			
@@ -118,7 +110,7 @@
 				<div id="hp_title">
 					<label>핸드폰</label>
 				</div>
-				<input type="text" name="hp1" id="hp1" placeholder="ex)010" maxlength="3"> -
+				<input type="text" name="hp1" id="hp1" placeholder="ex) 010" maxlength="3"> -
 				<input type="text" name="hp2" id="hp2" maxlength="4"> -
 				<input type="text" name="hp3" id="hp3" maxlength="4">
 			</div>
@@ -134,15 +126,14 @@
 				<div id="fax_title">
 					<label>FAX</label>
 				</div>
-				<input type="text" name="fax1" id="fax1" maxlength="3"> -
+				<input type="text" name="fax1" id="fax1" placeholder="ex) 02" maxlength="3"> -
 				<input type="text" name="fax2" id="fax2" maxlength="4"> -
 				<input type="text" name="fax3" id="fax3" maxlength="4">
 			</div>
 		</div>
 		<div class="regi_group" id="regi_submit" >
-			<input type="submit" id="bt_register" value="가입하기">
+			<input type="submit" id="bt_register" value="기업회원 가입하기">
 		</div>
-		
 	</div>
 	</fieldset>
 	</form>

@@ -31,9 +31,47 @@ public class CommemController {
 	@RequestMapping("/memberAdd.ag")
 	public String memberAdd(@ModelAttribute CommemVO commemVo,
 			@RequestParam String email3){
+		
 		logger.info("기업회원 처리 파라미터 commemVo={},email3={}"
 				,commemVo,email3);
-		return null;
+		
+		String fax2=commemVo.getFax2();
+		String fax3=commemVo.getFax3();
+		if(fax2==null || fax2.isEmpty() ||fax3==null ||fax3.isEmpty()){
+			commemVo.setFax1("");
+			commemVo.setFax2("");
+			commemVo.setFax3("");
+		}
+		
+		String phone2=commemVo.getPhone2();
+		String phone3=commemVo.getPhone3();
+		
+		if(phone2==null || phone2.isEmpty() ||phone3==null ||phone3.isEmpty()){
+			commemVo.setPhone1("");
+			commemVo.setPhone2("");
+			commemVo.setPhone3("");
+		}
+		
+		String email1 = commemVo.getEmail1();
+		String email2 = commemVo.getEmail2();
+		if(email1==null || email1.isEmpty()){
+			commemVo.setEmail1("");
+			commemVo.setEmail2("");
+		}else{
+			if(email2.equals("etc")){
+				if(email3!=null && !email3.isEmpty()){
+					commemVo.setEmail2(email3);
+				}else{
+					commemVo.setEmail1("");
+					commemVo.setEmail2("");
+				}
+			}
+		}
+		
+		int result = commemService.insertCompMember(commemVo);
+		logger.info("기업회원가입 처리, result={}",result);
+		
+		return "/index.ag";
 	}
 	
 }

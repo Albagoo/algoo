@@ -3,6 +3,15 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.mybatis.mapper.oracle.commem">	
-
-	
+	<insert id="insertCompMember" parameterType="CommemVO">
+		<selectKey keyProperty="comp_member_code" resultType="string" 
+			order="BEFORE">
+			select 'COM'||trim(TO_CHAR(COMPANY_seq.nextval,'00000')) from dual 
+		</selectKey>
+		insert into comp_member(comp_member_code, userid, nickname, password,
+			birth,gender,username,phone1,phone2,phone3,hp1,hp2,hp3,fax1,fax2,fax3,email1,email2,comp_code)
+		values(#{compMemberCode},#{userid}, #{nickName}, #{password}, 
+    		#{birth}, #{gender},#{userName}, #{phone1}, #{phone2}, #{phone3},#{hp1},#{hp2}
+    		,#{hp3},#{fax1},#{fax2},#{fax3},#{email1},#{email2},0) 
+	</insert>
 </mapper>

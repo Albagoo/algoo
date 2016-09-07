@@ -1,7 +1,7 @@
 package com.algoo.app.commem.model;
 
 public class CommemVO {
-	private String comp_member_code;
+	private String compMemberCode;
 	private String userid;
 	private String nickName;
 	private String password;
@@ -19,17 +19,18 @@ public class CommemVO {
 	private String fax3;
 	private String email1;
 	private String email2;
-	private int comp_code;
+	private int compCode;
 	
 	public CommemVO() {
 		super();
 	}
+	
 
-	public CommemVO(String comp_member_code, String userid, String nickName, String password, String userName,
+	public CommemVO(String compMemberCode, String userid, String nickName, String password, String userName,
 			String birth, String gender, String phone1, String phone2, String phone3, String hp1, String hp2,
-			String hp3, String fax1, String fax2, String fax3, String email1, String email2, int comp_code) {
+			String hp3, String fax1, String fax2, String fax3, String email1, String email2, int compCode) {
 		super();
-		this.comp_member_code = comp_member_code;
+		this.compMemberCode = compMemberCode;
 		this.userid = userid;
 		this.nickName = nickName;
 		this.password = password;
@@ -47,15 +48,16 @@ public class CommemVO {
 		this.fax3 = fax3;
 		this.email1 = email1;
 		this.email2 = email2;
-		this.comp_code = comp_code;
+		this.compCode = compCode;
 	}
 
-	public String getComp_member_code() {
-		return comp_member_code;
+
+	public String getCompMemberCode() {
+		return compMemberCode;
 	}
 
-	public void setComp_member_code(String comp_member_code) {
-		this.comp_member_code = comp_member_code;
+	public void setCompMemberCode(String compMemberCode) {
+		this.compMemberCode = compMemberCode;
 	}
 
 	public String getUserid() {
@@ -194,24 +196,21 @@ public class CommemVO {
 		this.email2 = email2;
 	}
 
-	public int getComp_code() {
-		return comp_code;
+	public int getCompCode() {
+		return compCode;
 	}
 
-	public void setComp_code(int comp_code) {
-		this.comp_code = comp_code;
+	public void setCompCode(int compCode) {
+		this.compCode = compCode;
 	}
+
 
 	@Override
 	public String toString() {
-		return "CommemVO [comp_member_code=" + comp_member_code + ", userid=" + userid + ", nickName=" + nickName
+		return "CommemVO [compMemberCode=" + compMemberCode + ", userid=" + userid + ", nickName=" + nickName
 				+ ", password=" + password + ", userName=" + userName + ", birth=" + birth + ", gender=" + gender
 				+ ", phone1=" + phone1 + ", phone2=" + phone2 + ", phone3=" + phone3 + ", hp1=" + hp1 + ", hp2=" + hp2
 				+ ", hp3=" + hp3 + ", fax1=" + fax1 + ", fax2=" + fax2 + ", fax3=" + fax3 + ", email1=" + email1
-				+ ", email2=" + email2 + ", comp_code=" + comp_code + "]";
+				+ ", email2=" + email2 + ", compCode=" + compCode + "]";
 	}
-	
-	
-	
-
 }

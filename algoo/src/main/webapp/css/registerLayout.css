@@ -94,12 +94,11 @@ body input::-webkit-input-placeholder { color: silver; }
 }
 #gender_div input[type="radio"]{
 	-webkit-appearance: none;
-	z-index:9;
 }
 #gender_div label{
 	display:block;
-	margin-top:5px;
-	vertical-align:middle;
+	height:100%;
+	line-height:25px;
 	cursor: pointer;
 	color:#999;
 	font-family: 돋움;
@@ -108,14 +107,16 @@ body input::-webkit-input-placeholder { color: silver; }
 /* 이메일 */
 #email_div div{
 	display: inline;
-	width:33%;
+	width:32.9%;
 }
 #email1, #email2, #email3{
-	width:32%;
+	width:31.5%;
 	border:1px solid #DEDBDE;
+	font-size: 0.9em;
 }
 #email2{
 	height:32px;
+	margin-top:2px;
 }
 
 /* 생년월일 */
@@ -167,13 +168,13 @@ body input::-webkit-input-placeholder { color: silver; }
 #b_mm{
 	width:100px;
 	height:30px;
-	margin:10px 3px 10px 20px;
+	margin:10px 10px 10px 10px;
 	border:2px solid #E70400;
 	border-radius:4px;
 	font-size:14px;
 	font-family:돋움;
-	color:silver;
 	font-weight:bold;
+	text-align: right;
 }
 
 /* 핸드폰 번호 - 개인회원*/
@@ -215,6 +216,7 @@ body input::-webkit-input-placeholder { color: silver; }
 #hp_title, #phone_title, #fax_title{
 	display:inline-block;
 	width:73px;
+	height:50px;
 	text-align: center;
 	font-size: 14px;
 	line-height:48px;

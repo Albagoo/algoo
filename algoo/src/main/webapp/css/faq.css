@@ -104,10 +104,12 @@ table.box, table.box2{
 table.box2 th{
 	background-color: #eeeeee;
 	border: solid silver 1px;
+	height:35px;
 }
 table.box2 td{
 	border: solid silver 1px;
 	text-decoration: none;
+	height:25px
 }
 table.box2 td a{
 	color: black;

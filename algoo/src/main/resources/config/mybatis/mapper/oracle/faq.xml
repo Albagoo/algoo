@@ -56,7 +56,7 @@
 	
 	<update id="editFaq" parameterType="FaqVO">
 		update faq 
-			set category=#{category} title=#{title}, content=#{content}
+			set title=#{title}, content=#{content}
 		where faq_no=#{faqNo}
 	</update>
 	

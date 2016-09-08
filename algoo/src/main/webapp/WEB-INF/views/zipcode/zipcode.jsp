@@ -173,6 +173,12 @@
         }
    }
    )};
+   
+   function setZipcode(zipcode, address){
+		opener.document.frm1.zipcode.value=zipcode;
+		opener.document.frm1.address.value=address;
+		self.close();
+	}
 </script>
 </head>
 <body>

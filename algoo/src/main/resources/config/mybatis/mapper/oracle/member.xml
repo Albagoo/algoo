@@ -6,7 +6,7 @@
 
 	<insert id="insertMember" parameterType="MemberVO">
 		<selectKey keyProperty="memberCode" resultType="string" order="BEFORE">
-				select 'COM'||trim(TO_CHAR(member_seq.nextval,'00000')) from dual 
+				select 'MEM'||trim(TO_CHAR(member_seq.nextval,'00000')) from dual 
 		</selectKey>
 		insert into member(member_code,userid,nickname,password,username,birth,gender,email1,email2,
     	hp1,hp2,hp3,zipcode,address,address_detail,photo)
@@ -23,13 +23,13 @@
 	<select id="selectPwd" parameterType="MemberVO"
 		resultType="string">
 		select password from member
-		where userid=#{userid} 
+		where userid=#{userid} and out_date is null
 	</select>
 	
 	<select id="selectMemberByUserid" parameterType="string" 
 		resultType="MemberVO">
 		select * from member
-		where userid=#{userid}
+		where userid=#{userid} and out_date is null
 	</select>
 	
 	<update id="updateMember" parameterType="MemberVO">
@@ -37,16 +37,12 @@
 		set nickname=#{nickName}, email1=#{email1},email2=#{email2},
 		hp1=#{hp1},hp2=#{hp2},hp3=#{hp3},zipcode=#{zipcode},
 		address=#{address}, address_detail=#{addressDetail}
-		where userid=#{userid}
+		where userid=#{userid} and out_date is null
 	</update>
 	
-	<delete id="deleteMember" parameterType="string">
-		delete from member
-			where userid=#{userid}
-	</delete>
-	<!-- <update id="withdrawMember" parameterType="string">
-		update member2 
-			set outdate=sysdate
-		where userid=#{userid} and outdate is null
-	</update> -->
+	<update id="outMember" parameterType="string">
+		update member 
+			set out_date=sysdate
+		where userid=#{userid} and out_date is null
+	</update>
 </mapper>

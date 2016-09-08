@@ -1,5 +1,7 @@
 package com.algoo.app.member.model;
 
+import java.sql.Timestamp;
+
 public class MemberVO {
 
 	private String memberCode;
@@ -18,6 +20,7 @@ public class MemberVO {
 	private String address;
 	private String addressDetail;
 	private String photo;
+	private Timestamp outDate;
 	
 	public String getMemberCode() {
 		return memberCode;
@@ -31,7 +34,7 @@ public class MemberVO {
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
-	public String getPasssword() {
+	public String getPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
@@ -115,18 +118,21 @@ public class MemberVO {
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
+	public Timestamp getOutDate() {
+		return outDate;
+	}
+	public void setOutDate(Timestamp outDate) {
+		this.outDate = outDate;
+	}
 	
 	@Override
 	public String toString() {
 		return "MemberVO [memberCode=" + memberCode + ", userid=" + userid + ", password=" + password + ", nickName="
 				+ nickName + ", userName=" + userName + ", birth=" + birth + ", gender=" + gender + ", email1=" + email1
 				+ ", email2=" + email2 + ", hp1=" + hp1 + ", hp2=" + hp2 + ", hp3=" + hp3 + ", zipcode=" + zipcode
-				+ ", address=" + address + ", addressDetail=" + addressDetail + ", photo=" + photo + "]";
+				+ ", address=" + address + ", addressDetail=" + addressDetail + ", photo=" + photo + ", outDate="
+				+ outDate + "]";
 	}
-	
-	
-	
-	
 	
 	
 }

@@ -12,14 +12,10 @@ type="text/javascript"></script>
 	$(document).ready(function(){
 		CKEDITOR.replace('content', {uiColor: '#ffffff'});	
 		
-		$("#frmWrite").submit(function(event){
+		$("#frmEdit").submit(function(event){
 			if($("#title").val()==""){
 				alert("제목을 입력하세요");
 				$("#title").focus();
-				event.preventDefault();
-			}else if($("#writer").val().length<1){
-				alert("이름을 입력하세요");
-				$("#writer").focus();
 				event.preventDefault();
 			}
 		});

@@ -17,10 +17,6 @@ type="text/javascript"></script>
 				alert("제목을 입력하세요");
 				$("#title").focus();
 				event.preventDefault();
-			}else if($("#writer").val().length<1){
-				alert("이름을 입력하세요");
-				$("#writer").focus();
-				event.preventDefault();
 			}
 		});
 	});

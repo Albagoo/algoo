@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mybatis.mapper.oracle.freeboard">
+	<insert id="insertFreeboard" parameterType="FreeboardVO">
+		<selectKey keyProperty="freeNo" resultType="int"
+			order="BEFORE">
+			select FREE_BOARD_SEQ.nextval from dual
+		</selectKey>
+		insert into free_board(free_no, title, content, writer, group_no, password)
+		values(#{freeNo} ,#{title},#{content},#{writer},#{freeNo},#{password})
+	</insert>
+</mapper>

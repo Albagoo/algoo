@@ -13,6 +13,9 @@ $(document).ready(function(){
 	CKEDITOR.replace('content', {uiColor: '#ffffff'});	
 	
 	$("#frmEdit").submit(function(event){
+		var instance = CKEDITOR.instances.content;
+		instance.updateElement();
+		
 		if($("#category").val()==""){
 			alert("카테고리를 선택하세요");
 			$("#category").focus();
@@ -21,7 +24,7 @@ $(document).ready(function(){
 			alert("질문을 입력하세요");
 			$("#title").focus();
 			event.preventDefault();
-		}else if(content.val()==""){
+		}else if(instance.getData()==""){
 			alert("답변을 입력하세요");
 			$("#content").focus();
 			event.preventDefault();

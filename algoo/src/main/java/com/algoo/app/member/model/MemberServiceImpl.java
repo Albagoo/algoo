@@ -35,7 +35,7 @@ public class MemberServiceImpl implements MemberService{
 			//해당 아이디가 없는 경우
 			result=ID_NONE;
 		}else{
-			if(dbPwd.equals(memberVo.getPassword())){
+			if(dbPwd.equals(memberVo.getPasssword())){
 				//비밀번호도 일치 => 로그인 성공
 				result=LOGIN_OK;
 			}else{
@@ -57,6 +57,11 @@ public class MemberServiceImpl implements MemberService{
 	
 	public int withdrawMember(String userid){
 		return memberDao.withdrawMember(userid);
+	}
+
+	@Override
+	public int deleteMember(String userid) {
+		return memberDao.deleteMember(userid);
 	}
 	
 }

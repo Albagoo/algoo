@@ -6,39 +6,6 @@
 	overflow: auto;
 	background: white;
 }
-#container #leftNavi{
-	float: left; /*background:#FFCCCC;*/
-	width: 20%;
-	padding: 20px 0 35px 5px;
-	border: 1px solid #eee;
-	margin-top: 16px;
-}
-#container #leftNavi dt	{
-	padding: 7px 5px 15px 20px;
-	font-weight: bold;
-}		
-#container #leftNavi dt a {
-	text-decoration: none;
-	display: block;
-	color: black;
-}
-	
-#container #leftNavi dd	{
-	display: block;
-	padding: 0 20px;
-	font-size: 0.9em;
-}
-#container #leftNavi dd a	{
-	text-decoration: none;
-	font-size: 0.9em;
-	display: block;
-	color: black;
-	border-bottom: 1px solid #ddd;
-	padding: 10px 5px;
-}
-#container #leftNavi dd a:hover, #container #leftNavi dd a:focus{
-	background:#fffafa ;
-}
 #answer p{
 	font-size: 0.8em;
 }

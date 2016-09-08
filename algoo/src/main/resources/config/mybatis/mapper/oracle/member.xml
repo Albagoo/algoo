@@ -5,15 +5,13 @@
 <mapper namespace="com.mybatis.mapper.oracle.member">	
 
 	<insert id="insertMember" parameterType="MemberVO">
-		<selectKey keyProperty="memberCode" resultType="int" order="BEFORE">
-				select member_seq.nextval from dual
+		<selectKey keyProperty="memberCode" resultType="string" order="BEFORE">
+				select 'COM'||trim(TO_CHAR(member_seq.nextval,'00000')) from dual 
 		</selectKey>
-		insert into member(member_code,userid,nickname,password,username,birth,gender,
-		 email1,email2,phone1,phone2,phone3,hp1,hp2,hp3,zipcode,address,
-		 address_detail)
-		values(#{memberCode},#{userid},#{nickName},#{password},#{userName},#{birth},#{gender},
- 		#{email1},#{email2},#{phone1},#{phone2},#{phone3},#{hp1},#{hp2},#{hp3},#{zipcode},
- 		#{address},#{addressDetail})
+		insert into member(member_code,userid,nickname,password,username,birth,gender,email1,email2,
+    	hp1,hp2,hp3,zipcode,address,address_detail,photo)
+		values(#{memberCode},#{userid},#{nickName},#{password},#{userName},#{birth},#{gender},#{email1},
+   		 #{email2},#{hp1},#{hp2},#{hp3},#{zipcode},#{address},#{addressDetail},#{photo})
 	</insert>
 
 	<select id="selectCountUserid" 
@@ -25,13 +23,13 @@
 	<select id="selectPwd" parameterType="MemberVO"
 		resultType="string">
 		select password from member
-		where userid=#{userid} and authcode='1'
+		where userid=#{userid} 
 	</select>
 	
 	<select id="selectMemberByUserid" parameterType="string" 
 		resultType="MemberVO">
 		select * from member
-		where userid=#{userid} and authcode='1'
+		where userid=#{userid}
 	</select>
 	
 	<update id="updateMember" parameterType="MemberVO">
@@ -39,10 +37,14 @@
 		set nickname=#{nickName}, email1=#{email1},email2=#{email2},
 		hp1=#{hp1},hp2=#{hp2},hp3=#{hp3},zipcode=#{zipcode},
 		address=#{address}, address_detail=#{addressDetail}
-		where userid=#{userid} and  authcode='1'
+		where userid=#{userid}
 	</update>
-	<!--  
-	<update id="withdrawMember" parameterType="string">
+	
+	<delete id="deleteMember" parameterType="string">
+		delete from member
+			where userid=#{userid}
+	</delete>
+	<!-- <update id="withdrawMember" parameterType="string">
 		update member2 
 			set outdate=sysdate
 		where userid=#{userid} and outdate is null

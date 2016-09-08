@@ -1,6 +1,6 @@
 package com.algoo.app.notice.common;
 
-public class SerachNoticeVO extends SearchVO{
+public class SeachNoticeVO extends SearchVO{
 	private int category;
 	private int mainNo;
 	private String categoryName;

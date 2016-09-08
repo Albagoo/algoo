@@ -3,11 +3,42 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.mybatis.mapper.oracle.rec">
+	<sql id="searchWhere">
+      <where>
+         <if test="searchKeyword!=null and searchKeyword!=''">
+            ${searchCondition} 
+            like '%' || #{searchKeyword} || '%'
+         </if>
+      </where>
+   </sql>
 	
 	<select id="selectRecByCode" parameterType="String"
 	resultType="RecVO">
 	select * from  RECRUITMENT 
    where REC_CODE=#{recCode}
+	</select>
+	
+	<select id="selectAllRec" resultType="RecVO" 
+	   parameterType="RecSeachVO">
+      select RNUM,LIST.* from
+      (
+          select rownum as RNUM, A.* from
+              (select * from RECRUITMENT 
+              <include refid="searchWhere"></include>
+              order by rec_Code desc) A
+      ) LIST
+      <![CDATA[
+      where  RNUM> #{firstRecordIndex} 
+         and RNUM<= #{firstRecordIndex}
+         + #{recordCountPerPage}
+      ]]>
+   </select>
+	
+	
+	<select id="selectTotalCount" parameterType="RecSeachVO" 
+	resultType="int">
+	select count(*) from  RECRUITMENT
+	<include refid="searchWhere"></include>
 	</select>
 	
 	<select id="selectCompanyByCode" parameterType="String"
@@ -24,8 +55,9 @@
 	</select>
 	
 	<insert id="insertRec" parameterType="RecVO">
-	<selectKey>
-	select COM||trim(TO_CHAR(COMPANY_seq.nextval,'00000') ) from dual
+	<selectKey keyProperty="recCode" resultType="int"
+	order="BEFORE">
+      select RECRUITMENT_seq.nextval from dual
 	</selectKey>
 	
 	insert into RECRUITMENT
@@ -37,14 +69,13 @@
 	career,preference,recruit_Member,recruit_Person,recruit_Method,
 	documents,detail_Recruit,comp_Code,service_Code
 	)
-	values(
-   , #{compName},#{title},#{jobName},#{jobName2},
-#{jobName3},#{zipcode},#{address},#{addressDetail},#{subRegion},
-#{subNum},#{subName},#{subInfo},#{workTerm},#{workDays},
-#{workTime},#{workTime2},#{workTime3},#{workTime4},#{pay},
-#{recruitType},#{welfare},#{gender},#{age},#{educateLv},
-#{career},#{preference},#{recruitMember},#{recruitPerson},#{recruitMethod},
-#{documents},#{detailRecruit},#{compCode},#{serviceCode}
+	values(#{recCode}, #{compName},#{title},#{jobName},#{jobName2},
+	#{jobName3},#{zipcode},#{address},#{addressDetail},#{subRegion},
+	#{subNum},#{subName},#{subInfo},#{workTerm},#{workDays},
+	#{workTime},#{workTime2},#{workTime3},#{workTime4},#{pay},
+	#{recruitType},#{welfare},#{gender},#{age},#{educateLv},
+	#{career},#{preference},#{recruitMember},#{recruitPerson},#{recruitMethod},
+	#{documents},#{detailRecruit},#{compCode},#{serviceCode}
        )
 	</insert>
 </mapper>

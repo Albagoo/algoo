@@ -14,9 +14,11 @@ src="<c:url value='/js/member.js'/>"></script>
 src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 <link rel="stylesheet" type="text/css" 
 href="<c:url value='/css/simpleButton.css'/>" />
+  <script src="<c:url value='/ckeditor/ckeditor.js'/>" 
+type="text/javascript"></script>
 <script type="text/javascript">
    $(document).ready(function(){
-      CKEDITOR.replace('content');  
+	   CKEDITOR.replace('content', {uiColor: '#FFFFFF'});  
       $("#simple_top span").html("채용공고 등록");
       //simple_top 이용시 자기가 맡은화면 명칭 innerHTML로 붙여주기
       
@@ -41,14 +43,17 @@ href="<c:url value='/css/simpleButton.css'/>" />
               ="<c:url value='/rec/recWrite.ag'/>";
               frmWrite.submit();
     	  }
-	});
+	});//click
       
-      
+		$("#recListBt").click(function() {
+		   frmList.action
+		   ="<c:url value='/rec/recList.ag'/>";   
+		   frmList.submit();
+			//나중에 카테고리 추가 예정
+		});
+	      
    });
   </script>
-  <script src="<c:url value='/ckeditor/ckeditor.js'/>" 
-type="text/javascript"></script>
-
 
 
 
@@ -478,19 +483,20 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                   
                <label class="radio" for="gender">
                <input type="radio" id="gender"
-               name="gender" checked="checked">
+               name="gender" checked="checked" 
+               value="성별무관">
                <span class="font_11">성별무관</span></label>
                
                
                <label class="radio" for="male">
                <input type="radio" id="male"
-               name="gender">
+               name="gender" value="남성">
                <span class="font_11">남성</span></label>
                
 
                <label class="radio" for="female">
                <input type="radio" id="female"
-               name="gender">
+               name="gender" value="여성">
                <span class="font_11">여성</span></label>
                
             </dt>
@@ -499,31 +505,32 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                
                <label class="radio" for="donAge">
                <input type="radio" id="donAge"
-               name="age" checked="checked">
+               name="age" checked="checked"
+               value="연령무관">
                <span class="font_11">연령무관</span></label>
                
                
                <label class="radio" for="dontAge">
                <input type="radio" id="dontAge"
-               name="age">
+               name="age" value="연령제한 있음">
                <span class="font_11 ">연령제한 있음</span></label>
                
                
                <label class="radio" for=oldAge>
                <input type="checkbox" id="oldAge"
-               name="age">
+               name="age" value="고연령자 가능(65세이상)">
                <span class="font_11">고연령자 가능(65세이상)</span></label>
                
                
                <label class="radio" for=housewife>
                <input type="checkbox" id="housewife"
-               name="age">
+               name="age" value="주부 가능">
                <span class="font_11">주부 가능</span></label>
                
                
                <label class="radio" for=youngAge>
                <input type="checkbox" id="youngAge"
-               name="age">
+               name="age" value="청소년가능(만18세 이상)">
                <span class="font_11">청소년가능(만18세 이상)</span></label>
                
             </dt>
@@ -537,31 +544,31 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                
                <label class="radio" for="middle">
                <input type="radio" id="middle"
-               name="educateLv">
+               name="educateLv" value="중학교졸업">
                <span class="font_11">중학교졸업
                </span></label>
                
                <label class="radio" for="high">
                <input type="radio" id="high"
-               name="educateLv">
+               name="educateLv" value="고등학교졸업">
                <span class="font_11">고등학교졸업
                </span></label>
                
                <label class="radio" for="univ23">
                <input type="radio" id="univ23"
-               name="educateLv">
+               name="educateLv" value="대학(2,3년제)졸업">
                <span class="font_11">대학(2,3년제)졸업
                </span></label>
                
                <label class="radio" for="univ4">
                <input type="radio" id="univ4"
-               name="educateLv">
+               name="educateLv" value="대학(4년제)졸업">
                <span class="font_11">대학(4년제)졸업
                </span></label>
                
                <label class="radio" for="graduate">
                <input type="radio" id="graduate"
-               name="educateLv">
+               name="educateLv" value="대학원졸업~">
                <span class="font_11">대학원졸업~
                </span></label>
                
@@ -591,7 +598,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <span class="titc">우대조건</span>
                
                <label class="rence" for="expPre">
-               <input type="checkbox" id="exp"
+               <input type="checkbox" id="expPre"
                name="preference" value="동종업계 경력자">
                <span class="font_11">동종업계 경력자
                </span></label>
@@ -689,7 +696,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                placeholder="10" name="recruitMember">
                <span class="by">명</span>
                <label class="rence" for="tenPeople">
-               <input type="checkbox" id="experience"
+               <input type="checkbox" id="tenPeople"
                name="recruitMember" value="0명">
                <span class="font_11">0명
                </span></label>
@@ -702,32 +709,39 @@ style="width: 150px;height: 100px;border: 1px solid gray">
             </dt>
             <dt>
                <span class="tit">모집대상</span>
-               <label class="txt_60 font_11">
-               <input type="checkbox" name="recruitPerson"
+               <label class="txt_60 font_11" for="youth">
+               <input type="checkbox" id="youth"
+                name="recruitPerson"
                value="청소년">청소년</label>
                
-                <label class="txt_60 font_11">
-                <input type="checkbox" name="recruitPerson"
+                <label class="txt_60 font_11" for="univSt">
+                <input type="checkbox" id="univSt" 
+                name="recruitPerson"
                value="대학생">대학생</label>
                
-                <label class="txt_50 font_11">
-                <input type="checkbox" name="recruitPerson"
+                <label class="txt_50 font_11" for="homemaker"> 
+                <input type="checkbox" id="homemaker" 
+                name="recruitPerson"
                value="주부">주부</label>
                
-                <label class="txt_50 font_11">
-                <input type="checkbox" name="recruitPerson"
+                <label class="txt_50 font_11" for="senior">
+                <input type="checkbox" id="senior" 
+                name="recruitPerson"
                value="장년">장년</label>
                
-                <label class="txt_60 font_11">
-                <input type="checkbox" name="recruitPerson"
+                <label class="txt_60 font_11" for="disabled">
+                <input type="checkbox" id="disabled" 
+                name="recruitPerson"
                value="장애인">장애인</label>
                
-                <label class="txt_60 font_11">
-                <input type="checkbox" name="recruitPerson"
+                <label class="txt_60 font_11" for="novice">
+                <input type="checkbox" id="novice" 
+                name="recruitPerson"
                value="초보자">초보자</label>
                
-               <label class="txt_75 font_11">
-                <input type="checkbox" name="recruitPerson"
+               <label class="txt_75 font_11" for="homeWork">
+                <input type="checkbox" id="homeWork"
+                name="recruitPerson"
                value="재택가능">재택가능</label>
             </dt>
              <dt>
@@ -758,43 +772,43 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                
                <label class="rence" for="onlineRec">
                <input type="checkbox" id="onlineRec"
-               name="recruitMethod">
+               name="recruitMethod" value="온라인지원">
                <span class="font_11">온라인지원
                </span></label>
                
                 <label class="rence" for="emailRec">
                <input type="checkbox" id="emailRec"
-               name="recruitMethod">
+               name="recruitMethod" value="e-메일지원">
                <span class="font_11">e-메일지원
                </span></label>
                
                 <label class="rence" for="phoneRec">
                <input type="checkbox" id="phoneRec"
-               name="phoneRec">
+               name="phoneRec" value="전화연락">
                <span class="font_11">전화연락
                </span></label>
                
                 <label class="rence" for="offlineRec">
                <input type="checkbox" id="offlineRec"
-               name="offlineRec">
+               name="offlineRec" value="방문접수">
                <span class="font_11">방문접수
                </span></label>
                
                <label class="rence" for="postRec">
                <input type="checkbox" id="postRec"
-               name="postRec">
+               name="postRec" value="우편">
                <span class="font_11">우편
                </span></label>
                
                <label class="rence" for="faxRec">
                <input type="checkbox" id="faxRec"
-               name="faxRec">
+               name="faxRec" value="팩스">
                <span class="font_11">팩스
                </span></label>
                
                <label class="rence" for="homepageRec">
                <input type="checkbox" id="homepageRec"
-               name="homepageRec">
+               name="homepageRec" value="홈페이지">
                <span class="font_11">홈페이지
                </span></label>
                <p class="clearBoth">
@@ -802,7 +816,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                
                <label class="rence" for="recForm">
                <input type="checkbox" id="recForm"
-               name="recForm">
+               name="recForm" value="자사지원양식">
                <span class="font_11">자사지원양식
                
                (<input type="radio" name="recForm">필수,
@@ -815,32 +829,35 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                
                 <label class="rence" for="experience">
                <input type="checkbox" id="experience"
-               name="documents">
+               name="documents" value="이력서">
                <span class="font_11">이력서
                </span></label>
                
                <label class="rence" for="juminDoc">
                <input type="checkbox" id="juminDoc"
-               name="juminDoc">
+               name="documents" value="주민.등록등본">
                <span class="font_11">주민.등록등본
                </span></label>
                
                <label class="rence" for="mediDoc">
                <input type="checkbox" id="mediDoc"
-               name="mediDoc">
-               <span class="font_11">보건증</span></label>
+               name="documents" value="보건증">
+               <span class="font_11">보건증
+               </span></label>
                
                
                <label class="rence" for="introDoc">
                <input type="checkbox" id="introDoc"
-               name="introDoc">
-               <span class="font_11">자기소개서</span></label>
+               name="documents" value="자기소개서">
+               <span class="font_11">자기소개서
+               </span></label>
                
                
                <label class="rence" for="parDoc">
                <input type="checkbox" id="parDoc"
-               name="parDoc">
-               <span class="font_11">부모님동의서</span></label>
+               name="documents" value="부모님동의서">
+               <span class="font_11">부모님동의서
+               </span></label>
                
             </dt>
          </dl>
@@ -853,12 +870,16 @@ style="width: 150px;height: 100px;border: 1px solid gray">
          </div>
 		</div>
 	</div>
-	<div class="align_center">
+	<div class="align_center" style="margin-top: 50px;">
 	<input class="white button "
-	id="regBt" 
-	type="button" value="확인">
+	  id="regBt"	type="button" value="확인">
 	<input class="white button " type="reset" value="취소">
+	<input class="white button" type="button" 
+      id="recListBt" value="목록">
 	</div>
+	
 </form>
+<form name="frmList" method="post">
 
+</form>
 <%@ include file="../inc/simple_bottom.jsp" %>

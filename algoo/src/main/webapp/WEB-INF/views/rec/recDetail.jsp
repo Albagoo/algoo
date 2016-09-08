@@ -8,7 +8,7 @@
 	width: 800px;
 }
 .border{
-   border: 1px solid #eee;
+   border: 0.5cm solid #eee;
 }
 .recDetail {
 	font: 1em;
@@ -69,9 +69,9 @@ border: 1px solid black;
 }
 
 .main_right {
+	border: 1pt solid Gray;
 	width: 480px;
 	height: 530px;
-	border: 1px solid black;
 	margin: 0;
 }
 
@@ -103,9 +103,9 @@ border: 1px solid black;
 
 .txt_400 {
 	float: left;
-	width: 400px;
+	width: 370px;
 	font: 15px dotumn, "돋움";
-	margin-bottom: 5px;
+	margin: 0 0 5px 30px;
 }
 .txt_30 {
 	float: left;
@@ -296,7 +296,7 @@ href="<c:url value='/css/simpleButton.css'/>" />
 	     </dt>
 	     <dt>
 	     <span class="titd">학      력</span>
-	     <span class="txt_30">${recVo.educateLv }
+	     <span class="txt_400">${recVo.educateLv }
 	     </span><img  alt="우대사항" 
 	     src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_comm/icon_univ2.gif">
 	     </dt>
@@ -307,7 +307,7 @@ href="<c:url value='/css/simpleButton.css'/>" />
         </dt>	     
         <dt>
         <span class="titd">e - 메일</span>
-        <span class="txt_400">${email1}@${email2 }</span>
+        <span class="txt_400">${compVo.email1}@${compVo.email2 }</span>
         </dt>
         <dt>
         <span class="titd">전화번호</span>

@@ -3,12 +3,14 @@
 <%@ include file="../inc/top.jsp" %>
 
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/noticeStyle.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/simpleButton.css" />
+
 <script type="text/javascript">	
 	$(document).ready(function(){
 		//09-06
-		$(".divList .box tbody tr")
+		$(".divList .box tbody td:nth-of-type(2)")
 		.hover(function(){
-			$(this).css("background","LavenderBlush")
+			$(this).css("background","#eee")
 				.css("cursor","pointer");
 		}, function(){
 			$(this).css("background","");
@@ -61,10 +63,12 @@ action="<c:url value='/notice/list.ag'/>">
 
 <!-- 09-06 -->
 <div class="divList">
-	<table style="background-color:LightPink"
-		summary="공지사항에 관한 표">
-		<th width="102px">
-		<select name="categoryInput" id="categoryInput">
+	<table style="background-color:#eeeeee"
+		summary="공지사항에 관한 표"
+		class="listBox">
+		<th width="104px">
+		<select name="categoryInput" class="button white small"
+        	style="font-size: 0.75em;">
 	    <!--  onchange="location.href=this.value"> -->
 		<option value="">구분</option>
 		<option value="공지"
@@ -78,7 +82,7 @@ action="<c:url value='/notice/list.ag'/>">
 		 점검</option>
 		</select>
 		</th>
-		<th width="514px">제목</th>
+		<th width="512px">제목</th>
 		<th width="102px">작성자</th>
 		<th width="204px">작성일</th>
 		<th width="102px">조회수</th>
@@ -86,8 +90,8 @@ action="<c:url value='/notice/list.ag'/>">
 	<c:forEach var="vo" items="${noticeList }">
 		<table class="box" style="text-align:center">
 		<tr>
-		<td width="102px">${vo.category } </td>
-		<td width="514px">
+		<td width="105px">${vo.category } </td>
+		<td width="511px">
 		<a href="<c:url value='/notice/updateReadCount.ag?no=${vo.mainNo}'/>">
 		${vo.title } </a></td>
 		<td width="102px">${vo.writer } </td>
@@ -98,12 +102,6 @@ action="<c:url value='/notice/list.ag'/>">
 		</table>
 	</c:forEach>
 	</div>
-
-<div class="divBtn" style="text-align:right;width:1024px">
-<hr>
-	<p><a href="<c:url value='/notice/write.ag'/>" >
-	공지 등록</a></p>
-</div>
 
 <!-- 08-31 Paging-->
 <div style="clear:both;text-align:center;width:1024px">
@@ -118,7 +116,7 @@ action="<c:url value='/notice/list.ag'/>">
 		begin="${pagingInfo.firstPage }" 
 		end="${pagingInfo.lastPage }">
 		<c:if test="${i==pagingInfo.currentPage }">					
-			<span style="color:MediumVioletRed;font-weight:bold">
+			<span style="color:blue;font-weight:bold">
 				${i}</span>
 		</c:if>		
 		<c:if test="${i!=pagingInfo.currentPage }">
@@ -135,36 +133,44 @@ action="<c:url value='/notice/list.ag'/>">
 			&gt;&gt;</a>
 	</c:if>
 </div>
-
-<!-- 09-01 search part -->
-<div class="divSearch" style="text-align:center;width:1024px">
-	<form name="frmSearch" method="post" 
-   	 action="<c:url value='/notice/list.ag' />" >
-   		<div class="searchBox"> 
-        <select name="searchCondition">
-            <option value="title"
-           	   <c:if test="${param.searchCondition=='title'}">
-            		selected
-               </c:if>
-            >제목</option>
-            <option value="content" 
-            	<c:if test="${param.searchCondition=='content'}">
-            		selected
-               </c:if>
-            >내용</option>
-            <option value="writer" 
-            	<c:if test="${param.searchCondition=='writer'}">
-            		selected
-               </c:if>
-            >작성자</option>
-        </select>
-        <input type="text" name="searchKeyword" 
-        	title="검색어 입력" value="${param.searchKeyword}" >
-		<input type="submit" value="검색"
-			style="font-weight:bold;background-color:MistyRose">
-		</div>
-    </form>
-</div>
+<br>
+	<!-- 09-01 search part -->
+	<div class="divSearch" style="text-align:center;width:1024px">
+		<form name="frmSearch" method="post" 
+	   	 action="<c:url value='/notice/list.ag' />" >
+	   		<div class="searchBox"> 
+	        <select name="searchCondition" class="button white small"
+	        	style="font-size: 0.75em;">
+	            <option value="title"
+	           	   <c:if test="${param.searchCondition=='title'}">
+	            		selected
+	               </c:if>
+	            >제목</option>
+	            <option value="content" 
+	            	<c:if test="${param.searchCondition=='content'}">
+	            		selected
+	               </c:if>
+	            >내용</option>
+	            <option value="writer" 
+	            	<c:if test="${param.searchCondition=='writer'}">
+	            		selected
+	               </c:if>
+	            >작성자</option>
+	        </select>
+	        <input type="text" name="searchKeyword" 
+	        	title="검색어 입력" value="${param.searchKeyword}" >
+			<input type="submit" value="검색"
+				 class="button white small"
+	        	style="font-size: 0.75em;">
+			</div>
+	    </form>
+	</div>
+	
+	<div class="divBtn" style="text-align:right;width:1024px">
+	<input type = "Button" class="button white medium" value="공지 등록" 
+      	onclick="location.href='<c:url value="/notice/write.ag"/>';" />
+      	<br><br><br>
+	</div>
 </div>
 </section>
 

@@ -8,9 +8,9 @@
 <script type="text/javascript">	
 	$(document).ready(function(){
 		//09-06
-		$(".divList .box tbody tr")
+		$(".divList .box tbody td:nth-of-type(2)")
 		.hover(function(){
-			$(this).css("background","LavenderBlush")
+			$(this).css("background","#eee")
 				.css("cursor","pointer");
 		}, function(){
 			$(this).css("background","");

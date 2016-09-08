@@ -1,5 +1,7 @@
 package com.algoo.app.rec.model;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,4 +33,15 @@ public class RecServiceImpl implements RecService{
 	public int intsertRec(RecVO vo) {
 		return recDao.intsertRec(vo);
 	}
+
+	@Override
+	public int selectTotalCount(RecSeachVO vo) {
+		return recDao.selectTotalCount(vo);
+	}
+
+	@Override
+	public List<RecVO> selectAllRec(RecSeachVO vo) {
+		return recDao.selectAllRec(vo);
+	}
+
 }

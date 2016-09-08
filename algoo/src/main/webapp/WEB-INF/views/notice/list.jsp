@@ -101,7 +101,7 @@ action="<c:url value='/notice/list.ag'/>">
 		</tr>
 		</table>
 	</c:forEach>
-	</div>
+</div>
 
 <!-- 08-31 Paging-->
 <div style="clear:both;text-align:center;width:1024px">

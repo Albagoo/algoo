@@ -25,6 +25,15 @@
 	table td{
 		border: 1px solid #eee;
 	}
+	#align_left{
+		text-align:left;
+	}
+	#align_right{
+		text-align:right;
+	}
+	#align_center{
+		text-align:center;
+	}
 	
 	/* span{
 		font-size:24px;
@@ -45,7 +54,7 @@
 	
 	.divList{
 		width:1024px;
-		border:1px solid gray;
+		border:1px solid #eeeeee;
 		margin:2px;
 		/* border-radius:4px; */
 		/* font-weight:bold; */
@@ -81,15 +90,15 @@
 	/* detail */
 	.divForm{
 		width:1024px;
-		border:1px solid gray;
-		/* border-radius:4px; */
-	}
-	.detailTable #sp1{
-		text-align:center;
+		border:1px solid #eeeeee;
+		margin:2px;
 	}
 	.detailTable th{
-		background-color:LightPink;
+		padding:10px;
 	}
+	/* .detailTable th{
+		background-color:LightPink;
+	} */
 	#contentTd{
 		vertical-align:top;
 	}
@@ -123,6 +132,8 @@
 	}
 	.editCgDiv{
 		margin-bottom:10px;
+		padding-left:10px;
+		text-align:left;
 	}
 	.editEndDiv{
 		margin-top:10px;

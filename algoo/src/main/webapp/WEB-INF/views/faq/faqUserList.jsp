@@ -5,6 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ include file="../inc/simple_top.jsp" %>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/faq.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/leftNavi.css'/>" />
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
@@ -41,7 +42,7 @@
 	<div id="Qmark">
 	<img src="<c:url value='/images/faq-1.png'/>" style="height: 70px;">
 	</div>
-	<div id="container">
+	<div id="naviDiv">
 		<nav>
 			<dl id="leftNavi">
 				<dt><a href="#">개인회원</a></dt>

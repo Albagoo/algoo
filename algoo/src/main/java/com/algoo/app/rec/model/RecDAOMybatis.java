@@ -51,5 +51,11 @@ implements RecDAO{
 				".selectAllRec", vo);
 	}
 
+	@Override
+	public int updateReadCount(int readCount) {
+		return getSqlSession().update(namespace+
+				".updateReadCount",readCount);
+	}
+
 
 }

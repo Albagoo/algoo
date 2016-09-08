@@ -51,11 +51,11 @@ type="text/javascript"></script>
 		   frmList.submit();
 			//나중에 카테고리 추가 예정
 		});
-	      
    });
+   
+   
+ 
   </script>
-
-
 
 <form name="frmWrite" method="post" 
    action="<c:url value='/rec/recWrite.ag'/>">
@@ -207,6 +207,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <select class="txt_180 button white medium"
                name="jobName" id="jobName">
                <option value="null">1차직종</option>
+               <c:forTokens items="" delims=""></c:forTokens>
                </select>
                <select class="txt_180 button white medium"
                name="jobName2" id="jobName2">
@@ -325,7 +326,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                
                
                <label class="radio" for="SatSun">
-               <input type="radio" id="threeMonth"
+               <input type="radio" id="SatSun"
                name="workDays" value="주말(토,일)">
                <span class="font_11">주말(토,일)</span></label>
                
@@ -368,69 +369,67 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                
             </dt>
             <dt>
-               <span class="tit">근무시간</span>
-               
-               <select class="txt_85 white button medium" name="workTime">
-               <option value="null">시작</option>
-               <c:forEach var="i" begin="0" end="24" step="1">
-               <option value="${i} ">
-               <c:if test="${i<10 }">
-               0${i }시
-               </c:if>
-               <c:if test="${i>=10 }">
-               ${i }시
-               </c:if>
-               </option>
-               </c:forEach>
-               </select>
-               <select class="txt_85 white button medium" name="workTime2">
-               <option value="null">시간</option>
-              <c:forEach var="i" begin="0" end="60" step="10">
-               <option value="${i} ">
-               <c:if test="${i<10 }">
-               0${i }분
-               </c:if>
-               <c:if test="${i>=10 }">
-               ${i }분
-               </c:if>
-               </option>
-               </c:forEach>
-               </select>
-               <span style="float: left;">~</span>
-               
-               <select class="txt_85 white button medium" name="workTime3">
-               <option value="null">종료</option>
-               <c:forEach var="i" begin="0" end="24" step="1">
-               <option value="${i} ">
-               <c:if test="${i<10 }">
-               0${i }시
-               </c:if>
-               <c:if test="${i>=10 }">
-               ${i }시
-               </c:if>
-               </option>
-               </c:forEach>
-               </select>
-               <select class="txt_85 white button medium" name="workTime4">
-               <option value="null">시간</option>
-                <c:forEach var="i" begin="0" end="60" step="10">
-               <option value="${i} ">
-               <c:if test="${i<10 }">
-               0${i }분
-               </c:if>
-               <c:if test="${i>=10 }">
-               ${i }분
-               </c:if>
-               </option>
-               </c:forEach>
-               </select>
+               <span class="tit">근무시간</span> <select
+						class="txt_85 white button medium" name="workTime">
+						<!-- <option value="null">시작</option> -->
+						<c:forEach var="i" begin="0" end="24" step="1">
+							<c:if test="${i<10 }">
+								<c:set var="j" value="0${i}" />
+  
+							<option value="${j}">${j}시</option>
+                     </c:if>
+							<c:if test="${i>=10}">
+  
+							<option value="${i}">${i}시</option>
+                     </c:if>
+						</c:forEach>
+					</select> <select class="txt_85 white button medium"
+						name="workTime2">
+						<!--   <option value="null">시간</option> -->
+						<c:forEach var="i" begin="0" end="60" step="10">
+				<c:if test="${i<10 }">
+                        <c:set var="j" value="0${i}" />
+  
+                     <option value="${j}">${j}분</option>
+            </c:if>
+                     <c:if test="${i>=10}">
+  
+                     <option value="${i}">${i}분</option>
+            </c:if>
+						</c:forEach>
+					</select> <span style="float: left;">~</span> <select
+						class="txt_85 white button medium" name="workTime3">
+						<!-- <option value="null">종료</option> -->
+						<c:forEach var="i" begin="0" end="24" step="1">
+						   <c:if test="${i<10 }">
+                        <c:set var="j" value="0${i}" />
+                     <option value="${j}">${j}시</option>
+                     </c:if>
+                     <c:if test="${i>=10}">
+  
+                     <option value="${i}">${i}시</option>
+                     </c:if>
+						</c:forEach>
+					</select> <select class="txt_85 white button medium"
+						name="workTime4">
+						<!-- <option value="null">시간</option> -->
+						<c:forEach var="i" begin="0" end="60" step="10">
+							<c:if test="${i<10 }">
+                        <c:set var="j" value="0${i}" />
+                     <option value="${j}">${j}분</option>
+                     </c:if>
+                     <c:if test="${i>=10}">
+                        <option value="${i}">${i}분</option>
+                     </c:if>
+						</c:forEach>
+					</select>
 
-            </dt>
+				</dt>
             <dt>
                <span class="tit">선택</span>
                <select class="txt_85 white button medium">
-               <option value="null">급여</option>
-               <option value="일급">일급</option>
+               <option value="시급">시급</option>
+               <option value="일당">일당</option>
                <option value="주급">주급</option>
                <option value="월급">월급</option>
                </select>
@@ -442,29 +441,35 @@ style="width: 150px;height: 100px;border: 1px solid gray">
             <dt>
                <span class="tit">근무형태</span>
                
+               <label for="alba">
                <span class="txt_70 font_11">
                <input type="checkbox" name="recruitType" 
-               value="알바">알바</span>
-               
+               value="알바" id="alba">알바</span></label>
+
+               <label for="jung">               
                 <span class="txt_75 font_11">
                 <input type="checkbox" 
-               value="J">정규직</span>
+               value="J" id="jung">정규직</span></label>
                
+               <label for="gye">           
                 <span class="txt_75 font_11">
                 <input type="checkbox" 
-               value="G">계약직</span>
+               value="G" id="gye">계약직</span></label>
                
+               <label for="fageon">
                 <span class="txt_75 font_11">
                 <input type="checkbox" 
-               value="F">파견직</span>
+               value="F" id="fageon">파견직</span></label>
                
+               <label for="intern">
                 <span class="txt_75 font_11">
                 <input type="checkbox" 
-               value="I">인턴직</span>
+               value="I" id="intern">인턴직</span></label>
                
+               <label for="wechock">
                 <span class="txt_75 font_11">
                 <input type="checkbox" 
-               value="W">위촉직</span>
+               value="W" id="wechock">위촉직</span></label>
                
             </dt>
             <dt>
@@ -595,7 +600,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                
             </dt>
             <dt>
-               <span class="titc">우대조건</span>
+               <span class="titc" >우대조건</span>
                
                <label class="rence" for="expPre">
                <input type="checkbox" id="expPre"
@@ -695,13 +700,13 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <input type="text" class="txt_35"
                placeholder="10" name="recruitMember">
                <span class="by">명</span>
-               <label class="rence" for="tenPeople">
+               <label class="txt_50" for="tenPeople">
                <input type="checkbox" id="tenPeople"
                name="recruitMember" value="0명">
                <span class="font_11">0명
                </span></label>
                
-               <label class="rence" for="hundredPeople">
+               <label class="txt_70" for="hundredPeople">
                <input type="checkbox" id="hundredPeople"
                name="recruitMember" value="00명">
                <span class="font_11">00명
@@ -751,7 +756,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <input type="radio" id="oneCal" 
                name="recruitDeadlineTest" checked="checked" >
                <span class="font_11">
-               <input type="text" id="calText">
+               <input type="text" id="calText" size="10">
                <input type="button" class="button white medium"
                value="날짜선택" id="calBt"> </span></label>
                
@@ -811,24 +816,31 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                name="homepageRec" value="홈페이지">
                <span class="font_11">홈페이지
                </span></label>
-               <p class="clearBoth">
-               <span class="tit"></span>
-               
-               <label class="rence" for="recForm">
+             
+               <span class="txt_300 font_11" 
+               style="margin: 5px 0 0 0">
+               <label for="recForm">
                <input type="checkbox" id="recForm"
-               name="recForm" value="자사지원양식">
-               <span class="font_11">자사지원양식
-               
-               (<input type="radio" name="recForm">필수,
-               <input type="radio" name="recForm">선택 )
+               value="자사지원양식">
+               <span>자사지원양식
                </span></label>
+               (
+               <label for="FormF">
+               <input type="radio" name="recForm" 
+               id="FormF">필수,</label>
+               <label for="FormS">
+               <input type="radio" name="recForm"
+                id="FormS">선택</label>
+              
+               )
+               </span>
                
             </dt>
             <dt>
                <span class="tit">제출서류</span>
                
-                <label class="rence" for="experience">
-               <input type="checkbox" id="experience"
+                <label class="rence" for="expDoc">
+               <input type="checkbox" id="expDoc"
                name="documents" value="이력서">
                <span class="font_11">이력서
                </span></label>

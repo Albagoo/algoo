@@ -44,4 +44,9 @@ public class RecServiceImpl implements RecService{
 		return recDao.selectAllRec(vo);
 	}
 
+	@Override
+	public int updateReadCount(int readCount) {
+		return recDao.updateReadCount(readCount);
+	}
+
 }

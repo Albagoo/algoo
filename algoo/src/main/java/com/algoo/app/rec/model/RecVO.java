@@ -43,7 +43,37 @@ public class RecVO {
 	private String accuse          ;//  VARCHAR2(50 BYTE),
 	private String adminAgree;//       VARCHAR2(50 BYTE)           DEFAULT 'N',
 	private int compCode;//         NUMBER,
-	private int serviceCode;//      NUMBER	
+	private int serviceCode;//      NUMBER
+	private String category;//
+	private String imgURL;//
+	private String fileName;//
+	private String fileSize;//
+	
+	
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
+	}
+	public String getImgURL() {
+		return imgURL;
+	}
+	public void setImgURL(String imgURL) {
+		this.imgURL = imgURL;
+	}
+	public String getFileName() {
+		return fileName;
+	}
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+	public String getFileSize() {
+		return fileSize;
+	}
+	public void setFileSize(String fileSize) {
+		this.fileSize = fileSize;
+	}
 	public int getRecCode() {
 		return recCode;
 	}
@@ -297,6 +327,7 @@ public class RecVO {
 				+ recruitDeadline + ", recruitMethod=" + recruitMethod + ", documents=" + documents + ", detailRecruit="
 				+ detailRecruit + ", regdate=" + regdate + ", maps=" + maps + ", readcount=" + readcount + ", accuse="
 				+ accuse + ", adminAgree=" + adminAgree + ", compCode=" + compCode + ", serviceCode=" + serviceCode
+				+ ", category=" + category + ", imgURL=" + imgURL + ", fileName=" + fileName + ", fileSize=" + fileSize
 				+ "]";
 	}
 

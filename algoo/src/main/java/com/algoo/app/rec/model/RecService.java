@@ -12,4 +12,5 @@ public interface RecService{
 	public int intsertRec(RecVO vo);
 	public int selectTotalCount(RecSeachVO vo);
 	public List<RecVO> selectAllRec(RecSeachVO vo);
+	public int updateReadCount (int readCount);
 }

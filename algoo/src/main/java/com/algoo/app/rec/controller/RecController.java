@@ -2,6 +2,9 @@ package com.algoo.app.rec.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -151,4 +154,35 @@ public class RecController {
 		
 		return "rec/recList";
 	}
+	
+	@RequestMapping("/updateCount.ag")
+	public String updateCount(
+			@RequestParam(defaultValue="0") int recCode,
+			Model model){
+		
+		logger.info("FAQ 조회수 증가, 파라미터 recCode = {}", recCode);
+		
+		if(recCode==0){
+			model.addAttribute("msg", "잘못된 url입니다");
+			model.addAttribute("url", "/faq/faqList.ag");
+			
+			return "common/message";
+		}
+		
+		int cnt=recService.updateReadCount(recCode);
+		logger.info("FAQ 조회수 증가 결과, cnt = {}", cnt);
+
+		return "redirect:/rec/recDetail.ag?recCode="+recCode;
+	}
+	
+	
+	/*@RequestMapping("/getSubwayStation.ag")
+	public void getKwrdFndSubwaySttnList(
+			HttpServletRequest request,
+			HttpServletResponse response,
+			Model model){
+		
+		getKwrdFndSubwaySttnList(subwayStationName)
+		
+	}*/
 }

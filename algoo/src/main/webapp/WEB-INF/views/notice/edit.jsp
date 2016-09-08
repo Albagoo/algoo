@@ -3,12 +3,14 @@
 <%@ include file="../inc/top.jsp" %>
 
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/noticeStyle.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/simpleButton.css" />
+
 <script src="<c:url value='/ckeditor/ckeditor.js'/>" 
 type="text/javascript"></script>
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		CKEDITOR.replace('content', {uiColor: '#ff8d8b'});	
+		CKEDITOR.replace('content', {uiColor: '#ffffff'});	
 		
 		$("#frmWrite").submit(function(event){
 			if($("#title").val()==""){
@@ -42,52 +44,42 @@ type="text/javascript"></script>
   action="<c:url value='/notice/edit.ag'/>" >
   <input type="hidden" name="mainNo" value="${noticeVo.mainNo }">
   
-<p id="firstTitle">공지 수정</p>
+<p id="firstTitle">공지수정</p>
 	<div class="funcDiv">
-			<div class="editCgDiv">
-				<label for="category">구분</label>
-				<select id="category" name="category">
-					<option value="공지"
-					 <c:if test="${noticeVo.category=='공지' }">
-	            		selected
-	            	</c:if>>공지</option>
-					<option value="이벤트"
-					 <c:if test="${noticeVo.category=='이벤트' }">
-	            		selected
-	            	</c:if>>이벤트</option>
-					<option value="점검"
-					 <c:if test="${noticeVo.category=='점검' }">
-	            		selected
-	            	</c:if>>점검</option>
-				</select>
-			<!-- </div>
-	        <div class="firstDiv"> -->|
-	            <label for="title">제목</label>
-	            <input type="text" id="title" name="title" size="80" 
-	             value="${noticeVo.title }"/>
-	        <!-- </div>
-	        <div> -->|
-	            <label for="writer">작성자</label>
-	            <input type="text" id="writer" name="writer"
-	             value="${noticeVo.writer }"/>
-	        <!-- </div>
-	        <div>
-	        	<label for="content">내용</label> -->
-	        </div>
-	        <div>	        
-	 			<textarea id="content" name="content" 
-	 			rows="12" cols="40"
-	 			value=${noticeVo.content } 
-	 			></textarea>
-	        </div>
-	        <div class="editEndDiv" style="text-align:center">
-	            <input type = "submit" value="수정"
-	             style="font-weight:bold;background-color:MistyRose"/>
-	            <input type = "Button" value="공지목록" 
-	      			onclick
-		="location.href='<c:url value="/notice/list.ag"/>'" 
-				style="font-weight:bold;background-color:MistyRose"/>         
-	        </div>
+		<div class="editCgDiv">
+			<select name="category" class="button white small"
+       		 style="font-size: 0.75em;">
+				<option value="공지"
+				 <c:if test="${noticeVo.category=='공지' }">
+            		selected
+            	</c:if>>공지</option>
+				<option value="이벤트"
+				 <c:if test="${noticeVo.category=='이벤트' }">
+            		selected
+            	</c:if>>이벤트</option>
+				<option value="점검"
+				 <c:if test="${noticeVo.category=='점검' }">
+            		selected
+            	</c:if>>점검</option>
+			</select>
+            <input type="text" id="title" name="title" size="80" 
+             value="${noticeVo.title }"/>
+            <input type="hidden" id="writer" name="writer"
+             value="${noticeVo.writer }" />
+        </div>
+        <div>	        
+ 			<textarea id="content" name="content" 
+ 			rows="12" cols="40"
+ 			value=${noticeVo.content } 
+ 			></textarea>
+        </div>
+        <div class="editEndDiv" style="text-align:center">
+            <input type = "submit" value="수정"
+             class="button white medium"/>
+            <input type = "Button" value="공지목록"
+             class="button white medium" onclick
+	="location.href='<c:url value="/notice/list.ag"/>'"/>         
+        </div>
 	</div>
 </form>
 </div>

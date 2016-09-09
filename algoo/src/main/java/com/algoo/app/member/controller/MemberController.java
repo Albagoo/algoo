@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.algoo.app.common.FileUploadWebUtil;
 import com.algoo.app.member.model.MemberService;
 import com.algoo.app.member.model.MemberVO;
 
@@ -52,7 +53,7 @@ public class MemberController {
 		//1.
 		logger.info("회원가입 처리, 파라미터 memberVo={}", memberVo);
 		
-		fileUtil.fileUpload(request);
+		fileUtil.FileUpload(request, FileUploadWebUtil.IMAGE_UPLOAD);
 		//2.
 		//휴대폰번호를 모두 입력하지 않은 경우 - 모두 공백으로 셋팅
 		String hp2=memberVo.getHp2();

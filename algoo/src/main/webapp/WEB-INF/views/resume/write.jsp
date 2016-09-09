@@ -23,11 +23,13 @@
 		
 	#tr{
 		border-bottom: 2px solid silver;
+		
 	}
 	
 	#td1{
 		padding-left: 60px;
 		width: 23%;
+		font-weight: bold;	
 	}
 	
 	#td2{
@@ -44,6 +46,7 @@
 	  		 	$("#ability2 option").remove();
 		  		$("#ability2").append("<option value=''>상태</option>");
 		  		$("#ability2").append("<option value='졸업'>졸업</option>");
+		  		$(".detail_tr").remove();
        		}else if($("#ability1 option:selected").val()=="중학교"
        				|| $("#ability1 option:selected").val()=="고등학교"){
        			$("#ability2 option").remove();
@@ -51,6 +54,13 @@
 		  		$("#ability2").append("<option value='졸업'>졸업</option>");
 		  		$("#ability2").append("<option value='재학'>재학</option>");
 		  		$("#ability2").append("<option value='중퇴'>중퇴</option>");
+		  		$(".detail_tr").remove();
+		  		if($("#ability1 option:selected").val()=="고등학교"){
+		  			$(".detail_tr_before").after("<tr id='tr' class='detail_tr'><td id='td1'><span>학력상세</span>"
+					+"</td><td id='td2'><input type='checkbox' name='detail1' id='detail1'>"
+					+"<label for='detail1'>고등학교</label></td></tr>");
+		  			
+		  		}
        		}else if($("#ability1 option:selected").val()=="대학교 (2, 3년제)"
        				|| $("#ability1 option:selected").val()=="대학교 (4년제)"
            			|| $("#ability1 option:selected").val()=="대학원"){
@@ -61,9 +71,145 @@
 		  		$("#ability2").append("<option value='중퇴'>중퇴</option>");
 		  		$("#ability2").append("<option value='휴학'>휴학</option>");
 		  		$("#ability2").append("<option value='수료'>수료</option>");
+		  		$(".detail_tr").remove();
+		  		if($("#ability1 option:selected").val()=="대학교 (2, 3년제)"){
+		  			$(".detail_tr_before").after("<tr id='tr' class='detail_tr'><td id='td1'><span>학력상세</span>"
+					+"</td><td id='td2'><input type='checkbox' name='detail1' id='detail1'>"
+					+"<label for='detail1'>고등학교  &nbsp;</label><input type='checkbox' name='detail2' id='detail2'>"
+					+"<label for='detail2'>대학교 (2, 3년제)&nbsp;</label></td></tr>");
+		  		}else if($("#ability1 option:selected").val()=="대학교 (4년제)"){
+		  			$(".detail_tr_before").after("<tr id='tr' class='detail_tr'><td id='td1'><span>학력상세</span>"
+						+"</td><td id='td2'><input type='checkbox' name='detail1' id='detail1'>"
+						+"<label for='detail1'>고등학교  &nbsp;</label><input type='checkbox' name='detail2' id='detail2'>"
+						+"<label for='detail2'>대학교 (2, 3년제)  &nbsp;</label><input type='checkbox' name='detail3' id='detail3'>"
+						+"<label for='detail3'>대학교 (4년제)  &nbsp;</label></td></tr>");
+		  		}else if($("#ability1 option:selected").val()=="대학원"){
+		  			$(".detail_tr_before").after("<tr id='tr' class='detail_tr'><td id='td1'><span>학력상세</span>"
+						+"</td><td id='td2'><input type='checkbox' name='detail1' id='detail1'>"
+						+"<label for='detail1'>고등학교  &nbsp;</label><input type='checkbox' name='detail2' id='detail2'>"
+						+"<label for='detail2'>대학교 (2, 3년제)  &nbsp;</label><input type='checkbox' name='detail3' id='detail3'>"
+						+"<label for='detail3'>대학교 (4년제)  &nbsp;</label><input type='checkbox' name='detail4' id='detail4'>"
+						+"<label for='detail4'>대학원&nbsp;</label></td></tr>");
+		  		}
+       		}else{
+       			$("#ability2 option").remove();
+       			$("#ability2").append("<option value=''>상태</option>");
+       			$(".detail_tr").remove();
        		}
-    	
     		
+	    	$("#detail1").change(function(){
+		    	if($("#detail1").is(":checked")){
+			    	$(".detail_tr").after("<tr id='tr' class='detail_tr_after1'><td id='td1'>고등학교</td><td id='td2'>"
+					+"<select name='year1'><option value=''>년도</option><c:forEach var='i' begin='1989' end='2016'>"
+					+"<option value='${i}'>${i}</option></c:forEach></select> ~ <select name='year2'><option value=''>년도</option>"
+					+"<c:forEach var='i' begin='1989' end='2016'><option value='${i}'>${i}</option></c:forEach>"
+					+"</select>&nbsp;&nbsp;<input type='text' id='university2' name='university2' placeholder='학교명'></td></tr>");
+			    }else{
+			    	$(".detail_tr_after1").remove();
+			    }
+	    	});
+	    	
+	    	$("#detail2").change(function(){
+		    	if($("#detail2").is(":checked")){
+			    	$(".detail_tr").after("<tr id='tr' class='detail_tr_after2'><td id='td1'>대학교 (2 ,3년제)</td><td id='td2'>"
+					+"<select name='year1'><option value=''>년도</option><c:forEach var='i' begin='1989' end='2016'>"
+					+"<option value='${i}'>${i}</option></c:forEach></select> ~ <select name='year2'><option value=''>년도</option>"
+					+"<c:forEach var='i' begin='1989' end='2016'><option value='${i}'>${i}</option></c:forEach>"
+					+"</select><br><br><input type='text' id='university2' name='university2' placeholder='학교명'>"
+					+"&nbsp;&nbsp;<input type='text' id='university3' name='university3' placeholder='전공'></td></tr>");
+			    }else{
+			    	$(".detail_tr_after2").remove();
+			    }
+	    	});
+	    	
+	    	$("#detail3").change(function(){
+		    	if($("#detail3").is(":checked")){
+			    	$(".detail_tr").after("<tr id='tr' class='detail_tr_after3'><td id='td1'>대학교 (4년제)</td><td id='td2'>"
+					+"<select name='year1'><option value=''>년도</option><c:forEach var='i' begin='1989' end='2016'>"
+					+"<option value='${i}'>${i}</option></c:forEach></select> ~ <select name='year2'><option value=''>년도</option>"
+					+"<c:forEach var='i' begin='1989' end='2016'><option value='${i}'>${i}</option></c:forEach>"
+					+"</select><br><br><input type='text' id='university2' name='university2' placeholder='학교명'>"
+					+"&nbsp;&nbsp;<input type='text' id='university3' name='university3' placeholder='전공'></td></tr>");
+			    }else{
+			    	$(".detail_tr_after3").remove();
+			    }
+	    	});
+	    	
+	    	$("#detail4").change(function(){
+		    	if($("#detail4").is(":checked")){
+			    	$(".detail_tr").after("<tr id='tr' class='detail_tr_after4'><td id='td1'>대학원</td><td id='td2'>"
+					+"<select name='year1'><option value=''>년도</option><c:forEach var='i' begin='1989' end='2016'>"
+					+"<option value='${i}'>${i}</option></c:forEach></select> ~ <select name='year2'><option value=''>년도</option>"
+					+"<c:forEach var='i' begin='1989' end='2016'><option value='${i}'>${i}</option></c:forEach></select>"
+					+"&nbsp;&nbsp;<select name='university1'><option value=''>학위</option><option value='석사'>석사</option><option value='박사'>박사</option>"
+					+"<option value='석박사통합'>석박사통합</option></select>"
+					+"<br><br><input type='text' id='university2' name='university2' placeholder='학교명'>"
+					+"&nbsp;&nbsp;<input type='text' id='university3' name='university3' placeholder='전공'></td></tr>");
+			    }else{
+			    	$(".detail_tr_after4").remove();
+			    }
+	    	});
+	    	
+	    	$(".detail_tr_after1").remove();
+	    	$(".detail_tr_after2").remove();
+	    	$(".detail_tr_after3").remove();
+	    	$(".detail_tr_after4").remove();
+    	}); // change 메서드 (학력사항, 상세입력)
+    	
+    	$("#period_check").click(function(){
+    		if($("#period_check").is(":checked")){
+    			$("#period_year").removeAttr("disabled");
+    			$("#period_month").removeAttr("disabled");
+    			$("#period_year_2").removeAttr("disabled");
+    			$("#period_month_2").removeAttr("disabled");
+    			$("#period_c").removeAttr("disabled");
+    			$("#period_year2").prop("disabled","disabled").val("");
+	    		$("#period_day").prop("disabled","disabled").val("");
+    		} 
+    	});
+    	
+    	$("#period_check2").click(function(){
+    		if($("#period_check2").is(":checked")){
+    			$("#period_year").prop("disabled","disabled").val("");
+    			$("#period_month").prop("disabled","disabled").val("");
+    			$("#period_year_2").prop("disabled","disabled").val("");
+    			$("#period_month_2").prop("disabled","disabled").val("");
+    			$("#period_c").prop("disabled","disabled").prop("checked", false);
+    			$("#period_year2").removeAttr("disabled");
+	    		$("#period_day").removeAttr("disabled");
+    		}
+    	});
+    	
+    	$("#period_c").click(function(){
+    		if($("#period_c").is(":checked")){
+    			$("#period_year_2").prop("disabled","disabled").val("");
+    			$("#period_month_2").prop("disabled","disabled").val("");
+    		}else if(!$("#period_c").is(":checked")){
+    			$("#period_year_2").removeAttr("disabled");
+    			$("#period_month_2").removeAttr("disabled");
+    		}
+    	});
+    	
+    	$("#language_study").click(function(){
+    		if($("#language_study").is(":checked")){
+    			$("#language_study_Text").removeAttr("hidden");
+    		}else{
+    			$("#language_study_Text").prop("hidden", true);
+    		}
+    	});
+    	
+    	$("#moo").click(function(){
+    		if($("#moo").is(":checked")){
+    			$("#time1").removeAttr("selected").prop("disabled","disabled");
+    			$("#time2").removeAttr("selected").prop("disabled","disabled");
+    			$("#time1 option:eq(1)").prop("selected", "selected");
+    			$("#time2 option:eq(25)").prop("selected", "selected");
+    		}else{
+    			$("#time1").removeAttr("selected").removeAttr("disabled");
+    			$("#time2").removeAttr("selected").removeAttr("disabled");
+    			$("#time1 option:eq(0)").prop("selected", "selected");
+    			$("#time2 option:eq(0)").prop("selected", "selected");
+    		}
     	});
  	});
 </script>
@@ -74,35 +220,58 @@
 	<h2>개인 기본 정보</h2>
 	<table id="box">
 		<tr id="tr">
-			<td style="text-align: center; padding-top:0">
+			<td style="text-align: center; padding: 10px; width: 20%">
 				<img alt="사람이미지" src="<c:url value='/images/saram.PNG'/>"><br>
 				<button>
 					사진등록
 				</button>
 			</td>
-			<td id="td2">
-				<table style="width: 100%">
+			<td style="width: 80%">
+				<table style="float: left; width: 60%">
 					<tr>
-						<td id="td1">이름</td>
-						<td id="td2" style="padding: 10px"><input type="text"></td>
+						<td id="td1" style="width: 20%; padding-left: 0;">이름</td>
+						<td id="td2" style="padding: 5px"><input type="text"></td>
 					</tr>
 					<tr>
-						<td id="td1">휴대폰</td>
-						<td id="td2" style="padding: 10px"><input type="text"></td>
+						<td id="td1" style="width: 20%; padding-left: 0;">휴대폰</td>
+						<td id="td2" style="padding: 5px"><input type="text"></td>
 					</tr>
 					<tr>
-						<td id="td1">e-메일</td>
-						<td id="td2" style="padding: 10px"><input type="text"></td>
+						<td id="td1" style="width: 20%; padding-left: 0;">e-메일</td>
+						<td id="td2" style="padding: 5px">
+						<input type="text" style="width: 70%"></td>
 					</tr>
 					<tr>
-						<td id="td1">주소</td>
-						<td id="td2" style="padding: 10px"><input type="text"></td>
+						<td id="td1" style="width: 20%; padding-left: 0;">주소</td>
+						<td id="td2" style="padding: 5px">
+						<input type="text" style="width: 80%"></td>
 					</tr>
 					<tr>
-						<td id="td1">홈페이지</td>
-						<td id="td2" style="padding: 10px"><input type="text"></td>
+						<td id="td1" style="width: 20%; padding-left: 0;">홈페이지</td>
+						<td id="td2" style="padding: 5px">
+						<input type="text" style="width: 80%"></td>
 					</tr>
 				</table>
+				<div style="float: left; background-color: rgb(242, 247, 193); 
+					width: 200px; height: 80px; padding-left: 30px;
+					padding-top: 15px;">
+					연락가능시간
+					<input type="checkbox" name="moo" id="moo">
+					<label for="moo">무관</label><br><br>
+					<select name="time1" id="time1">
+						<option value="">시간</option>
+						<c:forEach var="i" begin="0" end="24">
+							<option value="${i}:00">${i}:00</option>
+						</c:forEach>
+					</select>
+					~
+					<select name="time2" id="time2">
+						<option value="">시간</option>
+						<c:forEach var="i" begin="0" end="24">
+							<option value="${i}:00">${i}:00</option>
+						</c:forEach>
+					</select>
+				</div>
 			</td>
 		</tr>
 	</table><br><br>
@@ -114,7 +283,7 @@
 	<!-- ability (학력사항)-->
 	<h2>학력사항</h2>
 	<table id="box">
-		<tr id="tr">
+		<tr id="tr" class="detail_tr_before">
 			<td id="td1">
 				<span>최종학력</span>
 			</td>
@@ -133,72 +302,10 @@
 				</select>
 			</td>
 		</tr>
-		<tr id="tr">
-			<td id="td1">
-				<span>학력상세</span>
-			</td>
-			<td id="td2">
-				<!-- detail (상세)-->
-				<input type="checkbox" name="detail1" id="detail1">
-				<label for="detail1">고등학교</label>
-				<input type="checkbox" name="detail2" id="detail2">
-				<label for="detail2">대학교 (2, 3년제)</label>
-				<input type="checkbox" name="detail3" id="detail3">
-				<label for="detail3">대학교 (4년제)</label>
-				<input type="checkbox" name="detail4" id="detail4">
-				<label for="detail4">대학원</label>
-			</td>
-		</tr>
-		<tr id="tr">
-			<td id="td1">
-			</td>
-			<td id="td2">
-				<select name="year1">
-					<option value="">년도</option>
-					<c:forEach var="i" begin="1989" end="2016">
-						<option value="${i}">${i}</option>
-					</c:forEach>
-				</select>
-				~
-			   	<select name="year2">
-					<option value="">년도</option>
-					<c:forEach var="i" begin="1989" end="2016">
-						<option value="${i}">${i}</option>
-					</c:forEach>
-				</select>
-			   	<select name="university1">
-					<option value="">학위</option>
-					<option value="석사">석사</option>
-					<option value="박사">박사</option>
-					<option value="석박사통합">석박사통합</option>
-				</select>
-				<br><br>
-				<input type="text" id="university2" name="university2" 
-					placeholder="학교명">
-				<input type="text" id="university3" name="university3"
-					placeholder="전공">
-			</td>
-		</tr>
 	</table><br><br>
    
 	<%-- <!-- CONTATCT_HOUR (연락 가능 시간) -->
-	연락가능시간
-	<input type="checkbox" name="moo" id="moo">
-	<label for="moo">무관</label><br>
-	<select name="time1">
-		<option value="">시간</option>
-		<c:forEach var="i" begin="0" end="24">
-			<option value="${i}:00">${i}:00</option>
-		</c:forEach>
-	</select>
-	~
-	<select name="time2">
-		<option value="">시간</option>
-		<c:forEach var="i" begin="0" end="24">
-			<option value="${i}:00">${i}:00</option>
-		</c:forEach>
-	</select>
-	<br><hr> --%>
+	 --%>
 	
 	<!-- CAREER (경력사항) -->
 	<h2>경력사항</h2>
@@ -213,64 +320,68 @@
 		</tr>
 		<tr id="tr">
 			<td id="td1">
-				<label for="term">근무기간</label>
+				근무기간
 			</td>
 			<td id="td2">
-				<input checked="checked" 
-			 		id="Career_0__IsWorkOver" name="Career[0].IsWorkOver" type="radio" value="1" />
-			 	<label for="Career_0__IsWorkOver">1개월 이상 근무</label>
-			 	<select name="term1" disabled="disabled">
+				<input id="period_check" name="period_check" 
+					type="radio" value="1" checked="checked"/>
+			 	<label for="period_check"> 1개월 이상 근무</label>
+			 	<select name="period_year"
+			 		id="period_year">
 				<option value="">년도</option>
 				<c:forEach var="i" begin="1989" end="2016">
 					<option value="${i}">${i}</option>
 				</c:forEach>
 				</select>
-				<select name="term2">
+				<select name="period_month"
+					id="period_month">
 					<option value="">월</option>
 					<c:forEach var="i" begin="1" end="12">
 					<option value="${i}">${i}</option>
 				</c:forEach>
 				</select>
 				~
-				<select name="term3">
+				<select name="period_year_2"
+					id="period_year_2">
 					<option value="">년도</option>
 					<c:forEach var="i" begin="1989" end="2016">
 					<option value="${i}">${i}</option>
 				</c:forEach>
 				</select>
-				<select name="term4">
+				<select name="period_month_2"
+					id="period_month_2">
 					<option value="">월</option>
 					<c:forEach var="i" begin="1" end="12">
 					<option value="${i}">${i}</option>
 				</c:forEach>
 				</select>
-				<input id="Career_0__In_Office_Stat" name="Career[0].In_Office_Stat" 
-					type="checkbox" value="true" /><label for="Career_0__In_Office_Stat">재직중</label><br><br>
-				<input id="Career_0___IsWorkOver" name="Career[0].IsWorkOver" 
-					type="radio" value="0" /><label for="Career_0___IsWorkOver"> 1개월 미만 근무</label>
-				<select name="term5">
+				<input id="period_c" name="period_c" 
+					type="checkbox" value="true" />
+				<label for="period_c">재직중</label><br><br>
+				<input id="period_check2" name="period_check" 
+					type="radio" value="0" />
+				<label for="period_check2"> 1개월 미만 근무</label>
+				<select name="period_year2" id="period_year2" disabled="disabled">
 					<option value="">년도</option>
 					<c:forEach var="i" begin="1989" end="2016">
 					<option value="${i}">${i}</option>
 				</c:forEach>
 				</select>
-				<select name="term6">
+				<select name="period_day" id="period_day" disabled="disabled">
 					<option value="">일</option>
 					<c:forEach var="i" begin="1" end="29">
 					<option value="${i}">${i}</option>
 				</c:forEach>
-				</select>
-			   <span class="work_2">일 동안 근무</span><br>
+				</select>일 동안 근무<br>
 			</td>
 		</tr>
 		<tr id="tr">
 			<td id="td1">
-				<label for="Career_0__C_Text">담당업무</label>
+				<label for="work">담당업무</label>
 			</td>
 			<td id="td2">
-				 <textarea cols="5" id="Career_0__C_Text" name="Career[0].C_Text" 
-			    	rows="10" style="width: 480px; height: 86px; margin: 0px;">
-				</textarea>
+				 <textarea cols="5" id="work" name="work" 
+			    	rows="10" style="width: 480px; height: 86px; margin: 0px;"></textarea>
 			</td>
 		</tr>
 	</table><br><br>
@@ -280,10 +391,10 @@
    	<table id="box">
 		<tr id="tr">
 			<td id="td1">
-				<label for="Lngg_0__Lang1_Name">외국어</label>
+				<label for="language">외국어</label>
 			</td>
 			<td id="td2">
-				<select id="Lngg_0__Lang1_Name" name="Lngg[0].Lang1_Name" 
+				<select id="language" name="language" 
 				  	style="width:235px;margin-right:5px" title="언어선택">
 				   	<option value="">외국어명</option>
 					<option value="1">그리스어</option>
@@ -318,12 +429,12 @@
 					<option value="30">힌디어</option>
 					<option value="31">기타</option>
 				</select>
-				   <input id="Lngg_0__Experience_Stat" name="Lngg[0].Experience_Stat" 
+				   <input id="language_study" name="language_study" 
 				   	type="checkbox" value="true" />
-				  	<label for="Lngg_0__Experience_Stat">어학연수 경험있음</label><br> <br>                  
-				   <input class="hide" id="Lngg_0__Experience_Text" name="Lngg[0].Experience_Text" 
+				  	<label for="language_study">어학연수 경험있음</label><br> <br>                  
+				   <input id="language_study_Text" name="language_study_Text" 
 				   	placeholder="어학연수 경험을 입력해 주세요. (ex- 2012~2013 : 캐나다 OOO 대학교 교환학생)" 
-				   	style="width:548px;" title="어학연수경험 입력" type="text" value="" />
+				   	style="width:548px;" title="어학연수경험 입력" type="text" hidden="true"/>
 			</td>
 		</tr>
 		<tr id="tr">
@@ -331,9 +442,12 @@
 				구사능력
 			</td>
 			<td id="td2">
-			    <input checked="checked" id="1" name="Career[0].IsWorkOver" type="radio" value="1" />상
-			    <input checked="checked" id="2" name="Career[0].IsWorkOver" type="radio" value="1" />중
-			    <input checked="checked" id="3" name="Career[0].IsWorkOver" type="radio" value="1" />하
+			    <input checked="checked" id="language_command_1" name="language_command" type="radio" value="1" />
+			    <label for="language_command_1">상</label>
+			    <input id="language_command_2" name="language_command" type="radio" value="2" />
+			    <label for="language_command_2">중</label>
+			    <input id="language_command_3" name="language_command" type="radio" value="3" />
+			    <label for="language_command_3">하</label>
 			</td>
 		</tr>
 		<tr id="tr">
@@ -341,15 +455,17 @@
 				공인시험
 			</td>
 			<td id="td2">
-				    <input type="text" id="" name="" placeholder="시험종목">
-			    <input type="text" id="" name="" placeholder="점수/등급">
-			    <select name="">
+			    <input type="text" id="official_test1" name="official_test1" 
+			    	placeholder="시험종목">
+			    <input type="text" id="official_test2" name="official_test2" 
+		   			placeholder="점수/등급">
+			    <select name="official_test_year">
 					<option value="">취득년도</option>
 					<c:forEach var="i" begin="1989" end="2016">
 						<option value="${i}">${i}</option>
 					</c:forEach>
 				</select>
-				<select name="">
+				<select name="official_test_month">
 					<option value="">취득월</option>
 					<c:forEach var="i" begin="1" end="12">
 						<option value="${i}">${i}</option>
@@ -367,7 +483,7 @@
 				자격증
 			</td>
 			<td id="td2">
-				<input type="text" id="" name="" placeholder="자격증">
+				<input type="text" id="license_name" name="license_name" placeholder="자격증">
 			</td>
 		</tr>
 		<tr id="tr">
@@ -375,8 +491,9 @@
 				발행처
 			</td>
 			<td id="td2">
-				<input type="text" id="" name="" placeholder="발행처">
-				<select name="">
+				<input type="text" id="collicense_place" 
+					name="collicense_place" placeholder="발행처">
+				<select name="collicense_place_year">
 					<option value="">년도</option>
 					<c:forEach var="i" begin="1989" end="2016">
 						<option value="${i}">${i}</option>
@@ -395,21 +512,33 @@
 			</td>
 			<td id="td2">
 				워드
-			    <input checked="checked" id="1" name="Career[0].IsWorkOver1" type="radio" value="1" />상
-			    <input checked="checked" id="2" name="Career[0].IsWorkOver1" type="radio" value="1" />중
-			    <input checked="checked" id="3" name="Career[0].IsWorkOver1" type="radio" value="1" />하<br>
+			    <input checked="checked" id="word1" name="word" type="radio" value="1" />
+			    <label for="word1">상</label>
+			    <input id="word2" name="word" type="radio" value="2" />
+			    <label for="word2">중</label>
+			    <input id="word3" name="word" type="radio" value="3" />
+			    <label for="word3">하</label><br><br>
 			    파워포인트
-			    <input checked="checked" id="1" name="Career[0].IsWorkOver2" type="radio" value="1" />상
-			    <input checked="checked" id="2" name="Career[0].IsWorkOver2" type="radio" value="1" />중
-			    <input checked="checked" id="3" name="Career[0].IsWorkOver2" type="radio" value="1" />하<br>
+			    <input checked="checked" id="power_point1" name="power_point" type="radio" value="1" />
+			    <label for="power_point1">상</label>
+			    <input id="power_point2" name="power_point" type="radio" value="2" />
+			    <label for="power_point2">중</label>
+			    <input id="power_point3" name="power_point" type="radio" value="3" />
+			    <label for="power_point3">하</label><br><br>
 			    엑셀
-			    <input checked="checked" id="1" name="Career[0].IsWorkOver3" type="radio" value="1" />상
-			    <input checked="checked" id="2" name="Career[0].IsWorkOver3" type="radio" value="1" />중
-			    <input checked="checked" id="3" name="Career[0].IsWorkOver3" type="radio" value="1" />하<br>
+			    <input checked="checked" id="excel1" name="excel" type="radio" value="1" />
+			    <label for="excel1">상</label>
+			    <input id="excel2" name="excel" type="radio" value="2" />
+			    <label for="excel2">중</label>
+			    <input id="excel3" name="excel" type="radio" value="3" />
+			    <label for="excel3">하</label><br><br>
 			    인터넷
-			    <input checked="checked" id="1" name="Career[0].IsWorkOver4" type="radio" value="1" />상
-			    <input checked="checked" id="2" name="Career[0].IsWorkOver4" type="radio" value="1" />중
-			    <input checked="checked" id="3" name="Career[0].IsWorkOver4" type="radio" value="1" />하
+			    <input checked="checked" id="internet1" name="internet" type="radio" value="1" />
+			    <label for="internet1">상</label>
+			    <input id="internet2" name="internet" type="radio" value="2" />
+			    <label for="internet2">중</label>
+			    <input id="internet3" name="internet" type="radio" value="3" />
+			   <label for="internet3">하</label><br><br>
 			</td>
 		</tr>
 		<tr id="tr">
@@ -417,13 +546,20 @@
 				IT/디자인 능력
 			</td>
 			<td id="td2">
-				    <input id="OaCaa_Ablt_IT_0_" name="OaCaa.Ablt_IT[0]" type="checkbox" value="true" /><input name="OaCaa.Ablt_IT[0]" type="hidden" value="false" /><label for="OaCaa_Ablt_IT_0_">프로그래밍</label>
-				    <input id="OaCaa_Ablt_IT_1_" name="OaCaa.Ablt_IT[1]" type="checkbox" value="true" /><input name="OaCaa.Ablt_IT[1]" type="hidden" value="false" /><label for="OaCaa_Ablt_IT_1_">웹디자인툴</label>
-				    <input id="OaCaa_Ablt_IT_2_" name="OaCaa.Ablt_IT[2]" type="checkbox" value="true" /><input name="OaCaa.Ablt_IT[2]" type="hidden" value="false" /><label for="OaCaa_Ablt_IT_2_">편집디자인툴</label>
-				    <input id="OaCaa_Ablt_IT_3_" name="OaCaa.Ablt_IT[3]" type="checkbox" value="true" /><input name="OaCaa.Ablt_IT[3]" type="hidden" value="false" /><label for="OaCaa_Ablt_IT_3_">동영상편집툴</label>
-				    <input id="OaCaa_Ablt_IT_4_" name="OaCaa.Ablt_IT[4]" type="checkbox" value="true" /><input name="OaCaa.Ablt_IT[4]" type="hidden" value="false" /><label for="OaCaa_Ablt_IT_4_">3D 프로그램</label>
-				    <input id="OaCaa_Ablt_IT_5_" name="OaCaa.Ablt_IT[5]" type="checkbox" value="true" /><input name="OaCaa.Ablt_IT[5]" type="hidden" value="false" /><label for="OaCaa_Ablt_IT_5_">웹에디터</label>
-				    <input id="OaCaa_Ablt_IT_6_" name="OaCaa.Ablt_IT[6]" type="checkbox" value="true" /><input name="OaCaa.Ablt_IT[6]" type="hidden" value="false" /><label for="OaCaa_Ablt_IT_6_">기타</label>
+			    <input id="it_design_ability_1" name="it_design_ability_1" type="checkbox"/>
+			    <label for="it_design_ability_1">프로그래밍</label>
+			    <input id="it_design_ability_2" name="it_design_ability_2" type="checkbox"/>
+			    <label for="it_design_ability_2">웹디자인툴</label>
+			    <input id="it_design_ability_3" name="it_design_ability_3" type="checkbox"/>
+			    <label for="it_design_ability_3">편집디자인툴</label>
+			    <input id="it_design_ability_4" name="it_design_ability_4" type="checkbox"/>
+			    <label for="it_design_ability_4">동영상편집툴</label><br>
+			    <input id="it_design_ability_5" name="it_design_ability_5" type="checkbox"/>
+			    <label for="it_design_ability_5">3D 프로그램</label>
+			    <input id="it_design_ability_6" name="it_design_ability_6" type="checkbox"/>
+			    <label for="it_design_ability_6">웹에디터</label>
+			    <input id="it_design_ability_7" name="it_design_ability_7" type="checkbox"/>
+			    <label for="it_design_ability_7">기타</label>
 			</td>
 		</tr>
 	</table><br><br>
@@ -433,10 +569,9 @@
    	<table id="box">
    		<tr>
    			<td>
-   				<textarea cols="5" id="Award_M_Licence_Text" name="Award.M_Licence_Text" placeholder="자신이 수상한 내역, 교육기관 수료내용, 각종 활동 내용을 입력해 주세요 
+   				<textarea cols="5" id="award" name="award" placeholder="자신이 수상한 내역, 교육기관 수료내용, 각종 활동 내용을 입력해 주세요 
 					ex- OO교육원 : 웹마스터 교육 수료 / 자원봉사 : 아이티 난민구호 모금운동" style="width:800px; 
-					height:140px; margin-left: 30px; margin-top: 10px" title="수상/수료/활동내역 입력">
-				</textarea>
+					height:140px; margin-left: 30px; margin-top: 10px"></textarea>
    			</td>
    		</tr>
    	</table><br><br>
@@ -449,10 +584,10 @@
    				장애여부
    			</td>
    			<td id="td2">
-   				<input id="lb_handicap_1" name="AdditionInfo.Entity.Hndcap_Stat" 
-					type="radio" value="0" /><label for="lb_handicap_1">비대상</label>
-				<input id="lb_handicap_2" name="AdditionInfo.Entity.Hndcap_Stat" 
-				 	type="radio" value="1" /><label for="lb_handicap_2">대상</label>
+   				<input id="obstacle1" name="obstacle" type="radio" value="1" checked="checked"/>
+   				<label for="obstacle1">비대상</label>
+				<input id="obstacle2" name="obstacle" type="radio" value="2" />
+				<label for="obstacle2">대상</label>
    			</td>
    		</tr>
    		<tr id="tr">
@@ -460,12 +595,12 @@
    				병역사항
    			</td>
    			<td id="td2">
-			    <input id="lb_military_1" name="AdditionInfo.Entity.Mlt_Cntnt_Code" 
-			    	type="radio" value="2" ><label for="lb_military_1">미필</label>
-			    <input id="lb_military_2" name="AdditionInfo.Entity.Mlt_Cntnt_Code" 
-			    	type="radio" value="4" ><label for="lb_military_2">군필</label>
-			    <input id="lb_military_3" name="AdditionInfo.Entity.Mlt_Cntnt_Code" 
-			    	type="radio" value="1" ><label for="lb_military_3">면제</label>
+			    <input id="military1" name="military" type="radio" value="1" checked="checked">
+			    <label for="military1">미필</label>
+			    <input id="military2" name="military" type="radio" value="2" >
+			    <label for="military2">군필</label>
+			    <input id="military3" name="military" type="radio" value="3" >
+			    <label for="military3">면제</label>
    			</td>
    		</tr>
    		<tr id="tr">
@@ -473,10 +608,10 @@
    				국가보훈
    			</td>
    			<td id="td2">
-			    <input id="lb_veteran_1" name="AdditionInfo.Entity.Nation_Bohun_Target_Stat" 
-			    	type="radio" value="0" /><label for="lb_veteran_1">비대상</label>
-			    <input id="lb_veteran_2" name="AdditionInfo.Entity.Nation_Bohun_Target_Stat" 
-			   		type="radio" value="1" /><label for="lb_veteran_2">대상</label>
+			    <input id="veteran1" name="veteran" type="radio" value="1" checked="checked"/>
+			    <label for="veteran1">비대상</label>
+			    <input id="veteran2" name="veteran" type="radio" value="2" />
+			    <label for="veteran2">대상</label>
    			</td>
    		</tr>
    		<tr id="tr">
@@ -484,10 +619,10 @@
    				고용지원금
    			</td>
    			<td id="td2">
-   			    <input id="lb_support_1" name="AdditionInfo.Entity.Empmnt_Spt_Fund_Target_Stat" 
-			    	type="radio" value="0" /><label for="lb_support_1">비대상</label>
-			    <input id="lb_support_2" name="AdditionInfo.Entity.Empmnt_Spt_Fund_Target_Stat" 
-			    	type="radio" value="1" /><label for="lb_support_2">대상</label> 
+   			    <input id="employment1" name="employment" type="radio" value="1" checked="checked"/>
+   			    <label for="employment1">비대상</label>
+			    <input id="employment2" name="employment" type="radio" value="2" />
+			    <label for="employment2">대상</label> 
    			</td>
    		</tr>
    	</table><br><br>
@@ -500,11 +635,10 @@
     <table id="box">
     	<tr>
     		<td>
-    			 <textarea cols="5" id="lb_work_4" name="Profile.M_Profile_Text" 
+    			 <textarea cols="5" id="content" name="content" 
 			    	placeholder="자기소개서를 입력해 주세요 (최소 20자 필수)" 
 			    	rows="101" style="width:800px; height:240px; 
-			    	margin-left: 30px; margin-top: 10px" title="자기소개서 입력">
-				 </textarea>
+			    	margin-left: 30px; margin-top: 10px"></textarea>
     		<td>
     	</tr>
     </table>

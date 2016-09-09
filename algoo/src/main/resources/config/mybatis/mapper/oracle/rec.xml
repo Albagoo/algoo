@@ -54,6 +54,13 @@
 	  where service_code=#{serviceCode}
 	</select>
 	
+	<update id="updateReadCount" parameterType="int">
+      update RECRUITMENT
+         set readcount=readcount+1
+      where rec_code=#{recCode}
+   </update>
+   
+	
 	<insert id="insertRec" parameterType="RecVO">
 	<selectKey keyProperty="recCode" resultType="int"
 	order="BEFORE">

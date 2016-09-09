@@ -6,7 +6,7 @@
 <%@ include file="../inc/simple_top.jsp" %>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/faq.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
-
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/recLayout.css'/>" />
 <script type="text/javascript" src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 <script type="text/javascript">  
    $(document).ready(function(){
@@ -17,6 +17,7 @@
          $(this).css("background","");
       });
    });
+   
    
    function pageProc(curPage){
       document.frmPage.currentPage.value=curPage;
@@ -66,11 +67,11 @@
    <p>전체 조회 결과 - ${pagingInfo.totalRecord }건 조회되었습니다</p>
 </c:if>
 </div>
-<table class="box2">
+<table class="box2 recList">
    <colgroup>
       <col style="width:13%;" />
-      <col style="width:50%;" />
-      <col style="width:7%;" />
+      <col style="width:45%;" />
+      <col style="width:15%;" />
       <col style="width:10%;" />    
       <col style="width:11%;" />    
       <col style="width:*;" />    
@@ -94,17 +95,25 @@
       </tr>
    </c:if>
    <c:if test="${!empty alist}">
-      <c:forEach var="vo" items="${alist }">
+      <c:forEach var="vo" items="${alist}">
          <tr style="text-align: center">
-            <td>${vo.address}</td>
-            <td style="text-align: left;">
+            <td>
+            
+             <c:if test="${fn:length(vo.address)>9}" >
+                         ${fn:substring(vo.address,0,8) }  
+            </c:if>
+            <c:if test="${fn:length(vo.address)<8}" >
+            ${vo.address}
+            </c:if>
+            </td>
+            <td style="text-align: left">
                <a href="<c:url value='/rec/updateCount.ag?recCode=${vo.recCode}'/>">
                   &nbsp; [${vo.compName }] ${vo.title}</a>
             </td>
             <td>${vo.age }</td>
-            <td><fmt:formatNumber pattern="#,###" 
-            value="${vo.pay }"/>원</td>
-            <td>${vo.workTime }:${vo.workTime2 }-${vo.workTime3 }:${vo.workTime4 }</td>
+            <td>
+            <fmt:formatNumber pattern="#,###"value="${vo.pay }"/>원</td>
+            <td>${vo.workTime}:${vo.workTime2}-${vo.workTime3}:${vo.workTime4}</td>
             <td><fmt:formatDate value="${vo.regdate}" pattern="yyyy-MM-dd"/>
             </td>
          </tr>          

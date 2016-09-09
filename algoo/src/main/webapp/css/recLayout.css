@@ -138,6 +138,7 @@ a:hover {
 .rence{
    margin: 5px 0 0 0px;
    float: left;
+   width: 140px;
 }
 .txt{
    margin:10px;
@@ -276,4 +277,10 @@ input[type="text"]{
 .align_right{
 	text-align: right;
 }
-
+.recList tbody tr td{
+   margin: 20px 10px;
+ font-family:'bon godic';
+   font-variant:small-caps;
+   font-weight: bold;
+   font-size: 9pt; 
+}

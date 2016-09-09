@@ -197,9 +197,9 @@
 		</div>
 	</div>
 	<div id="content">
-		<div class="regi_group">
+		<!-- <div class="regi_group">
 			<div id="id_div" style="height:100px">dfdf</div>
-		</div>
+		</div> -->
 		<div class="regi_group">
 			<div id="id_div">
 				<input type="text" name="userid" id="userid" placeholder="아이디" style="width:220px"

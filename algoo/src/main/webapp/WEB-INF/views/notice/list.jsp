@@ -122,7 +122,7 @@ action="<c:url value='/notice/list.ag'/>">
 		</c:if>		
 		<c:if test="${i!=pagingInfo.currentPage }">
 			<a href="#" onclick="pageFunc(${i})">
-				[${i}]</a>
+				${i}</a>
 		</c:if>		
 	</c:forEach>				
 	

@@ -43,7 +43,7 @@ $(document).ready(function(){
 	<legend>FAQ 수정</legend>
 		<div class="category">
         	<label for="category">카테고리 분류</label>
-        	<select name="category" id="category" title="카테고리" class="button white medium">
+        	<select name="category" id="category" title="카테고리" class="textBox" style="font-size: 0.75em;">
         		<option value="">선택하세요</option>
         		<option value="회원가입탈퇴" 
         			<c:if test="${faqVo.category=='회원가입탈퇴' }">
@@ -67,15 +67,15 @@ $(document).ready(function(){
             <label for="title" style="width:12%;">질문</label>
             <input type="text" id="title" name="title" 
             	style="width: 300px;font-size: 0.75em;text-align: left" 
-            	class="button white" value="${faqVo.title }" />
+            	class="textBox" value="${faqVo.title }" />
         </div>
         <div>	       
  			<textarea id="content" name="content">${faqVo.content }</textarea>
         </div>
         <br>
         <div class="center">
-            <input type = "submit" class="button white medium" value="FAQ 수정"/>
-            <input type = "Button" class="button white medium" value="FAQ 목록" 
+            <input type = "submit" class="button white medium" value="수정하기"/>
+            <input type = "Button" class="button white medium" value="목록" 
             onclick="location.href='<c:url value="/faq/faqList.ag"/>'" />     
         </div>
 	</fieldset>

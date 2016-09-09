@@ -47,7 +47,7 @@ type="text/javascript"></script>
  <fieldset>
 	<legend> 
 		<img src="<c:url value='/images/bubble-talk.jpg'/>" style="height: 55px;" align=absmiddle>
-		자유게시판 글 쓰기</legend>
+		알바토크 글 쓰기</legend>
         <div class="firstDiv">
             <label for="title">제목</label>
             <input type="text" id="title" name="title" style="width: 300px;font-size: 0.75em;text-align: left" 

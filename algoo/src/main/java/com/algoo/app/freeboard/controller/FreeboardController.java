@@ -1,5 +1,7 @@
 package com.algoo.app.freeboard.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +11,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.algoo.app.common.PaginationInfo;
+import com.algoo.app.common.SearchVO;
 import com.algoo.app.freeboard.model.FreeboardService;
 import com.algoo.app.freeboard.model.FreeboardVO;
+
 
 @Controller
 @RequestMapping("/freeboard")
@@ -36,5 +41,30 @@ public class FreeboardController {
 		logger.info("freeboard 글 쓰기 결과 cnt = {}", cnt);
 		
 		return "redirect:/freeboard/list.ag";
+	}
+	
+	@RequestMapping("/list.ag")
+	public String listReBoard(@ModelAttribute SearchVO searchVo, Model model){
+		logger.info("글목록 조회, 파라미터 searchVo={}", searchVo);
+		
+		PaginationInfo pagingInfo = new PaginationInfo();
+		pagingInfo.setBlockSize(10);
+		pagingInfo.setRecordCountPerPage(20);
+		pagingInfo.setCurrentPage(searchVo.getCurrentPage());
+		
+		searchVo.setBlockSize(pagingInfo.getBlockSize());
+		searchVo.setRecordCountPerPage(pagingInfo.getRecordCountPerPage());
+		searchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
+				
+		List<FreeboardVO> alist = freeService.selectAllFreeboard(searchVo);
+		logger.info("글목록 조회 결과 alist.size()={}", alist.size());
+		
+		int totalRecord=freeService.selectTotalCount(searchVo);
+		pagingInfo.setTotalRecord(totalRecord);
+				
+		model.addAttribute("freeList", alist);
+		model.addAttribute("pagingInfo", pagingInfo);
+		
+		return "freeboard/list";
 	}
 }

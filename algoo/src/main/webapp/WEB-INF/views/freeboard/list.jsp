@@ -25,15 +25,15 @@
 </script>	
 
 <section>
-<form name="frmPage" method="post" 
-	action="<c:url value='/faq/faqList.ag'/>">
+<form name="frmPage" method="post" action="<c:url value='/freeboard/list.ag'/>">
 <input type="hidden" name="currentPage">
 <input type="hidden" name="searchConditionz" value="${param.searchCondition }">
 <input type="hidden" name="searchKeyword" value="${searchVO.searchKeyword }">	
 </form>
 
 <div class="divList">
-<legend>FAQ 리스트</legend>
+<legend><img src="<c:url value='/images/bubble-talk.jpg'/>" style="height: 55px;" align=absmiddle>
+		알바토크</legend>
 <div class="list">
 <c:if test="${!empty param.searchKeyword }">
 	<p>검색어 : ${param.searchKeyword }, ${pagingInfo.totalRecord }건 검색되었습니다.</p>
@@ -45,36 +45,72 @@
 <table class="box2">
 	<colgroup>
 		<col style="width:10%;" />
-		<col style="width:75%;" />
-		<col style="width:15%;" />	
+		<col style="width:45%;" />
+		<col style="width:15%;" />
+		<col style="width:20%" />
+		<col style="width:10%" />
 	</colgroup>
 	<thead>
 	  <tr>
 	    <th scope="col">번호</th>
 	    <th scope="col">제목</th>
+	    <th scope="col">작성자</th>
 	    <th scope="col">작성일</th>
+	    <th scope="col">조회수</th>
 	  </tr>
 	</thead> 
 	<tbody>  
-	<c:if test="${empty alist}">
+	<c:if test="${empty freeList}">
 		<tr>
-			<td colspan="3" class="align_center">
-			검색된 질문이 없습니다
+			<td colspan="5" class="align_center">
+				검색된 질문이 없습니다
 			</td>
 		</tr>
 	</c:if>
-	<c:if test="${!empty alist}">
-		<c:forEach var="vo" items="${alist }">
+	<c:if test="${!empty freeList}">
+		<!--게시판 내용 반복문 시작  -->		
+		<c:forEach var="fList" items="${freeList }">
 			<tr style="text-align: center">
-				<td>${vo.faqNo}</td>
+				<td>${fList.freeNo}</td>
 				<td style="text-align: left;">
-					<a href="<c:url value='/faq/updateCount.ag?faqNo=${vo.faqNo}'/>">
-						&nbsp; [${vo.category }] ${vo.title}</a>
+					<!-- 삭제된 글에 대한 처리 -->
+					<c:if test="${fList.delYn=='Y'}">
+						<span style="color:gray">
+							삭제된 글입니다</span>
+					</c:if>
+					<c:if test="${fList.delYn!='Y'}">					
+						<!-- 답변의 경우 화살표 이미지 보여주기 -->
+						<c:if test="${fList.step>0 }">
+							<c:forEach var="i" 
+								begin="1" end="${fList.step}">
+								&nbsp;
+							</c:forEach>
+							<img src
+							="<c:url value='/images/re.png' />" alt="re이미지">
+						</c:if>
+						<a href="<c:url value='/freeboard/updateCount.do?freeNo=${fList.freeNo}'/>">
+							<!-- 제목이 긴 경우 일부만 보여주기 -->
+							<c:if test="${fn:length(fList.title)>20}">
+								${fn:substring(fList.title, 0,20)}...
+							</c:if>
+							<c:if test="${fn:length(fList.title)<=20}">
+								${fList.title}
+							</c:if>
+						</a>
+						<!-- 24시간 이내의 글인 경우 new 이미지 보여주기 -->
+						<c:if test="${fList.newImgTerm<24}">
+							<img src="<c:url value='/images/new.png'/>" alt="new 이미지" 
+								style="height: 12px;" align=absmiddle>
+						</c:if>
+					</c:if>	
 				</td>
-				<td><fmt:formatDate value="${vo.regdate}" pattern="yyyy-MM-dd"/>
+				<td>${fList.writer}</td>
+				<td><fmt:formatDate value="${fList.regdate}" pattern="yyyy-MM-dd"/>
 				</td>
+				<td>${fList.readCount}</td>
 			</tr>				
 		</c:forEach>
+		<!--반복처리 끝  -->
 	</c:if>
 	</tbody>
 </table>	   
@@ -88,13 +124,13 @@
 	<c:forEach var="i" begin="${pagingInfo.firstPage }" 
 		end="${pagingInfo.lastPage }">	 
 		<c:if test="${i==pagingInfo.currentPage }">
-			<span>${i }</span>
+			<span style="color:blue;font-weight: bold">
+				${i }</span>
 		</c:if>		
 		<c:if test="${i!=pagingInfo.currentPage }">
-				<a href="#" onclick="pageProc(${i})" >
-				${i}</a>
+				<a href="#" onclick="pageProc(${i})">
+				[${i}]</a>
 		</c:if>
-
 	</c:forEach>	
 	
 	<!-- 다음 블럭으로 이동 -->
@@ -107,28 +143,33 @@
 </div>
 <div class="divSearch">
    	<form name="frmSearch" method="post" 
-   	action="<c:url value='/faq/faqList.ag' />" >
+   	action="<c:url value='/freeboard/list.ag' />" >
         <select name="searchCondition" class="button white small"
         	style="font-size: 0.75em;">
             <option value="title"
            	   <c:if test="${param.searchCondition=='title'}">
             		selected
                </c:if>
-            >질문</option>
+            >제목</option>
             <option value="content" 
             	<c:if test="${param.searchCondition=='content'}">
             		selected
                </c:if>
-            >답변</option>
+            >내용</option>
+            <option value="writer" 
+            	<c:if test="${param.searchCondition=='writer'}">
+            		selected
+               </c:if>
+            >작성자</option>
         </select>   
         <input type="text" name="searchKeyword" 
-        	title="검색어 입력" value="${param.searchKeyword}" class="textBox" >   
+        	title="검색어 입력" value="${param.searchKeyword}" >   
 		<input type="submit" class="button white medium" value="검색">
     </form>
 </div>
 <br>
 <div class="divBtn">
-    <input type = "Button" class="button white medium" value="FAQ 쓰기" 
+    <input type = "Button" class="button white medium" value="글쓰기" 
       	onclick="location.href='<c:url value="/faq/faqWrite.ag"/>';" />
 </div>
 <p class="clearboth"></p> 

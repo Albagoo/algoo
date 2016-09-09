@@ -158,7 +158,7 @@ action="<c:url value='/notice/list.ag'/>">
 	               </c:if>
 	            >작성자</option>
 	        </select>
-	        <input type="text" name="searchKeyword" class="searchBox"
+	        <input type="text" name="searchKeyword" class="textBox"
 	        	title="검색어 입력" value="${param.searchKeyword}" >
 			<input type="submit" value="검색"
 				 class="button white small"

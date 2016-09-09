@@ -59,7 +59,7 @@ type="text/javascript"></script>
             	</c:if>>점검</option>
 			</select>
             <input type="text" id="title" name="title" size="80" 
-             value="${noticeVo.title }"/>
+             class="textBox" value="${noticeVo.title }"/>
             <input type="hidden" id="writer" name="writer"
              value="${noticeVo.writer }" />
         </div>

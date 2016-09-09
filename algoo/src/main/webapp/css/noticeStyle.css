@@ -77,7 +77,7 @@
 	select{
 		font-weight:bold;
 	}
-	.searchBox{
+	.textBox{
 		/* margin:auto;
 		width:320px;
 		padding:2px;
@@ -93,18 +93,14 @@
 		margin: 0 2px;
 		outline: none;
 		cursor: pointer;
-		text-align: center;
 		text-decoration: none;
 		font: 14px/100% Arial, Helvetica, sans-serif;
-		padding: .5em 2em .55em;
+		padding: .2em;
 		text-shadow: 0 1px 1px rgba(0,0,0,.3);
-		-webkit-border-radius: .5em; 
-		-moz-border-radius: .5em;
-		border-radius: .5em;
-		/* -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
-		-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2); */
+		-webkit-border-radius: .4em; 
+		-moz-border-radius: .4em;
+		border-radius: .4em;
 		box-shadow: 0 1px 2px rgba(0,0,0,.2);
-		height:8px;
 	}
 	
 	/* detail */

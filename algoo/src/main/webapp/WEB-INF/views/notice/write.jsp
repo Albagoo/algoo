@@ -47,7 +47,8 @@ type="text/javascript"></script>
 				<option value="이벤트">이벤트</option>
 				<option value="점검">점검</option>
 			</select>
-            <input type="text" id="title" name="title" size="80" />
+            <input type="text" id="title" class="textBox"
+             name="title" size="80" />
             <input type="text" id="writer" name="writer"/>
         </div>
         <div>	        

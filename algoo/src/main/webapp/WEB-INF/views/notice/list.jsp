@@ -149,7 +149,7 @@ action="<c:url value='/notice/list.ag'/>">
 	            >제목</option>
 	            <option value="content" 
 	            	<c:if test="${param.searchCondition=='content'}">
-	            		selected
+	            		selected"src/main/webapp/css/noticeStyle.css"
 	               </c:if>
 	            >내용</option>
 	            <option value="writer" 
@@ -158,7 +158,7 @@ action="<c:url value='/notice/list.ag'/>">
 	               </c:if>
 	            >작성자</option>
 	        </select>
-	        <input type="text" name="searchKeyword" 
+	        <input type="text" name="searchKeyword" class="searchBox"
 	        	title="검색어 입력" value="${param.searchKeyword}" >
 			<input type="submit" value="검색"
 				 class="button white small"

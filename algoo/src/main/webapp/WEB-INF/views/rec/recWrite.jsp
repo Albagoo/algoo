@@ -16,19 +16,71 @@ src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 href="<c:url value='/css/simpleButton.css'/>" />
   <script src="<c:url value='/ckeditor/ckeditor.js'/>" 
 type="text/javascript"></script>
+
+
 <script type="text/javascript">
    $(document).ready(function(){
+	   $("#submitBt").hide(); 
+	   
+   
 	   CKEDITOR.replace('content', {uiColor: '#FFFFFF'});  
       $("#simple_top span").html("채용공고 등록");
       //simple_top 이용시 자기가 맡은화면 명칭 innerHTML로 붙여주기
       
+      //서비스 등록 버튼을 눌렀을때
+      $("#submitBt").click(function() {
+    	  $("#grade").val($("#gradeSel option:selected").val())
+    	  $("#days").val($("#daysSel option:selected").val())
+        $("#divService").html("");
+    	  $("#submitBt").hide();
+    	  $("#serviceInfo").show();
+    	  $("#serviceBt").show();
+	});
+      var res="";
+      
+    	//서비스기간설정버튼을 눌렀을때	  
       $("#serviceBt").click(function() {
-        /* var userid
-          = $("#userid").val(); */
-       window.open(
-            "<c:url value='/service/serviceWrite.ag'/>", "serviceWrite",
-"width=450, height=200, left=10,top=50,resizable=yes,location=yes");
-      });//serviceWrite
+    	  $("#submitBt").show();
+    	  $("#serviceInfo").hide();
+    	  $("#serviceBt").hide();
+    	  
+    	  $.ajax({
+              url:"<c:url value='/service/serviceWrite.ag'/>",
+              type:"GET",
+              success:function(res){
+                 res="<div>";
+                 
+res+="<h2>서비스 선택</h2>";
+res+='<form <form method="post" name="frmService" id="frmService" ';
+res+='action="<c:url value='/service/serviceWrite.ag'/>" style="display:inline" >';
+res+='<select class="textBox white"  id="gradeSel">';
+res+='<option value="1">1등급</option>';
+res+='<option value="2">2등급</option>';
+res+='<option value="3">3등급</option>';
+res+='<option value="4">4등급</option>';
+res+='</select>';
+res+='<select class="textBox white"  id="daysSel">';
+res+='<option value="1">1일</option>';
+res+='<option value="7">7일</option>';
+res+='<option value="30"> 30일</option>';
+res+='<option value="90">90일</option>';
+res+='<option value="180">180일</option>';
+res+='</select>';
+res+='';
+res+=' <input class="button medium white" type="reset" value="취소"> ';
+res+=' </form> ';
+res+='</div>';
+res+='';
+                  
+                 $("#divService").html(res);
+                 
+              },
+              error:function(xhr, status, error){
+                 alert(status+":"+error)
+              },
+         });//aj
+        }); //click  
+          
       
       $("#regBt").click(function() {
 		 
@@ -37,9 +89,18 @@ type="text/javascript"></script>
     		  $("#serviceBt").focus();
     	  }else if($("#title").val().length<1){
     		  alert("채용 제목을 설정해주세요");
-              $("#title").focus();     		  
-    	  }else{
-    		  frmWrite.action
+              $("#title").focus();
+    	  }else if($("#grade").val().length<1){
+           alert("등급을 선택하세요");
+           $("#grade").focus();
+           return false;
+        }else if($("#days").val()==0){
+           alert("기간을 선택하세요");
+           $("#days").focus();
+           return false;
+        }else{
+
+        	   frmWrite.action
               ="<c:url value='/rec/recWrite.ag'/>";
               frmWrite.submit();
     	  }
@@ -50,33 +111,39 @@ type="text/javascript"></script>
 		   ="<c:url value='/rec/recList.ag'/>";   
 		   frmList.submit();
 			//나중에 카테고리 추가 예정
-		});
+		});//click
+		
    });
-   
-   
- 
   </script>
+  
+  
 
 <form name="frmWrite" method="post" 
    action="<c:url value='/rec/recWrite.ag'/>">
+<div id="divService" style="margin-left: 50px;"> </div>
 	<div class="recWrite">
-<div>
-<input class="tit" type="hidden"
-id="serviceCode" name="serviceCode"
-readonly="readonly">
+<div id="serviceInfo">
+
 <span class="txt_85">서비스등급</span>
+
 <input class="txth_35" type="text"
 id="grade" name="grade"
 readonly="readonly">
 <span class="txt_85">서비스기간</span>
+
 <input class="txt_35" type="text"
  id="days" name="days"
  readonly="readonly">
-<input type="button" value="서비스기간설정"
- id="serviceBt" title="새창열림" class="white medium button">
+ </div>
+ 
+<input type="button" value="서비스설정"
+ id="serviceBt" title="보여주기" class="white  button">
+ <input class="button white" type="button"
+  id="submitBt" value="서비스 등록" style="margin-left: 300px" >
  <input type="hidden" value="${compVo.compCode }"
  name="compCode" readonly="readonly" >
- </div>
+ 
+ 
 	<div id="div1"></div>
 		<h2>기업 정보</h2>
 		<div class="companyInfo bg">
@@ -111,6 +178,10 @@ style="width: 150px;height: 100px;border: 1px solid gray">
 style="width: 150px;height: 100px;border: 1px solid gray"> 
 					<img alt="회사이미지3" src="#" 
 style="width: 150px;height: 100px;border: 1px solid gray"> 
+				</dt>
+				<dt>
+				<form><input class="textBox" type="file"
+				 value="파일업로드"></form>
 				</dt>
 			</dl>
 		</div>
@@ -187,7 +258,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
          </dl>
 		</div>
 
-		<h2>업무내용 및 근무지정보</h2>
+		<h2>근무지정보</h2>
 		<div class="workInfo bg">
 		 <dl class="clearBoth">
             <dt>
@@ -427,7 +498,8 @@ style="width: 150px;height: 100px;border: 1px solid gray">
 				</dt>
             <dt>
                <span class="tit">선택</span>
-               <select class="txt_85 white button medium">
+               <select class="txt_85 white button medium"
+               name="payMethod">
                <option value="시급">시급</option>
                <option value="일당">일당</option>
                <option value="주급">주급</option>
@@ -884,7 +956,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
 	</div>
 	<div class="align_center" style="margin-top: 50px;">
 	<input class="white button "
-	  id="regBt"	type="button" value="확인">
+	  id="regBt" type="button" value="확인">
 	<input class="white button " type="reset" value="취소">
 	<input class="white button" type="button" 
       id="recListBt" value="목록">

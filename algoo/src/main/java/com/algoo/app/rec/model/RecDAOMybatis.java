@@ -1,6 +1,7 @@
 package com.algoo.app.rec.model;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.stereotype.Repository;
@@ -55,6 +56,24 @@ implements RecDAO{
 	public int updateReadCount(int readCount) {
 		return getSqlSession().update(namespace+
 				".updateReadCount",readCount);
+	}
+
+	@Override
+	public int insertSevice(ServiceVO vo) {
+		return getSqlSession().insert(namespace+
+				".insertRecSevice"+vo);
+	}
+
+	@Override
+	public List<Map<String, Object>> selectJobName() {
+		return getSqlSession().selectList(namespace+
+				".selectJobName");
+	}
+
+	@Override
+	public List<Map<String, Object>> selectJobName2(String jobName) {
+		return getSqlSession().selectList(namespace+
+				".selectJobName2",jobName);
 	}
 
 

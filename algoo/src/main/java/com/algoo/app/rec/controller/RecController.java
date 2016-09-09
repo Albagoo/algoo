@@ -2,9 +2,6 @@ package com.algoo.app.rec.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.algoo.app.common.PaginationInfo;
 import com.algoo.app.company.model.CompanyService;
 import com.algoo.app.company.model.CompanyVO;
-import com.algoo.app.faq.model.FaqVO;
 import com.algoo.app.rec.model.RecSeachVO;
 import com.algoo.app.rec.model.RecService;
 import com.algoo.app.rec.model.RecVO;
@@ -98,10 +94,10 @@ public class RecController {
 		//채용공고 입력처리하기
 		//1
 		logger.info("채용공고 처리하기,파라미터"
-				+ "compVo={},recVo={},serviceVo={}"
-				+ compVo,recVo,serviceVo);
+				+ "recVo={},serviceVo={}"
+				+ recVo,serviceVo);
 		//2
-		
+		/*
 		int res 
 		=serviceService.insertSevice(serviceVo);
 		logger.info("서비스등록 결과,res={}",res);
@@ -111,12 +107,14 @@ public class RecController {
 		logger.info("서비스 조회하기결과,파라미터"
 				+ "serviceVo={}"
 				+ serviceVo);
+		*/
+	/*	recVo.setServiceCode(serviceVo.getServiceCode());
+		logger.info("채용정보등록결과,resVo={}",resVo);
+		*/
+		int res
+		=recService.intsertRec(recVo,serviceVo);
+		logger.info("채용정보등록결과,resVo={}",res);
 		
-		recVo.setServiceCode(serviceVo.getServiceCode());
-		logger.info("채용정보등록결과,res={}",res);
-		
-		res
-		=recService.intsertRec(recVo);
 		//3
 		model.addAttribute("compVo", compVo);
 		model.addAttribute("recVo", recVo);
@@ -174,6 +172,7 @@ public class RecController {
 
 		return "redirect:/rec/recDetail.ag?recCode="+recCode;
 	}
+	
 	
 	
 	/*@RequestMapping("/getSubwayStation.ag")

@@ -61,28 +61,47 @@
    </update>
    
 	
-	<insert id="insertRec" parameterType="RecVO">
-	<selectKey keyProperty="recCode" resultType="int"
-	order="BEFORE">
+	<insert id="insertRecSevice" parameterType="ServiceVO">
+     insert into service 
+     (service_code,grade,days,deadline)
+     values
+     ( service_seq.nextval, 
+     #{grade}, #{days}, sysdate+#{days} )
+   </insert>
+   
+   <insert id="insertRec" parameterType="RecVO">
+   <selectKey keyProperty="recCode" resultType="int"
+   order="BEFORE">
       select RECRUITMENT_seq.nextval from dual
-	</selectKey>
-	
-	insert into RECRUITMENT
-	(rec_Code,comp_Name,title,job_Name,job_Name2,
-	job_Name3,zipcode,address,address_Detail,sub_Region,
-	sub_Num,sub_Name,sub_Info,work_Term,work_Days,
-	work_Time,work_Time2,work_Time3,work_Time4,pay,
-	recruit_Type,welfare,gender,age,educate_Lv,
-	career,preference,recruit_Member,recruit_Person,recruit_Method,
-	documents,detail_Recruit,comp_Code,service_Code
-	)
-	values(#{recCode}, #{compName},#{title},#{jobName},#{jobName2},
-	#{jobName3},#{zipcode},#{address},#{addressDetail},#{subRegion},
-	#{subNum},#{subName},#{subInfo},#{workTerm},#{workDays},
-	#{workTime},#{workTime2},#{workTime3},#{workTime4},#{pay},
-	#{recruitType},#{welfare},#{gender},#{age},#{educateLv},
-	#{career},#{preference},#{recruitMember},#{recruitPerson},#{recruitMethod},
-	#{documents},#{detailRecruit},#{compCode},#{serviceCode}
-       )
-	</insert>
+   </selectKey>
+ 
+   insert into RECRUITMENT
+   (rec_Code,comp_Name,title,job_Name,job_Name2,
+   job_Name3,zipcode,address,address_Detail,sub_Region,
+   sub_Num,sub_Name,sub_Info,work_Term,work_Days,
+   work_Time,work_Time2,work_Time3,work_Time4,pay,
+   recruit_Type,welfare,gender,age,educate_Lv,
+   career,preference,recruit_Member,recruit_Person,recruit_Method,
+   documents,detail_Recruit,comp_Code,service_Code
+   )
+   values(#{recCode}, #{compName},#{title},#{jobName},#{jobName2},
+   #{jobName3},#{zipcode},#{address},#{addressDetail},#{subRegion},
+   #{subNum},#{subName},#{subInfo},#{workTerm},#{workDays},
+   #{workTime},#{workTime2},#{workTime3},#{workTime4},#{pay},
+   #{recruitType},#{welfare},#{gender},#{age},#{educateLv},
+   #{career},#{preference},#{recruitMember},#{recruitPerson},#{recruitMethod},
+   #{documents},#{detailRecruit},#{compCode},#{serviceCode}
+   </insert>
+
+   <select id="selectJobName" resultType="hashmap">
+      select job_name from jobs
+      group by job_name
+   </select>
+   
+   
+   <select id="selectJobName2" parameterType="String" 
+   resultType="hashmap">
+      select job_name2 from jobs
+      where job_name=${jobName}
+   </select>
 </mapper>

@@ -8,6 +8,7 @@ public class ServiceVO {
 	public String grade;//   VARCHAR2(50 BYTE),
 	public String days;//   VARCHAR2(50 BYTE),
 	public Date deadline;//   DATE
+	
 	public int getServiceCode() {
 		return serviceCode;
 	}

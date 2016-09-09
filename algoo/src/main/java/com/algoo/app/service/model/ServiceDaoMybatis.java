@@ -8,14 +8,14 @@ implements ServiceDAO{
 
 	private String namespace = "com.mybatis.mapper.oracle.service";
 	
-	@Override
+/*	@Override
 	public int insertSevice(ServiceVO vo) {
 		return getSqlSession().insert(namespace+
 				".insertSevice", vo);
 	}
-
+*/
 	@Override
-	public ServiceVO selectByNew() {
+	public int selectByNew() {
 		return getSqlSession().selectOne(namespace+
 				".selectByNew");
 	}

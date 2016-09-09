@@ -8,7 +8,7 @@ public class ServiceServiceImpl implements ServiceService {
 	@Autowired
 	private ServiceDAO ServiceDao;
 
-	@Override
+/*	@Override
 	public int insertSevice(ServiceVO vo) {
 		return ServiceDao.insertSevice(vo);
 	}
@@ -18,5 +18,5 @@ public class ServiceServiceImpl implements ServiceService {
 		return ServiceDao.selectByNew();
 	}
 	
-	
+	*/
 }

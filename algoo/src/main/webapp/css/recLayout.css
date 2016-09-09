@@ -40,48 +40,12 @@ a:hover {
 .recWrite dl{
 	background: #fffcfc;
 }
-.companyInfo {
+.companyInfo,.personInfo,.workInfo,.workCondition,.requestCondition,.recContent,.detailContent {
    width: 880px;
-   height: 300px;
-   padding-top: 15px;
+   padding: 20px 0;
    
 }
 
-.personInfo {
-   width: 880px;
-   height: 210px;
-   padding-top: 15px;
-}
-
-.workInfo {
-   width: 880px;
-   height: 250px;
-   padding-top: 15px;
-}
-
-.workCondition {
-   width: 880px;
-   height: 280px;
-   padding-top: 15px;
-}
-
-.requestCondition {
-   width: 880px;
-   height: 320px;
-   padding-top: 15px;
-}
-
-.recContent {
-   width: 880px;
-   height: 250px;
-   padding-top: 15px;
-}
-
-.detailContent {
-   width: 880px;
-   height: 300px;
-   padding-top: 15px;
-}
 .detailContent textarea{
    margin: 30px;
 }

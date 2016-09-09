@@ -112,7 +112,9 @@
             </td>
             <td>${vo.age }</td>
             <td>
-            <fmt:formatNumber pattern="#,###"value="${vo.pay }"/>원</td>
+            ${param.payMethod }
+            <fmt:formatNumber pattern="#,###"
+            value="${vo.pay }"/>원</td>
             <td>${vo.workTime}:${vo.workTime2}-${vo.workTime3}:${vo.workTime4}</td>
             <td><fmt:formatDate value="${vo.regdate}" pattern="yyyy-MM-dd"/>
             </td>

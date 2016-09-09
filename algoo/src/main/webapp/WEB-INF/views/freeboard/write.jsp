@@ -44,11 +44,10 @@ type="text/javascript"></script>
 <div class="divForm">
 <form name="frmWrite" id="frmWrite" method="post" 
   action="<c:url value='/freeboard/write.ag'/>" >
-<div id="Qmark">
-<img src="<c:url value='/images/bubble-talk.jpg'/>" style="height: 70px;">
-</div>
  <fieldset>
-	<legend>자유게시판 글 쓰기</legend>
+	<legend> 
+		<img src="<c:url value='/images/bubble-talk.jpg'/>" style="height: 55px;" align=absmiddle>
+		자유게시판 글 쓰기</legend>
         <div class="firstDiv">
             <label for="title">제목</label>
             <input type="text" id="title" name="title" style="width: 300px;font-size: 0.75em;text-align: left" 

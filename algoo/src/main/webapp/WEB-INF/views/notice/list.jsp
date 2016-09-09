@@ -92,7 +92,7 @@ action="<c:url value='/notice/list.ag'/>">
 		<table class="box" style="text-align:center">
 		<tr>
 		<td width="105px">${vo.category } </td>
-		<td width="511px">
+		<td width="511px" id="align_left" style="padding-left:10px">
 		<a href="<c:url value='/notice/updateReadCount.ag?no=${vo.mainNo}'/>">
 		${vo.title } </a></td>
 		<td width="102px">${vo.writer } </td>

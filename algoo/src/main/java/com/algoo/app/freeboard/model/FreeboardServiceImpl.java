@@ -32,4 +32,9 @@ public class FreeboardServiceImpl implements FreeboardService{
 	public int updateReadCount(int freeNo) {
 		return freeDao.updateReadCount(freeNo);
 	}
+
+	@Override
+	public FreeboardVO selectFreeboardByNo(int freeNo) {
+		return freeDao.selectFreeboardByNo(freeNo);
+	}
 }

@@ -32,8 +32,9 @@
 </form>
 
 <div class="divList">
-<legend><img src="<c:url value='/images/bubble-talk.jpg'/>" style="height: 55px;" align=absmiddle>
-		알바토크</legend>
+<legend>
+	<img src="<c:url value='/images/albatalk.png'/>" style="height: 48px;" align=absmiddle>
+</legend>
 <div class="list">
 <c:if test="${!empty param.searchKeyword }">
 	<p>검색어 : ${param.searchKeyword }, ${pagingInfo.totalRecord }건 검색되었습니다.</p>
@@ -44,11 +45,11 @@
 </div>
 <table class="box2">
 	<colgroup>
-		<col style="width:10%;" />
-		<col style="width:45%;" />
+		<col style="width:7%;" />
+		<col style="width:56%;" />
 		<col style="width:15%;" />
-		<col style="width:20%" />
-		<col style="width:10%" />
+		<col style="width:15%" />
+		<col style="width:7%" />
 	</colgroup>
 	<thead>
 	  <tr>
@@ -88,19 +89,19 @@
 							<img src
 							="<c:url value='/images/re.png' />" alt="re이미지">
 						</c:if>
-						<a href="<c:url value='/freeboard/updateCount.do?freeNo=${fList.freeNo}'/>">
+						<a href="<c:url value='/freeboard/updateCount.ag?freeNo=${fList.freeNo}'/>">
 							<!-- 제목이 긴 경우 일부만 보여주기 -->
 							<c:if test="${fn:length(fList.title)>20}">
-								${fn:substring(fList.title, 0,20)}...
+								&nbsp; ${fn:substring(fList.title, 0,20)}...
 							</c:if>
 							<c:if test="${fn:length(fList.title)<=20}">
-								${fList.title}
+								&nbsp; ${fList.title}
 							</c:if>
 						</a>
 						<!-- 24시간 이내의 글인 경우 new 이미지 보여주기 -->
 						<c:if test="${fList.newImgTerm<24}">
-							<img src="<c:url value='/images/new.png'/>" alt="new 이미지" 
-								style="height: 12px;" align=absmiddle>
+							<img src="<c:url value='/images/new5.png'/>" alt="new 이미지" 
+								style="height: 14px;" align=absmiddle >
 						</c:if>
 					</c:if>	
 				</td>
@@ -170,7 +171,7 @@
 <br>
 <div class="divBtn">
     <input type = "Button" class="button white medium" value="글쓰기" 
-      	onclick="location.href='<c:url value="/faq/faqWrite.ag"/>';" />
+      	onclick="location.href='<c:url value="/freeboard/write.ag"/>';" />
 </div>
 <p class="clearboth"></p> 
 </section>

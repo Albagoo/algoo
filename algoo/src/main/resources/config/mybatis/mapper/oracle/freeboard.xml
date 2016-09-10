@@ -50,7 +50,12 @@
 	
 	<update id="updateReadCount" parameterType="int">
 		update free_board 
-			set read_count=read_count+1
+		set read_count=read_count+1
 		where free_no=#{freeNo}
 	</update>
+	
+	<select id="selectFreeboardByNo" parameterType="int" resultType="FreeboardVO">
+		select * from free_board
+		where free_no = #{freeNo}
+	</select>
 </mapper>

@@ -20,6 +20,16 @@ type="text/javascript"></script>
 
 <script type="text/javascript">
    $(document).ready(function(){
+	   
+	   setAges();
+       
+       $("input[name='age']").click(function() {
+    	   setAges();
+       });
+       
+	   
+	   
+	   
 	   $("#submitBt").hide(); 
 	   
    
@@ -99,10 +109,10 @@ res+='';
            $("#days").focus();
            return false;
         }else{
-
-        	   frmWrite.action
+ 
+        	   frm1.action
               ="<c:url value='/rec/recWrite.ag'/>";
-              frmWrite.submit();
+              frm1.submit();
     	  }
 	});//click
       
@@ -112,13 +122,29 @@ res+='';
 		   frmList.submit();
 			//나중에 카테고리 추가 예정
 		});//click
-		
    });
+
+
+   
+   
+	function setAges() {
+	    if($("#donAge").is(":checked")){
+	      //연령무관시 체크박스 비활성화
+	      $("#oldAge").attr('disabled',true);
+	      $("#housewife").attr('disabled',true);
+	      $("#youngAge").attr('disabled',true);
+	    }else {
+	    	$("#oldAge").attr('disabled',false);
+	      $("#housewife").attr('disabled',false);
+	      $("#youngAge").attr('disabled',false);
+	    }//if
+	}
   </script>
   
   
+  
 
-<form name="frmWrite" method="post" 
+<form name="frm1" method="post" 
    action="<c:url value='/rec/recWrite.ag'/>">
 <div id="divService" style="margin-left: 50px;"> </div>
 	<div class="recWrite">
@@ -264,14 +290,14 @@ style="width: 150px;height: 100px;border: 1px solid gray">
             <dt>
                <span class="tit">근무회사/점포명</span> 
                <input type="text" class="txt_200"
-               placeholder="회사명(지점명)" 
+               placeholder="회사명(지점명)" maxlength="30"
                name="compName">
             </dt>
             <dt>
                <span class="tit">채용제목</span>
                <input type="text" class="txt"
                placeholder="성실하게 함께할 가족 구합니다"
-               name="title" id="title">
+               name="title" id="title" maxlength="33">
             </dt>
             <dt>
                <span class="tit">업직종</span>
@@ -589,25 +615,25 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                
                <label class="radio" for="dontAge">
                <input type="radio" id="dontAge"
-               name="age" value="연령제한 있음">
+               name="age" value="">
                <span class="font_11 ">연령제한 있음</span></label>
                
                
                <label class="radio" for=oldAge>
                <input type="checkbox" id="oldAge"
-               name="age" value="고연령자 가능(65세이상)">
+               name="age" value="고연령자(65세이상)">
                <span class="font_11">고연령자 가능(65세이상)</span></label>
                
                
                <label class="radio" for=housewife>
                <input type="checkbox" id="housewife"
-               name="age" value="주부 가능">
+               name="age" value="주부">
                <span class="font_11">주부 가능</span></label>
                
                
                <label class="radio" for=youngAge>
                <input type="checkbox" id="youngAge"
-               name="age" value="청소년가능(만18세 이상)">
+               name="age" value="청소년(만18세 이상)">
                <span class="font_11">청소년가능(만18세 이상)</span></label>
                
             </dt>
@@ -615,7 +641,8 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <span class="tit">학력조건</span>
                <label class="radio" for="eduLv">
                <input type="radio" id="eduLv"
-               name="educateLv" checked="checked">
+               name="educateLv" checked="checked"
+               value="학력무관">
                <span class="font_11">학력무관</span></label>
                
                

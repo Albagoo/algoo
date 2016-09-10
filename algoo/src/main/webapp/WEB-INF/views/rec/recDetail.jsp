@@ -7,9 +7,9 @@
 .Wrap {
 	width: 800px;
 }
-.border{
+/* .border{
    border: 0.5cm solid #eee;
-}
+} */
 .recDetail {
 	font: 1em;
 	font-weight: bold;
@@ -43,13 +43,13 @@
 
 .title {
 	padding: 30px 30px;
-   border: 1px solid black;
+   /* border: 1px solid black; */
 	text-align: center;
 	font-weight: bold;
 }
 
 .logo {
-border: 1px solid black;
+/* border: 1px solid black; */
 	width: 272px;
 	height: 172px;
 	padding: 30px 0 30px 0;
@@ -64,11 +64,11 @@ border: 1px solid black;
 .main_left {
 	width: 274px;
 	height: 530px;
-	border: 1px solid black;
+	/* border: 1px solid black; */
 }
 
 .main_right {
-	border: 1pt solid Gray;
+	/* border: 1pt solid Gray; */
 	width: 480px;
 	height: 530px;
 	margin: 0;
@@ -178,7 +178,7 @@ border: 1px solid black;
    text-align: left;
 }
 .bg{
-   border: 1px solid black;
+   /* border: 1px solid black; */
    padding: 20px;
 }
 .red{
@@ -413,8 +413,6 @@ src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_comm/fee_w_day.gif">
 	   <dt>
          <span class="titd">인근전철</span>
          <span class="txt_720">
-            <img alt="2호선" 
-            src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_comm/icon_metro_line2.gif">
             ${recVo.subRegion }
             ${recVo.subNum }
             ${recVo.subName }
@@ -423,7 +421,7 @@ src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_comm/fee_w_day.gif">
       </dt> 
       <dt>
          <span class="titd">지도</span>
-         <span class="txt_720">※ 지도는  <span class="red">근무지 위치</span>를 나타내며 회사 소재지와 일치하지 않을 수 있습니다.</span>
+         <span class="txt_720">※ 지도는  <span class="red textBox">근무지 위치</span>를 나타내며 회사 소재지와 일치하지 않을 수 있습니다.</span>
       </dt>
       <div id="map" class="border">지도나올영역 </div> 
 	</dl>

@@ -107,6 +107,8 @@ public class RecController {
 		map.put("grade", grade);
 		map.put("days", days);
 		
+		serviceService.insertSevice(map);
+		
 		int res
 		=recService.intsertRec(recVo,map);
 		logger.info("채용정보등록결과,resVo={}",res);

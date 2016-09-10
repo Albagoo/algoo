@@ -20,6 +20,9 @@ public class RecServiceImpl implements RecService{
 	@Autowired
 	private RecDAO recDao;
 	
+	@Autowired
+	private ServiceDAO serviceDao;
+	
 	private static final Logger logger
 	=LoggerFactory.getLogger(RecServiceImpl.class);
 	
@@ -58,13 +61,8 @@ public class RecServiceImpl implements RecService{
 	@Transactional
 	public int intsertRec(RecVO rVo, Map<String, Object> map) {
 		int cnt=0;
-		
-		
-		
-		cnt=recDao.insertSevice(map);
-
+		cnt=serviceDao.insertSevice(map);
 		cnt=recDao.intsertRec(rVo);
-		
 		return cnt;
 	}
 

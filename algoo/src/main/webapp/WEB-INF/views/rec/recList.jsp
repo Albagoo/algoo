@@ -69,7 +69,7 @@
 </div>
 <table class="box2 recList">
    <colgroup>
-      <col style="width:13%;" />
+      <col style="width:10%;" />
       <col style="width:45%;" />
       <col style="width:15%;" />
       <col style="width:10%;" />    
@@ -98,19 +98,23 @@
       <c:forEach var="vo" items="${alist}">
          <tr style="text-align: center">
             <td>
+            <c:set var="addr" value="${fn:split(vo.address,' ')}"/>
             
-             <c:if test="${fn:length(vo.address)>9}" >
-                         ${fn:substring(vo.address,0,8) }  
-            </c:if>
-            <c:if test="${fn:length(vo.address)<8}" >
-            ${vo.address}
-            </c:if>
+            <c:forEach var="i" begin="0" end="1">
+               ${addr[i] }<br>
+            </c:forEach>
+            
             </td>
             <td style="text-align: left">
                <a href="<c:url value='/rec/updateCount.ag?recCode=${vo.recCode}'/>">
-                  &nbsp; [${vo.compName }] ${vo.title}</a>
+                  &nbsp; [${vo.compName }]<br> ${vo.title}</a>
             </td>
-            <td>${vo.age }</td>
+            <td>
+            <c:set var="ageArr" value="${fn:split(vo.age,',')}"/>
+            <c:forEach var="age1" items="${ageArr }">
+               ${age1 }<br>
+            </c:forEach>
+            
             <td>
             ${param.payMethod }
             <fmt:formatNumber pattern="#,###"
@@ -140,7 +144,7 @@
             <a href="#" onclick="pageProc(${i})">
             [${i}]</a>
       </c:if>
-   </c:forEach>   
+   </c:forEach>
    
    <!-- 다음 블럭으로 이동 -->
    <c:if test="${pagingInfo.lastPage<pagingInfo.totalPage }">  

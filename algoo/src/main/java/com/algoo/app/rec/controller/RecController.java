@@ -1,6 +1,8 @@
 package com.algoo.app.rec.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -88,37 +90,30 @@ public class RecController {
 	public String recWrite_post(
 			@ModelAttribute CompanyVO compVo,
 			@ModelAttribute RecVO recVo,
-			@ModelAttribute ServiceVO serviceVo,
+			@RequestParam String days,
+			@RequestParam String grade,
 			Model model
 			){
 		//채용공고 입력처리하기
 		//1
 		logger.info("채용공고 처리하기,파라미터"
-				+ "recVo={},serviceVo={}"
-				+ recVo,serviceVo);
+				+ "recVo={}", recVo);
+		logger.info("서비스내용,파라미터"
+				+ "days={},grade={}" 
+				,days,grade);
 		//2
-		/*
-		int res 
-		=serviceService.insertSevice(serviceVo);
-		logger.info("서비스등록 결과,res={}",res);
 		
-		serviceVo
-		=serviceService.selectByNew();
-		logger.info("서비스 조회하기결과,파라미터"
-				+ "serviceVo={}"
-				+ serviceVo);
-		*/
-	/*	recVo.setServiceCode(serviceVo.getServiceCode());
-		logger.info("채용정보등록결과,resVo={}",resVo);
-		*/
+		Map<String, Object> map=new HashMap<String, Object>();
+		map.put("grade", grade);
+		map.put("days", days);
+		
 		int res
-		=recService.intsertRec(recVo,serviceVo);
+		=recService.intsertRec(recVo,map);
 		logger.info("채용정보등록결과,resVo={}",res);
 		
 		//3
 		model.addAttribute("compVo", compVo);
 		model.addAttribute("recVo", recVo);
-		model.addAttribute("serviceVo", serviceVo);
 		
 		
 		return "rec/recDetail";		

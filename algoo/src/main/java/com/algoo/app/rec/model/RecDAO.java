@@ -14,7 +14,7 @@ public interface RecDAO {
 	public int selectTotalCount(RecSeachVO vo);
 	public List<RecVO> selectAllRec(RecSeachVO vo);
 	public int updateReadCount (int readCount);
-	public int insertSevice(ServiceVO vo);
+	public int insertSevice(Map<String, Object> map);
 	public List<Map<String, Object>> selectJobName();
 	public List<Map<String, Object>> selectJobName2(String jobName);
 	

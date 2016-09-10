@@ -1,5 +1,6 @@
 package com.algoo.app.rec.model;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -18,8 +19,6 @@ public class RecServiceImpl implements RecService{
 
 	@Autowired
 	private RecDAO recDao;
-	@Autowired
-	private ServiceDAO serviceDao;
 	
 	private static final Logger logger
 	=LoggerFactory.getLogger(RecServiceImpl.class);
@@ -57,16 +56,13 @@ public class RecServiceImpl implements RecService{
 
 	@Override
 	@Transactional
-	public int intsertRec(RecVO rVo, ServiceVO sVo) {
+	public int intsertRec(RecVO rVo, Map<String, Object> map) {
 		int cnt=0;
-		int res = serviceDao.selectByNew();
-		sVo.setServiceCode(res);
-		cnt=recDao.insertSevice(sVo);
-		logger.info("rec서비스 파라미터,rVo={},sVo={}",
-				rVo,sVo);
-		logger.info("서비스시퀀스번호?={}",res);
 		
-		rVo.setServiceCode(res);
+		
+		
+		cnt=recDao.insertSevice(map);
+
 		cnt=recDao.intsertRec(rVo);
 		
 		return cnt;

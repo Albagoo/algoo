@@ -59,9 +59,9 @@ implements RecDAO{
 	}
 
 	@Override
-	public int insertSevice(ServiceVO vo) {
+	public int insertSevice(Map<String, Object> map) {
 		return getSqlSession().insert(namespace+
-				".insertRecSevice"+vo);
+				".insertRecSevice"+map);
 	}
 
 	@Override

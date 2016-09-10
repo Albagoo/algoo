@@ -11,7 +11,7 @@ public interface RecService{
 	public CompanyVO selectCompanyByCode(int i);
 	public ServiceVO selectServiceByCode(int i);
 	
-	public int intsertRec(RecVO rVo,ServiceVO sVo);
+	public int intsertRec(RecVO rVo,Map<String, Object> map);
 	
 	public int selectTotalCount(RecSeachVO vo);
 	public List<RecVO> selectAllRec(RecSeachVO vo);

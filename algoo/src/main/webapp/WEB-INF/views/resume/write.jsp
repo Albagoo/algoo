@@ -10,7 +10,7 @@
 	h2{
 		font-size: 1.2em;
 		font-weight: bold;
-		margin-left: 50px;
+		
 		border-bottom: 5px solid black;
 		padding-bottom: 20px;
 		width: 860px;
@@ -18,7 +18,7 @@
 	
 	#box{
 		width: 860px;
-		margin-left: 50px;
+		
 	}
 		
 	#tr{
@@ -40,6 +40,349 @@
 <script type="text/javascript">
 	$(document).ready(function(){
     	$("#simple_top span").html("이력서 등록");
+    	
+    	$("#area1").change(function(){
+    		if($("#area1 option:selected").val()=="서울특별시"){
+    			$("#area2 option").remove();
+    			$("#area2").removeAttr("disabled");
+    			$("#area2").append("<option value=''>시/군/구</option>");
+		  		$("#area2").append("<option value='강남구'>강남구</option>");
+		  		$("#area2").append("<option value='강동구'>강동구</option>");
+		  		$("#area2").append("<option value='강북구'>강북구</option>");
+		  		$("#area2").append("<option value='강서구'>강서구</option>");
+		  		$("#area2").append("<option value='관악구'>관악구</option>");
+		  		$("#area2").append("<option value='광진구'>광진구</option>");
+		  		$("#area2").append("<option value='구로구'>구로구</option>");
+		  		$("#area2").append("<option value='금천구'>금천구</option>");
+		  		$("#area2").append("<option value='노원구'>노원구</option>");
+		  		$("#area2").append("<option value='도봉구'>도봉구</option>");
+		  		$("#area2").append("<option value='동대문구'>동대문구</option>");
+		  		$("#area2").append("<option value='동작구'>동작구</option>");
+		  		$("#area2").append("<option value='마포구'>마포구</option>");
+		  		$("#area2").append("<option value='서대문구'>서대문구</option>");
+		  		$("#area2").append("<option value='서초구'>서초구</option>");
+		  		$("#area2").append("<option value='성동구'>성동구</option>");
+		  		$("#area2").append("<option value='성북구'>성북구</option>");
+		  		$("#area2").append("<option value='송파구'>송파구</option>");
+		  		$("#area2").append("<option value='양천구'>양천구</option>");
+		  		$("#area2").append("<option value='양천구'>영등포구</option>");
+		  		$("#area2").append("<option value='용산구'>용산구</option>");
+		  		$("#area2").append("<option value='은평구'>은평구</option>");
+		  		$("#area2").append("<option value='종로구'>종로구</option>");
+		  		$("#area2").append("<option value='중구'>중구</option>");
+		  		$("#area2").append("<option value='중랑구'>중랑구</option>");
+		  		$("#area2").append("<option value='전체'>전체</option>");
+    		}else if($("#area1 option:selected").val()=="광주광역시"){
+    			$("#area2 option").remove();
+    			$("#area2").removeAttr("disabled");
+    			$("#area2").append("<option value=''>시/군/구</option>");
+    			$("#area2").append("<option value='광산구'>광산구</option>");
+    			$("#area2").append("<option value='남구'>남구</option>");
+    			$("#area2").append("<option value='동구'>동구</option>");
+    			$("#area2").append("<option value='북구'>북구</option>");
+    			$("#area2").append("<option value='서구'>서구</option>");
+    			$("#area2").append("<option value='전체'>전체</option>");
+    		}else if($("#area1 option:selected").val()=="대구광역시"){
+    			$("#area2 option").remove();
+    			$("#area2").removeAttr("disabled");
+    			$("#area2").append("<option value=''>시/군/구</option>");
+    			$("#area2").append("<option value='남구'>남구</option>");
+    			$("#area2").append("<option value='달서구'>달서구</option>");
+    			$("#area2").append("<option value='달성군'>달성군</option>");
+    			$("#area2").append("<option value='동구'>동구</option>");
+    			$("#area2").append("<option value='북구'>북구</option>");
+    			$("#area2").append("<option value='서구'>서구</option>");
+    			$("#area2").append("<option value='수성구'>수성구</option>");
+    			$("#area2").append("<option value='중구'>중구</option>");
+    			$("#area2").append("<option value='전체'>전체</option>");
+    		}else if($("#area1 option:selected").val()=="대전광역시"){
+    			$("#area2 option").remove();
+    			$("#area2").removeAttr("disabled");
+    			$("#area2").append("<option value=''>시/군/구</option>");
+    			$("#area2").append("<option value='대덕구'>대덕구</option>");
+    			$("#area2").append("<option value='동구'>동구</option>");
+    			$("#area2").append("<option value='서군'>서군</option>");
+    			$("#area2").append("<option value='유성구'>유성구</option>");
+    			$("#area2").append("<option value='중구'>중구</option>");
+    			$("#area2").append("<option value='전체'>전체</option>");
+    		}else if($("#area1 option:selected").val()=="부산광역시"){
+    			$("#area2 option").remove();
+    			$("#area2").removeAttr("disabled");
+    			$("#area2").append("<option value=''>시/군/구</option>");
+    			$("#area2").append("<option value='강서구'>강서구</option>");
+    			$("#area2").append("<option value='금정구'>금정구</option>");
+    			$("#area2").append("<option value='기장군'>기장군</option>");
+    			$("#area2").append("<option value='남구'>남구</option>");
+    			$("#area2").append("<option value='동구'>동구</option>");
+    			$("#area2").append("<option value='부산진구'>부산진구</option>");
+    			$("#area2").append("<option value='북구'>북구</option>");
+    			$("#area2").append("<option value='사상구'>사상구</option>");
+    			$("#area2").append("<option value='사하구'>사하구</option>");
+    			$("#area2").append("<option value='서구'>서구</option>");
+    			$("#area2").append("<option value='수영구'>수영구</option>");
+    			$("#area2").append("<option value='연제구'>연제구</option>");
+    			$("#area2").append("<option value='영도구'>영도구</option>");
+    			$("#area2").append("<option value='중구'>중구</option>");
+    			$("#area2").append("<option value='해운대구'>해운대구</option>");
+    			$("#area2").append("<option value='전체'>전체</option>");
+    		}else if($("#area1 option:selected").val()=="울산광역시"){
+    			$("#area2 option").remove();
+    			$("#area2").removeAttr("disabled");
+    			$("#area2").append("<option value=''>시/군/구</option>");
+    			$("#area2").append("<option value='남구'>남구</option>");
+    			$("#area2").append("<option value='동구'>동구</option>");
+    			$("#area2").append("<option value='북구'>북구</option>");
+    			$("#area2").append("<option value='울주군'>울주군</option>");
+    			$("#area2").append("<option value='중구'>중구</option>");
+    			$("#area2").append("<option value='전체'>전체</option>");
+    		}else if($("#area1 option:selected").val()=="인천광역시"){
+    			$("#area2 option").remove();
+    			$("#area2").removeAttr("disabled");
+    			$("#area2").append("<option value=''>시/군/구</option>");
+    			$("#area2").append("<option value='강화군'>강화군</option>");
+    			$("#area2").append("<option value='계양구'>계양구</option>");
+    			$("#area2").append("<option value='남구'>남구</option>");
+    			$("#area2").append("<option value='남동구'>남동구</option>");
+    			$("#area2").append("<option value='동구'>동구</option>");
+    			$("#area2").append("<option value='부평구'>부평구</option>");
+    			$("#area2").append("<option value='서구'>서구</option>");
+    			$("#area2").append("<option value='연수구'>연수구</option>");
+    			$("#area2").append("<option value='옹진군'>옹진군</option>");
+    			$("#area2").append("<option value='중구'>중구</option>");
+    			$("#area2").append("<option value='전체'>전체</option>");
+    		}else if($("#area1 option:selected").val()=="세종특별자치시"){
+    			$("#area2 option").remove();
+    			$("#area2").removeAttr("disabled");
+    			$("#area2").append("<option value=''>시/군/구</option>");
+    			$("#area2").append("<option value='세종시'>세종시</option>");
+    			$("#area2").append("<option value='전체'>전체</option>");
+    		}else if($("#area1 option:selected").val()=="경기도"){
+    			$("#area2 option").remove();
+    			$("#area2").removeAttr("disabled");
+    			$("#area2").append("<option value=''>시/군/구</option>");
+    			$("#area2").append("<option value='가평군'>가평군</option>");
+    			$("#area2").append("<option value='고양시 덕양구'>고양시 덕양구</option>");
+    			$("#area2").append("<option value='고양시 일산동구'>고양시 일산동구</option>");
+    			$("#area2").append("<option value='고양시 일산서구'>고양시 일산서구</option>");
+    			$("#area2").append("<option value='과천시'>과천시</option>");
+    			$("#area2").append("<option value='광명시'>광명시</option>");
+    			$("#area2").append("<option value='광주시'>광주시</option>");
+    			$("#area2").append("<option value='구리시'>구리시</option>");
+    			$("#area2").append("<option value='군포시'>군포시</option>");
+    			$("#area2").append("<option value='김포시'>김포시</option>");
+    			$("#area2").append("<option value='남양주시'>남양주시</option>");
+    			$("#area2").append("<option value='동두천시'>동두천시</option>");
+    			$("#area2").append("<option value='부천시 소사구'>부천시 소사구</option>");
+    			$("#area2").append("<option value='부천시 오정구'>부천시 오정구</option>");
+    			$("#area2").append("<option value='부천시 원미구'>부천시 원미구</option>");
+    			$("#area2").append("<option value='성남시 분당구'>성남시 분당구</option>");
+    			$("#area2").append("<option value='성남시 수정구'>성남시 수정구</option>");
+    			$("#area2").append("<option value='성남시 중원구'>성남시 중원구</option>");
+    			$("#area2").append("<option value='수원시 권선구'>수원시 권선구</option>");
+    			$("#area2").append("<option value='수원시 영통구'>수원시 영통구</option>");
+    			$("#area2").append("<option value='수원시 장안구'>수원시 장안구</option>");
+    			$("#area2").append("<option value='수원시 팔달구'>수원시 팔달구</option>");
+    			$("#area2").append("<option value='안산시 단원구'>안산시 단원구</option>");
+    			$("#area2").append("<option value='안산시 상록구'>안산시 상록구</option>");
+    			$("#area2").append("<option value='안성시'>안성시</option>");
+    			$("#area2").append("<option value='안양시 동안구'>안양시 동안구</option>");
+    			$("#area2").append("<option value='안양시 만안구'>안양시 만안구</option>");
+    			$("#area2").append("<option value='양주시'>양주시</option>");
+    			$("#area2").append("<option value='양평군'>양평군</option>");
+    			$("#area2").append("<option value='여주시'>여주시</option>");
+    			$("#area2").append("<option value='연천군'>연천군</option>");
+    			$("#area2").append("<option value='오산시'>오산시</option>");
+    			$("#area2").append("<option value='용산시 기흥구'>용산시 기흥구</option>");
+    			$("#area2").append("<option value='용산시 수지구'>용산시 수지구</option>");
+    			$("#area2").append("<option value='용산시 처인구'>용산시 처인구</option>");
+    			$("#area2").append("<option value='의왕시'>의왕시</option>");
+    			$("#area2").append("<option value='의정부시'>의정부시</option>");
+    			$("#area2").append("<option value='이천시'>이천시</option>");
+    			$("#area2").append("<option value='파주시'>파주시</option>");
+    			$("#area2").append("<option value='평택시'>평택시</option>");
+    			$("#area2").append("<option value='포천시'>포천시</option>");
+    			$("#area2").append("<option value='하남시'>하남시</option>");
+    			$("#area2").append("<option value='화성시'>화성시</option>");
+    			$("#area2").append("<option value='전체'>전체</option>");
+    		}else if($("#area1 option:selected").val()=="강원도"){
+    			$("#area2 option").remove();
+    			$("#area2").removeAttr("disabled");
+    			$("#area2").append("<option value=''>시/군/구</option>");
+    			$("#area2").append("<option value='강화군'>강릉시</option>");
+    			$("#area2").append("<option value='고성군'>고성군</option>");
+    			$("#area2").append("<option value='동해시'>동해시</option>");
+    			$("#area2").append("<option value='삼척시'>삼척시</option>");
+    			$("#area2").append("<option value='속초시'>속초시</option>");
+    			$("#area2").append("<option value='양양군'>양구군</option>");
+    			$("#area2").append("<option value='양양군'>양양군</option>");
+    			$("#area2").append("<option value='영월군'>영월군</option>");
+    			$("#area2").append("<option value='원주시'>원주시</option>");
+    			$("#area2").append("<option value='인제군'>인제군</option>");
+    			$("#area2").append("<option value='정선군'>정선군</option>");
+    			$("#area2").append("<option value='철원군'>철원군</option>");
+    			$("#area2").append("<option value='춘천시'>춘천시</option>");
+    			$("#area2").append("<option value='태백시'>태백시</option>");
+    			$("#area2").append("<option value='평창군'>평창군</option>");
+    			$("#area2").append("<option value='홍천군'>홍천군</option>");
+    			$("#area2").append("<option value='화천군'>화천군</option>");
+    			$("#area2").append("<option value='횡성군'>횡성군</option>");
+    			$("#area2").append("<option value='전체'>전체</option>");
+    		}else if($("#area1 option:selected").val()=="경상남도"){
+    			$("#area2 option").remove();
+    			$("#area2").removeAttr("disabled");
+    			$("#area2").append("<option value=''>시/군/구</option>");
+    			$("#area2").append("<option value='거제시'>거제시</option>");
+    			$("#area2").append("<option value='거창군'>거창군</option>");
+    			$("#area2").append("<option value='고성군'>고성군</option>");
+    			$("#area2").append("<option value='김해시'>김해시</option>");
+    			$("#area2").append("<option value='남해군'>남해군</option>");
+    			$("#area2").append("<option value='밀양시'>밀양시</option>");
+    			$("#area2").append("<option value='사천시'>사천시</option>");
+    			$("#area2").append("<option value='산청군'>산청군</option>");
+    			$("#area2").append("<option value='양산시'>양산시</option>");
+    			$("#area2").append("<option value='양산시'>의령군</option>");
+    			$("#area2").append("<option value='진주시'>진주시</option>");
+    			$("#area2").append("<option value='창녕군'>창녕군</option>");
+    			$("#area2").append("<option value='창원시 마산합포구'>창원시 마산합포구</option>");
+    			$("#area2").append("<option value='창원시 마산회원구'>창원시 마산회원구</option>");
+    			$("#area2").append("<option value='창원시 성산구'>창원시 성산구</option>");
+    			$("#area2").append("<option value='창원시 의창구'>창원시 의창구</option>");
+    			$("#area2").append("<option value='창원시 진해구'>창원시 진해구</option>");
+    			$("#area2").append("<option value='통영시'>통영시</option>");
+    			$("#area2").append("<option value='하동군'>하동군</option>");
+    			$("#area2").append("<option value='하동군'>함안군</option>");
+    			$("#area2").append("<option value='함양군'>함양군</option>");
+    			$("#area2").append("<option value='합천군'>합천군</option>");
+    			$("#area2").append("<option value='전체'>전체</option>");
+    		}else if($("#area1 option:selected").val()=="경상북도"){
+    			$("#area2 option").remove();
+    			$("#area2").removeAttr("disabled");
+    			$("#area2").append("<option value=''>시/군/구</option>");
+    			$("#area2").append("<option value='경산시'>경산시</option>");
+    			$("#area2").append("<option value='경주시'>경주시</option>");
+    			$("#area2").append("<option value='고령군'>고령군</option>");
+    			$("#area2").append("<option value='구미시'>구미시</option>");
+    			$("#area2").append("<option value='군위군'>군위군</option>");
+    			$("#area2").append("<option value='김천시'>김천시</option>");
+    			$("#area2").append("<option value='문경시'>문경시</option>");
+    			$("#area2").append("<option value='봉화군'>봉화군</option>");
+    			$("#area2").append("<option value='상주시'>상주시</option>");
+    			$("#area2").append("<option value='성주군'>성주군</option>");
+    			$("#area2").append("<option value='안동시'>안동시</option>");
+    			$("#area2").append("<option value='영덕군'>영덕군</option>");
+    			$("#area2").append("<option value='영양군'>영양군</option>");
+    			$("#area2").append("<option value='영주시'>영주시</option>");
+    			$("#area2").append("<option value='영천시'>영천시</option>");
+    			$("#area2").append("<option value='예천군'>예천군</option>");
+    			$("#area2").append("<option value='예천군'>울릉군</option>");
+    			$("#area2").append("<option value='울진군'>울진군</option>");
+    			$("#area2").append("<option value='의성군'>의성군</option>");
+    			$("#area2").append("<option value='청도군'>청도군</option>");
+    			$("#area2").append("<option value='청송군'>청송군</option>");
+    			$("#area2").append("<option value='칠곡군'>칠곡군</option>");
+    			$("#area2").append("<option value='포항시 남구'>포항시 남구</option>");
+    			$("#area2").append("<option value='포항시 북구'>포항시 북구</option>");
+    			$("#area2").append("<option value='전체'>전체</option>");
+    		}else if($("#area1 option:selected").val()=="전라남도"){
+    			$("#area2 option").remove();
+    			$("#area2").removeAttr("disabled");
+    			$("#area2").append("<option value=''>시/군/구</option>");
+    			$("#area2").append("<option value='강진군'>강진군</option>");
+    			$("#area2").append("<option value='고흥군'>고흥군</option>");
+    			$("#area2").append("<option value='곡성군'>곡성군</option>");
+    			$("#area2").append("<option value='광양시'>광양시</option>");
+    			$("#area2").append("<option value='구례군'>구례군</option>");
+    			$("#area2").append("<option value='나주시'>나주시</option>");
+    			$("#area2").append("<option value='담양군'>담양군</option>");
+    			$("#area2").append("<option value='목포시'>목포시</option>");
+    			$("#area2").append("<option value='무안군'>무안군</option>");
+    			$("#area2").append("<option value='보성군'>보성군</option>");
+    			$("#area2").append("<option value='순천시'>순천시</option>");
+    			$("#area2").append("<option value='신안군'>신안군</option>");
+    			$("#area2").append("<option value='여수시'>여수시</option>");
+    			$("#area2").append("<option value='영광군'>영광군</option>");
+    			$("#area2").append("<option value='영암군'>영암군</option>");
+    			$("#area2").append("<option value='완도군'>완도군</option>");
+    			$("#area2").append("<option value='장성군'>장성군</option>");
+    			$("#area2").append("<option value='장흥군'>장흥군</option>");
+    			$("#area2").append("<option value='진도군'>진도군</option>");
+    			$("#area2").append("<option value='함평군'>함평군</option>");
+    			$("#area2").append("<option value='해남군'>해남군</option>");
+    			$("#area2").append("<option value='화순군'>화순군</option>");
+    			$("#area2").append("<option value='전체'>전체</option>");
+    		}else if($("#area1 option:selected").val()=="전라북도"){
+    			$("#area2 option").remove();
+    			$("#area2").removeAttr("disabled");
+    			$("#area2").append("<option value=''>시/군/구</option>");
+    			$("#area2").append("<option value='고창군'>고창군</option>");
+    			$("#area2").append("<option value='군산시'>군산시</option>");
+    			$("#area2").append("<option value='김제시'>김제시</option>");
+    			$("#area2").append("<option value='남원시'>남원시</option>");
+    			$("#area2").append("<option value='무주군'>무주군</option>");
+    			$("#area2").append("<option value='부안군'>부안군</option>");
+    			$("#area2").append("<option value='순창군'>순창군</option>");
+    			$("#area2").append("<option value='완주군'>완주군</option>");
+    			$("#area2").append("<option value='익산시'>익산시</option>");
+    			$("#area2").append("<option value='임실군'>임실군</option>");
+    			$("#area2").append("<option value='장수군'>장수군</option>");
+    			$("#area2").append("<option value='전주시 덕진구'>전주시 덕진구</option>");
+    			$("#area2").append("<option value='전주시 완산구'>전주시 완산구</option>");
+    			$("#area2").append("<option value='정읍시'>정읍시</option>");
+    			$("#area2").append("<option value='진안군'>진안군</option>");
+    			$("#area2").append("<option value='전체'>전체</option>");
+    		}else if($("#area1 option:selected").val()=="충청남도"){
+    			$("#area2 option").remove();
+    			$("#area2").removeAttr("disabled");
+    			$("#area2").append("<option value=''>시/군/구</option>");
+    			$("#area2").append("<option value='계룡시'>계룡시</option>");
+    			$("#area2").append("<option value='공주시'>공주시</option>");
+    			$("#area2").append("<option value='금산군'>금산군</option>");
+    			$("#area2").append("<option value='논산시'>논산시</option>");
+    			$("#area2").append("<option value='당진시'>당진시</option>");
+    			$("#area2").append("<option value='보령시'>보령시</option>");
+    			$("#area2").append("<option value='부여군'>부여군</option>");
+    			$("#area2").append("<option value='서산시'>서산시</option>");
+    			$("#area2").append("<option value='서천군'>서천군</option>");
+    			$("#area2").append("<option value='아산시'>아산시</option>");
+    			$("#area2").append("<option value='예산군'>예산군</option>");
+    			$("#area2").append("<option value='천안시 동남구'>천안시 동남구</option>");
+    			$("#area2").append("<option value='천안시 서북구'>천안시 서북구</option>");
+    			$("#area2").append("<option value='청양군'>청양군</option>");
+    			$("#area2").append("<option value='태안군'>태안군</option>");
+    			$("#area2").append("<option value='홍성군'>홍성군</option>");
+    			$("#area2").append("<option value='전체'>전체</option>");
+    		}else if($("#area1 option:selected").val()=="충청북도"){
+    			$("#area2 option").remove();
+    			$("#area2").removeAttr("disabled");
+    			$("#area2").append("<option value=''>시/군/구</option>");
+    			$("#area2").append("<option value='괴산군'>괴산군</option>");
+    			$("#area2").append("<option value='단양군'>단양군</option>");
+    			$("#area2").append("<option value='보은군'>보은군</option>");
+    			$("#area2").append("<option value='영동군'>영동군</option>");
+    			$("#area2").append("<option value='옥천군'>옥천군</option>");
+    			$("#area2").append("<option value='음성군'>음성군</option>");
+    			$("#area2").append("<option value='제천시'>제천시</option>");
+    			$("#area2").append("<option value='증평군'>증평군</option>");
+    			$("#area2").append("<option value='진천군'>진천군</option>");
+    			$("#area2").append("<option value='청주시 상당구'>청주시 상당구</option>");
+    			$("#area2").append("<option value='청주시 서원구'>청주시 서원구</option>");
+    			$("#area2").append("<option value='청주시 청원구'>청주시 청원구</option>");
+    			$("#area2").append("<option value='청주시 흥덕구'>청주시 흥덕구</option>");
+    			$("#area2").append("<option value='충주시'>충주시</option>");
+    			$("#area2").append("<option value='전체'>전체</option>");
+    		}else if($("#area1 option:selected").val()=="제주특별자치도"){
+    			$("#area2 option").remove();
+    			$("#area2").removeAttr("disabled");
+    			$("#area2").append("<option value=''>시/군/구</option>");
+    			$("#area2").append("<option value='서귀포시'>서귀포시</option>");
+    			$("#area2").append("<option value='제주시'>제주시</option>");
+    			$("#area2").append("<option value='전체'>전체</option>");
+    		}else if($("#area1 option:selected").val()=="전국"){
+    			$("#area2 option").remove();
+    			$("#area2").append("<option value=''>시/군/구</option>");
+    			$("#area2").prop("disabled","disabled");
+    		}
+    	});
     	
     	$("#ability1").change(function(){
     		if($("#ability1 option:selected").val()=="초등학교"){
@@ -211,20 +554,27 @@
     			$("#time2 option:eq(0)").prop("selected", "selected");
     		}
     	});
+    	
+    	$("#bt_picture").click(function(){
+    		window.open("<c:url value='/resume/imageUp.ag'/>",
+    				"imageUp",
+    			"width=550,height=400,left=10, top=50,resizable=yes,location=yes");	
+    	});
  	});
 </script>
 <div id="resume">
 <form action="<c:url value = '/resume/write.ag'/>"
 	method="post" name="frmResume">
 	<!-- 개인 기본 정보 -->
+	<h2 style="border: none; padding-bottom: 0">이력서 제목</h2>
+	<input type="text" style="width: 94%; margin: 20px 0 20px 0;
+		height: 30px; padding: 5px" placeholder="내 이력서를 돋보이게 할 PR 한마디!">
 	<h2>개인 기본 정보</h2>
 	<table id="box">
 		<tr id="tr">
 			<td style="text-align: center; padding: 10px; width: 20%">
 				<img alt="사람이미지" src="<c:url value='/images/saram.PNG'/>"><br>
-				<button>
-					사진등록
-				</button>
+				<img id="bt_picture" src="<c:url value='/images/bt_imgUp.PNG'/>">
 			</td>
 			<td style="width: 80%">
 				<table style="float: left; width: 60%">
@@ -252,13 +602,12 @@
 						<input type="text" style="width: 80%"></td>
 					</tr>
 				</table>
-				<div style="float: left; background-color: rgb(242, 247, 193); 
-					width: 200px; height: 80px; padding-left: 30px;
-					padding-top: 15px;">
+				<div style="float: left; background-color: #eee; border:1px solid silver; 
+					width: 175px; height: 50px; padding: 5px 0 5px 20px;">
 					연락가능시간
 					<input type="checkbox" name="moo" id="moo">
-					<label for="moo">무관</label><br><br>
-					<select name="time1" id="time1">
+					<label for="moo">무관</label><br>
+					<select name="time1" id="time1" style="margin-top: 5px;">
 						<option value="">시간</option>
 						<c:forEach var="i" begin="0" end="24">
 							<option value="${i}:00">${i}:00</option>
@@ -277,7 +626,148 @@
 	</table><br><br>
 	<!-- HOPE(희망 근무 조건) -->
 	<h2>희망근무조건</h2>
-	
+	<table id="box">
+		<tr id="tr">
+			<td id="td1">
+				근무지
+			</td>
+			<td id="td2">
+				<select id="area1" name="area1">
+					<option value="">시/도</option>
+					<option value="서울특별시">서울특별시</option>
+					<option value="광주광역시">광주광역시</option>
+					<option value="대구광역시">대구광역시</option>
+					<option value="대전광역시">대전광역시</option>
+					<option value="부산광역시">부산광역시</option>
+					<option value="울산광역시">울산광역시</option>
+					<option value="인천광역시">인천광역시</option>
+					<option value="세종특별자치시">세종특별자치시</option>
+					<option value="경기도">경기도</option>
+					<option value="강원도">강원도</option>
+					<option value="경상남도">경상남도</option>
+					<option value="경상북도">경상북도</option>
+					<option value="전라남도">전라남도</option>
+					<option value="전라북도">전라북도</option>
+					<option value="충청남도">충청남도</option>
+					<option value="충청북도">충청북도</option>
+					<option value="제주특별자치도">제주특별자치도</option>
+					<option value="전국">전국</option>
+				</select>
+				&nbsp;
+				<select id="area2" name="area2">
+					<option value="">시/군/구</option>
+				</select>
+			</td>
+		</tr>
+		<tr id="tr">
+			<td id="td1">
+				업직종
+			</td>
+			<td id="td2">
+				<input type="checkbox" name="category1" id="category1" value="외식/음료">
+				<label for="category1">외식/음료</label>
+				<input type="checkbox" name="category2" id="category2" value="유통/판매">
+				<label for="category2">유통/판매</label>
+				<input type="checkbox" name="category3" id="category3" value="외식/음료">
+				<label for="category3">문화/여가/생활</label>
+				<input type="checkbox" name="category4" id="category4" value="서비스">
+				<label for="category4">서비스</label>
+				<input type="checkbox" name="category5" id="category5" value="서비스">
+				<label for="category5">사무직</label><br>
+				<input type="checkbox" name="category6" id="category6" value="서비스">
+				<label for="category6">고객상담/리서치/영업</label>
+				<input type="checkbox" name="category7" id="category7" value="서비스">
+				<label for="category7">생산/건설/운송</label>
+				<input type="checkbox" name="category8" id="category8" value="서비스">
+				<label for="category8">IT/컴퓨터</label><br>
+				<input type="checkbox" name="category9" id="category9" value="서비스">
+				<label for="category9">교육/강사</label>
+				<input type="checkbox" name="category10" id="category10" value="서비스">
+				<label for="category10">디자인</label>
+				<input type="checkbox" name="category11" id="category11" value="서비스">
+				<label for="category11">미디어</label>
+			</td>
+		</tr>
+		<tr id="tr">
+			<td id="td1">
+				근무형태
+			</td>
+			<td id="td2">
+				<input type="checkbox" name="type1" id="type1" value="알바">
+				<label for="type1">알바</label>
+				<input type="checkbox" name="type2" id="type2" value="정규직">
+				<label for="type2">정규직</label>
+				<input type="checkbox" name="type3" id="type3" value="계약직">
+				<label for="type3">계약직</label>
+				<input type="checkbox" name="type4" id="type4" value="파견직">
+				<label for="type4">파견직</label>
+				<input type="checkbox" name="type5" id="type5" value="인턴">
+				<label for="type5">인턴</label>
+			</td>
+		</tr>
+		<tr id="tr">
+			<td id="td1">
+				근무일시
+			</td>
+			<td id="td2">
+				<select id="day1" name="day1">
+					<option value="">기간</option>
+					<option value="무관">무관</option>
+					<option value="1주일이하">1주일이하</option>
+					<option value="1주일 ~ 1개월">1주일 ~ 1개월</option>
+					<option value="1개월 ~ 3개월">1개월 ~ 3개월</option>
+					<option value="3개월 ~ 6개월">3개월 ~ 6개월</option>
+					<option value="6개월 ~ 1년">6개월 ~ 1년</option>
+					<option value="1년이상">1년이상</option>
+				</select>
+				<select id="day2" name="day2">
+					<option value="">요일</option>
+					<option value="무관">무관</option>
+					<option value="월 ~ 일">월 ~ 일</option>
+					<option value="월 ~ 토">월 ~ 토</option>
+					<option value="월 ~ 금">월 ~ 금</option>
+					<option value="주말(토, 일)">주말(토, 일)</option>
+					<option value="주6일">주6일</option>
+					<option value="주5일">주5일</option>
+					<option value="주4일">주4일</option>
+					<option value="주3일">주3일</option>
+					<option value="주2일">주2일</option>
+					<option value="주1일">주1일</option>
+				</select>
+				<select id="day3" name="day3">
+					<option value="">시간</option>
+					<option value="무관">무관</option>
+					<option value="오전 파트타임(06:00 ~ 12:00)">오전 파트타임(06:00 ~ 12:00)</option>
+					<option value="오후 파트타임(12:00 ~ 18:00)">오후 파트타임(12:00 ~ 18:00)</option>
+					<option value="저녁 파트타임(18:00 ~ 24:00)">저녁 파트타임(18:00 ~ 24:00)</option>
+					<option value="새벽 파트타임(24:00 ~ 06:00)">새벽 파트타임(24:00 ~ 06:00)</option>
+					<option value="오전 ~ 오후 파트타임">오전 ~ 오후 파트타임</option>
+					<option value="오후 ~ 저녁 파트타임">오후 ~ 저녁 파트타임</option>
+					<option value="저녁 ~ 새벽 파트타임">저녁 ~ 새벽 파트타임</option>
+					<option value="새벽 ~ 오전 파트타임">새벽 ~ 오전 파트타임</option>
+					<option value="풀타임(8시간이상)">풀타임(8시간이상)</option>
+				</select>
+			</td>
+		</tr>
+		<tr id="tr">
+			<td id="td1">
+				급여
+			</td>
+			<td id="td2">
+				<select name="pay1" id="pay1">
+					<option value="시급">시급</option>
+					<option value="일급">일급</option>
+					<option value="주급">주급</option>
+					<option value="월급">월급</option>
+					<option value="연봉">연봉</option>
+					<option value="건별">건별</option>
+				</select>
+				<input type="text" placeholder="금액" name="pay2" id="pay2"> 원
+				<input type="checkbox" id="pay3" name="pay3" value="추후협의">
+				<label for="pay3">추후협의</label>
+			</td>
+		</tr>
+	</table>
 	
 	<br><br>
 	<!-- ability (학력사항)-->
@@ -626,10 +1116,6 @@
    			</td>
    		</tr>
    	</table><br><br>
-   	
-   	<!-- PHOTOBOOK(사진첩) -->
-   	<h2>사진첩</h2>
-   	<br><br>
    	<!-- CONTENT(자기소개서) -->
     <h2>자기소개서</h2>
     <table id="box">

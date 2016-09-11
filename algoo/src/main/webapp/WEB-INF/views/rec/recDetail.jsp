@@ -302,10 +302,8 @@ href="<c:url value='/css/simpleButton.css'/>" />
 	     <dt>
 	     <span class="titd">학      력</span>
 	     <span class="txt_400">${recVo.educateLv }
-	     </span><img  alt="우대사항" 
-	     src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_comm/icon_univ2.gif">
 	     </dt>
-	  <p class="right_title"></p>
+	  <p class="right_title">&nbsp;</p>
         <dt>
         <span class="titd">담  당 자</span>
         <span class="txt_400">${compVo.deptName }</span>
@@ -363,17 +361,13 @@ href="<c:url value='/css/simpleButton.css'/>" />
 				<span class="txt_720 decoration_none">
 				  
                <a href="#">${compVo.compSort }</a>,
-               <a href="#"><img alt="초보가능 " 
-src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_comm/icon_begin.gif"></a>
-               <a href="#"><img alt="동종업종 유경ㅎ엄자 우대 " 
-src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_comm/icon_sameex.gif"></a>
+             
             </span>
 			</dt>
 			<dt>
             <span class="titd">근무기간</span> 
             <span class="txt_720">${recVo.workTerm }
-            <img alt="협의가능" 
-src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_comm/icon_consult.gif">
+            
             </span>
          </dt>
          <dt>
@@ -391,8 +385,7 @@ src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_comm/icon_consult.gif">
          <dt>
             <span class="titd">급여</span> 
             <span class="txt_720">
-            <img alt="일" 
-src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_comm/fee_w_day.gif">
+
             <fmt:formatNumber value="${recVo.pay }" 
             pattern="#,###" /> 원</span>
          </dt>

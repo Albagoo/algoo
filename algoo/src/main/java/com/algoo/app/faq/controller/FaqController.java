@@ -1,5 +1,6 @@
 package com.algoo.app.faq.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -16,6 +17,7 @@ import com.algoo.app.common.PaginationInfo;
 import com.algoo.app.common.SearchVO;
 import com.algoo.app.faq.model.FaqService;
 import com.algoo.app.faq.model.FaqVO;
+import com.algoo.app.faq.model.ListFaqVO;
 
 @Controller
 @RequestMapping("/faq")
@@ -44,8 +46,11 @@ public class FaqController {
 	}
 	
 	@RequestMapping("/faqList.ag")
-	public String listFaq(@ModelAttribute SearchVO searchVo, Model model){
+	public String listFaq(@ModelAttribute ListFaqVO searchVo,
+			@RequestParam(required=false) String categoryName,
+			Model model){
 		logger.info("FAQ 목록 조회, 파라미터 searchVo = {}", searchVo);
+		logger.info("카테고리 ={}",categoryName);
 		
 		PaginationInfo pagingInfo = new PaginationInfo();
 		pagingInfo.setBlockSize(10);
@@ -56,8 +61,17 @@ public class FaqController {
 		searchVo.setRecordCountPerPage(pagingInfo.getRecordCountPerPage());
 		searchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
 				
-		List<FaqVO> alist = faqService.selectAllFaq(searchVo);
-		logger.info("FAQ 목록 조회 결과 alist.size()={}", alist.size());
+		//List<FaqVO> alist = faqService.selectAllFaq(searchVo);
+		List<FaqVO> alist = new ArrayList<FaqVO>();
+		
+		searchVo.setCategory(categoryName); //카테고리 검색용
+		
+		if(categoryName!=null && !categoryName.isEmpty()){
+			alist = faqService.searchCategory(searchVo);
+			logger.info("FAQ 목록 조회 결과 alist.size()={}", alist.size());
+		}else{
+			alist = faqService.selectAllFaq(searchVo);
+		}
 		
 		int totalRecord=faqService.selectTotalCount(searchVo);
 		pagingInfo.setTotalRecord(totalRecord);

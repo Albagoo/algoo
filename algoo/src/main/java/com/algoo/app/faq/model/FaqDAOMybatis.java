@@ -50,4 +50,9 @@ public class FaqDAOMybatis extends SqlSessionDaoSupport implements FaqDAO{
 	public List<FaqVO> selectUserFaq(SearchVO searchVo) {
 		return getSqlSession().selectList(namespace+".selectUserFaq", searchVo);
 	}
+
+	@Override
+	public List<FaqVO> searchCategory(ListFaqVO searchVo) {
+		return getSqlSession().selectList(namespace+".searchCategory", searchVo);
+	}
 }

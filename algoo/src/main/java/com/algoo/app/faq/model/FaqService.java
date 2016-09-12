@@ -8,6 +8,7 @@ public interface FaqService {
 	public int WriteFaq(FaqVO faqVo);
 	public List<FaqVO> selectAllFaq(SearchVO searchVo);
 	public int selectTotalCount(SearchVO searchVo);
+	public List<FaqVO> searchCategory(ListFaqVO searchVo); //카테고리 검색용
 	public int updateReadCount(int faqNo);
 	public FaqVO selectByNo(int faqNo);
 	public int updateFaq(FaqVO faqVo);

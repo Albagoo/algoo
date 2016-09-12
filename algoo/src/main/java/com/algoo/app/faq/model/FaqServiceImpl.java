@@ -51,4 +51,10 @@ public class FaqServiceImpl implements FaqService{
 	public List<FaqVO> selectUserFaq(SearchVO searchVo) {
 		return faqDao.selectUserFaq(searchVo);
 	}
+
+	@Override
+	public List<FaqVO> searchCategory(ListFaqVO searchVo) {
+		return faqDao.searchCategory(searchVo);
+	}
+	
 }

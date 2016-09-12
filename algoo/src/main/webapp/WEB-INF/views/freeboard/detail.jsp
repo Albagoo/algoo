@@ -34,19 +34,21 @@ src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
 		</div>
 		<div class="center">
 		<br>
-		<a href
-="<c:url value='/freeboard/write.ag'/>" class="button white medium">
-			글쓰기</a>
-			<a href
-="<c:url value='/freeboard/reply.ag?freeNo=${freeVo.freeNo}'/>" class="button white medium">
-			답글</a>	
-			<a href
-="<c:url value='/freeboard/edit.ag?freeNo=${freeVo.freeNo}'/>" class="button white medium">
-수정</a>     	
+		<input type = "Button" class="button white medium" value="글쓰기" 
+      		onclick="location.href
+      			='<c:url value="/freeboard/write.ag" />'">
+      	<input type = "Button" class="button white medium" value="답글" 
+      		onclick="location.href
+      			='<c:url value="/freeboard/reply.ag?freeNo=${freeVo.freeNo}" />'">	
+		<!-- 로그인 아이디와 글쓴이 아이디가 같을때만 수정 버튼 보이기 -->
+	      	<input type = "Button" class="button white medium" value="수정" 
+	      		onclick="location.href
+	      			='<c:url value="/freeboard/edit.ag?freeNo=${freeVo.freeNo}" />'"> 
      	<input type = "Button" class="button white medium" value="삭제" 
       		onclick="del(${freeVo.freeNo})" />
-        <a href
-="<c:url value='/freeboard/list.ag'/>" class="button white medium">목록</a>			
+      	<input type = "Button" class="button white medium" value="목록" 
+      		 onclick="location.href
+      			='<c:url value="/freeboard/list.ag" />'"/>		
 		</div>
 	</div>
 </section>

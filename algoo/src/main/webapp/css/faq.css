@@ -134,6 +134,7 @@ table.box2 td a{
 }
 .firstDiv2 .sp2{
 	float: right;
+	
 	font-size: 0.9em;
 	line-height: 30px;
 	padding-right: 10px;
@@ -141,4 +142,11 @@ table.box2 td a{
 .secondDiv p{
 	padding-left: 10px;
 	font-size: 0.9em;
+}
+.writer{
+	float: right;
+	padding-right: 10px;
+}
+.sp2 a{
+	color:black;
 }

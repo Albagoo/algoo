@@ -22,10 +22,6 @@ type="text/javascript"></script>
 				alert("제목을 입력하세요");
 				$("#title").focus();
 				event.preventDefault();
-			}else if($("#writer").val()==""){
-				alert("이름을 입력하세요");
-				$("#writer").focus();
-				event.preventDefault();
 			}else if($("#password").val()==""){
 					alert("비밀번호를 입력하세요");
 					$("#password").focus();
@@ -46,33 +42,36 @@ type="text/javascript"></script>
   action="<c:url value='/freeboard/write.ag'/>" >
  <fieldset>
 	<legend> 
-		<img src="<c:url value='/images/bubble-talk.jpg'/>" style="height: 55px;" align=absmiddle>
-		알바토크 글 쓰기</legend>
-        <div class="firstDiv">
-            <label for="title">제목</label>
-            <input type="text" id="title" name="title" style="width: 400px;font-size: 0.75em;text-align: left" 
-            	class="textBox" placeholder="제목을 입력하세요"/>
-        </div>
-     	<div>
-     		<label for="writer">작성자</label>
-     		<span class="textBox" style="font-size: 0.75em;padding: 5px 10px 5px 4px">
-     			닉네임</span>
-     	</div>
-     	<div>
-     		<label for="password">비밀번호</label>
-     		<input type="password" id="password" name="password" 
-     			style="width: 200px;font-size: 0.75em;text-align: left" 
-            	class="textBox" placeholder="비밀번호를 입력하세요"/>
-     	</div>
-        <div>    
- 			<textarea id="content" name="content"></textarea>
- 		</div>
- 		<br>
-        <div class="center">
-            <input class="button white medium" type = "submit" value="글 등록" style="margin-right: 10px"/>
-            <input class="button white medium" type = "button" value="글 목록" 
-      			onclick="location.href='<c:url value="/freeboard/list.ag"/>';" />         
-        </div>
+		<img src="<c:url value='/images/albatalk.png'/>" style="height: 48px;" align=absmiddle>
+	</legend>
+    <div class="firstDiv">
+        <label for="title">제목</label>
+        <input type="text" id="title" name="title" style="width: 400px;font-size: 0.75em;text-align: left" 
+        	class="textBox" placeholder="제목을 입력하세요"/>
+    </div>
+    <!-- 로그인 되면 삭제, session으로 닉네임 받아옴 -->
+    <div>
+   		<label for="writer">작성자</label>
+   		<input type="text" id="writer" name="writer" 
+  			style="width: 200px;font-size: 0.75em;text-align: left" 
+         	class="textBox" placeholder="닉네임을 입력하세요"/>
+   	</div>
+   	<!--  -->
+   	<div>
+   		<label for="password">비밀번호</label>
+   		<input type="password" id="password" name="password" 
+  			style="width: 200px;font-size: 0.75em;text-align: left" 
+         	class="textBox" placeholder="비밀번호를 입력하세요"/>
+   	</div>
+     <div>    
+		<textarea id="content" name="content"></textarea>
+	</div>
+	<br>
+    <div class="center">
+         <input class="button white medium" type = "submit" value="등록하기" style="margin-right: 10px"/>
+         <input class="button white medium" type = "button" value="목록" 
+   			onclick="location.href='<c:url value="/freeboard/list.ag"/>';" />         
+    </div>
     </fieldset>
 </form>
 </div>

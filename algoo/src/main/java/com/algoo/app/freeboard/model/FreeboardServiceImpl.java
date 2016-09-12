@@ -37,4 +37,14 @@ public class FreeboardServiceImpl implements FreeboardService{
 	public FreeboardVO selectFreeboardByNo(int freeNo) {
 		return freeDao.selectFreeboardByNo(freeNo);
 	}
+
+	@Override
+	public int editFreeboard(FreeboardVO freeVo) {
+		return freeDao.editFreeboard(freeVo);
+	}
+
+	@Override
+	public int deleteFreeboard(int freeNo) {
+		return freeDao.deleteFreeboard(freeNo);
+	}
 }

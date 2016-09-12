@@ -10,4 +10,6 @@ public interface FreeboardService {
 	public int selectTotalCount(SearchVO searchVo);
 	public int updateReadCount(int freeNo);
 	public FreeboardVO selectFreeboardByNo(int freeNo);
+	public int editFreeboard(FreeboardVO freeVo);
+	public int deleteFreeboard(int freeNo);
 }

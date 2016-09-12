@@ -1,5 +1,7 @@
 package com.algoo.app.service.model;
 
+import java.util.Map;
+
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.stereotype.Repository;
 @Repository
@@ -9,13 +11,13 @@ implements ServiceDAO{
 	private String namespace = "com.mybatis.mapper.oracle.service";
 	
 	@Override
-	public int insertSevice(ServiceVO vo) {
+	public int insertSevice(Map<String, Object> map) {
 		return getSqlSession().insert(namespace+
-				".insertSevice", vo);
+				".insertSevice", map);
 	}
 
 	@Override
-	public ServiceVO selectByNew() {
+	public int selectByNew() {
 		return getSqlSession().selectOne(namespace+
 				".selectByNew");
 	}

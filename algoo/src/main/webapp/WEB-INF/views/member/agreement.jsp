@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../inc/simple_top.jsp" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/clear.css" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/mainstyle.css'/>" />
 <style type="text/css">
@@ -12,6 +13,10 @@
 		text-align: right;
 		margin: 10px 0;
 	}	
+	.container{
+		margin-left:130px;
+	}
+	
 </style>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -24,8 +29,8 @@
 		});
 	});
 </script>
-    
-	<h2>회원약관</h2>
+   <div class="container" > 
+	<h2 id="aa">회원약관</h2>
 	<iframe src="<c:url value='/inc/provision.html'/>" 
 		width="700px" height="300px"></iframe>
 	
@@ -42,6 +47,7 @@
 				<input class="button white" type="reset" value="취소">
 			</div>
 		</form>
+	</div>
 	</div>
 <%@ include file="../inc/simple_bottom.jsp" %>
 

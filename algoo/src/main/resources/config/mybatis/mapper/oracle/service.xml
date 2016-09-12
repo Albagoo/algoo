@@ -3,27 +3,20 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.mybatis.mapper.oracle.service">
-	
-	<insert id="insertSevice" parameterType="ServiceVO">
+
+	<insert id="insertSevice" parameterType="map">
 	  <selectKey keyProperty="serviceCode"
 	  resultType="int"  order="BEFORE">
 	     select service_seq.nextval from dual
 	  </selectKey>
-	  insert into service 
+	  insert into service (service_code,grade,days,deadline)
 	  values( #{serviceCode}, #{grade}, #{days}, sysdate+#{days} )
 	</insert>
-	
-	<select id="selectByNew" resultType="ServiceVO">
-	select * from service where service_code =
-   (
-      select max(service_code) from
-      (
-         select * from  service
-         order by service_code desc
-      )
-   )
-	</select>
 
-	
+	<!-- <select id="selectByNew" resultType="int">
+	select last_number+1 from user_sequences where sequence_name='SERVICE_SEQ'
+	</select>
+ -->
+	 
 
 </mapper>

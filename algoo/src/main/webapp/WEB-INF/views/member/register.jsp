@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -103,18 +104,85 @@
 			}		
 		});//bt_register
 		
-		$("#btnChkId").click(function(){
-			var userid=$("#userid").val();
-					
-			window.open(
-			"<c:url value='/member/checkUserid.ag?userid="
-					+userid+"'/>",	"chkId",
-	"width=450,height=250,left=50,top=50,resizable=yes,location=yes");
+		$("#userid").keyup(function(){
+			//1 <= 해당 아이디가 존재하는 경우
+			//2 <= 존재하지 않는 경우
+			if(validate_userid($("#userid").val()) && 
+				$("#userid").val().length>=4){
+				$.ajax({
+					url:"<c:url value='/member/ajaxCheckUserid.ag'/>",
+					type:"GET",
+					data:"userid="+$("#userid").val(),
+					success:function(res){
+						var result="";
+						if(res==1){
+							result="이미 등록된 아이디입니다.";
+							$("#chkId").val("N");
+						}else if(res==2){
+							result = "사용가능한 아이디입니다.";
+							$("#chkId").val("Y");
+						}
+						$("#message").html(result);
+					},
+					error:function(xhr, status, error){
+						alert(status+":"+error);
+					}
+				});
+			}else{
+				//유효성 검사를 통과하지 못한 경우
+				$("#message").html("아이디 규칙에 맞지 않습니다");
+				$("#chkId").val("N");
+			}
+			
+		});//id
+		
+		//pwd유효성 검사
+		$("#pwd").keyup(function(){
+			if(validate_userid($("#pwd").val()) && 
+					$("#pwd").val().length>=4){
+					$("#message2").html("비밀번호 중복확인을 하세요");	
+			}else{
+				//유효성 검사를 통과하지 못한 경우
+				$("#message2").html("비밀번호 규칙에 맞지 않습니다");
+				$("#chkPw").val("N");
+			}
+		});//pwd
+		$("#pwd2").keyup(function(){
+			if($("#pwd").val()==$("#pwd2").val()){
+				$("#message2").html("사용할 수 있는 비밀번호 입니다");	
+				$("#chkPw").val("Y");
+			}else{
+				$("#message2").html("비밀번호가 잃치 하지 않습니다");
+			}
+		});//pwd
+		
+		
+		$("#bt_zipcode").click(function(){
+			getZipcode();
 		});
-		
-		
 	});
+	
+	function getZipcode(){
+		//우편번호 찾기 창 띄우기
+		//window.open("url", "name", "option");
+		window.open(
+	"${pageContext.request.contextPath}/zipcode/zipcode.ag", 
+	"zipWin", 
+"left=50, top=20, width=500, height=560, scrollbars=yes,resizable=yes");
+	}
 </script>
+<style type="text/css">
+	.width_80{
+		width:80px;
+	}
+	.width_350{
+		width:350px;
+	}
+	#message, #message2{
+		color:red;
+		font-size:15px;
+	}	
+</style>
 <title>회원가입</title>
 </head>
 <body>
@@ -129,22 +197,28 @@
 		</div>
 	</div>
 	<div id="content">
+		<!-- <div class="regi_group">
+			<div id="id_div" style="height:100px">dfdf</div>
+		</div> -->
 		<div class="regi_group">
 			<div id="id_div">
-				<input type="text" name="userid" id="userid" placeholder="아이디">
-				<input type="button" value="중복확인" id="btnChkId" title="새창열림">
+				<input type="text" name="userid" id="userid" placeholder="아이디" style="width:220px"
+					style="ime-mode:inactive">&nbsp;
+					<span id="message"></span>
 			</div>
 			
 			<div id="nickName_div">
-				<input type="text" name="nickName" id="nickName" placeholder="닉네임">
+				<input type="text" name="nickName" id="nickName" placeholder="닉네임" style="width:220px">
 			</div>
 			
 			<div id="pwd_div">
-				<input type="password" name="password" id="pwd" placeholder="비밀번호">
+				<input type="password" name="password" id="pwd" placeholder="비밀번호" style="width:190px">
+				<span id="message2"></span>
 			</div>
 			
 			<div id="pwd2_div">
-				<input type="password" name="password2" id="pwd2" placeholder="비밀번호 확인">
+				<input type="password" name="password2" id="pwd2" placeholder="비밀번호 확인" style="width:190px"
+					style="width:220px">
 			</div>
 		</div>
 		<div class="regi_group">
@@ -214,20 +288,21 @@
 				<input type="button" id="btHp" value="인증">
 			</div>
 			<div id="zipcode_div">
-				<input type="text" name="zipcode" id="zipcode" placeholder="우편번호">
+				<input type="text" name="zipcode" id="zipcode" placeholder="우편번호" readonly="readonly">
 				<input type="button" name="bt_zipcode" id="bt_zipcode"
 				value="검색">
 			</div>
 			
 			<div id="address">
-				<input type="text" name="address" id="address" placeholder="주소">
+				<input type="text" name="address" id="address" placeholder="주소" style="width:100%" readonly="readonly">
 			</div>
 			<div id="address_detail">
 				<input type="text" name="addressDetail"
-					   id="address_detail" placeholder="상세주소">
+					   id="address_detail" placeholder="상세주소" style="width:100%;">
 			</div>
 		</div>
 	<input type ="hidden" name="chkId" id="chkId">
+	<input type ="hidden" name="chkPw" id="chkPw">
 		<div class="regi_group" id="regi_submit" >
 			<input type="submit" id="bt_register" value="가입하기">
 		</div>

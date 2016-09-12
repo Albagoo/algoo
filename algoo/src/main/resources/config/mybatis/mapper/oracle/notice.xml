@@ -27,9 +27,9 @@
 			select main_board_seq.nextval from dual
 		</selectKey>
 			insert into main_board(
-				main_no, category, title, content, writer, regdate, userid)
+				main_no, category, title, content, writer, regdate)
 			values(#{mainNo}, #{category}, #{title}, #{content},
-			#{writer}, sysdate, '관리자')
+			#{writer}, sysdate)
 	</insert>
 	
 	<!-- <select id="selectAll" resultType="NoticeVO">

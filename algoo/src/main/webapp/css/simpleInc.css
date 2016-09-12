@@ -48,6 +48,7 @@ header{
 	width:960px;
 	margin:0 auto;
 	padding:0;
+	margin-bottom:15px;
 }
 
 /* 심플한 include-bottom */
@@ -56,6 +57,7 @@ footer{
 	margin:0 auto;
 	text-align:center;
     color:#8e8e8e;
+    clear:both;
 }
 footer address{
     border-top: 1px solid #dcdcdc;

@@ -58,7 +58,7 @@
 	<tbody>  
 	<c:if test="${empty alist}">
 		<tr>
-			<td colspan="5" class="align_center">
+			<td colspan="3" class="align_center">
 			검색된 질문이 없습니다
 			</td>
 		</tr>
@@ -88,13 +88,13 @@
 	<c:forEach var="i" begin="${pagingInfo.firstPage }" 
 		end="${pagingInfo.lastPage }">	 
 		<c:if test="${i==pagingInfo.currentPage }">
-			<span style="color:blue;font-weight: bold">
-				${i }</span>
+			<span>${i }</span>
 		</c:if>		
 		<c:if test="${i!=pagingInfo.currentPage }">
-				<a href="#" onclick="pageProc(${i})">
-				[${i}]</a>
+				<a href="#" onclick="pageProc(${i})" >
+				${i}</a>
 		</c:if>
+
 	</c:forEach>	
 	
 	<!-- 다음 블럭으로 이동 -->
@@ -122,7 +122,7 @@
             >답변</option>
         </select>   
         <input type="text" name="searchKeyword" 
-        	title="검색어 입력" value="${param.searchKeyword}" >   
+        	title="검색어 입력" value="${param.searchKeyword}" class="textBox" >   
 		<input type="submit" class="button white medium" value="검색">
     </form>
 </div>

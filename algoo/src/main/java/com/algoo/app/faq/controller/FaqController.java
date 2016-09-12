@@ -174,13 +174,14 @@ public class FaqController {
 		
 		PaginationInfo pagingInfo = new PaginationInfo();
 		pagingInfo.setBlockSize(10);
-		pagingInfo.setRecordCountPerPage(20);
+		pagingInfo.setRecordCountPerPage(8);
 		pagingInfo.setCurrentPage(searchVo.getCurrentPage());
 		
 		searchVo.setBlockSize(pagingInfo.getBlockSize());
 		searchVo.setRecordCountPerPage(pagingInfo.getRecordCountPerPage());
 		searchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
-				
+		
+		
 		List<FaqVO> ulist = faqService.selectUserFaq(searchVo);
 		logger.info("FAQ UserList 조회 결과 ulist.size()={}", ulist.size());
 		

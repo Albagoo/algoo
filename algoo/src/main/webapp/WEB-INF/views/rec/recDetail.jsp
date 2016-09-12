@@ -2,14 +2,14 @@
 	pageEncoding="UTF-8"%>
 	<%@ include file="../inc/simple_top.jsp" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <style>
 .Wrap {
 	width: 800px;
 }
-.border{
+/* .border{
    border: 0.5cm solid #eee;
-}
+} */
 .recDetail {
 	font: 1em;
 	font-weight: bold;
@@ -24,7 +24,6 @@
 }
 .detail_rec{
    width: 800px;
-   height: 500px;
 }
 .detail_right {
 	float: right;
@@ -44,13 +43,13 @@
 
 .title {
 	padding: 30px 30px;
-   border: 1px solid black;
+   /* border: 1px solid black; */
 	text-align: center;
 	font-weight: bold;
 }
 
 .logo {
-border: 1px solid black;
+/* border: 1px solid black; */
 	width: 272px;
 	height: 172px;
 	padding: 30px 0 30px 0;
@@ -65,11 +64,11 @@ border: 1px solid black;
 .main_left {
 	width: 274px;
 	height: 530px;
-	border: 1px solid black;
+	/* border: 1px solid black; */
 }
 
 .main_right {
-	border: 1pt solid Gray;
+	/* border: 1pt solid Gray; */
 	width: 480px;
 	height: 530px;
 	margin: 0;
@@ -179,7 +178,7 @@ border: 1px solid black;
    text-align: left;
 }
 .bg{
-   border: 1px solid black;
+   /* border: 1px solid black; */
    padding: 20px;
 }
 .red{
@@ -210,19 +209,25 @@ src="<c:url value='/js/member.js'/>"></script>
 src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 <link rel="stylesheet" type="text/css" 
 href="<c:url value='/css/simpleButton.css'/>" />
-<script type="text/javascript">
 <script type="text/javascript"></script>
 <script type="text/javascript">
    $(document).ready(function(){
       $("#simple_top span").html("채용정보");
       //simple_top 이용시 자기가 맡은화면 명칭 innerHTML로 붙여주기
+      
+      $("#recListBt").click(function() {
+          frmList.action
+          ="<c:url value='/rec/recList.ag'/>";   
+          frmList.submit();
+          //나중에 카테고리 추가 예정
+       });
    });
 </script>
 <div class="Wrap">
 	<p class="recDetail">채용정보 상세보기</p>
 	<div>
 		<span>등록일 :<fmt:formatDate value="${recVo.regdate }" 
-		pattern="yyyy-MM-dd hh:mm:ss"/> </span>
+		pattern="yyyy-MM-dd"/> </span>
 		<div class="detail_right">
 			<span class="url"> <a href="#">http://www.algoo.com/</a></span>
 			<input type="button" class="button white medium" value="단축키 URL복사"></button>
@@ -241,8 +246,8 @@ href="<c:url value='/css/simpleButton.css'/>" />
 	<div class="title"> ${recVo.title }</div>
 	<div class="main_left detail_left">
 		<div class="logo">
-			<img alt="로고이미지" 
-			src="http://fileco.jobkorea.co.kr/albamon/Co_Logo/Mon_C_Photo_View.asp?FN=2015\5\JK_CO_nuri9.jpg">
+			<img alt="${compVo.compName }" 
+			src="${recVo.imgURL }">
 		</div>
 
 		채용기업정보
@@ -297,10 +302,8 @@ href="<c:url value='/css/simpleButton.css'/>" />
 	     <dt>
 	     <span class="titd">학      력</span>
 	     <span class="txt_400">${recVo.educateLv }
-	     </span><img  alt="우대사항" 
-	     src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_comm/icon_univ2.gif">
 	     </dt>
-	  <p class="right_title"></p>
+	  <p class="right_title">&nbsp;</p>
         <dt>
         <span class="titd">담  당 자</span>
         <span class="txt_400">${compVo.deptName }</span>
@@ -358,17 +361,13 @@ href="<c:url value='/css/simpleButton.css'/>" />
 				<span class="txt_720 decoration_none">
 				  
                <a href="#">${compVo.compSort }</a>,
-               <a href="#"><img alt="초보가능 " 
-src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_comm/icon_begin.gif"></a>
-               <a href="#"><img alt="동종업종 유경ㅎ엄자 우대 " 
-src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_comm/icon_sameex.gif"></a>
+             
             </span>
 			</dt>
 			<dt>
             <span class="titd">근무기간</span> 
             <span class="txt_720">${recVo.workTerm }
-            <img alt="협의가능" 
-src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_comm/icon_consult.gif">
+            
             </span>
          </dt>
          <dt>
@@ -386,8 +385,7 @@ src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_comm/icon_consult.gif">
          <dt>
             <span class="titd">급여</span> 
             <span class="txt_720">
-            <img alt="일" 
-src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_comm/fee_w_day.gif">
+
             <fmt:formatNumber value="${recVo.pay }" 
             pattern="#,###" /> 원</span>
          </dt>
@@ -408,8 +406,6 @@ src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_comm/fee_w_day.gif">
 	   <dt>
          <span class="titd">인근전철</span>
          <span class="txt_720">
-            <img alt="2호선" 
-            src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_comm/icon_metro_line2.gif">
             ${recVo.subRegion }
             ${recVo.subNum }
             ${recVo.subName }
@@ -418,7 +414,7 @@ src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_comm/fee_w_day.gif">
       </dt> 
       <dt>
          <span class="titd">지도</span>
-         <span class="txt_720">※ 지도는  <span class="red">근무지 위치</span>를 나타내며 회사 소재지와 일치하지 않을 수 있습니다.</span>
+         <span class="txt_720">※ 지도는  <span class="red textBox">근무지 위치</span>를 나타내며 회사 소재지와 일치하지 않을 수 있습니다.</span>
       </dt>
       <div id="map" class="border">지도나올영역 </div> 
 	</dl>
@@ -426,23 +422,14 @@ src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_comm/fee_w_day.gif">
 	<div class="border_bottom font_13 bold">> 상세 모집 요강</div>
 	<div class="detail_rec bg">
  	  <dl class="dt_20">
-	     <dt>■ 업무 내용</dt>
-	     <dd>대학교에서 기업행사 업무<br></dd>
-	     <dt>■ 근무 시간</dt>
-	     <dd>대학교에서 기업행사 업무<br></dd>
-	     <dt>■ 근무 기간</dt>
-	     <dd>9월 ~ 11월</dd>
-	     <dd>(개인 일정에 맞추어 일자 조절 가능, 단 1달 이상 필수 근무)
-	     <dt>■ 성별 및 나이 : 무관</dt> 
-	     <dt>■ 급여 조건</dt>
-	     <dd>지역에 따라,일급: 61,000원 ~ 102,000원</dd>
-	     <dd class="margin_left_20">※ 교통비, 중식대 별도 지급</dd>
-	     <dt>■ 우대 사항 : 외향적/사교적인 성격</dt>
-	     <dt>■ 채용 진행 : 이력서 검토 후 면접 진행(면접 일시 개별 통보)
-	     <dt>■ 관련 문의 : 02-710-5377
-	     <dt>■ 회사 홈페이지 : www.nurimedia.co.kr
+	     ${recVo.detailRecruit }
 	</div>
-	
+	  <div align="center">
+	<input class="white button" type="button" 
+      id="recListBt" value="목록">
+      </div>
+   </div>
+	<form name="frmList"></form>
 </div>
 
 <%@ include file="../inc/simple_bottom.jsp" %>

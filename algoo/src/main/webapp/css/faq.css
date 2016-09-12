@@ -17,9 +17,10 @@
 #faqBody{
 	padding: 16px 0 0 0;
 }
-#faqinfo{
+#faqinfo p{
 	font-size: 0.8em;
-	text-align: right;
+	text-align: left;
+	margin-left:220px;
 }
 
 /* faqWrite */
@@ -97,6 +98,19 @@ table.box2 td a{
 }
 .align_center{
 	text-align: center;
+}
+.divPage span{
+	color:#5b75ff;
+	font-weight: bold;
+	font-size: 0.9em;
+	border: 1px solid #eee;
+	padding: 0 9px 0 9px;
+	margin: 0 1px 0 1px;"
+}
+.divPage a{
+	font-size: 0.9em;
+	color: black;
+	padding: 0 10px 0 10px;
 }
 /*faqEdit*/
 .firstDiv label{

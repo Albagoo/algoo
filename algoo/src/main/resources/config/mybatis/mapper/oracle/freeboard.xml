@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mybatis.mapper.oracle.freeboard">
+	<sql id="searchWhere">
+		<where>
+			<if test="searchKeyword!=null and searchKeyword!=''">
+				${searchCondition} 
+				like '%' || #{searchKeyword} || '%'
+			</if>
+		</where>
+	</sql>
+	
+	<insert id="insertFreeboard" parameterType="FreeboardVO">
+		<selectKey keyProperty="freeNo" resultType="int"
+			order="BEFORE">
+			select FREE_BOARD_SEQ.nextval from dual
+		</selectKey>
+		insert into free_board(free_no, title, content, writer, group_no, password)
+		values(#{freeNo} ,#{title},#{content},#{writer},#{freeNo},#{password})
+	</insert>
+	
+	<select id="selectAllFreeboard" resultType="FreeboardVO" 
+		parameterType="SearchVO">
+		select *
+		from
+		(
+		    select rownum as RNUM, LIST_ALL.*
+		    from
+		        (select free_no, title, content, writer, password, group_no,
+					regdate, read_count, (sysdate-regdate)*24 as newImgTerm,
+					step, sort_no, del_yn
+		        from free_board
+		        <include refid="searchWhere"></include>
+		        order by group_no desc, sort_no asc) LIST_ALL
+		) 
+		<![CDATA[
+		where RNUM> #{firstRecordIndex} 
+			and RNUM<= #{firstRecordIndex}
+			+ #{recordCountPerPage}
+		]]>
+	</select>
+	
+	<select id="selectTotalCount" resultType="int" 
+		parameterType="SearchVO">
+		select count(*) from free_board 
+		<include refid="searchWhere"></include>
+	</select>
+	
+	<update id="updateReadCount" parameterType="int">
+		update free_board 
+		set read_count=read_count+1
+		where free_no=#{freeNo}
+	</update>
+	
+	<select id="selectFreeboardByNo" parameterType="int" resultType="FreeboardVO">
+		select * from free_board
+		where free_no = #{freeNo}
+	</select>
+</mapper>

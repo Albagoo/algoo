@@ -14,6 +14,9 @@ type="text/javascript"></script>
 		CKEDITOR.replace('content', {uiColor: '#ffffff'});	
 		
 		$("#frmWrite").submit(function(event){
+			var instance = CKEDITOR.instances.content;
+			instance.updateElement();
+			
 			if($("#category").val()==""){
 				alert("카테고리를 선택하세요");
 				$("#category").focus();
@@ -22,7 +25,7 @@ type="text/javascript"></script>
 				alert("질문을 입력하세요");
 				$("#title").focus();
 				event.preventDefault();
-			}else if($("#content").val()==""){
+			}else if(instance.getData()==""){
 				alert("답변을 입력하세요");
 				$("#content").focus();
 				event.preventDefault();
@@ -39,18 +42,27 @@ type="text/javascript"></script>
 	<legend>FAQ 작성</legend>
         <div class="category">
         	<label for="category">카테고리 분류</label>
-        	<select name="category" id="category" title="카테고리" class="button white medium">
+        	<select name="category" id="category" title="카테고리" class="textBox" style="font-size: 0.75em;">
         		<option value="">선택하세요</option>
-        		<option value="회원가입탈퇴">회원가입 및 탈퇴</option>
+        		<option value="개인회원 가입 및 탈퇴">개인회원 가입 및 탈퇴</option>
+        		<option value="기업회원 가입 및 탈퇴">기업회원 가입 및 탈퇴</option>
         		<option value="회원정보관리">회원정보관리</option>
-        	 	<option value="이력서관리활용">이력서 관리 및 활용</option>
-        	 	<option value="기타문의">기타 문의</option>
+        		<option value="기업정보관리">기업정보관리</option>
+        	 	<option value="이력서 관리 및 활용">이력서 관리 및 활용</option>
+        	 	<option value="이력서 검색 및 열람">이력서 검색 및 열람</option>
+        	 	<option value="알바정보 검색 및 열람">알바정보 검색 및 열람</option>
+        	 	<option value="지원자관리">지원자관리</option>
+        	 	<option value="온라인 지원">온라인 지원</option>
+        	 	<option value="알바토크">알바토크</option>
+        	 	<option value="유료서비스/결제오류">유료서비스/결제오류</option>
+        	 	<option value="세금계산서">세금계산서</option>
+        	 	<option value="기타 문의">기타 문의</option>
         	 </select>	
         </div>
         <div class="firstDiv">
             <label for="title">질문</label>
             <input type="text" id="title" name="title" style="width: 300px;font-size: 0.75em;text-align: left" 
-            	class="button white" placeholder="질문을 입력하세요"/>
+            	class="textBox" placeholder="질문을 입력하세요"/>
         </div>
         <div>    
  			<textarea id="content" name="content"></textarea>

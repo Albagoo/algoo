@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../inc/top.jsp" %>
-
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/noticeStyle.css" />
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/simpleButton.css" />
 
 <script type="text/javascript">	
 	$(document).ready(function(){
-		//09-06
+	
+		 //09-06
 		$(".divList .box tbody td:nth-of-type(2)")
 		.hover(function(){
 			$(this).css("background","#eee")
@@ -17,18 +17,18 @@
 		});
 		
 		//09-02 searching category
-		 $("#categoryInput").change(function(){
-		    	$("#categoryName2").val($("#categoryInput").val());
-		    	$("#frmPage").submit();
-		    });
+		$("#categoryInput").change(function(){
+			$("#categoryName2").val($("#categoryInput").val());
+			$("#frmPage").submit();
+		});
 	});
 	
 	//08-31 paging
 	function pageFunc(curPage){
 		document.frmPaging.currentPage.value=curPage;
 		frmPaging.submit();
-	}
-</script>
+	} 
+	</script>
 
 <section>
 <!-- 08-31 paging form start-->
@@ -67,7 +67,8 @@ action="<c:url value='/notice/list.ag'/>">
 		summary="공지사항에 관한 표"
 		class="listBox">
 		<th width="104px">
-		<select name="categoryInput" class="button white small"
+		<select name="categoryInput" id="categoryInput"
+		class="button white small"
         	style="font-size: 0.75em;">
 	    <!--  onchange="location.href=this.value"> -->
 		<option value="">구분</option>
@@ -91,7 +92,7 @@ action="<c:url value='/notice/list.ag'/>">
 		<table class="box" style="text-align:center">
 		<tr>
 		<td width="105px">${vo.category } </td>
-		<td width="511px">
+		<td width="511px" id="align_left" style="padding-left:10px">
 		<a href="<c:url value='/notice/updateReadCount.ag?no=${vo.mainNo}'/>">
 		${vo.title } </a></td>
 		<td width="102px">${vo.writer } </td>
@@ -101,7 +102,7 @@ action="<c:url value='/notice/list.ag'/>">
 		</tr>
 		</table>
 	</c:forEach>
-	</div>
+</div>
 
 <!-- 08-31 Paging-->
 <div style="clear:both;text-align:center;width:1024px">
@@ -121,7 +122,7 @@ action="<c:url value='/notice/list.ag'/>">
 		</c:if>		
 		<c:if test="${i!=pagingInfo.currentPage }">
 			<a href="#" onclick="pageFunc(${i})">
-				[${i}]</a>
+				${i}</a>
 		</c:if>		
 	</c:forEach>				
 	
@@ -148,7 +149,7 @@ action="<c:url value='/notice/list.ag'/>">
 	            >제목</option>
 	            <option value="content" 
 	            	<c:if test="${param.searchCondition=='content'}">
-	            		selected
+	            		selected"src/main/webapp/css/noticeStyle.css"
 	               </c:if>
 	            >내용</option>
 	            <option value="writer" 
@@ -157,7 +158,7 @@ action="<c:url value='/notice/list.ag'/>">
 	               </c:if>
 	            >작성자</option>
 	        </select>
-	        <input type="text" name="searchKeyword" 
+	        <input type="text" name="searchKeyword" class="textBox"
 	        	title="검색어 입력" value="${param.searchKeyword}" >
 			<input type="submit" value="검색"
 				 class="button white small"

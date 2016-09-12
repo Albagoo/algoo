@@ -1,6 +1,8 @@
 package com.algoo.app.rec.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.algoo.app.common.PaginationInfo;
 import com.algoo.app.company.model.CompanyService;
 import com.algoo.app.company.model.CompanyVO;
-import com.algoo.app.faq.model.FaqVO;
 import com.algoo.app.rec.model.RecSeachVO;
 import com.algoo.app.rec.model.RecService;
 import com.algoo.app.rec.model.RecVO;
@@ -89,35 +90,32 @@ public class RecController {
 	public String recWrite_post(
 			@ModelAttribute CompanyVO compVo,
 			@ModelAttribute RecVO recVo,
-			@ModelAttribute ServiceVO serviceVo,
+			@RequestParam String days,
+			@RequestParam String grade,
 			Model model
 			){
 		//채용공고 입력처리하기
 		//1
 		logger.info("채용공고 처리하기,파라미터"
-				+ "compVo={},recVo={},serviceVo={}"
-				+ compVo,recVo,serviceVo);
+				+ "recVo={}", recVo);
+		logger.info("서비스내용,파라미터"
+				+ "days={},grade={}" 
+				,days,grade);
 		//2
 		
-		int res 
-		=serviceService.insertSevice(serviceVo);
-		logger.info("서비스등록 결과,res={}",res);
+		Map<String, Object> map=new HashMap<String, Object>();
+		map.put("grade", grade);
+		map.put("days", days);
 		
-		serviceVo
-		=serviceService.selectByNew();
-		logger.info("서비스 조회하기결과,파라미터"
-				+ "serviceVo={}"
-				+ serviceVo);
+		serviceService.insertSevice(map);
 		
-		recVo.setServiceCode(serviceVo.getServiceCode());
-		logger.info("채용정보등록결과,res={}",res);
+		int res
+		=recService.intsertRec(recVo,map);
+		logger.info("채용정보등록결과,resVo={}",res);
 		
-		res
-		=recService.intsertRec(recVo);
 		//3
 		model.addAttribute("compVo", compVo);
 		model.addAttribute("recVo", recVo);
-		model.addAttribute("serviceVo", serviceVo);
 		
 		
 		return "rec/recDetail";		
@@ -151,4 +149,36 @@ public class RecController {
 		
 		return "rec/recList";
 	}
+	
+	@RequestMapping("/updateCount.ag")
+	public String updateCount(
+			@RequestParam(defaultValue="0") int recCode,
+			Model model){
+		
+		logger.info("FAQ 조회수 증가, 파라미터 recCode = {}", recCode);
+		
+		if(recCode==0){
+			model.addAttribute("msg", "잘못된 url입니다");
+			model.addAttribute("url", "/faq/faqList.ag");
+			
+			return "common/message";
+		}
+		
+		int cnt=recService.updateReadCount(recCode);
+		logger.info("FAQ 조회수 증가 결과, cnt = {}", cnt);
+
+		return "redirect:/rec/recDetail.ag?recCode="+recCode;
+	}
+	
+	
+	
+	/*@RequestMapping("/getSubwayStation.ag")
+	public void getKwrdFndSubwaySttnList(
+			HttpServletRequest request,
+			HttpServletResponse response,
+			Model model){
+		
+		getKwrdFndSubwaySttnList(subwayStationName)
+		
+	}*/
 }

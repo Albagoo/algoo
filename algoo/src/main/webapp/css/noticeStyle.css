@@ -25,6 +25,15 @@
 	table td{
 		border: 1px solid #eee;
 	}
+	#align_left{
+		text-align:left;
+	}
+	#align_right{
+		text-align:right;
+	}
+	#align_center{
+		text-align:center;
+	}
 	
 	/* span{
 		font-size:24px;
@@ -45,7 +54,7 @@
 	
 	.divList{
 		width:1024px;
-		border:1px solid gray;
+		border:1px solid #eeeeee;
 		margin:2px;
 		/* border-radius:4px; */
 		/* font-weight:bold; */
@@ -68,7 +77,7 @@
 	select{
 		font-weight:bold;
 	}
-	.searchBox{
+	.textBox{
 		/* margin:auto;
 		width:320px;
 		padding:2px;
@@ -76,20 +85,36 @@
 		border:1px solid gray;
 		background-color:LightPink;
 		margin-top:5px; */
+		
+		display: inline-block;
+		zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
+		*display: inline;
+		vertical-align: baseline;
+		margin: 0 2px;
+		outline: none;
+		cursor: Auto;
+		text-decoration: none;
+		font: 14px/100% Arial, Helvetica, sans-serif;
+		padding: .2em;
+		text-shadow: 0 1px 1px rgba(0,0,0,.3);
+		-webkit-border-radius: .4em; 
+		-moz-border-radius: .4em;
+		border-radius: .4em;
+		box-shadow: 0 1px 2px rgba(0,0,0,.2);
 	}
 	
 	/* detail */
 	.divForm{
 		width:1024px;
-		border:1px solid gray;
-		/* border-radius:4px; */
-	}
-	.detailTable #sp1{
-		text-align:center;
+		border:1px solid #eeeeee;
+		margin:2px;
 	}
 	.detailTable th{
-		background-color:LightPink;
+		padding:10px;
 	}
+	/* .detailTable th{
+		background-color:LightPink;
+	} */
 	#contentTd{
 		vertical-align:top;
 	}
@@ -114,7 +139,6 @@
 	/* edit */
 	.funcDiv{
 		width:1024px;
-		border:1px solid gray;
 		padding-top:10px;
 		padding-bottom:10px;
 		margin:2px;
@@ -123,6 +147,8 @@
 	}
 	.editCgDiv{
 		margin-bottom:10px;
+		padding-left:10px;
+		text-align:left;
 	}
 	.editEndDiv{
 		margin-top:10px;

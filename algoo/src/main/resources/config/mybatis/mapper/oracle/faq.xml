@@ -70,8 +70,18 @@
 		(
 		    select rownum as RNUM, LIST_ALL.*
 		    from
-		        (select faq_no, category, title, content, regdate from faq 
+		        (select faq_no, category, title, content, regdate from faq
+		        <if test="searchKeyword != '개인회원' and searchKeyword != '기업회원'"> 
 		        <include refid="searchWhere"></include>
+		        </if>
+		        <if test="searchKeyword == '개인회원'"> 
+		        	where category = '회원가입 및 탈퇴' or category = '회원정보관리' or category='이력서 관리 및 활용'
+		        	or category='온라인지원' or category='알바토크' or category='기타 문의'
+		        </if>
+		        <if test="searchKeyword == '기업회원'"> 
+		        	where category = '회원가입 및 탈퇴' or category = '기업정보관리' or category='이력서 검색 및 열람'
+		        	or category='유료서비스/결제오류' or category='세금계산서' or category='기타 문의'
+		        </if>
 		        order by category desc) LIST_ALL
 		) 
 		<![CDATA[

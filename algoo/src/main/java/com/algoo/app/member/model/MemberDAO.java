@@ -8,5 +8,4 @@ public interface MemberDAO {
 	public MemberVO selectMemberByUserid(String userid);
 	public int updateMember(MemberVO vo);
 	public int withdrawMember(String userid);
-	public int deleteMember(String userid);
 }

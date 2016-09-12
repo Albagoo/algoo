@@ -1,5 +1,6 @@
 package com.algoo.app.member.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.algoo.app.common.FileUploadWebUtil;
 import com.algoo.app.member.model.MemberService;
 import com.algoo.app.member.model.MemberVO;
 
@@ -21,6 +24,9 @@ import com.algoo.app.member.model.MemberVO;
 @RequestMapping("/member")
 public class MemberController {
 	private static final Logger logger=LoggerFactory.getLogger(MemberController.class);
+	
+	@Autowired
+	private FileUploadWebUtil fileUtil;
 	
 	@Autowired
 	private MemberService memberService;
@@ -43,10 +49,11 @@ public class MemberController {
 	public String memberAdd(@ModelAttribute MemberVO memberVo, 
 			@RequestParam String email3, @RequestParam String bi1,
 			@RequestParam String bi2,@RequestParam String bi3,
-			Model model){
+			HttpServletRequest request,	Model model){
 		//1.
 		logger.info("회원가입 처리, 파라미터 memberVo={}", memberVo);
 		
+		fileUtil.FileUpload(request, FileUploadWebUtil.IMAGE_UPLOAD);
 		//2.
 		//휴대폰번호를 모두 입력하지 않은 경우 - 모두 공백으로 셋팅
 		String hp2=memberVo.getHp2();
@@ -94,24 +101,18 @@ public class MemberController {
 		return "common/message";
 	}
 	
-	@RequestMapping("/checkUserid.ag")
-	public String checkid(@RequestParam String userid,
-			Model model){
-		//1.
-		logger.info("아이디 중복확인, 파라미터 userid={}", userid);
+	@RequestMapping("/ajaxCheckUserid.ag")
+	@ResponseBody
+	public int ajaxCheckId(@RequestParam String userid){
+		logger.info("ajax-아이디 중복확인, 파라미터 userid={}",
+				userid);
 		
-		//2.
-		int result=0;
-		//아이디가 입력된 경우에만 db작업한다
-		if(userid!=null && !userid.isEmpty()){
-			result = memberService.checkUserid(userid);
-			logger.info("아이디 중복확인 결과, result={}", result);
-		}
+		int result = memberService.checkUserid(userid);
+		logger.info("ajax 아이디 중복확인 결과, result={}",
+				result);
+		//해당 아이디가 존재하면 1, 존재하지 않으면 2를 리턴
 		
-		//3.
-		model.addAttribute("result", result);
-		
-		return "member/checkUserid";
+		return result;
 	}
 	
 	@RequestMapping(value="/memberEdit.ag", method=RequestMethod.GET)
@@ -211,7 +212,7 @@ public class MemberController {
 		int result = memberService.loginCheck(memVo);
 		String msg="", url="/member/memberOut.ag";
 		if(result==MemberService.LOGIN_OK){
-			int cnt = memberService.deleteMember(userid);
+			int cnt = memberService.withdrawMember(userid);
 			logger.info("회원탈퇴 처리 결과, cnt={}", cnt);
 			
 			if(cnt>0){

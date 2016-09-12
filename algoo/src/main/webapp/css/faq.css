@@ -51,7 +51,6 @@
 
 /*faqList*/
 .divList legend{
-	font-weight: bold;
 	padding: 10px 0;
 	margin:10px 0;
 	font-size: 1.4em; 
@@ -112,6 +111,10 @@ table.box2 td a{
 	color: black;
 	padding: 0 10px 0 10px;
 }
+.category{
+	font-size: 0.8em;
+	margin-bottom: 3px;
+}
 /*faqEdit*/
 .firstDiv label{
 	line-height: 20px;
@@ -134,6 +137,7 @@ table.box2 td a{
 }
 .firstDiv2 .sp2{
 	float: right;
+	
 	font-size: 0.9em;
 	line-height: 30px;
 	padding-right: 10px;
@@ -141,4 +145,11 @@ table.box2 td a{
 .secondDiv p{
 	padding-left: 10px;
 	font-size: 0.9em;
+}
+.writer{
+	float: right;
+	padding-right: 10px;
+}
+.sp2 a{
+	color:black;
 }

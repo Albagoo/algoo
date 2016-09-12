@@ -9,7 +9,7 @@ public class FaqVO {
 	private String content;
 	private int readCount;
 	private Timestamp regdate;
-	
+	 
 	public int getFaqNo() {
 		return faqNo;
 	}

@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../inc/top.jsp" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ include file="../inc/simple_top.jsp" %>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/noticeStyle.css" />
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/simpleButton.css" />
 
@@ -8,10 +10,9 @@
 	$(document).ready(function(){
 	
 		 //09-06
-		$(".divList .box tbody td:nth-of-type(2)")
+		$(".divList .box2 tbody td:nth-of-type(2)")
 		.hover(function(){
-			$(this).css("background","#eee")
-				.css("cursor","pointer");
+			$(this).css("background","#eee").css("cursor","pointer");
 		}, function(){
 			$(this).css("background","");
 		});
@@ -24,10 +25,10 @@
 	});
 	
 	//08-31 paging
-	function pageFunc(curPage){
-		document.frmPaging.currentPage.value=curPage;
-		frmPaging.submit();
-	} 
+	function pageProc(curPage){
+		document.frmPage.currentPage.value=curPage;
+		document.frmPage.submit();
+	}
 	</script>
 
 <section>
@@ -47,9 +48,13 @@ action="<c:url value='/notice/list.ag'/>">
 	<input type="hidden" name="categoryName" id="categoryName2" value="${param.categoryName }">
 	<input type="hidden" name="currentPage" id="currentPage2" value="1" >	
 </form>
+<div class="title">
+	<legend>
+		<img src="<c:url value='/images/notice.png'/>" style="height: 48px;" align=absmiddle>
+	</legend>
+</div>
 <div class="divListAll" align="center">
 <p id="firstTitle">
-	공지사항
 	<c:if test="${!empty param.searchKeyword }">
 		<!-- search case -->
 		<p class="searchResult">검색어 ${param.searchKeyword}(으)로  
@@ -63,75 +68,102 @@ action="<c:url value='/notice/list.ag'/>">
 
 <!-- 09-06 -->
 <div class="divList">
-	<table style="background-color:#eeeeee"
-		summary="공지사항에 관한 표"
-		class="listBox">
-		<th width="104px">
-		<select name="categoryInput" id="categoryInput"
-		class="button white small"
-        	style="font-size: 0.75em;">
-	    <!--  onchange="location.href=this.value"> -->
-		<option value="">구분</option>
-		<option value="공지"
-		 <c:if test="${param.categoryName=='공지' }">selected</c:if>>
-		 공지</option>
-		<option value="이벤트"
-		 <c:if test="${param.categoryName=='이벤트' }">selected</c:if>>
-		 이벤트</option>
-		<option value="점검"
-		 <c:if test="${param.categoryName=='점검' }">selected</c:if>>
-		 점검</option>
+	<table class="box2">
+		<colgroup>
+			<col style="width:7%;" />
+			<col style="width:56%;" />
+			<col style="width:15%;" />
+			<col style="width:15%" />
+			<col style="width:7%" />
+		</colgroup>
+		<thead>
+	  <tr>
+	    <th scope="col">
+	    	<select name="categoryInput" id="categoryInput"
+			class="button white small"
+		       	style="font-size: 0.9em;">
+		    <!--  onchange="location.href=this.value"> -->
+			<option value="">구분</option>
+			<option value="공지"
+			 <c:if test="${param.categoryName=='공지' }">selected</c:if>>
+			 공지</option>
+			<option value="이벤트"
+			 <c:if test="${param.categoryName=='이벤트' }">selected</c:if>>
+			 이벤트</option>
+			<option value="점검"
+			 <c:if test="${param.categoryName=='점검' }">selected</c:if>>
+			 점검</option>
 		</select>
-		</th>
-		<th width="512px">제목</th>
-		<th width="102px">작성자</th>
-		<th width="204px">작성일</th>
-		<th width="102px">조회수</th>
+	    </th>
+	    <th scope="col">제목</th>
+	    <th scope="col">작성자</th>
+	    <th scope="col">작성일</th>
+	    <th scope="col">조회수</th>
+	  </tr>
+	</thead> 
+		<tbody>
+			<c:if test="${empty noticeList}">
+				<tr>
+					<td colspan="5" class="align_center">
+						검색된 질문이 없습니다
+					</td>
+				</tr>
+			</c:if>
+			<c:if test="${!empty noticeList}">
+				<c:forEach var="vo" items="${noticeList }">
+		
+				<tr>
+					<td>
+						${vo.category }
+					</td>
+					<td id="align_left" style="padding-left:10px">
+						<a href="<c:url value='/notice/updateReadCount.ag?no=${vo.mainNo}'/>">
+						${vo.title } </a>
+					 </td>
+					<td>
+						${vo.writer } 
+					</td>
+					<td>
+						<fmt:formatDate value="${vo.regdate }" pattern="yyyy-MM-dd" /> 
+					</td>
+					<td>
+						${vo.readCount }
+					</td>
+				</tr>
+				
+				</c:forEach>
+			</c:if>
+		</tbody>	
 	</table>
-	<c:forEach var="vo" items="${noticeList }">
-		<table class="box" style="text-align:center">
-		<tr>
-		<td width="105px">${vo.category } </td>
-		<td width="511px" id="align_left" style="padding-left:10px">
-		<a href="<c:url value='/notice/updateReadCount.ag?no=${vo.mainNo}'/>">
-		${vo.title } </a></td>
-		<td width="102px">${vo.writer } </td>
-		<td width="204px"><fmt:formatDate value="${vo.regdate }"
-			 pattern="yyyy-MM-dd"></fmt:formatDate> </td>
-		<td width="102px">${vo.readCount } </td>
-		</tr>
-		</table>
-	</c:forEach>
 </div>
 
 <!-- 08-31 Paging-->
-<div style="clear:both;text-align:center;width:1024px">
-	<!-- move to last block -->
+<div class="divPage">
 	<c:if test="${pagingInfo.firstPage>1 }">	
-		<a href="#" onclick="pageFunc(${pagingInfo.firstPage-1})">
-			&lt;&lt;</a>
+		<a href="#" onclick="pageProc(${pagingInfo.firstPage-1})">
+			<img src="<c:url value='/images/past.png'/>" alt="이전블럭으로"
+			style="height: 15px;" align=absmiddle>
+		</a>	
 	</c:if>
-	<!-- add page number -->						
-	<!-- [1][2][3][4][5][6][7][8][9][10] -->
-	<c:forEach var="i" 
-		begin="${pagingInfo.firstPage }" 
-		end="${pagingInfo.lastPage }">
-		<c:if test="${i==pagingInfo.currentPage }">					
-			<span style="color:blue;font-weight:bold">
-				${i}</span>
+	<c:forEach var="i" begin="${pagingInfo.firstPage }" 
+		end="${pagingInfo.lastPage }">	 
+		<c:if test="${i==pagingInfo.currentPage }">
+			<span>${i }</span>
 		</c:if>		
 		<c:if test="${i!=pagingInfo.currentPage }">
-			<a href="#" onclick="pageFunc(${i})">
+				<a href="#" onclick="pageProc(${i})" >
 				${i}</a>
-		</c:if>		
-	</c:forEach>				
+		</c:if>
+
+	</c:forEach>	
 	
-	<!-- move to next block -->
-	<c:if test
-	="${pagingInfo.lastPage<pagingInfo.totalPage}">				
+	<!-- 다음 블럭으로 이동 -->
+	<c:if test="${pagingInfo.lastPage<pagingInfo.totalPage }">	
 		<a href="#" 
-	onclick="pageFunc(${pagingInfo.lastPage+1})">
-			&gt;&gt;</a>
+		onclick="pageProc(${pagingInfo.lastPage+1})">
+			<img src="<c:url value='/images/next.png'/>" alt="다음블럭으로"
+				style="height: 15px;" align=absmiddle>
+		</a>
 	</c:if>
 </div>
 <br>
@@ -161,13 +193,13 @@ action="<c:url value='/notice/list.ag'/>">
 	        <input type="text" name="searchKeyword" class="textBox"
 	        	title="검색어 입력" value="${param.searchKeyword}" >
 			<input type="submit" value="검색"
-				 class="button white small"
+				 class="button white medium"
 	        	style="font-size: 0.75em;">
 			</div>
 	    </form>
 	</div>
 	
-	<div class="divBtn" style="text-align:right;width:1024px">
+	<div class="divBtn" style="text-align:right;">
 	<input type = "Button" class="button white medium" value="공지 등록" 
       	onclick="location.href='<c:url value="/notice/write.ag"/>';" />
       	<br><br><br>
@@ -175,4 +207,4 @@ action="<c:url value='/notice/list.ag'/>">
 </div>
 </section>
 
-<%@ include file="../inc/bottom.jsp" %> 
+<%@ include file="../inc/simple_bottom.jsp" %> 

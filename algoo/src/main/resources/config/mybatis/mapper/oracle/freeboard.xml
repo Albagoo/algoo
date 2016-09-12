@@ -58,4 +58,14 @@
 		select * from free_board
 		where free_no = #{freeNo}
 	</select>
+	
+	<update id="editFreeboard" parameterType="FreeboardVO">
+		update free_board 
+			set title=#{title}, content=#{content}
+		where free_no=#{freeNo}
+	</update>
+	
+	<delete id="deleteFreeboard" parameterType="int">
+		delete from free_board where free_no=#{freeNo}
+	</delete>
 </mapper>

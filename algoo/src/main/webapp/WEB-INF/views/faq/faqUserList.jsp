@@ -40,7 +40,7 @@
 <section>
 <div id="userList">
 	<div id="Qmark">
-	<img src="<c:url value='/images/faq-1.png'/>" style="height: 70px;">
+	<img src="<c:url value='/images/faqicon.png'/>" style="height: 50px;">
 	</div>
 	<div id="naviDiv">
 		<nav>

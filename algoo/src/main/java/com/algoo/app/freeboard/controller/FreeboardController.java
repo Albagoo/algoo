@@ -46,7 +46,7 @@ public class FreeboardController {
 	
 	@RequestMapping("/list.ag")
 	public String listReBoard(@ModelAttribute SearchVO searchVo, Model model){
-		logger.info("글목록 조회, 파라미터 searchVo={}", searchVo);
+		logger.info("freeboard 목록 조회, 파라미터 searchVo={}", searchVo);
 		
 		PaginationInfo pagingInfo = new PaginationInfo();
 		pagingInfo.setBlockSize(10);
@@ -58,7 +58,7 @@ public class FreeboardController {
 		searchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
 				
 		List<FreeboardVO> alist = freeService.selectAllFreeboard(searchVo);
-		logger.info("글목록 조회 결과 alist.size()={}", alist.size());
+		logger.info("freeboard 목록 조회 결과 alist.size()={}", alist.size());
 		
 		int totalRecord=freeService.selectTotalCount(searchVo);
 		pagingInfo.setTotalRecord(totalRecord);
@@ -73,7 +73,7 @@ public class FreeboardController {
 	public String updateCount(
 		@RequestParam(defaultValue="0") int freeNo, Model model){
 		
-		logger.info("조회수 증가, 파라미터 freeNo={}", freeNo);
+		logger.info("freeboard 조회수 증가, 파라미터 freeNo={}", freeNo);
 		
 		if(freeNo==0){
 			model.addAttribute("msg", "잘못된 url입니다");
@@ -83,7 +83,7 @@ public class FreeboardController {
 		}
 				
 		int cnt=freeService.updateReadCount(freeNo);
-		logger.info("조회수 증가 결과, cnt={}", cnt);
+		logger.info("freeboard 조회수 증가 결과, cnt={}", cnt);
 		
 		return "redirect:/freeboard/detail.ag?freeNo="+freeNo;
 	}
@@ -92,7 +92,7 @@ public class FreeboardController {
 	public String detail(
 			@RequestParam(defaultValue="0") int freeNo,
 			Model model){
-		logger.info("글 상세보기 파라미터, freeNo = {}", freeNo);
+		logger.info("freeboard 상세보기 파라미터, freeNo = {}", freeNo);
 		
 		if(freeNo==0){
 			model.addAttribute("msg", "잘못된 url입니다");
@@ -102,17 +102,15 @@ public class FreeboardController {
 		}
 		
 		FreeboardVO freeVo = freeService.selectFreeboardByNo(freeNo);
-		logger.info("글 상세보기 결과 freeVo = {}", freeVo);
+		logger.info("freeboard 상세보기 결과 freeVo = {}", freeVo);
 		model.addAttribute("freeVo", freeVo);
 		
 		return "freeboard/detail";
 	}
 	
 	@RequestMapping(value="/edit.ag", method=RequestMethod.GET)
-	public String edit_get(
-			@RequestParam(defaultValue="0") int freeNo,
-			Model model){
-		logger.info("수정화면 보여주기 파라미터, freeNo = {}", freeNo);
+	public String edit_get(	@RequestParam(defaultValue="0") int freeNo, Model model){
+		logger.info("freeboard 수정화면 보여주기 파라미터, freeNo = {}", freeNo);
 		
 		FreeboardVO freeVo = freeService.selectFreeboardByNo(freeNo);
 		model.addAttribute("freeVo", freeVo);
@@ -120,5 +118,35 @@ public class FreeboardController {
 		return "freeboard/edit";
 	}
 	
+	@RequestMapping(value="/edit.ag", method=RequestMethod.POST)
+	public String edit_post(@ModelAttribute FreeboardVO freeVo, Model model){
+		logger.info("freeboard 수정, 파라미터 freeVo = {}", freeVo);
+		
+		String msg="", url="/freeboard/edit.ag?freeNo="+freeVo.getFreeNo();
+		int cnt=freeService.editFreeboard(freeVo);
+
+		if(cnt>0){
+			msg="freeboard 수정 성공";
+			logger.info("freeboard 수정 결과, cnt = {}", cnt);
+				
+			url="/freeboard/detail.ag?freeNo="+freeVo.getFreeNo();
+		}else{
+			msg="freeboard 수정 실패";
+		}
+
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		
+		return "common/message";
+	}
 	
+	@RequestMapping("/delete.ag")
+	public String delete(@RequestParam(defaultValue="0") int freeNo, Model model){
+		logger.info("Freeboard 삭제 , 파라미터 freeNo = {}", freeNo);
+		
+		int cnt=freeService.deleteFreeboard(freeNo);
+		logger.info("글삭제 결과, cnt = {}", cnt);
+			
+		return "redirect:/freeboard/list.ag";
+	}
 }

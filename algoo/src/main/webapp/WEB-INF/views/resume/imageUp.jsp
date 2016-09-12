@@ -17,7 +17,7 @@
 		<div style="padding: 18px 0 24px 2px;">
 			<ul style="list-style: none; margin: 0">
 				<li style="list-style: none; padding: 2px 0 2px 7px;">
-				4MB이내의 gif, jpg, jpeg, png 이미지 파일로 등록해 주세요
+					4MB이내의 gif, jpg, jpeg, png 이미지 파일로 등록해 주세요
 				</li>
 			</ul>
 		</div>

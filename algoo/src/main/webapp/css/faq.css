@@ -111,6 +111,10 @@ table.box2 td a{
 	color: black;
 	padding: 0 10px 0 10px;
 }
+.category{
+	font-size: 0.8em;
+	margin-bottom: 3px;
+}
 /*faqEdit*/
 .firstDiv label{
 	line-height: 20px;

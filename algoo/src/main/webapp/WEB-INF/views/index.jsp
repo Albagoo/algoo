@@ -15,8 +15,10 @@
 				<div class="divCAD">
 				<div class="divCmHeader">
 					<!-- 광고배너(2개) -->
-					<img src="<c:url value='${pageContext.request.contextPath }/images/banner1.jpg'/>">
-					<img src="<c:url value='${pageContext.request.contextPath }/images/banner1.jpg'/>">
+					<table>
+					<td><img src="<c:url value='/images/banner1.jpg'/>"></td>
+					<td><img src="<c:url value='/images/banner2.jpg'/>"></td>
+					</table>
 				</div>
 				<div class="divDivision">
 					<!-- 알바 분류 -->
@@ -110,17 +112,5 @@
 			</div>
 		</div>
 	</section>
-=======
-	<!-- 메인 컨테이너 페이지 -->
-	<div id="mainContentAll">
-		<div id="mainTop">
-			<div id="mainTop_west">
-			
-			</div>
-			<div id="mainTop_east">
-			
-			</div>
-		</div>
-	</div>
 	
 <%@ include file="inc/bottom.jsp" %> 

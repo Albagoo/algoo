@@ -25,6 +25,7 @@
 </script>	
 
 <section>
+
 <form name="frmPage" method="post" 
 	action="<c:url value='/faq/faqList.ag'/>">
 <input type="hidden" name="currentPage">

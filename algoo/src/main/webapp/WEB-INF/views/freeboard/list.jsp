@@ -32,10 +32,10 @@
 </form>
 
 <div class="divList">
+<div class="list">
 <legend>
 	<img src="<c:url value='/images/albatalk.png'/>" style="height: 48px;" align=absmiddle>
 </legend>
-<div class="list">
 <c:if test="${!empty param.searchKeyword }">
 	<p>검색어 : ${param.searchKeyword }, ${pagingInfo.totalRecord }건 검색되었습니다.</p>
 </c:if>
@@ -125,13 +125,13 @@
 	<c:forEach var="i" begin="${pagingInfo.firstPage }" 
 		end="${pagingInfo.lastPage }">	 
 		<c:if test="${i==pagingInfo.currentPage }">
-			<span style="color:blue;font-weight: bold">
-				${i }</span>
+			<span>${i }</span>
 		</c:if>		
 		<c:if test="${i!=pagingInfo.currentPage }">
-				<a href="#" onclick="pageProc(${i})">
-				[${i}]</a>
+				<a href="#" onclick="pageProc(${i})" >
+				${i}</a>
 		</c:if>
+
 	</c:forEach>	
 	
 	<!-- 다음 블럭으로 이동 -->

@@ -66,5 +66,4 @@ $(document).ready(function(){
 </form>    
 </div>
 </section>
-
-<%@ include file="../inc/simple_bottom.jsp" %>
+<%@ include file="../inc/simple_bottom.jsp" %> 

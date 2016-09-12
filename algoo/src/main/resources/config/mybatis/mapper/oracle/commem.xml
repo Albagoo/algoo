@@ -15,4 +15,16 @@
     		#{birth}, #{gender},#{userName}, #{phone1}, #{phone2}, #{phone3},#{hp1},#{hp2}
     		,#{hp3},#{fax1},#{fax2},#{fax3},#{email1},#{email2},0) 
 	</insert>
+	
+	<select id="selectCountUserid" 
+		parameterType="string" resultType="int">
+		select count(*)	from comp_member 
+		where userid=#{userid}
+	</select>
+	
+	<select id="selectPwd" parameterType="CommemVO"
+		resultType="string">
+		select password from comp_member
+		where userid=#{userid} and out_date is null
+	</select>
 </mapper>

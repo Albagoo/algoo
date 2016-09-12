@@ -23,7 +23,7 @@
 				</a>
 				<span></span>
 				<ul>
-					<li><a href="#">홈</a> |</li>
+					<li><a href="<c:url value='/index.ag'/>">홈</a> |</li>
 					<li><a href="#">채용정보</a> |</li>
 					<li><a href="#">인재정보</a> |</li>
 					<li><a href="#">알바토크</a> |</li>

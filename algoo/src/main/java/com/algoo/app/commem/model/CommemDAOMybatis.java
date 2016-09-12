@@ -13,4 +13,14 @@ public class CommemDAOMybatis extends SqlSessionDaoSupport
 	public int insertCompMember(CommemVO commemVo) {
 		return getSqlSession().insert(namespace+".insertCompMember", commemVo);
 	}
+
+	@Override
+	public String loginCheck(CommemVO commemVo) {
+		return getSqlSession().selectOne(namespace+".selectPwd", commemVo);
+	}
+
+	@Override
+	public int checkUserid(String userid) {
+		return getSqlSession().selectOne(namespace+".selectCountUserid", userid);
+	}
 }

@@ -154,9 +154,10 @@
 			src="<c:url value='/images/simple_Logo.png'/>"></h1>
 	</div>
 	<div class="info">
-		<input type="radio" id="type1" name="type" checked><label for="type1">개인회원</label>
-		<input type="radio" id="type2" name="type"><label for="type2">기업회원</label>
-		<form>
+		<form name="frmLogin" action="<c:url value='/login/login.ag'/>"
+			method="post">
+			<input type="radio" id="type1" name="type" value="personal"checked><label for="type1">개인회원</label>
+			<input type="radio" id="type2" name="type" value="company"><label for="type2">기업회원</label>
 			<input type="text" class="textBox" name="userid" id="userid" placeholder="아이디">
 			<input type="password" class="textBox" name="pwd" id="pwd" placeholder="비밀번호">
 			<input type="submit" value="로그인">

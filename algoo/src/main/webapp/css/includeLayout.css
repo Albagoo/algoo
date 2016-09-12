@@ -146,6 +146,10 @@
 
 /* container css */
 #container{
+	width:880px;
+	margin:0 auto;
+	margin-top:15px;
+	margin-bottom:15px;
 }
 
 /* footer css */

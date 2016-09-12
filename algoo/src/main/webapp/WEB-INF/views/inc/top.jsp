@@ -23,7 +23,7 @@
 					<div id="header_action">
 					<!-- 로그인이 안된 경우 -->
 					<c:if test="${empty sessionScope.userid }">
-						<a href="<c:url value='/member/login.ag'/>">로그인</a> |
+						<a href="<c:url value='/login/login.ag'/>">로그인</a> |
 						<a href="<c:url value='/member/agreement.ag'/>">회원가입</a> |
 					</c:if>
 					<!-- 로그인이된 경우 -->
@@ -68,7 +68,7 @@
 					<a href="#">신입공채 </a>
 					<a href="#">알바토크 </a>
 					<a href="#">인재정보	</a>
-					<a href="#">회원페이지 </a>
+					<a href="<c:url value='/member_comp/memberInfo.ag'/>">회원페이지 </a>
 					<a href="#">이력서등록 </a>
 					<a href="#">공고등록 </a>
 				</div>

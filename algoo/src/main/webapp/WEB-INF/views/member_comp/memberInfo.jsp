@@ -69,7 +69,7 @@
 		</div>
 		<div>
 			<label>주소</label>
-			<input type="text" name="address" id="address" class="textBox"><br>
+			<input type="text" name="address" id="address" class="textBox">
 			<input type="text" name="addressDetail" id="address_detail" class="textBox">
 		</div>
 		<div id="hp_div">

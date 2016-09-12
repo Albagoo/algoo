@@ -1,0 +1,79 @@
+@CHARSET "UTF-8";
+.divMain{
+	margin:auto;
+	width:1024px;
+	background-color:ivory;
+}
+
+/* 광고 및 기본기능 */
+.divCategory{
+	
+}
+#divTitle{
+	font-family: '중고딕';
+	font-weight: bold;
+	font-size: 20px;
+}
+.divCAD{
+	width:75%;
+	float: left;
+}
+.divCmHeader{
+	height:130px;
+	background-color: azure;
+}
+.divDivision{
+	height:250px;
+	background-color:MistyRose;
+}
+.divJob{
+	width: 33%;
+	height:250px;
+	border:solid 1px LightGray;
+	border-top:solid 2px LightGray;
+	float: left;
+}
+
+.divFunction{
+	width:25%;
+	background-color:Moccasin;
+	float: left;
+}
+.loginBox{
+	height:230px;
+	border:solid 1px LightGray;
+}
+.divCommercial2{
+	height:150px;
+}
+
+.divBrand{
+	width: 100%;
+	height: 80px;
+	background-color:Lime;
+	float: left;
+}
+
+/* 스페셜 공고 */
+.divSpecial{
+	width: 100%;
+	float: left;
+}
+.tableSpecial td{
+	width: 200px;
+	height: 160px;
+	border:solid 1px LightGray;
+	background-color:azure;
+} 
+
+/* 그랜드 공고 */
+.divGrand{
+	width: 100%;
+	float: left;
+}
+.tableGrand td{
+	width: 250px;
+	height: 120px;
+	border:solid 1px LightGray;
+	background-color:azure;
+}

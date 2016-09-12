@@ -160,7 +160,7 @@ $("#subNum").change(function() {
 /* result+='<select class="txt_150 white medium button name="subNum" id="subNum">'; */ 
   /* alert($("#subRegion option:selected").val());   */
 
-               $.each(res.DATA,function(idx,item){
+               $.each(res.SDATA,function(idx,item){
                   if($("#subRegion option:selected").val()==this.REGION_NM){            
                   subway+="<option value="+this.LINE_NUM+">";
                   subway+=this.LINE_NM+"</option>";

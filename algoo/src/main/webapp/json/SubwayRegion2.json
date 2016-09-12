@@ -1,6 +1,6 @@
 {
 "DESCRIPTION" : {"REGION_NM":"지역명","LINE_NUM":"호선","LINE_NM":"호선명"},
-"DATA" : [
+"SDATA" : [
 {"REGION_NM":"서울","LINE_NUM":"","LINE_NM":"호선"},
 {"REGION_NM":"서울","LINE_NUM":"1","LINE_NM":"1호선"},
 {"REGION_NM":"서울","LINE_NUM":"2","LINE_NM":"2호선"},
@@ -23,7 +23,7 @@
 {"REGION_NM":"인천","LINE_NUM":"I","LINE_NM":"인천1호선"},
 {"REGION_NM":"인천","LINE_NUM":"I2","LINE_NM":"인천2호선"},
 {"REGION_NM":"부산","LINE_NUM":"","LINE_NM":"호선"},
-{"REGION_NM":"부산","LINE_NUM":"B1","LINE_NM":"부산1호선"},
+{"REGION_NM":"부산","LINE_NUM":"B1","LINE_NM":"1호선"},
 {"REGION_NM":"부산","LINE_NUM":"B2","LINE_NM":"2호선"},
 {"REGION_NM":"부산","LINE_NUM":"B3","LINE_NM":"3호선"},
 {"REGION_NM":"부산","LINE_NUM":"B4","LINE_NM":"4호선"},

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="inc/top.jsp" %>
-<<<<<<< HEAD
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/mainPage.css'/>" />
 	<%-- <!-- 메인 컨테이너 페이지 -->
 	<br>
@@ -123,5 +122,5 @@
 			</div>
 		</div>
 	</div>
->>>>>>> branch 'master' of https://github.com/Albagoo/algoo.git
+	
 <%@ include file="inc/bottom.jsp" %> 

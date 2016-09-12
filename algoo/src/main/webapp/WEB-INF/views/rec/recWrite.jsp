@@ -117,25 +117,24 @@ res+=' </form></div>';
 		
 //호선별 역정보	
 $("#subNum").change(function() {
-	
+	$("#subName").html("");
 	var subway2="";
 	var result2="";
+	var sw=$("#subNum > option:selected").val();
 		$.ajax({
-			url:"<c:url value='/json/seoulSubway.json'/>",
+			url:"<c:url value='/json/Subway.json'/>",
 			type:"GET",
 			dataType:"json",
-			success:function(res){
+			success:function(res2){
+	  
 				
- /* result+='<select class="txt_150 white medium button name="subNum" id="subNum">'; */  
- /* alert($("#subNum option:selected").val()); */ 
-
-			$.each(res.DATA,function(idx,item){
-				if($("#subNum option:selected").val()==this.LINE_NUM){				
+			$.each(res2.DATA,function(){
+				if(sw==this.LINE_NUM){				
 				subway2+="<option value="+this.STATION_NM+">";
 				subway2+=this.STATION_NM+"</option>";
 				}//if 
 			});
-				 /* subway2+="</select>";  */
+			
 				result2+=subway2
 				$("#subName").html(result2);
 			},
@@ -148,7 +147,8 @@ $("#subNum").change(function() {
 
 //지역별 호선 정보	
 	$("#subRegion").change(function() {
-          
+		$("#subNum").html("");
+		$("#subName").html("");
          var subway="";
          var result="";
             $.ajax({
@@ -157,27 +157,69 @@ $("#subNum").change(function() {
                dataType:"json",
                success:function(res){
                   
-/* result+='<select class="txt_150 white medium button name="subNum" id="subNum">'; */ 
-  /* alert($("#subRegion option:selected").val());   */
-
-               $.each(res.SDATA,function(idx,item){
+               $.each(res.DATA,function(){
                   if($("#subRegion option:selected").val()==this.REGION_NM){            
                   subway+="<option value="+this.LINE_NUM+">";
                   subway+=this.LINE_NM+"</option>";
                   }//if 
                });
-                /*   subway+="</select>"; */
                   result+=subway
                   $("#subNum").html(result);
-                   $("#subNumOption option:eq(0)").attr("selected", "selected"); 
                   
                },
                error:function(xhr, statust,error){
                   alert(status+":"+error);
                }
-            });//change	
+            });	
 	
-   });
+   });//change
+
+   //직업 정보1	
+   $("#jobName").ready(function() {
+	$("#jobName").html("");
+	var jobN="";
+	$.ajax({
+		url:"<c:url value='/json/Jobs.json'/>",
+        type:"GET",
+        dataType:"json",
+        success:function(res){
+        	$.each(res.DATA,function(){
+        		jobN+="<option value="+this.JOB_FIRST+">";
+                jobN+=this.JOB_FIRST+"</option>";
+        	});
+        	$("#jobName").html(jobN);
+        },
+        error:function(xhr, statust,error){
+            alert(status+":"+error);
+        }
+	});
+});
+   
+ //직업 정보2
+	$("#jobName").change(function() {
+		$("#jobName2").html("");
+         var jobN2="";
+            $.ajax({
+               url:"<c:url value='/json/Jobs2.json'/>",
+               type:"GET",
+               dataType:"json",
+               success:function(res){
+                  
+               $.each(res.DATA,function(){
+                  if($("#jobName option:selected").val()==this.JOB_FIRST){            
+                	  jobN2+="<option value="+this.JOB_SECOND+">";
+                	  jobN2+=this.JOB_SECOND+"</option>";
+                  }//if 
+               });
+                  $("#jobName2").html(jobN2);
+                  
+               },
+               error:function(xhr, statust,error){
+                  alert(status+":"+error);
+               }
+            });	
+	
+   });//change
    });
    
    
@@ -374,12 +416,10 @@ style="width: 150px;height: 100px;border: 1px solid gray">
       <span class="tit">업직종</span>
       <select class="txt_180 button white medium"
       name="jobName" id="jobName">
-      <option value="null">1차직종</option>
-      <c:forTokens items="" delims=""></c:forTokens>
       </select>
       <select class="txt_180 button white medium"
       name="jobName2" id="jobName2">
-      <option value="null">2차직종</option>
+      <option value="null">직종선택</option>
       </select>
    </dt>
    <dt>
@@ -399,7 +439,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                         
       <input type="button" class="white button"
       value="우편번호 찾기" id="btnZipcode">
-   </dt>
+   </dt> 
    <dt>
       <span class="tit">인근지하철</span>
            <select class="txt_100 white medium button"
@@ -413,17 +453,12 @@ style="width: 150px;height: 100px;border: 1px solid gray">
       </select>
      
         
-    <select class="txt_150 white medium button"
+        <select class="txt_150 white medium button"
            name="subNum" id="subNum">
-            <option value="null">호선</option> 
          </select> 
-     
-     
-   
      
          <select class="txt_150 white medium button"
            name="subName" id="subName">
-      <option value="null">지하철역</option> 
      
       </select>
       <input type="text" class="txt_200" 

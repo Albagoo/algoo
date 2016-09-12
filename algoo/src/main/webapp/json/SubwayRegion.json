@@ -1,6 +1,6 @@
 {
 "DESCRIPTION" : {"REGION_NM":"지역명","LINE_NUM":"호선","LINE_NM":"호선명"},
-"SDATA" : [
+"DATA" : [
 {"REGION_NM":"서울","LINE_NUM":"","LINE_NM":"호선"},
 {"REGION_NM":"서울","LINE_NUM":"1","LINE_NM":"1호선"},
 {"REGION_NM":"서울","LINE_NUM":"2","LINE_NM":"2호선"},

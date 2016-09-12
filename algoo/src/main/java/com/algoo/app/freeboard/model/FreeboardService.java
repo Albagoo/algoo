@@ -12,4 +12,5 @@ public interface FreeboardService {
 	public FreeboardVO selectFreeboardByNo(int freeNo);
 	public int editFreeboard(FreeboardVO freeVo);
 	public int deleteFreeboard(int freeNo);
+	public int insertReply(FreeboardVO freeVo);
 }

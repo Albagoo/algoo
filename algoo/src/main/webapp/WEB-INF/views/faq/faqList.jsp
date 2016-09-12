@@ -58,7 +58,6 @@
 	<p>전체 조회 결과 - ${pagingInfo.totalRecord }건 조회되었습니다</p>
 </c:if>
 </div>
-<table class="box2">
 <div class="category">
    	<label for="categoryList">카테고리로 찾기</label>
 		<select name="categoryInput" id="categoryInput" title="카테고리"
@@ -105,6 +104,7 @@
      	 	 기타 문의</option>
      </select>
 </div>
+<table class="box2">
 	<colgroup>
 		<col style="width:10%;" />
 		<col style="width:75%;" />

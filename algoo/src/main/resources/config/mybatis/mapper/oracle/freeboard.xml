@@ -13,12 +13,11 @@
 	</sql>
 	
 	<insert id="insertFreeboard" parameterType="FreeboardVO">
-		<selectKey keyProperty="freeNo" resultType="int"
-			order="BEFORE">
+		<selectKey keyProperty="freeNo" resultType="int" order="BEFORE">
 			select FREE_BOARD_SEQ.nextval from dual
 		</selectKey>
-		insert into free_board(free_no, title, content, writer, group_no, password)
-		values(#{freeNo} ,#{title},#{content},#{writer},#{freeNo},#{password})
+		insert into free_board(free_no, title, content,group_no)
+		values(#{freeNo} ,#{title},#{content},#{freeNo})
 	</insert>
 	
 	<select id="selectAllFreeboard" resultType="FreeboardVO" 
@@ -28,7 +27,7 @@
 		(
 		    select rownum as RNUM, LIST_ALL.*
 		    from
-		        (select free_no, title, content, writer, password, group_no,
+		        (select free_no, title, content, group_no,
 					regdate, read_count, (sysdate-regdate)*24 as newImgTerm,
 					step, sort_no, del_yn
 		        from free_board
@@ -68,4 +67,18 @@
 	<delete id="deleteFreeboard" parameterType="int">
 		delete from free_board where free_no=#{freeNo}
 	</delete>
+	
+	<update id="updateSortNo" parameterType="FreeboardVO">
+		update free_board
+			set sort_no=sort_no+1
+		where group_no=#{groupNo} and sort_no > #{sortNo}
+	</update>
+	
+	<insert id="insertReply" parameterType="FreeboardVO">
+		<selectKey keyProperty="freeNo" resultType="int" order="BEFORE">
+			select FREE_BOARD_SEQ.nextval from dual
+		</selectKey>
+		insert into free_board(free_no, title, content, group_no, step, sort_no )
+		values(#{freeNo}, #{title}, #{content}, #{groupNo}, #{step}, #{sortNo})
+	</insert>
 </mapper>

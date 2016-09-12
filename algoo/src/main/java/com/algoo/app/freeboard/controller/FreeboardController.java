@@ -126,12 +126,12 @@ public class FreeboardController {
 		int cnt=freeService.editFreeboard(freeVo);
 
 		if(cnt>0){
-			msg="freeboard 수정 성공";
+			msg="게시물 수정 성공";
 			logger.info("freeboard 수정 결과, cnt = {}", cnt);
 				
 			url="/freeboard/detail.ag?freeNo="+freeVo.getFreeNo();
 		}else{
-			msg="freeboard 수정 실패";
+			msg="게시물 수정 실패";
 		}
 
 		model.addAttribute("msg", msg);
@@ -148,5 +148,49 @@ public class FreeboardController {
 		logger.info("글삭제 결과, cnt = {}", cnt);
 			
 		return "redirect:/freeboard/list.ag";
+	}
+	
+	@RequestMapping(value="/reply.ag", method=RequestMethod.GET)
+	public String reply_get(@RequestParam(defaultValue="0") int freeNo, Model model){
+		
+		//1.
+		logger.info("답변달기 화면 보여주기, 파라미터 freeNo = {}", freeNo);
+		if(freeNo==0){
+			model.addAttribute("msg", "잘못된 url입니다");
+			model.addAttribute("url", "/freeboard/list.ag");
+			
+			return "common/message";
+		}
+		
+		//2.
+		FreeboardVO freeVo=freeService.selectFreeboardByNo(freeNo);
+		logger.info("답변달기 화면 조회 결과, freeVo = {}", freeVo);
+		
+		//3.
+		model.addAttribute("freeVo", freeVo);
+		
+		return "freeboard/reply";
+	}
+	
+	@RequestMapping(value="/reply.ag", method=RequestMethod.POST)
+	public String reply_post(@ModelAttribute FreeboardVO freeVo, Model model){
+		logger.info("답변달기 처리 파라미터 freeVo = {}", freeVo);
+		
+		int cnt=freeService.insertReply(freeVo);
+		logger.info("답변달기 처리 결과, cnt = {}", cnt);
+		
+		String msg="", url="";
+		
+		if(cnt>0){
+			url="/freeboard/list.ag";
+		}else{
+			msg="답변달기 실패";
+			url="/freeboard/reply.ag?freeNo="+freeVo.getFreeNo();
+		}//if
+		
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		
+		return "common/message";
 	}
 }

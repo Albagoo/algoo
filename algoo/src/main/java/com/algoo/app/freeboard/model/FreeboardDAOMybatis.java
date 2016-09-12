@@ -45,4 +45,16 @@ public class FreeboardDAOMybatis extends SqlSessionDaoSupport implements Freeboa
 	public int deleteFreeboard(int freeNo) {
 		return getSqlSession().delete(namespace+".deleteFreeboard", freeNo);
 	}
+
+	@Override
+	public int updateSortNo(FreeboardVO freeVo) {
+		return getSqlSession().update(namespace+".updateSortNo", freeVo);
+	}
+
+	@Override
+	public int insertReply(FreeboardVO freeVo) {
+		freeVo.setSortNo(freeVo.getSortNo()+1);
+		freeVo.setStep(freeVo.getStep()+1);
+		return getSqlSession().insert(namespace+".insertReply", freeVo);
+	}
 }

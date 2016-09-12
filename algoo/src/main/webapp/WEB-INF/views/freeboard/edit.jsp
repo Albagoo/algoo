@@ -40,19 +40,11 @@ $(document).ready(function(){
 		<img src="<c:url value='/images/albatalk.png'/>" style="height: 48px;" align=absmiddle>
 	</legend>
         <div class="firstDiv">
-            <label for="title" style="width:12%;">제목</label>
+            <label for="title" style="width:10%;">제목</label>
             <input type="text" id="title" name="title" 
             	style="width: 300px;font-size: 0.75em;text-align: left" 
             	class="textBox" value="${freeVo.title }" />
         </div>
-        <!-- 로그인 되면 삭제, session으로 닉네임 받아옴 -->
-	    <div>
-	   		<label for="writer">작성자</label>
-	   		<input type="text" id="writer" name="writer" 
-	  			style="width: 200px;font-size: 0.75em;text-align: left" 
-	         	class="textBox" placeholder="닉네임을 입력하세요"/>
-	   	</div>
-   		<!--  -->
         <div>	       
  			<textarea id="content" name="content">${freeVo.content }</textarea>
         </div>

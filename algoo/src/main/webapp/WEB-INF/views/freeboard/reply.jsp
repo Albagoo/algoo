@@ -22,6 +22,10 @@ type="text/javascript"></script>
 				alert("제목을 입력하세요");
 				$("#title").focus();
 				event.preventDefault();
+			}else if($("#password").val()==""){
+					alert("비밀번호를 입력하세요");
+					$("#password").focus();
+					event.preventDefault();
 			}else if(instance.getData()==""){
 				alert("내용을 입력하세요");
 				$("#content").focus();
@@ -36,16 +40,20 @@ type="text/javascript"></script>
 <div class="divForm">
 <form name="frmWrite" id="frmWrite" method="post" 
   action="<c:url value='/freeboard/write.ag'/>" >
+<input type="hidden" name="groupNo" value="${freeVo.groupNo}">
+<input type="hidden" name="step" value="${freeVo.step}">
+<input type="hidden" name="sortNo" value="${freeVo.sortNo}">
  <fieldset>
 	<legend> 
 		<img src="<c:url value='/images/albatalk.png'/>" style="height: 48px;" align=absmiddle>
 	</legend>
     <div class="firstDiv">
         <label for="title">제목</label>
-        <input type="text" id="title" name="title" style="width: 400px;font-size: 0.75em;text-align: left" 
-        	class="textBox" placeholder="제목을 입력하세요"/>
+        <input type="text" id="title" name="title" 
+        	style="width: 400px;font-size: 0.75em;text-align: left" 
+        	class="textBox" value="${freeVo.title }"/>
     </div>
-    <div>    
+     <div>    
 		<textarea id="content" name="content"></textarea>
 	</div>
 	<br>

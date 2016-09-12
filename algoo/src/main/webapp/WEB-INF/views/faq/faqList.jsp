@@ -16,6 +16,12 @@
 		}, function(){
 			$(this).css("background","");
 		});
+		
+		//카테고리 검색
+		$("#categoryInput").change(function(){
+			$("#categoryName2").val($("#categoryInput").val());
+			$("#frmPage").submit();
+		});
 	});
 	
 	function pageProc(curPage){
@@ -25,9 +31,19 @@
 </script>	
 
 <section>
-<form name="frmPage" method="post" 
+
+<form name="frmCategory" method="post"
+ action="<c:url value='/faq/faqList.ag'/>"
+ id="frmCategory">
+ 	<!-- 09-12 카테고리 검색 -->
+	<input type="hidden" name="categoryName" id="categoryName" value="${param.categoryName }">
+	<input type="hidden" name="currentPage" id="currentPage"  >	
+</form>
+
+<form name="frmPage" method="post" id="frmPage"
 	action="<c:url value='/faq/faqList.ag'/>">
-<input type="hidden" name="currentPage">
+<input type="hidden" name="currentPage" id="currentPage2" value="1">
+<input type="hidden" name="categoryName" id="categoryName2" value="${param.categoryName }">
 <input type="hidden" name="searchConditionz" value="${param.searchCondition }">
 <input type="hidden" name="searchKeyword" value="${searchVO.searchKeyword }">	
 </form>
@@ -42,6 +58,52 @@
 	<p>전체 조회 결과 - ${pagingInfo.totalRecord }건 조회되었습니다</p>
 </c:if>
 </div>
+<div class="category" style="font-size: 0.9em">
+        	<label for="categoryList">카테고리로 찾기</label>
+        	<select name="categoryInput" id="categoryInput" title="카테고리"
+        	 class="button white small" style="font-size: 0.75em;">
+        		<option value="">선택하세요</option>
+        		<option value="개인회원 가입 및 탈퇴"
+        		 <c:if test="${param.categoryName=='개인회원 가입 및 탈퇴' }">selected</c:if>>
+        		 개인회원 가입 및 탈퇴</option>
+        		<option value="기업회원 가입 및 탈퇴"
+        		 <c:if test="${param.categoryName=='기업회원 가입 및 탈퇴' }">selected</c:if>>
+        		 기업회원 가입 및 탈퇴</option>
+        		<option value="회원정보관리"
+        		 <c:if test="${param.categoryName=='회원정보관리' }">selected</c:if>>
+        		 회원정보관리</option>
+        		<option value="기업정보관리"
+        		 <c:if test="${param.categoryName=='기업정보관리' }">selected</c:if>>
+        		 기업정보관리</option>
+        	 	<option value="이력서 관리 및 활용"
+        	 	 <c:if test="${param.categoryName=='이력서 관리 및 활용' }">selected</c:if>>
+        	 	 이력서 관리 및 활용</option>
+        	 	<option value="이력서 검색 및 열람"
+        	 	 <c:if test="${param.categoryName=='이력서 검색 및 열람' }">selected</c:if>>
+        	 	 이력서 검색 및 열람</option>
+        	 	<option value="알바정보 검색 및 열람"
+        	 	 <c:if test="${param.categoryName=='알바정보 검색 및 열람' }">selected</c:if>>
+        	 	 알바정보 검색 및 열람</option>
+        	 	<option value="지원자관리"
+        	 	 <c:if test="${param.categoryName=='지원자관리' }">selected</c:if>>
+        	 	 지원자관리</option>
+        	 	<option value="온라인 지원"
+        	 	 <c:if test="${param.categoryName=='온라인 지원' }">selected</c:if>>
+        	 	 온라인 지원</option>
+        	 	<option value="알바토크"
+        	 	 <c:if test="${param.categoryName=='알바토크' }">selected</c:if>>
+        	 	 알바토크</option>
+        	 	<option value="유료서비스/결제오류"
+        	 	 <c:if test="${param.categoryName=='유료서비스/결제오류' }">selected</c:if>>
+        	 	 유료서비스/결제오류</option>
+        	 	<option value="세금계산서"
+        	 	 <c:if test="${param.categoryName=='세금계산서' }">selected</c:if>>
+        	 	 세금계산서</option>
+        	 	<option value="기타 문의"
+        	 	 <c:if test="${param.categoryName=='기타 문의' }">selected</c:if>>
+        	 	 기타 문의</option>
+        	 </select>	
+        </div>
 <table class="box2">
 	<colgroup>
 		<col style="width:10%;" />

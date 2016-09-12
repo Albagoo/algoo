@@ -221,6 +221,9 @@ href="<c:url value='/css/simpleButton.css'/>" />
           frmList.submit();
           //나중에 카테고리 추가 예정
        });
+      
+      
+      
    });
 </script>
 <div class="Wrap">

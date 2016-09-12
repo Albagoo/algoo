@@ -119,6 +119,37 @@ res+='';
 		   frmList.submit();
 			//나중에 카테고리 추가 예정
 		});//click
+		
+			
+		$("#subNum").change(function() {
+		/* 	if($("#subNum").val()==1){ */
+			var subway="";
+			var result="";
+				$.ajax({
+					url:"<c:url value='/json/seoulSubway.json'/>",
+					type:"GET",
+					dataType:"json",
+					success:function(res){
+		 result+='<select class="txt_150 white medium button"';
+		result+='name="subName" id="subName">'; 
+					
+		
+		$.each(res.DATA,function(idx,item){
+							
+			subway+="<option value="+this.STATION_NM+">";
+			subway+=this.STATION_NM+"</option>";
+			
+		});
+						subway+="</select>";
+						result+=subway
+						$("#subNameOption").html(result);
+					},
+					error:function(xhr, statust,error){
+						alert(status+":"+error);
+					}
+				});//change
+			/* }//if */
+		});
    });
 
 
@@ -357,15 +388,19 @@ style="width: 150px;height: 100px;border: 1px solid gray">
       </select>
            <select class="txt_100 white medium button"
            name="subNum" id="subNum">
+      <div id="subNumOption"></div>
       <option value="null">호선</option>
       <option value="1">1호선</option>
      
       </select>
-           <select class="txt_150 white medium button"
+     
+            <!-- <select class="txt_150 white medium button"
            name="subName" id="subName">
-      <option value="null">지하철역</option>
-      <option value="c">청량리역</option>
-      </select>
+      <option value="null">지하철역</option> -->
+       <div id="subNameOption"></div>
+     <!-- 
+      <option value="c">청량리역</option>-->
+      <!-- </select>  -->
       <input type="text" class="txt_200" 
       name="subInfo" id="subInfo">
    </dt>

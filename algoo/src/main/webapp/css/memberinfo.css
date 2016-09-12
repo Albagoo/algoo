@@ -1,0 +1,72 @@
+@CHARSET "UTF-8";
+/* #naviDiv{
+	overflow: hidden;
+} */
+#memInfo{
+	width:78%;
+	margin:16px 0 0 5px;
+	border:1px solid #eee;
+	float:right;
+	display: block;
+	background: white;
+}
+
+.textBox{
+   display: inline-block;
+   zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
+   *display: inline;
+   vertical-align: baseline;
+   margin: 0 2px;
+   outline: none;
+   cursor: pointer;
+   text-decoration: none;
+   font: 14px/100% Arial, Helvetica, sans-serif;
+   padding: .2em;
+   text-shadow: 0 1px 1px rgba(0,0,0,.3);
+   -webkit-border-radius: .4em; 
+   -moz-border-radius: .4em;
+   border-radius: .2em;
+   box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+#memInfo div{
+	height:22px;
+	padding:15px 15px 15px 70px;
+}
+/* photo_div */
+#memInfo #photo_div{
+	height:240px;
+}
+#photo_div input{
+	display:inline-block;
+	margin-left:100px;
+}
+#photo_img{
+	width:175px;
+	height:190px;
+	border:1px dotted #aaa;
+	display: inline-block;
+	margin:0;
+}
+#uploadImg{
+	display: block;
+	margin-left:170px;
+	height:22px;
+	font-size: 0.7em;
+}
+
+#memInfo div label{
+	display:inline-block;
+	width:110px;
+	font-size: 0.9em;
+	vertical-align: top;
+}
+#phone_div > input, #hp_div > input, #fax_div > input{
+	width:90px;
+}
+#button_div{
+	text-align: center;
+}
+/* footer */
+footer{
+	clear:both;
+}

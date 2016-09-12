@@ -8,7 +8,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8" />
-<title>Insert title here</title>
+<title>top - 한두번갖고놀던장난감</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/clear.css" />
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/includeLayout.css" />
 <script type="text/javascript" 
@@ -68,8 +68,9 @@
 					<a href="#">신입공채 </a>
 					<a href="#">알바토크 </a>
 					<a href="#">인재정보	</a>
-					<a href="#">개인서비스 </a>
-					<a href="#">기업서비스 </a>
+					<a href="#">회원페이지 </a>
+					<a href="#">이력서등록 </a>
+					<a href="#">공고등록 </a>
 				</div>
 			</div><!-- header_div -->
 		</div><!-- header -->

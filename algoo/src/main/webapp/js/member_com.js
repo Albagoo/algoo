@@ -44,12 +44,20 @@ $(document).ready(function(){
 				alert("아이디를 입력하셔야 합니다");
 				$("#userid").focus();
 				return false;
+			}else if($("#userid").val().length<8 || $("#userid").val().length>16 ){
+				alert("아이디는 8~16자 사이로 입력하세요 ");
+				$("#userid").focus();
+				return false;
 			}else if(!validate_userid($("#userid").val())){
 				alert("아이디는 영문이나 숫자 _만 가능합니다!");
 				$("#userid").focus();
 				return false;
 			}else if($("#pwd").val().length<1){
 				alert("비밀번호를 입력하세요");
+				$("#pwd").focus();
+				return false;
+			}else if($("#pwd").val().length<4 || $("#pwd").val().length>16){
+				alert("비밀번호는 4~16자리로 입력하세요");
 				$("#pwd").focus();
 				return false;
 			}else if($("#pwd2").val()!=$("#pwd").val()){
@@ -59,6 +67,10 @@ $(document).ready(function(){
 			}else if($("#name").val().length < 1){
 				alert("이름을 입력하세요");
 				$("#name").focus();
+				return false;
+			}else if($("#hp1").val().length<1 || $("#hp2").val().length<1 || $("#hp3").val().length<1){
+				alert("휴대폰 번호는 필수항목입니다");
+				$("#hp1").focus();
 				return false;
 			}else if(!validate_hp($("#hp2").val()) || 
 					!validate_hp($("#hp3").val())){

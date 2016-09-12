@@ -58,26 +58,21 @@ type="text/javascript"></script>
                  res="<div>";
                  
 res+="<h2>서비스 선택</h2>";
-res+='<form <form method="post" name="frmService" id="frmService" ';
+res+='<form method="post" name="frmService" id="frmService" ';
 res+='action="<c:url value='/service/serviceWrite.ag'/>" style="display:inline" >';
 res+='<select class="textBox white"  id="gradeSel">';
-res+='<option value="1">1등급</option>';
-res+='<option value="2">2등급</option>';
-res+='<option value="3">3등급</option>';
-res+='<option value="4">4등급</option>';
-res+='</select>';
+res+='<option value="1등급">1등급</option>';
+res+='<option value="2등급">2등급</option>';
+res+='<option value="3등급">3등급</option>';
+res+='<option value="4등급">4등급</option></select>';
 res+='<select class="textBox white"  id="daysSel">';
-res+='<option value="1">1일</option>';
-res+='<option value="7">7일</option>';
-res+='<option value="30"> 30일</option>';
-res+='<option value="90">90일</option>';
-res+='<option value="180">180일</option>';
-res+='</select>';
-res+='';
+res+='<option value="1일">1일</option>';
+res+='<option value="7일">7일</option>';
+res+='<option value="30일"> 30일</option>';
+res+='<option value="90일">90일</option>';
+res+='<option value="180일">180일</option></select>';
 res+=' <input class="button medium white" type="reset" value="취소"> ';
-res+=' </form> ';
-res+='</div>';
-res+='';
+res+=' </form></div>';
                   
                  $("#divService").html(res);
                  
@@ -120,39 +115,66 @@ res+='';
 			//나중에 카테고리 추가 예정
 		});//click
 		
-			
-		$("#subNum").change(function() {
-		/* 	if($("#subNum").val()==1){ */
-			var subway="";
-			var result="";
-				$.ajax({
-					url:"<c:url value='/json/seoulSubway.json'/>",
-					type:"GET",
-					dataType:"json",
-					success:function(res){
-		 result+='<select class="txt_150 white medium button"';
-		result+='name="subName" id="subName">'; 
-					
-		
-		$.each(res.DATA,function(idx,item){
-							
-			subway+="<option value="+this.STATION_NM+">";
-			subway+=this.STATION_NM+"</option>";
-			
+//호선별 역정보	
+$("#subNum").change(function() {
+	
+	var subway2="";
+	var result2="";
+		$.ajax({
+			url:"<c:url value='/json/seoulSubway.json'/>",
+			type:"GET",
+			dataType:"json",
+			success:function(res){
+				
+result+='<select class="txt_150 white medium button name="subNum" id="subNum">'; 
+/* alert($("#subNum option:selected").val()); */
+
+			$.each(res.REGION,function(idx,item){
+				if($("#subRegion option:selected").val()==this.REGION_NM){				
+				subway+="<option value="+this.LINE_NUM+">";
+				subway+=this.LINE_NM+"</option>";
+				}//if 
+			});
+				subway+="</select>";
+				result+=subway
+				$("#subNameOption").html(result);
+			},
+			error:function(xhr, statust,error){
+				alert(status+":"+error);
+			}
 		});
-						subway+="</select>";
-						result+=subway
-						$("#subNameOption").html(result);
-					},
-					error:function(xhr, statust,error){
-						alert(status+":"+error);
-					}
-				});//change
-			/* }//if */
-		});
+});		//change
+//지역별 호선 정보	
+	$("#subRegion").change(function() {
+          
+         var subway="";
+         var result="";
+            $.ajax({
+               url:"<c:url value='/json/seoulSubway.json'/>",
+               type:"GET",
+               dataType:"json",
+               success:function(res){
+                  
+result+='<select class="txt_150 white medium button name="subNum" id="subNum">'; 
+ /* alert($("#subRegion option:selected").val());  */
+
+               $.each(res.REGION,function(idx,item){
+                  if($("#subRegion option:selected").val()==this.REGION_NM){            
+                  subway+="<option value="+this.LINE_NUM+">";
+                  subway+=this.LINE_NM+"</option>";
+                  }//if 
+               });
+                  subway+="</select>";
+                  result+=subway
+                  $("#subNumOption").html(result);
+               },
+               error:function(xhr, statust,error){
+                  alert(status+":"+error);
+               }
+            });//change	
+	
    });
-
-
+   });
    
    
 	function setAges() {
@@ -180,7 +202,6 @@ res+='';
 	      $("#FormS").attr('disabled',true);
 	    }//if
 	}
-	
 	
   </script>
   
@@ -380,19 +401,20 @@ style="width: 150px;height: 100px;border: 1px solid gray">
            <select class="txt_100 white medium button"
            name="subRegion" id="subRegion">
       <option value="null">지역</option>
-      <option value="S">서울</option>
-      <option value="I">인천</option>
-      <option value="D">대전</option>
-      <option value="G">광주</option>
-      <option value="B">부산</option>
+      <option value="서울">서울</option>
+      <option value="인천">인천</option>
+      <option value="대전">대전</option>
+      <option value="광주">광주</option>
+      <option value="부산">부산</option>
       </select>
-           <select class="txt_100 white medium button"
+        <!--    <select class="txt_100 white medium button"
            name="subNum" id="subNum">
-      <div id="subNumOption"></div>
+      
       <option value="null">호선</option>
       <option value="1">1호선</option>
      
-      </select>
+      </select> -->
+     <div id="subNumOption"></div>
      
             <!-- <select class="txt_150 white medium button"
            name="subName" id="subName">

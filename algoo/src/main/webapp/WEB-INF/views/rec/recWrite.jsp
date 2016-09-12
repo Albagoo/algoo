@@ -126,47 +126,51 @@ $("#subNum").change(function() {
 			dataType:"json",
 			success:function(res){
 				
-result+='<select class="txt_150 white medium button name="subNum" id="subNum">'; 
-/* alert($("#subNum option:selected").val()); */
+ /* result+='<select class="txt_150 white medium button name="subNum" id="subNum">'; */  
+ /* alert($("#subNum option:selected").val()); */ 
 
-			$.each(res.REGION,function(idx,item){
-				if($("#subRegion option:selected").val()==this.REGION_NM){				
-				subway+="<option value="+this.LINE_NUM+">";
-				subway+=this.LINE_NM+"</option>";
+			$.each(res.DATA,function(idx,item){
+				if($("#subNum option:selected").val()==this.LINE_NUM){				
+				subway2+="<option value="+this.STATION_NM+">";
+				subway2+=this.STATION_NM+"</option>";
 				}//if 
 			});
-				subway+="</select>";
-				result+=subway
-				$("#subNameOption").html(result);
+				 /* subway2+="</select>";  */
+				result2+=subway2
+				$("#subName").html(result2);
 			},
 			error:function(xhr, statust,error){
 				alert(status+":"+error);
 			}
 		});
 });		//change
+
+
 //지역별 호선 정보	
 	$("#subRegion").change(function() {
           
          var subway="";
          var result="";
             $.ajax({
-               url:"<c:url value='/json/seoulSubway.json'/>",
+               url:"<c:url value='/json/SubwayRegion.json'/>",
                type:"GET",
                dataType:"json",
                success:function(res){
                   
-result+='<select class="txt_150 white medium button name="subNum" id="subNum">'; 
- /* alert($("#subRegion option:selected").val());  */
+/* result+='<select class="txt_150 white medium button name="subNum" id="subNum">'; */ 
+  /* alert($("#subRegion option:selected").val());   */
 
-               $.each(res.REGION,function(idx,item){
+               $.each(res.DATA,function(idx,item){
                   if($("#subRegion option:selected").val()==this.REGION_NM){            
                   subway+="<option value="+this.LINE_NUM+">";
                   subway+=this.LINE_NM+"</option>";
                   }//if 
                });
-                  subway+="</select>";
+                /*   subway+="</select>"; */
                   result+=subway
-                  $("#subNumOption").html(result);
+                  $("#subNum").html(result);
+                   $("#subNumOption option:eq(0)").attr("selected", "selected"); 
+                  
                },
                error:function(xhr, statust,error){
                   alert(status+":"+error);
@@ -407,22 +411,21 @@ style="width: 150px;height: 100px;border: 1px solid gray">
       <option value="광주">광주</option>
       <option value="부산">부산</option>
       </select>
-        <!--    <select class="txt_100 white medium button"
+     
+        
+    <select class="txt_150 white medium button"
            name="subNum" id="subNum">
-      
-      <option value="null">호선</option>
-      <option value="1">1호선</option>
+            <option value="null">호선</option> 
+         </select> 
      
-      </select> -->
-     <div id="subNumOption"></div>
      
-            <!-- <select class="txt_150 white medium button"
+   
+     
+         <select class="txt_150 white medium button"
            name="subName" id="subName">
-      <option value="null">지하철역</option> -->
-       <div id="subNameOption"></div>
-     <!-- 
-      <option value="c">청량리역</option>-->
-      <!-- </select>  -->
+      <option value="null">지하철역</option> 
+     
+      </select>
       <input type="text" class="txt_200" 
       name="subInfo" id="subInfo">
    </dt>

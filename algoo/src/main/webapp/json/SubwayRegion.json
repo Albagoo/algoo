@@ -1,0 +1,37 @@
+{
+"DESCRIPTION" : {"REGION_NM":"지역명","LINE_NUM":"호선","LINE_NM":"호선명"},
+"DATA" : [
+{"REGION_NM":"서울","LINE_NUM":"","LINE_NM":"호선"},
+{"REGION_NM":"서울","LINE_NUM":"1","LINE_NM":"1호선"},
+{"REGION_NM":"서울","LINE_NUM":"2","LINE_NM":"2호선"},
+{"REGION_NM":"서울","LINE_NUM":"3","LINE_NM":"3호선"},
+{"REGION_NM":"서울","LINE_NUM":"4","LINE_NM":"4호선"},
+{"REGION_NM":"서울","LINE_NUM":"5","LINE_NM":"5호선"},
+{"REGION_NM":"서울","LINE_NUM":"6","LINE_NM":"6호선"},
+{"REGION_NM":"서울","LINE_NUM":"7","LINE_NM":"7호선"},
+{"REGION_NM":"서울","LINE_NUM":"8","LINE_NM":"8호선"},
+{"REGION_NM":"서울","LINE_NUM":"9","LINE_NM":"9호선"},
+{"REGION_NM":"서울","LINE_NUM":"A","LINE_NM":"공항철도"},
+{"REGION_NM":"서울","LINE_NUM":"G","LINE_NM":"경춘선"},
+{"REGION_NM":"서울","LINE_NUM":"K","LINE_NM":"경의선"},
+{"REGION_NM":"서울","LINE_NUM":"B","LINE_NM":"분당선"},
+{"REGION_NM":"서울","LINE_NUM":"SU","LINE_NM":"수인선"},
+{"REGION_NM":"서울","LINE_NUM":"E","LINE_NM":"에버라인"},
+{"REGION_NM":"서울","LINE_NUM":"S","LINE_NM":"신분당선"},
+{"REGION_NM":"서울","LINE_NUM":"U","LINE_NM":"의정부경전철"},
+
+{"REGION_NM":"인천","LINE_NUM":"","LINE_NM":"호선"},
+{"REGION_NM":"인천","LINE_NUM":"I","LINE_NM":"인천1호선"},
+{"REGION_NM":"인천","LINE_NUM":"I2","LINE_NM":"인천2호선"},
+
+{"REGION_NM":"부산","LINE_NUM":"","LINE_NM":"호선"},
+{"REGION_NM":"부산","LINE_NUM":"B1","LINE_NM":"1호선"},
+{"REGION_NM":"부산","LINE_NUM":"B2","LINE_NM":"2호선"},
+{"REGION_NM":"부산","LINE_NUM":"B3","LINE_NM":"3호선"},
+{"REGION_NM":"부산","LINE_NUM":"B4","LINE_NM":"4호선"},
+{"REGION_NM":"부산","LINE_NUM":"BG","LINE_NM":"부산김해경전철"}
+
+
+]
+
+}

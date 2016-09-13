@@ -16,6 +16,9 @@ $(document).ready(function(){
 	$("#userid").keyup(function(){
 		//1 <= 해당 아이디가 존재하는 경우
 		//2 <= 존재하지 않는 경우
+	if($("#userid").val().length<8 || $("#userid").val().length>16 ){
+		$("#message").html("아이디는 8~16자 사이로 입력하세요");
+	}else{
 		if(validate_userid($("#userid").val()) && 
 			$("#userid").val().length>=2){
 			$.ajax({
@@ -42,7 +45,7 @@ $(document).ready(function(){
 			$("#message").html("아이디 규칙에 맞지 않습니다");
 			$("#chkId").val("N");
 		}
-		
+	}	
 		
 	});//id
 	
@@ -91,22 +94,22 @@ function getZipcode(){
 		
 		<div class="regi_group">
 			<div id="id_div">
-				<input type="text" name="userid" id="userid" placeholder="아이디" style="width:220px"
+				<input type="text" name="userid" id="userid" placeholder="아이디" style="width:180px"
 					style="ime-mode:inactive">&nbsp;
 					<span id="message"></span>
 			</div>
 			
 			<div id="nickName_div">
-				<input type="text" name="nickName" id="nickName" placeholder="닉네임" style="width:220px">
+				<input type="text" name="nickName" id="nickName" placeholder="닉네임" style="width:180px">
 			</div>
 			
 			<div id="pwd_div">
-				<input type="password" name="password" id="pwd" placeholder="비밀번호" style="width:190px">
+				<input type="password" name="password" id="pwd" placeholder="비밀번호" style="width:180px">
 				<span id="message2"></span>
 			</div>
 			
 			<div id="pwd2_div">
-				<input type="password" name="password2" id="pwd2" placeholder="비밀번호 확인" style="width:190px"
+				<input type="password" name="password2" id="pwd2" placeholder="비밀번호 확인" style="width:180px"
 					style="width:220px">
 			</div>
 		</div>

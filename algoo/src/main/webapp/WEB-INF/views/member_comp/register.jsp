@@ -13,6 +13,9 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("#userid").keyup(function(){
+		if($("#userid").val().length<8 || $("#userid").val().length>16 ){
+			$("#message").html("아이디는 8~16자 사이로 입력하세요");
+		}else{
 			//1 <= 해당 아이디가 존재하는 경우
 			//2 <= 존재하지 않는 경우
 			if(validate_userid($("#userid").val()) && 
@@ -23,18 +26,16 @@
 					data:"userid="+$("#userid").val(),
 					success:function(res){
 						var result="";
-						if(res==1){
-							result="이미 등록된 아이디입니다.";
-							$("#chkId").val("N");
-						}else if(res==2){
-							if($("#userid").val().length<8 || $("#userid").val().length>16 ){
-								result="아이디는 8~16자 사이로 입력하세요 ";
-								return false;
-							}else{							
+						
+							if(res==1){
+								result="이미 등록된 아이디입니다.";
+								$("#chkId").val("N");
+							}else if(res==2){
 								result = "사용가능한 아이디입니다.";
+								
+								$("#chkId").val("Y");
 							}
-							$("#chkId").val("Y");
-						}
+						
 						$("#message").html(result);
 					},
 					error:function(xhr, status, error){
@@ -46,6 +47,7 @@
 				$("#message").html("아이디 규칙에 맞지 않습니다");
 				$("#chkId").val("N");
 			}
+		}
 		});//id
 		
 	});
@@ -76,21 +78,21 @@
 	<div id="content">
 		<div class="regi_group">
 			<div id="id_div">
-				<input type="text" name="userid" id="userid" placeholder="아이디" style="width:220px">
+				<input type="text" name="userid" id="userid" placeholder="아이디" style="width:180px">
 				<span id="message"></span>
 			</div>
 			
 			<div id="nickName_div">
-				<input type="text" name="nickName" id="nickName" placeholder="닉네임" style="width:220px">
+				<input type="text" name="nickName" id="nickName" placeholder="닉네임" style="width:180px">
 			</div>
 			
 			<div id="pwd_div">
-				<input type="password" name="password" id="pwd" placeholder="비밀번호" style="width:220px">
+				<input type="password" name="password" id="pwd" placeholder="비밀번호" style="width:180px">
 				<span id="message2"></span>
 			</div>
 			
 			<div id="pwd2_div">
-				<input type="password" name="password2" id="pwd2" placeholder="비밀번호 확인" style="width:220px">
+				<input type="password" name="password2" id="pwd2" placeholder="비밀번호 확인" style="width:180px">
 			</div>
 		</div>
 		<div class="regi_group">

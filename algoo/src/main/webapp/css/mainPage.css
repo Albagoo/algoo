@@ -24,7 +24,6 @@
 }
 .divDivision{
 	height:250px;
-	background-color:MistyRose;
 }
 .divJob{
 	width: 33%;
@@ -32,6 +31,23 @@
 	border:solid 1px LightGray;
 	border-top:solid 2px LightGray;
 	float: left;
+	
+	text-align:center;
+	font-weight:bold;
+	font-size:1.2em;
+}
+.divJob table{
+	width: 250px;
+	margin:auto;
+	text-align:center;
+	font-size:0.8em;
+	font-weight:normal;
+}
+.divJob td{
+	margin-bottom:10px;
+}
+.divJob table img{
+	width: 60px;
 }
 
 .divFunction{
@@ -50,8 +66,20 @@
 .divBrand{
 	width: 100%;
 	height: 80px;
-	background-color:Lime;
+	background-color:LightGray;
 	float: left;
+}
+#divRoll{
+	margin:0 auto;
+	width:935px;
+	height:80px;
+	overflow:hidden;
+	
+	position:relative;
+}
+#divRoll li{
+	margin-top:4px;
+	float:left;
 }
 
 /* 스페셜 공고 */
@@ -63,8 +91,17 @@
 	width: 200px;
 	height: 160px;
 	border:solid 1px LightGray;
-	background-color:azure;
-} 
+}
+.tableSpecial td{
+	height: 100px;
+	text-align: center;
+}
+.tableSpecial #title{
+	font-weight:bold;
+}
+.tableSpecial #content{
+	text-align:left;
+}
 
 /* 그랜드 공고 */
 .divGrand{

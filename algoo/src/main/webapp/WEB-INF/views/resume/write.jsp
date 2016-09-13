@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../inc/simple_top.jsp" %>
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/css/simpleButton.css'/>" />
+<script src="<c:url value='/ckeditor/ckeditor.js'/>"
+	type="text/javascript"></script>
 <style type="text/css">
 	#resume{
 		text-align: left;
@@ -34,11 +38,22 @@
 	
 	#td2{
 		width: 77%;
-		padding: 20px;
+		padding: 10px;
 	}
+	
+	label {
+	    font-family: 'bon godic';
+	    font-size: 9.5pt;
+	    color: #511;
+	}
+	
 </style>
 <script type="text/javascript">
 	$(document).ready(function(){
+		CKEDITOR.replace('content', {
+			uiColor : '#FFFFFF'
+		});
+		
     	$("#simple_top span").html("이력서 등록");
     	
     	$("#area1").change(function(){
@@ -443,10 +458,10 @@
 	    	$("#detail1").change(function(){
 		    	if($("#detail1").is(":checked")){
 			    	$(".detail_tr").after("<tr id='tr' class='detail_tr_after1'><td id='td1'>고등학교</td><td id='td2'>"
-					+"<select name='detail1_year1' id='detail1_year1'><option value=''>년도</option><c:forEach var='i' begin='1989' end='2016'>"
-					+"<option value='${i}'>${i}</option></c:forEach></select> ~ <select name='detail1_year2' id='detail1_year2'><option value=''>년도</option>"
+					+"<select class='medium white textBox' name='detail1_year1' id='detail1_year1'><option value=''>년도</option><c:forEach var='i' begin='1989' end='2016'>"
+					+"<option value='${i}'>${i}</option></c:forEach></select> ~ <select class='medium white textBox' name='detail1_year2' id='detail1_year2'><option value=''>년도</option>"
 					+"<option value='현재'>현재</option><c:forEach var='i' begin='1989' end='2016'><option value='${i}'>${i}</option></c:forEach>"
-					+"</select>&nbsp;&nbsp;<input type='text' id='university1' name='university1' placeholder='학교명'></td></tr>");
+					+"</select>&nbsp;&nbsp;<input type='text' class='textBox' id='university1' name='university1' placeholder='학교명'></td></tr>");
 			    }else{
 			    	$(".detail_tr_after1").remove();
 			    }
@@ -455,11 +470,11 @@
 	    	$("#detail2").change(function(){
 		    	if($("#detail2").is(":checked")){
 			    	$(".detail_tr").after("<tr id='tr' class='detail_tr_after2'><td id='td1'>대학교 (2 ,3년제)</td><td id='td2'>"
-					+"<select name='detail2_year1' id='detail2_year1'><option value=''>년도</option><c:forEach var='i' begin='1989' end='2016'>"
-					+"<option value='${i}'>${i}</option></c:forEach></select> ~ <select name='detail2_year2' id='detail2_year2'><option value=''>년도</option>"
+					+"<select class='medium white textBox' name='detail2_year1' id='detail2_year1'><option value=''>년도</option><c:forEach var='i' begin='1989' end='2016'>"
+					+"<option value='${i}'>${i}</option></c:forEach></select> ~ <select class='medium white textBox' name='detail2_year2' id='detail2_year2'><option value=''>년도</option>"
 					+"<option value='현재'>현재</option><c:forEach var='i' begin='1989' end='2016'><option value='${i}'>${i}</option></c:forEach>"
-					+"</select><br><br><input type='text' id='university2' name='university2' placeholder='학교명'>"
-					+"&nbsp;&nbsp;<input type='text' id='university2_2' name='university2_2' placeholder='전공'></td></tr>");
+					+"</select><br><br><input type='text' id='university2' class='textBox' name='university2' placeholder='학교명'>"
+					+"&nbsp;&nbsp;<input type='text' id='university2_2' class='textBox' name='university2_2' placeholder='전공'></td></tr>");
 			    }else{
 			    	$(".detail_tr_after2").remove();
 			    }
@@ -468,11 +483,11 @@
 	    	$("#detail3").change(function(){
 		    	if($("#detail3").is(":checked")){
 			    	$(".detail_tr").after("<tr id='tr' class='detail_tr_after3'><td id='td1'>대학교 (4년제)</td><td id='td2'>"
-					+"<select name='detail3_year1' id='detail3_year1'><option value=''>년도</option><c:forEach var='i' begin='1989' end='2016'>"
-					+"<option value='${i}'>${i}</option></c:forEach></select> ~ <select name='detail3_year2' id='detail3_year2'><option value=''>년도</option>"
+					+"<select class='medium white textBox' name='detail3_year1' id='detail3_year1'><option value=''>년도</option><c:forEach var='i' begin='1989' end='2016'>"
+					+"<option value='${i}'>${i}</option></c:forEach></select> ~ <select class='medium white textBox' name='detail3_year2' id='detail3_year2'><option value=''>년도</option>"
 					+"<option value='현재'>현재</option><c:forEach var='i' begin='1989' end='2016'><option value='${i}'>${i}</option></c:forEach>"
-					+"</select><br><br><input type='text' id='university3' name='university3' placeholder='학교명'>"
-					+"&nbsp;&nbsp;<input type='text' id='university3_3' name='university3_3' placeholder='전공'></td></tr>");
+					+"</select><br><br><input type='text' id='university3' class='textBox' name='university3' placeholder='학교명'>"
+					+"&nbsp;&nbsp;<input type='text' id='university3_3' class='textBox' name='university3_3' placeholder='전공'></td></tr>");
 			    }else{
 			    	$(".detail_tr_after3").remove();
 			    }
@@ -481,13 +496,13 @@
 	    	$("#detail4").change(function(){
 		    	if($("#detail4").is(":checked")){
 			    	$(".detail_tr").after("<tr id='tr' class='detail_tr_after4'><td id='td1'>대학원</td><td id='td2'>"
-					+"<select name='detail4_year1' id='detail4_year1'><option value=''>년도</option><c:forEach var='i' begin='1989' end='2016'>"
-					+"<option value='${i}'>${i}</option></c:forEach></select> ~ <select name='detail4_year2' id='detail4_year2'><option value=''>년도</option>"
+					+"<select class='medium white textBox' name='detail4_year1' id='detail4_year1'><option value=''>년도</option><c:forEach var='i' begin='1989' end='2016'>"
+					+"<option value='${i}'>${i}</option></c:forEach></select> ~ <select class='medium white textBox' name='detail4_year2' id='detail4_year2'><option value=''>년도</option>"
 					+"<option value='현재'>현재</option><c:forEach var='i' begin='1989' end='2016'><option value='${i}'>${i}</option></c:forEach></select>"
-					+"&nbsp;&nbsp;<select name='university' id='university'><option value=''>학위</option><option value='석사'>석사</option><option value='박사'>박사</option>"
+					+"&nbsp;&nbsp;<select class='medium white textBox' name='university' id='university'><option value=''>학위</option><option value='석사'>석사</option><option value='박사'>박사</option>"
 					+"<option value='석박사통합'>석박사통합</option></select>"
-					+"<br><br><input type='text' id='university4' name='university4' placeholder='학교명'>"
-					+"&nbsp;&nbsp;<input type='text' id='university4_4' name='university4_4' placeholder='전공'></td></tr>");
+					+"<br><br><input type='text' id='university4' class='textBox' name='university4' placeholder='학교명'>"
+					+"&nbsp;&nbsp;<input type='text' id='university4_4' class='textBox' name='university4_4' placeholder='전공'></td></tr>");
 			    }else{
 			    	$(".detail_tr_after4").remove();
 			    }
@@ -535,9 +550,10 @@
     	
     	$("#language_study").click(function(){
     		if($("#language_study").is(":checked")){
-    			$("#language_study_Text").removeAttr("hidden");
+    			$("#language_study_Text").removeAttr("readonly");
     		}else{
-    			$("#language_study_Text").prop("hidden", true);
+    			$("#language_study_Text").val("");
+    			$("#language_study_Text").prop("readonly", "readonly");
     		}
     	});
     	
@@ -748,7 +764,12 @@
     		}
     		
     		$("#itDesignAbility").val(itDesignAbility);
-    	});
+    	}); //submit
+    	
+    	$("select").addClass("medium white textBox");
+    	
+    	$("input[type='text']").addClass("textBox");
+    	
  	});
 </script>
 <div id="resume">
@@ -803,11 +824,11 @@
 					</tr>
 				</table>
 				<div style="float: left; background-color: #eee; border:1px solid silver; 
-					width: 175px; height: 50px; padding: 5px 0 5px 20px;">
+					width: 230px; height: 70px; padding: 5px 0 5px 20px;">
 					연락가능시간
 					<input type="checkbox" name="moo" id="moo">
 					<label for="moo">무관</label><br>
-					<select name="time1" id="time1" style="margin-top: 5px;">
+					<select name="time1" id="time1" style="margin-top: 5px">
 						<option value="">시간</option>
 						<c:forEach var="i" begin="0" end="24">
 							<option value="${i}:00">${i}:00</option>
@@ -1001,7 +1022,7 @@
 	<table id="box">
 		<tr id="tr">
 			<td id="td1">
-				<label for="company">회사명</label>
+				회사명
 			</td>
 			<td id="td2">
 				<input type="text" id="company" name="company" placeholder="회사명">
@@ -1066,7 +1087,7 @@
 		</tr>
 		<tr id="tr">
 			<td id="td1">
-				<label for="work">담당업무</label>
+				담당업무
 			</td>
 			<td id="td2">
 				 <textarea cols="5" id="work" name="work" 
@@ -1080,7 +1101,7 @@
    	<table id="box">
 		<tr id="tr">
 			<td id="td1">
-				<label for="language">외국어</label>
+				외국어
 			</td>
 			<td id="td2">
 				<select id="language" name="language" 
@@ -1123,7 +1144,7 @@
 				  	<label for="language_study">어학연수 경험있음</label><br> <br>                  
 				   <input id="language_study_Text" name="language_study_Text" 
 				   	placeholder="어학연수 경험을 입력해 주세요. (ex- 2012~2013 : 캐나다 OOO 대학교 교환학생)" 
-				   	style="width:548px;" title="어학연수경험 입력" type="text" hidden="true"/>
+				   	style="width:548px;" title="어학연수경험 입력" type="text" readonly="readonly"/>
 			</td>
 		</tr>
 		<tr id="tr">
@@ -1204,7 +1225,8 @@
 			</td>
 			<td id="td2">
 				워드
-			    <input checked="checked" id="word1" name="word" type="radio" value="상" />
+			    <input checked="checked" id="word1" name="word" type="radio" value="상" 
+			    	style="margin-top: 20px;"/>
 			    <label for="word1">상</label>
 			    <input id="word2" name="word" type="radio" value="중" />
 			    <label for="word2">중</label>
@@ -1337,8 +1359,10 @@
     		<td>
     	</tr>
     </table>
-   
-   	<input type="submit" value="등록">
+   	<div style="text-align: center;">
+   		<input type="image" src="<c:url value='/images/resume_insert.PNG'/>"
+   			style="margin-top: 10px;">
+   	</div>
    	</form>
 </div>
 <%@ include file="../inc/simple_bottom.jsp" %>

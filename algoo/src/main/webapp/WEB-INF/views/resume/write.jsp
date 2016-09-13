@@ -637,10 +637,89 @@
     			category += $("#category10").val()+",";
     		}
     		if($("#category11").is(":checked")){
-    			category += $("#category11").val()+",";
+    			category += $("#category11").val();
     		}
     		
     		$("#category").val(category);
+    		
+    		/* 업직종 */
+    		var type = "";
+    		if($("#type1").is(":checked")){
+    			type += $("#type1").val()+",";
+    		}
+    		if($("#type2").is(":checked")){
+    			type += $("#type2").val()+",";
+    		}
+    		if($("#type3").is(":checked")){
+    			type += $("#type3").val()+",";
+    		}
+    		if($("#type4").is(":checked")){
+    			type += $("#type4").val()+",";
+    		}
+    		if($("#type5").is(":checked")){
+    			type += $("#type5").val();
+    		}
+    		
+    		$("#type").val(type);
+    		
+    		/* 근무일시 */
+    		var day = "기간 : " + $("#day1 option:selected").val() + ", 요일 : "
+    				+ $("#day2 option:selected").val() + ", 시간 : "
+    				+ $("#day3 option:selected").val()
+    		
+			$("#day").val(day);
+    		
+    		/* 급여 */
+    		var pay = $("#pay1 option:selected").val() + " " + $("#pay2").val() + "원";
+    		if($("#pay3").is(":checked")){
+    			pay = "추후협의";
+    		}
+    		
+    		$("#pay").val(pay);
+    		
+    		/* 경력사항
+    		근무기간 */
+    		var period = "";
+    		if($("#period_check").is(":checked")){
+    			period = $("#period_year option:selected").val()+"년 "
+    			+ $("#period_month option:selected").val()+"월 ~ "
+    			+ $("#period_year_2 option:selected").val()+"년 "
+    			+ $("#period_month_2 option:selected").val()+"월 동안 근무";
+    			if($("#period_c").is(":checked")){
+    				period = $("#period_year option:selected").val()+"년 "
+        			+ $("#period_month option:selected").val()+"월 부터 재직중";
+    			}
+    		}else if($("#period_check2").is(":checked")){
+    			period = $("#period_year2 option:selected").val()+"년 "
+    				+$("#period_day option:selected").val()+"일 동안 근무";
+    		}
+    		
+    		$("#period").val(period);
+    		
+    	 	/* 외국어능력
+    	 	어학연수 */
+    	 	var language = "";
+    	 	if($("#language_study").is(":checked")){
+    	 		language = "어학연수 : "+$("#language_study_Text").val();
+	    	 	$("#language_study").val(language);
+    	 	} 
+    	 	if(!$("#language_study").is(":checked")){
+    	 		$("#language_study").val("");
+    	 	}
+    	 	
+    	 	/* 공인시험 */
+    	 	var officialTest = $("#official_test1").val()+" "+$("#official_test2").val()
+    	 		+" "+$("#official_test_year option:selected").val()+"년 "
+    	 		+$("#official_test_month option:selected").val()+"월 시험";
+    	 	
+    	 	$("#officialTest").val(officialTest);
+    	 	
+    	 	/* 자격증
+    	 	발행처 */
+    	 	var collicensePlace = $("#collicense_place").val()+" "
+    	 		+$("#collicense_place_year").val()+"년 취득";
+    	 	
+    	 	$("#collicensePlace").val(collicensePlace);
     	});
  	});
 </script>
@@ -656,6 +735,12 @@
 	<input type="hidden" id="detail" name="detail" >
 	<input type="hidden" id="area" name="area" >
 	<input type="hidden" id="category" name="category" >
+	<input type="hidden" id="type" name="type" >
+	<input type="hidden" id="day" name="day" >
+	<input type="hidden" id="pay" name="pay" >
+	<input type="hidden" id="period" name="period" >
+	<input type="hidden" id="officialTest" name="officialTest" >
+	<input type="hidden" id="collicensePlace" name="collicensePlace" >
 	<table id="box">
 		<tr id="tr">
 			<td style="text-align: center; padding: 10px; width: 20%">
@@ -759,19 +844,19 @@
 				<label for="category3">문화/여가/생활</label>
 				<input type="checkbox" name="category4" id="category4" value="서비스">
 				<label for="category4">서비스</label>
-				<input type="checkbox" name="category5" id="category5" value="서비스">
+				<input type="checkbox" name="category5" id="category5" value="사무직">
 				<label for="category5">사무직</label><br>
-				<input type="checkbox" name="category6" id="category6" value="서비스">
+				<input type="checkbox" name="category6" id="category6" value="고객상담/리서치/영업">
 				<label for="category6">고객상담/리서치/영업</label>
-				<input type="checkbox" name="category7" id="category7" value="서비스">
+				<input type="checkbox" name="category7" id="category7" value="생산/건설/운송">
 				<label for="category7">생산/건설/운송</label>
-				<input type="checkbox" name="category8" id="category8" value="서비스">
+				<input type="checkbox" name="category8" id="category8" value="IT/컴퓨터">
 				<label for="category8">IT/컴퓨터</label><br>
-				<input type="checkbox" name="category9" id="category9" value="서비스">
+				<input type="checkbox" name="category9" id="category9" value="교육/강사">
 				<label for="category9">교육/강사</label>
-				<input type="checkbox" name="category10" id="category10" value="서비스">
+				<input type="checkbox" name="category10" id="category10" value="디자인">
 				<label for="category10">디자인</label>
-				<input type="checkbox" name="category11" id="category11" value="서비스">
+				<input type="checkbox" name="category11" id="category11" value="미디어">
 				<label for="category11">미디어</label>
 			</td>
 		</tr>
@@ -972,40 +1057,40 @@
 				<select id="language" name="language" 
 				  	style="width:235px;margin-right:5px" title="언어선택">
 				   	<option value="">외국어명</option>
-					<option value="1">그리스어</option>
-					<option value="2">네덜란드어</option>
-					<option value="3">노르웨이어</option>
-					<option value="4">독일어</option>
-					<option value="5">러시아어</option>
-					<option value="6">루마니아어</option>
-					<option value="7">마인어</option>
-					<option value="8">몽고어</option>
-					<option value="9">미얀마어</option>
-					<option value="10">베트남어</option>
-					<option value="11">세르비아어</option>
-					<option value="12">스웨덴어</option>
-					<option value="13">스페인어</option>
-					<option value="14">슬로바키아어</option>
-					<option value="15">아랍어</option>
-					<option value="16">영어</option>
-					<option value="17">유고어</option>
-					<option value="18">이란(페르시아)어</option>
-					<option value="19">이탈리아어</option>
-					<option value="20">일본어</option>
-					<option value="21">중국어</option>
-					<option value="22">체코어</option>
-					<option value="23">태국어</option>
-					<option value="24">터키어</option>
-					<option value="25">포르투갈어</option>
-					<option value="26">폴란드어</option>
-					<option value="27">프랑스어</option>
-					<option value="28">헝가리어</option>
-					<option value="29">히브리어</option>
-					<option value="30">힌디어</option>
-					<option value="31">기타</option>
+					<option value="그리스어">그리스어</option>
+					<option value="네덜란드어">네덜란드어</option>
+					<option value="노르웨이어">노르웨이어</option>
+					<option value="독일어">독일어</option>
+					<option value="러시아어">러시아어</option>
+					<option value="루마니아어">루마니아어</option>
+					<option value="마인어">마인어</option>
+					<option value="몽고어">몽고어</option>
+					<option value="미얀마어">미얀마어</option>
+					<option value="베트남어">베트남어</option>
+					<option value="세르비아어">세르비아어</option>
+					<option value="스웨덴어">스웨덴어</option>
+					<option value="스페인어">스페인어</option>
+					<option value="슬로바키아어">슬로바키아어</option>
+					<option value="아랍어">아랍어</option>
+					<option value="영어">영어</option>
+					<option value="유고어">유고어</option>
+					<option value="이란(페르시아)어">이란(페르시아)어</option>
+					<option value="이탈리아어">이탈리아어</option>
+					<option value="일본어">일본어</option>
+					<option value="중국어">중국어</option>
+					<option value="체코어">체코어</option>
+					<option value="태국어">태국어</option>
+					<option value="터키어">터키어</option>
+					<option value="포르투갈어">포르투갈어</option>
+					<option value="폴란드어">폴란드어</option>
+					<option value="프랑스어">프랑스어</option>
+					<option value="헝가리어">헝가리어</option>
+					<option value="히브리어">히브리어</option>
+					<option value="힌디어">힌디어</option>
+					<option value="기타">기타</option>
 				</select>
-				   <input id="language_study" name="language_study" 
-				   	type="checkbox" value="true" />
+				   <input id="language_study" name="languageStudy" 
+				   	type="checkbox"/>
 				  	<label for="language_study">어학연수 경험있음</label><br> <br>                  
 				   <input id="language_study_Text" name="language_study_Text" 
 				   	placeholder="어학연수 경험을 입력해 주세요. (ex- 2012~2013 : 캐나다 OOO 대학교 교환학생)" 
@@ -1017,12 +1102,12 @@
 				구사능력
 			</td>
 			<td id="td2">
-			    <input checked="checked" id="language_command_1" name="language_command" type="radio" value="1" />
-			    <label for="language_command_1">상</label>
-			    <input id="language_command_2" name="language_command" type="radio" value="2" />
-			    <label for="language_command_2">중</label>
-			    <input id="language_command_3" name="language_command" type="radio" value="3" />
-			    <label for="language_command_3">하</label>
+			    <input checked="checked" id="language_command_1" name="languageCommand" type="radio" value="상 : 회화능숙" />
+			    <label for="language_command_1">상 : 회화능숙</label>
+			    <input id="language_command_2" name="languageCommand" type="radio" value="중 : 일상대화" />
+			    <label for="language_command_2">중 : 일상대화</label>
+			    <input id="language_command_3" name="languageCommand" type="radio" value="하 : 간단대화" />
+			    <label for="language_command_3">하 : 간단대화</label>
 			</td>
 		</tr>
 		<tr id="tr">
@@ -1034,14 +1119,16 @@
 			    	placeholder="시험종목">
 			    <input type="text" id="official_test2" name="official_test2" 
 		   			placeholder="점수/등급">
-			    <select name="official_test_year">
-					<option value="">취득년도</option>
+			    <select name="official_test_year"
+			    	id="official_test_year">
+					<option value="">시험년도</option>
 					<c:forEach var="i" begin="1989" end="2016">
 						<option value="${i}">${i}</option>
 					</c:forEach>
 				</select>
-				<select name="official_test_month">
-					<option value="">취득월</option>
+				<select name="official_test_month"
+					id="official_test_month">
+					<option value="">시험월</option>
 					<c:forEach var="i" begin="1" end="12">
 						<option value="${i}">${i}</option>
 					</c:forEach>
@@ -1058,7 +1145,7 @@
 				자격증
 			</td>
 			<td id="td2">
-				<input type="text" id="license_name" name="license_name" placeholder="자격증">
+				<input type="text" id="license_name" name="licenseName" placeholder="자격증">
 			</td>
 		</tr>
 		<tr id="tr">
@@ -1068,7 +1155,8 @@
 			<td id="td2">
 				<input type="text" id="collicense_place" 
 					name="collicense_place" placeholder="발행처">
-				<select name="collicense_place_year">
+				<select name="collicense_place_year"
+					id="collicense_place_year">
 					<option value="">년도</option>
 					<c:forEach var="i" begin="1989" end="2016">
 						<option value="${i}">${i}</option>

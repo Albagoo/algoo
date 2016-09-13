@@ -42,7 +42,7 @@ $(document).ready(function(){
         <div class="firstDiv">
             <label for="title" style="width:10%;">제목</label>
             <input type="text" id="title" name="title" 
-            	style="width: 300px;font-size: 0.75em;text-align: left" 
+            	style="width: 300px;font-size: 0.85em;text-align: left" 
             	class="textBox" value="${freeVo.title }" />
         </div>
         <div>	       

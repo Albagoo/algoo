@@ -89,8 +89,7 @@ public class NoticeController {
 		//record counting 08-31
 		int totalRecord
 		=noticeService.selectTotalCount(searchVo);
-		logger.info("전체 레코드 개수 totalRecord={}",
-				+totalRecord);
+		logger.info("전체 레코드 개수 totalRecord={}", totalRecord);
 		pagingInfo.setTotalRecord(totalRecord);
 		
 		//3. result save
@@ -100,30 +99,6 @@ public class NoticeController {
 		logger.info("페이징인포={}",pagingInfo.getCurrentPage());
 		
 		return "notice/list";
-	}
-	
-	@RequestMapping("/updateReadCount.ag")
-	public String UpdateReadCount(
-			@RequestParam(defaultValue="0") int no,
-			Model model){
-		//3) 조회수 증가
-		//1. parameter
-		logger.info("조회수 증가, 파라미터 no={}", no);
-		
-		//wrong parameter
-		if(no==0){
-			model.addAttribute("msg", "잘못된 url입니다");
-			model.addAttribute("url", "/notice/list.ag");
-			
-			return "common/message";
-		}
-		
-		//2. db process
-		int cnt=noticeService.updateReadCount(no);
-		logger.info("조회수 증가 결과, cnt={}", cnt);
-		
-		//3. result save
-		return "redirect:/notice/detail.ag?no="+no;
 	}
 	
 	@RequestMapping("/detail.ag")
@@ -221,5 +196,46 @@ public class NoticeController {
 		model.addAttribute("url", url);
 		
 		return "common/message";
+	}
+	
+	@RequestMapping("/noticeUserList.ag")
+	public String UserList(@ModelAttribute ListNoticeVO searchVo,
+			@RequestParam(required=false) String categoryName, Model model){
+		logger.info("회원 공지사항 리스트 조회, 파라미터 noticeVo={}", searchVo);
+		logger.info("카테고리 = {}",categoryName);
+
+		PaginationInfo pagingInfo = new PaginationInfo();
+		pagingInfo.setBlockSize(pagingInfo.BLOCK_SIZE);
+		pagingInfo.setRecordCountPerPage(pagingInfo.RECORD_COUNT_PER_PAGE);
+		pagingInfo.setCurrentPage(searchVo.getCurrentPage());
+		
+		searchVo.setBlockSize(Utility.BLOCK_SIZE);
+		searchVo.setRecordCountPerPage(pagingInfo.getRecordCountPerPage());
+		searchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
+
+		List<NoticeVO> alist = new ArrayList<NoticeVO>();
+		
+		searchVo.setCategory(categoryName);
+		
+		if(categoryName!=null && !categoryName.isEmpty()){
+			alist=noticeService.searchCategory(searchVo);
+			logger.info("회원 공지사항 목록 조회 결과, alist.size()={}",
+					alist.size());
+		}else{
+			alist=noticeService.selectByCategory(searchVo);
+			logger.info("회원 공지사항 목록 조회 결과, alist.size()={}",
+					alist.size());
+		}
+
+		int totalRecord=noticeService.selectTotalCount(searchVo);
+		logger.info("전체 레코드 개수 totalRecord={}", totalRecord);
+		pagingInfo.setTotalRecord(totalRecord);
+		
+		model.addAttribute("noticeList", alist);
+		model.addAttribute("pagingInfo", pagingInfo);
+		
+		logger.info("회원 pagingInfo={}", pagingInfo.getCurrentPage());
+		
+		return "notice/noticeUserList";
 	}
 }

@@ -8,6 +8,10 @@
 	href="<c:url value='/css/clear.css'/>" />
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/recLayout.css'/>" />
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/XEIcon-2.2.0/xeicon.css'/>" />
+<link rel="stylesheet" type="text/css"
+	href="<c:url value='/XEIcon-2.2.0/xeicon.min.css'/>" />
 <script type="text/javascript" src="<c:url value='/js/member.js'/>"></script>
 <script type="text/javascript"
 	src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
@@ -19,11 +23,10 @@
    type="text/css">
 <script src="<c:url value='/jquery/jquery-ui.js'/>"
    type="text/javascript"></script>
-
+<link rel="stylesheet" href
+="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <script type="text/javascript">
 	$(document).ready(function() {
-		
-		/* 달력 */
 		$("#calText").datepicker({
 			dateFormat:"yy-mm-dd",
 	        changeYear:true,
@@ -31,18 +34,7 @@
 	         monthNames:['1월','2월','3월','4월','5월','6월',
 	                     '7월','8월','9월','10월','11월','12월']
 		});
-
-		var select = $("select#jobName");
-		   select.change(function(){
-		      var select_name = $(this).children("option:selected").text();
-		      $(this).siblings("label").text(select_name);
-		   });
-		var select2 = $("select#jobName2");
-         select2.change(function(){
-            var select_name2 = $(this).children("option:selected").text();
-            $(this).siblings("label").text(select_name2);
-         });
-		
+	
 	setAges();
 	setForms();
 	$("input[name='age']").click(function() {
@@ -73,39 +65,40 @@
 	var res = "";
 
 	//서비스기간설정버튼을 눌렀을때	  
-	$("#serviceBt").click(function() {
-		$("#submitBt").show();
-		$("#serviceInfo").hide();
-		$("#serviceBt").hide();
+	$("#serviceBt")
+			.click(function() {
+				$("#submitBt").show();
+				$("#serviceInfo").hide();
+				$("#serviceBt").hide();
 
-			$.ajax({
-				url : "<c:url value='/service/serviceWrite.ag'/>",
-			   type : "GET",
-				success : function(res) {
-				res = "<div>";
-				res += "<h2>서비스 선택</h2>";
-				res += '<form method="post" name="frmService" id="frmService" ';
-				res += 'action="<c:url value='/service/serviceWrite.ag'/>" style="display:inline" >';
-				res += '<select class="button white"  id="gradeSel">';
-				res += '<option value="1등급">1등급</option>';
-				res += '<option value="2등급">2등급</option>';
-				res += '<option value="3등급">3등급</option>';
-				res += '<option value="4등급">4등급</option></select>';
-				res += '<select class="button white"  id="daysSel">';
-				res += '<option value="1일">1일</option>';
-				res += '<option value="7일">7일</option>';
-				res += '<option value="30일"> 30일</option>';
-				res += '<option value="90일">90일</option>';
-				res += '<option value="180일">180일</option></select>';
-				res += ' <input class="button medium white" type="reset" value="취소"> ';
-				res += ' </form></div>';
-				$("#divService").html(res);
-			},
-			error : function(xhr,status, error) {
-				alert(status + ":"+ error);
-			},
-		});//aj
-	}); //click  
+				$.ajax({
+					url : "<c:url value='/service/serviceWrite.ag'/>",
+				   type : "GET",
+					success : function(res) {
+					res = "<div>";
+					res += "<h2>서비스 선택</h2>";
+					res += '<form method="post" name="frmService" id="frmService" ';
+					res += 'action="<c:url value='/service/serviceWrite.ag'/>" style="display:inline" >';
+					res += '<select class="button white"  id="gradeSel">';
+					res += '<option value="1등급">1등급</option>';
+					res += '<option value="2등급">2등급</option>';
+					res += '<option value="3등급">3등급</option>';
+					res += '<option value="4등급">4등급</option></select>';
+					res += '<select class="button white"  id="daysSel">';
+					res += '<option value="1일">1일</option>';
+					res += '<option value="7일">7일</option>';
+					res += '<option value="30일"> 30일</option>';
+					res += '<option value="90일">90일</option>';
+					res += '<option value="180일">180일</option></select>';
+					res += ' <input class="button medium white" type="reset" value="취소"> ';
+					res += ' </form></div>';
+					$("#divService").html(res);
+				},
+				error : function(xhr,status, error) {
+					alert(status + ":"+ error);
+				},
+			});//aj
+		}); //click  
 
 	$("#regBt").click(function() {
 		if ($("#grade").val().length < 1) {
@@ -211,8 +204,7 @@
 		  }
 		});
 	});
-	
-	
+
 	//직업 정보2
 	$("#jobName").change(function() {
 		$("#jobName2").html("");
@@ -289,7 +281,7 @@
 
 
 		<div id="div1"></div>
-		<h2>기업 정보</h2>
+		<h2><i class="xi-building"></i> 기업 정보</h2>
 		<div class="companyInfo bg">
 			<dl class="clearBoth">
 				<dt>
@@ -326,7 +318,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
 			</dl>
 		</div>
 		<!-- 담당자 정보 -->
-		<h2 class="clearBoth">담당자 정보</h2>
+		<h2 class="clearBoth"> <i class="xi-emoticon-happy-o"> </i>담당자 정보</h2>
 		<div class="personInfo bg">
 			<dl class="clearBoth">
 				<dt>
@@ -375,7 +367,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
 			</dl>
 		</div>
 		<!-- 근무지 정보 -->
-		<h2>근무지정보</h2>
+		<h2><i class="xi-map-o"></i>근무지정보</h2>
 		<div class=" workInfo bg">
 			<dl class="clearBoth">
 				<dt>
@@ -389,19 +381,12 @@ style="width: 150px;height: 100px;border: 1px solid gray">
 						maxlength="33">
 				</dt>
 				<dt>
-					<span class="tit">업직종</span>
-					<div id="select_box"> 
-					<label for="jobName" title="select jobname">직종선택</label>
-					<select  
-					 name="jobName" id="jobName">	</select> </div>
-					<div id="select_box">  
-					<label for="jobName2" title="select jobname2">직종선택2</label>  
-					 <select  
-					 name="jobName2" id="jobName2">
-				    <option value="null">직종선택</option>
-				    </div>
+					<span class="tit">업직종</span> <select
+						class="txt_180 textBox white medium" name="jobName" id="jobName">
+					</select> <select class="txt_180 textBox white medium" name="jobName2"
+						id="jobName2">
+						<option value="null">직종선택</option>
 					</select>
-					
 				</dt>
 				<dt>
 					<span class="tit">근무지주소</span> <input type="text" class="txt_70"
@@ -437,7 +422,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
 			</dl>
 		</div>
 		<!-- 근무조건 -->
-		<h2>근무조건</h2>
+		<h2><i class="xi-walk"></i>근무조건</h2>
 		<div class="workCondition bg checks">
 			<dl class="clearBoth">
 				<dt>
@@ -567,7 +552,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
 				</dt>
 			</dl>
 		</div>
-		<h2>지원조건</h2>
+		<h2><i class="xi-user-o"></i>지원조건</h2>
 		<div class="requestCondition bg checks">
 			<dl class="clearBoth">
 				<dt>
@@ -656,7 +641,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
 				</dt>
 			</dl>
 		</div>
-		<h2>모집내용</h2>
+		<h2><i class="xi-users-plus"></i>모집내용</h2>
 		<div class="recContent bg checks">
 			<dl class="clearBoth">
 				<dt>
@@ -693,10 +678,10 @@ style="width: 150px;height: 100px;border: 1px solid gray">
 					  size="30">
 					  <input type="text" id="calText" size="10">
 					  <label for="oneCal"></label> 
-					  <input type="radio" id="weekCal"
+					  <input type="radio" id="weekCal" name="deadline"
 						 value="7"> 
 					  <label for="weekCal">1주동안</label>
-					  <input type="radio" id="monthCal"
+					  <input type="radio" id="monthCal" name="deadline"
 						 value="1">
 						<label for="monthCal">한달동안</label>
 				</dt>
@@ -721,9 +706,9 @@ style="width: 150px;height: 100px;border: 1px solid gray">
 						class="rence" for="homepageRec"> 홈페이지 </label> <input
 						type="checkbox" id="recForm" value="자사지원양식"> <label
 						for="recForm">자사지원양식</label> <span style="font-size: 8pt">
-						( <input type="radio" name="recForm" id="FormF"> <label
-						for="FormF">필수 ,</label> <input type="radio" name="recForm"
-						id="FormS"> <label for="FormS">선택</label> )
+						 <input type="radio" name="recForm" id="FormF"> <label
+						for="FormF">(필수 ,</label> <input type="radio" name="recForm"
+						id="FormS"> <label for="FormS">선택)</label> 
 					</span>
 
 
@@ -744,7 +729,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
 				</dt>
 			</dl>
 		</div>
-		<h2>상세모집요강</h2>
+		<h2><i class="xi-document"></i>상세모집요강</h2>
 		<div class="detailContent">
 			<div>
 				<textarea id="content" name="detailRecruit" rows="12" cols="40"></textarea>

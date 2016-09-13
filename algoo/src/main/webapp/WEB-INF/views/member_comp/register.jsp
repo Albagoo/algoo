@@ -11,8 +11,52 @@
 </script>
 <script type="text/javascript" src="<c:url value='/js/member_com.js' />"></script>
 <script type="text/javascript">
-
+	$(document).ready(function(){
+		$("#userid").keyup(function(){
+			//1 <= 해당 아이디가 존재하는 경우
+			//2 <= 존재하지 않는 경우
+			if(validate_userid($("#userid").val()) && 
+				$("#userid").val().length>=2){
+				$.ajax({
+					url:"<c:url value='/member_comp/ajaxCheckUserid.ag'/>",
+					type:"GET",
+					data:"userid="+$("#userid").val(),
+					success:function(res){
+						var result="";
+						if(res==1){
+							result="이미 등록된 아이디입니다.";
+							$("#chkId").val("N");
+						}else if(res==2){
+							if($("#userid").val().length<8 || $("#userid").val().length>16 ){
+								result="아이디는 8~16자 사이로 입력하세요 ";
+								return false;
+							}else{							
+								result = "사용가능한 아이디입니다.";
+							}
+							$("#chkId").val("Y");
+						}
+						$("#message").html(result);
+					},
+					error:function(xhr, status, error){
+						alert(status+":"+error);
+					}
+				});
+			}else{
+				//유효성 검사를 통과하지 못한 경우
+				$("#message").html("아이디 규칙에 맞지 않습니다");
+				$("#chkId").val("N");
+			}
+		});//id
+		
+	});
 </script>
+
+<style type="text/css">
+	#message, #message2{
+		color:red;
+		font-size:13px;
+	}
+</style>
 <title>회원가입</title>
 </head>
 <body>
@@ -32,24 +76,26 @@
 	<div id="content">
 		<div class="regi_group">
 			<div id="id_div">
-				<input type="text" name="userid" id="userid" placeholder="아이디">
+				<input type="text" name="userid" id="userid" placeholder="아이디" style="width:220px">
+				<span id="message"></span>
 			</div>
 			
 			<div id="nickName_div">
-				<input type="text" name="nickName" id="nickName" placeholder="닉네임">
+				<input type="text" name="nickName" id="nickName" placeholder="닉네임" style="width:220px">
 			</div>
 			
 			<div id="pwd_div">
-				<input type="password" name="password" id="pwd" placeholder="비밀번호">
+				<input type="password" name="password" id="pwd" placeholder="비밀번호" style="width:220px">
+				<span id="message2"></span>
 			</div>
 			
 			<div id="pwd2_div">
-				<input type="password" name="password2" id="pwd2" placeholder="비밀번호 확인">
+				<input type="password" name="password2" id="pwd2" placeholder="비밀번호 확인" style="width:220px">
 			</div>
 		</div>
 		<div class="regi_group">
 			<div id="info_div">
-				<input type="text" name="userName" id="name" placeholder="이름">
+				<input type="text" name="userName" id="userName" placeholder="이름">
 			</div>
 			
 			<div id="gender_div">
@@ -131,13 +177,14 @@
 				<input type="text" name="fax3" id="fax3" maxlength="4">
 			</div>
 		</div>
+		<input type ="hidden" name="chkId" id="chkId" value="N">
+		<input type ="hidden" name="chkPw" id="chkPw" value="N">
 		<div class="regi_group" id="regi_submit" >
 			<input type="submit" id="bt_register" value="기업회원 가입하기">
 		</div>
 	</div>
 	</fieldset>
 	</form>
-	
 	<div id="footer">
 		<img alt="미니로고" src="<c:url value='/images/simple_Logo.png' />"/>
 		<address>©<a href="#" id="copy_algoo">Algoo</a> Corp. All rights reserved.</address>

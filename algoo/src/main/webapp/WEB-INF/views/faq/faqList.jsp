@@ -130,7 +130,7 @@
 			<tr style="text-align: center">
 				<td>${vo.faqNo}</td>
 				<td style="text-align: left;">
-					<a href="<c:url value='/faq/updateCount.ag?faqNo=${vo.faqNo}'/>">
+					<a href="<c:url value='/faq/faqDetail.ag?faqNo=${vo.faqNo}'/>">
 						&nbsp; [${vo.category }] ${vo.title}</a>
 				</td>
 				<td><fmt:formatDate value="${vo.regdate}" pattern="yyyy-MM-dd"/>

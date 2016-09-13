@@ -40,11 +40,6 @@ public class NoticeServiceImpl implements NoticeService{
 	}
 
 	@Override
-	public int updateReadCount(int no) {
-		return noticeDao.updateReadCount(no);
-	}
-
-	@Override
 	public NoticeVO selectByNo(int no){
 		return noticeDao.selectByNo(no);
 	}

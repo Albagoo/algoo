@@ -46,9 +46,7 @@
 		]]>
 	</select>
 	
-	<select id="searchCategory"
-	 parameterType="ListFaqVO"
-	 resultType="FaqVO">
+	<select id="searchCategory" parameterType="ListFaqVO" resultType="FaqVO">
 		select *
 		from
 		(
@@ -72,12 +70,6 @@
 		select count(*) from faq
 		<include refid="searchWhere"></include>
 	</select>
-	
-	<update id="updateReadCount" parameterType="int">
-		update faq
-			set read_count=read_count+1
-		where faq_no=#{faqNo}
-	</update>
 	
 	<select id="selectByNo" parameterType="int" resultType="FaqVO">
 		select * from faq where faq_no=#{faqNo}

@@ -7,14 +7,7 @@ public class NoticeVO {
 	private String category;
 	private String title;
 	private String content;
-	private String writer;
-	private int readCount;
 	private Timestamp regdate;
-	private int authcode;
-	
-	public NoticeVO() {
-		super();
-	}
 
 	public int getMainNo() {
 		return mainNo;
@@ -48,22 +41,6 @@ public class NoticeVO {
 		this.content = content;
 	}
 
-	public String getWriter() {
-		return writer;
-	}
-
-	public void setWriter(String writer) {
-		this.writer = writer;
-	}
-
-	public int getReadCount() {
-		return readCount;
-	}
-
-	public void setReadCount(int readCount) {
-		this.readCount = readCount;
-	}
-
 	public Timestamp getRegdate() {
 		return regdate;
 	}
@@ -72,18 +49,9 @@ public class NoticeVO {
 		this.regdate = regdate;
 	}
 
-	public int getAuthcode() {
-		return authcode;
-	}
-
-	public void setAuthcode(int authcode) {
-		this.authcode = authcode;
-	}
-
 	@Override
 	public String toString() {
-		return "NoticeVO [mainNo=" + mainNo + ", category=" + category + ", title=" + title + ", content=" + content
-				+ ", writer=" + writer + ", readCount=" + readCount + ", regdate=" + regdate + ", authcode=" + authcode
-				+ "]";
+		return "NoticeVO [mainNo=" + mainNo + ", category=" + category + ", title=" + title 
+				+ ", content=" + content + "]";
 	}
 }

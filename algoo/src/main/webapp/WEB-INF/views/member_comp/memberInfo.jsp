@@ -31,7 +31,13 @@
 		</div>
 		<div id="id_div">
 	        <label for="userid">ID</label>
-	        <input type="text" class="textBox" name="userid" id="userid">
+	        <input type="text" class="textBox" name="userid" id="userid" 
+	        value="<c:if test='${sessionScope.authcode == 1 }'>
+	        	${vo.userid }
+	        </c:if>
+	        <c:if test='${sessionScope.authcode == 2 }'>
+	        	${vo.com_userid }
+	        </c:if>">
 	    </div>
 		<div id="name_div">
 	        <label for="userName">이름</label>

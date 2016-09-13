@@ -24,7 +24,36 @@
 			$("#join_kakao").css("display","inline-block");
 			$("#join_facebook").css("display","inline-block");
 		});
+		$("#close").click(function(){
+			window.close();
+		});
+		$("#submit").click(function(event){
+			process_Login();
+			
+			event.preventDefault();
+		});
 	});
+	function process_Login(){
+		$.ajax({
+			url:"<c:url value='/login/ajax/login.ag'/>"
+			,type:"post"
+			,data:$("#frmLogin").serialize() 
+			,dataType:"json"	
+			,success:function(str){
+				if(str==1){
+					self.close();
+					opener.location.href="<c:url value='/index.ag'/>"
+				}else if(str==2){
+					alert("존재하지 않는 아이디입니다");
+				}else if(str==3){
+					alert("비밀번호가 올바르지 않습니다");
+				}
+			}
+			,error: function(xhr,status, error){
+				alert("에러 : "+status + " : " + error);	// AJAX 호출 에러
+			}
+		});
+	}
 </script>
 <style>
 	body{
@@ -154,13 +183,13 @@
 			src="<c:url value='/images/simple_Logo.png'/>"></h1>
 	</div>
 	<div class="info">
-		<form name="frmLogin" action="<c:url value='/login/login.ag'/>"
+		<form name="frmLogin" id="frmLogin" action="<c:url value='/login/login.ag'/>"
 			method="post">
 			<input type="radio" id="type1" name="type" value="personal"checked><label for="type1">개인회원</label>
 			<input type="radio" id="type2" name="type" value="company"><label for="type2">기업회원</label>
 			<input type="text" class="textBox" name="userid" id="userid" placeholder="아이디">
 			<input type="password" class="textBox" name="pwd" id="pwd" placeholder="비밀번호">
-			<input type="submit" value="로그인">
+			<input type="submit" id="submit" value="로그인">
 		</form>
 		<a href="#">아이디 찾기</a> |
 		<a href="#">비밀번호 찾기</a> |

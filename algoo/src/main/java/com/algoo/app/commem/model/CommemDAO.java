@@ -4,4 +4,5 @@ public interface CommemDAO {
 	public int insertCompMember(CommemVO commemVo);
 	public String loginCheck(CommemVO commemVo);
 	public int checkUserid(String userid);
+	public CommemVO selectMemberByUserid(String userid);
 }

@@ -1,0 +1,44 @@
+{
+	"DESCRIPTION": {
+		"JOB_FIRST": "1차직업군",
+		"JOB_CODE":"직업코드"
+	},
+	"DATA": [
+		{
+			"JOB_FIRST": "직종선택","JOB_CODE":"J01"
+      },
+		{
+			"JOB_FIRST": "외식·음료","JOB_CODE":"J02"
+      },
+		{
+			"JOB_FIRST": "유통·판매","JOB_CODE":"J03"
+		},
+		{
+			"JOB_FIRST": "문화·여가 생활","JOB_CODE":"J04"
+		},
+		{
+			"JOB_FIRST": "서비스","JOB_CODE":"J05"
+		},
+		{
+			"JOB_FIRST": "사무직","JOB_CODE":"J06"
+		},
+		{
+			"JOB_FIRST": "고객상담·리서치·영업","JOB_CODE":"J07"
+		},
+		{
+			"JOB_FIRST": "생산·건설·운송","JOB_CODE":"J08"
+		},
+		{
+			"JOB_FIRST": "IT·컴퓨터","JOB_CODE":"J09"
+		},
+		{
+			"JOB_FIRST": "교육·강사","JOB_CODE":"J10"
+		},
+		{
+			"JOB_FIRST": "디자인","JOB_CODE":"J11"
+		},
+		{
+			"JOB_FIRST": "미디어","JOB_CODE":"J12"
+		}
+		]
+}

@@ -179,12 +179,12 @@ $("#subNum").change(function() {
 	$("#jobName").html("");
 	var jobN="";
 	$.ajax({
-		url:"<c:url value='/json/Jobs.json'/>",
+		url:"<c:url value='/json/Job.json'/>",
         type:"GET",
         dataType:"json",
         success:function(res){
         	$.each(res.DATA,function(){
-        		jobN+="<option value="+this.JOB_FIRST+">";
+        		jobN+="<option value="+this.JOB_CODE+">";
                 jobN+=this.JOB_FIRST+"</option>";
         	});
         	$("#jobName").html(jobN);
@@ -199,14 +199,15 @@ $("#subNum").change(function() {
 	$("#jobName").change(function() {
 		$("#jobName2").html("");
          var jobN2="";
+         var sw=$("#jobName option:selected").val();
             $.ajax({
-               url:"<c:url value='/json/Jobs2.json'/>",
+               url:"<c:url value='/json/Job2.json'/>",
                type:"GET",
                dataType:"json",
                success:function(res){
                   
                $.each(res.DATA,function(){
-                  if($("#jobName option:selected").val()==this.JOB_FIRST){            
+                  if(sw==this.JOB_CODE){            
                 	  jobN2+="<option value="+this.JOB_SECOND+">";
                 	  jobN2+=this.JOB_SECOND+"</option>";
                   }//if 

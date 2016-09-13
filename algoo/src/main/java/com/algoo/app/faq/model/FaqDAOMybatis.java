@@ -27,11 +27,6 @@ public class FaqDAOMybatis extends SqlSessionDaoSupport implements FaqDAO{
 	}
 
 	@Override
-	public int updateReadCount(int faqNo) {
-		return getSqlSession().update(namespace+".updateReadCount", faqNo);
-	}
-
-	@Override
 	public FaqVO selectByNo(int faqNo) {
 		return getSqlSession().selectOne(namespace+".selectByNo", faqNo);
 	}

@@ -23,8 +23,7 @@ implements NoticeDAO{
 	public List<NoticeVO> selectAll(NoticeVO noticeVo){
 		//공지 리스트
 		List<NoticeVO> alist
-		=getSqlSession().selectList(namespace+".selectAll",
-				noticeVo);
+		=getSqlSession().selectList(namespace+".selectAll", noticeVo);
 		
 		return alist;
 	}
@@ -45,12 +44,6 @@ implements NoticeDAO{
 	public List<NoticeVO> searchCategory(ListNoticeVO vo) {
 		return getSqlSession().selectList(namespace
 				+".searchCategory", vo);
-	}
-
-	@Override
-	public int updateReadCount(int no) {
-		return getSqlSession().update(namespace
-				+".updateReadCount",no);
 	}
 
 	@Override

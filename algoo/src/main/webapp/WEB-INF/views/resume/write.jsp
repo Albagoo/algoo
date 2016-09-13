@@ -592,9 +592,55 @@
     		
     		$("#detail").val(detail);
     		
+    		/* 연락가능시간 */
     		var contatctHour = $("#time1 option:selected").val()+" ~ "+$("#time2 option:selected").val();
     		
     		$("#contatctHour").val(contatctHour);
+    		
+    		
+    		/* 희망근무 */
+    		/* 근무지 */
+    		var area = $("#area1 option:selected").val()+" "+$("#area2 option:selected").val();
+    		$("#area").val(area);
+    		
+    		/* 업직종 */
+    		var category = "";
+    		
+    		if($("#category1").is(":checked")){
+    			category += $("#category1").val()+",";
+    		}
+    		if($("#category2").is(":checked")){
+    			category += $("#category2").val()+",";
+    		}
+    		if($("#category3").is(":checked")){
+    			category += $("#category3").val()+",";
+    		}
+    		if($("#category4").is(":checked")){
+    			category += $("#category4").val()+",";
+    		}
+    		if($("#category5").is(":checked")){
+    			category += $("#category5").val()+",";
+    		}
+    		if($("#category6").is(":checked")){
+    			category += $("#category6").val()+",";
+    		}
+    		if($("#category7").is(":checked")){
+    			category += $("#category7").val()+",";
+    		}
+    		if($("#category8").is(":checked")){
+    			category += $("#category8").val()+",";
+    		}
+    		if($("#category9").is(":checked")){
+    			category += $("#category9").val()+",";
+    		}
+    		if($("#category10").is(":checked")){
+    			category += $("#category10").val()+",";
+    		}
+    		if($("#category11").is(":checked")){
+    			category += $("#category11").val()+",";
+    		}
+    		
+    		$("#category").val(category);
     	});
  	});
 </script>
@@ -608,6 +654,8 @@
 		name="title">
 	<h2>개인 기본 정보</h2>
 	<input type="hidden" id="detail" name="detail" >
+	<input type="hidden" id="area" name="area" >
+	<input type="hidden" id="category" name="category" >
 	<table id="box">
 		<tr id="tr">
 			<td style="text-align: center; padding: 10px; width: 20%">

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.algoo.app.commem.model.CommemService;
 import com.algoo.app.commem.model.CommemVO;
@@ -74,4 +75,15 @@ public class CommemController {
 		return "redirect:/index.ag";
 	}
 	
+	@RequestMapping("/ajaxCheckUserid.ag")
+	@ResponseBody
+	public int ajaxCheckId(@RequestParam String userid){
+		logger.info("ajax-아이디 중복확인, 파라미터 userid={}", userid);
+		
+		int result=commemService.checkUserid(userid);
+		logger.info("ajax 아이디 중복 확인 결과, result={}",result);
+		
+		//해당 아이디가 존재하면 1, 존재하지 않으면 2를 리턴
+		return result;
+	}
 }

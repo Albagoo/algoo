@@ -39,53 +39,49 @@ $(document).ready(function(){
 			$("#copy_algoo").css("color","");
 		});
 		
+		//pwd유효성 검사
+		$("#pwd").keyup(function(){
+			if(validate_userid($("#pwd").val()) && 
+					$("#pwd").val().length>=0){
+					$("#message2").html("비밀번호 중복확인을 하세요");	
+			}else{
+				//유효성 검사를 통과하지 못한 경우
+				$("#message2").html("비밀번호 규칙에 맞지 않습니다");
+				$("#chkPw").val("N");
+			}
+		});//pwd
+		$("#pwd2").keyup(function(){
+			if($("#pwd").val()==$("#pwd2").val()){
+				$("#message2").html("사용할 수 있는 비밀번호 입니다");	
+				$("#chkPw").val("Y");
+			}else{
+				$("#message2").html("비밀번호가 잃치 하지 않습니다");
+				$("#chkPw").val("N");
+			}
+		});//pwd2
+		
 		$("#bt_register").click(function(event){
-			if($("#userid").val().length<1){
-				alert("아이디를 입력하셔야 합니다");
+			if($("#chkId").val()=="N"){
+				alert("아이디를 확인해 주세요");
 				$("#userid").focus();
 				return false;
-			}else if($("#userid").val().length<8 || $("#userid").val().length>16 ){
-				alert("아이디는 8~16자 사이로 입력하세요 ");
-				$("#userid").focus();
-				return false;
-			}else if(!validate_userid($("#userid").val())){
-				alert("아이디는 영문이나 숫자 _만 가능합니다!");
-				$("#userid").focus();
-				return false;
-			}else if($("#pwd").val().length<1){
-				alert("비밀번호를 입력하세요");
+			}else if($("#chkPw").val()=="N"){
+				alert("비밀번호를 확인해 주세요");
 				$("#pwd").focus();
 				return false;
-			}else if($("#pwd").val().length<4 || $("#pwd").val().length>16){
-				alert("비밀번호는 4~16자리로 입력하세요");
-				$("#pwd").focus();
+			}
+			if($("#userName").val().length<1 || $("#userName").val()==""){
+				alert("이름을 입력하세요")
+				$("#userName").focus();
 				return false;
-			}else if($("#pwd2").val()!=$("#pwd").val()){
-				alert("비밀번호가 일치하지 않습니다.");
-				$("#pwd2").focus();
+			}/*else if($(':radio[name="gender"]:checked').length < 1){
+				alert("성별을 입력하세요");
 				return false;
-			}else if($("#name").val().length < 1){
-				alert("이름을 입력하세요");
-				$("#name").focus();
-				return false;
-			}else if($("#hp1").val().length<1 || $("#hp2").val().length<1 || $("#hp3").val().length<1){
-				alert("휴대폰 번호는 필수항목입니다");
-				$("#hp1").focus();
-				return false;
-			}else if(!validate_hp($("#hp2").val()) || 
-					!validate_hp($("#hp3").val())){
-				alert("휴대폰 번호는 숫자여야 합니다");
-				$("#hp2").focus();
-				return false;
-			}else if(!validate_hp($("#phone2").val()) || 
-					!validate_hp($("#phone3").val())){
-				alert("전화번호는 숫자여야 합니다");
-				$("#phone2").focus();
-				return false;
-			}else if(!validate_hp($("#fax2").val()) || 
-					!validate_hp($("#fax3").val())){
-				alert("FAX 번호는 숫자여야 합니다");
-				$("#fax2").focus();
+			}*/else if(!validate_hp($("#b_yy").val()) ||
+					!validate_hp($("#b_mm").val()) || 
+					!validate_hp($("#b_dd").val()) ){
+				alert("생년 월일은 숫자여야 합니다");
+				$("#b_yy").focus();
 				return false;
 			}else if($("#b_yy").val().length<1){
 				alert("생일 연도를 입력하세요");
@@ -98,6 +94,29 @@ $(document).ready(function(){
 			}else if($("#b_dd").val().length<1){
 				alert("일을 입력하세요");
 				$("#b_dd").focus();
+				return false;
+			}else if($("#hp1").val().length<1 || $("#hp2").val().length<1
+					|| $("#hp3").val().length<1){
+				alert("휴대폰 번호를 입력하세요")
+				$("#hp1").focus();
+				return false;
+			}else if(!validate_hp($("#hp1").val()) ||
+					!validate_hp($("#hp2").val()) || 
+					!validate_hp($("#hp3").val()) ){
+				alert("휴대폰 번호는 숫자여야 합니다");
+				$("#hp1").focus();
+				return false;
+			}else if(!validate_hp($("#phone1").val()) ||
+					!validate_hp($("#phone2").val()) || 
+					!validate_hp($("#phone3").val())){
+				alert("전화번호는 숫자여야 합니다");
+				$("#phone2").focus();
+				return false;
+			}else if(!validate_hp($("#fax1").val()) ||
+					!validate_hp($("#fax2").val()) || 
+					!validate_hp($("#fax3").val())){
+				alert("FAX 번호는 숫자여야 합니다");
+				$("#fax2").focus();
 				return false;
 			}
 			
@@ -113,8 +132,8 @@ $(document).ready(function(){
 				var dd=$("#b_dd").val();
 			}
 			
-			$("#birth").val(yy+"/"+mm+"/"+dd);
-		});//bt_register
+			$("#birth").val(yy+"-"+mm+"-"+dd);
+		});
 		
 		
 });//document.ready

@@ -18,9 +18,104 @@ $(document).ready(function(){
 			"width=500,height=550,left=10, top=50,resizable=yes,location=yes");	
 		});//zipcode click
 		
+		$("#id").click(function(){
+			$("#id").css("color","black");
+		});
 		
+		$(".gender_man").click(function(){
+			$("#man").val("남자").prop("checked",this.checked);
+			$(".gender_man").css("border","1px solid #E70400");
+			$("#manRb").css("color","#E70400");
+			
+			$("#woman").val("")
+			$(".gender_woman").css("border","");
+			$("#womanRb").css("color","#999");
+		});
+		
+		$(".gender_woman").click(function(){
+			$("#woman").val("여자").prop("checked",this.checked);
+			$(".gender_woman").css("border","1px solid #E70400");
+			$("#womanRb").css("color","#E70400");
+			
+			$("#man").val("");
+			$(".gender_man").css("border","");
+			$("#manRb").css("color","#999");
+		});
+		
+		$("#copy_algoo").hover(function(){
+			$("#copy_algoo").css("color","red");
+		},function(){
+			$("#copy_algoo").css("color","");
+		});
+		
+		
+		//pwd유효성 검사
+		$("#pwd").keyup(function(){
+			if(validate_userid($("#pwd").val()) && 
+					$("#pwd").val().length>=0){
+					$("#message2").html("비밀번호 중복확인을 하세요");	
+			}else{
+				//유효성 검사를 통과하지 못한 경우
+				$("#message2").html("비밀번호 규칙에 맞지 않습니다");
+				$("#chkPw").val("N");
+			}
+		});//pwd
+		$("#pwd2").keyup(function(){
+			if($("#pwd").val()==$("#pwd2").val()){
+				$("#message2").html("사용할 수 있는 비밀번호 입니다");	
+				$("#chkPw").val("Y");
+			}else{
+				$("#message2").html("비밀번호가 잃치 하지 않습니다");
+				$("#chkPw").val("N");
+			}
+		});//pwd2
+		
+		$("#bt_register").click(function(event){
+			if($("#chkId").val()=="N"){
+				alert("아이디를 확인해 주세요");
+				$("#userid").focus();
+				return false;
+			}else if($("#chkPw").val()=="N"){
+				alert("비밀번호를 확인해 주세요");
+				$("#pwd").focus();
+				return false;
+			}
+			if($("#userName").val().length<1 || $("#userName").val()==""){
+				alert("이름을 입력하세요")
+				$("#userName").focus();
+				return false;
+			}/*else if($(':radio[name="gender"]:checked').length < 1){
+				alert("성별을 입력하세요");
+				return false;
+			}*/else if($("#b_yy").val().length<1){
+				alert("생일 연도를 입력하세요");
+				$("#b_yy").focus();
+				return false;
+			}else if($("#b_mm").val()=='0'){
+				alert("월을 입력하세요");
+				$("#b_mm").focus();
+				return false;
+			}else if($("#b_dd").val().length<1){
+				alert("일을 입력하세요");
+				$("#b_dd").focus();
+				return false;
+			}else if($("#hp1").val().length<1 || $("#hp2").val().length<1
+					|| $("#hp3").val().length<1){
+				alert("휴대폰 번호를 입력하세요")
+				$("#hp1").focus();
+				return false;
+			}else if(!validate_hp($("#hp1").val()) ||
+					!validate_hp($("#hp2").val()) || 
+					!validate_hp($("#hp3").val()) ){
+				alert("휴대폰 번호는 숫자여야 합니다");
+				$("#hp1").focus();
+				return false;
+			}
+			
+		});
 		
 });//document.ready
+
 
 
 function validate_userid(userid){
@@ -33,13 +128,13 @@ function validate_userid(userid){
 		닫기 대괄호(]) 뒤의 + 기호는 이 패턴이 한 번 또는 
 		그 이상 반복된다는 의미
 	    */
-	}
+}
 	
-	function validate_hp(hp){
-		var pattern = new RegExp(/^[0-9]*$/g);
-		return pattern.test(hp);
-		/*  정규식  /^[0-9]*$/g
-		0 에서 9사이의 숫자로 시작하거나 끝나야 한다는 의미 
-		(^는 시작, $는 끝을 의미)
-		닫기 대괄호(]) 뒤의 * 기호는 0번 이상 반복  */
-	}
+function validate_hp(hp){
+	var pattern = new RegExp(/^[0-9]*$/g);
+	return pattern.test(hp);
+	/*  정규식  /^[0-9]*$/g
+	0 에서 9사이의 숫자로 시작하거나 끝나야 한다는 의미 
+	(^는 시작, $는 끝을 의미)
+	닫기 대괄호(]) 뒤의 * 기호는 0번 이상 반복  */
+}

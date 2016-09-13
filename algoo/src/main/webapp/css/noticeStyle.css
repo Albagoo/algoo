@@ -106,7 +106,6 @@
 	/* detail */
 	.divForm{
 		width:100%;
-		border:1px solid #eeeeee;
 		margin:2px;
 	}
 	.detailTable th{
@@ -146,13 +145,14 @@
 		font-weight:bold;
 	}
 	.editCgDiv{
-		margin-bottom:10px;
-		padding-left:10px;
 		text-align:left;
+		
 	}
 	.editEndDiv{
 		margin-top:10px;
 	}
+	
+/*기란 추가*/
 .divPage{
 	text-align: center;
 	padding-top: 20px;
@@ -197,4 +197,78 @@ table.box2 td{
 table.box2 td a{
 	color: black;
 	text-decoration:none;
+}
+.divForm div{
+	clear: both;
+	padding: 5px 0;
+	margin: 0;
+	overflow: auto;
+}
+.divForm legend{
+	font-weight: bold;
+	padding: 10px 0;
+	margin:10px 0;
+	font-size: 1.4em; 
+}
+.divForm label, .divForm .sp1{
+	width: 12%;
+	float: left;
+	text-align: left;
+	padding: 3px 0 0 0;
+	font-size: 0.9em;
+	line-height: 16px;
+}
+.firstDiv label{
+	line-height: 20px;
+}
+.firstDiv{
+	float: left;
+}
+.firstDiv2{
+	background-color: #eee;
+	height: 30px;
+}
+.firstDiv2 .sp1{
+	width:48%;
+	float: left;
+	padding-left: 10px;
+	line-height: 25px;
+	font-weight: bold;
+}
+.secondDiv{
+	border: 1px solid #eee;
+	height:500px;
+}
+.firstDiv2 .sp2{
+	float: right;
+	
+	font-size: 0.9em;
+	line-height: 30px;
+	padding-right: 10px;
+}
+.secondDiv p{
+	padding-left: 10px;
+	font-size: 0.9em;
+}
+.writer{
+	float: right;
+	padding-right: 10px;
+}
+.sp2 a{
+	color:black;
+}
+.center{
+	width:100%;
+	text-align: center;
+}
+/*UserList*/
+.noticeSearch{
+	margin: 30px 0 30px 0;
+	padding: 30px 0 30px 0;
+	border: 5px solid lightgray;
+}
+.noticeSearch span{
+	font-weight: bold; 
+	font-size: 1.2em;
+	margin-right: 10px;
 }

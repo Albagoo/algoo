@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../inc/top.jsp" %>
+<%@ include file="../inc/simple_top.jsp" %>
 
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/noticeStyle.css" />
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/simpleButton.css" />
@@ -10,12 +10,19 @@ type="text/javascript"></script>
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		CKEDITOR.replace('content', {uiColor: '#ffffff'});	
+		CKEDITOR.replace('content', {uiColor: '#ffffff'});
 		
 		$("#frmEdit").submit(function(event){
+			var instance = CKEDITOR.instances.content;
+			instance.updateElement();
+			
 			if($("#title").val()==""){
 				alert("제목을 입력하세요");
 				$("#title").focus();
+				event.preventDefault();
+			}else if(instance.getData()==""){
+				alert("공지를 입력하세요");
+				$("#content").focus();
 				event.preventDefault();
 			}
 		});
@@ -34,15 +41,15 @@ type="text/javascript"></script>
 </style>
 
 <section>
-<div class="divListAll" align="center">
+<div class="divForm" align="center">
 <form name="frmEdit" id="frmEdit" method="post"
   enctype="multipart/form-data" 
   action="<c:url value='/notice/edit.ag'/>" >
   <input type="hidden" name="mainNo" value="${noticeVo.mainNo }">
   
-<p id="firstTitle">공지수정</p>
+<p id="firstTitle">공지 수정</p>
 	<div class="funcDiv">
-		<div class="editCgDiv">
+		<div class="firstDiv">
 			<select name="category" class="button white small"
        		 style="font-size: 0.75em;">
 				<option value="공지"
@@ -54,25 +61,21 @@ type="text/javascript"></script>
             		selected
             	</c:if>>이벤트</option>
 				<option value="점검"
-				 <c:if test="${noticeVo.category=='점검' }">
+				  <c:if test="${noticeVo.category=='점검' }">
             		selected
             	</c:if>>점검</option>
 			</select>
-            <input type="text" id="title" name="title" size="80" 
-             class="textBox" value="${noticeVo.title }"/>
-            <input type="hidden" id="writer" name="writer"
-             value="${noticeVo.writer }" />
-        </div>
-        <div>	        
- 			<textarea id="content" name="content" 
- 			rows="12" cols="40"
- 			value=${noticeVo.content } 
- 			></textarea>
+	           <input type="text" id="title" name="title" 
+	           	style="width: 300px; font-size: 0.75em; text-align: left; padding-left: 5px;" 
+	           	class="textBox" value="${noticeVo.title }" />
+	        </div>
+        <div>	       
+ 			<textarea id="content" name="content">${noticeVo.content }</textarea>
         </div>
         <div class="editEndDiv" style="text-align:center">
-            <input type = "submit" value="수정"
+            <input type = "submit" value="수정하기"
              class="button white medium"/>
-            <input type = "Button" value="공지목록"
+            <input type = "Button" value="목록"
              class="button white medium" onclick
 	="location.href='<c:url value="/notice/list.ag"/>'"/>         
         </div>
@@ -81,4 +84,4 @@ type="text/javascript"></script>
 </div>
 </section>
 
-<%@ include file="../inc/bottom.jsp" %> 
+<%@ include file="../inc/simple_bottom.jsp" %> 

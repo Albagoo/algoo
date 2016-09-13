@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.algoo.app.career.model.CareerVO;
+import com.algoo.app.computerability.model.ComputerAbilityVO;
 import com.algoo.app.hope.model.HopeVO;
 import com.algoo.app.language.model.LanguageVO;
 import com.algoo.app.license.model.LicenseVO;
+import com.algoo.app.personalInfo.model.PersonalInfoVO;
 import com.algoo.app.resume.model.ResumeService;
 import com.algoo.app.resume.model.ResumeVO;
 
@@ -42,7 +44,9 @@ public class ResumeController {
 			@ModelAttribute HopeVO hopeVo,
 			@ModelAttribute CareerVO careerVo,
 			@ModelAttribute LanguageVO languageVo,
-			@ModelAttribute LicenseVO licenseVo){
+			@ModelAttribute LicenseVO licenseVo,
+			@ModelAttribute ComputerAbilityVO computerAbilityVo,
+			@ModelAttribute PersonalInfoVO personalInfoVo){
 		logger.info("resumeWrite_post()핸들러 진입, 파라미터 resumeVo = {}"
 				, resumeVo);
 		logger.info("resumeWrite_post()핸들러 진입, 파라미터 hopeVo = {}"
@@ -53,9 +57,13 @@ public class ResumeController {
 				, languageVo);
 		logger.info("resumeWrite_post()핸들러 진입, 파라미터 licenseVo = {}"
 				, licenseVo);
+		logger.info("resumeWrite_post()핸들러 진입, 파라미터 computerAbilityVo = {}"
+				, computerAbilityVo);
+		logger.info("resumeWrite_post()핸들러 진입, 파라미터 personalInfoVo = {}"
+				, personalInfoVo);
 		
 		int cnt = resumeService.insertResume(resumeVo, hopeVo, careerVo, languageVo
-					, licenseVo);
+					, licenseVo, computerAbilityVo, personalInfoVo);
 		
 		logger.info("이력서 입력 결과 cnt = {}", cnt);
 		

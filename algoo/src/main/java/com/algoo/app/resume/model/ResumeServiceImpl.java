@@ -6,12 +6,16 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.algoo.app.career.model.CareerService;
 import com.algoo.app.career.model.CareerVO;
+import com.algoo.app.computerability.model.ComputerAbilityService;
+import com.algoo.app.computerability.model.ComputerAbilityVO;
 import com.algoo.app.hope.model.HopeService;
 import com.algoo.app.hope.model.HopeVO;
 import com.algoo.app.language.model.LanguageService;
 import com.algoo.app.language.model.LanguageVO;
 import com.algoo.app.license.model.LicenseService;
 import com.algoo.app.license.model.LicenseVO;
+import com.algoo.app.personalInfo.model.PersonalInfoService;
+import com.algoo.app.personalInfo.model.PersonalInfoVO;
 
 @Service
 public class ResumeServiceImpl implements ResumeService{
@@ -26,12 +30,16 @@ public class ResumeServiceImpl implements ResumeService{
 	private LanguageService languageService;
 	@Autowired
 	private LicenseService licenseService;
-	
+	@Autowired
+	private ComputerAbilityService computerAbilityService;
+	@Autowired
+	private PersonalInfoService personalInfoService;
 	
 	@Override
 	@Transactional
 	public int insertResume(ResumeVO resumeVo, HopeVO hopeVo, CareerVO careerVo
-			, LanguageVO languageVo, LicenseVO licenseVo) {
+			, LanguageVO languageVo, LicenseVO licenseVo, ComputerAbilityVO computerAbilityVo
+			, PersonalInfoVO personalInfoVo) {
 		int cnt = hopeService.insertHope(hopeVo);
 		
 		if(cnt > 0){
@@ -54,6 +62,18 @@ public class ResumeServiceImpl implements ResumeService{
 		
 		if(cnt > 0){
 			resumeVo.setLicenseCode(licenseVo.getLicenseCode());
+		}
+		
+		cnt = computerAbilityService.insertComputerAbility(computerAbilityVo);
+		
+		if(cnt > 0){
+			resumeVo.setComAbilityCode(computerAbilityVo.getComAbilityCode());
+		}
+		
+		cnt = personalInfoService.insertPersonalInfo(personalInfoVo);
+		
+		if(cnt > 0){
+			resumeVo.setPersonalInfoCode(personalInfoVo.getPersonalInfoCode());
 		}
 		
 		return resumeDao.insertResume(resumeVo);

@@ -720,6 +720,34 @@
     	 		+$("#collicense_place_year").val()+"년 취득";
     	 	
     	 	$("#collicensePlace").val(collicensePlace);
+    	 	
+    	 	/* 컴퓨터 활용능력
+    	 	IT/DESIGN 분야 */
+    	 	var itDesignAbility = "";
+    		
+    		if($("#it_design_ability_1").is(":checked")){
+    			itDesignAbility += $("#it_design_ability_1").val()+",";
+    		}
+    		if($("#it_design_ability_2").is(":checked")){
+    			itDesignAbility += $("#it_design_ability_2").val()+",";
+    		}
+    		if($("#it_design_ability_3").is(":checked")){
+    			itDesignAbility += $("#it_design_ability_3").val()+",";
+    		}
+    		if($("#it_design_ability_4").is(":checked")){
+    			itDesignAbility += $("#it_design_ability_4").val()+",";
+    		}
+    		if($("#it_design_ability_5").is(":checked")){
+    			itDesignAbility += $("#it_design_ability_5").val()+",";
+    		}
+    		if($("#it_design_ability_6").is(":checked")){
+    			itDesignAbility += $("#it_design_ability_6").val()+",";
+    		}
+    		if($("#it_design_ability_7").is(":checked")){
+    			itDesignAbility += $("#it_design_ability_7").val();
+    		}
+    		
+    		$("#itDesignAbility").val(itDesignAbility);
     	});
  	});
 </script>
@@ -741,6 +769,7 @@
 	<input type="hidden" id="period" name="period" >
 	<input type="hidden" id="officialTest" name="officialTest" >
 	<input type="hidden" id="collicensePlace" name="collicensePlace" >
+	<input type="hidden" id="itDesignAbility" name="itDesignAbility" >
 	<table id="box">
 		<tr id="tr">
 			<td style="text-align: center; padding: 10px; width: 20%">
@@ -1175,32 +1204,32 @@
 			</td>
 			<td id="td2">
 				워드
-			    <input checked="checked" id="word1" name="word" type="radio" value="1" />
+			    <input checked="checked" id="word1" name="word" type="radio" value="상" />
 			    <label for="word1">상</label>
-			    <input id="word2" name="word" type="radio" value="2" />
+			    <input id="word2" name="word" type="radio" value="중" />
 			    <label for="word2">중</label>
-			    <input id="word3" name="word" type="radio" value="3" />
+			    <input id="word3" name="word" type="radio" value="하" />
 			    <label for="word3">하</label><br><br>
 			    파워포인트
-			    <input checked="checked" id="power_point1" name="power_point" type="radio" value="1" />
+			    <input checked="checked" id="power_point1" name="powerPoint" type="radio" value="상" />
 			    <label for="power_point1">상</label>
-			    <input id="power_point2" name="power_point" type="radio" value="2" />
+			    <input id="power_point2" name="powerPoint" type="radio" value="중" />
 			    <label for="power_point2">중</label>
-			    <input id="power_point3" name="power_point" type="radio" value="3" />
+			    <input id="power_point3" name="powerPoint" type="radio" value="하" />
 			    <label for="power_point3">하</label><br><br>
 			    엑셀
-			    <input checked="checked" id="excel1" name="excel" type="radio" value="1" />
+			    <input checked="checked" id="excel1" name="excel" type="radio" value="상" />
 			    <label for="excel1">상</label>
-			    <input id="excel2" name="excel" type="radio" value="2" />
+			    <input id="excel2" name="excel" type="radio" value="중" />
 			    <label for="excel2">중</label>
-			    <input id="excel3" name="excel" type="radio" value="3" />
+			    <input id="excel3" name="excel" type="radio" value="하" />
 			    <label for="excel3">하</label><br><br>
 			    인터넷
-			    <input checked="checked" id="internet1" name="internet" type="radio" value="1" />
+			    <input checked="checked" id="internet1" name="internet" type="radio" value="상" />
 			    <label for="internet1">상</label>
-			    <input id="internet2" name="internet" type="radio" value="2" />
+			    <input id="internet2" name="internet" type="radio" value="중" />
 			    <label for="internet2">중</label>
-			    <input id="internet3" name="internet" type="radio" value="3" />
+			    <input id="internet3" name="internet" type="radio" value="하" />
 			   <label for="internet3">하</label><br><br>
 			</td>
 		</tr>
@@ -1209,19 +1238,26 @@
 				IT/디자인 능력
 			</td>
 			<td id="td2">
-			    <input id="it_design_ability_1" name="it_design_ability_1" type="checkbox"/>
+			    <input id="it_design_ability_1" name="it_design_ability_1" type="checkbox"
+			    	value="프로그래밍"/>
 			    <label for="it_design_ability_1">프로그래밍</label>
-			    <input id="it_design_ability_2" name="it_design_ability_2" type="checkbox"/>
+			    <input id="it_design_ability_2" name="it_design_ability_2" type="checkbox"
+			    	value="웹디자인툴"/>
 			    <label for="it_design_ability_2">웹디자인툴</label>
-			    <input id="it_design_ability_3" name="it_design_ability_3" type="checkbox"/>
+			    <input id="it_design_ability_3" name="it_design_ability_3" type="checkbox"
+			    	value="편집디자인툴"/>
 			    <label for="it_design_ability_3">편집디자인툴</label>
-			    <input id="it_design_ability_4" name="it_design_ability_4" type="checkbox"/>
+			    <input id="it_design_ability_4" name="it_design_ability_4" type="checkbox"
+			    	value="동영상편집툴"/>
 			    <label for="it_design_ability_4">동영상편집툴</label><br>
-			    <input id="it_design_ability_5" name="it_design_ability_5" type="checkbox"/>
+			    <input id="it_design_ability_5" name="it_design_ability_5" type="checkbox"
+			    	value="3D 프로그램"/>
 			    <label for="it_design_ability_5">3D 프로그램</label>
-			    <input id="it_design_ability_6" name="it_design_ability_6" type="checkbox"/>
+			    <input id="it_design_ability_6" name="it_design_ability_6" type="checkbox"
+			    	value="웹에디터"/>
 			    <label for="it_design_ability_6">웹에디터</label>
-			    <input id="it_design_ability_7" name="it_design_ability_7" type="checkbox"/>
+			    <input id="it_design_ability_7" name="it_design_ability_7" type="checkbox"
+			    	value="기타"/>
 			    <label for="it_design_ability_7">기타</label>
 			</td>
 		</tr>
@@ -1247,9 +1283,9 @@
    				장애여부
    			</td>
    			<td id="td2">
-   				<input id="obstacle1" name="obstacle" type="radio" value="1" checked="checked"/>
+   				<input id="obstacle1" name="obstacle" type="radio" value="비대상" checked="checked"/>
    				<label for="obstacle1">비대상</label>
-				<input id="obstacle2" name="obstacle" type="radio" value="2" />
+				<input id="obstacle2" name="obstacle" type="radio" value="대상" />
 				<label for="obstacle2">대상</label>
    			</td>
    		</tr>
@@ -1258,11 +1294,11 @@
    				병역사항
    			</td>
    			<td id="td2">
-			    <input id="military1" name="military" type="radio" value="1" checked="checked">
+			    <input id="military1" name="military" type="radio" value="미필" checked="checked">
 			    <label for="military1">미필</label>
-			    <input id="military2" name="military" type="radio" value="2" >
+			    <input id="military2" name="military" type="radio" value="군필" >
 			    <label for="military2">군필</label>
-			    <input id="military3" name="military" type="radio" value="3" >
+			    <input id="military3" name="military" type="radio" value="면제" >
 			    <label for="military3">면제</label>
    			</td>
    		</tr>
@@ -1271,9 +1307,9 @@
    				국가보훈
    			</td>
    			<td id="td2">
-			    <input id="veteran1" name="veteran" type="radio" value="1" checked="checked"/>
+			    <input id="veterans1" name="veterans" type="radio" value="비대상" checked="checked"/>
 			    <label for="veteran1">비대상</label>
-			    <input id="veteran2" name="veteran" type="radio" value="2" />
+			    <input id="veterans2" name="veterans" type="radio" value="대상" />
 			    <label for="veteran2">대상</label>
    			</td>
    		</tr>
@@ -1282,9 +1318,9 @@
    				고용지원금
    			</td>
    			<td id="td2">
-   			    <input id="employment1" name="employment" type="radio" value="1" checked="checked"/>
+   			    <input id="employment1" name="employment" type="radio" value="비대상" checked="checked"/>
    			    <label for="employment1">비대상</label>
-			    <input id="employment2" name="employment" type="radio" value="2" />
+			    <input id="employment2" name="employment" type="radio" value="대상" />
 			    <label for="employment2">대상</label> 
    			</td>
    		</tr>

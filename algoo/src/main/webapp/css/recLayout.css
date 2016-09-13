@@ -29,16 +29,28 @@ a:hover {
  */
 /* button 
 ---------------------------------------------- */
+body{
+   /* background: #F7F7F7; */
+   
+}
+.recWrite *{
+
+}
 .recWrite {
    width: 900px;
-   background: #fffdfd;
+    background: #FFF; 
+   border-left:1px solid #eee;
+   border-right:1px solid #eee;
+   
    margin: 0 auto;
+   border-radius: 1%;
+    
 }
 .recWrite dl dt {
    padding-bottom: 15px; 
 }
 .recWrite dl{
-	background: #fffcfc;
+	/* background: #fffcfc; */
 }
 .companyInfo,.personInfo,.workInfo,.workCondition,.requestCondition,.recContent,.detailContent {
    width: 880px;
@@ -51,13 +63,13 @@ a:hover {
 }
 
 .bg {
-   background: #FFF;
-   border: 1px solid gray;
+   /* background: #FFF; */
+   /* border: 1px solid gray; */
 }
 
 .tit {
-   margin:5px 10px 10px 10px;
-   
+   /* margin:7px ; */
+   margin:10px 10px 0 10px;
 }
 .by{
  margin:5px 0 0 0;
@@ -76,7 +88,7 @@ a:hover {
    font-family:'bon godic';
    font-weight: bold;
    font-size: 10pt;
-   color: #511;
+   /* color: #511; */
 }
 .titd, .titcd{
    text-align:right;
@@ -90,7 +102,7 @@ a:hover {
 
 
 .radio{
-   margin:10px 0;
+   margin:7px 0;
    height:
    float: left;
 }
@@ -102,7 +114,7 @@ a:hover {
 .rence{
    margin: 5px 0 0 0px;
    float: left;
-   width: 140px;
+   width: 110px;
 }
 .txt{
    margin:10px;
@@ -218,6 +230,28 @@ margin:10px;
    font-variant:small-caps;
    font-weight: bold;
    font-size: 13.5pt; 
+  /*  border-bottom: 1px solid #ddd;
+   border-right: 1px solid #eee;
+   padding-right: 30px;
+   border-bottom-right-radius: 3%;
+   border-top-right-radius: 3%; */
+   
+   /* display: inline-block; */
+      zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
+      *display: inline;
+      vertical-align: baseline;
+      margin: 0 2px;
+      outline: none;
+      cursor: Auto;
+      text-decoration: none;
+      padding: .2em;
+      text-shadow: 0 1px 1px rgba(0,0,0,.3);
+      -webkit-border-radius: .4em; 
+      -moz-border-radius: .4em;
+      border-radius: .4em;
+      box-shadow: 0 1px 2px rgba(0,0,0,.2);
+      padding-right: 80px;
+      margin-top: 30px;
 }
 .font_11{
    font-size: 10pt;
@@ -227,14 +261,29 @@ margin:10px;
 }
 
 
-input[type="text"]{
+input[type="text"], input[type="radio"],input[type="checkbox"]{
    border: none;
-   border-bottom: 1px solid #faa;
+   zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
+   *display: inline;
+   vertical-align: baseline;
+   margin: 8px 8px 0 2px;
+   outline: none;
+   cursor: Auto;
+   text-decoration: none;
+   font: 14px/100% Arial, Helvetica, sans-serif;
+   padding: .2em;
+   text-shadow: 0 1px 1px rgba(0,0,0,.3);
+   -webkit-border-radius: .4em; 
+   -moz-border-radius: .4em;
+   border-radius: .4em;
+   box-shadow: 0 1px 2px rgba(0,0,0,.2);
 }
 
 .align_center{
 	text-align: center;
 }
+
+
 .align_left{
 	text-align: left;
 }
@@ -247,4 +296,17 @@ input[type="text"]{
    font-variant:small-caps;
    font-weight: bold;
    font-size: 9pt; 
+}
+dt label{
+	font-family:'bon godic';
+   font-size: 9.5pt;
+   color: #511;
+}
+dt input[type="radio"],dt input[type="checkbox"]{
+	margin:7px 0;
+   height:
+   float: left;
+}
+floatLeft input[type="checkbox"]{
+	float: left;
 }

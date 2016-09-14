@@ -13,6 +13,12 @@
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/includeLayout.css" />
 <script type="text/javascript" 
 	src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
+<script type="text/javascript">
+	function login(){
+		window.open("<c:url value='/login/login.ag'/>",	"login",
+		"width=390,height=480,left=700,top=200,resizable=yes,location=yes");
+	}
+</script>
 </head>
 <body>
 	<div id="wrap">
@@ -23,18 +29,16 @@
 					<div id="header_action">
 					<!-- 로그인이 안된 경우 -->
 					<c:if test="${empty sessionScope.userid }">
-						<a href="<c:url value='/login/login.ag'/>">로그인</a> |
+						<a href="#" onclick="login()">로그인</a> |
 						<a href="<c:url value='/member/agreement.ag'/>">회원가입</a> |
 					</c:if>
 					<!-- 로그인이된 경우 -->
 					<c:if test="${!empty sessionScope.userid }">
 						<span style="font-size:1em">${sessionScope.userName}님</span>
 						<a href="<c:url value='/member/logout.ag' />">로그아웃</a>
-						<a href="<c:url value='/member/memberEdit.ag' />">회원정보수정</a>
-						<a href="<c:url value='/member/memberOut.ag' />">회원탈퇴</a>
+						<a href="<c:url value='/login/mypageType.ag'/>">마이페이지</a>
 					</c:if>
 						<a href="#">고객센터</a> |
-						<a href="#">FAQ</a> |
 						<a href="#">이벤트</a>
 					</div>
 				</div>
@@ -68,7 +72,7 @@
 					<a href="#">신입공채 </a>
 					<a href="#">알바토크 </a>
 					<a href="#">인재정보	</a>
-					<a href="<c:url value='/member_comp/memberInfo.ag'/>">회원페이지 </a>
+					<a href="<c:url value='/login/mypageType.ag'/>">회원페이지 </a>
 					<a href="#">이력서등록 </a>
 					<a href="#">공고등록 </a>
 				</div>

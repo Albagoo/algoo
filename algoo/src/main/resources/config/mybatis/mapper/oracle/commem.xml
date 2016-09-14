@@ -27,4 +27,10 @@
 		select password from comp_member
 		where userid=#{userid} and out_date is null
 	</select>
+	
+	<select id="selectMemberByUserid" parameterType="string" 
+		resultType="CommemVO">
+		select * from comp_member
+		where userid=#{userid} and out_date is null
+	</select>
 </mapper>

@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.algoo.app.commem.model.CommemService;
 import com.algoo.app.commem.model.CommemVO;
@@ -34,43 +35,45 @@ public class LoginController2 {
 		return "login/login";
 	}
 	
-	@RequestMapping(value="/login.ag" , method=RequestMethod.POST)
-	public String Login_post(
+	@RequestMapping(value="/ajax/login.ag")
+	@ResponseBody
+	public int Login_post(
 			@RequestParam(required=false) String userid,
 			@RequestParam(required=false) String pwd,
 			@RequestParam(required=false) String type,
 			HttpSession session,
 			Model model){
-		logger.info("파라미터={}, {}",userid,pwd);
-		logger.info("파라미터={}",type);
+		logger.info("ajax 로그인 파라미터 userid={}, pwd={}",userid,pwd);
+		logger.info("ajax type={}",type);
 		
 		
-		String msg="", url="/index.ag";
 		int result=0;
+		String str="";
 		if(type.equals("personal")){
 			//개인회원
-			MemberVO memberVo = new MemberVO();
+			MemberVO memberVo = memberService.selectMemberByUserid(userid);
 			memberVo.setUserid(userid);
 			memberVo.setPassword(pwd);
 			
 			result = memberService.loginCheck(memberVo);
+			logger.info("ajax result={}",result);
 			
 			if(result==memberService.LOGIN_OK){
 				session.setAttribute("userid", userid);
-				session.setAttribute("authCode", 1); //1이면 개인회원
-
-				msg=userid+"님 환영합니다";
+				session.setAttribute("userName", memberVo.getUserName());
+				session.setAttribute("authCode", "1"); //1이면 개인회원
+				str="LOGIN_OK";
 			}else{
 				if(result==memberService.ID_NONE){
-					msg="존재하지 않는 아이디입니다";
+					str="ID_NONE";
 				}else if(result==memberService.PWD_DISAGREE){
-					msg="잘못된 비밀번호입니다";
+					str="PWD_DISAGREE";
 				}
-				url="/login/login.ag";
+				return result;
 			}
 		}else if(type.equals("company")){
 			//기업회원
-			CommemVO commemVo = new CommemVO();
+			CommemVO commemVo = commemService.selectMemberByUserid(userid);
 			commemVo.setUserid(userid);
 			commemVo.setPassword(pwd);
 			
@@ -78,26 +81,43 @@ public class LoginController2 {
 			
 			if(result==memberService.LOGIN_OK){
 				session.setAttribute("userid", userid);
-				session.setAttribute("authCode", 2); //2이면 기업회원
-				
-				msg=userid+"님 환영합니다";
+				session.setAttribute("userName", commemVo.getUserName());
+				session.setAttribute("authCode", "2"); //2이면 기업회원
+				str="LOGIN_OK";
 			}else{
 				if(result==commemService.ID_NONE){
-					msg="존재하지 않는 아이디입니다";
+					str="ID_NONE";
 				}else if(result==commemService.PWD_DISAGREE){
-					msg="잘못된 비밀번호입니다";
+					str="PWD_DISAGREE";
 				}
-				url="/login/login.ag";
+				return result;
 			}
 			
 		}else{
 			//관리자
-			msg="관리자"+userid+"님 환영합니다";
+		}
+		return result;
+	}
+	@RequestMapping("/checkLogin.ag")
+	public void checkLogin(){
+	}
+	
+	@RequestMapping("/mypageType.ag")
+	public String myPageType(HttpSession session){
+		String userid = (String)session.getAttribute("userid");
+		String authCode = (String)session.getAttribute("authCode");
+		
+		String resultPage="";
+		if(userid==null || userid.isEmpty()){
+			return "login/checkLogin";
 		}
 		
-		model.addAttribute("msg", msg);
-		model.addAttribute("url", url);
-		
-		return "common/message";
+		if(authCode.equals("1")){
+			resultPage= "redirect:/member/memInfo.ag";
+		}else if(authCode.equals("2")){
+			resultPage= "redirect:/member_comp/commemInfo.ag";
+		}
+		return resultPage;
 	}
+
 }

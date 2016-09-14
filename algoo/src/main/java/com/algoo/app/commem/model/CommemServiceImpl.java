@@ -48,5 +48,9 @@ public class CommemServiceImpl implements CommemService {
 		}
 		return result;
 	}
+	@Override
+	public CommemVO selectMemberByUserid(String userid) {
+		return commemDao.selectMemberByUserid(userid);
+	}
 
 }

@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ include file="inc/top.jsp" %>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/mainPage.css'/>" />
-<<<<<<< HEAD
 
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -27,8 +26,6 @@
 	});
 </script>
 
-=======
->>>>>>> branch 'master' of https://github.com/Albagoo/algoo.git
 	<%-- <!-- 메인 컨테이너 페이지 -->
 	<br>
 	<img src="<c:url value='${pageContext.request.contextPath}/images/console.png'/>" 
@@ -42,19 +39,63 @@
 				<div class="divCAD">
 				<div class="divCmHeader">
 					<!-- 광고배너(2개) -->
-					<img src="<c:url value='${pageContext.request.contextPath }/images/banner1.jpg'/>">
-					<img src="<c:url value='${pageContext.request.contextPath }/images/banner1.jpg'/>">
+					<table>
+					<td><img src="<c:url value='/images/banner1.jpg'/>"
+						height="111px"></td>
+					<td><img src="<c:url value='/images/banner2.jpg'/>"
+						height="111px"></td>
+					</table>
 				</div>
 				<div class="divDivision">
 					<!-- 알바 분류 -->
 					<div class="divJob">
 						<!-- 지역별 알바 -->
+						지역별 알바
+						<hr width="90px">
+						<img src="<c:url value='/images/map.png'/>"
+						 width="240px" height="200">
 					</div>
 					<div class="divJob">
 						<!-- 업종별 알바 -->
+						업종별 알바
+						<hr width="90px">
+						<table>
+							<tr>
+								<td><img src="<c:url value='/images/JobIcon/food.png'/>">
+									<br>식당</td>
+								<td><img src="<c:url value='/images/JobIcon/shop.png'/>">
+									<br>상점</td>
+								<td><img src="<c:url value='/images/JobIcon/dress.png'/>">
+									<br>의류</td>
+							</tr>
+							<tr>
+								<td><img src="<c:url value='/images/JobIcon/company.png'/>">
+									<br>사무보조</td>
+								<td><img src="<c:url value='/images/JobIcon/study.png'/>">
+									<br>학원</td>
+								<td><img src="<c:url value='/images/JobIcon/build.png'/>">
+									<br>건축</td>
+							</tr>
+						</table>
 					</div>
 					<div class="divJob">
 						<!-- 테마별 알바 -->
+						테마별 알바
+						<hr width="90px">
+						<table>
+							<tr>
+								<td><img src="<c:url value='/images/JobIcon/part.png'/>">
+									<br>단기알바</td>
+								<td><img src="<c:url value='/images/JobIcon/today.png'/>">
+									<br>당일지급</td>
+							</tr>
+							<tr>
+								<td><img src="<c:url value='/images/JobIcon/quick.png'/>">
+									<br>급구알바</td>
+								<td><img src="<c:url value='/images/JobIcon/good.png'/>">
+									<br>안심계약</td>
+							</tr>
+						</table>
 					</div>
 				</div>
 				</div>
@@ -62,13 +103,52 @@
 					<!-- 로그인상자 및 광고 -->
 					<div class="loginBox">
 						<!-- 로그인상자 -->
+						<a href="#">
+						<div class="personalLogin">
+							개인회원<br>로그인
+						</div></a>
+						<a href="#">
+						<div class="companyLogin">
+							기업회원<br>로그인
+						</div></a>
+						<div class="selectLogin">
+							<span style="font-weight:bold">
+								회원가입</span> |
+							아이디 찾기 |
+							비밀번호 찾기
+						</div>
+					</div>
+					<div class="">
+						<img src="<c:url value='/images/spam.jpg'/>"
+						 width="245px">
 					</div>
 					<div class="divCommercial2">
 						<!-- 다른 사이즈의 광고 -->
+						<img src="<c:url value='/images/banner3.jpg'/>"
+						 width="245px" height="140px">
 					</div>
 				</div>
 				<div class="divBrand">
 					<!-- 브랜드 알바(페이지 슬라이드) -->
+					<div id="divRoll">
+						<ul class="divImgset">
+							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/BurgerKing_c.png'/>" alt=""/></a></li>
+							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/BR_c.png'/>" alt=""/></a></li>
+							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/Dunkin_c.png'/>" alt=""/></a></li>
+							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/GS25_c.png'/>" alt=""/></a></li>
+							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/Gyejul_c.png'/>" alt=""/></a></li>
+							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/Otoko_c.png'/>" alt=""/></a></li>
+							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/Joes_c.png'/>" alt=""/></a></li>
+							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/KFC_c.png'/>" alt=""/></a></li>
+							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/Outback_c.png'/>" alt=""/></a></li>
+							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/Vips_c.png'/>" alt=""/></a></li>
+							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/CJFood_c.png'/>" alt=""/></a></li>
+							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/LotteMart_c.png'/>" alt=""/></a></li>
+							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/Nike_c.png'/>" alt=""/></a></li>
+							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/PizzaHut_c.png'/>" alt=""/></a></li>
+							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/ParisBagguet_c.png'/>" alt=""/></a></li>
+						</ul>
+					</div>
 				</div>
 			</div>
 			<div class="divSpecial">
@@ -76,7 +156,6 @@
 				<span id="divTitle">슈퍼 채용공고</span>
 				<div>
 				<!-- 슈퍼 채용공고 리스트 -->
-<<<<<<< HEAD
 						<a href="#"><div class="SpBox">
 						 <img src="<c:url value='/images/company/001.jpg'/>">
 						 <br><p id="title">롯데아이몰</p>
@@ -237,51 +316,11 @@
 						 <span id="money">1,500,000</span>원</p>
 						</div></a>
 					</div>
-=======
-				<table class="tableSpecial">
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
->>>>>>> branch 'master' of https://github.com/Albagoo/algoo.git
 			</div>
 
 			<div class="divGrand">
 				<br><br>
 				<span id="divTitle">그랜드 채용공고</span>
-<<<<<<< HEAD
 				<div>
 						<a href="#"><div class="GrBox">
 						 <img src="<c:url value='/images/company/026.jpg'/>">
@@ -329,22 +368,6 @@
 						 <p id="grayButton"> 상품 안내 및 신청 </p>
 						</div></a>
 				</div>
-=======
-				<table class="tableGrand">
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-					</tr>
-				</table>
->>>>>>> branch 'master' of https://github.com/Albagoo/algoo.git
 			</div>
 			<div class="divOther">
 				<!-- 일반 공고 리스트(게시판형) -->
@@ -354,17 +377,5 @@
 			</div>
 		</div>
 	</section>
-=======
-	<!-- 메인 컨테이너 페이지 -->
-	<div id="mainContentAll">
-		<div id="mainTop">
-			<div id="mainTop_west">
-			
-			</div>
-			<div id="mainTop_east">
-			
-			</div>
-		</div>
-	</div>
 	
 <%@ include file="inc/bottom.jsp" %> 

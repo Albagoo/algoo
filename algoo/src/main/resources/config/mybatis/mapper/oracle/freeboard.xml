@@ -12,6 +12,15 @@
 		</where>
 	</sql>
 	
+	<parameterMap type="map" id="deleteParamMap">
+		<parameter property="freeNo" javaType="string"
+			jdbcType="VARCHAR" mode="IN"/>
+		<parameter property="groupNo" javaType="string"
+			jdbcType="VARCHAR" mode="IN"/>
+		<parameter property="step" javaType="string"
+			jdbcType="VARCHAR" mode="IN"/>
+	</parameterMap>
+	
 	<insert id="insertFreeboard" parameterType="FreeboardVO">
 		<selectKey keyProperty="freeNo" resultType="int" order="BEFORE">
 			select FREE_BOARD_SEQ.nextval from dual
@@ -64,8 +73,12 @@
 		where free_no=#{freeNo}
 	</update>
 	
-	<delete id="deleteFreeboard" parameterType="int">
+	<!-- <delete id="deleteFreeboard" parameterType="int">
 		delete from free_board where free_no=#{freeNo}
+	</delete> -->
+	
+	<delete id="deleteFreeboard" parameterMap="deleteParamMap">
+		{call DELETE_REBOARD(?,?,?)}
 	</delete>
 	
 	<update id="updateSortNo" parameterType="FreeboardVO">

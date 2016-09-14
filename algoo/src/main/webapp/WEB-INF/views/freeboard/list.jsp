@@ -84,10 +84,11 @@
 						<c:if test="${fList.step>0 }">
 							<c:forEach var="i" 
 								begin="1" end="${fList.step}">
-								&nbsp;
+								&nbsp;&nbsp;
 							</c:forEach>
 							<img src
-							="<c:url value='/images/re.png' />" alt="re이미지">
+							="<c:url value='/images/re2.png' />" alt="re이미지"
+								 align=absmiddle id="reply">
 						</c:if>
 						<a href="<c:url value='/freeboard/updateCount.ag?freeNo=${fList.freeNo}'/>">
 							<!-- 제목이 긴 경우 일부만 보여주기 -->

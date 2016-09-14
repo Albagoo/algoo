@@ -39,7 +39,7 @@ type="text/javascript"></script>
 <section>
 <div class="divForm">
 <form name="frmWrite" id="frmWrite" method="post" 
-  action="<c:url value='/freeboard/write.ag'/>" >
+  action="<c:url value='/freeboard/reply.ag'/>" >
 <input type="hidden" name="groupNo" value="${freeVo.groupNo}">
 <input type="hidden" name="step" value="${freeVo.step}">
 <input type="hidden" name="sortNo" value="${freeVo.sortNo}">
@@ -53,7 +53,7 @@ type="text/javascript"></script>
         <label for="title">제목</label>
         <input type="text" id="title" name="title" 
         	style="width: 400px;font-size: 0.75em;text-align: left" 
-        	class="textBox" value="RE : ${freeVo.title }"/>
+        	class="textBox" value="${freeVo.title }"/>
     </div>
      <div>    
 		<textarea id="content" name="content"></textarea>

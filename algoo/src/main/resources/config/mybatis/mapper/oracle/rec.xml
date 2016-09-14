@@ -83,7 +83,7 @@
    work_Time,work_Time2,work_Time3,work_Time4,pay,
    recruit_Type,welfare,gender,age,educate_Lv,
    career,preference,recruit_Member,recruit_Person,recruit_Method,
-   documents,detail_Recruit,comp_Code,service_Code
+   documents,detail_Recruit,comp_Code,service_Code,
    )
    values(RECRUITMENT_seq.nextval, #{compName},#{title},#{jobName},#{jobName2},
    #{jobName3},#{zipcode},#{address},#{addressDetail},#{subRegion},

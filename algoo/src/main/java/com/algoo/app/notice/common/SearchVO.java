@@ -9,7 +9,7 @@ package com.algoo.app.notice.common;
 public class SearchVO {
 	/** 검색조건 */
 	private String searchCondition = "";
-		
+	
 	/** 검색키워드 */
 	private String searchKeyword = "";
     
@@ -111,13 +111,12 @@ public class SearchVO {
 	public void setRecordCountPerPage(int recordCountPerPage) {
 		this.recordCountPerPage = recordCountPerPage;
 	}
-	
 
-		@Override
-		public String toString() {
-			return "SearchVO [searchCondition=" + searchCondition + ", searchKeyword="
-					+ searchKeyword + ", searchUseYn=" + searchUseYn + ", currentPage=" + currentPage + ", blockSize="
-					+ blockSize + ", firstRecordIndex=" + firstRecordIndex + ", lastRecordIndex=" + lastRecordIndex
-					+ ", recordCountPerPage=" + recordCountPerPage + "]";
-		}
+	@Override
+	public String toString() {
+		return "SearchVO [searchCondition=" + searchCondition + ", searchKeyword=" + searchKeyword + ", searchUseYn="
+				+ searchUseYn + ", currentPage=" + currentPage + ", blockSize=" + blockSize + ", firstRecordIndex="
+				+ firstRecordIndex + ", lastRecordIndex=" + lastRecordIndex + ", recordCountPerPage="
+				+ recordCountPerPage + "]";
+	}
 }

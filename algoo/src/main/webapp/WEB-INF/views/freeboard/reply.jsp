@@ -13,6 +13,7 @@ type="text/javascript"></script>
 	$(document).ready(function(){
 		CKEDITOR.replace('content', {uiColor: '#ffffff'});
 		
+		
 		$("#frmWrite").submit(function(event){
 			var instance = CKEDITOR.instances.content;
 			instance.updateElement();

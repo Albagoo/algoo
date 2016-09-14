@@ -1,10 +1,12 @@
 package com.algoo.app.hope.model;
 
+import java.sql.Timestamp;
+
 public class HopeVO {
 	private int hopeCode; /* 희망근무코드 */
 	private String category; /* 업직종 */
 	private String type; /* 근무형태 */
-	private String day; /* 근무일시 */
+	private Timestamp day; /* 근무일시 */
 	private String pay; /* 급여 */
 	private String area; /* 근무지 */
 	
@@ -26,10 +28,10 @@ public class HopeVO {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public String getDay() {
+	public Timestamp getDay() {
 		return day;
 	}
-	public void setDay(String day) {
+	public void setDay(Timestamp day) {
 		this.day = day;
 	}
 	public String getPay() {

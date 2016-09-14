@@ -316,8 +316,7 @@ a:hover {
 .checks input[type="checkbox"] + label {
   display: inline-block;
   position: relative;
-  top:7px;
-  padding-left: 20px;  /* 글자와 체크박스 사이의 간격을 변경 */
+  padding-left: 30px;  /* 글자와 체크박스 사이의 간격을 변경 */
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -327,10 +326,10 @@ a:hover {
   content: '';
   position: absolute;
   left: 0;
-  top: 0px;  /* 이 값을 변경해서 글자와의 정렬 */
-  width: 14px;  /* 체크박스의 너비를 지정 */
-  height: 14px;  /* 체크박스의 높이를 지정 */
-  line-height: 14px; /* 세로정렬을 위해 높이값과 일치 */
+  top: -0px;  /* 이 값을 변경해서 글자와의 정렬 */
+  width: 21px;  /* 체크박스의 너비를 지정 */
+  height: 21px;  /* 체크박스의 높이를 지정 */
+  line-height: 21px; /* 세로정렬을 위해 높이값과 일치 */
   text-align: center;  
   background: #fafafa;
   border: 1px solid #cacece;
@@ -340,11 +339,9 @@ a:hover {
 .checks input[type="checkbox"] + label:active:before,
 .checks input[type="checkbox"]:checked + label:active:before {
   box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
-  
 }
 
 .checks input[type="checkbox"]:checked + label:before {  /* 체크박스를 체크했을때 */ 
-  
   content: '\2714';  /* 체크표시 유니코드 사용 */
   color: #99a1a7;
   text-shadow: 1px 1px #fff;
@@ -374,8 +371,7 @@ a:hover {
 .checks input[type="radio"] + label {
   display: inline-block;
   position: relative;
-  top:7px;
-  padding-left: 20px; /* 글자와 체크박스 사이의 간격을 변경 */
+  padding-left: 25px; /* 글자와 체크박스 사이의 간격을 변경 */
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -407,9 +403,58 @@ a:hover {
   position: absolute;
   top:  4.5px;
   left: 2.5px;  
-  width: 10.5px; /*  체크시 라디오버튼의 너비를 지정 */
-  height: 10.5px;
+  width: 11px; /*  체크시 라디오버튼의 너비를 지정 */
+  height: 11px;
   background: #777;
   border-radius: 100%;
   box-shadow: inset 0px 0px 10px rgba(0,0,0,0.3);
+}
+
+/* 셀렉트 박스 */
+
+/* <div id="select_box">
+    <label for="color">color</label>
+    <select id="color" title="select color">
+        <option selected="selected">color</option>
+        <option>red</option>
+        <option>blue</option>
+        <option>yellow</option>
+        <option>black</option>
+    </select>
+</div>
+ */
+div#select_box {
+    position: relative;  
+    float:left;
+    width: 180px;
+    height: 40px;
+    background: url(select_arrow.png) 180px center no-repeat; /* 화살표 이미지 */
+    border: 1px solid #E9DDDD;
+}
+div#select_box label {
+     position: absolute; 
+    float:left;
+    font-size: 14px;
+    color: #ff80c0;
+    top: 13px;
+    left: 12px;
+    letter-spacing: 1px;
+}
+div#select_box select#jobName {
+    width: 100%;
+    height: 40px;
+    min-height: 40px;
+    line-height: 40px;
+    padding: 0 10px;
+    opacity: 0;
+    filter: alpha(opacity=0); /* IE 8 */
+}
+div#select_box select#jobName2 {
+    width: 100%;
+    height: 40px;
+    min-height: 40px;
+    line-height: 40px;
+    padding: 0 10px;
+    opacity: 0;
+    filter: alpha(opacity=0); /* IE 8 */
 }

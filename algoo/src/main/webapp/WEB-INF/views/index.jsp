@@ -21,12 +21,19 @@
 		}, function(){
 			$(this).css("border","")
 		});
-		
-		function login(){
-			window.open("<c:url value='/login/login.ag'/>",	"login",
-			"width=390,height=480,left=700,top=200,resizable=yes,location=yes");
-		}
 	});
+	
+	function login2_1(){
+		var type = $("#loginBox1").val();
+		
+		window.open("<c:url value='/login/login.ag?type="+type+"'/>", "login",
+		"width=390,height=480,left=700,top=200,resizable=yes,location=yes");
+	}function login2_2(){
+		var type = $("#loginBox2").val();
+		
+		window.open("<c:url value='/login/login.ag?type="+type+"'/>", "login",
+		"width=390,height=480,left=700,top=200,resizable=yes,location=yes");
+	}
 </script>
 
 	<%-- <!-- 메인 컨테이너 페이지 -->
@@ -106,17 +113,20 @@
 					<!-- 로그인상자 및 광고 -->
 					<div class="loginBox">
 						<!-- 로그인상자 -->
-						<a href="#" onclick="login()">
+						<a href="#" onclick="login2_1()">
 						<div class="personalLogin">
+						<input type="hidden" id="loginBox1" value="Personal">
 							개인회원<br>로그인
 						</div></a>
-						<a href="#">
+						<a href="#" onclick="login2_2()">
+						<input type="hidden" id="loginBox2" value="Company">
 						<div class="companyLogin">
 							기업회원<br>로그인
 						</div></a>
 						<div class="selectLogin">
+							<a href="<c:url value='/member/agreement.ag'/>">
 							<span style="font-weight:bold">
-								회원가입</span> |
+								회원가입</span></a> |
 							아이디 찾기 |
 							비밀번호 찾기
 						</div>

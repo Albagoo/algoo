@@ -13,16 +13,19 @@
 			}, function(){
 				$(this).css("border","");
 			});
-	});
-	$(document).ready(function(){
 		$(".divGrand .GrBox")
-			.hover(function(){
-				$(this).css("border-color","red")
-					.css("border-width", "1px")
-					.css("cursor","pointer");
-			}, function(){
-				$(this).css("border","")
-			});
+		.hover(function(){
+			$(this).css("border-color","red")
+				.css("border-width", "1px")
+				.css("cursor","pointer");
+		}, function(){
+			$(this).css("border","")
+		});
+		
+		function login(){
+			window.open("<c:url value='/login/login.ag'/>",	"login",
+			"width=390,height=480,left=700,top=200,resizable=yes,location=yes");
+		}
 	});
 </script>
 
@@ -103,7 +106,7 @@
 					<!-- 로그인상자 및 광고 -->
 					<div class="loginBox">
 						<!-- 로그인상자 -->
-						<a href="#">
+						<a href="#" onclick="login()">
 						<div class="personalLogin">
 							개인회원<br>로그인
 						</div></a>

@@ -60,10 +60,16 @@
 	float: left;
 }
 .loginBox{
-	height:230px;
+	height:160px;
 	border:solid 1px LightGray;
 	text-align:center;
+	margin-bottom:5px;
 }
+.divFunction img{
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
 .personalLogin{
 	width:49%;
 	height:90px;
@@ -131,6 +137,10 @@
 	height: 100px;
 	text-align: center;
 }
+.tableSpecial td a{
+	text-decoration:none;
+	color:black;
+}
 .tableSpecial #title{
 	font-weight:bold;
 }
@@ -147,5 +157,23 @@
 	width: 250px;
 	height: 120px;
 	border:solid 1px LightGray;
-	background-color:azure;
+	text-align: center;
+}
+.tableGrand td a{
+	text-decoration:none;
+	color:black;
+}
+.tableGrand #title{
+	font-weight:bold;
+}
+#grayFont{
+	color:gray;
+}
+#grayButton{
+	font-size:14px;
+	font-weight:bold;
+	color:white;
+	background-color:DarkGray;
+	margin-top:5px;
+	padding:5px 0px 5px 0px;
 }

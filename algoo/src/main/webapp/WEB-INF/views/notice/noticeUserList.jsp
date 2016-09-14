@@ -9,7 +9,6 @@
 <script type="text/javascript">	
 	$(document).ready(function(){
 	
-		 //09-06
 		$(".divList .box2 tbody td:nth-of-type(2)")
 		.hover(function(){
 			$(this).css("background","#eee").css("cursor","pointer");
@@ -17,14 +16,12 @@
 			$(this).css("background","");
 		});
 		
-		//09-02 searching category
 		$("#categoryInput").change(function(){
 			$("#categoryName2").val($("#categoryInput").val());
 			$("#frmPage").submit();
 		});
 	});
 	
-	//08-31 paging
 	function pageProc(curPage){
 		document.frmPage.currentPage.value=curPage;
 		document.frmPage.submit();
@@ -51,9 +48,14 @@ action="<c:url value='/notice/list.ag'/>">
 </div>
 <div class="divListAll" align="center">
 <div class="noticeSearch">
+	<form name="frmSearch" method="post" 
+	   	 action="<c:url value='/notice/noticeUserList.ag' />" >
 	<span>질문검색</span>
-	<input type="text" name="searchKeyword" title="검색어 입력" style="width: 200px;height: 25px;">
-	<input type="submit" value="검색" style="height: 30px;" align=absmiddle>
+	<input type="text" name="searchKeyword" id="searchKeyword" title="검색어 입력"   
+		style="width: 200px; height: 25px; ">
+	<input type="image" src="<c:url value='/images/search.png'/>"
+		style="height: 31px;padding-bottom: 1px;" align=absmiddle >
+	</form>
 </div>
 
 <div class="divList">
@@ -155,7 +157,7 @@ action="<c:url value='/notice/list.ag'/>">
 	        	title="검색어 입력" value="${param.searchKeyword}" >
 			<input type="submit" value="검색"
 				 class="button white medium"
-	        	style="font-size: 0.85em;">
+	        	style="font-size: 0.8em;">
 			</div>
 	    </form>
 	</div>

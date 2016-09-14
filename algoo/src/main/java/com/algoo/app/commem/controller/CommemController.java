@@ -1,9 +1,12 @@
 package com.algoo.app.commem.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.algoo.app.commem.model.CommemService;
 import com.algoo.app.commem.model.CommemVO;
+import com.algoo.app.member.model.MemberVO;
 
 @Controller
 @RequestMapping("/member_comp")
@@ -85,5 +89,16 @@ public class CommemController {
 		
 		//해당 아이디가 존재하면 1, 존재하지 않으면 2를 리턴
 		return result;
+	}
+	@RequestMapping("/commemInfo.ag")
+	public String memInfo(HttpSession session,
+			Model model){
+		String userid = (String)session.getAttribute("userid");
+		CommemVO commemVo = commemService.selectMemberByUserid(userid);
+		
+		model.addAttribute("commemVo", commemVo);
+		logger.info("회원정보 읽어오기 commemVo={},",commemVo);
+		
+		return "member_comp/memberInfo";
 	}
 }

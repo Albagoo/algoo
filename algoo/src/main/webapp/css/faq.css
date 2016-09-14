@@ -12,10 +12,8 @@
 #jQuery_accordion{
 	float:left;
 	width: 75%;
-	padding: 10px 0 0 30px;
-}
-#faqBody{
-	padding: 16px 0 0 0;
+	padding: 0 0 0 30px;
+	margin-bottom: 30px;
 }
 #faqinfo p{
 	font-size: 0.8em;
@@ -25,7 +23,21 @@
 #faqinfo p a{
 	color:black;	
 }
-
+.faqSearch{
+	float:right;
+	padding: 50px 0 40px 0px;
+	border: 5px solid lightgray;
+	width:74%;
+	margin: 16px 9px 20px 0;
+}
+.faqSearch span{
+	font-weight: bold; 
+	font-size: 1.2em;
+	margin: 0 8px 0 170px;
+}
+.faqSearch input[type="text"]{
+	text-align: center;
+}
 /* faqWrite */
 .center{
 	width:100%;
@@ -100,6 +112,9 @@ table.box2 td a{
 }
 .align_center{
 	text-align: center;
+}
+.divpage{
+	margin-top: 20px;
 }
 .divPage span{
 	color:#5b75ff;

@@ -123,6 +123,20 @@
 	float:left;
 }
 
+#pay{
+	margin-top:12px;
+	font-size:12px;
+}
+#pay #time{
+	color:white;
+	background-color:gray;
+	padding:1px;
+	border-radius:3px;
+}
+#pay #money{
+	font-weight:bold;
+}
+
 /* 스페셜 공고 */
 .divSpecial{
 	width: 100%;
@@ -136,7 +150,7 @@
 .divSpecial .SpBox{
 	margin:0 auto;
 	width: 190px;
-	height: 150px;
+	height: 160px;
 	border:solid 1px LightGray;
 	text-align: center;
 	float:left;
@@ -151,7 +165,6 @@
 }
 .divSpecial #content{
 	text-align:left;
-	margin-top:4px;
 }
 
 /* 그랜드 공고 */
@@ -159,9 +172,14 @@
 	width: 100%;
 	float: left;
 }
+.divGrand p{
+	padding-left:10px;
+	padding-right:10px;
+	text-align:left;
+}
 .divGrand .GrBox{
 	width: 240px;
-	height: 110px;
+	height: 140px;
 	border:solid 1px LightGray;
 	text-align: center;
 	float:left;
@@ -175,7 +193,9 @@
 	font-weight:bold;
 }
 #grayFont{
+	margin-top:12px;
 	color:gray;
+	text-align:center;
 }
 #grayButton{
 	font-size:14px;
@@ -184,4 +204,5 @@
 	background-color:DarkGray;
 	margin-top:5px;
 	padding:5px 0px 5px 0px;
+	text-align:center;
 }

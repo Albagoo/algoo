@@ -43,6 +43,8 @@ type="text/javascript"></script>
 <input type="hidden" name="groupNo" value="${freeVo.groupNo}">
 <input type="hidden" name="step" value="${freeVo.step}">
 <input type="hidden" name="sortNo" value="${freeVo.sortNo}">
+<input type="hidden" name="userid" value="${sessionScope.userid }">
+<input type="hidden" name="nickName" value="${sessionScope.nickName }">
  <fieldset>
 	<legend> 
 		<img src="<c:url value='/images/albatalk.png'/>" style="height: 48px;" align=absmiddle>
@@ -51,7 +53,7 @@ type="text/javascript"></script>
         <label for="title">제목</label>
         <input type="text" id="title" name="title" 
         	style="width: 400px;font-size: 0.75em;text-align: left" 
-        	class="textBox" value="${freeVo.title }"/>
+        	class="textBox" value="RE : ${freeVo.title }"/>
     </div>
      <div>    
 		<textarea id="content" name="content"></textarea>

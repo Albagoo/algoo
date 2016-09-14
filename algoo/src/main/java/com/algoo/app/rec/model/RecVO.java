@@ -22,6 +22,7 @@ public class RecVO {
 	private String workTime2;// varchar2(50 BYTE),
 	private String workTime3;// varchar2(50 BYTE),
 	private String workTime4;// varchar2(50 BYTE),
+	private String payType;//
 	private int pay;// NUMBER,
 	private String recruitType;// VARCHAR2(255 BYTE),
 	private String welfare;// VARCHAR2(255 BYTE),
@@ -41,12 +42,22 @@ public class RecVO {
 	private int readcount;// NUMBER,
 	private String accuse;// VARCHAR2(50 BYTE),
 	private String adminAgree;// VARCHAR2(50 BYTE) DEFAULT 'N',
-	private int compCode;// NUMBER,
-	private int serviceCode;// NUMBER
 	private String category;//
 	private String imgURL;//
-	private String fileName;//
-	private String fileSize;//
+	private String filename;//
+	private int filesize;//
+	private int compCode;// NUMBER,
+	private int serviceCode;// NUMBER
+
+	
+	
+	public String getPayType() {
+		return payType;
+	}
+
+	public void setPayType(String payType) {
+		this.payType = payType;
+	}
 
 	public String getRecruitDeadline() {
 		return recruitDeadline;
@@ -72,20 +83,21 @@ public class RecVO {
 		this.imgURL = imgURL;
 	}
 
-	public String getFileName() {
-		return fileName;
+
+	public String getFilename() {
+		return filename;
 	}
 
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
+	public void setFilename(String filename) {
+		this.filename = filename;
 	}
 
-	public String getFileSize() {
-		return fileSize;
+	public int getFilesize() {
+		return filesize;
 	}
 
-	public void setFileSize(String fileSize) {
-		this.fileSize = fileSize;
+	public void setFilesize(int filesize) {
+		this.filesize = filesize;
 	}
 
 	public int getRecCode() {
@@ -407,14 +419,14 @@ public class RecVO {
 				+ ", addressDetail=" + addressDetail + ", subRegion=" + subRegion + ", subNum=" + subNum + ", subName="
 				+ subName + ", subInfo=" + subInfo + ", workTerm=" + workTerm + ", workDays=" + workDays + ", workTime="
 				+ workTime + ", workTime2=" + workTime2 + ", workTime3=" + workTime3 + ", workTime4=" + workTime4
-				+ ", pay=" + pay + ", recruitType=" + recruitType + ", welfare=" + welfare + ", gender=" + gender
-				+ ", age=" + age + ", educateLv=" + educateLv + ", career=" + career + ", preference=" + preference
-				+ ", recruitMember=" + recruitMember + ", recruitPerson=" + recruitPerson + ", recruitDeadline="
-				+ recruitDeadline + ", recruitMethod=" + recruitMethod + ", documents=" + documents + ", detailRecruit="
-				+ detailRecruit + ", regdate=" + regdate + ", maps=" + maps + ", readcount=" + readcount + ", accuse="
-				+ accuse + ", adminAgree=" + adminAgree + ", compCode=" + compCode + ", serviceCode=" + serviceCode
-				+ ", category=" + category + ", imgURL=" + imgURL + ", fileName=" + fileName + ", fileSize=" + fileSize
-				+ "]";
+				+ ", payType=" + payType + ", pay=" + pay + ", recruitType=" + recruitType + ", welfare=" + welfare
+				+ ", gender=" + gender + ", age=" + age + ", educateLv=" + educateLv + ", career=" + career
+				+ ", preference=" + preference + ", recruitMember=" + recruitMember + ", recruitPerson=" + recruitPerson
+				+ ", recruitDeadline=" + recruitDeadline + ", recruitMethod=" + recruitMethod + ", documents="
+				+ documents + ", detailRecruit=" + detailRecruit + ", regdate=" + regdate + ", maps=" + maps
+				+ ", readcount=" + readcount + ", accuse=" + accuse + ", adminAgree=" + adminAgree + ", category="
+				+ category + ", imgURL=" + imgURL + ", filename=" + filename + ", filesize=" + filesize + ", compCode="
+				+ compCode + ", serviceCode=" + serviceCode + "]";
 	}
 
 }

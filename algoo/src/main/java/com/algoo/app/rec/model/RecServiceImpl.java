@@ -1,6 +1,5 @@
 package com.algoo.app.rec.model;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 

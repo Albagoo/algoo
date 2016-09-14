@@ -6,7 +6,14 @@ public class PersonalInfoVO {
 	private String military; /* 병역사항 */
 	private String veterans; /* 국가보훈 */
 	private String employment;
+	private String personalInfoB;
 	
+	public String getPersonalInfoB() {
+		return personalInfoB;
+	}
+	public void setPersonalInfoB(String personalInfoB) {
+		this.personalInfoB = personalInfoB;
+	}
 	public int getPersonalInfoCode() {
 		return personalInfoCode;
 	}
@@ -41,7 +48,8 @@ public class PersonalInfoVO {
 	@Override
 	public String toString() {
 		return "PersonalInfoVO [personalInfoCode=" + personalInfoCode + ", obstacle=" + obstacle + ", military="
-				+ military + ", veterans=" + veterans + ", employment=" + employment + "]";
+				+ military + ", veterans=" + veterans + ", employment=" + employment + ", personalInfoB="
+				+ personalInfoB + "]";
 	}
 	
 	

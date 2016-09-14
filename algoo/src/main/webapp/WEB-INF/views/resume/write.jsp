@@ -795,32 +795,50 @@
     		$(this).prop("src", "<c:url value='/images/resume_language_c.PNG'/>");
     	}, function(event){
     		$(this).prop("src", "<c:url value='/images/resume_language.PNG'/>");
+    	}).click(function(){
+    		$(".language").toggle();
     	});
     	
     	$("#img3").hover(function(event){
     		$(this).prop("src", "<c:url value='/images/resume_license_c.PNG'/>");
     	}, function(event){
     		$(this).prop("src", "<c:url value='/images/resume_license.PNG'/>");
+    	}).click(function(){
+    		$(".license").toggle();
     	});
     	
     	$("#img4").hover(function(event){
     		$(this).prop("src", "<c:url value='/images/resume_computer_c.PNG'/>");
     	}, function(event){
     		$(this).prop("src", "<c:url value='/images/resume_computer.PNG'/>");
+    	}).click(function(){
+    		$(".computerAbility").toggle();
     	});
     	
     	$("#img5").hover(function(event){
     		$(this).prop("src", "<c:url value='/images/resume_award_c.PNG'/>");
     	}, function(event){
     		$(this).prop("src", "<c:url value='/images/resume_award.PNG'/>");
+    	}).click(function(){
+    		$(".award").toggle();
     	});
     	
     	$("#img6").hover(function(event){
     		$(this).prop("src", "<c:url value='/images/resume_personal_c.PNG'/>");
     	}, function(event){
     		$(this).prop("src", "<c:url value='/images/resume_personal.PNG'/>");
+    	}).click(function(){
+    		$(".personalInfo").toggle();
     	});
     	
+    	$("#pay3").click(function(){
+    		if($("#pay3").is(":checked")){
+    			$("#pay2").prop("readonly", "readonly");
+    			$("#pay2").val("");
+    		}else{
+    			$("#pay2").removeAttr("readonly");
+    		}
+    	});
     	
  	});
 </script>
@@ -1163,6 +1181,7 @@
 		</tr>
 	</table><br><br>
 	</div>
+	<div class="language">
    	<!-- LANGUAGE_ABILITY(외국어 능력) -->
    	<h2>외국어 능력</h2>
    	<table id="box">
@@ -1254,6 +1273,8 @@
 		</tr>
 	</table>
 	<br><br>
+	</div>
+	<div class="license">
    	<!-- LICENSE(자격증) -->
    	<h2>자격증</h2>
    	<table id="box">
@@ -1283,6 +1304,8 @@
 		</tr>
 	</table>
   	<br><br>
+  	</div>
+  	<div class="computerAbility">
    	<!-- COMPUTER_ABILITY(컴퓨터 활용능력) -->
    	<h2>컴퓨터 활용능력</h2>
    	<table id="box">
@@ -1351,7 +1374,8 @@
 			</td>
 		</tr>
 	</table><br><br>
-   	
+   	</div>
+   	<div class="award">
    	<!-- AWARD(수상 수료 활동내역) -->
    	<h2>수상&middot;수료&middot;활동내역</h2>
    	<table id="box">
@@ -1363,7 +1387,8 @@
    			</td>
    		</tr>
    	</table><br><br>
-   	
+   	</div>
+   	<div class="personalInfo">
    	<!-- PERSONAL_INFO(개인부가정보) -->
    	<h2>개인부가정보 입력</h2>
    	<table id="box">
@@ -1414,6 +1439,7 @@
    			</td>
    		</tr>
    	</table><br><br>
+   	</div>
    	<!-- CONTENT(자기소개서) -->
     <h2>자기소개서</h2>
     <table id="box">

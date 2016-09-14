@@ -51,14 +51,18 @@ $(document).ready(function(){
 		
 		//pwd유효성 검사
 		$("#pwd").keyup(function(){
-			if(validate_userid($("#pwd").val()) && 
-					$("#pwd").val().length>=0){
-					$("#message2").html("비밀번호 중복확인을 하세요");	
-			}else{
-				//유효성 검사를 통과하지 못한 경우
-				$("#message2").html("비밀번호 규칙에 맞지 않습니다");
-				$("#chkPw").val("N");
-			}
+			if($("#pwd").val().length<4 || $("#pwd").val().length>16){
+				$("#message2").html("비밀번호는 4~16자리로 입력하세요");	
+			}else{	
+				if(validate_userid($("#pwd").val()) && 
+						$("#pwd").val().length>=0){
+						$("#message2").html("비밀번호 중복확인을 하세요");	
+				}else{
+					//유효성 검사를 통과하지 못한 경우
+					$("#message2").html("비밀번호 규칙에 맞지 않습니다");
+					$("#chkPw").val("N");
+				}
+			}	
 		});//pwd
 		$("#pwd2").keyup(function(){
 			if($("#pwd").val()==$("#pwd2").val()){
@@ -67,7 +71,7 @@ $(document).ready(function(){
 			}else{
 				$("#message2").html("비밀번호가 잃치 하지 않습니다");
 				$("#chkPw").val("N");
-			}
+			}	
 		});//pwd2
 		
 		$("#bt_register").click(function(event){

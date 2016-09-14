@@ -19,11 +19,14 @@
 	float: left;
 }
 .divCmHeader{
-	height:130px;
+	width:750px;
+	height:115px;
+	margin:5px;
 	background-color: azure;
 }
 .divDivision{
 	height:250px;
+	margin:5px;
 }
 .divJob{
 	width: 33%;
@@ -51,15 +54,53 @@
 }
 
 .divFunction{
-	width:25%;
-	background-color:Moccasin;
+	width:24%;
+	height:372px;
+	margin:5px;
 	float: left;
 }
 .loginBox{
-	height:230px;
+	height:160px;
 	border:solid 1px LightGray;
+	text-align:center;
+	margin-bottom:5px;
+}
+.divFunction img{
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+.personalLogin{
+	width:49%;
+	height:90px;
+	padding-top:30px;
+	border:solid 1px LightGray;
+	float:left;
+	font-size:20px;
+	font-weight:bold;
+	color:DimGray;
+}
+.companyLogin{
+	width:49%;
+	height:90px;
+	padding-top:30px;
+	border:solid 1px LightGray;
+	float:left;
+	font-size:20px;
+	font-weight:bold;
+	color:DimGray;
+}
+.selectLogin{
+	width:99%;
+	height:28px;
+	padding-top:8px;
+	border:solid 1px LightGray;
+	background-color:Gainsboro;
+	font-size:12px;
+	float:left;
 }
 .divCommercial2{
+	width:99%;
 	height:150px;
 }
 
@@ -96,6 +137,10 @@
 	height: 100px;
 	text-align: center;
 }
+.tableSpecial td a{
+	text-decoration:none;
+	color:black;
+}
 .tableSpecial #title{
 	font-weight:bold;
 }
@@ -112,5 +157,23 @@
 	width: 250px;
 	height: 120px;
 	border:solid 1px LightGray;
-	background-color:azure;
+	text-align: center;
+}
+.tableGrand td a{
+	text-decoration:none;
+	color:black;
+}
+.tableGrand #title{
+	font-weight:bold;
+}
+#grayFont{
+	color:gray;
+}
+#grayButton{
+	font-size:14px;
+	font-weight:bold;
+	color:white;
+	background-color:DarkGray;
+	margin-top:5px;
+	padding:5px 0px 5px 0px;
 }

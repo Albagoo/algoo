@@ -21,8 +21,10 @@
 				<div class="divCmHeader">
 					<!-- 광고배너(2개) -->
 					<table>
-					<td><img src="<c:url value='/images/banner1.jpg'/>"></td>
-					<td><img src="<c:url value='/images/banner2.jpg'/>"></td>
+					<td><img src="<c:url value='/images/banner1.jpg'/>"
+						height="115px"></td>
+					<td><img src="<c:url value='/images/banner2.jpg'/>"
+						height="115px"></td>
 					</table>
 				</div>
 				<div class="divDivision">
@@ -82,9 +84,25 @@
 					<!-- 로그인상자 및 광고 -->
 					<div class="loginBox">
 						<!-- 로그인상자 -->
+						<a href="#">
+						<div class="personalLogin">
+							개인회원<br>로그인
+						</div></a>
+						<a href="#">
+						<div class="companyLogin">
+							기업회원<br>로그인
+						</div></a>
+						<div class="selectLogin">
+							<span style="font-weight:bold">
+								회원가입</span> |
+							아이디 찾기 |
+							비밀번호 찾기
+						</div>
 					</div>
 					<div class="divCommercial2">
 						<!-- 다른 사이즈의 광고 -->
+						<img src="<c:url value='/images/banner3.jpg'/>"
+						 width="245px" height="140px">
 					</div>
 				</div>
 				<div class="divBrand">

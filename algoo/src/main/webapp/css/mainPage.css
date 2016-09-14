@@ -19,11 +19,14 @@
 	float: left;
 }
 .divCmHeader{
-	height:130px;
+	width:750px;
+	height:115px;
+	margin:5px;
 	background-color: azure;
 }
 .divDivision{
 	height:250px;
+	margin:5px;
 }
 .divJob{
 	width: 33%;
@@ -51,15 +54,47 @@
 }
 
 .divFunction{
-	width:25%;
-	background-color:Moccasin;
+	width:24%;
+	height:372px;
+	margin:5px;
 	float: left;
 }
 .loginBox{
 	height:230px;
 	border:solid 1px LightGray;
+	text-align:center;
+}
+.personalLogin{
+	width:49%;
+	height:90px;
+	padding-top:30px;
+	border:solid 1px LightGray;
+	float:left;
+	font-size:20px;
+	font-weight:bold;
+	color:DimGray;
+}
+.companyLogin{
+	width:49%;
+	height:90px;
+	padding-top:30px;
+	border:solid 1px LightGray;
+	float:left;
+	font-size:20px;
+	font-weight:bold;
+	color:DimGray;
+}
+.selectLogin{
+	width:99%;
+	height:28px;
+	padding-top:8px;
+	border:solid 1px LightGray;
+	background-color:Gainsboro;
+	font-size:12px;
+	float:left;
 }
 .divCommercial2{
+	width:99%;
 	height:150px;
 }
 

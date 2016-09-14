@@ -43,8 +43,8 @@ public class LoginController2 {
 			@RequestParam(required=false) String type,
 			HttpSession session,
 			Model model){
-		logger.info("ajax 로그인 파라미터={}, {}",userid,pwd);
-		logger.info("ajax 파라미터={}",type);
+		logger.info("ajax 로그인 파라미터 userid={}, pwd={}",userid,pwd);
+		logger.info("ajax type={}",type);
 		
 		
 		int result=0;
@@ -101,24 +101,23 @@ public class LoginController2 {
 	@RequestMapping("/checkLogin.ag")
 	public void checkLogin(){
 	}
-	@RequestMapping("/closeLogin.ag")
-	public void closeLogin(){
-	}
 	
 	@RequestMapping("/mypageType.ag")
 	public String myPageType(HttpSession session){
 		String userid = (String)session.getAttribute("userid");
 		String authCode = (String)session.getAttribute("authCode");
 		
+		String resultPage="";
 		if(userid==null || userid.isEmpty()){
 			return "login/checkLogin";
 		}
+		
 		if(authCode.equals("1")){
-			return "/member/memInfo.ag";
+			resultPage= "redirect:/member/memInfo.ag";
 		}else if(authCode.equals("2")){
-			return "/commem/commemInfo.ag";
+			resultPage= "redirect:/member_comp/commemInfo.ag";
 		}
-		return "";
+		return resultPage;
 	}
 
 }

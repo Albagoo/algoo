@@ -32,17 +32,13 @@
 	</script>
 
 <section>
-<!-- 08-31 paging form start-->
 <form name="frmPaging" method="post"
  action="<c:url value='/notice/list.ag'/>"
  id="frmPaging">
- 	<!-- 09-02 category searching -->
 	<input type="hidden" name="categoryName" id="categoryName" value="${param.categoryName }">
 	<input type="hidden" name="currentPage" id="currentPage"  >	
 </form>
-<!-- paging form end -->
 
-<!-- 09-05 search for category -->
 <form name="frmPage" id="frmPage" method="post" 
 action="<c:url value='/notice/list.ag'/>">
 	<input type="hidden" name="categoryName" id="categoryName2" value="${param.categoryName }">
@@ -54,45 +50,24 @@ action="<c:url value='/notice/list.ag'/>">
 	</legend>
 </div>
 <div class="divListAll" align="center">
-<p id="firstTitle">
-	<c:if test="${!empty param.searchKeyword }">
-		<!-- search case -->
-		<p class="searchResult">검색어 ${param.searchKeyword}(으)로  
-			${pagingInfo.totalRecord}건 검색되었습니다.</p>
-	</c:if>
-	<c:if test="${empty param.searchKeyword }">
-		<!-- whole case -->
-		<p class="searchResult">등록된 공지사항은 ${pagingInfo.totalRecord}건 입니다</p>
-	</c:if>
-</p>
+<div class="noticeSearch">
+	<span>질문검색</span>
+	<input type="text" name="searchKeyword" title="검색어 입력" style="width: 200px;height: 25px;">
+	<input type="submit" value="검색" style="height: 30px;" align=absmiddle>
+</div>
 
-<!-- 09-06 -->
 <div class="divList">
 	<table class="box2">
 		<colgroup>
+			<col style="width:5%;" />
 			<col style="width:10%;" />
-			<col style="width:75%" />
+			<col style="width:70%" />
 			<col style="width:15%" />
 		</colgroup>
 		<thead>
 	  <tr>
-	    <th scope="col">
-	    	<select name="categoryInput" id="categoryInput"
-			class="button white small"
-		       	style="font-size: 0.9em;">
-		    <!--  onchange="location.href=this.value"> -->
-			<option value="">구분</option>
-			<option value="공지"
-			 <c:if test="${param.categoryName=='공지' }">selected</c:if>>
-			 공지</option>
-			<option value="이벤트"
-			 <c:if test="${param.categoryName=='이벤트' }">selected</c:if>>
-			 이벤트</option>
-			<option value="서비스"
-			 <c:if test="${param.categoryName=='서비스' }">selected</c:if>>
-			 서비스</option>
-		</select>
-	    </th>
+	  	<th scope="col">번호</th>
+	    <th scope="col">분류</th>
 	    <th scope="col">제목</th>
 	    <th scope="col">작성일</th>
 	  </tr>
@@ -100,7 +75,7 @@ action="<c:url value='/notice/list.ag'/>">
 		<tbody>
 			<c:if test="${empty noticeList}">
 				<tr>
-					<td colspan="3" class="align_center">
+					<td colspan="4" class="align_center">
 						검색된 질문이 없습니다
 					</td>
 				</tr>
@@ -110,6 +85,9 @@ action="<c:url value='/notice/list.ag'/>">
 		
 				<tr>
 					<td>
+						${vo.mainNo }
+					</td>
+					<td style="font-weight: bold;color: #ff7373">
 						${vo.category }
 					</td>
 					<td id="align_left" style="padding-left:10px">
@@ -156,13 +134,12 @@ action="<c:url value='/notice/list.ag'/>">
 	</c:if>
 </div>
 <br>
-	<!-- 09-01 search part -->
 	<div class="divSearch" style="text-align:center;width:100%">
 		<form name="frmSearch" method="post" 
-	   	 action="<c:url value='/notice/list.ag' />" >
+	   	 action="<c:url value='/notice/noticeUserList.ag' />" >
 	   		<div class="searchBox"> 
 	        <select name="searchCondition" class="button white small"
-	        	style="font-size: 0.75em;">
+	        	style="font-size: 0.8em;">
 	            <option value="title"
 	           	   <c:if test="${param.searchCondition=='title'}">
 	            		selected
@@ -178,15 +155,9 @@ action="<c:url value='/notice/list.ag'/>">
 	        	title="검색어 입력" value="${param.searchKeyword}" >
 			<input type="submit" value="검색"
 				 class="button white medium"
-	        	style="font-size: 0.75em;">
+	        	style="font-size: 0.85em;">
 			</div>
 	    </form>
-	</div>
-	
-	<div class="divBtn" style="text-align:right;width:100%">
-	<input type = "Button" class="button white medium" value="공지 등록" 
-      	onclick="location.href='<c:url value="/notice/write.ag"/>';" />
-      	<br><br><br>
 	</div>
 </div>
 </section>

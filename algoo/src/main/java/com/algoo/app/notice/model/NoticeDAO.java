@@ -10,7 +10,6 @@ public interface NoticeDAO {
 	public List<NoticeVO> selectByCategory(ListNoticeVO vo); //08-31 검색
 	public int selectTotalCount(ListNoticeVO vo); //08-31
 	public List<NoticeVO> searchCategory(ListNoticeVO vo); //09-02 카테고리 검색 
-	public int updateReadCount(int no);
 	public NoticeVO selectByNo(int no);
 	public int updateNotice(NoticeVO noticeVo);
 	public int deleteNotice(int no);

@@ -22,6 +22,9 @@
 	text-align: left;
 	margin-left:220px;
 }
+#faqinfo p a{
+	color:black;	
+}
 
 /* faqWrite */
 .center{

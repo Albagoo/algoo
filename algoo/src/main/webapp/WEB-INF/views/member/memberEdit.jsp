@@ -2,12 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../inc/simple_top.jsp" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/registerLayout.css" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/clear.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
-<link rel="stylesheet" type="text/css" href="<c:url value='/css/mainstyle.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/member.css'/>" />
 <script type="text/javascript" src="<c:url value='/js/member.js'/>"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+		$("#simple_top span").html("회원정보 수정");
 		$("#frm1").submit(function(){
 			if($("#password").val().length<1){
 				alert("비밀번호를 입력하세요");
@@ -24,7 +25,7 @@
 				return false;
 			}
 		});
-	});
+	});//ready
 	
 	
 	
@@ -39,35 +40,41 @@
 	}
 	.width_350{
 		width:350px;
-	}	
+	}
+	
+		
 </style>
 <article>
-<div class="divForm">
+<div class="divForm" id="member">
+<div id="memleft">dff</div>
 <form name="frm1" id="frm1" method="post" 
 	action="<c:url value='/member/memberEdit.ag'/>">
 <fieldset>
-	<legend>회원 정보 수정</legend>
-    <div>        
-        <span class="sp1">성명</span>
-        <span>${memberVo.userName}</span>
-    </div>
-    <div>
-        <span class="sp1">회원ID</span>
-        <span>${memberVo.userid}</span>
-    </div>
-    <div>
-         <label for="nickName">닉네임</label>
-        <input type="text" name="nickName" id="nickName" 
-        value="${memberVo.nickName}">
-    </div>
-    <div>
-        <label for="pwd">비밀번호</label>
-        <input type="Password" name="password" id="password">
-    </div>
-    <div>
-        <label for="pwd2">비밀번호 확인</label>
-        <input type="Password" name="password2" id="password2">
-    </div>
+	<table >
+		<tr>    
+	        <th>회원ID</th>
+	        <td>${memberVo.userid}</td>
+   		</tr>
+	  	<tr>    
+	        <th><span class="sp1">성명</span></th>
+	        <td><span>${memberVo.userName}</span></td>
+   		</tr>
+	    <tr>    
+	        <th>닉네임</th>
+	        <td><input type="text" name="nickName" id="nickName" class="textBox"
+        value="${memberVo.nickName}"></td>
+   		</tr>
+    	<tr>    
+	        <th><span class="sp1">비밀번호</span></th>
+	        <td><input type="Password" name="password" id="password" class="textBox"></td>
+   		</tr>
+    	<tr>    
+	        <th>비밀번호 확인</th>
+	        <td> <input type="Password" name="password2" id="password2" class="textBox"></td>
+   		</tr>
+    </table>
+   
+    
     <div>
         <label for="zipcode">주소</label>
         <input type="text" name="zipcode" id="zipcode" ReadOnly  
@@ -79,11 +86,11 @@
         <span class="sp1">&nbsp;</span>
         <input type="text" name="address" ReadOnly 
 	        title="주소"  class="width_350"
-	        value="${memberVo.address}"><br />
+	        value="${memberVo.address}" class="textBox"><br />
         <span class="sp1">&nbsp;</span>
         <input type="text" name="addressDetail" 
 	        title="상세주소"  class="width_350"
-	        value="${memberVo.addressDetail}">
+	        value="${memberVo.addressDetail}" class="textBox">
     </div>
     <div>
         <label for="hp1">핸드폰</label>&nbsp;
@@ -121,9 +128,9 @@
        	</select>
         -
         <input type="text" name="hp2" id="hp2" maxlength="4" title="휴대폰 가운데자리"
-        	class="width_80" value="${memberVo.hp2}">-
+        	class="width_80" value="${memberVo.hp2}" class="textBox">-
         <input type="text" name="hp3" id="hp3" maxlength="4" title="휴대폰 뒷자리"
-        	class="width_80" value="${memberVo.hp3}">
+        	class="width_80" value="${memberVo.hp3}" class="textBox">
     </div>
     <div>
     	<c:set var="etcYn" value="" />

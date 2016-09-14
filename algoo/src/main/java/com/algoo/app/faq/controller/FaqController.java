@@ -101,23 +101,6 @@ public class FaqController {
 		return "faq/faqDetail";
 	}
 	
-	@RequestMapping("/updateCount.ag")
-	public String updateCount(@RequestParam(defaultValue="0") int faqNo, Model model){
-		logger.info("FAQ 조회수 증가, 파라미터 faqNo = {}", faqNo);
-		
-		if(faqNo==0){
-			model.addAttribute("msg", "잘못된 url입니다");
-			model.addAttribute("url", "/faq/faqList.ag");
-			
-			return "common/message";
-		}
-		
-		int cnt=faqService.updateReadCount(faqNo);
-		logger.info("FAQ 조회수 증가 결과, cnt = {}", cnt);
-
-		return "redirect:/faq/faqDetail.ag?faqNo="+faqNo;
-	}
-	
 	@RequestMapping(value="/faqEdit.ag", method=RequestMethod.GET)
 	public String edit_get(@RequestParam(defaultValue="0") int faqNo, Model model){
 		logger.info("FAQ 수정화면 보여주기, 파라미터 faqNo = {}", faqNo);

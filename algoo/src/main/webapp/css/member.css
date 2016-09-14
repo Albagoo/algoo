@@ -1,0 +1,34 @@
+
+
+#member{
+	/*clear: both;*/
+	width:96%;
+	margin: 0 auto;
+	overflow: auto;
+	background: white;
+}
+
+#memleft{
+	float: left;
+	width:200px;
+	
+}
+
+#memcenter{
+	float: left;
+	width:100px;
+	background:red;
+}
+td{
+
+	width:120px;
+}
+th{
+	float: left;
+	width:120px;
+	
+	text:left;
+}
+<table frame=void>
+
+

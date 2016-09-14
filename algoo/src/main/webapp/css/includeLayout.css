@@ -34,6 +34,7 @@
 	font-size: 1.2em;
 	text-align: right;
 	margin:0 3px 0 3px;
+	color:#333;
 }
 #header_action a:last-of-type{
 	margin-right:30px;

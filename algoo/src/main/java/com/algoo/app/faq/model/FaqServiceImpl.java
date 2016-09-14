@@ -28,11 +28,6 @@ public class FaqServiceImpl implements FaqService{
 	}
 
 	@Override
-	public int updateReadCount(int faqNo) {
-		return faqDao.updateReadCount(faqNo);
-	}
-
-	@Override
 	public FaqVO selectByNo(int faqNo) {
 		return faqDao.selectByNo(faqNo);
 	}

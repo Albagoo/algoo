@@ -27,9 +27,8 @@
 			select main_board_seq.nextval from dual
 		</selectKey>
 			insert into main_board(
-				main_no, category, title, content, writer, regdate)
-			values(#{mainNo}, #{category}, #{title}, #{content},
-			#{writer}, sysdate)
+				main_no, category, title, content, regdate)
+			values(#{mainNo}, #{category}, #{title}, #{content}, sysdate)
 	</insert>
 	
 	<!-- <select id="selectAll" resultType="NoticeVO">
@@ -61,9 +60,7 @@
 	</select> -->
 	
 	<!-- 09-02 searching -->
-	<select id="selectByCategory" 
-		parameterType="ListNoticeVO"
-		resultType="NoticeVO">
+	<select id="selectByCategory" parameterType="ListNoticeVO" resultType="NoticeVO">
 		select *
 		from
 		(
@@ -81,10 +78,8 @@
 	</select>
 	
 	<!-- 09-02 searching category -->
-	<select id="searchCategory"
-	 parameterType="ListNoticeVO"
-	 resultType="NoticeVO">
-		select *
+	<select id="searchCategory" parameterType="ListNoticeVO" resultType="NoticeVO">
+		select * 
 		from
 		(
 		    select rownum as RNUM, LIST_ALL.*
@@ -108,20 +103,14 @@
 		<include refid="searchWhere"></include>
 	</select>
 	
-	<update id="updateReadCount" parameterType="int">
-		update main_board
-			set read_count=read_count+1
-		where main_no=#{mainNo}
-	</update>
-	
 	<select id="selectByNo" parameterType="int"
 	 resultType="NoticeVO">
 		select * from main_board where main_no=#{mainNo}
 	</select>
 	
 	<update id="updateNotice" parameterType="NoticeVO">
-		update main_board set title=#{title}, writer=#{writer},
-			content=#{content} where main_no=#{mainNo}
+		update main_board set title=#{title}, content=#{content} 
+		where main_no=#{mainNo}
 	</update>
 	
 	<delete id="deleteNotice" parameterType="int">

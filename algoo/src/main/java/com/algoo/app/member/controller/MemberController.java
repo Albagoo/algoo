@@ -52,8 +52,23 @@ public class MemberController {
 			HttpServletRequest request,	Model model){
 		//1.
 		logger.info("회원가입 처리, 파라미터 memberVo={}", memberVo);
+		/*
+		//파일 업로드 처리
+		int uploadType = FileUploadWebUtil.IMAGE_UPLOAD;
 		
-		fileUtil.FileUpload(request, FileUploadWebUtil.IMAGE_UPLOAD);
+		List<Map<String, Object>> fileList
+		=fileUtil.FileUpload(request, uploadType);
+		logger.info("업로드 파일 fileList.size=()={}",fileList.size());
+		
+		//업로드된 파일명 구해오기
+		String fileName="";
+		long fileSize=0;
+		for(Map<String, Object> mymap : fileList){
+			fileName= (String) mymap.get("fileName");
+			fileSize=(Long) mymap.get("fileSize");
+			
+			memberVo.setPhoto(fileName);
+		}*/
 		//2.
 		//휴대폰번호를 모두 입력하지 않은 경우 - 모두 공백으로 셋팅
 		String hp2=memberVo.getHp2();
@@ -235,5 +250,17 @@ public class MemberController {
 		
 		return "common/message";
 	}
+	@RequestMapping("/memInfo.ag")
+	public String memInfo(HttpSession session,
+			Model model){
+		String userid = (String)session.getAttribute("userid");
+		MemberVO memberVo = memberService.selectMemberByUserid(userid);
+		
+		model.addAttribute("memberVo", memberVo);
+		logger.info("회원정보 읽어오기 memberVo={},",memberVo);
+		
+		return "member_comp/memberInfo";
+	}
+
 	
 }

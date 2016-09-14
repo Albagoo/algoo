@@ -1,8 +1,5 @@
 package com.algoo.app.member.controller;
 
-import java.util.List;
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -253,5 +250,17 @@ public class MemberController {
 		
 		return "common/message";
 	}
+	@RequestMapping("/memInfo.ag")
+	public String memInfo(HttpSession session,
+			Model model){
+		String userid = (String)session.getAttribute("userid");
+		MemberVO memberVo = memberService.selectMemberByUserid(userid);
+		
+		model.addAttribute("memberVo", memberVo);
+		logger.info("회원정보 읽어오기 memberVo={},",memberVo);
+		
+		return "member_comp/memberInfo";
+	}
+
 	
 }

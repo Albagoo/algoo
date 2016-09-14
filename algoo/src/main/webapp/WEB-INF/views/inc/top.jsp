@@ -36,11 +36,9 @@
 					<c:if test="${!empty sessionScope.userid }">
 						<span style="font-size:1em">${sessionScope.userName}님</span>
 						<a href="<c:url value='/member/logout.ag' />">로그아웃</a>
-						<a href="<c:url value='/member/memberEdit.ag' />">회원정보수정</a>
-						<a href="<c:url value='/member/memberOut.ag' />">회원탈퇴</a>
+						<a href="<c:url value='/login/mypageType.ag'/>">마이페이지</a>
 					</c:if>
 						<a href="#">고객센터</a> |
-						<a href="#">FAQ</a> |
 						<a href="#">이벤트</a>
 					</div>
 				</div>

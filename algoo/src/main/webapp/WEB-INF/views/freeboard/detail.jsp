@@ -25,12 +25,17 @@ src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
 		<div class="firstDiv2">
 			<span class="sp1">${freeVo.title }</span>
 			<span class="sp2">작성일 <fmt:formatDate value="${freeVo.regdate }" pattern="yyyy/MM/dd" />
+				<c:if test="${sessionScope.userid==freeVo.userid}">
 				| <a href="<c:url value='/freeboard/edit.ag?freeNo=${freeVo.freeNo}'/>">수정</a>
 				| <a href="<c:url value='/freeboard/delete.ag?freeNo=${freeVo.freeNo}'/>">삭제</a>
+				</c:if>
+				<c:if test="${sessionScope.userid!=freeVo.userid}">
+				| <a href="<c:url value='/freeboard/write.ag'/>">글쓰기</a>
+				</c:if>
 			</span>
 		</div>
 		<div class="secondDiv">
-			<p class="writer">${sessionScope.nickName }(${fn:substring(sessionScope.nickName, 0,3)}***)</p>
+			<p class="writer">${freeVo.nickName }(${fn:substring(freeVo.nickName, 0,3)}***)</p>
 			<p class="content">${freeVo.content }</p>
 		</div>
 		<div class="center">
@@ -42,13 +47,13 @@ src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
       		onclick="location.href
       			='<c:url value="/freeboard/reply.ag?freeNo=${freeVo.freeNo}" />'">	
 		<!-- 로그인 아이디와 글쓴이 아이디가 같을때만 수정 버튼 보이기 -->
-		<c:if test="${sessionScope.userid==freeVo.freeNo}">
+		<c:if test="${sessionScope.userid==freeVo.userid}">
 	      	<input type = "Button" class="button white medium" value="수정" 
 	      		onclick="location.href
 	      			='<c:url value="/freeboard/edit.ag?freeNo=${freeVo.freeNo}" />'"> 
-		</c:if>
      	<input type = "Button" class="button white medium" value="삭제" 
       		onclick="del(${freeVo.freeNo})" />
+      	</c:if>	
       	<input type = "Button" class="button white medium" value="목록" 
       		 onclick="location.href
       			='<c:url value="/freeboard/list.ag" />'"/>		

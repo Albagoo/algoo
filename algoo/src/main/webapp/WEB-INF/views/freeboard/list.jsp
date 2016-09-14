@@ -105,7 +105,7 @@
 						</c:if>
 					</c:if>	
 				</td>
-				<td>${fList.writer}</td>
+				<td>${fList.nickName}</td>
 				<td><fmt:formatDate value="${fList.regdate}" pattern="yyyy-MM-dd"/>
 				</td>
 				<td>${fList.readCount}</td>
@@ -157,8 +157,8 @@
             		selected
                </c:if>
             >내용</option>
-            <option value="writer" 
-            	<c:if test="${param.searchCondition=='writer'}">
+            <option value="nickName" 
+            	<c:if test="${param.searchCondition=='nickName'}">
             		selected
                </c:if>
             >작성자</option>

@@ -5,7 +5,14 @@ public class CareerVO {
 	private String company; /* 회사 */
 	private String period; /* 근무기간 */
 	private String work; /* 담당업무 */
+	private String careerB;
 	
+	public String getCareerB() {
+		return careerB;
+	}
+	public void setCareerB(String careerB) {
+		this.careerB = careerB;
+	}
 	public int getCareerCode() {
 		return careerCode;
 	}
@@ -34,7 +41,7 @@ public class CareerVO {
 	@Override
 	public String toString() {
 		return "CareerVO [careerCode=" + careerCode + ", company=" + company + ", period=" + period + ", work=" + work
-				+ "]";
+				+ ", careerB=" + careerB + "]";
 	}
 	
 	

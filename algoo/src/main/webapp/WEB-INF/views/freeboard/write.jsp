@@ -36,6 +36,8 @@ type="text/javascript"></script>
 <div class="divForm">
 <form name="frmWrite" id="frmWrite" method="post" 
   action="<c:url value='/freeboard/write.ag'/>" >
+<input type="hidden" value="${sessionScope.userid }">
+<input type="hidden" value="${sessionScope.nickName }">
  <fieldset>
 	<legend> 
 		<img src="<c:url value='/images/albatalk.png'/>" style="height: 48px;" align=absmiddle>

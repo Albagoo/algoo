@@ -47,6 +47,19 @@
 	    color: #511;
 	}
 	
+	#box2{
+		width: 860px;
+		height: 100px;
+		margin: 0 auto;
+		text-align: center;
+		padding-bottom: 15px;"
+	}
+	
+	#box2 img{
+		width: 200px;
+		
+	}
+	
 </style>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -770,6 +783,70 @@
     	
     	$("input[type='text']").addClass("textBox");
     	
+    	$("#career").hide();
+    	$(".language").hide();
+    	$(".license").hide();
+    	$(".computerAbility").hide();
+    	$(".award").hide();
+    	$(".personalInfo").hide();
+    	
+    	$("#img1").hover(function(event){
+    		$(this).prop("src", "<c:url value='/images/resume_career_c.PNG'/>");
+    	}, function(event){
+    		$(this).prop("src", "<c:url value='/images/resume_career.PNG'/>");
+    	}).click(function(){
+    		$("#career").toggle();
+    	});
+    	
+    	$("#img2").hover(function(event){
+    		$(this).prop("src", "<c:url value='/images/resume_language_c.PNG'/>");
+    	}, function(event){
+    		$(this).prop("src", "<c:url value='/images/resume_language.PNG'/>");
+    	}).click(function(){
+    		$(".language").toggle();
+    	});
+    	
+    	$("#img3").hover(function(event){
+    		$(this).prop("src", "<c:url value='/images/resume_license_c.PNG'/>");
+    	}, function(event){
+    		$(this).prop("src", "<c:url value='/images/resume_license.PNG'/>");
+    	}).click(function(){
+    		$(".license").toggle();
+    	});
+    	
+    	$("#img4").hover(function(event){
+    		$(this).prop("src", "<c:url value='/images/resume_computer_c.PNG'/>");
+    	}, function(event){
+    		$(this).prop("src", "<c:url value='/images/resume_computer.PNG'/>");
+    	}).click(function(){
+    		$(".computerAbility").toggle();
+    	});
+    	
+    	$("#img5").hover(function(event){
+    		$(this).prop("src", "<c:url value='/images/resume_award_c.PNG'/>");
+    	}, function(event){
+    		$(this).prop("src", "<c:url value='/images/resume_award.PNG'/>");
+    	}).click(function(){
+    		$(".award").toggle();
+    	});
+    	
+    	$("#img6").hover(function(event){
+    		$(this).prop("src", "<c:url value='/images/resume_personal_c.PNG'/>");
+    	}, function(event){
+    		$(this).prop("src", "<c:url value='/images/resume_personal.PNG'/>");
+    	}).click(function(){
+    		$(".personalInfo").toggle();
+    	});
+    	
+    	$("#pay3").click(function(){
+    		if($("#pay3").is(":checked")){
+    			$("#pay2").prop("readonly", "readonly");
+    			$("#pay2").val("");
+    		}else{
+    			$("#pay2").removeAttr("readonly");
+    		}
+    	});
+    	
  	});
 </script>
 <div id="resume">
@@ -791,6 +868,13 @@
 	<input type="hidden" id="officialTest" name="officialTest" >
 	<input type="hidden" id="collicensePlace" name="collicensePlace" >
 	<input type="hidden" id="itDesignAbility" name="itDesignAbility" >
+	<input type="hidden" id="memberCode" name="memberCode" value="${memberVo.memberCode }">
+	$("#career").hide();
+   	$(".language").hide();
+   	$(".license").hide();
+   	$(".computerAbility").hide();
+   	$(".award").hide();
+   	$(".personalInfo").hide();
 	<table id="box">
 		<tr id="tr">
 			<td style="text-align: center; padding: 10px; width: 20%">
@@ -801,26 +885,31 @@
 				<table style="float: left; width: 60%">
 					<tr>
 						<td id="td1" style="width: 20%; padding-left: 0;">이름</td>
-						<td id="td2" style="padding: 5px"><input type="text"></td>
+						<td id="td2" style="padding: 5px">
+						<input type="text" value="${sessionScope.userName }" readonly></td>
 					</tr>
 					<tr>
 						<td id="td1" style="width: 20%; padding-left: 0;">휴대폰</td>
-						<td id="td2" style="padding: 5px"><input type="text"></td>
+						<td id="td2" style="padding: 5px">
+						<input type="text" 
+						value="${memberVo.hp1 }-${memberVo.hp2 }-${memberVo.hp3 }" readonly></td>
 					</tr>
 					<tr>
 						<td id="td1" style="width: 20%; padding-left: 0;">e-메일</td>
 						<td id="td2" style="padding: 5px">
-						<input type="text" style="width: 70%"></td>
+						<input type="text" style="width: 70%"
+						value="${memberVo.email1 }@${memberVo.email2}" readonly></td>
 					</tr>
 					<tr>
 						<td id="td1" style="width: 20%; padding-left: 0;">주소</td>
 						<td id="td2" style="padding: 5px">
-						<input type="text" style="width: 80%"></td>
+						<input type="text" style="width: 180%" 
+						value="${memberVo.address } ${memberVo.addressDetail}" readonly></td>
 					</tr>
 					<tr>
 						<td id="td1" style="width: 20%; padding-left: 0;">홈페이지</td>
 						<td id="td2" style="padding: 5px">
-						<input type="text" style="width: 80%"></td>
+						<input type="text" style="width: 120%"></td>
 					</tr>
 				</table>
 				<div style="float: left; background-color: #eee; border:1px solid silver; 
@@ -1017,6 +1106,15 @@
 		</tr>
 	</table><br><br>
    
+   	<div id="box2">
+   		<img src="<c:url value='/images/resume_career.PNG'/>" id="img1">
+   		<img src="<c:url value='/images/resume_language.PNG'/>" id="img2">
+   		<img src="<c:url value='/images/resume_license.PNG'/>" id="img3"><br>
+   		<img src="<c:url value='/images/resume_computer.PNG'/>" id="img4">
+   		<img src="<c:url value='/images/resume_award.PNG'/>" id="img5">
+   		<img src="<c:url value='/images/resume_personal.PNG'/>" id="img6">
+   	</div>
+   	<div id="career">
 	<!-- CAREER (경력사항) -->
 	<h2>경력사항</h2>
 	<table id="box">
@@ -1095,7 +1193,8 @@
 			</td>
 		</tr>
 	</table><br><br>
-	
+	</div>
+	<div class="language">
    	<!-- LANGUAGE_ABILITY(외국어 능력) -->
    	<h2>외국어 능력</h2>
    	<table id="box">
@@ -1187,6 +1286,8 @@
 		</tr>
 	</table>
 	<br><br>
+	</div>
+	<div class="license">
    	<!-- LICENSE(자격증) -->
    	<h2>자격증</h2>
    	<table id="box">
@@ -1216,6 +1317,8 @@
 		</tr>
 	</table>
   	<br><br>
+  	</div>
+  	<div class="computerAbility">
    	<!-- COMPUTER_ABILITY(컴퓨터 활용능력) -->
    	<h2>컴퓨터 활용능력</h2>
    	<table id="box">
@@ -1284,7 +1387,8 @@
 			</td>
 		</tr>
 	</table><br><br>
-   	
+   	</div>
+   	<div class="award">
    	<!-- AWARD(수상 수료 활동내역) -->
    	<h2>수상&middot;수료&middot;활동내역</h2>
    	<table id="box">
@@ -1296,7 +1400,8 @@
    			</td>
    		</tr>
    	</table><br><br>
-   	
+   	</div>
+   	<div class="personalInfo">
    	<!-- PERSONAL_INFO(개인부가정보) -->
    	<h2>개인부가정보 입력</h2>
    	<table id="box">
@@ -1347,6 +1452,7 @@
    			</td>
    		</tr>
    	</table><br><br>
+   	</div>
    	<!-- CONTENT(자기소개서) -->
     <h2>자기소개서</h2>
     <table id="box">

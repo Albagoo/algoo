@@ -6,13 +6,9 @@
 	<!-- 09-02 searching -->
 	<sql id="searchWhere">
 		<where>
-			<if test="searchCondition!=null and searchCondition!=''">
+			<if test="searchKeyword!=null and searchKeyword!=''">
 				${searchCondition}
 				like '%' || #{searchKeyword} || '%'
-			</if>
-			<if test="searchCondition==null or searchCondition==''">
-				title like '%' || #{searchKeyword} || '%'
-				or content like '%' || #{searchKeyword} || '%'
 			</if>
 		</where>
 	</sql>

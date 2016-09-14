@@ -7,9 +7,9 @@
 		<selectKey keyProperty="hisCode" order="BEFORE" resultType="int">
 			select history_seq.nextval from dual
 		</selectKey>
-		insert into history(his_code, title, ability, detail, contatct_hour, 
-			member_code, award, content)
-		values(#{hisCode}, #{title}, #{ability}, #{detail}, #{contatctHour}, 
-			'MEM00001', #{award}, #{content})
-	</insert> 
+		insert into history
+		values(#{hisCode}, #{title}, #{hopeCode}, #{ability}, #{detail}, #{contatctHour}, 
+			#{memberCode}, #{award}, #{content}, #{careerCode}, #{languageCode}, #{licenseCode},
+			#{comAbilityCode}, #{personalInfoCode})
+		</insert> 
 </mapper>

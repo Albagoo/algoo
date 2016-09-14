@@ -10,6 +10,14 @@
 	display: block;
 	background: white;
 }
+.info{
+	width:78%;
+	margin:16px 0 0 5px;
+	border:1px solid #eee;
+	float:right;
+	display: block;
+	background: white;
+}
 
 .textBox{
    display: inline-block;

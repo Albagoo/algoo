@@ -61,6 +61,7 @@ public class LoginController2 {
 			if(result==memberService.LOGIN_OK){
 				session.setAttribute("userid", userid);
 				session.setAttribute("userName", memberVo.getUserName());
+				session.setAttribute("nickName", memberVo.getNickName());
 				session.setAttribute("authCode", "1"); //1이면 개인회원
 				str="LOGIN_OK";
 			}else{
@@ -82,6 +83,7 @@ public class LoginController2 {
 			if(result==memberService.LOGIN_OK){
 				session.setAttribute("userid", userid);
 				session.setAttribute("userName", commemVo.getUserName());
+				session.setAttribute("nickName", commemVo.getNickName());
 				session.setAttribute("authCode", "2"); //2이면 기업회원
 				str="LOGIN_OK";
 			}else{

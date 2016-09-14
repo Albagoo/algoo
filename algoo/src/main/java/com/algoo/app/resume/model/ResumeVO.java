@@ -7,7 +7,7 @@ public class ResumeVO {
 	private String ability; /* 최종학력 */
 	private String detail; /* 학력상세 */
 	private	String contatctHour; /* 연락가능시간 */
-	private int memberCode; /* 개인회원코드 */
+	private String memberCode; /* 개인회원코드 */
 	private String award; /* 수상,수료,활동내역 */
 	private String content; /* 자기소개서 */
 	private int careerCode; /* 경력사항 */
@@ -52,10 +52,10 @@ public class ResumeVO {
 	public void setContatctHour(String contatctHour) {
 		this.contatctHour = contatctHour;
 	}
-	public int getMemberCode() {
+	public String getMemberCode() {
 		return memberCode;
 	}
-	public void setMemberCode(int memberCode) {
+	public void setMemberCode(String memberCode) {
 		this.memberCode = memberCode;
 	}
 	public String getAward() {

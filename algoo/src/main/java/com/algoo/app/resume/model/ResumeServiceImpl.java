@@ -1,5 +1,7 @@
 package com.algoo.app.resume.model;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +21,8 @@ import com.algoo.app.personalInfo.model.PersonalInfoVO;
 
 @Service
 public class ResumeServiceImpl implements ResumeService{
+	private static final Logger logger
+		= LoggerFactory.getLogger(ResumeServiceImpl.class);
 	
 	@Autowired
 	private ResumeDAO resumeDao;
@@ -41,7 +45,7 @@ public class ResumeServiceImpl implements ResumeService{
 			, LanguageVO languageVo, LicenseVO licenseVo, ComputerAbilityVO computerAbilityVo
 			, PersonalInfoVO personalInfoVo) {
 		int cnt = hopeService.insertHope(hopeVo);
-		
+		logger.info("hopeCode == {}, cnt = {}",hopeVo.getHopeCode(), cnt);
 		if(cnt > 0){
 			resumeVo.setHopeCode(hopeVo.getHopeCode());
 		}
@@ -75,6 +79,8 @@ public class ResumeServiceImpl implements ResumeService{
 		if(cnt > 0){
 			resumeVo.setPersonalInfoCode(personalInfoVo.getPersonalInfoCode());
 		}
+		
+		logger.info("resumeVo = {}", resumeVo);
 		
 		return resumeDao.insertResume(resumeVo);
 	}

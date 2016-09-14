@@ -94,7 +94,6 @@ public class NoticeController {
 		
 		//3. result save
 		model.addAttribute("noticeList", alist);
-		model.addAttribute("searchVo", searchVo);
 		model.addAttribute("pagingInfo", pagingInfo); //08-31
 		
 		logger.info("페이징인포={}",pagingInfo.getCurrentPage());

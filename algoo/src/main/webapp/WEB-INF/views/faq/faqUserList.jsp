@@ -28,7 +28,7 @@
 	cursor: pointer;
 	position: relative;
 	margin: 2px 0 0 0;
-	padding: .5em 0 .5em .7em;
+	padding: .5em .5em .5em .7em;
 	min-height: 0; /* support: IE7 */
 	font-size: 0.8em;
     border:1px solid lightgray;
@@ -42,7 +42,7 @@
 <section>
 <div id="userList">
 	<div id="Qmark">
-		<img src="<c:url value='/images/faqicon.png'/>" style="height: 50px;">
+	<img src="<c:url value='/images/faqicon.png'/>" style="height: 50px;">
 	</div>
 	<div id="naviDiv">
 		<nav>
@@ -67,23 +67,11 @@
 			</dl>
 		</nav>
 	</div>
-	<div class="faqSearch">
-		<form name="frmSearch" method="post" 
-		   	 action="<c:url value='/faq/faqUserList.ag' />" >
-		<span>질문검색</span>
-		<input type="text" name="searchKeyword" id="searchKeyword" title="검색어 입력"   
-			style="width: 200px; height: 25px; ">
-		<input type="image" src="<c:url value='/images/search.png'/>"
-			style="height: 31px;padding-bottom: 1px;" align=absmiddle >
-		</form>
-	</div>
 	<div id="faqBody">
 		<div id="faqinfo">
 			<p> <a href="<c:url value='/faq/faqUserList.ag'/>">FAQ</a> 
-			<c:if test="${param.searchKeyword!=null}">
-				 >  <a href="<c:url value='/faq/faqUserList.ag?searchCondition=category&searchKeyword=${param.searchKeyword}'/>">
-				${param.searchKeyword}</a> 
-			</c:if>
+			 >  <a href="<c:url value='/faq/faqUserList.ag?searchCondition=category&searchKeyword=${param.searchKeyword}'/>">
+			${param.searchKeyword}</a> 
 			</p>
 		</div>
 		<div id="jQuery_accordion">

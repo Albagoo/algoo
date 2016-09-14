@@ -158,68 +158,68 @@
 				<!-- 슈퍼 채용공고 리스트 -->
 						<a href="#"><div class="SpBox">
 						 <img src="<c:url value='/images/company/001.jpg'/>">
-						 <br><span id="title">롯데아이몰</span>
-						 <br><span id="content">[재택근무] 2016년 상반기 알바</span>
+						 <br><p id="title">롯데아이몰</p>
+						 <br><p id="content">[재택근무] 2016년 상반기 알바</p>
 						</div></a><a href="#"><div class="SpBox">
 						 <img src="<c:url value='/images/company/002.jpg'/>">
-						 <br><span id="title">쿠팡</span>
-						 <br><span id="content">[재택근무] 2016년 상반기 알바</span>
+						 <br><p id="title">쿠팡</p>
+						 <br><p id="content">[재택근무] 2016년 상반기 알바</p>
 						</div></a><a href="#"><div class="SpBox">
 						 <img src="<c:url value='/images/company/003.jpg'/>">
-						 <br><span id="title">나이키</span>
-						 <br><span id="content">[재택근무] 2016년 상반기 알바</span>
+						 <br><p id="title">나이키</p>
+						 <br><p id="content">[재택근무] 2016년 상반기 알바</p>
 						</div></a><a href="#"><div class="SpBox">
 						 <img src="<c:url value='/images/company/004.jpg'/>">
-						 <br><span id="title">삼성전자판매</span>
-						 <br><span id="content">[재택근무] 2016년 상반기 알바</span>
+						 <br><p id="title">삼성전자판매</p>
+						 <br><p id="content">[재택근무] 2016년 상반기 알바</p>
 						</div></a><a href="#"><div class="SpBox">
 						<img src="<c:url value='/images/company/005.jpg'/>">
-						<br><span id="title">유엔난민기구</span>
-						<br><span id="content">[재택근무] 2016년 상반기 알바</span>
+						<br><p id="title">유엔난민기구</p>
+						<br><p id="content">[재택근무] 2016년 상반기 알바</p>
 						</a></div>
 						
 						<a href="#"><div class="SpBox">
 						 <img src="<c:url value='/images/company/006.jpg'/>">
-						 <br><span id="title">이베이</span>
-						 <br><span id="content">[재택근무] 2016년 상반기 알바</span>
+						 <br><p id="title">이베이</p>
+						 <br><p id="content">[재택근무] 2016년 상반기 알바</p>
 						</div></a><a href="#"><div class="SpBox">
 						 <img src="<c:url value='/images/company/007.jpg'/>">
-						 <br><span id="title">롯데백화점</span>
-						 <br><span id="content">[재택근무] 2016년 상반기 알바</span>
+						 <br><p id="title">롯데백화점</p>
+						 <br><p id="content">[재택근무] 2016년 상반기 알바</p>
 						</div></a><a href="#"><div class="SpBox">
 						 <img src="<c:url value='/images/company/008.jpg'/>">
-						 <br><span id="title">우리카드</span>
-						 <br><span id="content">[재택근무] 2016년 상반기 알바</span></td>
+						 <br><p id="title">우리카드</p>
+						 <br><p id="content">[재택근무] 2016년 상반기 알바</p></td>
 						</div></a><a href="#"><div class="SpBox">
 						 <img src="<c:url value='/images/company/009.jpg'/>">
-						 <br><span id="title">라이나생명</span>
-						 <br><span id="content">[재택근무] 2016년 상반기 알바</span>
+						 <br><p id="title">라이나생명</p>
+						 <br><p id="content">[재택근무] 2016년 상반기 알바</p>
 						</div></a><a href="#"><div class="SpBox">
 						 <img src="<c:url value='/images/company/010.jpg'/>">
-						 <br><span id="title">씨티뱅크</span>
-						 <br><span id="content">[재택근무] 2016년 상반기 알바</span>
+						 <br><p id="title">씨티뱅크</p>
+						 <br><p id="content">[재택근무] 2016년 상반기 알바</p>
 						</div></a>
 						
 						<a href="#"><div class="SpBox">
 						 <img src="<c:url value='/images/company/011.jpg'/>">
-						 <br><span id="title">하나카드</span>
-						 <br><span id="content">[재택근무] 2016년 상반기 알바</span>
+						 <br><p id="title">하나카드</p>
+						 <br><p id="content">[재택근무] 2016년 상반기 알바</p>
 						</div></a><a href="#"><div class="SpBox">
 						 <img src="<c:url value='/images/company/012.jpg'/>">
-						 <br><span id="title">롯데홈쇼핑</span>
-						 <br><span id="content">[재택근무] 2016년 상반기 알바</span>
+						 <br><p id="title">롯데홈쇼핑</p>
+						 <br><p id="content">[재택근무] 2016년 상반기 알바</p>
 						</div></a><a href="#"><div class="SpBox">
 						 <img src="<c:url value='/images/company/013.jpg'/>">
-						 <br><span id="title">피자헛</span>
-						 <br><span id="content">[재택근무] 2016년 상반기 알바</span>
+						 <br><p id="title">피자헛</p>
+						 <br><p id="content">[재택근무] 2016년 상반기 알바</p>
 						</div></a><a href="#"><div class="SpBox">
 						 <img src="<c:url value='/images/company/014.jpg'/>">
-						 <br><span id="title">서브웨이</span>
-						 <br><span id="content">[재택근무] 2016년 상반기 알바</span>
+						 <br><p id="title">서브웨이</p>
+						 <br><p id="content">[재택근무] 2016년 상반기 알바</p>
 						</div></a><a href="#"><div class="SpBox">
 						 <img src="<c:url value='/images/company/015.jpg'/>">
-						 <br><span id="title">빕스</span>
-						 <br><span id="content">[재택근무] 2016년 상반기 알바</span>
+						 <br><p id="title">빕스</p>
+						 <br><p id="content">[재택근무] 2016년 상반기 알바</p>
 						</a></div>
 					
 						<a href="#"><div class="SpBox">

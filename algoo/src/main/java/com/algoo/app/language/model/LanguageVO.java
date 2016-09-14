@@ -6,7 +6,14 @@ public class LanguageVO {
 	private String languageStudy; /* 어학연수 */
 	private String languageCommand; /* 구사능력 */
 	private String officialTest; /* 공인시험 */
+	private String languageB;
 	
+	public String getLanguageB() {
+		return languageB;
+	}
+	public void setLanguageB(String languageB) {
+		this.languageB = languageB;
+	}
 	public int getLanguageCode() {
 		return languageCode;
 	}
@@ -41,7 +48,8 @@ public class LanguageVO {
 	@Override
 	public String toString() {
 		return "LanguageVO [languageCode=" + languageCode + ", language=" + language + ", languageStudy="
-				+ languageStudy + ", languageCommand=" + languageCommand + ", officialTest=" + officialTest + "]";
+				+ languageStudy + ", languageCommand=" + languageCommand + ", officialTest=" + officialTest
+				+ ", languageB=" + languageB + "]";
 	}
 	
 	

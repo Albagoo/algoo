@@ -7,7 +7,14 @@ public class ComputerAbilityVO {
 	private String excel; /* 엑셀 */
 	private String internet; /* 인터넷 */
 	private String itDesignAbility; /* 디자인 */
+	private String ComputerAbilityB;
 	
+	public String getComputerAbilityB() {
+		return ComputerAbilityB;
+	}
+	public void setComputerAbilityB(String computerAbilityB) {
+		ComputerAbilityB = computerAbilityB;
+	}
 	public int getComAbilityCode() {
 		return comAbilityCode;
 	}
@@ -48,7 +55,8 @@ public class ComputerAbilityVO {
 	@Override
 	public String toString() {
 		return "ComputerAbilityVO [comAbilityCode=" + comAbilityCode + ", word=" + word + ", powerPoint=" + powerPoint
-				+ ", excel=" + excel + ", internet=" + internet + ", itDesignAbility=" + itDesignAbility + "]";
+				+ ", excel=" + excel + ", internet=" + internet + ", itDesignAbility=" + itDesignAbility
+				+ ", ComputerAbilityB=" + ComputerAbilityB + "]";
 	}
 	
 	

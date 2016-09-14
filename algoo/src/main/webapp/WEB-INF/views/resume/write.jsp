@@ -783,6 +783,13 @@
     	
     	$("input[type='text']").addClass("textBox");
     	
+    	$("#career").hide();
+    	$(".language").hide();
+    	$(".license").hide();
+    	$(".computerAbility").hide();
+    	$(".award").hide();
+    	$(".personalInfo").hide();
+    	
     	$("#img1").hover(function(event){
     		$(this).prop("src", "<c:url value='/images/resume_career_c.PNG'/>");
     	}, function(event){
@@ -862,6 +869,12 @@
 	<input type="hidden" id="collicensePlace" name="collicensePlace" >
 	<input type="hidden" id="itDesignAbility" name="itDesignAbility" >
 	<input type="hidden" id="memberCode" name="memberCode" value="${memberVo.memberCode }">
+	$("#career").hide();
+   	$(".language").hide();
+   	$(".license").hide();
+   	$(".computerAbility").hide();
+   	$(".award").hide();
+   	$(".personalInfo").hide();
 	<table id="box">
 		<tr id="tr">
 			<td style="text-align: center; padding: 10px; width: 20%">

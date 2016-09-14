@@ -9,5 +9,4 @@ public class RecSeachVO extends SearchVO{
 		return "RecSeachVO [toString()=" + super.toString() + "]";
 	}
 
-	
 }

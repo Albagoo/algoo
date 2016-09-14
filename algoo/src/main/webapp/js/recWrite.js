@@ -2,8 +2,6 @@
  * 
  */
 
-
-
 $(document).ready(function(){
 
 	
@@ -21,7 +19,8 @@ $(document).ready(function(){
 		
 	});
 	$("#completeCal").click(function() {
-		 $("input[name='recruitDeadline']").val("채용시까지");
+		 $("input[name='recruitDeadline']").val("3000-01-01");
+		 $("input[name='recruitDeadlineView']").val("채용시까지");
 	});
 	
 	
@@ -38,6 +37,7 @@ $(document).ready(function(){
 	     }
 	     str=$.getDate(resDate);                 
 	     $("input[name='recruitDeadline']").val(str);
+	     $("input[name='recruitDeadlineView']").val(str);
 	  }
 	
 	$.getDate =function(date){

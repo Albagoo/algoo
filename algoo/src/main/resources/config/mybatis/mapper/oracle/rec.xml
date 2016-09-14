@@ -20,18 +20,18 @@
    
    <select id="selectAllRec" resultType="RecVO" 
       parameterType="RecSeachVO">
+     
       select RNUM,LIST.* from
       (
           select rownum as RNUM, A.* from
               (select * from RECRUITMENT 
-              <include refid="searchWhere"></include>
+               <include refid="searchWhere"></include> 
               order by rec_Code desc) A
       ) LIST
       <![CDATA[
       where  RNUM> #{firstRecordIndex} 
-         and RNUM<= #{firstRecordIndex}
-         + #{recordCountPerPage}
-      ]]>
+         and RNUM<= #{firstRecordIndex}+ #{recordCountPerPage}
+      ]]> 
    </select>
    
    
@@ -83,7 +83,7 @@
    work_Time,work_Time2,work_Time3,work_Time4,pay,
    recruit_Type,welfare,gender,age,educate_Lv,
    career,preference,recruit_Member,recruit_Person,recruit_Method,
-   documents,detail_Recruit,comp_Code,service_Code,
+   documents,detail_Recruit,comp_Code,service_Code,RECRUIT_DEADLINE
    )
    values(RECRUITMENT_seq.nextval, #{compName},#{title},#{jobName},#{jobName2},
    #{jobName3},#{zipcode},#{address},#{addressDetail},#{subRegion},
@@ -91,7 +91,7 @@
    #{workTime},#{workTime2},#{workTime3},#{workTime4},#{pay},
    #{recruitType},#{welfare},#{gender},#{age},#{educateLv},
    #{career},#{preference},#{recruitMember},#{recruitPerson},#{recruitMethod},
-   #{documents},#{detailRecruit},#{compCode},#{serviceCode}
+   #{documents},#{detailRecruit},#{compCode},#{serviceCode},#{recruitDeadline}
     
    )
    </insert>

@@ -791,51 +791,105 @@
     	$(".personalInfo").hide();
     	
     	$("#img1").hover(function(event){
-    		$(this).prop("src", "<c:url value='/images/resume_career_c.PNG'/>");
+    		$("#img1").prop("src", "<c:url value='/images/resume_career_c.PNG'/>");
     	}, function(event){
-    		$(this).prop("src", "<c:url value='/images/resume_career.PNG'/>");
+    		if($("#careerB").val() == "N"){
+    			$("#img1").prop("src", "<c:url value='/images/resume_career.PNG'/>");
+    		}
     	}).click(function(){
     		$("#career").toggle();
+    		if($("#careerB").val() == "N"){
+    			$("#careerB").val("Y");
+    			$("#img1").prop("src", "<c:url value='/images/resume_career_c.PNG'/>");
+    		}else{
+    			$("#careerB").val("N");
+    			$("#img1").prop("src", "<c:url value='/images/resume_career.PNG'/>");
+    		}
     	});
     	
     	$("#img2").hover(function(event){
-    		$(this).prop("src", "<c:url value='/images/resume_language_c.PNG'/>");
+    		$("#img2").prop("src", "<c:url value='/images/resume_language_c.PNG'/>");
     	}, function(event){
-    		$(this).prop("src", "<c:url value='/images/resume_language.PNG'/>");
+    		if($("#languageB").val() == "N"){
+    			$("#img2").prop("src", "<c:url value='/images/resume_language.PNG'/>");
+    		}
     	}).click(function(){
     		$(".language").toggle();
+    		if($("#languageB").val() == "N"){
+    			$("#languageB").val("Y");
+    			$("#img2").prop("src", "<c:url value='/images/resume_language_c.PNG'/>");
+    		}else{
+    			$("#languageB").val("N");
+    			$("#img2").prop("src", "<c:url value='/images/resume_language.PNG'/>");
+    		}
     	});
     	
     	$("#img3").hover(function(event){
-    		$(this).prop("src", "<c:url value='/images/resume_license_c.PNG'/>");
+    		$("#img3").prop("src", "<c:url value='/images/resume_license_c.PNG'/>");
     	}, function(event){
-    		$(this).prop("src", "<c:url value='/images/resume_license.PNG'/>");
+    		if($("#licenseB").val() == "N"){
+    			$("#img3").prop("src", "<c:url value='/images/resume_license.PNG'/>");
+    		}
     	}).click(function(){
     		$(".license").toggle();
+    		if($("#licenseB").val() == "N"){
+    			$("#licenseB").val("Y");
+    			$("#img3").attr("src", "<c:url value='/images/resume_license_c.PNG'/>");
+    		}else{
+    			$("#licenseB").val("N");
+    			$("#img3").prop("src", "<c:url value='/images/resume_license.PNG'/>");
+    		}
     	});
     	
     	$("#img4").hover(function(event){
-    		$(this).prop("src", "<c:url value='/images/resume_computer_c.PNG'/>");
+    		$("#img4").prop("src", "<c:url value='/images/resume_computer_c.PNG'/>");
     	}, function(event){
-    		$(this).prop("src", "<c:url value='/images/resume_computer.PNG'/>");
+    		if($("#computerAbilityB").val() == "N"){
+    			$("#img4").prop("src", "<c:url value='/images/resume_computer.PNG'/>");
+    		}
     	}).click(function(){
     		$(".computerAbility").toggle();
+    		if($("#computerAbilityB").val() == "N"){
+    			$("#computerAbilityB").val("Y");
+    			$("#img4").prop("src", "<c:url value='/images/resume_computer_c.PNG'/>");
+    		}else{
+    			$("#computerAbilityB").val("N");
+    			$("#img4").prop("src", "<c:url value='/images/resume_computer.PNG'/>");
+    		}
     	});
     	
     	$("#img5").hover(function(event){
-    		$(this).prop("src", "<c:url value='/images/resume_award_c.PNG'/>");
+    		$("#img5").prop("src", "<c:url value='/images/resume_award_c.PNG'/>");
     	}, function(event){
-    		$(this).prop("src", "<c:url value='/images/resume_award.PNG'/>");
+    		if($("#awardB").val() == "N"){
+    			$("#img5").prop("src", "<c:url value='/images/resume_award.PNG'/>");
+    		}
     	}).click(function(){
     		$(".award").toggle();
+    		if($("#awardB").val() == "N"){
+    			$("#awardB").val("Y");
+    			$("#img5").prop("src", "<c:url value='/images/resume_award_c.PNG'/>");
+    		}else{
+    			$("#awardB").val("N");
+    			$("#img5").prop("src", "<c:url value='/images/resume_award.PNG'/>");
+    		}
     	});
     	
     	$("#img6").hover(function(event){
-    		$(this).prop("src", "<c:url value='/images/resume_personal_c.PNG'/>");
+    		$("#img6").prop("src", "<c:url value='/images/resume_personal_c.PNG'/>");
     	}, function(event){
-    		$(this).prop("src", "<c:url value='/images/resume_personal.PNG'/>");
+    		if($("#personalInfoB").val() == "N"){
+    			$("#img6").prop("src", "<c:url value='/images/resume_personal.PNG'/>");
+    		}
     	}).click(function(){
     		$(".personalInfo").toggle();
+    		if($("#personalInfoB").val() == "N"){
+    			$("#personalInfoB").val("Y");
+    			$("#img6").prop("src", "<c:url value='/images/resume_personal_c.PNG'/>");
+    		}else{
+    			$("#personalInfoB").val("N");
+    			$("#img6").prop("src", "<c:url value='/images/resume_personal.PNG'/>");
+    		}
     	});
     	
     	$("#pay3").click(function(){
@@ -869,12 +923,12 @@
 	<input type="hidden" id="collicensePlace" name="collicensePlace" >
 	<input type="hidden" id="itDesignAbility" name="itDesignAbility" >
 	<input type="hidden" id="memberCode" name="memberCode" value="${memberVo.memberCode }">
-	$("#career").hide();
-   	$(".language").hide();
-   	$(".license").hide();
-   	$(".computerAbility").hide();
-   	$(".award").hide();
-   	$(".personalInfo").hide();
+	<input type="hidden" id="languageB" name="languageB" value="N">
+	<input type="hidden" id="licenseB" name="licenseB" value="N">
+	<input type="hidden" id="computerAbilityB" name="computerAbilityB" value="N">
+	<input type="hidden" id="careerB" name="careerB" value="N">
+	<input type="hidden" id="personalInfoB" name="personalInfoB" value="N">
+	<input type="hidden" id="awardB" name="awardB" value="N">
 	<table id="box">
 		<tr id="tr">
 			<td style="text-align: center; padding: 10px; width: 20%">

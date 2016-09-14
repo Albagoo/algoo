@@ -4,7 +4,28 @@
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/mainPage.css'/>" />
 
 <script type="text/javascript">
-
+	$(document).ready(function(){
+		$(".tableSpecial td")
+			.hover(function(){
+				$(this).css("border-color","red")
+					.css("border-width", "4px")
+					.css("padding", "4px")
+					.css("cursor","pointer");
+			}, function(){
+				$(this).css("border","");
+			});
+	});
+	$(document).ready(function(){
+		$(".tableGrand td")
+			.hover(function(){
+				$(this).css("border-color","red")
+					.css("border-width", "4px")
+					.css("padding", "4px")
+					.css("cursor","pointer");
+			}, function(){
+				$(this).css("border","");
+			});
+	});
 </script>
 
 	<%-- <!-- 메인 컨테이너 페이지 -->
@@ -137,7 +158,6 @@
 				<!-- 슈퍼 채용공고 리스트 -->
 				<table class="tableSpecial">
 					<tr>
-						
 						<td><a href="#"><p>
 						 <img src="<c:url value='/images/company/001.jpg'/>">
 						 <br><span id="title">롯데아이몰</span>

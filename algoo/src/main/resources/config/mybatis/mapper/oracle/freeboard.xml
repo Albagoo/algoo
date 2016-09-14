@@ -16,8 +16,8 @@
 		<selectKey keyProperty="freeNo" resultType="int" order="BEFORE">
 			select FREE_BOARD_SEQ.nextval from dual
 		</selectKey>
-		insert into free_board(free_no, title, content,group_no)
-		values(#{freeNo} ,#{title},#{content},#{freeNo})
+		insert into free_board(free_no, title, content, group_no, userid, nickname)
+		values(#{freeNo} ,#{title},#{content},#{freeNo},#{userid},#{nickName})
 	</insert>
 	
 	<select id="selectAllFreeboard" resultType="FreeboardVO" 
@@ -27,7 +27,7 @@
 		(
 		    select rownum as RNUM, LIST_ALL.*
 		    from
-		        (select free_no, title, content, group_no,
+		        (select free_no, title, content, group_no, userid, nickname,
 					regdate, read_count, (sysdate-regdate)*24 as newImgTerm,
 					step, sort_no, del_yn
 		        from free_board
@@ -78,7 +78,9 @@
 		<selectKey keyProperty="freeNo" resultType="int" order="BEFORE">
 			select FREE_BOARD_SEQ.nextval from dual
 		</selectKey>
-		insert into free_board(free_no, title, content, group_no, step, sort_no )
-		values(#{freeNo}, #{title}, #{content}, #{groupNo}, #{step}, #{sortNo})
+		insert into free_board(free_no, title, content, group_no, 
+			step, sort_no, userid, nickname )
+		values(#{freeNo}, #{title}, #{content}, #{groupNo}, 
+			#{step}, #{sortNo}, #{userid},#{nickName})
 	</insert>
 </mapper>

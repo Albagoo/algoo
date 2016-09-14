@@ -79,6 +79,6 @@
 			select FREE_BOARD_SEQ.nextval from dual
 		</selectKey>
 		insert into free_board(free_no, title, content, group_no, step, sort_no )
-		values(#{freeNo}, #{title}, #{content}, #{groupNo}, #{step}, #{sortNo})
+		values(#{freeNo}, #{title}, #{content}, #{freeNo}, #{step}, #{sortNo})
 	</insert>
 </mapper>

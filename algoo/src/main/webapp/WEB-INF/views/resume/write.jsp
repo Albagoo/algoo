@@ -14,7 +14,6 @@
 	h2{
 		font-size: 1.2em;
 		font-weight: bold;
-		
 		border-bottom: 5px solid black;
 		padding-bottom: 20px;
 		width: 860px;
@@ -590,7 +589,8 @@
     	});
     	
     	$("#bt_picture").click(function(){
-    		window.open("<c:url value='/resume/imageUp.ag'/>",
+    		window.open("<c:url value='/resume/imageUp.ag?memberCode="+
+    				$("#memberCode").val()+"'/>",
     				"imageUp",
     			"width=550,height=400,left=10, top=50,resizable=yes,location=yes");	
     	});

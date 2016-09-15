@@ -37,7 +37,7 @@ public class FileUploadWebUtil {
 			int uploadType){
 		//Exclusive Upload Class
 		MultipartHttpServletRequest multipartRequest
-		=(MultipartHttpServletRequest) request;
+		=(MultipartHttpServletRequest)request;
 		
 		Map<String, MultipartFile> fileMap
 		=multipartRequest.getFileMap();
@@ -45,6 +45,7 @@ public class FileUploadWebUtil {
 		//Result Save List Collection
 		List<Map<String, Object>> fileList
 		= new ArrayList<Map<String, Object>>();
+		logger.info("fileList.size = {}", fileList.size());
 		
 		Iterator<String> iter = fileMap.keySet().iterator();
 		while(iter.hasNext()){
@@ -120,43 +121,20 @@ public class FileUploadWebUtil {
 		//Operate for UploadPath
 		String realPath="";
 		
-		String type=
-		fileUploadProps.getProperty("file.upload.type");
-		
-		if(type.equals("test")){
-			//Case by test -> Operate for UploadPath
-			if(uploadType==PDS_UPLOAD){
-				//PDS File Upload
-				realPath
-				=fileUploadProps.getProperty("file.upload.path.test");
-			}else{
-				//File Image Upload on Case by Insert Article
-				realPath = fileUploadProps.getProperty("imageFile.upload.path.test");
-			}
-			
-			logger.info("테스트 경로={}", realPath);
+		if(uploadType==PDS_UPLOAD){
+			//PDS
+			realPath = fileUploadProps.getProperty("file.upload.path");
 		}else{
-			//Case by real distribute
-			if(uploadType==PDS_UPLOAD){
-				//PDS
-				realPath
-				=fileUploadProps.getProperty("file.upload.path.test");
-			}else{
-				//Image
-				realPath
-				=fileUploadProps.getProperty("imageFile.upload.path.test");
-			}
-			
-			realPath
-			=fileUploadProps.getProperty("file.upload.path");
-			
-			logger.info("실제 배포시 경로={}", realPath);
-			//Operate for Physical Path
-			realPath
-			=request.getSession().getServletContext().getRealPath(realPath);
-			
-			logger.info("실제 배포시 물리적 경로={}", realPath);
-		} //if
+			//Image
+			realPath = fileUploadProps.getProperty("imageFile.upload.path");
+		}
+		
+		logger.info("실제 배포시 경로={}", realPath);
+		//Operate for Physical Path
+		realPath
+		=request.getSession().getServletContext().getRealPath(realPath);
+		
+		logger.info("실제 배포시 물리적 경로={}", realPath);
 		
 		return realPath;
 	}

@@ -1,5 +1,9 @@
 package com.algoo.app.resume.controller;
 
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -10,8 +14,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.algoo.app.career.model.CareerVO;
+import com.algoo.app.common.FileUploadWebUtil;
 import com.algoo.app.computerability.model.ComputerAbilityVO;
 import com.algoo.app.hope.model.HopeVO;
 import com.algoo.app.language.model.LanguageVO;
@@ -32,6 +38,8 @@ public class ResumeController {
 	private ResumeService resumeService;
 	@Autowired
 	private MemberService memberService;
+	@Autowired
+	private FileUploadWebUtil fileUtil;
 	
 	@RequestMapping(value="/write.ag", method=RequestMethod.GET)
 	public String resumeWrite_get(
@@ -47,9 +55,36 @@ public class ResumeController {
 		return "resume/write";
 	}
 	
-	@RequestMapping(value="/imageUp.ag", method=RequestMethod.GET)
+	@RequestMapping(value="/imageUp.ag")
 	public void imageUp_get(){
+	}
+	
+	@RequestMapping(value="/imageUp2.ag")
+	@ResponseBody
+	public int imageUp_post(
+			@ModelAttribute MemberVO memberVo,
+			HttpServletRequest request){
+		logger.info("메서드 들어왔당!!");
 		
+		List<Map<String, Object>> fileList 
+			= fileUtil.FileUpload(request, FileUploadWebUtil.IMAGE_UPLOAD);
+		logger.info("업로드 파일 fileList.size() = {}"
+				, fileList.size());
+		
+		//업로드된 파일명 구해오기
+		String fileName = "";
+		long fileSize = 0;
+		for(Map<String, Object> mymap : fileList){
+			fileName = (String)mymap.get("fileName");
+			fileSize = (Long)mymap.get("fileSize");
+		}
+		memberVo.setPhoto(fileName);
+		logger.info("memberVo = {}", memberVo);
+		
+		int cnt = memberService.updatePhoto(memberVo);
+		logger.info("사진 등록 결과 cnt ={}", cnt);
+		
+		return cnt;
 	}
 	
 	@RequestMapping(value="/write.ag", method=RequestMethod.POST)

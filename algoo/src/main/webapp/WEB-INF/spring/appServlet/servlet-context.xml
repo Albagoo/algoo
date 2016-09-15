@@ -26,6 +26,12 @@
       type="annotation"/>
    </context:component-scan>
    
+   <interceptors>
+		<interceptor>
+			<mapping path="/resume/write.ag" />
+			<beans:ref bean ="loginInterceptor" />
+		</interceptor>
+	</interceptors>
    
    
 </beans:beans>

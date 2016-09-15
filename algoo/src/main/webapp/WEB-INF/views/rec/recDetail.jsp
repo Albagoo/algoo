@@ -3,201 +3,15 @@
 	<%@ include file="../inc/simple_top.jsp" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+
+<link rel="stylesheet" type="text/css"
+   href="<c:url value='/css/clear.css'/>" />
+<link rel="stylesheet" type="text/css"
+   href="<c:url value='/css/recLayout.css'/>" />
+
 <style>
-.Wrap {
-	width: 800px;
-}
-/* .border{
-   border: 0.5cm solid #eee;
-} */
-.recDetail {
-	font: 1em;
-	font-weight: bold;
-}
-.detail_content{
-   width: 800px;
-   height: 220px;
-}
-.detail_area{
-   width: 800px;
-   height: 700px;
-}
-.detail_rec{
-   width: 800px;
-}
-.detail_right {
-	float: right;
-}
 
-.detail_left {
-	float: left;
-}
-
-.clear_both {
-	clear: both;
-}
-
-.br {
-	padding: 20px 0 20px 0;
-}
-
-.title {
-	padding: 30px 30px;
-   /* border: 1px solid black; */
-	text-align: center;
-	font-weight: bold;
-}
-
-.logo {
-/* border: 1px solid black; */
-	width: 272px;
-	height: 172px;
-	padding: 30px 0 30px 0;
-}
-
-.logo img {
-	width: 200px;
-	height: 100px;
-	padding: 30px 33px;
-}
-
-.main_left {
-	width: 274px;
-	height: 530px;
-	/* border: 1px solid black; */
-}
-
-.main_right {
-	/* border: 1pt solid Gray; */
-	width: 480px;
-	height: 530px;
-	margin: 0;
-}
-
-.tit {
-	width: 70px;
-	float: left;
-	font: 11px dotumn, "돋움";
-}
-
-.txt_180 {
-	float: left;
-	width: 180px;
-	font: 11px dotumn, "돋움";
-	margin-bottom: 5px;
-}
-.txt_720 {
-	float: left;
-	width: 720px;
-	font: 15px dotumn, "돋움";
-	margin-bottom: 5px;
-}
-
-.tit_15 {
-	width: 70px;
-	float: left;
-	font: 15px dotumn, "돋움";
-	font-weight:bold; 
-}
-
-.txt_400 {
-	float: left;
-	width: 370px;
-	font: 15px dotumn, "돋움";
-	margin: 0 0 5px 30px;
-}
-.txt_30 {
-	float: left;
-	width: 30px;
-	font: 15px dotumn, "돋움";
-}
-
-.skip {
-	overflow: hidden;
-	padding: 0 0 3px 0;
-	font: 11px dotumn, "돋움";
-}
-.decoration_none,.decoration_none a{
-   text-decoration: none;
-}
-.right_title{
-   border-bottom: 1px solid #AAA;
-   padding-bottom: 5px;
-}
-.font_9{
-   font-size: 9;
-}
-.font_11{
-   font-size: 11;
-}
-.font_13{
-   font-size: 13;
-}
-.font_15{
-   font-size: 15;
-}
-.margin_left_70{
-   margin: 10px 0 10px 70px;
-}
-.margin_left_20{
-   margin-left: 20px;
-}
-.dt_20 dt{
-   margin:20px 0 0 20px; 
-}
-
-.border_radius{
-   border: 1px solid gray; 
-   border-radius: 20px;
-}
-.padding_10_5{
-   padding: 10px 5px;
-}
-.main_board{
-   text-align: center;
-   padding: 10px 0;
-}
-.border_tb10{
-   border-top: 10px solid #FFF;
-   border-bottom: 10px solid #FFF;
-}
-.border_bottom{
-   border-bottom: 2px solid skyblue;
-   padding-bottom: 5px;
-}
-.bold{
-   font-weight: bold;
-}
-.align_right{
-   text-align: right;
-}
-.align_center{
-   text-align: center;
-}
-.align_left{
-   text-align: left;
-}
-.bg{
-   /* border: 1px solid black; */
-   padding: 20px;
-}
-.red{
-   color: red;
-}
-.blue{
-   color: blue;
-}
-.green{
-   color: green;
-}
-#map{
-   float:left;
-   width: 770px;
-   height: 510px;
-}
-.margin_0{
-   margin: 0;
-}
 </style>
 <link rel="stylesheet" type="text/css" 
 href="<c:url value='/css/clear.css'/>" />
@@ -288,7 +102,7 @@ href="<c:url value='/css/simpleButton.css'/>" />
 	     <span class="txt_400">
 	     <fmt:formatDate  value="${serviceVo.deadline}" 
 	     pattern="yyyy-MM-dd"/> 
-	     (마감일 ${serviceVo.days }일전)</span>
+	     (마감일 ${serviceVo.days+1 }일전)</span>
 	     </dt>
 	     <dt>
 	     <span class="titd">모집인원</span>

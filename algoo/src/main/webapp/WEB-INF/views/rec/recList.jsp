@@ -28,16 +28,62 @@
       });
       
       $( "#tabs" ).tabs();
+    
       
-      /* $("#test").load("<c:url value='/csv/build_busan.csv'/>"); */
       $.ajax({
-    	  url:"<c:url value='/csv/build_busan.csv'/>",
-    	  data:"GET",
-    	  dataType:"csv",
-    	  suc
-      })
+          url:"<c:url value='/json/area.json'/>",
+          data:"GET",
+          dataType:"json",
+          success : function(res) {
+        	   areaSet(res,"SI0","#SI0");
+        	   areaSet(res,"SI1","#SI1");
+        	   areaSet(res,"SI2","#SI2");
+        	   areaSet(res,"SI3","#SI3");
+        	   areaSet(res,"SI4","#SI4");
+        	   areaSet(res,"SI5","#SI5");
+        	   areaSet(res,"SI6","#SI6");
+        	   areaSet(res,"SI7","#SI7");
+        	   areaSet(res,"SI8","#SI8");
+        	   areaSet(res,"SI9","#SI9");
+        	   areaSet(res,"SI10","#SI10");
+        	   areaSet(res,"SI11","#SI11");
+        	   areaSet(res,"SI12","#SI12");
+        	   areaSet(res,"SI13","#SI13");
+        	   areaSet(res,"SI14","#SI14");
+        	   areaSet(res,"SI15","#SI15");
+        	   areaSet(res,"SI16","#SI16");
+        	   areaSet(res,"SI17","#SI17");
+           },
+           error : function(xhr,statust, error) {
+           alert(status + ":"+ error);
+           }
+       });  
    });
    
+   
+   function areaSet(res,code,tag) {
+	   var temp="";
+	      var tw=0;
+	      var result="";
+	      $.each(res.DATA,function() {
+	           if(temp!=this.GU){
+	            if(this.CODE==code){
+	               result+="<a href="+tag+">"+
+	               this.GU.replace(' ','·')
+	               +"</a>";
+	             tw+=1;
+	             }
+	            }
+	           if(tw==10){
+	        	   result+="<br><br>";
+	            tw=0;
+	           }//if
+	           temp=this.GU;
+	      });//for
+	           $(tag).html(result);
+	 }//func
+	      
+
    
    function pageProc(curPage){
       document.frmPage.currentPage.value=curPage;
@@ -56,15 +102,14 @@
 <div class="divList">
 <legend>채용정보 리스트</legend>
 
-
-
 <div class="divSearch" style="border:1px solid gray;">
       <form name="frmSearch" method="post" 
       action="<c:url value='/rec/recList.ag' />" >
       
-      <div id="tabs" style="height: 500px;">
-         <ul>
-		    <li><a href="#tabs-1">서울</a></li>
+      <div id="tabs" style="height: 300px;">
+         <ul class="li_font">
+		    <li><a href="#tabs-0">서울</a></li>
+		    <li><a href="#tabs-1">인천</a></li>
 		    <li><a href="#tabs-2">경기</a></li>
 		    <li><a href="#tabs-3">강원</a></li>
 		    <li><a href="#tabs-4">대전</a></li>
@@ -79,64 +124,116 @@
 		    <li><a href="#tabs-13">광주</a></li>
 		    <li><a href="#tabs-14">전남</a></li>
 		    <li><a href="#tabs-15">전북</a></li>
-		    <li><a href="#tabs-16">전국</a></li>
-		    
+		    <li><a href="#tabs-16">제주</a></li>
+		    <li><a href="#tabs-17">전국</a></li>
 		  </ul>
-		  <div id="tabs-1" style="height: 200px;text-align: left;">
-		  <p id="test" style="border: 1px solid #aaa;background:#fafafa;
-                      height: 300px;">지역이 나올 영역</p>  
-		    선택한 지역: <p style="display:inline-block ;
-		    border: 1px solid #aaa;width: 500px;background:#fafafa;
-		                height: 30px;">선택한 지역이 나올 영역</p>
+		<div class="recListArea">
+        <div id="tabs-0"  >
+          <p id="SI0">지역이 나올 영역</p>
+                       선택한 지역: <input type="text" readonly="readonly">
+         </div>    
+		  <div id="tabs-1">
+		    <p id="SI1"></p>
+		    <p>지역이 나올 영역</p>
+		       선택한 지역: <input type="text" readonly="readonly">
 		  </div>
 		  <div id="tabs-2">
-		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		    <p id="SI2" 
+           >지역이 나올 영역</p>
+		    선택한 지역: <input type="text" readonly="readonly">
 		  </div>
 		  <div id="tabs-3">
-		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		    <p id="SI3" 
+           style="border: 1px solid #aaa;background:#fafafa;"
+           >지역이 나올 영역</p>
+		    선택한 지역: <input type="text" readonly="readonly">
 		  </div>
 		  <div id="tabs-4">
-		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		    <p id="SI4" 
+           style="border: 1px solid #aaa;background:#fafafa;"
+           >지역이 나올 영역</p>
+		    선택한 지역: <input type="text" readonly="readonly">
 		  </div>
 		  <div id="tabs-5">
-		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		    <p id="SI5" 
+           style="border: 1px solid #aaa;background:#fafafa;"
+           >지역이 나올 영역</p>
+		    선택한 지역: <input type="text" readonly="readonly">
 		  </div>
 		  <div id="tabs-6">
-		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		    <p id="SI6" 
+           style="border: 1px solid #aaa;background:#fafafa;"
+           >지역이 나올 영역</p>
+		    선택한 지역: <input type="text" readonly="readonly">
 		  </div>
 		  <div id="tabs-7">
-		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		    <p id="SI7" 
+           style="border: 1px solid #aaa;background:#fafafa;"
+           >지역이 나올 영역</p>
+		    선택한 지역: <input type="text" readonly="readonly">
 		  </div>
 		  <div id="tabs-8">
-		    선택한 지역: <input type="text" readonly="readonly" required="required">
+			  <p id="SI8" 
+			  
+	        >지역이 나올 영역</p>  
+			    선택한 지역: <input type="text" readonly="readonly">
 		  </div>
 		  <div id="tabs-9">
-		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		    <p id="SI9" 
+           style="border: 1px solid #aaa;background:#fafafa;"
+           >지역이 나올 영역</p>
+		    선택한 지역: <input type="text" readonly="readonly">
 		  </div>
 		  <div id="tabs-10">
-		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		    <p id="SI10" 
+           style="border: 1px solid #aaa;background:#fafafa;"
+           >지역이 나올 영역</p>
+		    선택한 지역: <input type="text" readonly="readonly">
 		  </div>
 		  <div id="tabs-11">
-		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		    <p id="SI11" 
+           style="border: 1px solid #aaa;background:#fafafa;"
+           >지역이 나올 영역</p>
+		    선택한 지역: <input type="text" readonly="readonly">
 		  </div>
 		  <div id="tabs-12">
-		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		    <p id="SI12" 
+           style="border: 1px solid #aaa;background:#fafafa;"
+           >지역이 나올 영역</p>
+		    선택한 지역: <input type="text" readonly="readonly">
 		  </div>
 		  <div id="tabs-13">
-		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		    <p id="SI13" 
+           style="border: 1px solid #aaa;background:#fafafa;"
+           >지역이 나올 영역</p>
+		    선택한 지역: <input type="text" readonly="readonly">
 		  </div>
 		  <div id="tabs-14">
-		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		    <p id="SI14" 
+           style="border: 1px solid #aaa;background:#fafafa;"
+           >지역이 나올 영역</p>
+		    선택한 지역: <input type="text" readonly="readonly">
 		  </div>
 		  <div id="tabs-15">
-		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		    <p id="SI15" 
+           style="border: 1px solid #aaa;background:#fafafa;"
+           >지역이 나올 영역</p>
+		    선택한 지역: <input type="text" readonly="readonly">
 		  </div>
 		  <div id="tabs-16">
-		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		    <p id="SI16" 
+           style="border: 1px solid #aaa;background:#fafafa;"
+           >지역이 나올 영역</p>
+		     선택한 지역: <input type="text" readonly="readonly">
 		  </div>
+		  <div id="tabs-17">
+		    <p id="SI17" 
+           style="border: 1px solid #aaa;background:#fafafa;"
+           >지역이 나올 영역</p>
+		     선택한 지역: <input type="text" readonly="readonly">
 		  </div>
       </div>
-      
+     </div> 
       
       
         <select name="searchCondition" class="button white small"

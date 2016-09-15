@@ -1,5 +1,6 @@
 package com.algoo.app.resume.controller;
 
+import java.io.File;
 import java.util.List;
 import java.util.Map;
 
@@ -71,6 +72,18 @@ public class ResumeController {
 		logger.info("업로드 파일 fileList.size() = {}"
 				, fileList.size());
 		
+		if(memberVo.getPhoto() != null
+					&& !memberVo.getPhoto().isEmpty()){
+			//기존 파일이 존재하면, 기존 파일 삭제
+			String upPath = fileUtil.getUploadPath(request, FileUploadWebUtil.IMAGE_UPLOAD);
+			String oldFileName = memberVo.getPhoto();
+			File oldFile = new File(upPath, oldFileName);
+			if(oldFile.exists()){
+				boolean bool = oldFile.delete();
+				logger.info("기존 파일 삭제 여부 = {}", bool);
+			}
+		}
+		
 		//업로드된 파일명 구해오기
 		String fileName = "";
 		long fileSize = 0;
@@ -85,6 +98,8 @@ public class ResumeController {
 		logger.info("사진 등록 결과 cnt ={}", cnt);
 		
 		return cnt;
+		
+		
 	}
 	
 	@RequestMapping(value="/write.ag", method=RequestMethod.POST)

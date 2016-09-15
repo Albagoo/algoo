@@ -54,6 +54,7 @@
 	<form action="#" method="post" enctype="multipart/form-data"
 		name="frmImage" id="frmImage">
 		<input type="hidden" name="memberCode" value="${param.memberCode }">
+		<input type="hidden" name="photo" value="${param.photo }">
 		<div style="padding: 20px, 28px, 20px, 28px;">
 			<div style="height: 35px; border-bottom: 4px solid #666;">
 				<h3>사진 올리기</h3>

@@ -590,7 +590,7 @@
     	
     	$("#bt_picture").click(function(){
     		window.open("<c:url value='/resume/imageUp.ag?memberCode="+
-    				$("#memberCode").val()+"'/>",
+    				$("#memberCode").val()+"&photo="+$("#photo").val()+"'/>",
     				"imageUp",
     			"width=550,height=400,left=10, top=50,resizable=yes,location=yes");	
     	});
@@ -992,6 +992,7 @@
 	<input type="hidden" id="collicensePlace" name="collicensePlace" >
 	<input type="hidden" id="itDesignAbility" name="itDesignAbility" >
 	<input type="hidden" id="memberCode" name="memberCode" value="${memberVo.memberCode }">
+	<input type="hidden" id="photo" name="photo" value="${memberVo.photo }">
 	<input type="hidden" id="languageB" name="languageB" value="N">
 	<input type="hidden" id="licenseB" name="licenseB" value="N">
 	<input type="hidden" id="computerAbilityB" name="computerAbilityB" value="N">
@@ -1001,7 +1002,13 @@
 	<table id="box">
 		<tr id="tr">
 			<td style="text-align: center; padding: 10px; width: 20%">
-				<img alt="사람이미지" src="<c:url value='/images/saram.PNG'/>"><br>
+				<c:if test="${empty memberVo.photo }">
+					<img alt="사람이미지" src="<c:url value='/images/saram.PNG'/>">
+				</c:if>
+				<c:if test="${!empty memberVo.photo }">
+					<img alt="회원이미지" src="/algoo/algoo_images/${memberVo.photo }"
+					width="130" height="150">
+				</c:if><br>
 				<img id="bt_picture" src="<c:url value='/images/bt_imgUp.PNG'/>">
 			</td>
 			<td style="width: 80%">

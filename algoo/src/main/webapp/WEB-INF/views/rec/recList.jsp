@@ -29,6 +29,13 @@
       
       $( "#tabs" ).tabs();
       
+      /* $("#test").load("<c:url value='/csv/build_busan.csv'/>"); */
+      $.ajax({
+    	  url:"<c:url value='/csv/build_busan.csv'/>",
+    	  data:"GET",
+    	  dataType:"csv",
+    	  suc
+      })
    });
    
    
@@ -76,7 +83,7 @@
 		    
 		  </ul>
 		  <div id="tabs-1" style="height: 200px;text-align: left;">
-		  <p style="border: 1px solid #aaa;background:#fafafa;
+		  <p id="test" style="border: 1px solid #aaa;background:#fafafa;
                       height: 300px;">지역이 나올 영역</p>  
 		    선택한 지역: <p style="display:inline-block ;
 		    border: 1px solid #aaa;width: 500px;background:#fafafa;

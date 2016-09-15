@@ -25,24 +25,6 @@
 		
 		
 		$("#imageUp").click(function(){
-			/* $.ajax({
-				url:"<c:url value='/resume/imageUp2.ag'/>"
-				,type:"post"
-				,data:$("#frmImage").serialize()
-				,dataType:"json"	
-				,success:function(str){
-					if(str==1){
-						self.close();
-						opener.location.href="<c:url value='/resume/write.ag'/>";
-					}else{
-						alert("사진 등록 실패!!");
-					}
-				}
-				,error: function(xhr,status, error){
-					alert(status + " : " + error);
-				}
-			}); */
-			
 			var formData = new FormData($('#frmImage')[0]);
 			
 			$.ajax({
@@ -53,22 +35,23 @@
 				 type: 'POST',
 				 success: function(str){
 					 if(str==1){
+					 	alert("사진 등록 되었습니다!!");
 						self.close();
 						opener.location.href="<c:url value='/resume/write.ag'/>";
 					}else{
 						alert("사진 등록 실패!!");
 					}
 				 },
-				 error: function(xhr,status, error){
+				 error: function(xhr, status, error){
 						alert(status + " : " + error);
-					}
+				}
 			});
 		});
 	});
 </script>
 </head>
 <body>
-	<form action="/resume/imageUp.ag" method="post" enctype="multipart/form-data"
+	<form action="#" method="post" enctype="multipart/form-data"
 		name="frmImage" id="frmImage">
 		<input type="hidden" name="memberCode" value="${param.memberCode }">
 		<div style="padding: 20px, 28px, 20px, 28px;">
@@ -92,7 +75,7 @@
 			</dl>
 		</div>
 		<div style="text-align: center; clear: both">
-			<input type="image" src="<c:url value='/images/imageUp3.PNG'/>"
+			<img src="<c:url value='/images/imageUp3.PNG'/>"
 				style="margin-top: 10px;" id="imageUp">
 		</div>
 	</form>

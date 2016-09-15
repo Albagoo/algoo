@@ -5,9 +5,19 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ include file="../inc/simple_top.jsp" %>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/faq.css'/>" />
-<link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/recLayout.css'/>" />
 <script type="text/javascript" src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
+
+<script type="text/javascript" src="<c:url value='/scrollup-master/dist/jquery.scrollUp.min.js'/>"></script>
+<link rel="stylesheet" type="text/css"
+   href="<c:url value='/css/simpleButton.css'/>" />
+<link rel="stylesheet" href="<c:url value='/jquery/jquery-ui.css'/>"
+   type="text/css">
+<script src="<c:url value='/jquery/jquery-ui.js'/>"
+   type="text/javascript"></script>
+
+
+
 <script type="text/javascript">  
    $(document).ready(function(){
       $(".divList .box2 tbody tr")
@@ -16,6 +26,9 @@
       }, function(){
          $(this).css("background","");
       });
+      
+      $( "#tabs" ).tabs();
+      
    });
    
    
@@ -36,9 +49,89 @@
 <div class="divList">
 <legend>채용정보 리스트</legend>
 
-<div class="divSearch">
+
+
+<div class="divSearch" style="border:1px solid gray;">
       <form name="frmSearch" method="post" 
       action="<c:url value='/rec/recList.ag' />" >
+      
+      <div id="tabs" style="height: 500px;">
+         <ul>
+		    <li><a href="#tabs-1">서울</a></li>
+		    <li><a href="#tabs-2">경기</a></li>
+		    <li><a href="#tabs-3">강원</a></li>
+		    <li><a href="#tabs-4">대전</a></li>
+		    <li><a href="#tabs-5">세종</a></li>
+		    <li><a href="#tabs-6">충남</a></li>
+		    <li><a href="#tabs-7">충북</a></li>
+		    <li><a href="#tabs-8">부산</a></li>
+		    <li><a href="#tabs-9">울산</a></li>
+		    <li><a href="#tabs-10">경남</a></li>
+		    <li><a href="#tabs-11">경북</a></li>
+		    <li><a href="#tabs-12">대구</a></li>
+		    <li><a href="#tabs-13">광주</a></li>
+		    <li><a href="#tabs-14">전남</a></li>
+		    <li><a href="#tabs-15">전북</a></li>
+		    <li><a href="#tabs-16">전국</a></li>
+		    
+		  </ul>
+		  <div id="tabs-1" style="height: 200px;text-align: left;">
+		  <p style="border: 1px solid #aaa;background:#fafafa;
+                      height: 300px;">지역이 나올 영역</p>  
+		    선택한 지역: <p style="display:inline-block ;
+		    border: 1px solid #aaa;width: 500px;background:#fafafa;
+		                height: 30px;">선택한 지역이 나올 영역</p>
+		  </div>
+		  <div id="tabs-2">
+		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		  </div>
+		  <div id="tabs-3">
+		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		  </div>
+		  <div id="tabs-4">
+		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		  </div>
+		  <div id="tabs-5">
+		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		  </div>
+		  <div id="tabs-6">
+		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		  </div>
+		  <div id="tabs-7">
+		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		  </div>
+		  <div id="tabs-8">
+		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		  </div>
+		  <div id="tabs-9">
+		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		  </div>
+		  <div id="tabs-10">
+		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		  </div>
+		  <div id="tabs-11">
+		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		  </div>
+		  <div id="tabs-12">
+		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		  </div>
+		  <div id="tabs-13">
+		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		  </div>
+		  <div id="tabs-14">
+		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		  </div>
+		  <div id="tabs-15">
+		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		  </div>
+		  <div id="tabs-16">
+		    선택한 지역: <input type="text" readonly="readonly" required="required">
+		  </div>
+		  </div>
+      </div>
+      
+      
+      
         <select name="searchCondition" class="button white small"
          style="font-size: 0.75em;">
             <option value="title"
@@ -70,16 +163,16 @@
 <table class="box2 recList">
    <colgroup>
       <col style="width:10%;" />
-      <col style="width:45%;" />
-      <col style="width:15%;" />
-      <col style="width:10%;" />    
-      <col style="width:11%;" />    
+      <col style="width:43%;" />
+      <col style="width:13%;" />
+      <col style="width:12%;" />    
+      <col style="width:9%;" />    
       <col style="width:*;" />    
    </colgroup>
    <thead>
      <tr>
        <th scope="col">근무지</th>
-       <th scope="col">기업명/모집제목</th>
+       <th scope="col">회사명/모집제목</th>
        <th scope="col">연령</th>
        <th scope="col">급여</th>
        <th scope="col">근무시간</th>
@@ -97,30 +190,37 @@
    <c:if test="${!empty alist}">
       <c:forEach var="vo" items="${alist}">
          <tr style="text-align: center">
+            <!-- 근무지 -->
             <td>
-            <c:set var="addr" value="${fn:split(vo.address,' ')}"/>
-            
-            <c:forEach var="i" begin="0" end="1">
-               ${addr[i] }<br>
-            </c:forEach>
-            
+	            <c:set var="addr" value="${fn:split(vo.address,' ')}"/>
+	            <c:forEach var="i" begin="0" end="1">
+	               ${addr[i] }<br>
+	            </c:forEach>
             </td>
+            <!-- 기업명/모집제목 -->
             <td style="text-align: left">
                <a href="<c:url value='/rec/updateCount.ag?recCode=${vo.recCode}'/>">
                   &nbsp; [${vo.compName }]<br> ${vo.title}</a>
             </td>
+            <!-- 연령 -->
             <td>
-            <c:set var="ageArr" value="${fn:split(vo.age,',')}"/>
-            <c:forEach var="age1" items="${ageArr }">
-               ${age1 }<br>
-            </c:forEach>
-            
+	            <c:set var="ageArr" value="${fn:split(vo.age,',')}"/>
+	            <c:forEach var="age1" items="${ageArr }">
+	               ${age1 }<br>
+	            </c:forEach>
+            <!-- 급여 -->
             <td>
-            ${param.payMethod }
-            <fmt:formatNumber pattern="#,###"
-            value="${vo.pay }"/>원</td>
-            <td>${vo.workTime}:${vo.workTime2}-${vo.workTime3}:${vo.workTime4}</td>
-            <td><fmt:formatDate value="${vo.regdate}" pattern="yyyy-MM-dd"/>
+	            ${vo.payType }
+	            <fmt:formatNumber pattern="#,###"
+	            value="${vo.pay }"/>원</td>
+            <!-- 근무시간 -->
+            <td>
+               ${vo.workTime}:${vo.workTime2}-${vo.workTime3}:${vo.workTime4}
+            </td>
+            <td>
+            <!-- 등록일 -->
+               <fmt:formatDate value="${vo.regdate}"
+               pattern="yyyy-MM-dd" />                
             </td>
          </tr>          
       </c:forEach>

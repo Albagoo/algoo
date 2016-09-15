@@ -207,13 +207,7 @@
          });
    });//change
 });
-
- 
-  
 </script>
-
-
-
 
 <form name="frm1" method="post"
    action="<c:url value='/rec/recWrite.ag'/>">
@@ -476,11 +470,12 @@ style="width: 150px;height: 100px;border: 1px solid gray">
             </dt>
             <dt>
                <span class="tit">선택</span> <select
-                  class="txt_85 white textBox medium" name="payMethod">
+                  class="txt_85 white textBox medium" name="payType">
                   <option value="시급">시급</option>
-                  <option value="일당">일당</option>
+                  <option value="일급">일당</option>
                   <option value="주급">주급</option>
                   <option value="월급">월급</option>
+                  <option value="연봉">연봉</option>
                </select> <input type="text" class="txt_150" name="pay" id="pay" value="0">
                <span class="txt_30">원</span> <span class="button medium white">최저임금
                   6030원 </span>
@@ -512,87 +507,131 @@ style="width: 150px;height: 100px;border: 1px solid gray">
       <div class="requestCondition bg checks">
          <dl class="clearBoth">
             <dt>
-               <span class="titc">성별 </span> <input type="radio" id="gender"
-                  name="gender" checked="checked" value="성별무관"> <label
-                  for="gender">성별무관</label> <input type="radio" id="male"
-                  name="gender" value="남성"> <label for="male">남성</label> <input
-                  type="radio" id="female" name="gender" value="여성"> <label
-                  for="female"> 여성</label>
+               <span class="titc">성별 </span> 
+               <input type="radio" id="gender" name="gender" 
+                checked="checked" value="성별무관"> 
+               <label for="gender">성별무관</label> 
+               <input type="radio" id="male"
+                name="gender" value="남성"> 
+               <label for="male">남성</label> 
+               <input type="radio" id="female" 
+                name="gender" value="여성"> 
+               <label for="female"> 여성</label>
 
             </dt>
             <dt>
-               <span class="titc">연령</span> <input type="radio" id="donAge"
-                  name="age" checked="checked" value="연령무관"> <label
-                  for="donAge">연령무관</label> <input type="radio" id="dontAge"
-                  name="age" value=""> <label for="dontAge"> 연령제한 있음</label>
+               <span class="titc">연령</span> 
+               <input type="radio" id="donAge"
+                name="age" checked="checked" value="연령무관"> 
+               <label for="donAge">연령무관</label> 
+               <input type="radio" id="dontAge"
+                  name="age" value="">
+               <label for="dontAge"> 연령제한 있음</label>
 
-
-               <input type="checkbox" id="oldAge" name="age" value="고연령자(65세이상)">
-               <label for=oldAge> 고연령자 가능(65세이상)</label> <input type="checkbox"
-                  id="housewife" name="age" value="주부"> <label for=housewife>
-                  주부 가능</label> <input type="checkbox" id="youngAge" name="age"
-                  value="청소년(만18세 이상)"> <label for=youngAge>
-                  청소년가능(만18세 이상)</label>
-
+               <input type="checkbox" id="oldAge" 
+                name="age" value="고연령자(65세이상)">
+               <label for=oldAge> 고연령자 가능(65세이상)</label> 
+               <input type="checkbox" id="youngAge" 
+                name="age" value="청소년(만 18세이상)"> 
+               <label for=youngAge> 청소년가능(만18세 이상)</label>
+               <input type="checkbox" id="housewife" 
+                name="age" value="주부"> 
+               <label for=housewife> 주부 가능</label> 
             </dt>
             <dt>
-               <span class="titc">학력조건</span> <input type="radio" id="eduLv"
-                  name="educateLv" checked="checked" value="학력무관"> <label
-                  for="eduLv"> 학력무관</label> <input type="radio" id="middle"
-                  name="educateLv" value="중학교졸업"> <label for="middle">
-                  중학교졸업 </label> <input type="radio" id="high" name="educateLv"
-                  value="고등학교졸업"> <label for="high"> 고등학교졸업 </label> <input
-                  type="radio" id="univ23" name="educateLv" value="대학(2,3년제)졸업">
-               <label for="univ23"> 대학(2,3년제)졸업 </label> <input type="radio"
-                  id="univ4" name="educateLv" value="대학(4년제)졸업"> <label
-                  for="univ4"> 대학(4년제)졸업 </label> <input type="radio" id="graduate"
-                  name="educateLv" value="대학원졸업~"> <label for="graduate">
-                  대학원졸업~ </label>
-
+               <span class="titc">학력조건</span> 
+               <input type="radio" id="eduLv" name="educateLv" 
+                checked="checked" value="학력무관"> 
+               <label for="eduLv"> 학력무관</label> 
+               <input type="radio" id="middle"
+                name="educateLv" value="중학교졸업"> 
+               <label for="middle"> 중학교졸업 </label> 
+               <input type="radio" id="high" name="educateLv"
+                value="고등학교졸업"> 
+               <label for="high"> 고등학교졸업 </label> 
+               <input type="radio" id="univ23" name="educateLv" 
+                value="대학(2,3년제)졸업">
+               <label for="univ23"> 대학(2,3년제)졸업 </label> 
+               <input type="radio" id="univ4" name="educateLv" 
+                value="대학(4년제)졸업"> 
+               <label for="univ4"> 대학(4년제)졸업 </label> 
+               <input type="radio" id="graduate" name="educateLv" 
+                value="대학원졸업~"> 
+               <label for="graduate"> 대학원졸업~ </label>
             </dt>
             <dt>
-               <span class="titc">경력사항</span> <input type="radio" id="work"
-                  name="career" checked="checked"> <label for="work">
-                  경력무관 </label> <input type="radio" id="newcomer" name="career"> <label
-                  for="newcomer"> 신입 </label> <input type="radio" id="experience"
-                  name="career"> <label for="experience"> 경력 </label>
-
+               <span class="titc">경력사항</span> 
+               <input type="radio" id="work" name="career" 
+                checked="checked"> 
+               <label for="work"> 경력무관 </label> 
+               <input type="radio" id="newcomer" name="career">
+               <label for="newcomer"> 신입 </label> 
+               <input type="radio" id="experience"
+                name="career"> 
+               <label for="experience"> 경력 </label>
             </dt>
             <dt>
                <div style="height: 110px;">
-                  <span class="clearBoth titc">우대조건</span> <input type="checkbox"
-                     id="expPre" name="preference" value="동종업계 경력자"> <label
-                     class="rence" for="expPre"> 동종업계 경력자 </label> <input
-                     type="checkbox" id="licensePre" name="preference"
-                     value="관련자격증 소시자"> <label class="rence" for="licensePre">
-                     관련자격증 소지자 </label> <input type="checkbox" id="pcPre" name="preference"
-                     value="컴퓨터활용 가능자"> <label class="rence" for="pcPre">
-                     컴퓨터활용 가능자 </label> <input type="checkbox" id="longPre" name="preference"
-                     value="장기근무 가능자"> <label class="rence" for="longPre">
-                     장기근무 가능자 </label> <span class="clearBoth titc"> </span> <input
-                     type="checkbox" id="engPre" name="preference" value="영어 가능자">
-                  <label class="rence" for="engPre"> 영어 가능자 </label> <input
-                     type="checkbox" id="jpPre" name="preference" value="일어 가능자">
-                  <label class="rence" for="jpPre"> 일어 가능자 </label> <input
-                     type="checkbox" id="cnPre" name="preference" value="중국어 가능자">
-                  <label class="rence" for="cnPre"> 중국어 가능자 </label> <input
-                     type="checkbox" id="insidePre" name="preference" value="인근 거주자">
-                  <label class="rence" for="insidePre"> 인근 거주자 </label> <span
-                     class="clearBoth titc"> </span> <input type="checkbox"
-                     id="drivePre" name="preference" value="운전면허 소지자"> <label
-                     class="rence" for="drivePre"> 운전면허 소지자 </label> <input
-                     type="checkbox" id="byclePre" name="preference" value="원동기면허 소지자">
-                  <label class="rence" for="byclePre"> 원동기면허 소지자 </label> <input
-                     type="checkbox" id="carPre" name="preference" value="차량 소지자">
-                  <label class="rence" for="carPre"> 차량 소지자 </label> <input
-                     type="checkbox" id="militaryPre" name="preference" value="군필자">
-                  <label class="rence" for="militaryPre"> 군필자 </label> <span
-                     class="clearBoth titc"> </span> <input type="checkbox"
-                     id="femailPre" name="preference" value="여성"> <label
-                     class="rence" for="femailPre"> 여성 </label> <input type="checkbox"
-                     id="mrsPre" name="preference" value="경력단절여성"> <label
-                     class="rence" for="mrsPre"> 경력단절여성 </label>
-
+                 <span class="clearBoth titc">우대조건</span> 
+                 <input type="checkbox" id="expPre" 
+                  name="preference" value="동종업계 경력자"> 
+                 <label class="rence" for="expPre"> 
+                                        동종업계 경력자 </label> 
+                 <input type="checkbox" id="licensePre" 
+                  name="preference" value="관련자격증 소시자"> 
+                 <label class="rence" for="licensePre">
+                                        관련자격증 소지자 </label> 
+                 <input type="checkbox" id="pcPre" 
+                  name="preference" value="컴퓨터활용 가능자"> 
+                 <label class="rence" for="pcPre">
+                                        컴퓨터활용 가능자 </label> 
+                 <input type="checkbox" id="longPre" 
+                  name="preference" value="장기근무 가능자"> 
+                 <label class="rence" for="longPre">
+                                        장기근무 가능자 </label> 
+                 <span class="clearBoth titc"> </span> 
+                 <input type="checkbox" id="engPre" 
+                  name="preference" value="영어 가능자">
+                 <label class="rence" for="engPre"> 
+                                        영어 가능자 </label> 
+                 <input type="checkbox" id="jpPre" 
+                  name="preference" value="일어 가능자">
+                 <label class="rence" for="jpPre"> 
+                                         일어 가능자 </label> 
+                 <input type="checkbox" id="cnPre" 
+                  name="preference" value="중국어 가능자">
+                 <label class="rence" for="cnPre"> 
+                                         중국어 가능자 </label> 
+                 <input type="checkbox" id="insidePre" 
+                  name="preference" value="인근 거주자">
+                 <label class="rence" for="insidePre"> 
+                                         인근 거주자 </label> 
+                 <span class="clearBoth titc"> </span> 
+                 <input type="checkbox" id="drivePre" 
+                  name="preference" value="운전면허 소지자"> 
+                 <label class="rence" for="drivePre"> 
+                                        운전면허 소지자 </label> 
+                 <input type="checkbox" id="byclePre" 
+                  name="preference" value="원동기면허 소지자">
+                 <label class="rence" for="byclePre"> 
+                                         원동기면허 소지자 </label> 
+                 <input type="checkbox" id="carPre" 
+                  name="preference" value="차량 소지자">
+                 <label class="rence" for="carPre"> 
+                                        차량 소지자 </label> 
+                 <input type="checkbox" id="militaryPre" 
+                  name="preference" value="군필자">
+                 <label class="rence" for="militaryPre"> 
+                                        군필자 </label> 
+                 <span class="clearBoth titc"> </span> 
+                 <input type="checkbox" id="femailPre" 
+                  name="preference" value="여성"> 
+                 <label class="rence" for="femailPre"> 
+                                          여성 </label> 
+                 <input type="checkbox" id="mrsPre" 
+                  name="preference" value="경력단절여성"> 
+                 <label class="rence" for="mrsPre"> 
+                                        경력단절여성 </label>
                </div>
             </dt>
          </dl>

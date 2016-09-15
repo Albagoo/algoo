@@ -1,6 +1,7 @@
 package com.algoo.app.rec.model;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 
 public class RecVO {
 	private int recCode;// NUMBER NOT NULL,
@@ -37,7 +38,7 @@ public class RecVO {
 	private String recruitMethod;// VARCHAR2(255 BYTE),
 	private String documents;// VARCHAR2(255 BYTE),
 	private String detailRecruit;// VARCHAR2(255 BYTE),
-	private Date regdate;// DATE,
+	private Timestamp regdate;// DATE,
 	private String maps;// VARCHAR2(255 BYTE),
 	private int readcount;// NUMBER,
 	private String accuse;// VARCHAR2(50 BYTE),
@@ -356,13 +357,6 @@ public class RecVO {
 		this.detailRecruit = detailRecruit;
 	}
 
-	public Date getRegdate() {
-		return regdate;
-	}
-
-	public void setRegdate(Date regdate) {
-		this.regdate = regdate;
-	}
 
 	public String getMaps() {
 		return maps;
@@ -374,6 +368,14 @@ public class RecVO {
 
 	public int getReadcount() {
 		return readcount;
+	}
+
+	public Timestamp getRegdate() {
+		return regdate;
+	}
+
+	public void setRegdate(Timestamp regdate) {
+		this.regdate = regdate;
 	}
 
 	public void setReadcount(int readcount) {

@@ -1036,11 +1036,6 @@
 						<input type="text" style="width: 180%" 
 						value="${memberVo.address } ${memberVo.addressDetail}" readonly></td>
 					</tr>
-					<tr>
-						<td id="td1" style="width: 20%; padding-left: 0;">홈페이지</td>
-						<td id="td2" style="padding: 5px">
-						<input type="text" style="width: 120%"></td>
-					</tr>
 				</table>
 				<div style="float: left; background-color: #eee; border:1px solid silver; 
 					width: 230px; height: 70px; padding: 5px 0 5px 20px;">

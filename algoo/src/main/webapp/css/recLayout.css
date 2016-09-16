@@ -524,8 +524,7 @@ margin: 10px;
    width: 150px;
    display: inline-block;
 }
-.recListArea div div>a{
-   
+.recListArea div div a{
 	padding: 5px;
    font-family:'bon godic';
    font-size: 9pt; 

@@ -40,6 +40,11 @@
 	height:22px;
 	padding:15px 15px 15px 70px;
 }
+/* 따로설정 - 컨텐트 */
+#memInfo #content_div{
+	height:100px;
+}
+
 /* photo_div */
 #memInfo #photo_div{
 	height:240px;
@@ -73,6 +78,7 @@
 }
 #button_div{
 	text-align: center;
+	padding:15px 15px 15px 15px;
 }
 /* footer */
 footer{

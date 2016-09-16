@@ -5,12 +5,23 @@
 <mapper namespace="com.mybatis.mapper.oracle.company">
 	
 	<select id="selectAllCompany" resultType="CompanyVO">
-	select * from  company 
+		select * from  company 
 	</select>
 	
 	<select id="selectCompanyByCode" parameterType="int"
 	resultType="CompanyVO">
-	select * from company
-	where comp_code=#{compCode}
+		select * from company
+		where comp_code=#{compCode}
 	</select>
+	
+	<insert id="insertCompany" parameterType="CompanyVO">
+		<selectKey keyProperty="compCode" resultType="int" 
+			order="BEFORE">
+			select company_seq.nextval from dual 
+		</selectKey>
+		insert into company(comp_code,comp_name,ceo,comp_num,zipcode,address,address_detail,dept_name,phone1,phone2,
+			phone3,hp1,hp2,hp3,fax1,fax2,fax3,email1,email2,comp_sort,content,homepage,type,cosdac)
+		values(#{compCode},#{compName},#{ceo},#{compNum},#{zipcode},#{address},#{addressDetail},#{deptName},#{phone1},#{phone2},#{phone3},
+			#{hp1},#{hp2},#{hp3},#{fax1},#{fax2},#{fax3},#{email1},#{email2},#{compSort},#{content},#{homepage},#{type},#{cosdac})
+	</insert>
 </mapper>

@@ -32,4 +32,14 @@ public class CommemDAOMybatis extends SqlSessionDaoSupport
 		return getSqlSession().selectOne(namespace
 				+".selectMemberByUserid", userid);
 	}
+
+	@Override
+	public int updateCompCode(CommemVO commemVo) {
+		return getSqlSession().update(namespace+".updateCompCode", commemVo);
+	}
+
+	@Override
+	public int selectCompCode(String userid) {
+		return getSqlSession().selectOne(namespace+".selectCompCode", userid);
+	}
 }

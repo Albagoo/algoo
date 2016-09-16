@@ -22,5 +22,10 @@ implements CompanyDAO{
 				".selectCompanyByCode",compCode);
 	}
 
+	@Override
+	public int insertCompany(CompanyVO companyVo) {
+		return getSqlSession().insert(namespace+".insertCompany", companyVo);
+	}
+
 	
 }

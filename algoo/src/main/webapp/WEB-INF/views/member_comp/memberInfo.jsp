@@ -14,7 +14,6 @@
 		}else{
 			$("#zipcode_div").css("display","none");
 			$("#address_div").css("display","none");
-			
 		}
 	});
 </script>
@@ -25,7 +24,10 @@
 	<nav>
 		<dl id="leftNavi">
 			<dt><a href="#">회원페이지</a></dt>
-			<dd><a href="#">내정보관리</a></dd>
+			<dd><a href="<c:url value='/login//mypageType.ag'/>">내정보관리</a></dd>
+			<c:if test="${sessionScope.authCode==2 }">
+			<dd><a href="<c:url value='/company/compRegister.ag'/>">기업정보 등록 및 수정</a></dd>
+			</c:if>
 			<dd><a href="#">이력서 관리 및 활용</a></dd>
 			<dd><a href="#">회원탈퇴</a></dd>
 			<dd><a href="#">기타문의</a></dd>
@@ -183,11 +185,10 @@
 			<input type="text" class="textBox" name="fax3" id="fax3" maxlength="4"
 			value="<c:if test='${sessionScope.authCode==2}'>${commemVo.fax3 }</c:if>">
 		</div>
-		<div id="button_div">
-			<input type="button" class="white" id="BtCompanyInfo"value="회사정보등록">
+		<p id="button_div">
 			<input type="submit" class="white" value="회원정보수정">
 			<input type="reset" class="white" value="취소">
-		</div>
+		</p>
 	</section>
 </div>
 

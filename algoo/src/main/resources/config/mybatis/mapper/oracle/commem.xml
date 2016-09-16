@@ -33,4 +33,16 @@
 		select * from comp_member
 		where userid=#{userid} and out_date is null
 	</select>
+	
+	<select id="selectCompCode" parameterType="string"
+		resultType="int">
+		select comp_code from comp_member
+		where userid=#{userid}
+	</select>
+	
+	<update id="updateCompCode" parameterType="CommemVO">
+	 	update comp_member
+	 	set comp_code=#{compCode}
+	 	where userid=#{userid}
+	</update>
 </mapper>

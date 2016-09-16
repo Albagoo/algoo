@@ -16,4 +16,5 @@ public interface CommemService {
 	public int loginCheck(CommemVO commemVo);
 	public int checkUserid(String userid);
 	public CommemVO selectMemberByUserid(String userid);
+	public int updateCompCode(CommemVO commemVo);
 }

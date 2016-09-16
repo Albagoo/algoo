@@ -29,11 +29,41 @@
       
       $( "#tabs" ).tabs();
       
-      $("a").click(function() {
-       alert(this.text()); 
       
-   });
+      //선택한 지역 표시
+       $(".wifi").click(function() {
+    	   
+    	   alert(d);
+    	  $.ajax({
+    		  url:"<c:url value='/json/area.json'/>",
+              data:"GET",
+              dataType:"json",
+              success : function(res) {
+            	  dongSet(res,code,"#GU0");
+            	  
+              },
+              error : function(xhr,statust, error) {
+                  alert(status + ":"+ error);
+              }
+    	  }); 
+      });
       
+       function dongSet(res,code,tag) {
+    	      var temp="";
+    	         var tw=0;
+    	         var result="";
+    	         $.each(res.DATA,function() {
+    	              
+    	               if(this.GU==code){
+    	                  result+="<div class='wifi'><a href='#' onclick='wow(this)'>"+
+    	                  "</a></div>";
+    	                }
+    	         });//for
+    	           $(tag).html(result);
+    	         
+    	    }//func
+      
+      //지역구 셋팅
       $.ajax({
           url:"<c:url value='/json/area.json'/>",
           data:"GET",
@@ -72,23 +102,43 @@
          $.each(res.DATA,function() {
               if(temp!=this.GU){
                if(this.CODE==code){
-                  result+="<a href="+tag+">"+
+                  result+="<div><a href='#' onclick='GU(this)'>"+
                   this.GU.replace(' ','·')
-                  +"</a>";
-                tw+=1;
+                  +"</a></div>";
+                /* tw+=1; */
                 }
                }
-              if(tw==10){
+              /* if(tw==10){
                result+="<br><br>";
                tw=0;
-              }//if
+              }//if */
               temp=this.GU;
          });//for
            $(tag).html(result);
     }//func
-         
-
+    
    
+   
+   var d=""; 
+    function GU(aa){
+    	d =$(aa).text();
+    	return d;
+    }
+       
+/* 선택한 지역에 넣기     
+    var dd="";
+    var maxLimit=0;
+   function wow(aa) {
+	 if(maxLimit<5){
+    	var d =$(aa).text();
+    	dd=dd+" "+d;
+    	$("#test").html(dd);
+    	maxLimit+=1;
+	 }else{
+		 alert("5개 까지만 선택가능합니다");
+	 }
+}
+    */
    function pageProc(curPage){
       document.frmPage.currentPage.value=curPage;
       document.frmPage.submit();
@@ -134,13 +184,15 @@
       <div class="recListArea">
         <div id="tabs-0"  >
           <p id="SI0">지역이 나올 영역</p>
+          <p id="GU0"></p>
         </div>    
         <div id="tabs-1">
           <p id="SI1"></p>
-          <p>지역이 나올 영역</p>
+          <p id="GU1"></p>
         </div>
         <div id="tabs-2">
           <p id="SI2">지역이 나올 영역</p>
+          <p id="GU0"></p>
         </div>
         <div id="tabs-3">
           <p id="SI3">지역이 나올 영역</p>
@@ -188,7 +240,9 @@
           <p id="SI17">지역이 나올 영역</p>
         </div>
       </div>
-      선택한 지역: <div name="test" >nn</div>
+      선택한 지역: <div style="display: inline-block;"
+       id="test">지역나올영역</div>  
+      <!-- <a href="#" onclick='wow(this)'>asdf</a> -->
      </div> 
       
         

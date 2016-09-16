@@ -35,5 +35,10 @@ public class CompanyServiceImpl implements CompanyService {
 		int compCode = commemDao.selectCompCode(userid);
 		return CompanyDao.selectCompanyByCode(compCode);
 	}
+
+	@Override
+	public int updateCompany(CompanyVO companyVo) {
+		return CompanyDao.updateCompany(companyVo);
+	}
 	
 }

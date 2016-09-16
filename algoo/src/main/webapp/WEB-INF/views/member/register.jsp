@@ -85,7 +85,7 @@ function getZipcode(){
 <div id="wrap">
 	<div id="header">
 		<div id="header_logo">
-			<a href="/index.ag">
+			<a href="<c:url value='/index.ag'/>">
 				<img alt="로고" src="<%=request.getContextPath()%>/images/mainLogo-red.png">
 			</a>
 		</div>

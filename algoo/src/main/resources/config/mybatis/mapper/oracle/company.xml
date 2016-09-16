@@ -24,4 +24,13 @@
 		values(#{compCode},#{compName},#{ceo},#{compNum},#{zipcode},#{address},#{addressDetail},#{deptName},#{phone1},#{phone2},#{phone3},
 			#{hp1},#{hp2},#{hp3},#{fax1},#{fax2},#{fax3},#{email1},#{email2},#{compSort},#{content},#{homepage},#{type},#{cosdac})
 	</insert>
+	
+	<update id="updateCompany" parameterType="CompanyVO">
+		update company
+		set comp_name=#{compName},ceo=#{ceo},comp_num=#{compNum},zipcode=#{zipcode},address=#{address},address_Detail=#{addressDetail},
+			dept_name=#{deptName},phone1=#{phone1},phone2=#{phone2},phone3=#{phone3},hp1=#{hp1},hp2=#{hp2},hp3=#{hp3},
+			fax1=#{fax1},fax2=#{fax2},fax3=#{fax3},email1=#{email1},email2=#{email2},comp_sort=#{compSort},
+			content=#{content},homepage=#{homepage},type=#{type},cosdac=#{cosdac}
+		where comp_code=#{compCode}
+	</update>
 </mapper>

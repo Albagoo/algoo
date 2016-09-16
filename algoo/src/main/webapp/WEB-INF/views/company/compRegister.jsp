@@ -11,11 +11,16 @@
 			getZipcode();
 		});
 		
-		if(${companyVo.compCode!=0}){
+		if(${companyVo.compCode==0 }){
 			$("#BtEdit").css("display","none");
 		}else{
 			$("#BtWrite").css("display","none");
 		}
+		
+		$("#BtEdit").click(function(){
+			$("#frm1").prop("action","<c:url value='/company/compEdit.ag' />");
+			$("#frm1").submit();
+		});
 	});
 	
 	function getZipcode(){
@@ -54,7 +59,7 @@
 				<input type="button" class="white" value="사진등록">
 			</div>
 		</div>
-		<form name="frm1" method="post" action="<c:url value='/company/compRegister.ag'/>">
+		<form name="frm1" id="frm1" method="post" action="<c:url value='/company/compRegister.ag'/>">
 		<div id="compName_div">
 	        <label for="compName">회사명</label>
 	        <input type="text" class="textBox" name="compName" id="compName"

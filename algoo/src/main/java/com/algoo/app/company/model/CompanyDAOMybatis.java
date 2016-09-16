@@ -27,5 +27,11 @@ implements CompanyDAO{
 		return getSqlSession().insert(namespace+".insertCompany", companyVo);
 	}
 
+	@Override
+	public int updateCompany(CompanyVO companyVo) {
+		return getSqlSession().update(namespace+".updateCompany",companyVo);
+	}
+	
+
 	
 }

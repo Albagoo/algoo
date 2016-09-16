@@ -8,4 +8,5 @@ public interface CompanyService {
 	public CompanyVO selectCompanyByCode(int compCode);
 	public int insertCompany(CompanyVO companyVo);
 	public CompanyVO selectCompanyByUserid(String userid);
+	public int updateCompany(CompanyVO companyVo);
 }

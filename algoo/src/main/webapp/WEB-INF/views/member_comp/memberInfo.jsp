@@ -12,6 +12,7 @@
 			$("#fax_div").css("display","none");
 			$("#BtCompanyInfo").css("display","none");
 		}else{
+			$("#photo_div").css("display","none");
 			$("#zipcode_div").css("display","none");
 			$("#address_div").css("display","none");
 		}

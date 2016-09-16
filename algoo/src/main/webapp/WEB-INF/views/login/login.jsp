@@ -11,19 +11,20 @@
 </script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("#type2").click(function(){
+		if($("#type2").is(":checked")){
 			$("#join_google").css("display","none");
 			$("#join_naver").css("display","none");
 			$("#join_kakao").css("display","none");
 			$("#join_facebook").css("display","none");
 			$("body").css("height","100%");
-		});
-		$("#type1").click(function(){
+		}
+		if($("#type1").is(":checked")){
 			$("#join_google").css("display","inline-block");
 			$("#join_naver").css("display","inline-block");
 			$("#join_kakao").css("display","inline-block");
 			$("#join_facebook").css("display","inline-block");
-		});
+		}
+		
 		$("#close").click(function(){
 			window.close();
 		});

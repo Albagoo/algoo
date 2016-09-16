@@ -24,6 +24,19 @@
 			$("#join_kakao").css("display","inline-block");
 			$("#join_facebook").css("display","inline-block");
 		}
+		$("#type2").change(function(){
+			$("#join_google").css("display","none");
+			$("#join_naver").css("display","none");
+			$("#join_kakao").css("display","none");
+			$("#join_facebook").css("display","none");
+			$("body").css("height","100%");
+		});
+		$("#type1").change(function(){
+			$("#join_google").css("display","inline-block");
+			$("#join_naver").css("display","inline-block");
+			$("#join_kakao").css("display","inline-block");
+			$("#join_facebook").css("display","inline-block");
+		});
 		
 		$("#close").click(function(){
 			window.close();

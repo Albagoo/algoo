@@ -7,6 +7,10 @@
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
 <script	type="text/javascript">
 	$(document).ready(function(){
+		$("#bt_zipcode").click(function(){
+			getZipcode();
+		});
+		
 		if(${sessionScope.authCode==1}){
 			$("#phone_div").css("display","none");
 			$("#fax_div").css("display","none");
@@ -16,7 +20,24 @@
 			$("#zipcode_div").css("display","none");
 			$("#address_div").css("display","none");
 		}
+		
+		$("#email2").change(function(){
+			if($(this).val()=="etc"){
+				$("#email3").css("visibility","visible");
+				$("#email3").focus();
+				$("#email3").val("");
+			}else{
+				$("#email3").css("visibility","hidden");
+			}
+		});
 	});
+	
+	function getZipcode(){
+		window.open(
+			"<c:url value='/zipcode/zipcode.ag'/>", 
+			"zipWin", 
+			"left=50, top=20, width=500, height=560, scrollbars=yes,resizable=yes");
+	}
 </script>
 <div id="naviDiv">
 	<div id="mark">
@@ -46,6 +67,8 @@
 				<input type="button" class="white" value="사진등록">
 			</div>
 		</div>
+		
+		<form name="frm1" method="post" action="<c:url value='/'/>">
 		<div id="id_div">
 	        <label for="userid">ID</label>
 	        <input type="text" class="textBox" name="userid" id="userid" 
@@ -138,6 +161,7 @@
 				>직접입력</option>
 			</select>
 			<input type="text" class="textBox" name="email3" id="email3" placeholder="직접입력"
+				style="visibility:hidden"
 				<c:if test="${etcYn=='Y'}">
 	        		style="visibility:visible"
 	        		value=${email2 }
@@ -190,6 +214,7 @@
 			<input type="submit" class="white" value="회원정보수정">
 			<input type="reset" class="white" value="취소">
 		</p>
+		</form>
 	</section>
 </div>
 

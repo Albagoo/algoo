@@ -67,17 +67,14 @@ body{
    /* border: 1px solid gray; */
 }
 
-.tit {
-   /* margin:7px ; */
-   margin:10px 10px 0 10px;
-}
+ 
 .by{
  margin:5px 0 0 0;
    font-family:'bon godic';
    float: left;
    font-size: 10pt;
 }
-.titc {
+.tit,.titc {
    margin:10px 10px 0 10px;
 }
 
@@ -384,9 +381,10 @@ floatLeft input[type="checkbox"]{
    margin: 0;
 }
 
-.tit {
-   width: 70px;
+.tit,.titc {
+   width: 120px;
    float: left;
+   font-weight:bold;
    font: 11px dotumn, "돋움";
 }
 
@@ -515,8 +513,12 @@ background:#fafafa;
 text-align: left;	
 }
 .recListArea div{
-height: 200px;
-text-align: left;"
+text-align: left;
+background: #fafafa;
+border: 1px solid #eee;
+display: inline-block;
+margin: 10px;
+
 }
 .recListArea div a{
 padding: 5px;

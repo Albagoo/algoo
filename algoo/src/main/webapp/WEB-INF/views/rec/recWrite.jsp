@@ -651,8 +651,10 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                 <label for="hundredPeople">00명 </label>
             </dt>
             <dt>
-               <span class="tit">모집대상</span> <input type="checkbox" id="youth"
-                  name="recruitPerson" value="청소년"> <label for="youth">청소년</label>
+               <span class="titc">모집대상</span> 
+               <input type="checkbox" id="youth"
+                  name="recruitPerson" value="청소년"> 
+               <label for="youth">청소년</label>
 
 
                <input type="checkbox" id="univSt" name="recruitPerson" value="대학생">
@@ -683,7 +685,8 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                    value="채용시까지" class="white medium textBox">
             </dt>
             <dt>
-               <span class="tit">접수방법</span> <input type="checkbox" id="onlineRec"
+               <span class="titc">접수방법</span> 
+               <input type="checkbox" id="onlineRec"
                   name="recruitMethod" value="온라인지원"> <label class="rence"
                   for="onlineRec"> 온라인지원 </label> <input type="checkbox"
                   id="emailRec" name="recruitMethod" value="e-메일지원"> <label
@@ -692,26 +695,34 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <label class="rence" for="phoneRec"> 전화연락 </label> <input
                   type="checkbox" id="offlineRec" name="offlineRec" value="방문접수">
                <label class="rence" for="offlineRec"> 방문접수 </label>
-
-               <!-- <span class="tit">　　</span>
-          -->
-               <input type="checkbox" id="postRec" name="postRec" value="우편">
-               <label class="rence" for="postRec"> 우편 </label> <input
-                  type="checkbox" id="faxRec" name="faxRec" value="팩스"> <label
-                  class="rence" for="faxRec"> 팩스 </label> <input type="checkbox"
-                  id="homepageRec" name="homepageRec" value="홈페이지"> <label
-                  class="rence" for="homepageRec"> 홈페이지 </label> <input
-                  type="checkbox" id="recForm" value="자사지원양식"> <label
-                  for="recForm">자사지원양식</label> <span style="font-size: 8pt">
-                  ( <input type="radio" name="recForm" id="FormF"> <label
-                  for="FormF">필수 ,</label> <input type="radio" name="recForm"
-                  id="FormS"> <label for="FormS">선택</label> )
+               
+               <p class="titc">　　</p>
+               <span class="clearBoth titc">　　</span>
+               <input type="checkbox" id="postRec" 
+                 value="우편">
+               <label class="rence" for="postRec"> 우편 </label> 
+               <input type="checkbox" id="faxRec" 
+                 value="팩스"> 
+               <label class="rence" for="faxRec"> 팩스 </label> 
+               <input type="checkbox" id="homepageRec" 
+                 value="홈페이지"> 
+               <label class="rence" for="homepageRec"> 홈페이지 </label> 
+               <input type="checkbox" id="recForm" 
+                 value="자사지원양식"> 
+                 
+               <label for="recForm">자사지원양식</label> 
+               <span style="font-size: 8pt">
+                 ( <input type="radio"  
+                 name="recForm" id="FormF"> 
+                 <label for="FormF">필수 ,</label> 
+                 <input type="radio" name="recForm" id="FormS"> 
+                 <label for="FormS">선택</label> )
                </span>
 
 
             </dt>
             <dt>
-               <span class="tit">제출서류</span> <input type="checkbox" id="expDoc"
+               <span class="titc">제출서류</span> <input type="checkbox" id="expDoc"
                   name="documents" value="이력서"> <label class="rence"
                   for="expDoc"> 이력서 </label> <input type="checkbox" id="juminDoc"
                   name="documents" value="주민.등록등본"> <label class="rence"

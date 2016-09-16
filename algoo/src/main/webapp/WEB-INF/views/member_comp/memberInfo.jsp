@@ -11,6 +11,7 @@
 			getZipcode();
 		});
 		
+		
 		if(${sessionScope.authCode==1}){
 			$("#phone_div").css("display","none");
 			$("#fax_div").css("display","none");
@@ -68,7 +69,7 @@
 			</div>
 		</div>
 		
-		<form name="frm1" method="post" action="<c:url value='/'/>">
+		<form name="frm1" method="post" action="<c:url value='/login/mypageTypeEdit.ag'/>">
 		<div id="id_div">
 	        <label for="userid">ID</label>
 	        <input type="text" class="textBox" name="userid" id="userid" 

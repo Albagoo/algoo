@@ -101,6 +101,7 @@ function getZipcode(){
 			
 			<div id="nickName_div">
 				<input type="text" name="nickName" id="nickName" placeholder="닉네임" style="width:180px">
+				<span id="message3"></span>
 			</div>
 			
 			<div id="pwd_div">
@@ -195,6 +196,7 @@ function getZipcode(){
 		</div>
 	<input type ="hidden" name="chkId" id="chkId" value="N">
 	<input type ="hidden" name="chkPw" id="chkPw" value="N">
+	<input type ="hidden" name="nick" id="nick" value="N">
 		<div class="regi_group" id="regi_submit" >
 			<input type="submit" id="bt_register" value="가입하기">
 		</div>

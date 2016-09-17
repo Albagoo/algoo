@@ -66,13 +66,20 @@ $(document).ready(function(){
 		});//pwd
 		$("#pwd2").keyup(function(){
 			if($("#pwd").val()==$("#pwd2").val()){
-				$("#message2").html("사용할 수 있는 비밀번호 입니다");	
+				$("#message2").html("비밀번호가 일치합니다");	
 				$("#chkPw").val("Y");
 			}else{
 				$("#message2").html("비밀번호가 잃치 하지 않습니다");
 				$("#chkPw").val("N");
 			}	
 		});//pwd2
+		
+		$("#nickName").keyup(function(){
+			if($("#nickName").val().length<1){
+				$("#message3").html("닉네임을 입력하세요");	
+				$("#nick").val("Y");
+			}
+		});//nickname
 		
 		$("#bt_register").click(function(event){
 			if($("#chkId").val()=="N"){
@@ -83,7 +90,12 @@ $(document).ready(function(){
 				alert("비밀번호를 확인해 주세요");
 				$("#pwd").focus();
 				return false;
+			}else if($("#nick").val()=="N"){
+				alert("닉네임을 입력해 주세요");
+				$("#pwd").focus();
+				return false;
 			}
+			
 			if($("#userName").val().length<1 || $("#userName").val()==""){
 				alert("이름을 입력하세요")
 				$("#userName").focus();

@@ -20,7 +20,7 @@
 			$("#photo_div").css("display","none");
 			$("#zipcode_div").css("display","none");
 			$("#address_div").css("display","none");
-		}
+		};
 		
 		$("#email2").change(function(){
 			if($(this).val()=="etc"){
@@ -31,13 +31,30 @@
 				$("#email3").css("visibility","hidden");
 			}
 		});
+		
+		$("#btEdit").click(function(event){
+			if($("#hp1").val().length<1 || $("#hp1").val()==" " ||
+				$("#hp2").val().length<1 || $("#hp2").val()==" " ||
+				$("#hp3").val().length<1 || $("#hp3").val()==" " ){
+				alert("휴대폰번호는 필수입력사항입니다");
+				return false;
+			}
+			
+			if(${sessionScope.authCode==1}){
+				$("#frm1").prop("action","<c:url value='/member/memberInfoEdit.ag'/>");
+				$("#frm1").submit();
+			}else{
+				$("#frm1").prop("action","<c:url value='/member_comp/commemInfoEdit.ag'/>");
+				$("#frm1").submit();
+			}
+		});
 	});
 	
 	function getZipcode(){
 		window.open(
 			"<c:url value='/zipcode/zipcode.ag'/>", 
 			"zipWin", 
-			"left=50, top=20, width=500, height=560, scrollbars=yes,resizable=yes");
+			"left=50, top=20, width=500, height=560, scrollbars=yes, resizable=yes");
 	}
 </script>
 <div id="naviDiv">
@@ -69,16 +86,16 @@
 			</div>
 		</div>
 		
-		<form name="frm1" method="post" action="<c:url value='/login/mypageTypeEdit.ag'/>">
+		<form name="frm1" id="frm1" method="post" action="">
 		<div id="id_div">
 	        <label for="userid">ID</label>
 	        <input type="text" class="textBox" name="userid" id="userid" 
-	        value="<c:if test='${sessionScope.authCode==1}'>${memberVo.userid }</c:if><c:if test='${sessionScope.authCode==2}'>${commemVo.userid }</c:if>">
+	        value="<c:if test='${sessionScope.authCode==1}'>${memberVo.userid }</c:if><c:if test='${sessionScope.authCode==2}'>${commemVo.userid }</c:if>" readonly>
 	    </div>
 		<div id="name_div">
 	        <label for="userName">이름</label>
 	        <input type="text" class="textBox" name="userName" id="userName"
-	        value="<c:if test='${sessionScope.authCode==1}'>${memberVo.userName }</c:if><c:if test='${sessionScope.authCode==2}'>${commemVo.userName }</c:if>">
+	        value="<c:if test='${sessionScope.authCode==1}'>${memberVo.userName }</c:if><c:if test='${sessionScope.authCode==2}'>${commemVo.userName }</c:if>" readonly>
 	    </div>
 	    <div id="nickName_div">
 	        <label for="nickName">닉네임</label>
@@ -94,42 +111,39 @@
 	        <input type="password" class="textBox" name="pwd2" id="pwd2">
 	    </div> -->
 	    <div id="email_div">
-	    	<%-- <c:set var="etcYn" value=""/>
-	    	<c:choose>
-	    		<c:if test="${sessionScope.authCode=='1'}">
-		    		<c:when test="${memberVo.email2=='naver.com' || 
-		    			memberVo.email2=='hanmail.net' || 
-		    			memberVo.email2=='nate.com' ||
-		    			memberVo.email2=='gmail.com' ||
-		    			empty memberVo.email2}">
-		    			<!-- 직접 입력이 아닌 경우 -->
-		    			<c:set var="etcYn" value="N"/>
-		    		</c:when>
-		    		<c:otherwise>
-		    			<c:set var="etcYn" value="Y"/>
-		    		</c:otherwise>
-	    		</c:if>
-	    		<c:if test="${sessionScope.authCode=='2'}">
-		    		<c:when test="${commemVo.email2=='naver.com' || 
-		    			commemVo.email2=='hanmail.net' || 
-		    			commemVo.email2=='nate.com' ||
-		    			commemVo.email2=='gmail.com' ||
-		    			empty commemVo.email2}">
-		    			<!-- 직접 입력이 아닌 경우 -->
-		    			<c:set var="etcYn" value="N"/>
-		    		</c:when>
-		    		<c:otherwise>
-		    			<c:set var="etcYn" value="Y"/>
-		    		</c:otherwise>
-	    		</c:if>
-	    	</c:choose> --%>
+	    	<c:set var="etcYn" value=""/>
 	    	<c:if test="${sessionScope.authCode==1}">
-	    		<c:set var="email2" value="${memberVo.email2 } "/>
+		    	<c:choose>
+			    		<c:when test="${memberVo.email2=='naver.com' || 
+			    			memberVo.email2=='hanmail.net' || 
+			    			memberVo.email2=='nate.com' ||
+			    			memberVo.email2=='gmail.com' ||
+			    			empty memberVo.email2}">
+			    			<!-- 직접 입력이 아닌 경우 -->
+			    			<c:set var="etcYn" value="N"/>
+			    		</c:when>
+			    		<c:otherwise>
+			    			<c:set var="etcYn" value="Y"/>
+			    		</c:otherwise>
+		    	</c:choose>
+		    	<c:set var="email2" value="${memberVo.email2 } "/>
 	    	</c:if>
 	    	<c:if test="${sessionScope.authCode==2}">
-	    		<c:set var="email2" value="${commemVo.email2 } "/>
+		    	<c:choose>
+			    		<c:when test="${commemVo.email2=='naver.com' || 
+			    			commemVo.email2=='hanmail.net' || 
+			    			commemVo.email2=='nate.com' ||
+			    			commemVo.email2=='gmail.com' ||
+			    			empty commemVo.email2}">
+			    			<!-- 직접 입력이 아닌 경우 -->
+			    			<c:set var="etcYn" value="N"/>
+			    		</c:when>
+			    		<c:otherwise>
+			    			<c:set var="etcYn" value="Y"/>
+			    		</c:otherwise>
+		    	</c:choose>
+		    	<c:set var="email2" value="${commemVo.email2 } "/>
 	    	</c:if>
-	    	
 	    	
 	    	<label for="email">이메일</label>
 			<input type="text" class="textBox" name="email1" id="email1"
@@ -174,13 +188,13 @@
 		<div id="zipcode_div">
 			<label>우편번호</label>
 			<input type="text" name="zipcode" id="zipcode" class="textBox"
-			value="<c:if test='${sessionScope.authCode==1}'>${memberVo.zipcode }</c:if>">
+			value="<c:if test='${sessionScope.authCode==1}'>${memberVo.zipcode }</c:if>" readonly>
 			<input type="button" name="bt_zipcode" class="white" id="bt_zipcode" value="검색">
 		</div>
 		<div id="address_div">
 			<label>주소</label>
 			<input type="text" name="address" id="address" class="textBox" 
-			value="<c:if test='${sessionScope.authCode==1}'>${memberVo.address } </c:if>">
+			value="<c:if test='${sessionScope.authCode==1}'>${memberVo.address } </c:if>" readonly><br>
 	        <input type="text" name="addressDetail" id="address_detail" class="textBox"
 	        value="<c:if test='${sessionScope.authCode==1}'>${memberVo.addressDetail }</c:if>">
 		</div>
@@ -191,7 +205,7 @@
 			<input type="text" class="textBox" name="hp2" id="hp2" maxlength="4"
 			value="<c:if test='${sessionScope.authCode==1}'>${memberVo.hp2 } </c:if><c:if test='${sessionScope.authCode==2}'>${commemVo.hp2 }</c:if>">
 			<input type="text" class="textBox" name="hp3" id="hp3" maxlength="4"
-			value="<c:if test='${sessionScope.authCode==1}'>${memberVo.hp3 }</c:if> <c:if test='${sessionScope.authCode==2}'>${commemVo.hp3 }</c:if>">
+			value="<c:if test='${sessionScope.authCode==1}'>${memberVo.hp3 }</c:if><c:if test='${sessionScope.authCode==2}'>${commemVo.hp3 }</c:if>">
 		</div>
 		<div id="phone_div">
 			<label for="phone">전화번호</label>
@@ -212,7 +226,7 @@
 			value="<c:if test='${sessionScope.authCode==2}'>${commemVo.fax3 }</c:if>">
 		</div>
 		<p id="button_div">
-			<input type="submit" class="white" value="회원정보수정">
+			<input type="submit" id="btEdit" class="white" value="회원정보수정">
 			<input type="reset" class="white" value="취소">
 		</p>
 		</form>

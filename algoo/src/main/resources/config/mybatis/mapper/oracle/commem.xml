@@ -45,4 +45,12 @@
 	 	set comp_code=#{compCode}
 	 	where userid=#{userid}
 	</update>
+	
+	<update id="updateCompMember" parameterType="CommemVO">
+		update comp_member
+		set nickname=#{nickName},email1=#{email1},email2=#{email2},hp1=#{hp1},hp2=#{hp2},hp3=#{hp3},
+			phone1=#{phone1},phone2=#{phone2},phone3=#{phone3},
+			fax1=#{fax1},fax2=#{fax2},fax3=#{fax3}
+		where userid=#{userid}
+	</update>
 </mapper>

@@ -57,5 +57,9 @@ public class CommemServiceImpl implements CommemService {
 	public int updateCompCode(CommemVO commemVo) {
 		return commemDao.updateCompCode(commemVo);
 	}
+	@Override
+	public int updateCompMember(CommemVO commemVo) {
+		return commemDao.updateCompMember(commemVo);
+	}
 
 }

@@ -506,24 +506,27 @@ floatLeft input[type="checkbox"]{
 .margin_0{
    margin: 0;
 }
-.recListArea div p{
+.recListArea div>p{
 padding:10px;
-border: 1px solid #aaa;
+border-bottom: 1px solid #aaa;
 background:#fafafa;
 text-align: left;	
 }
-.recListArea div{
+.recListArea > div{
 text-align: left;
 background: #fafafa;
-border: 1px solid #eee;
+border-bottom: 1px solid #eee;
 display: inline-block;
 margin: 10px;
 
 }
-.recListArea div a{
-padding: 5px;
-font-family:'bon godic';
-   font-weight: bold;
+.recListArea div div{
+   width: 150px;
+   display: inline-block;
+}
+.recListArea div div a{
+	padding: 5px;
+   font-family:'bon godic';
    font-size: 9pt; 
 }
 .li_font li{

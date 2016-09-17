@@ -26,16 +26,13 @@
       }, function(){
          $(this).css("background","");
       });
-      
+      //탭 정보
       $( "#tabs" ).tabs();
       
-      $("a").click(function() {
-       alert(this.text()); 
       
-   });
-      
+      //지역구 셋팅
       $.ajax({
-          url:"<c:url value='/json/area.json'/>",
+          url:"<c:url value='/json/areas.json'/>",
           data:"GET",
           dataType:"json",
           success : function(res) {
@@ -61,10 +58,10 @@
            error : function(xhr,statust, error) {
            alert(status + ":"+ error);
            }
-       });  
-   });
+       });//ajax  
+   });//jquery
    
-   
+   //지역구 셋팅
    function areaSet(res,code,tag) {
       var temp="";
          var tw=0;
@@ -72,27 +69,112 @@
          $.each(res.DATA,function() {
               if(temp!=this.GU){
                if(this.CODE==code){
-                  result+="<a href="+tag+">"+
-                  this.GU.replace(' ','·')
-                  +"</a>";
-                tw+=1;
+                  result+="<div><a href='#' onclick='GU(this)'>"+
+                  this.GU
+                  +"</a></div>";
+                /* tw+=1; */
                 }
                }
-              if(tw==10){
+              /* if(tw==10){
                result+="<br><br>";
                tw=0;
-              }//if
+              }//if */
               temp=this.GU;
          });//for
            $(tag).html(result);
     }//func
-         
-
+    
+    //동읍면 셋팅
+    function dongSet(res,code,tag,SI) {
+    	
+    	var temp="";
+           var tw=0;
+           var result="";
+           /* alert(SI); */
+           $.each(res.DATA,function() {
+                 if(this.GU==code&&this.SI==SI){
+                    result+="<div><a href='#' onclick='wow(this)'>"+
+                    this.DONG
+                    +"</a></div>";
+           /*          tw+=1; */
+                  }
+           });//for
+           /* alert(tw); */
+             $(tag).html(result);
+           
+      }//func
+  
    
+   
+   var d=""; 
+    function GU(aa){
+    	d =$(aa).text();
+    	$(function(d) {
+			test();
+		})
+    }
+    
+    
+    function test() {
+    	//선택한 지역 표시
+        $.ajax({
+           url:"<c:url value='/json/areas.json'/>",
+              data:"GET",
+              dataType:"json",
+              success : function(res) {
+            	  var glist=["#GU0","#GU1"];
+            	  
+            	  
+            	  dongSet(res,d,"#GU0",abc);
+            	  dongSet(res,d,"#GU1",abc);
+            	  dongSet(res,d,"#GU2",abc);
+            	  dongSet(res,d,"#GU3",abc);
+            	  dongSet(res,d,"#GU4",abc);
+            	  dongSet(res,d,"#GU5",abc);
+            	  dongSet(res,d,"#GU6",abc);
+            	  dongSet(res,d,"#GU7",abc);
+            	  dongSet(res,d,"#GU8",abc);
+            	  dongSet(res,d,"#GU9",abc);
+            	  dongSet(res,d,"#GU10",abc);
+            	  dongSet(res,d,"#GU11",abc);
+            	  dongSet(res,d,"#GU12",abc);
+            	  dongSet(res,d,"#GU13",abc);
+            	  dongSet(res,d,"#GU14",abc);
+            	  dongSet(res,d,"#GU15",abc);
+            	  dongSet(res,d,"#GU16",abc);
+            	  dongSet(res,d,"#GU17",abc);
+            	  
+              },
+              error : function(xhr,statust, error) {
+                  alert(status + ":"+ error);
+              }
+        });
+       }
+       
+ //선택한 지역에 넣기     
+    var dd="";
+    var maxLimit=0;
+   function wow(aa) {
+	 if(maxLimit<5){
+    	var d =$(aa).text();
+    	dd=dd+" <input type='button' class='white texbox' value='"+d+"'>";
+    	$("#test").html(dd);
+    	maxLimit+=1;
+	 }else{
+		 alert("5개 까지만 선택가능합니다");
+	 }
+}
+   var abc="서울";
+   function codeSet(code) {
+	abc=$(code).text();
+	$("#recListArea div p+p").text("");
+} 
    function pageProc(curPage){
       document.frmPage.currentPage.value=curPage;
       document.frmPage.submit();
    }
+    
+    
 </script>   
 
 <section>
@@ -112,83 +194,102 @@
       
       <div id="tabs" >
          <ul class="li_font">
-          <li><a href="#tabs-0">서울</a></li>
-          <li><a href="#tabs-1">인천</a></li>
-          <li><a href="#tabs-2">경기</a></li>
-          <li><a href="#tabs-3">강원</a></li>
-          <li><a href="#tabs-4">대전</a></li>
-          <li><a href="#tabs-5">세종</a></li>
-          <li><a href="#tabs-6">충남</a></li>
-          <li><a href="#tabs-7">충북</a></li>
-          <li><a href="#tabs-8">부산</a></li>
-          <li><a href="#tabs-9">울산</a></li>
-          <li><a href="#tabs-10">경남</a></li>
-          <li><a href="#tabs-11">경북</a></li>
-          <li><a href="#tabs-12">대구</a></li>
-          <li><a href="#tabs-13">광주</a></li>
-          <li><a href="#tabs-14">전남</a></li>
-          <li><a href="#tabs-15">전북</a></li>
-          <li><a href="#tabs-16">제주</a></li>
-          <li><a href="#tabs-17">전국</a></li>
+          <li><a href="#tabs-0" onclick="codeSet(this)">서울</a></li>
+          <li><a href="#tabs-1" onclick="codeSet(this)">인천</a></li>
+          <li><a href="#tabs-2" onclick="codeSet(this)">경기</a></li>
+          <li><a href="#tabs-3" onclick="codeSet(this)">강원</a></li>
+          <li><a href="#tabs-4" onclick="codeSet(this)">대전</a></li>
+          <li><a href="#tabs-5" onclick="codeSet(this)">세종</a></li>
+          <li><a href="#tabs-6" onclick="codeSet(this)">충남</a></li>
+          <li><a href="#tabs-7" onclick="codeSet(this)">충북</a></li>
+          <li><a href="#tabs-8" onclick="codeSet(this)">부산</a></li>
+          <li><a href="#tabs-9" onclick="codeSet(this)">울산</a></li>
+          <li><a href="#tabs-10" onclick="codeSet(this)">경남</a></li>
+          <li><a href="#tabs-11" onclick="codeSet(this)">경북</a></li>
+          <li><a href="#tabs-12" onclick="codeSet(this)">대구</a></li>
+          <li><a href="#tabs-13" onclick="codeSet(this)">광주</a></li>
+          <li><a href="#tabs-14" onclick="codeSet(this)">전남</a></li>
+          <li><a href="#tabs-15" onclick="codeSet(this)">전북</a></li>
+          <li><a href="#tabs-16" onclick="codeSet(this)">제주</a></li>
+          <li><a href="#tabs-17" onclick="codeSet(this)">전국</a></li>
         </ul>
-      <div class="recListArea">
+      <div class="recListArea" id="recListArea">
         <div id="tabs-0"  >
           <p id="SI0">지역이 나올 영역</p>
+          <p id="GU0">asdf</p>
         </div>    
         <div id="tabs-1">
           <p id="SI1"></p>
-          <p>지역이 나올 영역</p>
+          <p id="GU1"></p>
         </div>
         <div id="tabs-2">
           <p id="SI2">지역이 나올 영역</p>
+          <p id="GU2"></p>
         </div>
         <div id="tabs-3">
           <p id="SI3">지역이 나올 영역</p>
+          <p id="GU3"></p>
         </div>
         <div id="tabs-4">
           <p id="SI4">지역이 나올 영역</p>
+          <p id="GU4"></p>
         </div>
         <div id="tabs-5">
           <p id="SI5">지역이 나올 영역</p>
+          <p id="GU5"></p>
         </div>
         <div id="tabs-6">
           <p id="SI6">지역이 나올 영역</p>
+          <p id="GU6"></p>
         </div>
         <div id="tabs-7">
           <p id="SI7">지역이 나올 영역</p>
+          <p id="GU7"></p>
         </div>
         <div id="tabs-8">
-          <p id="SI8">지역이 나올 영역</p>  
+          <p id="SI8">지역이 나올 영역</p>
+          <p id="GU8"></p>  
         </div>
         <div id="tabs-9">
           <p id="SI9">지역이 나올 영역</p>
+          <p id="GU9"></p>
         </div>
         <div id="tabs-10">
           <p id="SI10">지역이 나올 영역</p>
+          <p id="GU10"></p>
         </div>
         <div id="tabs-11">
           <p id="SI11">지역이 나올 영역</p>
+          <p id="GU11"></p>
         </div>
         <div id="tabs-12">
           <p id="SI12">지역이 나올 영역</p>
+          <p id="GU12"></p>
         </div>
         <div id="tabs-13">
           <p id="SI13">지역이 나올 영역</p>
+          <p id="GU13"></p>
         </div>
         <div id="tabs-14">
           <p id="SI14">지역이 나올 영역</p>
+          <p id="GU14"></p>
         </div>
         <div id="tabs-15">
           <p id="SI15">지역이 나올 영역</p>
+          <p id="GU15"></p>
         </div>
         <div id="tabs-16">
           <p id="SI16">지역이 나올 영역</p>
+          <p id="GU16"></p>
         </div>
         <div id="tabs-17">
           <p id="SI17">지역이 나올 영역</p>
+          <p id="GU17"></p>
         </div>
       </div>
-      선택한 지역: <div name="test" >nn</div>
+      선택한 지역: <div style="display: inline-block;"
+       id="test">지역나올영역</div>  
+      <!-- <a href="#" onclick='wow(this)'>asdf</a> -->
      </div> 
       
         

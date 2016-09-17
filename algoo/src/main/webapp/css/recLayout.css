@@ -220,22 +220,23 @@ margin:10px;
    clear: both;
 }
 .recWrite h2{
-   width: 150px;
+	width: 150px;
+}
+legend{
+	width: 250px;
+}
+.recWrite h2,
+,legend{
    text-align: right;
    margin: 20px 10px;
  font-family:'bon godic';
    font-variant:small-caps;
    font-weight: bold;
-   font-size: 13.5pt; 
-  /*  border-bottom: 1px solid #ddd;
-   border-right: 1px solid #eee;
-   padding-right: 30px;
-   border-bottom-right-radius: 3%;
-   border-top-right-radius: 3%; */
+   font-size: 11.5pt; 
    
    /* display: inline-block; */
       zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
-      *display: inline;
+      display: inline;
       vertical-align: baseline;
       margin: 0 2px;
       outline: none;
@@ -523,16 +524,33 @@ margin: 10px;
 .recListArea div div{
    width: 150px;
    display: inline-block;
+   
+   
 }
 .recListArea div div a{
 	padding: 5px;
    font-family:'bon godic';
    font-size: 9pt; 
 }
-.li_font li{
+.li_font li,#selectArea,
+.recList thead tr>th{
 	font-family:'bon godic';
    font-weight: bold;
    font-size: 8.8pt;
+   padding: 0;
+   margin: 0;
+}
+#test{
+	width:500px;
+	font-family:'bon godic';
+   font-weight: bold;
+   font-size: 8.5pt;
+   padding: 0;
+   margin: 0;
+   text-align: left;
+}
+
+#test input[type="button"]{
    padding: 0;
    margin: 0;
 }

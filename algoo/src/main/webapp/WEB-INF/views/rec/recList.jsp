@@ -30,6 +30,7 @@
       $( "#tabs" ).tabs();
       
       
+      
       //지역구 셋팅
       $.ajax({
           url:"<c:url value='/json/areas.json'/>",
@@ -124,7 +125,6 @@
               success : function(res) {
             	  var glist=["#GU0","#GU1"];
             	  
-            	  
             	  dongSet(res,d,"#GU0",abc);
             	  dongSet(res,d,"#GU1",abc);
             	  dongSet(res,d,"#GU2",abc);
@@ -152,18 +152,26 @@
        }
        
  //선택한 지역에 넣기     
-    var dd="";
+    var dd=" ";
     var maxLimit=0;
    function wow(aa) {
 	 if(maxLimit<5){
     	var d =$(aa).text();
-    	dd=dd+" <input type='button' class='white texbox' value='"+d+"'>";
+    	dd=$("#test").html()+"<label onclick='removeArea(this)' for="+d+
+    	">"+d+"<input type='button' title='"+d+
+    	" 제거' id='"+d+"' value='x'>"+"</label>";
     	$("#test").html(dd);
     	maxLimit+=1;
 	 }else{
 		 alert("5개 까지만 선택가능합니다");
 	 }
-}
+   }
+   function removeArea(item) {
+	 item.remove();
+	 maxLimit-=1;
+	
+	}
+   
    var abc="서울";
    function codeSet(code) {
 	abc=$(code).text();
@@ -215,8 +223,8 @@
         </ul>
       <div class="recListArea" id="recListArea">
         <div id="tabs-0"  >
-          <p id="SI0">지역이 나올 영역</p>
-          <p id="GU0">asdf</p>
+          <p id="SI0">시도 지역이 나올 영역</p>
+          <p id="GU0">구군 지역이 나올 영역</p>
         </div>    
         <div id="tabs-1">
           <p id="SI1"></p>
@@ -287,9 +295,9 @@
           <p id="GU17"></p>
         </div>
       </div>
-      선택한 지역: <div style="display: inline-block;"
-       id="test">지역나올영역</div>  
-      <!-- <a href="#" onclick='wow(this)'>asdf</a> -->
+      <span id="selectArea">선택한 지역:</span>
+      <div style="display: inline-block;"
+       id="test"></div>  
      </div> 
       
         
@@ -392,7 +400,8 @@
 <div class="divPage">
    <c:if test="${pagingInfo.firstPage>1 }">  
       <a href="#" onclick="pageProc(${pagingInfo.firstPage-1})">
-         <img src="<c:url value='/images/first.JPG'/>" alt="이전블럭으로">
+         <img src="<c:url value='/images/first.JPG'/>" 
+         alt="이전블럭으로">
       </a>  
    </c:if>
    <c:forEach var="i" begin="${pagingInfo.firstPage }" 

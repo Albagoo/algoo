@@ -131,6 +131,16 @@ public class ResumeController {
 		
 		logger.info("이력서 입력 결과 cnt = {}", cnt , resumeVo);
 		
-		return "redirect:/home.ag";
+		return "redirect:/resume/list.ag";
+	}
+	
+	@RequestMapping("/list.ag")
+	public String list(Model model){
+		
+		List<ResumeVO> alist = resumeService.selectResume();
+		
+		model.addAttribute("alist", alist);
+		
+		return "resume/list";
 	}
 }

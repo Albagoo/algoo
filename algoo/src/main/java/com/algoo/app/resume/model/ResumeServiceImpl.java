@@ -1,5 +1,7 @@
 package com.algoo.app.resume.model;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,6 +94,11 @@ public class ResumeServiceImpl implements ResumeService{
 		logger.info("resumeVo = {}", resumeVo);
 		
 		return resumeDao.insertResume(resumeVo);
+	}
+
+	@Override
+	public List<ResumeVO> selectResume() {
+		return resumeDao.selectResume();
 	}
 
 }

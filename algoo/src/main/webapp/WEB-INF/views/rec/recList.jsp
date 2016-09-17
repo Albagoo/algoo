@@ -157,20 +157,20 @@
    function wow(aa) {
 	 if(maxLimit<5){
     	var d =$(aa).text();
-    	dd=dd+" <label title='"+d+" 제거' for="+d+">"+d+"</label>"
-    	+"<input type='button' title='"+d+" 제거' id='"+d
-    	+"' value='x' onclick='removeArea(this)'>";
+    	dd=$("#test").html()+"<label onclick='removeArea(this)' for="+d+
+    	">"+d+"<input type='button' title='"+d+
+    	" 제거' id='"+d+"' value='x'>"+"</label>";
     	$("#test").html(dd);
     	maxLimit+=1;
 	 }else{
 		 alert("5개 까지만 선택가능합니다");
 	 }
-}
+   }
    function removeArea(item) {
-	item.remove();
+	 item.remove();
+	 maxLimit-=1;
 	
-	
-}
+	}
    
    var abc="서울";
    function codeSet(code) {
@@ -297,7 +297,7 @@
       </div>
       <span id="selectArea">선택한 지역:</span>
       <div style="display: inline-block;"
-       id="test">지역 나올 영역</div>  
+       id="test"></div>  
      </div> 
       
         

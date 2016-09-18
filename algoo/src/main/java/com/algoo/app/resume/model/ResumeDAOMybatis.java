@@ -16,13 +16,18 @@ public class ResumeDAOMybatis extends SqlSessionDaoSupport
 	}
 
 	@Override
-	public List<ResumeVO> selectResume() {
-		return getSqlSession().selectList(namespace+".selectResume");
+	public List<ResumeVO> selectResume(ResumeSearchVO resumeSearchVo) {
+		return getSqlSession().selectList(namespace+".selectResume", resumeSearchVo);
 	}
 
 	@Override
 	public ResumeVO selectResumeByCode(int hisCode) {
 		return getSqlSession().selectOne(namespace+".selectResumeByCode", hisCode);
+	}
+
+	@Override
+	public int selectResumeCount() {
+		return getSqlSession().selectOne(namespace+".selectResumeCount");
 	}
 
 }

@@ -15,10 +15,21 @@
 			#{comAbilityCode}, #{personalInfoCode})
 	</insert>
 	
-	<select id="selectResume" resultType="ResumeListVO">
-		select * from listView
-		order by regdate desc
+	<select id="selectResume" resultType="ResumeListVO"
+		parameterType="ResumeSearchVO">
+		select * from
+		(select l.*, rownum as RNUM from listView l
+		order by regdate desc)
+		<![CDATA[
+		where RNUM > #{firstRecordIndex}
+		and RNUM <= #{firstRecordIndex} + #{recordCountPerPage}
+		]]>
 	</select> 
+	
+	<select id="selectResumeCount" resultType="int">
+		select count(*) from listView
+		order by regdate desc
+	</select>
 	
 	<select id="selectResumeByCode" parameterType="int" resultType="ResumeVO">
 		select * from history

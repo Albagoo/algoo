@@ -99,8 +99,8 @@ public class ResumeServiceImpl implements ResumeService{
 	}
 
 	@Override
-	public List<ResumeVO> selectResume() {
-		return resumeDao.selectResume();
+	public List<ResumeVO> selectResume(ResumeSearchVO resumeSearchVo) {
+		return resumeDao.selectResume(resumeSearchVo);
 	}
 
 	@Override
@@ -142,6 +142,11 @@ public class ResumeServiceImpl implements ResumeService{
 		}
 		
 		return alist;
+	}
+
+	@Override
+	public int selectResumeCount() {
+		return resumeDao.selectResumeCount();
 	}
 
 }

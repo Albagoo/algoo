@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.algoo.app.commem.model.CommemService;
 import com.algoo.app.commem.model.CommemVO;
+import com.algoo.app.member.model.MemberService;
 import com.algoo.app.member.model.MemberVO;
 
 @Controller
@@ -157,6 +158,48 @@ public class CommemController {
 		}else{
 			msg="수정을 실패하였습니다";
 		}
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		
+		return "common/message";
+	}
+	@RequestMapping("/memberWithdraw.ag")
+	public String withDraw(){
+		return "member_comp/memberWithdraw";
+	}
+	@RequestMapping("/commemWithdraw.ag")
+	public String memberWithdraw(
+		@ModelAttribute CommemVO commemVo,
+		HttpSession session, Model model){
+		
+		//1.
+		String userid= (String)session.getAttribute("userid");
+		commemVo.setUserid(userid);
+		
+		logger.info("회원탈퇴 처리, 파라미터 memVo={}",commemVo);
+		
+		//2.
+		int result = commemService.loginCheck(commemVo);
+		String msg="", url="/member/memberOut.ag";
+		if(result==MemberService.LOGIN_OK){
+			int cnt = commemService.withdrawCommem(userid);
+			logger.info("회원탈퇴 처리 결과, cnt={}", cnt);
+			
+			if(cnt>0){
+				msg="회원탈퇴 처리되었습니다";
+				url="/index.ag";
+				
+				session.invalidate();
+			}else{
+				msg="회원탈퇴 실패";
+			}
+		}else if(result==MemberService.PWD_DISAGREE){
+			msg="비밀번호가 일치하지 않습니다";
+		}else{
+			msg="비밀번호 체크 실패";
+		}
+		
+		//3.
 		model.addAttribute("msg", msg);
 		model.addAttribute("url", url);
 		

@@ -12,6 +12,11 @@ public class PersonalInfoDAOMybatis extends SqlSessionDaoSupport
 	public int insertPersonalInfo(PersonalInfoVO personalInfoVo) {
 		return getSqlSession().insert(namespace+".insertPersonalInfo", personalInfoVo);
 	}
+
+	@Override
+	public PersonalInfoVO selectPersonalInfo(int personalInfoCode) {
+		return getSqlSession().selectOne(namespace+".selectPersonalInfo", personalInfoCode);
+	}
 	
 	
 }

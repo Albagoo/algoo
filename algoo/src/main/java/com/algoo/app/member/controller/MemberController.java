@@ -188,25 +188,8 @@ public class MemberController {
 		return "common/message";
 	}
 	
-	@RequestMapping(value="/memberOut.ag", 
-			method=RequestMethod.GET)
-	public String memberout_get(HttpSession session,
-			Model model){
-		//1.
-		String userid= (String)session.getAttribute("userid");
-		
-		logger.info("회원탈퇴 페이지 보여주기, userid={}", 
-				userid);
-		
-		//2.
-		
-		//3.
-		return "member/memberOut";
-	}
-	
-	@RequestMapping(value="/memberOut.ag", 
-			method=RequestMethod.POST)
-	public String memberOut_post(
+	@RequestMapping("/memberWithdraw.ag")
+	public String memberWithdraw(
 		@ModelAttribute MemberVO memVo,
 		HttpSession session, Model model){
 		

@@ -53,4 +53,10 @@
 			fax1=#{fax1},fax2=#{fax2},fax3=#{fax3}
 		where userid=#{userid}
 	</update>
+	
+	<update id="withDrawCommem" parameterType="string">
+		update member 
+			set out_date=sysdate
+		where userid=#{userid} and out_date is null
+	</update>
 </mapper>

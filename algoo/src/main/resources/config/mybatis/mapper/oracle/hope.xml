@@ -10,4 +10,9 @@
 		insert into hope
 		values(#{hopeCode}, #{category}, #{type}, #{day}, #{pay}, #{area})
 	</insert>
+	
+	<select id="selectHope" parameterType="int"	resultType="HopeVO">
+		select * from hope
+		where hope_code = #{hopeCode}
+	</select>
 </mapper>

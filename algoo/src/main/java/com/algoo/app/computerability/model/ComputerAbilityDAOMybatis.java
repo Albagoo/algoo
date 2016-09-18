@@ -12,5 +12,10 @@ public class ComputerAbilityDAOMybatis extends SqlSessionDaoSupport
 	public int insertComputerAbility(ComputerAbilityVO computerAbilityVo) {
 		return getSqlSession().insert(namespace+".insertComputerAbility", computerAbilityVo);
 	}
+
+	@Override
+	public ComputerAbilityVO selectComputerAbility(int comAbilityCode) {
+		return getSqlSession().selectOne(namespace+".selectComputerAbility", comAbilityCode);
+	}
 	
 }

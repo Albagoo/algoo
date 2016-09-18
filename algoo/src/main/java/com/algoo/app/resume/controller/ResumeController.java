@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.algoo.app.career.model.CareerVO;
@@ -131,6 +132,28 @@ public class ResumeController {
 		
 		logger.info("이력서 입력 결과 cnt = {}", cnt , resumeVo);
 		
-		return "redirect:/home.ag";
+		return "redirect:/resume/list.ag";
+	}
+	
+	@RequestMapping("/list.ag")
+	public String list(Model model){
+		
+		List<ResumeVO> alist = resumeService.selectResume();
+		
+		model.addAttribute("alist", alist);
+		
+		return "resume/list";
+	}
+	
+	@RequestMapping("/detail.ag")
+	public String detail(
+			@RequestParam(defaultValue="0") int hisCode,
+			Model model){
+		
+		Map<String, Object> alist = resumeService.selectResumeByCode(hisCode);
+		
+		model.addAttribute("alist", alist);
+		
+		return "resume/detail";
 	}
 }

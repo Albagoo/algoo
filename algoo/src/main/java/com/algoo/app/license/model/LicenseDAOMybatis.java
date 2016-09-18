@@ -14,5 +14,11 @@ public class LicenseDAOMybatis extends SqlSessionDaoSupport
 				licenseVo);
 	}
 
+	@Override
+	public LicenseVO selectLicense(int licenseCode) {
+		return getSqlSession().selectOne(namespace+".selectLicense", 
+				licenseCode);
+	}
+
 
 }

@@ -13,6 +13,12 @@ public class HopeDAOMybatis extends SqlSessionDaoSupport
 		return getSqlSession().insert(namespace+".insertHope", 
 				hopeVo);
 	}
+
+	@Override
+	public HopeVO selectHope(int hopeCode) {
+		return getSqlSession().selectOne(namespace+".selectHope", 
+				hopeCode);
+	}
 	
 	
 }

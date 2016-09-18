@@ -26,14 +26,15 @@
       }, function(){
          $(this).css("background","");
       });
-      //탭 정보
+      
+//지역구 셋팅  (서울,인천,경기..) 탭형식으로 볼수 있게 해줌
       $( "#tabs" ).tabs();
       
       
       
-      //지역구 셋팅
+//지역구 셋팅  지역(서울,인천,경기..)에 
       $.ajax({
-          url:"<c:url value='/json/areas.json'/>",
+          url:"<c:url value='/json/area.json'/>",
           data:"GET",
           dataType:"json",
           success : function(res) {
@@ -62,7 +63,7 @@
        });//ajax  
    });//jquery
    
-   //지역구 셋팅
+ //지역구 셋팅 -2
    function areaSet(res,code,tag) {
       var temp="";
          var tw=0;
@@ -73,53 +74,43 @@
                   result+="<div><a href='#' onclick='GU(this)'>"+
                   this.GU
                   +"</a></div>";
-                /* tw+=1; */
-                }
-               }
-              /* if(tw==10){
-               result+="<br><br>";
-               tw=0;
-              }//if */
+               }//if
+              }//if 
               temp=this.GU;
          });//for
            $(tag).html(result);
     }//func
-    
-    //동읍면 셋팅
-    function dongSet(res,code,tag,SI) {
-    	
-    	var temp="";
-           var tw=0;
-           var result="";
-           /* alert(SI); */
-           $.each(res.DATA,function() {
-                 if(this.GU==code&&this.SI==SI){
-                    result+="<div><a href='#' onclick='wow(this)'>"+
-                    this.DONG
-                    +"</a></div>";
-           /*          tw+=1; */
-                  }
-           });//for
-           /* alert(tw); */
-             $(tag).html(result);
-           
-      }//func
-  
-   
-   
+  //지역구 셋팅 -3    
    var d=""; 
     function GU(aa){
     	d =$(aa).text();
     	$(function(d) {
 			test();
-		})
+		});
     }
+    
+//동읍면 셋팅-1
+    function dongSet(res,code,tag,SI) {
+    	var temp="";
+           var tw=0;
+           var result="";
+           $.each(res.DATA,function() {
+                 if(this.GU==code&&this.SI==SI){
+                    result+="<div><a href='#' onclick='dong(this)'>"+
+                    this.DONG
+                    +"</a></div>";
+                  }
+           });//for
+             $(tag).html(result);
+      }//func
+   
+   
     
     
     function test() {
     	//선택한 지역 표시
         $.ajax({
-           url:"<c:url value='/json/areas.json'/>",
+           url:"<c:url value='/json/area.json'/>",
               data:"GET",
               dataType:"json",
               success : function(res) {
@@ -154,7 +145,7 @@
  //선택한 지역에 넣기     
     var dd=" ";
     var maxLimit=0;
-   function wow(aa) {
+   function dong(aa) {
 	 if(maxLimit<5){
     	var d =$(aa).text();
     	dd=$("#test").html()+"<label onclick='removeArea(this)' for="+d+
@@ -169,7 +160,6 @@
    function removeArea(item) {
 	 item.remove();
 	 maxLimit-=1;
-	
 	}
    
    var abc="서울";

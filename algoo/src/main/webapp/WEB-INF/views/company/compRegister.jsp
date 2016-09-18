@@ -38,12 +38,12 @@
 	<nav>
 		<dl id="leftNavi">
 			<dt><a href="#">회원페이지</a></dt>
-			<dd><a href="<c:url value='/login//mypageType.ag'/>">내정보관리</a></dd>
+			<dd><a href="<c:url value='/login/mypageType.ag'/>">내정보관리</a></dd>
 			<c:if test="${sessionScope.authCode==2 }">
 			<dd><a href="<c:url value='/company/compRegister.ag'/>">기업정보 등록 및 수정</a></dd>
 			</c:if>
 			<dd><a href="#">이력서 관리 및 활용</a></dd>
-			<dd><a href="#">회원탈퇴</a></dd>
+			<dd><a href="<c:url value='/member_comp/memberWithdraw.ag'/>">회원탈퇴</a></dd>
 			<dd><a href="#">기타문의</a></dd>
 		</dl>
 	</nav>

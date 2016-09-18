@@ -124,7 +124,7 @@
 							기업회원<br>로그인
 						</div></a>
 						<div class="selectLogin">
-							<a href="<c:url value='/member/agreement.ag'/>">
+							<a href="<c:url value='/jj/join.ag'/>">
 							<span style="font-weight:bold">
 								회원가입</span></a> |
 							아이디 찾기 |

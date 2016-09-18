@@ -219,7 +219,9 @@
       <div class="recListArea" id="recListArea">
         <div id="tabs-0"  >
           <p id="SI0">시도 지역이 나올 영역</p>
-          <p id="GU0">구군 지역이 나올 영역</p>
+          
+          <p id="GU0"></p>
+         
         </div>    
         <div id="tabs-1">
           <p id="SI1"></p>

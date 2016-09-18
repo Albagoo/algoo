@@ -325,7 +325,10 @@
 </c:if>
 <c:if test="${empty searchVO.searchKeyword }">
    <p>전체 조회 결과 - ${pagingInfo.totalRecord }건 조회되었습니다</p>
-   <p>검색지역 - 
+   <p>
+   <c:if test="${!empty recSeachVO.area1 }">
+       검색지역 - 
+   </c:if>
    ${recSeachVO.area1 }
    ${recSeachVO.area2 }
    ${recSeachVO.area3 }

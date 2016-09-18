@@ -148,10 +148,15 @@
    function dong(aa) {
 	 if(maxLimit<5){
     	var d =$(aa).text();
-    	dd=$("#test").html()+"<label onclick='removeArea(this)' for="+d+
+    	dd=$("#test").html()+"<label name='ares'"+
+    	" onclick='removeArea(this)' for="+d+
     	">"+d+"<input type='button' title='"+d+
     	" 제거' id='"+d+"' value='x'>"+"</label>";
     	$("#test").html(dd);
+    	
+    	dd2=$("input[name=areas]").val()+d+",";
+    	$("input[name=areas]").val(dd2);
+    	/* alert(dd2); */
     	maxLimit+=1;
 	 }else{
 		 alert("5개 까지만 선택가능합니다");
@@ -289,7 +294,8 @@
       <div style="display: inline-block;"
        id="test"></div>  
      </div> 
-      
+     
+      <input type="hidden" name="areas" value="">
         
         <select name="searchCondition" class="button white small"
          style="font-size: 0.75em;">
@@ -317,6 +323,14 @@
 </c:if>
 <c:if test="${empty searchVO.searchKeyword }">
    <p>전체 조회 결과 - ${pagingInfo.totalRecord }건 조회되었습니다</p>
+   <p>검색지역 - 
+   ${recSeachVO.area1 }
+   ${recSeachVO.area2 }
+   ${recSeachVO.area3 }
+   ${recSeachVO.area4 }
+   ${recSeachVO.area5 }
+   
+   </p>
 </c:if>
 </div>
 <table class="box2 recList">

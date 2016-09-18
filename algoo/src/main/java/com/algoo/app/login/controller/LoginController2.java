@@ -123,5 +123,21 @@ public class LoginController2 {
 		}
 		return resultPage;
 	}
+	@RequestMapping("/mypageTypeEdit.ag")
+	public String myPageTypeEdit(HttpSession session){
+		String userid = (String)session.getAttribute("userid");
+		String authCode = (String)session.getAttribute("authCode");
+		
+		String resultPage="";
+		if(userid==null || userid.isEmpty()){
+			return "login/checkLogin";
+		}
+		if(authCode.equals("1")){
+			resultPage= "redirect:/member/memInfoEdit.ag";
+		}else if(authCode.equals("2")){
+			resultPage= "redirect:/member_comp/commemInfoEdit.ag";
+		}
+		return resultPage;
+	}
 
 }

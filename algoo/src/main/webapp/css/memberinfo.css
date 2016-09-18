@@ -44,6 +44,17 @@
 #memInfo #content_div{
 	height:100px;
 }
+#memInfo #address_div{
+	height:70px;
+}
+#memInfo #address{
+	width:300px;
+}
+#memInfo #address_detail{
+	margin-top:20px;
+	margin-left:116px;
+	width:300px;
+}
 
 /* photo_div */
 #memInfo #photo_div{

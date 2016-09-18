@@ -30,7 +30,7 @@
 					<!-- 로그인이 안된 경우 -->
 					<c:if test="${empty sessionScope.userid }">
 						<a href="#" onclick="login()">로그인</a> |
-						<a href="<c:url value='/member/agreement.ag'/>">회원가입</a> |
+						<a href="<c:url value='/jj/join.ag'/>">회원가입</a> |
 					</c:if>
 					<!-- 로그인이된 경우 -->
 					<c:if test="${!empty sessionScope.userid }">

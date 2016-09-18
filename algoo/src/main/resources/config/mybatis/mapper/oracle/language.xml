@@ -4,11 +4,16 @@
 
 <mapper namespace="com.mybatis.mapper.oracle.language">
 	<insert id="insertLanguage" parameterType="LanguageVO">
-	<selectKey keyProperty="languageCode" order="BEFORE" resultType="int">
-		select language_seq.nextval from dual
-	</selectKey>
-	insert into language
-	values(#{languageCode}, #{language}, #{languageStudy}, #{languageCommand}
-		,#{officialTest})
+		<selectKey keyProperty="languageCode" order="BEFORE" resultType="int">
+			select language_seq.nextval from dual
+		</selectKey>
+		insert into language
+		values(#{languageCode}, #{language}, #{languageStudy}, #{languageCommand}
+			,#{officialTest})
 	</insert>
+	
+	<select id="selectLanguage" parameterType="int" resultType="LanguageVO">
+		select * from language
+		where language_code = #{languageCode}
+	</select>
 </mapper>

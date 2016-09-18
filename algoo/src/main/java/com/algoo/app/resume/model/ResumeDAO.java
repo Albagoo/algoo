@@ -5,4 +5,5 @@ import java.util.List;
 public interface ResumeDAO {
 	public int insertResume(ResumeVO resumeVo);
 	public List<ResumeVO> selectResume();
+	public ResumeVO selectResumeByCode(int hisCode);
 }

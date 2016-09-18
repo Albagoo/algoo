@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.algoo.app.career.model.CareerVO;
@@ -142,5 +143,17 @@ public class ResumeController {
 		model.addAttribute("alist", alist);
 		
 		return "resume/list";
+	}
+	
+	@RequestMapping("/detail.ag")
+	public String detail(
+			@RequestParam(defaultValue="0") int hisCode,
+			Model model){
+		
+		Map<String, Object> alist = resumeService.selectResumeByCode(hisCode);
+		
+		model.addAttribute("alist", alist);
+		
+		return "resume/detail";
 	}
 }

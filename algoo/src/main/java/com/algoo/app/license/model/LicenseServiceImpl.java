@@ -14,4 +14,9 @@ public class LicenseServiceImpl implements LicenseService{
 		return licenseDao.insertLicense(licenseVo);
 	}
 
+	@Override
+	public LicenseVO selectLicense(int licenseCode) {
+		return licenseDao.selectLicense(licenseCode);
+	}
+
 }

@@ -41,7 +41,8 @@
 					</span>
 				</td>
 				<td>
-					<a href="#">${vo.title }</a><br>
+					<a href="<c:url value='/resume/detail.ag?hisCode=${vo.hisCode }'/>">
+						${vo.title }</a><br>
 					${vo.category }
 				</td>
 				<td>

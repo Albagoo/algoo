@@ -19,4 +19,9 @@
 		select * from listView
 		order by regdate desc
 	</select> 
+	
+	<select id="selectResumeByCode" parameterType="int" resultType="ResumeVO">
+		select * from history
+		where his_code = #{hisCode}
+	</select>
 </mapper>

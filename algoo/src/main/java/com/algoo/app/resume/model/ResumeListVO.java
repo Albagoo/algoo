@@ -13,7 +13,14 @@ public class ResumeListVO {
 	private String licenseName;
 	private String area;
 	private Timestamp regdate;
+	private int hisCode;
 	
+	public int getHisCode() {
+		return hisCode;
+	}
+	public void setHisCode(int hisCode) {
+		this.hisCode = hisCode;
+	}
 	public String getGender() {
 		return gender;
 	}
@@ -79,6 +86,6 @@ public class ResumeListVO {
 	public String toString() {
 		return "ResumeListVO [gender=" + gender + ", username=" + username + ", photo=" + photo + ", birth=" + birth
 				+ ", title=" + title + ", period=" + period + ", category=" + category + ", licenseName=" + licenseName
-				+ ", area=" + area + ", regdate=" + regdate + "]";
+				+ ", area=" + area + ", regdate=" + regdate + ", hisCode=" + hisCode + "]";
 	}
 }

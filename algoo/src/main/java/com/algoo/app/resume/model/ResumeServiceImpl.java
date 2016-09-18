@@ -1,6 +1,8 @@
 package com.algoo.app.resume.model;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -99,6 +101,47 @@ public class ResumeServiceImpl implements ResumeService{
 	@Override
 	public List<ResumeVO> selectResume() {
 		return resumeDao.selectResume();
+	}
+
+	@Override
+	public Map<String, Object> selectResumeByCode(int hisCode) {
+		Map<String, Object> alist = new HashMap<String, Object>();
+		
+		ResumeVO resumeVo = resumeDao.selectResumeByCode(hisCode);
+		alist.put("resumeVo", resumeVo);
+		
+		if(resumeVo.getCareerCode() != 0){
+			CareerVO careerVo = careerService.selectCareer(resumeVo.getCareerCode());
+			alist.put("careerVo", careerVo);
+		}
+		
+		if(resumeVo.getComAbilityCode() != 0){
+			ComputerAbilityVO computerAbilityVo 
+				= computerAbilityService.selectComputerAbility(resumeVo.getComAbilityCode());
+			alist.put("computerAbilityVo", computerAbilityVo);
+		}
+		
+		if(resumeVo.getHopeCode() != 0){
+			HopeVO hopeVo = hopeService.selectHope(resumeVo.getHopeCode());
+			alist.put("hopeVo", hopeVo);
+		}
+		
+		if(resumeVo.getLanguageCode() != 0){
+			LanguageVO languageVo = languageService.selectLanguage(resumeVo.getLanguageCode());
+			alist.put("languageVo", languageVo);
+		}
+		
+		if(resumeVo.getLicenseCode() != 0){
+			LicenseVO licenseVo = licenseService.selectLicense(resumeVo.getLicenseCode());
+			alist.put("licenseVo", licenseVo);
+		}
+		
+		if(resumeVo.getPersonalInfoCode() != 0){
+			PersonalInfoVO personalInfoVo = personalInfoService.selectPersonalInfo(resumeVo.getPersonalInfoCode());
+			alist.put("personalInfoVo", personalInfoVo);
+		}
+		
+		return alist;
 	}
 
 }

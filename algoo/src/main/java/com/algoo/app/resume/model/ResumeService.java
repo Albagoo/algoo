@@ -1,6 +1,7 @@
 package com.algoo.app.resume.model;
 
 import java.util.List;
+import java.util.Map;
 
 import com.algoo.app.career.model.CareerVO;
 import com.algoo.app.computerability.model.ComputerAbilityVO;
@@ -15,4 +16,6 @@ public interface ResumeService {
 			, PersonalInfoVO personalInfoVo);	
 	
 	public List<ResumeVO> selectResume();
+	
+	public Map<String, Object> selectResumeByCode(int hisCode);
 }

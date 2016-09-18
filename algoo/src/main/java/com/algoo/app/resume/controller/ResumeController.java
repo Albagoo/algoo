@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.algoo.app.career.model.CareerVO;
 import com.algoo.app.common.FileUploadWebUtil;
+import com.algoo.app.common.PaginationInfo;
 import com.algoo.app.computerability.model.ComputerAbilityVO;
 import com.algoo.app.hope.model.HopeVO;
 import com.algoo.app.language.model.LanguageVO;
@@ -27,6 +28,7 @@ import com.algoo.app.license.model.LicenseVO;
 import com.algoo.app.member.model.MemberService;
 import com.algoo.app.member.model.MemberVO;
 import com.algoo.app.personalInfo.model.PersonalInfoVO;
+import com.algoo.app.resume.model.ResumeSearchVO;
 import com.algoo.app.resume.model.ResumeService;
 import com.algoo.app.resume.model.ResumeVO;
 
@@ -66,7 +68,7 @@ public class ResumeController {
 	public int imageUp_post(
 			@ModelAttribute MemberVO memberVo,
 			HttpServletRequest request){
-		logger.info("메서드 들어왔당!!");
+		logger.info("imageUp_post() 메서드 진입");
 		
 		List<Map<String, Object>> fileList 
 			= fileUtil.FileUpload(request, FileUploadWebUtil.IMAGE_UPLOAD);
@@ -111,7 +113,8 @@ public class ResumeController {
 			@ModelAttribute LanguageVO languageVo,
 			@ModelAttribute LicenseVO licenseVo,
 			@ModelAttribute ComputerAbilityVO computerAbilityVo,
-			@ModelAttribute PersonalInfoVO personalInfoVo){
+			@ModelAttribute PersonalInfoVO personalInfoVo,
+			Model model){
 		logger.info("resumeWrite_post()핸들러 진입, 파라미터 resumeVo = {}"
 				, resumeVo);
 		logger.info("resumeWrite_post()핸들러 진입, 파라미터 hopeVo = {}"
@@ -132,14 +135,40 @@ public class ResumeController {
 		
 		logger.info("이력서 입력 결과 cnt = {}", cnt , resumeVo);
 		
-		return "redirect:/resume/list.ag";
+		String msg = "", url = "";
+		if(cnt>0){
+			msg = "이력서 등록 성공!!";
+			url = "/resume/list.ag";
+		}else{
+			msg = "이력서 등록 실패";
+			url = "/resume/write.ag";
+		}
+		
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		
+		return "common/message";
 	}
 	
 	@RequestMapping("/list.ag")
-	public String list(Model model){
+	public String list(@ModelAttribute ResumeSearchVO resumeSearchVo,
+			Model model){
 		
-		List<ResumeVO> alist = resumeService.selectResume();
+		PaginationInfo pagingInfo = new PaginationInfo();
+		pagingInfo.setBlockSize(10);
+		pagingInfo.setCurrentPage(resumeSearchVo.getCurrentPage());
+		pagingInfo.setRecordCountPerPage(10);
 		
+		resumeSearchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
+		resumeSearchVo.setRecordCountPerPage(10);
+		
+		List<ResumeVO> alist = resumeService.selectResume(resumeSearchVo);
+		
+		int totalRecord = resumeService.selectResumeCount();
+		
+		pagingInfo.setTotalRecord(totalRecord);
+		
+		model.addAttribute("pagingInfo", pagingInfo);
 		model.addAttribute("alist", alist);
 		
 		return "resume/list";

@@ -11,6 +11,33 @@
 			</if>
 		</where>
 	</sql>
+<!-- 
+   <spl id="areas">
+      <where>
+            <if test="area1!=null and area1!=''">
+            ${searchCondition}
+            like '%' || #{searchKeyword} || '%'
+         </if>
+         <if test="area2!=null and area2!=''">
+            ${searchCondition}
+            like '%' || #{searchKeyword} || '%'
+         </if>
+         <if test="area3!=null and area3!=''">
+            ${searchCondition}
+            like '%' || #{searchKeyword} || '%'
+         </if>
+         <if test="area4!=null and area4!=''">
+            ${searchCondition}
+            like '%' || #{searchKeyword} || '%'
+         </if>
+         <if test="area5!=null and area5!=''">
+            ${searchCondition}
+            like '%' || #{searchKeyword} || '%'
+         </if>
+      </where>
+   </spl>
+
+ -->
 
 	<select id="selectRecByCode" parameterType="String" resultType="RecVO">
 		select * from RECRUITMENT

@@ -84,10 +84,11 @@
 						<c:if test="${fList.step>0 }">
 							<c:forEach var="i" 
 								begin="1" end="${fList.step}">
-								&nbsp;
+								&nbsp;&nbsp;
 							</c:forEach>
 							<img src
-							="<c:url value='/images/re.png' />" alt="re이미지">
+							="<c:url value='/images/re2.png' />" alt="re이미지"
+								 align=absmiddle id="reply">
 						</c:if>
 						<a href="<c:url value='/freeboard/updateCount.ag?freeNo=${fList.freeNo}'/>">
 							<!-- 제목이 긴 경우 일부만 보여주기 -->
@@ -105,7 +106,7 @@
 						</c:if>
 					</c:if>	
 				</td>
-				<td>${fList.writer}</td>
+				<td>${fList.nickName}</td>
 				<td><fmt:formatDate value="${fList.regdate}" pattern="yyyy-MM-dd"/>
 				</td>
 				<td>${fList.readCount}</td>
@@ -157,8 +158,8 @@
             		selected
                </c:if>
             >내용</option>
-            <option value="writer" 
-            	<c:if test="${param.searchCondition=='writer'}">
+            <option value="nickName" 
+            	<c:if test="${param.searchCondition=='nickName'}">
             		selected
                </c:if>
             >작성자</option>

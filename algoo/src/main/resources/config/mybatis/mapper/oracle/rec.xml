@@ -3,108 +3,122 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.mybatis.mapper.oracle.rec">
-   <sql id="searchWhere">
-      <where>
-         <if test="searchKeyword!=null and searchKeyword!=''">
-            ${searchCondition} 
-            like '%' || #{searchKeyword} || '%'
-         </if>
-      </where>
-   </sql>
-   
-   <select id="selectRecByCode" parameterType="String"
-   resultType="RecVO">
-   select * from  RECRUITMENT 
-   where REC_CODE=#{recCode}
-   </select>
-   
-   <select id="selectAllRec" resultType="RecVO" 
-      parameterType="RecSeachVO">
-      select RNUM,LIST.* from
-      (
-          select rownum as RNUM, A.* from
-              (select * from RECRUITMENT 
-              <include refid="searchWhere"></include>
-              order by rec_Code desc) A
-      ) LIST
-      <![CDATA[
-      where  RNUM> #{firstRecordIndex} 
-         and RNUM<= #{firstRecordIndex}
-         + #{recordCountPerPage}
-      ]]>
-   </select>
-   
-   
-   <select id="selectTotalCount" parameterType="RecSeachVO" 
-   resultType="int">
-   select count(*) from  RECRUITMENT
-   <include refid="searchWhere"></include>
-   </select>
-   
-   <select id="selectCompanyByCode" parameterType="String"
-   resultType="CompanyVO">
-     select * from company
-     where comp_code=#{compCode}
-   </select>
-   
-   <select id="selectServiceByCode" parameterType="String"
-   resultType="ServiceVO">
-     select service_code,grade,deadline, 
-     trunc(deadline-sysdate)as days from service
-     where service_code=#{serviceCode}
-   </select>
-   
-   <update id="updateReadCount" parameterType="int">
-      update RECRUITMENT
-         set readcount=readcount+1
-      where rec_code=#{recCode}
-   </update>
-   
-   
-   <insert id="insertRecSevice" parameterType="map">
-     insert into service 
-     (SERVICE_CODE,grade,days,deadline)
-     values
-     ( SERVICE_SEQ.nextval, 
-     #{grade}, #{days}, sysdate+1 )
-   </insert>
-   
-   <insert id="insertRec" parameterType="RecVO" >
-   <selectKey keyProperty="serviceCode" resultType="int"
-   order="BEFORE">
-      select last_number-1 from user_sequences where sequence_name='SERVICE_SEQ'      
-      
-   </selectKey>
- 
-   insert into RECRUITMENT
-   (rec_code,comp_Name,title,job_Name,job_Name2,
-   job_Name3,zipcode,address,address_Detail,sub_Region,
-   sub_Num,sub_Name,sub_Info,work_Term,work_Days,
-   work_Time,work_Time2,work_Time3,work_Time4,pay,
-   recruit_Type,welfare,gender,age,educate_Lv,
-   career,preference,recruit_Member,recruit_Person,recruit_Method,
-   documents,detail_Recruit,comp_Code,service_Code
-   )
-   values(RECRUITMENT_seq.nextval, #{compName},#{title},#{jobName},#{jobName2},
-   #{jobName3},#{zipcode},#{address},#{addressDetail},#{subRegion},
-   #{subNum},#{subName},#{subInfo},#{workTerm},#{workDays},
-   #{workTime},#{workTime2},#{workTime3},#{workTime4},#{pay},
-   #{recruitType},#{welfare},#{gender},#{age},#{educateLv},
-   #{career},#{preference},#{recruitMember},#{recruitPerson},#{recruitMethod},
-   #{documents},#{detailRecruit},#{compCode},#{serviceCode}
-    
-   )
-   </insert>
+	<sql id="searchWhere">
+		<where>
+			<if test="searchKeyword!=null and searchKeyword!=''">
+				${searchCondition}
+				like '%' || #{searchKeyword} || '%'
+			</if>
+		</where>
+	</sql>
 
-   <select id="selectJobName" resultType="hashmap">
-      select job_name from jobs
-      group by job_name
-   </select>
-   
-   
-   <select id="selectJobName2" parameterType="String" 
-   resultType="hashmap">
-      select job_name2 from jobs
-      where job_name=${jobName}
-   </select>
+	<select id="selectRecByCode" parameterType="String" resultType="RecVO">
+		select * from RECRUITMENT
+		where REC_CODE=#{recCode}
+	</select>
+
+
+
+	<select id="selectTotalCount" parameterType="RecSeachVO"
+		resultType="int">
+		select count(*) from RECRUITMENT
+		<include refid="searchWhere"></include>
+	</select>
+
+	<select id="selectCompanyByCode" parameterType="String"
+		resultType="CompanyVO">
+		select * from company
+		where comp_code=#{compCode}
+	</select>
+
+	<select id="selectServiceByCode" parameterType="String"
+		resultType="ServiceVO">
+		select service_code,grade,deadline,
+		trunc(deadline-sysdate)as days from service
+		where service_code=#{serviceCode}
+	</select>
+
+	<update id="updateReadCount" parameterType="int">
+		update RECRUITMENT
+		set readcount=readcount+1
+		where rec_code=#{recCode}
+	</update>
+
+
+	<insert id="insertRecSevice" parameterType="map">
+		insert into service
+		(SERVICE_CODE,grade,days,deadline)
+		values
+		( SERVICE_SEQ.nextval,
+		#{grade}, #{days}, sysdate+1 )
+	</insert>
+
+	<insert id="insertRec" parameterType="RecVO">
+		<selectKey keyProperty="serviceCode" resultType="int" order="BEFORE">
+			select last_number-1 from user_sequences where
+			sequence_name='SERVICE_SEQ'
+
+		</selectKey>
+
+		insert into RECRUITMENT
+		(rec_code,comp_Name,title,job_Name,job_Name2,
+		zipcode,address,address_Detail,sub_Region,
+		sub_Num,sub_Name,sub_Info,work_Term,work_Days,
+		work_Time,work_Time2,work_Time3,work_Time4,pay_type,pay,
+		recruit_Type,welfare,gender,age,educate_Lv,
+		career,preference,recruit_Member,recruit_Person,recruit_Method,
+		documents,detail_Recruit,comp_Code,service_Code,RECRUIT_DEADLINE,
+		regdate
+		)
+		values(RECRUITMENT_seq.nextval, #{compName},#{title},#{jobName},#{jobName2},
+		#{zipcode},#{address},#{addressDetail},#{subRegion},
+		#{subNum},#{subName},#{subInfo},#{workTerm},#{workDays},
+		#{workTime},#{workTime2},#{workTime3},#{workTime4},#{payType},#{pay},
+		#{recruitType},#{welfare},#{gender},#{age},#{educateLv},
+		#{career},#{preference},#{recruitMember},#{recruitPerson},#{recruitMethod},
+		#{documents},#{detailRecruit},#{compCode},#{serviceCode},#{recruitDeadline},
+      #{regdate}
+
+		)
+	</insert>
+
+	<select id="selectJobName" resultType="hashmap">
+		select job_name from jobs
+		group by job_name
+	</select>
+
+	<select id="selectAllRec" resultType="RecVO" parameterType="RecSeachVO">
+
+		select *
+		from
+		(
+		select rownum as RNUM, A.*
+		from
+		(
+		select rec_code,comp_Name,title,job_Name,job_Name2,
+		zipcode,address,address_Detail,sub_Region,
+		sub_Num,sub_Name,sub_Info,work_Term,work_Days,
+		work_Time,work_Time2,work_Time3,work_Time4,pay_type,pay,
+		recruit_Type,welfare,gender,age,educate_Lv,
+		career,preference,recruit_Member,recruit_Person,recruit_Method,
+		documents,detail_Recruit,comp_Code,service_Code,RECRUIT_DEADLINE,
+      regdate from
+		RECRUITMENT
+		<include refid="searchWhere"></include>
+		order by rec_code desc ) A
+		) 
+      <![CDATA[
+       where  RNUM> #{firstRecordIndex} 
+         and RNUM<= #{firstRecordIndex}
+         + #{recordCountPerPage}  
+       ]]>
+	</select>
+
+
+
+
+	<select id="selectJobName2" parameterType="String" resultType="hashmap">
+		select job_name2 from jobs
+		where job_name=${jobName}
+	</select>
 </mapper>

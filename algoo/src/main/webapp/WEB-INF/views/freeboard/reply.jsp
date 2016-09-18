@@ -39,10 +39,12 @@ type="text/javascript"></script>
 <section>
 <div class="divForm">
 <form name="frmWrite" id="frmWrite" method="post" 
-  action="<c:url value='/freeboard/write.ag'/>" >
+  action="<c:url value='/freeboard/reply.ag'/>" >
 <input type="hidden" name="groupNo" value="${freeVo.groupNo}">
 <input type="hidden" name="step" value="${freeVo.step}">
 <input type="hidden" name="sortNo" value="${freeVo.sortNo}">
+<input type="hidden" name="userid" value="${sessionScope.userid }">
+<input type="hidden" name="nickName" value="${sessionScope.nickName }">
  <fieldset>
 	<legend> 
 		<img src="<c:url value='/images/albatalk.png'/>" style="height: 48px;" align=absmiddle>

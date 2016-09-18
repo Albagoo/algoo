@@ -45,4 +45,10 @@
 			set out_date=sysdate
 		where userid=#{userid} and out_date is null
 	</update>
+	
+	<update id="updatePhoto" parameterType="MemberVO">
+		update member
+		set photo = #{photo}
+		where member_code = #{memberCode}
+	</update>
 </mapper>

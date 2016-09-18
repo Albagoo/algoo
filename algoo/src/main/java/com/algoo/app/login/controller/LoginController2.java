@@ -1,6 +1,7 @@
 package com.algoo.app.login.controller;
 
 import javax.servlet.http.HttpSession;
+import javax.tools.DocumentationTool.Location;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,7 +31,8 @@ public class LoginController2 {
 	private CommemService commemService;
 	
 	@RequestMapping(value="/login.ag" , method=RequestMethod.GET)
-	public String Login_get(){
+	public String Login_get(@RequestParam(required=false) String type){
+		logger.info("로그인 종류 파라미터 type={}", type);
 		
 		return "login/login";
 	}
@@ -118,6 +120,22 @@ public class LoginController2 {
 			resultPage= "redirect:/member/memInfo.ag";
 		}else if(authCode.equals("2")){
 			resultPage= "redirect:/member_comp/commemInfo.ag";
+		}
+		return resultPage;
+	}
+	@RequestMapping("/mypageTypeEdit.ag")
+	public String myPageTypeEdit(HttpSession session){
+		String userid = (String)session.getAttribute("userid");
+		String authCode = (String)session.getAttribute("authCode");
+		
+		String resultPage="";
+		if(userid==null || userid.isEmpty()){
+			return "login/checkLogin";
+		}
+		if(authCode.equals("1")){
+			resultPage= "redirect:/member/memInfoEdit.ag";
+		}else if(authCode.equals("2")){
+			resultPage= "redirect:/member_comp/commemInfoEdit.ag";
 		}
 		return resultPage;
 	}

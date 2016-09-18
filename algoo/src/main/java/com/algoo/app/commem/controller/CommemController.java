@@ -35,7 +35,7 @@ public class CommemController {
 	//기업회원 - insert
 	@RequestMapping("/memberAdd.ag")
 	public String memberAdd(@ModelAttribute CommemVO commemVo,
-			@RequestParam String email3){
+			@RequestParam(required=false) String email3){
 		
 		logger.info("기업회원 처리 파라미터 commemVo={},email3={}"
 				,commemVo,email3);
@@ -100,5 +100,66 @@ public class CommemController {
 		logger.info("회원정보 읽어오기 commemVo={},",commemVo);
 		
 		return "member_comp/memberInfo";
+	}
+	@RequestMapping("/commemInfoEdit.ag")
+	public String memberEdit_post(@ModelAttribute CommemVO commemVo,
+			@RequestParam(required=false) String email3,
+		HttpSession session, Model model){
+		
+		String userid = (String)session.getAttribute("userid");
+		commemVo.setUserid(userid);
+		logger.info("회원정보 수정, 파라미터 memberVo={}", 
+				commemVo);
+		
+		if(userid==null || userid.isEmpty()){
+			return "login/checkLogin";
+		}
+		
+		String fax2=commemVo.getFax2();
+		String fax3=commemVo.getFax3();
+		if(fax2==null || fax2.isEmpty() ||fax3==null ||fax3.isEmpty()){
+			commemVo.setFax1("");
+			commemVo.setFax2("");
+			commemVo.setFax3("");
+		}
+		
+		String phone2=commemVo.getPhone2();
+		String phone3=commemVo.getPhone3();
+		
+		if(phone2==null || phone2.isEmpty() ||phone3==null ||phone3.isEmpty()){
+			commemVo.setPhone1("");
+			commemVo.setPhone2("");
+			commemVo.setPhone3("");
+		}
+		
+		String email1 = commemVo.getEmail1();
+		String email2 = commemVo.getEmail2();
+		if(email1==null || email1.isEmpty()){
+			commemVo.setEmail1("");
+			commemVo.setEmail2("");
+		}else{
+			if(email2.equals("etc")){
+				if(email3!=null && !email3.isEmpty()){
+					commemVo.setEmail2(email3);
+				}else{
+					commemVo.setEmail1("");
+					commemVo.setEmail2("");
+				}
+			}
+		}
+		
+		int result = commemService.updateCompMember(commemVo);
+		logger.info("회원정보 수정 결과, result={}",result);
+		
+		String msg="", url="/login/mypageType.ag";
+		if(result>0){
+			msg="회원정보를 수정하였습니다";
+		}else{
+			msg="수정을 실패하였습니다";
+		}
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		
+		return "common/message";
 	}
 }

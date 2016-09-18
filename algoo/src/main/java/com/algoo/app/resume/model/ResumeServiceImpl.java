@@ -44,42 +44,51 @@ public class ResumeServiceImpl implements ResumeService{
 	public int insertResume(ResumeVO resumeVo, HopeVO hopeVo, CareerVO careerVo
 			, LanguageVO languageVo, LicenseVO licenseVo, ComputerAbilityVO computerAbilityVo
 			, PersonalInfoVO personalInfoVo) {
+		
+		
 		int cnt = hopeService.insertHope(hopeVo);
-		logger.info("hopeCode == {}, cnt = {}",hopeVo.getHopeCode(), cnt);
+		
 		if(cnt > 0){
 			resumeVo.setHopeCode(hopeVo.getHopeCode());
 		}
 		
-		cnt = careerService.insertCareer(careerVo);
-		
-		if(cnt > 0){
-			resumeVo.setCareerCode(careerVo.getCareerCode());
+		if(careerVo.getCareerB().equals("Y")){
+			cnt = careerService.insertCareer(careerVo);
+			if(cnt > 0){
+				resumeVo.setCareerCode(careerVo.getCareerCode());
+			}
 		}
 		
-		cnt = languageService.insertLanguage(languageVo);
-		
-		if(cnt > 0){
-			resumeVo.setLanguageCode(languageVo.getLanguageCode());
+		if(languageVo.getLanguageB().equals("Y")){
+			cnt = languageService.insertLanguage(languageVo);
+			
+			if(cnt > 0){
+				resumeVo.setLanguageCode(languageVo.getLanguageCode());
+			}
 		}
 		
-		cnt = licenseService.insertLicense(licenseVo);
-		
-		if(cnt > 0){
-			resumeVo.setLicenseCode(licenseVo.getLicenseCode());
+		if(licenseVo.getLicenseB().equals("Y")){
+			cnt = licenseService.insertLicense(licenseVo);
+			if(cnt > 0){
+				resumeVo.setLicenseCode(licenseVo.getLicenseCode());
+			}
 		}
 		
-		cnt = computerAbilityService.insertComputerAbility(computerAbilityVo);
 		
-		if(cnt > 0){
-			resumeVo.setComAbilityCode(computerAbilityVo.getComAbilityCode());
+		if(computerAbilityVo.getComputerAbilityB().equals("Y")){
+			cnt = computerAbilityService.insertComputerAbility(computerAbilityVo);
+			
+			if(cnt > 0){
+				resumeVo.setComAbilityCode(computerAbilityVo.getComAbilityCode());
+			}
 		}
-		
-		cnt = personalInfoService.insertPersonalInfo(personalInfoVo);
-		
-		if(cnt > 0){
-			resumeVo.setPersonalInfoCode(personalInfoVo.getPersonalInfoCode());
+		if(personalInfoVo.getPersonalInfoB().equals("Y")){
+			cnt = personalInfoService.insertPersonalInfo(personalInfoVo);
+			
+			if(cnt > 0){
+				resumeVo.setPersonalInfoCode(personalInfoVo.getPersonalInfoCode());
+			}
 		}
-		
 		logger.info("resumeVo = {}", resumeVo);
 		
 		return resumeDao.insertResume(resumeVo);

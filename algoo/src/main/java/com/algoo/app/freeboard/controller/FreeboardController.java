@@ -2,6 +2,8 @@ package com.algoo.app.freeboard.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,7 @@ import com.algoo.app.common.PaginationInfo;
 import com.algoo.app.common.SearchVO;
 import com.algoo.app.freeboard.model.FreeboardService;
 import com.algoo.app.freeboard.model.FreeboardVO;
+import com.algoo.app.member.model.MemberService;
 
 
 @Controller
@@ -27,6 +30,9 @@ public class FreeboardController {
 	@Autowired
 	private FreeboardService freeService;
 	
+	@Autowired
+	private MemberService memService;
+	
 	@RequestMapping(value="/write.ag", method=RequestMethod.GET)
 	public String freeWrite_get(){
 		logger.info("freeboard 글 쓰기 화면 보여주기");
@@ -35,7 +41,9 @@ public class FreeboardController {
 	}
 	
 	@RequestMapping(value="/write.ag", method=RequestMethod.POST)
-	public String freeWrite_post(@ModelAttribute FreeboardVO freeVo){
+	public String freeWrite_post(@ModelAttribute FreeboardVO freeVo,
+			HttpSession session){
+
 		logger.info("freeboard 글 쓰기, 파라미터 freeVo = {}", freeVo);
 		
 		int cnt=freeService.insertFreeboard(freeVo);

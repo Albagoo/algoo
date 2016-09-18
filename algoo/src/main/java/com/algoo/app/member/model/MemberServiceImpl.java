@@ -59,5 +59,10 @@ public class MemberServiceImpl implements MemberService{
 		return memberDao.withdrawMember(userid);
 	}
 
+	@Override
+	public int updatePhoto(MemberVO memberVo) {
+		return memberDao.updatePhoto(memberVo);
+	}
+
 	
 }

@@ -11,19 +11,33 @@
 </script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("#type2").click(function(){
+		if($("#type2").is(":checked")){
+			$("#join_google").css("display","none");
+			$("#join_naver").css("display","none");
+			$("#join_kakao").css("display","none");
+			$("#join_facebook").css("display","none");
+			$("body").css("height","100%");
+		}
+		if($("#type1").is(":checked")){
+			$("#join_google").css("display","inline-block");
+			$("#join_naver").css("display","inline-block");
+			$("#join_kakao").css("display","inline-block");
+			$("#join_facebook").css("display","inline-block");
+		}
+		$("#type2").change(function(){
 			$("#join_google").css("display","none");
 			$("#join_naver").css("display","none");
 			$("#join_kakao").css("display","none");
 			$("#join_facebook").css("display","none");
 			$("body").css("height","100%");
 		});
-		$("#type1").click(function(){
+		$("#type1").change(function(){
 			$("#join_google").css("display","inline-block");
 			$("#join_naver").css("display","inline-block");
 			$("#join_kakao").css("display","inline-block");
 			$("#join_facebook").css("display","inline-block");
 		});
+		
 		$("#close").click(function(){
 			window.close();
 		});
@@ -185,8 +199,16 @@
 	<div class="info">
 		<form name="frmLogin" id="frmLogin" action="<c:url value='/login/login.ag'/>"
 			method="post">
-			<input type="radio" id="type1" name="type" value="personal"checked><label for="type1">개인회원</label>
-			<input type="radio" id="type2" name="type" value="company"><label for="type2">기업회원</label>
+			<input type="radio" id="type1" name="type" value="personal"
+				<c:if test="${param.type != 'Company' }">
+					checked
+				</c:if>>
+			<label for="type1">개인회원</label>
+			<input type="radio" id="type2" name="type" value="company"
+				<c:if test="${param.type == 'Company' }">
+					checked
+				</c:if>>
+			<label for="type2">기업회원</label>
 			<input type="text" class="textBox" name="userid" id="userid" placeholder="아이디">
 			<input type="password" class="textBox" name="pwd" id="pwd" placeholder="비밀번호">
 			<input type="submit" id="submit" value="로그인">

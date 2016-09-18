@@ -44,7 +44,8 @@
 				</div>
 				<div id="header_search">
 					<div id="header_logo">
-						<img alt="로고" src="${pageContext.request.contextPath}/images/mainLogo-red.png">
+						<a href="<c:url value='/index.ag' />">
+						<img alt="로고" src="${pageContext.request.contextPath}/images/mainLogo-red.png"></a>
 					</div>
 					<div id="header_searchBar">
 						<div>

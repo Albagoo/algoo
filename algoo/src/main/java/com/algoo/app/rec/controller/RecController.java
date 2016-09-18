@@ -137,7 +137,7 @@ public class RecController {
 		searchVo.setBlockSize(pagingInfo.getBlockSize());
 		searchVo.setRecordCountPerPage(pagingInfo.getRecordCountPerPage());
 		searchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
-				
+		logger.info("파라미터 ={}",searchVo);		
 		List<RecVO> alist = recService.selectAllRec(searchVo);
 		logger.info("FAQ 목록 조회 결과 alist.size()={}", alist.size());
 		
@@ -159,7 +159,7 @@ public class RecController {
 		
 		if(recCode==0){
 			model.addAttribute("msg", "잘못된 url입니다");
-			model.addAttribute("url", "/faq/faqList.ag");
+			model.addAttribute("url", "/rec/recList.ag");
 			
 			return "common/message";
 		}

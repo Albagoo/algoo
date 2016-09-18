@@ -14,7 +14,6 @@
 	h2{
 		font-size: 1.2em;
 		font-weight: bold;
-		
 		border-bottom: 5px solid black;
 		padding-bottom: 20px;
 		width: 860px;
@@ -47,12 +46,17 @@
 	    color: #511;
 	}
 	
+	label #a{
+		color: red;
+		font-size: 20px;
+	}
+	
 	#box2{
 		width: 860px;
-		height: 100px;
+		height: 200px;
 		margin: 0 auto;
 		text-align: center;
-		padding-bottom: 15px;"
+		padding-bottom: 15px;
 	}
 	
 	#box2 img{
@@ -585,7 +589,8 @@
     	});
     	
     	$("#bt_picture").click(function(){
-    		window.open("<c:url value='/resume/imageUp.ag'/>",
+    		window.open("<c:url value='/resume/imageUp.ag?memberCode="+
+    				$("#memberCode").val()+"&photo="+$("#photo").val()+"'/>",
     				"imageUp",
     			"width=550,height=400,left=10, top=50,resizable=yes,location=yes");	
     	});
@@ -777,6 +782,69 @@
     		}
     		
     		$("#itDesignAbility").val(itDesignAbility);
+    		
+    		if($("#title").val().length < 1){
+    			alert("이력서제목을 입력하셔야 합니다!!");
+    			$("#title").focus();
+    			return false;
+    		}else if($("#area1").val()=='' || $("#area2").val()==''){
+    			alert("근무지를 입력하셔야 합니다!!");
+    			$("#area1").focus();
+    			return false;
+    		}else if($("#category").val().length < 1){
+    			alert("업/직종을 입력하셔야 합니다!!");
+    			$("#category").focus();
+    			return false;
+    		}else if($("#type").val().length < 1){
+    			alert("근무형태를 입력하셔야 합니다!!");
+    			$("#type").focus();
+    			return false;
+    		}else if($("#type").val().length < 1){
+    			alert("근무형태를 입력하셔야 합니다!!");
+    			$("#type").focus();
+    			return false;
+    		}else if($("#day1").val()==''
+    				|| $("#day2").val()==''
+    				|| $("#day3").val()==''){
+    			alert("근무일시를 입력하셔야 합니다!!");
+    			$("#day1").focus();
+    			return false;
+    		}else if($("#ability1").val()==''
+    				|| $("#ability2").val()=='' ){
+    			alert("최종학력을 입력하셔야 합니다!!");
+    			$("#ability1").focus();
+    			return false;
+    		}else if($("#careerB").val() == "Y"){
+    			if($("#company").val().length < 1){
+    				alert("회사명을 입력하셔야 합니다!!");
+        			$("#company").focus();
+        			return false;
+    			}else if($("#period").val().length < 1){
+    				alert("근무기간을 입력하셔야 합니다!!");
+        			$("#period").focus();
+        			return false;
+    			}else if($("#work").val().length < 1){
+    				alert("담당업무를 입력하셔야 합니다!!");
+        			$("#work").focus();
+        			return false;
+    			}
+    		}else if($("#languageB").val() == "Y"){
+    			if($("#language").val() == ''){
+    				alert("외국어를 입력하셔야 합니다!!");
+        			$("#language").focus();
+        			return false;
+    			}
+    		}else if($("#licenseB").val() == "Y"){
+    			if($("#license_name").val().length < 1){
+    				alert("자격증을 입력하셔야 합니다!!");
+        			$("#license_name").focus();
+        			return false;
+    			}else if($("#collicense_place").val().length < 1){
+    				alert("발행처를 입력하셔야 합니다!!");
+        			$("#collicense_place").focus();
+        			return false;
+    			}
+    		}
     	}); //submit
     	
     	$("select").addClass("medium white textBox");
@@ -791,51 +859,105 @@
     	$(".personalInfo").hide();
     	
     	$("#img1").hover(function(event){
-    		$(this).prop("src", "<c:url value='/images/resume_career_c.PNG'/>");
+    		$("#img1").prop("src", "<c:url value='/images/resume_career_c.PNG'/>");
     	}, function(event){
-    		$(this).prop("src", "<c:url value='/images/resume_career.PNG'/>");
+    		if($("#careerB").val() == "N"){
+    			$("#img1").prop("src", "<c:url value='/images/resume_career.PNG'/>");
+    		}
     	}).click(function(){
     		$("#career").toggle();
+    		if($("#careerB").val() == "N"){
+    			$("#careerB").val("Y");
+    			$("#img1").prop("src", "<c:url value='/images/resume_career_c.PNG'/>");
+    		}else{
+    			$("#careerB").val("N");
+    			$("#img1").prop("src", "<c:url value='/images/resume_career.PNG'/>");
+    		}
     	});
     	
     	$("#img2").hover(function(event){
-    		$(this).prop("src", "<c:url value='/images/resume_language_c.PNG'/>");
+    		$("#img2").prop("src", "<c:url value='/images/resume_language_c.PNG'/>");
     	}, function(event){
-    		$(this).prop("src", "<c:url value='/images/resume_language.PNG'/>");
+    		if($("#languageB").val() == "N"){
+    			$("#img2").prop("src", "<c:url value='/images/resume_language.PNG'/>");
+    		}
     	}).click(function(){
     		$(".language").toggle();
+    		if($("#languageB").val() == "N"){
+    			$("#languageB").val("Y");
+    			$("#img2").prop("src", "<c:url value='/images/resume_language_c.PNG'/>");
+    		}else{
+    			$("#languageB").val("N");
+    			$("#img2").prop("src", "<c:url value='/images/resume_language.PNG'/>");
+    		}
     	});
     	
     	$("#img3").hover(function(event){
-    		$(this).prop("src", "<c:url value='/images/resume_license_c.PNG'/>");
+    		$("#img3").prop("src", "<c:url value='/images/resume_license_c.PNG'/>");
     	}, function(event){
-    		$(this).prop("src", "<c:url value='/images/resume_license.PNG'/>");
+    		if($("#licenseB").val() == "N"){
+    			$("#img3").prop("src", "<c:url value='/images/resume_license.PNG'/>");
+    		}
     	}).click(function(){
     		$(".license").toggle();
+    		if($("#licenseB").val() == "N"){
+    			$("#licenseB").val("Y");
+    			$("#img3").attr("src", "<c:url value='/images/resume_license_c.PNG'/>");
+    		}else{
+    			$("#licenseB").val("N");
+    			$("#img3").prop("src", "<c:url value='/images/resume_license.PNG'/>");
+    		}
     	});
     	
     	$("#img4").hover(function(event){
-    		$(this).prop("src", "<c:url value='/images/resume_computer_c.PNG'/>");
+    		$("#img4").prop("src", "<c:url value='/images/resume_computer_c.PNG'/>");
     	}, function(event){
-    		$(this).prop("src", "<c:url value='/images/resume_computer.PNG'/>");
+    		if($("#computerAbilityB").val() == "N"){
+    			$("#img4").prop("src", "<c:url value='/images/resume_computer.PNG'/>");
+    		}
     	}).click(function(){
     		$(".computerAbility").toggle();
+    		if($("#computerAbilityB").val() == "N"){
+    			$("#computerAbilityB").val("Y");
+    			$("#img4").prop("src", "<c:url value='/images/resume_computer_c.PNG'/>");
+    		}else{
+    			$("#computerAbilityB").val("N");
+    			$("#img4").prop("src", "<c:url value='/images/resume_computer.PNG'/>");
+    		}
     	});
     	
     	$("#img5").hover(function(event){
-    		$(this).prop("src", "<c:url value='/images/resume_award_c.PNG'/>");
+    		$("#img5").prop("src", "<c:url value='/images/resume_award_c.PNG'/>");
     	}, function(event){
-    		$(this).prop("src", "<c:url value='/images/resume_award.PNG'/>");
+    		if($("#awardB").val() == "N"){
+    			$("#img5").prop("src", "<c:url value='/images/resume_award.PNG'/>");
+    		}
     	}).click(function(){
     		$(".award").toggle();
+    		if($("#awardB").val() == "N"){
+    			$("#awardB").val("Y");
+    			$("#img5").prop("src", "<c:url value='/images/resume_award_c.PNG'/>");
+    		}else{
+    			$("#awardB").val("N");
+    			$("#img5").prop("src", "<c:url value='/images/resume_award.PNG'/>");
+    		}
     	});
     	
     	$("#img6").hover(function(event){
-    		$(this).prop("src", "<c:url value='/images/resume_personal_c.PNG'/>");
+    		$("#img6").prop("src", "<c:url value='/images/resume_personal_c.PNG'/>");
     	}, function(event){
-    		$(this).prop("src", "<c:url value='/images/resume_personal.PNG'/>");
+    		if($("#personalInfoB").val() == "N"){
+    			$("#img6").prop("src", "<c:url value='/images/resume_personal.PNG'/>");
+    		}
     	}).click(function(){
     		$(".personalInfo").toggle();
+    		if($("#personalInfoB").val() == "N"){
+    			$("#personalInfoB").val("Y");
+    			$("#img6").prop("src", "<c:url value='/images/resume_personal_c.PNG'/>");
+    		}else{
+    			$("#personalInfoB").val("N");
+    			$("#img6").prop("src", "<c:url value='/images/resume_personal.PNG'/>");
+    		}
     	});
     	
     	$("#pay3").click(function(){
@@ -853,10 +975,11 @@
 <form action="<c:url value = '/resume/write.ag'/>"
 	method="post" name="frmResume" id="frmResume">
 	<!-- 개인 기본 정보 -->
-	<h2 style="border: none; padding-bottom: 0">이력서 제목</h2>
+	<label id="a" style="float: right; font-size: 1.4em;">* 표시는 필수 입력사항입니다.</label>
+	<h2 style="border: none; padding-bottom: 0; clear: both;">이력서 제목</h2>
 	<input type="text" style="width: 94%; margin: 20px 0 20px 0;
 		height: 30px; padding: 5px" placeholder="내 이력서를 돋보이게 할 PR 한마디!"
-		name="title">
+		name="title" id="title">
 	<h2>개인 기본 정보</h2>
 	<input type="hidden" id="detail" name="detail" >
 	<input type="hidden" id="area" name="area" >
@@ -869,16 +992,23 @@
 	<input type="hidden" id="collicensePlace" name="collicensePlace" >
 	<input type="hidden" id="itDesignAbility" name="itDesignAbility" >
 	<input type="hidden" id="memberCode" name="memberCode" value="${memberVo.memberCode }">
-	$("#career").hide();
-   	$(".language").hide();
-   	$(".license").hide();
-   	$(".computerAbility").hide();
-   	$(".award").hide();
-   	$(".personalInfo").hide();
+	<input type="hidden" id="photo" name="photo" value="${memberVo.photo }">
+	<input type="hidden" id="languageB" name="languageB" value="N">
+	<input type="hidden" id="licenseB" name="licenseB" value="N">
+	<input type="hidden" id="computerAbilityB" name="computerAbilityB" value="N">
+	<input type="hidden" id="careerB" name="careerB" value="N">
+	<input type="hidden" id="personalInfoB" name="personalInfoB" value="N">
+	<input type="hidden" id="awardB" name="awardB" value="N">
 	<table id="box">
 		<tr id="tr">
 			<td style="text-align: center; padding: 10px; width: 20%">
-				<img alt="사람이미지" src="<c:url value='/images/saram.PNG'/>"><br>
+				<c:if test="${empty memberVo.photo }">
+					<img alt="사람이미지" src="<c:url value='/images/saram.PNG'/>">
+				</c:if>
+				<c:if test="${!empty memberVo.photo }">
+					<img alt="회원이미지" src="/algoo/algoo_images/${memberVo.photo }"
+					width="130" height="150">
+				</c:if><br>
 				<img id="bt_picture" src="<c:url value='/images/bt_imgUp.PNG'/>">
 			</td>
 			<td style="width: 80%">
@@ -905,11 +1035,6 @@
 						<td id="td2" style="padding: 5px">
 						<input type="text" style="width: 180%" 
 						value="${memberVo.address } ${memberVo.addressDetail}" readonly></td>
-					</tr>
-					<tr>
-						<td id="td1" style="width: 20%; padding-left: 0;">홈페이지</td>
-						<td id="td2" style="padding: 5px">
-						<input type="text" style="width: 120%"></td>
 					</tr>
 				</table>
 				<div style="float: left; background-color: #eee; border:1px solid silver; 
@@ -940,7 +1065,7 @@
 	<table id="box">
 		<tr id="tr">
 			<td id="td1">
-				근무지
+				<label id="a">*</label>&nbsp;근무지
 			</td>
 			<td id="td2">
 				<select id="area1" name="area1">
@@ -972,7 +1097,7 @@
 		</tr>
 		<tr id="tr">
 			<td id="td1">
-				업직종
+				<label id="a">*</label>&nbsp;업직종
 			</td>
 			<td id="td2">
 				<input type="checkbox" name="category1" id="category1" value="외식/음료">
@@ -1001,7 +1126,7 @@
 		</tr>
 		<tr id="tr">
 			<td id="td1">
-				근무형태
+				<label id="a">*</label>&nbsp;근무형태
 			</td>
 			<td id="td2">
 				<input type="checkbox" name="type1" id="type1" value="알바">
@@ -1018,7 +1143,7 @@
 		</tr>
 		<tr id="tr">
 			<td id="td1">
-				근무일시
+				<label id="a">*</label>&nbsp;근무일시
 			</td>
 			<td id="td2">
 				<select id="day1" name="day1">
@@ -1086,7 +1211,7 @@
 	<table id="box">
 		<tr id="tr" class="detail_tr_before">
 			<td id="td1">
-				<span>최종학력</span>
+				<label id="a">*</label>&nbsp;<span>최종학력</span>
 			</td>
 			<td id="td2">
 				<select id="ability1" name="ability1">
@@ -1107,6 +1232,7 @@
 	</table><br><br>
    
    	<div id="box2">
+   		<h4 style="margin-bottom: 10px">추가 사항을 입력하고 싶으시면 버튼을 눌러주세요!!</h4>
    		<img src="<c:url value='/images/resume_career.PNG'/>" id="img1">
    		<img src="<c:url value='/images/resume_language.PNG'/>" id="img2">
    		<img src="<c:url value='/images/resume_license.PNG'/>" id="img3"><br>
@@ -1120,7 +1246,7 @@
 	<table id="box">
 		<tr id="tr">
 			<td id="td1">
-				회사명
+				<label id="a">*</label>&nbsp;회사명
 			</td>
 			<td id="td2">
 				<input type="text" id="company" name="company" placeholder="회사명">
@@ -1128,7 +1254,7 @@
 		</tr>
 		<tr id="tr">
 			<td id="td1">
-				근무기간
+				<label id="a">*</label>&nbsp;근무기간
 			</td>
 			<td id="td2">
 				<input id="period_check" name="period_check" 
@@ -1185,7 +1311,7 @@
 		</tr>
 		<tr id="tr">
 			<td id="td1">
-				담당업무
+				<label id="a">*</label>&nbsp;담당업무
 			</td>
 			<td id="td2">
 				 <textarea cols="5" id="work" name="work" 
@@ -1200,7 +1326,7 @@
    	<table id="box">
 		<tr id="tr">
 			<td id="td1">
-				외국어
+				<label id="a">*</label>&nbsp;외국어
 			</td>
 			<td id="td2">
 				<select id="language" name="language" 
@@ -1248,7 +1374,7 @@
 		</tr>
 		<tr id="tr">
 			<td id="td1">
-				구사능력
+				<label id="a">*</label>&nbsp;구사능력
 			</td>
 			<td id="td2">
 			    <input checked="checked" id="language_command_1" name="languageCommand" type="radio" value="상 : 회화능숙" />
@@ -1293,7 +1419,7 @@
    	<table id="box">
 		<tr id="tr">
 			<td id="td1">
-				자격증
+				<label id="a">*</label>&nbsp;자격증
 			</td>
 			<td id="td2">
 				<input type="text" id="license_name" name="licenseName" placeholder="자격증">
@@ -1301,7 +1427,7 @@
 		</tr>
 		<tr id="tr">
 			<td id="td1">
-				발행처
+				<label id="a">*</label>&nbsp;발행처
 			</td>
 			<td id="td2">
 				<input type="text" id="collicense_place" 

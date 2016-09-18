@@ -3,6 +3,7 @@ package com.algoo.app.commem.model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.algoo.app.company.model.CompanyDAO;
 import com.algoo.app.member.model.MemberVO;
 
 @Service
@@ -10,7 +11,7 @@ public class CommemServiceImpl implements CommemService {
 	
 	@Autowired
 	private CommemDAO commemDao;
-
+	
 	@Override
 	public int insertCompMember(CommemVO commemVo) {
 		return commemDao.insertCompMember(commemVo);
@@ -51,6 +52,14 @@ public class CommemServiceImpl implements CommemService {
 	@Override
 	public CommemVO selectMemberByUserid(String userid) {
 		return commemDao.selectMemberByUserid(userid);
+	}
+	@Override
+	public int updateCompCode(CommemVO commemVo) {
+		return commemDao.updateCompCode(commemVo);
+	}
+	@Override
+	public int updateCompMember(CommemVO commemVo) {
+		return commemDao.updateCompMember(commemVo);
 	}
 
 }

@@ -130,7 +130,7 @@ public class MemberController {
 		return result;
 	}
 	
-	@RequestMapping(value="/memberEdit.ag", method=RequestMethod.GET)
+	/*@RequestMapping(value="/memberEdit.ag", method=RequestMethod.GET)
 	public String memberEdit_get(HttpSession session,Model model){
 		//1.
 		String userid = (String)session.getAttribute("userid");		
@@ -145,10 +145,10 @@ public class MemberController {
 		}
 		
 		//2.
-		/*매퍼xml(member.xml) 
+		매퍼xml(member.xml) 
 		=> DAO 인터페이스 => DAO구현체(DAOMybatis) 
 		=> Service 인터페이스 => Service구현체(ServiceImpl)
-		*/
+		
 		
 		MemberVO memberVo
 			= memberService.selectMemberByUserid(userid);
@@ -158,37 +158,30 @@ public class MemberController {
 		model.addAttribute("memberVo", memberVo);
 		
 		return "member/memberEdit";		
-	}
+	}*/
 	
-	@RequestMapping(value="/memberEdit.ag", method=RequestMethod.POST)
+	@RequestMapping("/memberInfoEdit.ag")
 	public String memberEdit_post(@ModelAttribute MemberVO memberVo,
 		HttpSession session, Model model){
-		//1.
+		
 		String userid = (String)session.getAttribute("userid");
 		memberVo.setUserid(userid);
 		logger.info("회원정보 수정, 파라미터 memberVo={}", 
 				memberVo);
 		
-		//2.
-		//비밀번호 체크 성공하면 수정처리
-		int result 
-		=memberService.loginCheck(memberVo);
-		
-		String msg="",url="/member/memberEdit.ag";
-		if(result==MemberService.LOGIN_OK){
-			int cnt = memberService.updateMember(memberVo);
-			if(cnt>0){
-				msg="회원정보를 수정하였습니다";
-			}else{
-				msg="회원정보 수정 실패";
-			}
-		}else if(result==MemberService.PWD_DISAGREE){
-			msg="비밀번호가 일치하지 않습니다";
-		}else{
-			msg="비밀번호 체크 실패";
+		if(userid==null || userid.isEmpty()){
+			return "login/checkLogin";
 		}
 		
-		//3.
+		int result = memberService.updateMember(memberVo);
+		logger.info("회원정보 수정 결과, result={}",result);
+		
+		String msg="", url="/login/mypageType.ag";
+		if(result>0){
+			msg="회원정보를 수정하였습니다";
+		}else{
+			msg="수정을 실패하였습니다";
+		}
 		model.addAttribute("msg", msg);
 		model.addAttribute("url", url);
 		

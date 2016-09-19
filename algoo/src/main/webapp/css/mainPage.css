@@ -39,7 +39,8 @@
 	color:black;
 }
 #spCity{
-	font-weight:bold;
+	font-weight:bold;;
+	
 }
 .divMap{
 	background-image:url("../images/map.png");

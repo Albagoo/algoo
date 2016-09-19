@@ -32,14 +32,28 @@
 				<input type="hidden" name="nickName" value="${sessionScope.nickName }">
 				<input type="hidden" name="userid" value="${sessionScope.userid }">
 				<input type="hidden" name="replyB" id="replyB" value="N">
+				<c:if test="${cmtVo.step>0 }">
+						<c:forEach var="i" 
+							begin="1" end="${cmtVo.step}">
+							&nbsp;&nbsp;
+						</c:forEach>
+						<img src="<c:url value='/images/rere.png' />" alt="rere이미지"
+							 align="top" id="reply" style="height: 9px;">
+				</c:if>
 				<span style="font-weight: bold;">${cmtVo.nickName }</span>
 				<span><fmt:formatDate value="${cmtVo.regdate }" pattern="yyyy.MM.dd HH:mm"/> </span>
-				<span><img alt="답글이미지" src="../images/reply.png" style="height: 20px;">
+				
 				<c:if test="${!empty sessionScope.userid}">
+					<img alt="답글이미지" src="../images/reply.png" style="height: 10px;">
 					<span id="reply" onclick="reply(${i})">답글</span>
 				</c:if>
-				</span>
-				<p id="p${i}">${cmtVo.content }</p>
+				<p id="p${i}">
+					<c:if test="${cmtVo.step>0 }">
+						<c:forEach var="i" 
+							begin="1" end="${cmtVo.step}">
+							&nbsp;&nbsp;&nbsp;&nbsp;
+						</c:forEach>
+					</c:if>${cmtVo.content }</p>
 				<c:set var="i" value="${i+1 }"></c:set>
 			</form>
 		</c:forEach>		

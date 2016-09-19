@@ -59,6 +59,10 @@
 	font-weight:bold;
 	font-size:1.2em;
 }
+.divJob a{
+	text-decoration:none;
+	color:black;
+}
 .divJob table{
 	width: 250px;
 	margin:auto;

@@ -50,8 +50,38 @@
 				<div class="divCmHeader">
 					<!-- 광고배너(2개) -->
 					<table>
-					<td><img src="<c:url value='/images/banner1.jpg'/>"
-						height="111px"></td>
+					<td>
+					<script type="text/javascript">
+						var how_many_ads = 3; 
+						var now = new Date() 
+						var sec = now.getSeconds() 
+						var ad = sec % how_many_ads; 
+						ad +=1; 
+						if (ad==1) { 
+							url="#"; 
+							banner="<c:url value='/images/banner1_1.jpg'/>"; 
+							height="111px"; 
+						} 
+						if (ad==2) { 
+							url="#"; 
+							banner="<c:url value='/images/banner1_2.jpg'/>"; 
+							height="111px"; 
+						}
+						if (ad==3) { 
+							url="#"; 
+							banner="<c:url value='/images/banner1_3.jpg'/>"; 
+							height="111px"; 
+						}
+						document.write('<center>'); 
+						document.write('<a href="' + url + '" target="_top">'); 
+						document.write('<img src="' + banner + '" width=') 
+						document.write(width + ' height=' + height + ' '); 
+						document.write('alt="' + alt + '" border=0><br>'); 
+						document.write('<small>' + txt + '</small></a>'); 
+						document.write('</center>'); 
+					</script>
+					<%-- <img src="<c:url value='/images/banner1.jpg'/>"
+						height="111px"> --%></td>
 					<td><img src="<c:url value='/images/banner2.jpg'/>"
 						height="111px"></td>
 					</table>
@@ -138,20 +168,26 @@
 						<hr width="90px">
 						<table>
 							<tr>
-								<td><img src="<c:url value='/images/JobIcon/food.png'/>">
-									<br>식당</td>
-								<td><img src="<c:url value='/images/JobIcon/shop.png'/>">
-									<br>상점</td>
-								<td><img src="<c:url value='/images/JobIcon/dress.png'/>">
-									<br>의류</td>
+								<td><a href="#">
+								<img src="<c:url value='/images/JobIcon/food.png'/>">
+									<br>식당</a></td>
+								<td><a href="#">
+								<img src="<c:url value='/images/JobIcon/shop.png'/>">
+									<br>상점</a></td>
+								<td><a href="#">
+								<img src="<c:url value='/images/JobIcon/dress.png'/>">
+									<br>의류</a></td>
 							</tr>
 							<tr>
-								<td><img src="<c:url value='/images/JobIcon/company.png'/>">
-									<br>사무보조</td>
-								<td><img src="<c:url value='/images/JobIcon/study.png'/>">
-									<br>학원</td>
-								<td><img src="<c:url value='/images/JobIcon/build.png'/>">
-									<br>건축</td>
+								<td><a href="#">
+								<img src="<c:url value='/images/JobIcon/company.png'/>">
+									<br>사무보조</a></td>
+								<td><a href="#">
+								<img src="<c:url value='/images/JobIcon/study.png'/>">
+									<br>학원</a></td>
+								<td><a href="#">
+								<img src="<c:url value='/images/JobIcon/build.png'/>">
+									<br>건축</a></td>
 							</tr>
 						</table>
 					</div>

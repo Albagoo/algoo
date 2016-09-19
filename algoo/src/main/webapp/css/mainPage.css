@@ -2,7 +2,6 @@
 .divMain{
 	margin:auto;
 	width:1024px;
-	background-color:ivory;
 }
 
 /* 광고 및 기본기능 */
@@ -229,4 +228,26 @@
 	margin-top:5px;
 	padding:5px 0px 5px 0px;
 	text-align:center;
+}
+
+/* 스페셜 공고 */
+.divOther{
+	
+}
+
+.mainEmp{
+	width:800px;
+	font-size:14px;
+	border-top:solid 3px black;
+	border-bottom:solid 3px black;
+}
+.mainEmp td{
+	padding-top:5px;
+	padding-bottom:5px;
+	border-top:solid 1px silver;
+	border-bottom:solid 1px silver;
+}
+.mainEmp td a{
+	text-decoration:none;
+	color:black;
 }

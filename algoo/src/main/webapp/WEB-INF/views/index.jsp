@@ -511,8 +511,14 @@
 						</div></a>
 				</div>
 			</div>
+			
 			<div class="divOther">
 				<!-- 일반 공고 리스트(게시판형) -->
+				<br><br>
+				<span id="divTitle">스페셜 채용공고</span>
+				<article id="divOther">
+				<c:import url="/mainRecList.ag"></c:import>
+				</article>
 			</div>
 			<div class="divCmFooter">
 				<!-- 광고배너(2개) -->

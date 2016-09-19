@@ -10,9 +10,14 @@
 <link rel="stylesheet" type="text/css"
    href="<c:url value='/css/recLayout.css'/>" />
    
-<script type="text/javascript" src="<c:url value='/scrollup-master/dist/jquery.scrollUp.min.js'/>"></script>
-<script type="text/javascript" src="<c:url value='/js/member.js'/>"></script>
-<script type="text/javascript" src="<c:url value='/js/recWrite.js'/>"></script>
+<script type="text/javascript" src
+="<c:url value='../api/scrollup-master/dist/jquery.scrollUp.min.js'/>"></script>
+<script type="text/javascript" src
+="<c:url value='../api/scrollup-master/src/jquery.scrollUp.js'/>"></script>
+<script type="text/javascript" src
+="<c:url value='/js/member.js'/>"></script>
+<script type="text/javascript" src
+="<c:url value='/js/recWrite.js'/>"></script>
 <link rel="stylesheet" type="text/css"
    href="<c:url value='/css/simpleButton.css'/>" />
 <script src="<c:url value='/ckeditor/ckeditor.js'/>"
@@ -23,8 +28,15 @@
    type="text/javascript"></script>
 
 <script type="text/javascript">
+
+
+
    $(document).ready(function() {
-      
+	 
+	   $(function(){
+		   $.scrollUp();
+		 });
+	   
    $("#simple_top span").html("채용공고 등록");
    //simple_top 이용시 자기가 맡은화면 명칭 innerHTML로 붙여주기
 
@@ -209,23 +221,27 @@
 });
 </script>
 
+
 <form name="frm1" method="post"
    action="<c:url value='/rec/recWrite.ag'/>">
    <div id="divService" style="margin-left: 50px;"></div>
    <div class="recWrite">
       <div id="serviceInfo">
 
-         <span class="txt_85">서비스등급</span> <input class="txth_35" type="text"
-            id="grade" name="grade" readonly="readonly"> <span
-            class="txt_85">서비스기간</span> <input class="txt_35" type="text"
-            id="days" name="days" readonly="readonly">
+         <span class="txt_85">서비스등급</span> 
+         <input class="txth_35" type="text"
+          id="grade" name="grade" readonly="readonly"> 
+        <span class="txt_85">서비스기간</span> 
+        <input class="txt_35" type="text" id="days" 
+          name="days" readonly="readonly">
       </div>
 
-      <input type="button" value="서비스설정" id="serviceBt" title="보여주기"
-         class="white button "> <input class="button white" type="button"
-         id="submitBt" value="서비스 등록" style="margin-left: 300px"> <input
-         type="hidden" value="${compVo.compCode }" name="compCode"
-         readonly="readonly">
+      <input type="button" value="서비스설정" id="serviceBt" 
+        title="보여주기" class="white button "> 
+      <input class="button white" type="button" id="submitBt" 
+        value="서비스 등록" style="margin-left: 300px"> 
+      <input type="hidden" value="${compVo.compCode }" 
+        name="compCode" readonly="readonly">
 
 
       <div id="div1"></div>
@@ -248,7 +264,7 @@
                <span class="tit">회사/점포주소</span> <input type="text" class="txt"
                   readonly="readonly"
                   value="${compVo.address } 
-${compVo.addressDetail}">
+                         ${compVo.addressDetail}">
             </dt>
             <!--  <dt>
                <span class="tit">회사이미지</span>
@@ -274,13 +290,16 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                   placeholder="이름" name="detpName" value="${compVo.deptName }">
             </dt>
             <dt>
-               <span class="tit">전화번호</span> <input type="text" class="phone1"
-                  name="phone1" placeholder="02" maxlength="3"
-                  value="${compVo.phone1 }"> <input type="text"
-                  class="phone2" name="phone2" placeholder="0000" maxlength="4"
-                  value="${compVo.phone2 }"> <input type="text"
-                  class="phone3" name="phone3" placeholder="0000" maxlength="4"
-                  value="${compVo.phone3 }">
+               <span class="tit">전화번호</span> 
+               <input type="text" class="phone1"
+                 name="phone1" placeholder="02" maxlength="3"
+                 value="${compVo.phone1 }"> 
+               <input type="text" class="phone2" name="phone2" 
+                 placeholder="0000" maxlength="4"
+                 value="${compVo.phone2 }"> 
+               <input type="text" class="phone3" name="phone3" 
+                 placeholder="0000" maxlength="4"
+                 value="${compVo.phone3 }">
             </dt>
             <dt class="clearBoth">
                <span class="tit">휴대폰</span> <input type="text" class="phone1"
@@ -749,7 +768,8 @@ style="width: 150px;height: 100px;border: 1px solid gray">
       <input class="white button " type="reset" value="취소"> <input
          class="white button" type="button" id="recListBt" value="목록">
    </div>
-
+   
 </form>
 <form name="frmList" method="post"></form>
+
 <%@ include file="../inc/simple_bottom.jsp"%>

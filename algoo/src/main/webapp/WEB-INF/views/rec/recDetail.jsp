@@ -21,10 +21,11 @@ href="<c:url value='/css/recLayout.css'/>"/>
 src="<c:url value='/js/member.js'/>"></script>
 <script type="text/javascript"
 src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
+<!-- 인쇄 스크립트 -->
+<%-- <script type="text/javascript"
+src="<c:url value='/api/jQuery-printPage-plugin-master/jquery-1.4.4.min.js'/>"></script> --%>
 <script type="text/javascript"
-src="<c:url value='/api/jQuery-printPage-plugin-master/jquery-1.4.4.min.js'/>"></script>
-<script type="text/javascript"
-src="<c:url value='/api/jQuery-printPage-plugin-master/jquery.printPage.js'/>"></script>
+src="<c:url value='/api/print/jquery.printPage.js'/>"></script>
 
 
 
@@ -40,6 +41,8 @@ src="//apis.daum.net/maps/maps3.js?apikey=&libraries=services"></script>
 <!-- f06943e7a65fb3d3ded3394d978e6b56 --><!-- 대근API -->
 <script type="text/javascript">
    $(document).ready(function(){
+	   $(".btnPrint").printPage();
+	   
       $("#simple_top span").html("채용정보");
       //simple_top 이용시 자기가 맡은화면 명칭 innerHTML로 붙여주기
       
@@ -50,10 +53,9 @@ src="//apis.daum.net/maps/maps3.js?apikey=&libraries=services"></script>
           //나중에 카테고리 추가 예정
       });
       
-      $(".btnPrint").printPage();
       
    });
-  /*    
+   /*    
    // 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
       var infowindow = new daum.maps.InfoWindow({zIndex:1});
 
@@ -112,7 +114,7 @@ src="//apis.daum.net/maps/maps3.js?apikey=&libraries=services"></script>
           });
       }   
       
-   }); */
+   });  */
 </script>
 <div class="Wrap">
 	<p class="recDetail">채용정보 상세보기</p>
@@ -126,8 +128,9 @@ src="//apis.daum.net/maps/maps3.js?apikey=&libraries=services"></script>
 		<p class="clear_both"></p>
 		<div class="detail_right">
 			<input type="button" class="button white small" value="스크랩">
-			<a href="localhost:9090/algoo/rec/recDeail.ag?recCode=${recVo.recCode }" 
-			class="btnPrint"><input type="button" class="button white small " value="인쇄"></a>
+			<a class="btnPrint" href='recWrite.ag'>
+			<input type="button" class="button white small" value="인쇄">
+			</a>
 			<input type="button" class="button white small" value="신고">
 			<input type="button" class="button white small" value="E메일">
 			<input type="button" class="button white small" value="FaceBook">
@@ -182,39 +185,39 @@ src="//apis.daum.net/maps/maps3.js?apikey=&libraries=services"></script>
 	  <p class="right_title">${compVo.compName }</p>
 	  <dl class="clearBoth">
 	     <dt>
-	     <span class="titc">마감일</span>
+	     <span class="titd">마감일</span>
 	     <span class="txt_300">
 	     <fmt:formatDate  value="${serviceVo.deadline}" 
 	     pattern="yyyy-MM-dd"/> 
 	     (마감일 ${serviceVo.days+1 }일전)</span>
 	     </dt>
 	     <dt>
-	     <span class="titc">모집인원</span>
+	     <span class="titd">모집인원</span>
 	     <span class="txt_300">${recVo.recruitMember }</span>
 	     </dt>
 	     <dt>
-	     <span class="titc">성      별</span>
+	     <span class="titd">성      별</span>
 	     <span class="txt_300">${recVo.gender }</span>
 	     </dt>
 	     <dt>
-	     <span class="titc">연      령</span>
+	     <span class="titd">연      령</span>
 	     <span class="txt_300">${recVo.age }</span>
 	     </dt>
 	     <dt>
-	     <span class="titc">학      력</span>
+	     <span class="titd">학      력</span>
 	     <span class="txt_300">${recVo.educateLv }
 	     </dt>
 	  <p class="right_title">&nbsp;</p>
         <dt>
-        <span class="titc">담  당 자</span>
+        <span class="titd">담  당 자</span>
         <span class="txt_300">${compVo.deptName }</span>
         </dt>	     
         <dt>
-        <span class="titc">e - 메일</span>
+        <span class="titd">e - 메일</span>
         <span class="txt_300">${compVo.email1}@${compVo.email2 }</span>
         </dt>
         <dt>
-        <span class="titc">전화번호</span>
+        <span class="titd">전화번호</span>
         <span class="txt_300">
          ${compVo.hp1}-${compVo.hp2}-${compVo.hp3}</span>
         </dt>
@@ -223,23 +226,23 @@ src="//apis.daum.net/maps/maps3.js?apikey=&libraries=services"></script>
                            알구에서 채용정보 보고 전화드렸습니다.<br> 라고 연락하시면 문의가 쉽습니다.</span>
         </dt>
         <dt>
-        <span class="titc">팩스번호</span>
+        <span class="titd">팩스번호</span>
         <span class="txt_300">${compVo.fax1 }-${compVo.fax2 }-${compVo.fax3 }</span>
         </dt>
 
 	  </dl>
 	  <br class="br"><br class="br">
 	  <a href="#" class="detail_left"><img 
-	  src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_00/btn_app_online.gif"
+	  src=""
 	  alt="온라인지원"></a>
 	  
 	  <a href="#" class="detail_left decoration_none">&nbsp;<img 
-     src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_00/btn_app_email.gif"
+     src=""
      alt="e-메일지원"></a>
 	  <br class="clear_both">
 	  <div class="font_10 bon bold">e-메일 지원 시 자사양식 다운로드후 지원해 주세요.
 	  <a href="#"><img
-	  src="http://www.albamon.com/monimg/corp/icon_corpform_ft_01.gif"
+	  src=""
 	  alt="양식다운로드"
 	  ></a>
 	  </div>

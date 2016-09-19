@@ -4,11 +4,18 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ include file="../inc/simple_top.jsp" %>
-<link rel="stylesheet" type="text/css" href="<c:url value='/css/faq.css'/>" />
-<link rel="stylesheet" type="text/css" href="<c:url value='/css/recLayout.css'/>" />
-<script type="text/javascript" src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
+<link rel="stylesheet" type="text/css" href=
+"<c:url value='/css/faq.css'/>" />
+<link rel="stylesheet" type="text/css" href=
+"<c:url value='/css/recLayout.css'/>" />
+<script type="text/javascript" src
+="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 
-<script type="text/javascript" src="<c:url value='/scrollup-master/dist/jquery.scrollUp.min.js'/>"></script>
+
+<script type="text/javascript" src
+="<c:url value='../api/scrollup-master/dist/jquery.scrollUp.min.js'/>"></script>
+<script type="text/javascript" src
+="<c:url value='../api/scrollup-master/src/jquery.scrollUp.js'/>"></script>
 <link rel="stylesheet" type="text/css"
    href="<c:url value='/css/simpleButton.css'/>" />
 <link rel="stylesheet" href="<c:url value='/jquery/jquery-ui.css'/>"
@@ -19,6 +26,8 @@
 
 
 <script type="text/javascript">  
+   
+
    $(document).ready(function(){
       $(".divList .box2 tbody tr")
       .hover(function(){
@@ -26,6 +35,13 @@
       }, function(){
          $(this).css("background","");
       });
+      
+      //탑
+      $(function(){
+          $.scrollUp();
+        }); 
+
+      
       
 //지역구 셋팅  (서울,인천,경기..) 탭형식으로 볼수 있게 해줌
       $( "#tabs" ).tabs();
@@ -439,7 +455,5 @@
     <input type = "Button" class="button white medium" value="채용공고 등록" 
          onclick="location.href='<c:url value="/rec/recWrite.ag"/>';" />
 </div>
-<p class="clearboth"></p> 
 </section>
-
 <%@ include file="../inc/simple_bottom.jsp" %>

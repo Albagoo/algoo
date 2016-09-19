@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mybatis.mapper.oracle.comment">
+	<insert id="insertComment" parameterType="CommentVO">
+		<selectKey keyProperty="commentNo" resultType="int" order="BEFORE">
+			select comments_SEQ.nextval from dual
+		</selectKey>
+		insert into comments(comment_no, content, group_no, nickname, userid)
+		values(#{commentNo}, #{content}, #{commentNo}, #{nickName}, #{userid})
+		where free_no=#{freeNo}
+	</insert>
+	
+	<select id="selectAllCmt" resultType="CommentVO" parameterType="int">
+		select * from comments
+		where free_no=#{freeNo}
+	</select>
+	
+</mapper>

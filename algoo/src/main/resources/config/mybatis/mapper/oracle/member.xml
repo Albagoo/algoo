@@ -55,6 +55,6 @@
 	<select id="selectMemberByCode" parameterType="String"
 		resultType="MemberVO">
 		select * from member
-		where by member_code = #{memberCode}
+		where member_code = #{memberCode}
 	</select>
 </mapper>

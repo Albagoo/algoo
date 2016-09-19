@@ -31,12 +31,19 @@ src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
 				</c:if>
 				<c:if test="${sessionScope.userid!=freeVo.userid}">
 				| <a href="<c:url value='/freeboard/write.ag'/>">글쓰기</a>
+				| <a href="<c:url value='/freeboard/list.ag' />">목록</a>	
 				</c:if>
 			</span>
 		</div>
 		<div class="secondDiv">
 			<p class="writer">${freeVo.nickName }(${fn:substring(freeVo.nickName, 0,3)}***)</p>
 			<p class="content">${freeVo.content }</p>
+		</div>
+		<div class="comments">
+			<div class="cmtList">
+				<%@ include file="../comment/list.jsp" %>
+				<%@ include file="../comment/write.jsp" %>
+			</div>
 		</div>
 		<div class="center">
 		<br>
@@ -57,7 +64,7 @@ src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
       	<input type = "Button" class="button white medium" value="목록" 
       		 onclick="location.href
       			='<c:url value="/freeboard/list.ag" />'"/>		
-		</div>
+		</div>	
 	</div>
 </section>
 

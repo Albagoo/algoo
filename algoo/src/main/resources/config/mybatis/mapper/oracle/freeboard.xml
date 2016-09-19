@@ -12,7 +12,7 @@
 		</where>
 	</sql>
 	
-	<parameterMap type="map" id="deleteParamMap">
+	<parameterMap type="map" id="delParamMap">
 		<parameter property="freeNo" javaType="string"
 			jdbcType="VARCHAR" mode="IN"/>
 		<parameter property="groupNo" javaType="string"
@@ -77,8 +77,8 @@
 		delete from free_board where free_no=#{freeNo}
 	</delete> -->
 	
-	<delete id="deleteFreeboard" parameterMap="deleteParamMap">
-		{call DELETE_REBOARD(?,?,?)}
+	<delete id="deleteFreeboard" parameterMap="delParamMap">
+		{call delete_freeboards(?,?,?)}
 	</delete>
 	
 	<update id="updateSortNo" parameterType="FreeboardVO">

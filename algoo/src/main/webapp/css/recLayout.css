@@ -88,13 +88,15 @@ body{
    /* color: #511; */
 }
 .titd, .titcd{
+	margin-top:7px;
+	
    text-align:right;
    width: 70px;
    float: left;
    font-family:'bon godic';
    font-weight: bold;
    font-size: 10pt;
-   color: #511;
+   /* color: #511; */
 }
 
 
@@ -270,8 +272,14 @@ legend{
       padding-right: 80px;
       margin-top: 30px;
 }
-.font_11{
+.bon{
+	font-family:'bon godic';
+}
+.font_10{
    font-size: 10pt;
+}
+.font_11{
+   font-size: 11pt;
 }
 .bgg{
  background: #F7F7F7
@@ -389,16 +397,19 @@ floatLeft input[type="checkbox"]{
 }
 
 .main_left {
-   width: 274px;
+   width: 260px;
    height: 530px;
-   /* border: 1px solid black; */
+   padding:15px;
+    border: 1px solid #eee; 
 }
 
 .main_right {
    /* border: 1pt solid Gray; */
-   width: 480px;
+   width: 470px;
    height: 530px;
    margin: 0;
+   padding:15px;
+    border: 1px solid #eee;
 }
 
 .tit,.titc {
@@ -450,16 +461,16 @@ floatLeft input[type="checkbox"]{
    padding-bottom: 5px;
 }
 .font_9{
-   font-size: 9;
+   font-size: 9pt;
 }
 .font_11{
-   font-size: 11;
+   font-size: 11pt;
 }
 .font_13{
-   font-size: 13;
+   font-size: 13pt;
 }
 .font_15{
-   font-size: 15;
+   font-size: 15pt;
 }
 .margin_left_70{
    margin: 10px 0 10px 70px;
@@ -487,6 +498,7 @@ floatLeft input[type="checkbox"]{
    border-bottom: 10px solid #FFF;
 }
 .border_bottom{
+   margin-top:70px;
    border-bottom: 2px solid skyblue;
    padding-bottom: 5px;
 }

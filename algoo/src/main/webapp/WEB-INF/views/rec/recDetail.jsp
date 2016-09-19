@@ -21,11 +21,23 @@ href="<c:url value='/css/recLayout.css'/>"/>
 src="<c:url value='/js/member.js'/>"></script>
 <script type="text/javascript"
 src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
+<script type="text/javascript"
+src="<c:url value='/api/jQuery-printPage-plugin-master/jquery-1.4.4.min.js'/>"></script>
+<script type="text/javascript"
+src="<c:url value='/api/jQuery-printPage-plugin-master/jquery.printPage.js'/>"></script>
+
+
+
+
 <link rel="stylesheet" type="text/css" 
 href="<c:url value='/css/simpleButton.css'/>" />
 <!--   지도 스크립트            -->
-<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libraries=services"></script>
-
+<!-- 
+<script type="text/javascript" 
+src="//apis.daum.net/maps/maps3.js?apikey=&libraries=services"></script>
+-->
+ <!-- 1c57e699ab04456074d086be7fd7be45 --><!-- 정섭API -->
+<!-- f06943e7a65fb3d3ded3394d978e6b56 --><!-- 대근API -->
 <script type="text/javascript">
    $(document).ready(function(){
       $("#simple_top span").html("채용정보");
@@ -36,8 +48,12 @@ href="<c:url value='/css/simpleButton.css'/>" />
           ="<c:url value='/rec/recList.ag'/>";   
           frmList.submit();
           //나중에 카테고리 추가 예정
-       });
+      });
       
+      $(".btnPrint").printPage();
+      
+   });
+  /*    
    // 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
       var infowindow = new daum.maps.InfoWindow({zIndex:1});
 
@@ -56,11 +72,11 @@ href="<c:url value='/css/simpleButton.css'/>" />
       // 키워드로 장소를 검색합니다
       var kwd = $("#keyworldMap").val();
       
-      var kwdArr=kwd.split("(");
-      /* alert(kwdArr[0]); */
-      ps.keywordSearch(kwdArr[0], placesSearchCB);
+      var kwdArr=kwd.split("("); 
+      // alert(kwdArr[0]); 
+      //ps.keywordSearch(kwdArr[0], placesSearchCB);
       
-      /* alert($("#keyworldMap").val()); */
+      // alert($("#keyworldMap").val()); 
       // 키워드 검색 완료 시 호출되는 콜백함수 입니다
       function placesSearchCB (status, data, pagination) {
           if (status === daum.maps.services.Status.OK) {
@@ -96,7 +112,7 @@ href="<c:url value='/css/simpleButton.css'/>" />
           });
       }   
       
-   });
+   }); */
 </script>
 <div class="Wrap">
 	<p class="recDetail">채용정보 상세보기</p>
@@ -110,7 +126,8 @@ href="<c:url value='/css/simpleButton.css'/>" />
 		<p class="clear_both"></p>
 		<div class="detail_right">
 			<input type="button" class="button white small" value="스크랩">
-			<input type="button" class="button white small" value="인쇄">
+			<a href="localhost:9090/algoo/rec/recDeail.ag?recCode=${recVo.recCode }" 
+			class="btnPrint"><input type="button" class="button white small " value="인쇄"></a>
 			<input type="button" class="button white small" value="신고">
 			<input type="button" class="button white small" value="E메일">
 			<input type="button" class="button white small" value="FaceBook">
@@ -125,28 +142,37 @@ href="<c:url value='/css/simpleButton.css'/>" />
 			src="${recVo.imgURL }">
 		</div>
 
-		채용기업정보
+		<span class="titd">
+		기업정보
+		</span>
 		<input type="button" class="white button small" value="?">
 		<a href="" class="detail_right font_11 ">자세히보기></a> <br class="br">
 		<div class="">
 			<dl style="display: block;" class="clearBoth">
-				<dt>${compVo.compName }</dt>
 				<dt>
-					 <a href="${compVo.homepage }">
+				  <span class="titd">회사명</span> 
+				  <span class="txt_170 ">
+				  ${compVo.compName }
+				  </span>
+				</dt>
+				<dt>
+				<span class="titd">홈페이지</span> 
+					 <a class="txt_170"
+					  href="${compVo.homepage }">
 					 ${compVo.homepage }</a>
 				</dt>
 				<br>
 				<dt>
 					<span class="titd">대표자</span> 
-					<span class="txt_180">${compVo.ceo }</span>
+					<span class="txt_100">${compVo.ceo }</span>
 				</dt>
 				<dt>
 					<span class="titd">회사주소</span> 
-					<span class="txt_180">${compVo.address }</span>
+					<span class="txt_170">${compVo.address }</span>
 				</dt>
 				<dt>
 					<span class="titd">사업내용</span> 
-					<span class="txt_180">${compVo.content }</span>
+					<span class="txt_100">${compVo.content }</span>
 				</dt>
 
 			</dl>
@@ -193,8 +219,8 @@ href="<c:url value='/css/simpleButton.css'/>" />
          ${compVo.hp1}-${compVo.hp2}-${compVo.hp3}</span>
         </dt>
         <dt>
-            <span class="detail_left font_9 margin_left_70 border_radius padding_10_5">
-                           알구에서 채용정보 보고 전화드렸습니다. 라고 연락하시면 문의가 쉽습니다.</span>
+            <span class="detail_left font_9 margin_left_70 border_radius padding_10_5 bon">
+                           알구에서 채용정보 보고 전화드렸습니다.<br> 라고 연락하시면 문의가 쉽습니다.</span>
         </dt>
         <dt>
         <span class="titc">팩스번호</span>
@@ -211,7 +237,7 @@ href="<c:url value='/css/simpleButton.css'/>" />
      src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_00/btn_app_email.gif"
      alt="e-메일지원"></a>
 	  <br class="clear_both">
-	  <div class="font_13">e-메일 지원 시 자사양식 다운로드후 지원해 주세요.
+	  <div class="font_10 bon bold">e-메일 지원 시 자사양식 다운로드후 지원해 주세요.
 	  <a href="#"><img
 	  src="http://www.albamon.com/monimg/corp/icon_corpform_ft_01.gif"
 	  alt="양식다운로드"
@@ -220,7 +246,7 @@ href="<c:url value='/css/simpleButton.css'/>" />
 	</div>
 	
 	<div class="bg clear_both main_board border_tb10 font_11 align_right">
-	 <span class="bold">현금카드, 통장비밀번호 요구엔 절대 응대하지 마세요.</span> 
+	 <span class="bold bon font_9">현금카드, 통장비밀번호 요구엔 절대 응대하지 마세요.</span> 
 	 취업을 빙자한 사기의 위험이 있습니다.&nbsp;&nbsp;&nbsp;&nbsp;
 	 <a href="#" target="_blank">자세히 보기 ></a></div>
 
@@ -260,13 +286,20 @@ href="<c:url value='/css/simpleButton.css'/>" />
          <dt>
             <span class="titc">급여</span> 
             <span class="txt_150">
-
+            ${recVo.payType }
             <fmt:formatNumber value="${recVo.pay }" 
             pattern="#,###" /> 원</span>
          </dt>
          <dt>
             <span class="titc">복리후생</span> 
-            <span class="txt_150">${recVo.welfare }</span>
+            <span class="txt_150">
+            <c:if test="${!empty recVo.welfare }">
+            ${recVo.welfare }
+            </c:if>
+            <c:if test="${empty recVo.welfare }">
+                            없음
+            </c:if>
+            </span>
          </dt>
 		</dl>
 	</div>
@@ -282,7 +315,12 @@ href="<c:url value='/css/simpleButton.css'/>" />
 	   <dt>
          <span class="titc">인근전철</span>
          <span class="txt_300">
+            <c:if test="${recVo.subRegion=='null' }">
+                           없음
+            </c:if>
+            <c:if test="${recVo.subRegion!='null' }">
             ${recVo.subRegion }
+            </c:if>
             ${recVo.subNum }
             ${recVo.subName }
             ${recVo.subInfo }

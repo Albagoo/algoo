@@ -266,7 +266,7 @@
 					</div>
 					<div class="divCommercial2">
 						<!-- 다른 사이즈의 광고 -->
-						<img src="<c:url value='/images/banner3.jpg'/>"
+						<img src="<c:url value='/images/banner/banner3.jpg'/>"
 						 width="245px" height="140px">
 					</div>
 				</div>

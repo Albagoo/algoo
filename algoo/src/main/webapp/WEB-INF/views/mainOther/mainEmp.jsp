@@ -48,7 +48,7 @@
 	               value="${vo.pay }"/>원
 	               <c:if test="${vo.payType=='시급' }">
 	                <span style="padding:1px;border:solid 1px CornflowerBlue;border-radius:3px;font-size:8px;color:CornflowerBlue">시</span></c:if>
-	               <c:if test="${vo.payType=='일당' }">
+	               <c:if test="${vo.payType=='일급' }">
 	                <span style="padding:1px;border:solid 1px LimeGreen;border-radius:3px;font-size:8px;color:LimeGreen">일</span></c:if>
 	               <c:if test="${vo.payType=='주급' }">
 	                 <span style="padding:1px;border:solid 1px OrangeRed;border-radius:3px;font-size:8px;color:OrangeRed">주</span></c:if>

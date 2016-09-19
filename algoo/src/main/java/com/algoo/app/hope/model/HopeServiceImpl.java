@@ -13,4 +13,9 @@ public class HopeServiceImpl implements HopeService{
 		return hopeDao.insertHope(hopeVo);
 	}
 
+	@Override
+	public HopeVO selectHope(int hopeCode) {
+		return hopeDao.selectHope(hopeCode);
+	}
+
 }

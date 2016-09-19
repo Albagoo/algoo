@@ -18,6 +18,11 @@
       collapsible: true
     });
   });
+  
+  function pageProc(curPage){
+		document.frmPage.currentPage.value=curPage;
+		document.frmPage.submit();
+	}
 </script>
 <style type="text/css">
 .ui-accordion{
@@ -40,6 +45,11 @@
 </style>
 
 <section>
+<form name="frmPage" id="frmPage" method="post" 
+action="<c:url value='/faq/faqUserList.ag'/>">
+	<input type="hidden" name="categoryName" id="categoryName2" value="${param.categoryName }">
+	<input type="hidden" name="currentPage" id="currentPage2" value="1" >	
+</form>
 <div id="userList">
 	<div id="Qmark">
 	<img src="<c:url value='/images/faqicon.png'/>" style="height: 50px;">
@@ -67,6 +77,13 @@
 			</dl>
 		</nav>
 	</div>
+	<div class="faqSearch">
+	<form name="frmSearch" method="post" action="<c:url value='/faq/faqUserList.ag' />" >
+		<span>질문검색</span>
+		<input type="text" name="searchKeyword" title="검색어 입력" style="width: 200px;height: 25px;">
+		<input type="image" src="<c:url value='/images/search.png'/>" value="검색" align=absmiddle>
+	</form>
+	</div>
 	<div id="faqBody">
 		<div id="faqinfo">
 			<p> <a href="<c:url value='/faq/faqUserList.ag'/>">FAQ</a> 
@@ -74,7 +91,7 @@
 			${param.searchKeyword}</a> 
 			</p>
 		</div>
-		<div id="jQuery_accordion">
+		<div id="jQuery_accordion" style="margin-bottom: 20px;">
 			<c:forEach var="i" items="${ulist}">
 				<h3>&nbsp; [${i.category }] ${i.title}</h3>
 		  		<div id="answer">
@@ -88,7 +105,7 @@
 	<div class="divPage">
 	<c:if test="${pagingInfo.firstPage>1 }">	
 		<a href="#" onclick="pageProc(${pagingInfo.firstPage-1})">
-			<img src="<c:url value='/images/first.JPG'/>" alt="이전블럭으로">
+			<img src="<c:url value='/images/past.png'/>" alt="이전블럭으로" align=absmiddle>
 		</a>	
 	</c:if>
 	<c:forEach var="i" begin="${pagingInfo.firstPage }" 
@@ -107,13 +124,13 @@
 	<c:if test="${pagingInfo.lastPage<pagingInfo.totalPage }">	
 		<a href="#" 
 		onclick="pageProc(${pagingInfo.lastPage+1})">
-			<img src="<c:url value='/images/last.JPG'/>" alt="다음블럭으로">
+			<img src="<c:url value='/images/next.png'/>" alt="다음블럭으로" align=absmiddle>
 		</a>
 	</c:if>
 </div>
 	<div class="divSearch">
    	<form name="frmSearch" method="post" 
-   	action="<c:url value='/faq/faqList.ag' />" >
+   	action="<c:url value='/faq/faqUserList.ag' />" >
         <select name="searchCondition" class="button white small"
         	style="font-size: 0.75em;">
             <option value="title"

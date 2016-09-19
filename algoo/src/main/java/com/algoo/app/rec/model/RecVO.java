@@ -38,7 +38,7 @@ public class RecVO {
 	private String recruitMethod;// VARCHAR2(255 BYTE),
 	private String documents;// VARCHAR2(255 BYTE),
 	private String detailRecruit;// VARCHAR2(255 BYTE),
-	private Timestamp regdate;// DATE,
+	private Date regdate;
 	private String maps;// VARCHAR2(255 BYTE),
 	private int readcount;// NUMBER,
 	private String accuse;// VARCHAR2(50 BYTE),
@@ -370,11 +370,11 @@ public class RecVO {
 		return readcount;
 	}
 
-	public Timestamp getRegdate() {
+	public Date getRegdate() {
 		return regdate;
 	}
 
-	public void setRegdate(Timestamp regdate) {
+	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
 

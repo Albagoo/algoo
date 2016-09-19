@@ -12,5 +12,10 @@ public class CareerServiceImpl implements CareerService{
 	public int insertCareer(CareerVO careerVo) {
 		return careerDao.insertCareer(careerVo);
 	}
+
+	@Override
+	public CareerVO selectCareer(int careerCode) {
+		return careerDao.selectCareer(careerCode);
+	}
 	
 }

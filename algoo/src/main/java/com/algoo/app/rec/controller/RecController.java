@@ -127,6 +127,23 @@ public class RecController {
 			Model model){
 		//1
 		logger.info("채용 정보 보여주기");
+		
+		if(searchVo.getAreas()!=null && !searchVo.getAreas().isEmpty()){
+			String[] areaArr=(searchVo.getAreas()).split(",");
+			
+			int cnt=areaArr.length;
+			
+				searchVo.setArea1(areaArr[0]);
+				if(cnt>=2)searchVo.setArea2(areaArr[1]);
+				if(cnt>=3)searchVo.setArea3(areaArr[2]);
+				if(cnt>=4)searchVo.setArea4(areaArr[3]);
+				if(cnt>=5)searchVo.setArea5(areaArr[4]);
+			
+			logger.info("동네={},갯수={}",searchVo.getAreas(),cnt);
+			logger.info("area1={},area2={}",searchVo.getArea1(),searchVo.getArea2());
+			logger.info("area3={},area4={}",searchVo.getArea3(),searchVo.getArea4());
+			
+		}
 		//2
 
 		PaginationInfo pagingInfo = new PaginationInfo();
@@ -146,7 +163,6 @@ public class RecController {
 		//3				
 		model.addAttribute("alist", alist);
 		model.addAttribute("pagingInfo", pagingInfo);
-		
 		return "rec/recList";
 	}
 	

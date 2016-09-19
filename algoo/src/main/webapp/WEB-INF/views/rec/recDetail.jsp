@@ -23,7 +23,9 @@ src="<c:url value='/js/member.js'/>"></script>
 src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 <link rel="stylesheet" type="text/css" 
 href="<c:url value='/css/simpleButton.css'/>" />
-<script type="text/javascript"></script>
+<!--   지도 스크립트            -->
+<script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libraries=services"></script>
+
 <script type="text/javascript">
    $(document).ready(function(){
       $("#simple_top span").html("채용정보");
@@ -36,7 +38,63 @@ href="<c:url value='/css/simpleButton.css'/>" />
           //나중에 카테고리 추가 예정
        });
       
+   // 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
+      var infowindow = new daum.maps.InfoWindow({zIndex:1});
+
+      var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+          mapOption = {
+              center: new daum.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
+              level: 3 // 지도의 확대 레벨
+          };  
+
+      // 지도를 생성합니다    
+      var map = new daum.maps.Map(mapContainer, mapOption); 
+
+      // 장소 검색 객체를 생성합니다
+      var ps = new daum.maps.services.Places(); 
+
+      // 키워드로 장소를 검색합니다
+      var kwd = $("#keyworldMap").val();
       
+      var kwdArr=kwd.split("(");
+      /* alert(kwdArr[0]); */
+      ps.keywordSearch(kwdArr[0], placesSearchCB);
+      
+      /* alert($("#keyworldMap").val()); */
+      // 키워드 검색 완료 시 호출되는 콜백함수 입니다
+      function placesSearchCB (status, data, pagination) {
+          if (status === daum.maps.services.Status.OK) {
+
+              // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
+              // LatLngBounds 객체에 좌표를 추가합니다
+              var bounds = new daum.maps.LatLngBounds();
+
+              for (var i=0; i<data.places.length; i++) {
+                  displayMarker(data.places[i]);    
+                  bounds.extend(new daum.maps.LatLng(data.places[i].latitude, data.places[i].longitude));
+              }       
+
+              // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
+              map.setBounds(bounds);
+          } 
+      }
+
+      // 지도에 마커를 표시하는 함수입니다
+      function displayMarker(place) {
+          
+          // 마커를 생성하고 지도에 표시합니다
+          var marker = new daum.maps.Marker({
+              map: map,
+              position: new daum.maps.LatLng(place.latitude, place.longitude) 
+          });
+
+          // 마커에 클릭이벤트를 등록합니다
+          daum.maps.event.addListener(marker, 'click', function() {
+              // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
+              infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.title + '</div>');
+              infowindow.open(map, marker);
+          });
+      }   
       
    });
 </script>
@@ -98,40 +156,40 @@ href="<c:url value='/css/simpleButton.css'/>" />
 	  <p class="right_title">${compVo.compName }</p>
 	  <dl class="clearBoth">
 	     <dt>
-	     <span class="titd">마감일</span>
-	     <span class="txt_400">
+	     <span class="titc">마감일</span>
+	     <span class="txt_300">
 	     <fmt:formatDate  value="${serviceVo.deadline}" 
 	     pattern="yyyy-MM-dd"/> 
 	     (마감일 ${serviceVo.days+1 }일전)</span>
 	     </dt>
 	     <dt>
-	     <span class="titd">모집인원</span>
-	     <span class="txt_400">${recVo.recruitMember }</span>
+	     <span class="titc">모집인원</span>
+	     <span class="txt_300">${recVo.recruitMember }</span>
 	     </dt>
 	     <dt>
-	     <span class="titd">성      별</span>
-	     <span class="txt_400">${recVo.gender }</span>
+	     <span class="titc">성      별</span>
+	     <span class="txt_300">${recVo.gender }</span>
 	     </dt>
 	     <dt>
-	     <span class="titd">연      령</span>
-	     <span class="txt_400">${recVo.age }</span>
+	     <span class="titc">연      령</span>
+	     <span class="txt_300">${recVo.age }</span>
 	     </dt>
 	     <dt>
-	     <span class="titd">학      력</span>
-	     <span class="txt_400">${recVo.educateLv }
+	     <span class="titc">학      력</span>
+	     <span class="txt_300">${recVo.educateLv }
 	     </dt>
 	  <p class="right_title">&nbsp;</p>
         <dt>
-        <span class="titd">담  당 자</span>
-        <span class="txt_400">${compVo.deptName }</span>
+        <span class="titc">담  당 자</span>
+        <span class="txt_300">${compVo.deptName }</span>
         </dt>	     
         <dt>
-        <span class="titd">e - 메일</span>
-        <span class="txt_400">${compVo.email1}@${compVo.email2 }</span>
+        <span class="titc">e - 메일</span>
+        <span class="txt_300">${compVo.email1}@${compVo.email2 }</span>
         </dt>
         <dt>
-        <span class="titd">전화번호</span>
-        <span class="txt_400">
+        <span class="titc">전화번호</span>
+        <span class="txt_300">
          ${compVo.hp1}-${compVo.hp2}-${compVo.hp3}</span>
         </dt>
         <dt>
@@ -139,8 +197,8 @@ href="<c:url value='/css/simpleButton.css'/>" />
                            알구에서 채용정보 보고 전화드렸습니다. 라고 연락하시면 문의가 쉽습니다.</span>
         </dt>
         <dt>
-        <span class="titd">팩스번호</span>
-        <span class="txt_400">${compVo.fax1 }-${compVo.fax2 }-${compVo.fax3 }</span>
+        <span class="titc">팩스번호</span>
+        <span class="txt_300">${compVo.fax1 }-${compVo.fax2 }-${compVo.fax3 }</span>
         </dt>
 
 	  </dl>
@@ -170,45 +228,45 @@ href="<c:url value='/css/simpleButton.css'/>" />
 	<div class="detail_content background bg">
 		<dl class="clearBoth">
 			<dt>
-				<span class="titd">고용형태</span> 
-				<span class="txt_720">${recVo.recruitType }</span>
+				<span class="titc">고용형태</span> 
+				<span class="txt_150">${recVo.recruitType }</span>
 			</dt>
 			<dt>
-				<span class="titd">업직종</span> 
-				<span class="txt_720 decoration_none">
+				<span class="titc">업직종</span> 
+				<span class="txt_150 decoration_none">
 				  
                <a href="#">${compVo.compSort }</a>,
              
             </span>
 			</dt>
 			<dt>
-            <span class="titd">근무기간</span> 
-            <span class="txt_720">${recVo.workTerm }
+            <span class="titc">근무기간</span> 
+            <span class="txt_150">${recVo.workTerm }
             
             </span>
          </dt>
          <dt>
-            <span class="titd">근무요일</span> 
-            <span class="txt_720">${recVo.workDays }</span>
+            <span class="titc">근무요일</span> 
+            <span class="txt_150">${recVo.workDays }</span>
          </dt>
          <dt>
-            <span class="titd">근무시간</span> 
-            <span class="txt_720">
+            <span class="titc">근무시간</span> 
+            <span class="txt_150">
             ${recVo.workTime }:${recVo.workTime2 }
             ~
             ${recVo.workTime3 }:${recVo.workTime4 }
             </span>
          </dt>
          <dt>
-            <span class="titd">급여</span> 
-            <span class="txt_720">
+            <span class="titc">급여</span> 
+            <span class="txt_150">
 
             <fmt:formatNumber value="${recVo.pay }" 
             pattern="#,###" /> 원</span>
          </dt>
          <dt>
-            <span class="titd">복리후생</span> 
-            <span class="txt_720">${recVo.welfare }</span>
+            <span class="titc">복리후생</span> 
+            <span class="txt_150">${recVo.welfare }</span>
          </dt>
 		</dl>
 	</div>
@@ -216,13 +274,14 @@ href="<c:url value='/css/simpleButton.css'/>" />
 	<div class="detail_area background bg">
 	<dl class="clearBoth">
       <dt>
-         <span class="titd">근무지역</span>
-         <span class="txt_720">${recVo.address }<br>[상세정보] ${rec.addressDetail }</span>
+         <span class="titc">근무지역</span>
+         <input id="keyworldMap" type="hidden" value="${recVo.address }">
+         <span class="txt_300">${recVo.address }<br>[상세정보] ${rec.addressDetail }</span>
       </dt>	
          
 	   <dt>
-         <span class="titd">인근전철</span>
-         <span class="txt_720">
+         <span class="titc">인근전철</span>
+         <span class="txt_300">
             ${recVo.subRegion }
             ${recVo.subNum }
             ${recVo.subName }
@@ -230,11 +289,19 @@ href="<c:url value='/css/simpleButton.css'/>" />
          </span>
       </dt> 
       <dt>
-         <span class="titd">지도</span>
-         <span class="txt_720">※ 지도는  <span class="red textBox">근무지 위치</span>를 나타내며 회사 소재지와 일치하지 않을 수 있습니다.</span>
-      </dt>
-      <div id="map" class="border">지도나올영역 </div> 
+         <span class="titc">지도</span>
+         <span class="txt_100" style="width: 600px">※ 지도는  <span class="red">근무지 위치</span>를 나타내며 회사 소재지와 일치하지 않을 수 있습니다.</span>
+      </dt> 
+      <div id="map" class="border">
+
+      
+      <!-- * Daum 지도 --->
+<!--  지도 노드 -->
+<div id="map" style="width:100%;height:350px;"></div>
+      
+      </div> 
 	</dl>
+	</div>
 	</div>
 	<div class="border_bottom font_13 bold">> 상세 모집 요강</div>
 	<div class="detail_rec bg">

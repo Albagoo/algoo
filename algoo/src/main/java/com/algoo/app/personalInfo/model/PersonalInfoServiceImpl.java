@@ -12,6 +12,11 @@ public class PersonalInfoServiceImpl implements PersonalInfoService{
 	public int insertPersonalInfo(PersonalInfoVO personalInfoVo) {
 		return personalInfoDao.insertPersonalInfo(personalInfoVo);
 	}
+
+	@Override
+	public PersonalInfoVO selectPersonalInfo(int personalInfoCode) {
+		return personalInfoDao.selectPersonalInfo(personalInfoCode);
+	}
 	
 	
 }

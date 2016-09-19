@@ -11,4 +11,9 @@
 		values(#{comAbilityCode}, #{word}, #{powerPoint},
 			 #{excel}, #{internet}, #{itDesignAbility})
 	</insert>
+	
+	<select id="selectComputerAbility" parameterType="int" resultType="ComputerAbilityVO">
+		select * from computer_ability
+		where com_ability_code = #{comAbilityCode}
+	</select>
 </mapper>

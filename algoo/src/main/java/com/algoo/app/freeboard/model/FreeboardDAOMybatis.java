@@ -59,4 +59,13 @@ public class FreeboardDAOMybatis extends SqlSessionDaoSupport implements Freeboa
 		return getSqlSession().insert(namespace+".insertReply", freeVo);
 	}
 
+	@Override
+	public FreeboardVO prevContent(int freeNo) {
+		return getSqlSession().selectOne(namespace+".prevContent", freeNo);
+	}
+
+	@Override
+	public FreeboardVO nextContent(int freeNo) {
+		return getSqlSession().selectOne(namespace+".nextContent", freeNo);
+	}
 }

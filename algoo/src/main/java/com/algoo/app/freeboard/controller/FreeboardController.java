@@ -207,4 +207,24 @@ public class FreeboardController {
 		
 		return "common/message";
 	}
+	
+	@RequestMapping("/detail.ag")
+	public String prevContent(@RequestParam(defaultValue="0") int freeNo,
+			Model model){
+		logger.info("이전글 보기 파라미터 freeNo = {}", freeNo);
+		
+		if(freeNo==0){
+			model.addAttribute("msg", "잘못된 url입니다");
+			model.addAttribute("url", "/freeboard/list.ag");
+			
+			return "common/message";
+		}
+		
+		FreeboardVO freeVo=freeService.prevContent(freeNo);
+		logger.info("이전글 보기 결과 freeVo = {}", freeVo);
+		
+		model.addAttribute("preFreeVo", freeVo);
+		
+		return "freeboard/detail";
+	}
 }

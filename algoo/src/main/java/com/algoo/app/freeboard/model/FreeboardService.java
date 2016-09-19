@@ -15,4 +15,6 @@ public interface FreeboardService {
 	/*public int deleteFreeboard(int freeNo);*/
 	public void deleteFreeboard(Map<String, String> map);
 	public int insertReply(FreeboardVO freeVo);
+	public FreeboardVO prevContent(int freeNo);
+	public FreeboardVO nextContent(int freeNo);
 }

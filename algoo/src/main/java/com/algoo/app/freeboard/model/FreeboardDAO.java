@@ -16,4 +16,6 @@ public interface FreeboardDAO {
 	public void deleteFreeboard(Map<String, String> map);
 	public int updateSortNo(FreeboardVO freeVo);
 	public int insertReply(FreeboardVO freeVo);
+	public FreeboardVO prevContent(int freeNo);
+	public FreeboardVO nextContent(int freeNo);
 }

@@ -40,6 +40,10 @@ src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
 			<p class="content">${freeVo.content }</p>
 		</div>
 		<div class="comments">
+			<!-- 댓글갯수 보여주기 -->
+			<!-- <div>
+			
+			</div> -->
 			<div class="cmtList">
 				<c:import url="/comment/list.ag">
 					<c:param name="freeNo" value="${param.freeNo }"></c:param>

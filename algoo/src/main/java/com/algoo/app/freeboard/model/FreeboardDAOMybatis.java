@@ -1,6 +1,7 @@
 package com.algoo.app.freeboard.model;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.stereotype.Repository;
@@ -42,10 +43,10 @@ public class FreeboardDAOMybatis extends SqlSessionDaoSupport implements Freeboa
 	}
 
 	@Override
-	public int deleteFreeboard(int freeNo) {
-		return getSqlSession().delete(namespace+".deleteFreeboard", freeNo);
+	public void deleteFreeboard(Map<String, String> map) {
+		getSqlSession().delete(namespace+".deleteFreeboard", map);
 	}
-
+	
 	@Override
 	public int updateSortNo(FreeboardVO freeVo) {
 		return getSqlSession().update(namespace+".updateSortNo", freeVo);
@@ -57,4 +58,5 @@ public class FreeboardDAOMybatis extends SqlSessionDaoSupport implements Freeboa
 		freeVo.setStep(freeVo.getStep()+1);
 		return getSqlSession().insert(namespace+".insertReply", freeVo);
 	}
+
 }

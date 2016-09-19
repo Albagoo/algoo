@@ -181,7 +181,19 @@ public class ResumeController {
 		
 		Map<String, Object> alist = resumeService.selectResumeByCode(hisCode);
 		
-		model.addAttribute("alist", alist);
+		ResumeVO resumeVo = (ResumeVO)alist.get("resumeVo");
+		
+		MemberVO memberVo = memberService.selectMemberByCode(resumeVo.getMemberCode());
+		
+		logger.info("alist = {}" , alist);
+		
+		model.addAttribute("resumeVo", resumeVo);
+		model.addAttribute("hopeVo", alist.get("hopeVo"));
+		model.addAttribute("languageVo", alist.get("languageVo"));
+		model.addAttribute("careerVo", alist.get("careerVo"));
+		model.addAttribute("computerAbilityVo", alist.get("computerAbilityVo"));
+		model.addAttribute("personalInfoVo", alist.get("personalInfoVo"));
+		model.addAttribute("memberVo", memberVo);
 		
 		return "resume/detail";
 	}

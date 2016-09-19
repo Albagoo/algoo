@@ -146,7 +146,7 @@ function pageProc(curPos){
 				<td style="font-size: 0.6em">
 					${vo.area }
 				</td>
-				<td>
+				<td style="font-size: 0.8em">
 					<fmt:formatDate value="${vo.regdate }" pattern="MM/dd"/>
 				</td>
 			</tr>

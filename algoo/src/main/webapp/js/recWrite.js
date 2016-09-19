@@ -62,7 +62,7 @@ $(document).ready(function(){
 		setAges();
 	});
 	$("#recForm").click(function() {
-		setForms()
+		setForms();
 	});
 	//최초 서비스 적용버튼 숨기기
 	$("#submitBt").hide();
@@ -139,11 +139,10 @@ function setForms() {
 		$("#FormF").attr('disabled', false);
 		$("#FormS").attr('disabled', false);
 		$("#FormF").attr('checked', true);
-
 	} else {
-		$("#FormF").attr('disabled', true);
-		$("#FormS").attr('disabled', true);
 		$("#FormF").attr('checked', false);
 		$("#FormS").attr('checked', false);
+		$("#FormF").attr('disabled', true);
+		$("#FormS").attr('disabled', true);
 	}//if
 }

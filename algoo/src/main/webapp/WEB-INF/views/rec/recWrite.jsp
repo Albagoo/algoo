@@ -30,29 +30,28 @@
 <script type="text/javascript">
  
    $(document).ready(function() {
-	 
 	   
-      
-	   
-	   
-	   //모집인원 입력시
+	   //모집인원 입력시 체크해제되도록
 	   $("#writeMember").keyup(function() {
+        $("#tenPeople").attr('checked',false);
+        $("#hundredPeople").attr('checked',false);
 		
-		   if($("#writeMember").length<1){
-			   
+        var abc=$("#writeMember").val().length;
+	         
+		 if(abc>=1){
+			 if($("#tenPeople").is(":checked")){
+			 $("#tenPeople").trigger('click');
+			 }
+			 if($("#hundredPeople").is(":checked")){
+			 $("#hundredPeople").trigger('click');
+			 }
 			   $("#tenPeople").attr('disabled',true); 
-			   $("#tenPeople").attr('checked',false);
 			   $("#hundredPeople").attr('disabled',true);
-			   $("#hundredPeople").attr('checked',false);
-			   alert(asd);
-		   }else{
+		 }else{
+			
 			   $("#tenPeople").attr('disabled',false); 
-	            /* $("#tenPeople").attr('checked',true); */
-	            $("#hundredPeople").attr('disabled',false);
-	            /* $("#hundredPeople").attr('checked',false); */
-	            alert(asd);
-		   }
-		   
+			   $("#hundredPeople").attr('disabled',false);
+		 }
 		});
 	   
 	   //스크롤업
@@ -354,7 +353,8 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <span class="tit">e-mail</span> 
                <input type="text" class="email1"
                  placeholder="exam123" value="${compVo.email1 }"> 
-               <span class="txt_30">@</span> 
+               <span style="margin-top: 7px;float: left">
+               @</span> 
                <select class="floatLeft small button white" id=email2
                style="margin-top: 10px">
                   <option value="naver">naver.com</option>
@@ -470,9 +470,9 @@ style="width: 150px;height: 100px;border: 1px solid gray">
 
             </dt>
             <dt>
-               <span class="tit">근무시간 </span><select
-                  class="txt_85 white textBox small" name="workTime">
-                  <!-- <option value="null">시작</option> -->
+               <span class="tit" style="height: 20px;">근무시간 </span><select
+                  class="txt_85 white textBox small" 
+                  name="workTime">
                   <c:forEach var="i" begin="0" end="24" step="1">
                      <c:if test="${i<10 }">
                         <c:set var="j" value="0${i}" />
@@ -485,7 +485,6 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                      </c:if>
                   </c:forEach>
                </select> <select class="txt_85 white textBox small" name="workTime2">
-                  <!--   <option value="null">시간</option> -->
                   <c:forEach var="i" begin="0" end="60" step="10">
                      <c:if test="${i<10 }">
                         <c:set var="j" value="0${i}" />
@@ -525,8 +524,9 @@ style="width: 150px;height: 100px;border: 1px solid gray">
 
             </dt>
             <dt>
-               <span class="tit">선택</span> <select
-                  class="txt_85 white textBox small" name="payType">
+               <span class="tit" >급여선택</span> 
+               <select class="txt_85 white textBox small" 
+                  name="payType" style="margin-top: 10px">
                   <option value="시급">시급</option>
                   <option value="일급">일당</option>
                   <option value="주급">주급</option>
@@ -541,7 +541,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                 class="white small"
                 type="button" onclick="minPaySet()"> 
             </dt>
-            <dt class="floatLeft">
+            <dt >
                <span class="tit">근무형태</span> <input type="checkbox"
                   name="recruitType" value="알바" id="alba"> <label for="alba">알바</label>
 
@@ -587,7 +587,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <label for="donAge">연령무관</label> 
                <input type="radio" id="dontAge"
                   name="age" value="">
-               <label for="dontAge"> 연령제한 있음</label>
+               <label for="dontAge">연령제한 있음</label>
 
                <input type="checkbox" id="oldAge" 
                 name="age" value="고연령자(65세이상)">
@@ -707,10 +707,10 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                 id="writeMember"> 
                <input type="checkbox" id="tenPeople" 
                 name="recruitMember" value="0명">
-               <label for="tenPeople"> 0명 </label> 
+               <label id="tenxone" for="tenPeople"> 0명 </label> 
                <input type="checkbox" id="hundredPeople" 
                 name="recruitMember" value="00명"> 
-                <label for="hundredPeople">00명 </label>
+                <label id="tenxten" for="hundredPeople">00명 </label>
             </dt>
             <dt>
                <span class="titc">모집대상</span> 

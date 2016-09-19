@@ -185,7 +185,10 @@ public class RecController {
 
 		return "redirect:/rec/recDetail.ag?recCode="+recCode;
 	}
-	
+	@RequestMapping("/test.ag")
+	public void test(){
+		
+	}
 	
 	
 	/*@RequestMapping("/getSubwayStation.ag")

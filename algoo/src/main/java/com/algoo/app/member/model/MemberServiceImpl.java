@@ -65,7 +65,7 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public MemberVO selectMemberByCode(int memberCode) {
+	public MemberVO selectMemberByCode(String memberCode) {
 		return memberDao.selectMemberByCode(memberCode);
 	}
 

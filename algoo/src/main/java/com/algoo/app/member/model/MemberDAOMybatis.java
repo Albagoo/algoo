@@ -49,7 +49,7 @@ public class MemberDAOMybatis extends SqlSessionDaoSupport implements MemberDAO{
 	}
 
 	@Override
-	public MemberVO selectMemberByCode(int memberCode) {
+	public MemberVO selectMemberByCode(String memberCode) {
 		return getSqlSession().selectOne(namespace+".selectMemberByCode",
 				memberCode);
 	}

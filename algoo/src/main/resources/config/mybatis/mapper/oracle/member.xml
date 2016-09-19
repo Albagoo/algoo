@@ -52,7 +52,7 @@
 		where member_code = #{memberCode}
 	</update>
 	
-	<select id="selectMemberByCode" parameterType="int"
+	<select id="selectMemberByCode" parameterType="String"
 		resultType="MemberVO">
 		select * from member
 		where by member_code = #{memberCode}

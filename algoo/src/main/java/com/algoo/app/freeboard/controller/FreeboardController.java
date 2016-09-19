@@ -20,7 +20,6 @@ import com.algoo.app.common.PaginationInfo;
 import com.algoo.app.common.SearchVO;
 import com.algoo.app.freeboard.model.FreeboardService;
 import com.algoo.app.freeboard.model.FreeboardVO;
-import com.algoo.app.member.model.MemberService;
 
 
 @Controller

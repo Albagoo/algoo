@@ -64,5 +64,10 @@ public class MemberServiceImpl implements MemberService{
 		return memberDao.updatePhoto(memberVo);
 	}
 
+	@Override
+	public MemberVO selectMemberByCode(int memberCode) {
+		return memberDao.selectMemberByCode(memberCode);
+	}
+
 	
 }

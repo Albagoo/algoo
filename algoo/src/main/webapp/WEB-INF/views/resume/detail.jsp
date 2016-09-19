@@ -147,7 +147,7 @@
 			</tr>
 		</table>
 		
-		<span class="title">경력</span>
+		<span class="title">경력</span>&nbsp;
 		<table id="box">
 			<tr style="border-top: 2px solid black">
 				<td></td>

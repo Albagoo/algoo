@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 .divMain{
 	margin:auto;
-	width:1024px;
+	width:1000px;
 }
 
 /* 광고 및 기본기능 */
@@ -14,14 +14,13 @@
 	font-size: 20px;
 }
 .divCAD{
-	width:75%;
+	width:655px;
 	float: left;
 }
 .divCmHeader{
-	width:750px;
+	width:640px;
 	height:115px;
-	margin:5px;
-	background-color: azure;
+	/* margin:5px; */
 }
 .divDivision{
 	height:250px;
@@ -43,12 +42,12 @@
 }
 .divMap{
 	background-image:url("../images/map.png");
-	background-size:240px 200px;
-	width:240px;
+	background-size:230px 200px;
+	width:210px;
 	height:200px;
 }
-.divJob{
-	width: 33%;
+.divJob1{
+	width: 230px;
 	height:250px;
 	border:solid 1px LightGray;
 	border-top:solid 2px LightGray;
@@ -58,32 +57,61 @@
 	font-weight:bold;
 	font-size:1.2em;
 }
-.divJob a{
-	text-decoration:none;
-	color:black;
+.divJob2{
+	width: 230px;
+	height:250px;
+	border:solid 1px LightGray;
+	border-top:solid 2px LightGray;
+	float: left;
+	
+	text-align:center;
+	font-weight:bold;
+	font-size:1.2em;
 }
-.divJob table{
-	width: 250px;
+.divJob3{
+	width: 175px;
+	height:250px;
+	border:solid 1px LightGray;
+	border-top:solid 2px LightGray;
+	float: left;
+	
+	text-align:center;
+	font-weight:bold;
+	font-size:1.2em;
+}
+.divJob2 table{
+	width: 230px;
 	margin:auto;
 	text-align:center;
 	font-size:0.8em;
 	font-weight:normal;
 }
-.divJob td{
+.divJob3 table{
+	width: 170px;
+	margin:auto;
+	text-align:center;
+	font-size:0.8em;
+	font-weight:normal;
+}
+.divJob2 td,.divJob3 td{
 	margin-bottom:10px;
 }
-.divJob table img{
+.divJob2 table img,.divJob3 table img{
 	width: 60px;
+}
+.divJob1 a,.divJob2 a,.divJob3 a{
+	text-decoration:none;
+	color:black;
 }
 
 .divFunction{
-	width:24%;
+	width:220px;
 	height:372px;
 	margin:5px;
 	float: left;
 }
 .loginBox{
-	height:160px;
+	height:120px;
 	border:solid 1px LightGray;
 	text-align:center;
 	margin-bottom:5px;
@@ -128,7 +156,7 @@
 }
 
 .divBrand{
-	width: 100%;
+	width: 880px;
 	height: 80px;
 	background-color:LightGray;
 	float: left;
@@ -136,7 +164,7 @@
 
 #divRoll{
 	margin:0 auto;
-	width:935px;
+	width:880px;
 	height:80px;
 	overflow:hidden;
 	
@@ -173,7 +201,7 @@
 }
 .divSpecial .SpBox{
 	margin:0 auto;
-	width: 190px;
+	width: 200px;
 	height: 160px;
 	border:solid 1px LightGray;
 	text-align: center;
@@ -202,7 +230,7 @@
 	text-align:left;
 }
 .divGrand .GrBox{
-	width: 240px;
+	width: 270px;
 	height: 140px;
 	border:solid 1px LightGray;
 	text-align: center;

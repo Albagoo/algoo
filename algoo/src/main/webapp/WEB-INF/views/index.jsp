@@ -271,10 +271,24 @@
 					</div>
 				</div>
 				<div class="divBrand">
+				
+				
+				<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
+				</script>
+				<script type="text/javascript" src="<c:url value='/jquery/jquery.simplyscroll.js'/>"></script>
+				<link rel="stylesheet" href="<c:url value='/css/jquery.simplyscroll.css'/>" media="all" type="text/css">
+				<script type="text/javascript">
+				(function($) {
+					$(function() {
+						$("#scroller").simplyScroll();
+					});
+				})(jQuery);
+				</script>
+				
 					<!-- 브랜드 알바(페이지 슬라이드) -->
 					<div id="divRoll">
-						<ul class="divImgset">
-							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/BurgerKing_c.png'/>" alt=""/></a></li>
+						<ul id="scroller">
+						    <li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/BurgerKing_c.png'/>" alt=""/></a></li>
 							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/BR_c.png'/>" alt=""/></a></li>
 							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/Dunkin_c.png'/>" alt=""/></a></li>
 							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/GS25_c.png'/>" alt=""/></a></li>

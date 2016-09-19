@@ -59,7 +59,7 @@ $(document).ready(function(){
 				$("#message2").html("비밀번호가 일치합니다");	
 				$("#chkPw").val("Y");
 			}else{
-				$("#message2").html("비밀번호가 잃치 하지 않습니다");
+				$("#message2").html("비밀번호가 일치 하지 않습니다");
 				$("#chkPw").val("N");
 			}
 		});//pwd2

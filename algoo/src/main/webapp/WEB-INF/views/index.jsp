@@ -511,7 +511,6 @@
 						</div></a>
 				</div>
 			</div>
-			
 			<div class="divOther">
 				<!-- 일반 공고 리스트(게시판형) -->
 				<br><br>
@@ -523,6 +522,7 @@
 			<div class="divCmFooter">
 				<!-- 광고배너(2개) -->
 			</div>
+			<br><br>
 		</div>
 	</section>
 	

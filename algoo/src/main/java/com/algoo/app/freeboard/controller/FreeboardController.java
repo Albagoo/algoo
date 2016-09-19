@@ -97,8 +97,7 @@ public class FreeboardController {
 	
 	@RequestMapping("/detail.ag")
 	public String detail(
-			@RequestParam(defaultValue="0") int freeNo,
-			Model model){
+			@RequestParam(defaultValue="0") int freeNo,	Model model){
 		logger.info("freeboard 상세보기 파라미터, freeNo = {}", freeNo);
 		
 		if(freeNo==0){
@@ -110,7 +109,17 @@ public class FreeboardController {
 		
 		FreeboardVO freeVo = freeService.selectFreeboardByNo(freeNo);
 		logger.info("freeboard 상세보기 결과 freeVo = {}", freeVo);
+		
+		FreeboardVO freePreVo=freeService.prevContent(freeNo);
+		logger.info("이전글 보기 결과 freeVo = {}", freeVo);
+		
+		FreeboardVO freeNextVo=freeService.nextContent(freeNo);
+		logger.info("다음글 보기 결과 freeVo = {}", freeVo);
+		
 		model.addAttribute("freeVo", freeVo);
+		model.addAttribute("preFreeVo", freePreVo);
+		model.addAttribute("nextFreeVo", freeNextVo);
+		
 		
 		return "freeboard/detail";
 	}
@@ -206,25 +215,5 @@ public class FreeboardController {
 		model.addAttribute("url", url);
 		
 		return "common/message";
-	}
-	
-	@RequestMapping("/detail.ag")
-	public String prevContent(@RequestParam(defaultValue="0") int freeNo,
-			Model model){
-		logger.info("이전글 보기 파라미터 freeNo = {}", freeNo);
-		
-		if(freeNo==0){
-			model.addAttribute("msg", "잘못된 url입니다");
-			model.addAttribute("url", "/freeboard/list.ag");
-			
-			return "common/message";
-		}
-		
-		FreeboardVO freeVo=freeService.prevContent(freeNo);
-		logger.info("이전글 보기 결과 freeVo = {}", freeVo);
-		
-		model.addAttribute("preFreeVo", freeVo);
-		
-		return "freeboard/detail";
 	}
 }

@@ -70,7 +70,45 @@ src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
       	<input type = "Button" class="button white medium" value="목록" 
       		 onclick="location.href
       			='<c:url value="/freeboard/list.ag" />'"/>		
-		</div>	
+		</div>
+		<div class="showContent">
+			<table class="contentBox">
+				<colgroup>
+					<col style="width:10%;" />
+					<col style="width:50%;" />
+					<col style="width:25%;" />
+					<col style="width:15%" />
+				</colgroup>
+				<thead>
+					<th class="arrow"></th>
+					<th class="ctitle"></th>
+					<th class="cnick"></th>
+					<th class="cdate"></th>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<a href="<c:url value='/freeboard/detail.ag?freeNo=${preFreeVo.freeNo}' />">
+								<img alt="이전글 이미지" src="<c:url value='/images/up.png'/>">&nbsp;이전글
+							</a>
+						</td>
+						<td>${preFreeVo.title}</td>
+						<td>${preFreeVo.nickName }</td>
+						<td>${preFreeVo.regdate }</td>
+					</tr>
+					<tr>
+						<td>
+							<a href="<c:url value='/freeboard/detail.ag?freeNo=${nextFreeVo.freeNo}' />">
+								<img alt="다음글 이미지" src="<c:url value='/images/down.png'/>">&nbsp;다음글
+							</a>
+						</td>
+						<td>${nextFreeVo.title }</td>
+						<td>${nextFreeVo.nickName }</td>
+						<td>${nextFreeVo.regdate }</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </section>
 

@@ -102,7 +102,7 @@
 						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						 <a id="spCity" href="">
-						 대구</a>>
+						 대구</a>
 						 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

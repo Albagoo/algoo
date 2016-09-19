@@ -28,22 +28,44 @@
    type="text/javascript"></script>
 
 <script type="text/javascript">
-
-
-
+ 
    $(document).ready(function() {
 	 
+	   
+      
+	   
+	   
+	   //모집인원 입력시
+	   $("#writeMember").keyup(function() {
+		
+		   if($("#writeMember").length<1){
+			   
+			   $("#tenPeople").attr('disabled',true); 
+			   $("#tenPeople").attr('checked',false);
+			   $("#hundredPeople").attr('disabled',true);
+			   $("#hundredPeople").attr('checked',false);
+			   alert(asd);
+		   }else{
+			   $("#tenPeople").attr('disabled',false); 
+	            /* $("#tenPeople").attr('checked',true); */
+	            $("#hundredPeople").attr('disabled',false);
+	            /* $("#hundredPeople").attr('checked',false); */
+	            alert(asd);
+		   }
+		   
+		});
+	   
+	   //스크롤업
 	   $(function(){
 		   $.scrollUp();
 		 });
+	   
 	   
    $("#simple_top span").html("채용공고 등록");
    //simple_top 이용시 자기가 맡은화면 명칭 innerHTML로 붙여주기
 
    //서비스 등록 버튼을 눌렀을때
-   $("#submitBt")
-      .click(
-         function() {
+   $("#submitBt").click(function() {
             $("#grade").val($("#gradeSel option:selected").val())
             $("#days").val($("#daysSel option:selected").val())
             $("#divService").html("");
@@ -63,23 +85,20 @@
             url : "<c:url value='/service/serviceWrite.ag'/>",
             type : "GET",
             success : function(res) {
-            res = "<div>";
-            res += "<h2>서비스 선택</h2>";
-            res += '<form method="post" name="frmService" id="frmService" ';
+            res = '<form method="post" name="frmService" id="frmService" ';
             res += 'action="<c:url value='/service/serviceWrite.ag'/>" style="display:inline" >';
-            res += '<select class="button white"  id="gradeSel">';
+            res += '<select class="button small white"  id="gradeSel">';
             res += '<option value="슈퍼">슈퍼</option>';
             res += '<option value="그랜드">그랜드</option>';
             res += '<option value="프리미엄">프리미엄</option>';
             res += '<option value="일반">일반</option></select>';
-            res += '<select class="button white"  id="daysSel">';
+            res += '<select class="button small white"  id="daysSel">';
             res += '<option value="1">1일</option>';
             res += '<option value="7">7일</option>';
-            res += '<option value="30"> 30일</option>';
+            res += '<option value="30">30일</option>';
             res += '<option value="90">90일</option>';
             res += '<option value="180">180일</option></select>';
-            res += ' <input class="button medium white" type="reset" value="취소"> ';
-            res += ' </form></div>';
+            res += ' </form>';
             $("#divService").html(res);
          },
          error : function(xhr,status, error) {
@@ -219,27 +238,40 @@
          });
    });//change
 });
+   
+   
+	   //최저임금셋팅
+	   var minPay=6030;
+	   function minPaySet(){
+		   $("#pay").val(minPay);
+	   }
+	   
+	
 </script>
 
 
 <form name="frm1" method="post"
    action="<c:url value='/rec/recWrite.ag'/>">
-   <div id="divService" style="margin-left: 50px;"></div>
+   <div id="divService" style="margin-left: 50px;"></div> 
+       <input class="button small white" type="button" id="submitBt" 
+        value="서비스 설정" >  
+        
+   
    <div class="recWrite">
       <div id="serviceInfo">
 
          <span class="txt_85">서비스등급</span> 
-         <input class="txth_35" type="text"
-          id="grade" name="grade" readonly="readonly"> 
+         <input class="txth_35" type="text" size="30"
+          id="grade" name="grade" readonly="readonly"
+          value="일반"> 
         <span class="txt_85">서비스기간</span> 
         <input class="txt_35" type="text" id="days" 
-          name="days" readonly="readonly">
-      </div>
+          name="days" readonly="readonly" value="1">
+        </div>
+      <input type="button" value="서비스 선택" id="serviceBt" 
+        title="보여주기" class="white small button "> 
+    
 
-      <input type="button" value="서비스설정" id="serviceBt" 
-        title="보여주기" class="white button "> 
-      <input class="button white" type="button" id="submitBt" 
-        value="서비스 등록" style="margin-left: 300px"> 
       <input type="hidden" value="${compVo.compCode }" 
         name="compCode" readonly="readonly">
 
@@ -319,17 +351,22 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                   value="${compVo.fax3 }">
             </dt>
             <dt>
-               <span class="tit">e-mail</span> <input type="text" class="email1"
-                  placeholder="exam123" value="${compVo.email1 }"> <span
-                  class="txt_30">@</span> <input type="text" class="email2"
-                  placeholder=naver.com value="${compVo.email2 }"> <select
-                  class="email3 medium white textBox" id=email3>
+               <span class="tit">e-mail</span> 
+               <input type="text" class="email1"
+                 placeholder="exam123" value="${compVo.email1 }"> 
+               <span class="txt_30">@</span> 
+               <select class="floatLeft small button white" id=email2
+               style="margin-top: 10px">
                   <option value="naver">naver.com</option>
                   <option value="hanmail">hanmail.net</option>
                   <option value="google">google.com</option>
                   <option value="nate">nate.com</option>
                   <option value="etc">직접입력</option>
                </select>
+               <input type="text" class="email3" placeholder=naver.com
+                 id="email3" value="${compVo.email2 }">
+               
+               
             </dt>
          </dl>
       </div>
@@ -349,9 +386,9 @@ style="width: 150px;height: 100px;border: 1px solid gray">
             </dt>
             <dt>
                <span class="tit">업직종</span>
-               <select class="white medium button"  
+               <select class="white small button"  
                 name="jobName" id="jobName"> </select>
-                <select  class="white medium button"
+                <select  class="white small button"
                 name="jobName2" id="jobName2">
                 <option value="null">직종선택</option>
                </select>
@@ -372,7 +409,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
             </dt>
             <dt>
                <span class="tit">인근지하철</span> <select
-                  class="txt_100 white medium textBox" name="subRegion"
+                  class="txt_100 white small textBox" name="subRegion"
                   id="subRegion">
                   <option value="null">지역</option>
                   <option value="서울">서울</option>
@@ -380,9 +417,9 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                   <option value="대전">대전</option>
                   <option value="광주">광주</option>
                   <option value="부산">부산</option>
-               </select> <select class="txt_150 white medium textBox" name="subNum"
+               </select> <select class="txt_150 white small textBox" name="subNum"
                   id="subNum">
-               </select> <select class="txt_150 white medium textBox" name="subName"
+               </select> <select class="txt_150 white small textBox" name="subName"
                   id="subName">
 
                </select> <input type="text" class="txt_200" name="subInfo" id="subInfo"
@@ -434,7 +471,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
             </dt>
             <dt>
                <span class="tit">근무시간 </span><select
-                  class="txt_85 white textBox medium" name="workTime">
+                  class="txt_85 white textBox small" name="workTime">
                   <!-- <option value="null">시작</option> -->
                   <c:forEach var="i" begin="0" end="24" step="1">
                      <c:if test="${i<10 }">
@@ -447,7 +484,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                         <option value="${i}">${i}시</option>
                      </c:if>
                   </c:forEach>
-               </select> <select class="txt_85 white textBox medium" name="workTime2">
+               </select> <select class="txt_85 white textBox small" name="workTime2">
                   <!--   <option value="null">시간</option> -->
                   <c:forEach var="i" begin="0" end="60" step="10">
                      <c:if test="${i<10 }">
@@ -461,7 +498,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                      </c:if>
                   </c:forEach>
                </select> <span style="float: left;">~ </span><select
-                  class="txt_85 white textBox medium" name="workTime3">
+                  class="txt_85 white textBox small" name="workTime3">
                   <!-- <option value="null">종료</option> -->
                   <c:forEach var="i" begin="0" end="24" step="1">
                      <c:if test="${i<10 }">
@@ -473,7 +510,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                         <option value="${i}">${i}시</option>
                      </c:if>
                   </c:forEach>
-               </select> <select class="txt_85 white textBox medium" name="workTime4">
+               </select> <select class="txt_85 white textBox small" name="workTime4">
                   <!-- <option value="null">시간</option> -->
                   <c:forEach var="i" begin="0" end="60" step="10">
                      <c:if test="${i<10 }">
@@ -489,15 +526,20 @@ style="width: 150px;height: 100px;border: 1px solid gray">
             </dt>
             <dt>
                <span class="tit">선택</span> <select
-                  class="txt_85 white textBox medium" name="payType">
+                  class="txt_85 white textBox small" name="payType">
                   <option value="시급">시급</option>
                   <option value="일급">일당</option>
                   <option value="주급">주급</option>
                   <option value="월급">월급</option>
                   <option value="연봉">연봉</option>
-               </select> <input type="text" class="txt_150" name="pay" id="pay" value="0">
-               <span class="txt_30">원</span> <span class="button medium white">최저임금
-                  6030원 </span>
+               </select> 
+               <input type="text" class="txt_150" 
+               name="pay" id="pay" value="0">
+               <span class="txt_30">원</span> 
+              
+                <input id="minPay" value="최저임금  6030원"
+                class="white small"
+                type="button" onclick="minPaySet()"> 
             </dt>
             <dt class="floatLeft">
                <span class="tit">근무형태</span> <input type="checkbox"
@@ -661,7 +703,8 @@ style="width: 150px;height: 100px;border: 1px solid gray">
             <dt>
                <span class="titc">모집인원 </span> 
                <input type="text" class="txt_35"
-                placeholder="00명" name="recruitMember"> 
+                placeholder="00명" name="recruitMember"
+                id="writeMember"> 
                <input type="checkbox" id="tenPeople" 
                 name="recruitMember" value="0명">
                <label for="tenPeople"> 0명 </label> 
@@ -682,7 +725,6 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                   for="homemaker">주부</label> <input type="checkbox" id="senior"
                   name="recruitPerson" value="장년"> <label for="senior">장년</label>
 
-
                <input type="checkbox" id="disabled" name="recruitPerson"
                   value="장애인"> <label for="disabled">장애인</label> <input
                   type="checkbox" id="novice" name="recruitPerson" value="초보자">
@@ -697,11 +739,11 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                  <input type="text" id="calText" size="10"
                  name="recruitDeadlineView">
                  <input type="button" id="weekCal"
-                   value="일주일동안" class="white medium textBox"> 
+                   value="일주일동안" class="white small textBox"> 
                  <input type="button" id="monthCal"
-                   value="한달동안" class="white medium textBox">
+                   value="한달동안" class="white small textBox">
                  <input type="button" id="completeCal"
-                   value="채용시까지" class="white medium textBox">
+                   value="채용시까지" class="white small textBox">
             </dt>
             <dt>
                <span class="titc">접수방법</span> 
@@ -737,7 +779,6 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                  <input type="radio" name="recForm" id="FormS"> 
                  <label for="FormS">선택</label> )
                </span>
-
 
             </dt>
             <dt>

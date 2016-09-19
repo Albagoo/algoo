@@ -82,7 +82,8 @@ function compress_image($path_to_file, $dest_to_path,$quality=70) {
                     </li><li>압축이 가능한 파일은 gif, jpeg/jpg, png 등이 압축이 가능합니다.
                   </li></ul>
                 </blockquote>       
-                          <form action="<c:url value='../upload'/>" class="dropzone" drop-zone="" id="file-dropzone">
+                          <form action="/algoo/upload" 
+                          class="dropzone" drop-zone="" id="file-dropzone">
                          
                             <div class="dz-message text-center alert alert-danger">
                                 <h3><strong>배너파일을 이곳에 드롭다운 하시거나 여기를 클릭해 주세요.</strong></h3>

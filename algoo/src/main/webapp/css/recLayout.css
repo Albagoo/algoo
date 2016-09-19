@@ -46,12 +46,17 @@ body{
    border-radius: 1%;
     
 }
+#serviceInfo,#divService{
+	display: inline;
+	width: 300px; 
+}
 .recWrite dl dt {
    padding-bottom: 15px; 
 }
 .recWrite dl{
 	/* background: #fffcfc; */
 }
+
 .companyInfo,.personInfo,.workInfo,.workCondition,.requestCondition,.recContent,.detailContent {
    width: 880px;
    padding: 20px 0;
@@ -228,7 +233,7 @@ margin:10px;
    float: left;
 }
 .email2{
-   margin:10px;
+   margin:10Spx;
    width: 100px;
    float: left;
 }
@@ -242,6 +247,7 @@ margin:10px;
 }
 .recWrite h2{
 	width: 150px;
+	margin-top: 30px;
 }
 legend{
 	width: 250px;
@@ -332,7 +338,8 @@ dt input[type="radio"],dt input[type="checkbox"]{
    height:
    float: left;
 }
-floatLeft input[type="checkbox"]{
+floatLeft input[type="checkbox"],
+.floatLeft{
 	float: left;
 }
 

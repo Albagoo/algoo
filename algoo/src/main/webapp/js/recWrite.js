@@ -8,7 +8,7 @@ $(document).ready(function(){
 	$("#weekCal").click(function() {
 		var date = new Date();
 		var str= $.getDate(date);
-		$.setEndDate('d',7,str);
+		$.setEndDate('d',6,str);
 		
 	});
 	
@@ -16,6 +16,7 @@ $(document).ready(function(){
 		var date = new Date();
 		var str= $.getDate(date);
 		$.setEndDate('m',1,str);
+		$.setEndDate('d',-1,str);
 		
 	});
 	$("#completeCal").click(function() {
@@ -76,35 +77,23 @@ $(document).ready(function(){
         changeYear:true,
         dayNamesMin:['일','월','화','수','목','금','토'],
          monthNames:['1월','2월','3월','4월','5월','6월',
-                     '7월','8월','9월','10월','11월','12월']
+                     '7월','8월','9월','10월','11월','S12월']
 	});
 	
-	//페이지 위로
-
-	  $.scrollUp({
-		    scrollName: 'scrollUp', // Element ID
-		    topDistance: '300', // Distance from top before showing element (px)
-		    topSpeed: 300, // Speed back to top (ms)
-		    animation: 'fade', // Fade, slide, none
-		    animationInSpeed: 200, // Animation in speed (ms)
-		    animationOutSpeed: 200, // Animation out speed (ms)
-		    scrollText: '', // Text for element
-		    activeOverlay: false, // Set CSS color to display scrollUp active point, e.g '#00FFFF'
-		  });
-			
+    //이메일보여주기
+    $("#email3").css("visibility","hidden");
+    
+       $("#email2").change(function(){
+          if($("#email2").val()=="etc"){
+             $("#email3").css("visibility","visible");
+             $("#email3").focus();
+             $("#email3").val("");
+          }else{
+             $("#email3").css("visibility","hidden");
+          }
+       });//change
+       
 	
-	
-	$("#email2").css("visibility","hidden");
-		$("#email3").change(function(){
-			if($(this).val()=="etc"){
-				$("#email2").css("visibility","visible");
-				$("#email2").focus();
-				$("#email2").val("");
-			}else{
-				$("#email2").css("visibility","hidden");
-			}
-		});//chang
-		
 });
 		
 function validate_userid(userid){

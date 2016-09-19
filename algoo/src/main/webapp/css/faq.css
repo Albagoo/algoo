@@ -185,3 +185,10 @@ table.box2 td a{
 .cmtList{
 	background-color: #eee;
 }
+.contentBox a{
+	color:black;
+	font-size: 0.9em;
+}
+.contentBox img{
+	height: 9px;
+}

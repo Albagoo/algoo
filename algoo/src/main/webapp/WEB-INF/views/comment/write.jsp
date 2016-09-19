@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<div class="cmtWrite" style="margin: 20px 0 20px 0;">
+<div class="cmtWrite" style="margin: 0 0 20px 0;">
 <form name="cmtWrite" id="cmtWrite" method="post" 
   action="<c:url value='/comment/write.ag'/>" >
 <input type="hidden" id="userid" name="userid" value="${sessionScope.userid }">

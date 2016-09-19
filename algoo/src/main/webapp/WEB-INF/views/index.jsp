@@ -114,14 +114,12 @@
 				</div>
 				<div class="divDivision">
 					<!-- 알바 분류 -->
-					<div class="divJob">
+					<div class="divJob1">
 						<!-- 지역별 알바 -->
 						지역별 알바
 						<hr width="90px">
 						<div class="divMap">
 						<p class="areaP">
-						<%-- <img src="<c:url value='/images/map.png'/>"
-						 width="240px" height="200px"> --%>
 						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						 &nbsp;&nbsp;&nbsp;&nbsp;
 						 <a href="">
@@ -165,7 +163,7 @@
 						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						 <a href="">
 						 경남</a>
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						 <a id="spCity" href="">
 						 울산</a>
 						 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -188,7 +186,7 @@
 						</p>
 						</div>
 					</div>
-					<div class="divJob">
+					<div class="divJob2">
 						<!-- 업종별 알바 -->
 						업종별 알바
 						<hr width="90px">
@@ -217,7 +215,7 @@
 							</tr>
 						</table>
 					</div>
-					<div class="divJob">
+					<div class="divJob3">
 						<!-- 테마별 알바 -->
 						테마별 알바
 						<hr width="90px">
@@ -262,19 +260,33 @@
 					</div>
 					<div class="">
 						<img src="<c:url value='/images/spam.jpg'/>"
-						 width="245px">
+						 width="220px">
 					</div>
 					<div class="divCommercial2">
 						<!-- 다른 사이즈의 광고 -->
 						<img src="<c:url value='/images/banner/banner3.jpg'/>"
-						 width="245px" height="140px">
+						 width="220px" height="140px">
 					</div>
 				</div>
 				<div class="divBrand">
+				
+				
+				<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
+				</script>
+				<script type="text/javascript" src="<c:url value='/jquery/jquery.simplyscroll.js'/>"></script>
+				<link rel="stylesheet" href="<c:url value='/css/jquery.simplyscroll.css'/>" media="all" type="text/css">
+				<script type="text/javascript">
+				(function($) {
+					$(function() {
+						$("#scroller").simplyScroll();
+					});
+				})(jQuery);
+				</script>
+				
 					<!-- 브랜드 알바(페이지 슬라이드) -->
 					<div id="divRoll">
-						<ul class="divImgset">
-							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/BurgerKing_c.png'/>" alt=""/></a></li>
+						<ul id="scroller">
+						    <li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/BurgerKing_c.png'/>" alt=""/></a></li>
 							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/BR_c.png'/>" alt=""/></a></li>
 							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/Dunkin_c.png'/>" alt=""/></a></li>
 							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/GS25_c.png'/>" alt=""/></a></li>
@@ -322,15 +334,15 @@
 						 <p id="content">[재택근무] 2016년 상반기 알바</p>
 						 <p id="pay">서울 동작구 <span id="time">월</span>
 						 <span id="money">1,500,000</span>원</p>
-						</div></a><a href="#"><div class="SpBox">
+						</div></a>
+						
+						<a href="#"><div class="SpBox">
 						 <img src="<c:url value='/images/company/005.jpg'/>">
 						 <br><p id="title">유엔난민기구</p>
 						 <p id="content">[재택근무] 2016년 상반기 알바</p>
 						 <p id="pay">서울 동작구 <span id="time">월</span>
 						 <span id="money">1,500,000</span>원</p>
-						</a></div>
-						
-						<a href="#"><div class="SpBox">
+						</div></a><a href="#"><div class="SpBox">
 						 <img src="<c:url value='/images/company/006.jpg'/>">
 						 <br><p id="title">이베이</p>
 						 <p id="content">[재택근무] 2016년 상반기 알바</p>
@@ -348,7 +360,9 @@
 						 <p id="content">[재택근무] 2016년 상반기 알바</p></td>
 						 <p id="pay">서울 동작구 <span id="time">월</span>
 						 <span id="money">1,500,000</span>원</p>
-						</div></a><a href="#"><div class="SpBox">
+						</div></a>
+						
+						<a href="#"><div class="SpBox">
 						 <img src="<c:url value='/images/company/009.jpg'/>">
 						 <br><p id="title">라이나생명</p>
 						 <p id="content">[재택근무] 2016년 상반기 알바</p>
@@ -360,9 +374,7 @@
 						 <p id="content">[재택근무] 2016년 상반기 알바</p>
 						 <p id="pay">서울 동작구 <span id="time">월</span>
 						 <span id="money">1,500,000</span>원</p>
-						</div></a>
-						
-						<a href="#"><div class="SpBox">
+						</div></a><a href="#"><div class="SpBox">
 						 <img src="<c:url value='/images/company/011.jpg'/>">
 						 <br><p id="title">하나카드</p>
 						 <p id="content">[재택근무] 2016년 상반기 알바</p>
@@ -374,7 +386,9 @@
 						 <p id="content">[재택근무] 2016년 상반기 알바</p>
 						 <p id="pay">서울 동작구 <span id="time">월</span>
 						 <span id="money">1,500,000</span>원</p>
-						</div></a><a href="#"><div class="SpBox">
+						</div></a>
+						
+						<a href="#"><div class="SpBox">
 						 <img src="<c:url value='/images/company/013.jpg'/>">
 						 <br><p id="title">피자헛</p>
 						 <p id="content">[재택근무] 2016년 상반기 알바</p>
@@ -392,15 +406,15 @@
 						 <p id="content">[재택근무] 2016년 상반기 알바</p>
 						 <p id="pay">서울 동작구 <span id="time">월</span>
 						 <span id="money">1,500,000</span>원</p>
-						</a></div>
-					
-						<a href="#"><div class="SpBox">
+						</a></div><a href="#"><div class="SpBox">
 						 <img src="<c:url value='/images/company/016.jpg'/>">
 						 <br><p id="title">스시로</p>
 						 <p id="content">[재택근무] 2016년 상반기 알바</p>
 						 <p id="pay">서울 동작구 <span id="time">월</span>
 						 <span id="money">1,500,000</span>원</p>
-						</div></a><a href="#"><div class="SpBox">
+						</div></a>
+						
+						<a href="#"><div class="SpBox">
 						 <img src="<c:url value='/images/company/017.jpg'/>">
 						 <br><p id="title">죠스떡볶이</p>
 						 <p id="content">[재택근무] 2016년 상반기 알바</p>
@@ -450,13 +464,14 @@
 						 <p id="content">[재택근무] 2016년 상반기 알바</p>
 						 <p id="pay">서울 동작구 <span id="time">월</span>
 						 <span id="money">1,500,000</span>원</p>
-						</div></a><a href="#"><div class="SpBox">
+						</div></a>
+						<%-- <a href="#"><div class="SpBox">
 						 <img src="<c:url value='/images/company/025.jpg'/>">
 						 <br><p id="title">앤젤리너스</p>
 						 <p id="content">[재택근무] 2016년 상반기 알바</p>
 						 <p id="pay">서울 동작구 <span id="time">월</span>
 						 <span id="money">1,500,000</span>원</p>
-						</div></a>
+						</div></a> --%>
 					</div>
 			</div>
 
@@ -482,15 +497,15 @@
 						 <p id="content">주5일/주말근무/휴일근무</p>
 						 <p id="pay">서울 동작구 <span id="time">월</span>
 						 <span id="money">1,500,000</span>원</p>
-						</div></a><a href="#"><div class="GrBox">
+						</div></a>
+						
+						<a href="#"><div class="GrBox">
 						 <img src="<c:url value='/images/company/029.jpg'/>">
 						 <br><p id="title">삼성화재서비스</p>
 						 <p id="content">주5일/주말근무/휴일근무</p>
 						 <p id="pay">서울 동작구 <span id="time">월</span>
 						 <span id="money">1,500,000</span>원</p>
-						</div></a>
-						
-						<a href="#"><div class="GrBox">
+						</div></a><a href="#"><div class="GrBox">
 						 <img src="<c:url value='/images/company/030.jpg'/>">
 						 <br><p id="title">삼성화재애니카</p>
 						 <p id="content">주5일/주말근무/휴일근무</p>
@@ -502,6 +517,11 @@
 						 <p id="content">주5일/주말근무/휴일근무</p>
 						 <p id="pay">서울 동작구 <span id="time">월</span>
 						 <span id="money">1,500,000</span>원</p>
+						</div></a><a href="#">
+						
+						<div class="GrBox">
+						 <p id="grayFont">파워 점프, 지역 focus,<br>지역TOP, 업직종 TOP 무료</p>
+						 <p id="grayButton"> 상품 안내 및 신청 </p>
 						</div></a><a href="#"><div class="GrBox">
 						 <p id="grayFont">파워 점프, 지역 focus,<br>지역TOP, 업직종 TOP 무료</p>
 						 <p id="grayButton"> 상품 안내 및 신청 </p>
@@ -511,10 +531,9 @@
 						</div></a>
 				</div>
 			</div>
+			
 			<div class="divOther">
 				<!-- 일반 공고 리스트(게시판형) -->
-				<br><br>
-				<span id="divTitle">스페셜 채용공고</span>
 				<article id="divOther">
 				<c:import url="/mainRecList.ag"></c:import>
 				</article>

@@ -65,4 +65,14 @@ public class FreeboardServiceImpl implements FreeboardService{
 		
 		return cnt;
 	}
+
+	@Override
+	public FreeboardVO prevContent(int freeNo) {
+		return freeDao.prevContent(freeNo);
+	}
+
+	@Override
+	public FreeboardVO nextContent(int freeNo) {
+		return freeDao.nextContent(freeNo);
+	}
 }

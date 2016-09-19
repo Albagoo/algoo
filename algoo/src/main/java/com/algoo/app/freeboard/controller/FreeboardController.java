@@ -20,7 +20,6 @@ import com.algoo.app.common.PaginationInfo;
 import com.algoo.app.common.SearchVO;
 import com.algoo.app.freeboard.model.FreeboardService;
 import com.algoo.app.freeboard.model.FreeboardVO;
-import com.algoo.app.member.model.MemberService;
 
 
 @Controller
@@ -97,8 +96,7 @@ public class FreeboardController {
 	
 	@RequestMapping("/detail.ag")
 	public String detail(
-			@RequestParam(defaultValue="0") int freeNo,
-			Model model){
+			@RequestParam(defaultValue="0") int freeNo,	Model model){
 		logger.info("freeboard 상세보기 파라미터, freeNo = {}", freeNo);
 		
 		if(freeNo==0){
@@ -110,7 +108,17 @@ public class FreeboardController {
 		
 		FreeboardVO freeVo = freeService.selectFreeboardByNo(freeNo);
 		logger.info("freeboard 상세보기 결과 freeVo = {}", freeVo);
+		
+		FreeboardVO freePreVo=freeService.prevContent(freeNo);
+		logger.info("이전글 보기 결과 freeVo = {}", freeVo);
+		
+		FreeboardVO freeNextVo=freeService.nextContent(freeNo);
+		logger.info("다음글 보기 결과 freeVo = {}", freeVo);
+		
 		model.addAttribute("freeVo", freeVo);
+		model.addAttribute("preFreeVo", freePreVo);
+		model.addAttribute("nextFreeVo", freeNextVo);
+		
 		
 		return "freeboard/detail";
 	}

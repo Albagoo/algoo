@@ -50,6 +50,24 @@
 		]]>
 	</select>
 	
+	<!-- 이전글 -->
+	<select id="prevContent" parameterType="int" resultType="FreeboardVO">
+		SELECT * FROM free_board
+		WHERE free_no IN (SELECT MAX(free_no)
+		<![CDATA[ 
+			FROM free_board WHERE free_no < #{freeNo})
+		]]>
+	</select>
+	
+	<!-- 다음글 -->
+	<select id="nextContent" parameterType="int" resultType="FreeboardVO">
+		SELECT * FROM free_board
+		WHERE free_no IN (SELECT MIN(free_no)
+		<![CDATA[
+			FROM free_board WHERE free_no > #{freeNo})
+		]]>
+	</select>
+	
 	<select id="selectTotalCount" resultType="int" 
 		parameterType="SearchVO">
 		select count(*) from free_board 

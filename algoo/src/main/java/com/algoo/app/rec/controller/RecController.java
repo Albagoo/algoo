@@ -133,6 +133,12 @@ public class RecController {
 			
 			int cnt=areaArr.length;
 			
+				for (int i = 0; i < areaArr.length; i++) {
+					if(areaArr[i].equals("전국전체")){
+						areaArr[i]=" ";
+					}
+				}
+			
 				searchVo.setArea1(areaArr[0]);
 				if(cnt>=2)searchVo.setArea2(areaArr[1]);
 				if(cnt>=3)searchVo.setArea3(areaArr[2]);

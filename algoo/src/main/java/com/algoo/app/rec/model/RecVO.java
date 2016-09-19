@@ -1,7 +1,6 @@
 package com.algoo.app.rec.model;
 
 import java.sql.Date;
-import java.sql.Timestamp;
 
 public class RecVO {
 	private int recCode;// NUMBER NOT NULL,
@@ -34,7 +33,7 @@ public class RecVO {
 	private String preference;// varchar2(255 byte),
 	private String recruitMember;// VARCHAR2(255 BYTE),
 	private String recruitPerson;// VARCHAR2(255 BYTE),
-	private String recruitDeadline;// DATE,
+	private Date recruitDeadline;// DATE,
 	private String recruitMethod;// VARCHAR2(255 BYTE),
 	private String documents;// VARCHAR2(255 BYTE),
 	private String detailRecruit;// VARCHAR2(255 BYTE),
@@ -60,11 +59,11 @@ public class RecVO {
 		this.payType = payType;
 	}
 
-	public String getRecruitDeadline() {
+	public Date getRecruitDeadline() {
 		return recruitDeadline;
 	}
 
-	public void setRecruitDeadline(String recruitDeadline) {
+	public void setRecruitDeadline(Date recruitDeadline) {
 		this.recruitDeadline = recruitDeadline;
 	}
 

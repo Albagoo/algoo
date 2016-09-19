@@ -50,7 +50,7 @@
       
 //지역구 셋팅  지역(서울,인천,경기..)에 
       $.ajax({
-          url:"<c:url value='/json/area.json'/>",
+          url:"<c:url value='/json/areas.json'/>",
           data:"GET",
           dataType:"json",
           success : function(res) {
@@ -126,7 +126,7 @@
     function test() {
     	//선택한 지역 표시
         $.ajax({
-           url:"<c:url value='/json/area.json'/>",
+           url:"<c:url value='/json/areas.json'/>",
               data:"GET",
               dataType:"json",
               success : function(res) {

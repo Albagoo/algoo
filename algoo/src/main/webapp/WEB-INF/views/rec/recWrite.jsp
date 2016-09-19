@@ -39,16 +39,13 @@
         var abc=$("#writeMember").val().length;
 	         
 		 if(abc>=1){
-			 if($("#tenPeople").is(":checked")){
-			 $("#tenPeople").trigger('click');
-			 }
-			 if($("#hundredPeople").is(":checked")){
-			 $("#hundredPeople").trigger('click');
-			 }
-			   $("#tenPeople").attr('disabled',true); 
-			   $("#hundredPeople").attr('disabled',true);
+			 $("#tenxten").css("visibility","hidden");
+			 $("#tenxone").css("visibility","hidden");
+			 $("#tenPeople").attr('disabled',true); 
+			 $("#hundredPeople").attr('disabled',true);
 		 }else{
-			
+			 $("#tenxone").css("visibility","visible");
+			 $("#tenxten").css("visibility","visible");
 			   $("#tenPeople").attr('disabled',false); 
 			   $("#hundredPeople").attr('disabled',false);
 		 }
@@ -702,14 +699,14 @@ style="width: 150px;height: 100px;border: 1px solid gray">
          <dl class="clearBoth">
             <dt>
                <span class="titc">모집인원 </span> 
-               <input type="text" class="txt_35"
+               <input type="text" class="txt_50"
                 placeholder="00명" name="recruitMember"
-                id="writeMember"> 
-               <input type="checkbox" id="tenPeople" 
+                id="writeMember" name="recruitMember"> 
+               <input type="radio" id="tenPeople" 
                 name="recruitMember" value="0명">
                <label id="tenxone" for="tenPeople"> 0명 </label> 
-               <input type="checkbox" id="hundredPeople" 
-                name="recruitMember" value="00명"> 
+               <input type="radio" id="hundredPeople" 
+                name="recruitMember" value="00명" name="recruitMember"> 
                 <label id="tenxten" for="hundredPeople">00명 </label>
             </dt>
             <dt>

@@ -9,6 +9,10 @@
 	$(document).ready(function(){
 		$("#simple_top span").html("회원가입");
 		//simple_top 이용시 자기가 맡은화면 명칭 innerHTML로 붙여주기
+		
+		$("#bt_personal").click(function(){
+			location.href="<c:url value='/member/agreement.ag'/>";
+		});
 	});
 </script>
 <section>

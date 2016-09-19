@@ -6,7 +6,7 @@
   action="<c:url value='/comment/write.ag'/>" >
 <input type="hidden" id="userid" name="userid" value="${sessionScope.userid }">
 <input type="hidden" id="nickName" name="nickName" value="${sessionScope.nickName }">
-<input type="hidden" id="freeNo" name="freeNo" value="${commentVO.freeNo }">
+<input type="hidden" id="freeNo" name="freeNo" value="${param.freeNo }">
 	<div class="cmtWrite" style="padding-left:30px;">    
 		<div>
 			<textarea id="content" name="content" 

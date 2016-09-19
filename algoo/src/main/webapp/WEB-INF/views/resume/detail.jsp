@@ -85,7 +85,7 @@
 								<td id="td1" style="width: 20%; padding-left: 0;font-weight: bold;;">주소</td>
 								<td id="td2" style="padding: 5px">
 								<input type="text" style="width: 180%" 
-								value="${memberVo.address } ${memberVo.addressDetail}" readonly></td>
+								value="${memberVo.address }${memberVo.addressDetail}" readonly></td>
 								</tr>
 						</table>
 					</td>

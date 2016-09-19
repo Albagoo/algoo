@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.algoo.app.comment.model.CommentService;
@@ -32,7 +33,7 @@ public class CommentController {
 		return "redirect:/freeboard/detail.ag?freeNo="+cmtVo.getFreeNo();
 	}
 	
-	@RequestMapping("/comment/list.do")
+	@RequestMapping("/comment/list.ag")
 	public String ListComment(@RequestParam(defaultValue="0") int freeNo, Model model){
 		logger.info("댓글 리스트, 파라미터 freeNo = {}", freeNo);
 		
@@ -41,6 +42,18 @@ public class CommentController {
 		
 		model.addAttribute("clist", clist);
 		
-		return "commnet/list";
+		return "comment/list";
+	}
+	
+	@RequestMapping(value="/comment/reply.ag", method=RequestMethod.POST)
+	public String reply_post(@ModelAttribute CommentVO cmtVo,
+			Model model){
+		//답변 달기 처리
+		//1. 파라미터 읽어오기
+		
+		//2. db
+		int cnt = cmtService.insertReply(cmtVo);
+		
+		return "redirect:/freeboard/detail.ag?freeNo="+cmtVo.getFreeNo();
 	}
 }

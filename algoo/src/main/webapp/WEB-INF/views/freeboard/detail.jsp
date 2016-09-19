@@ -41,7 +41,9 @@ src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
 		</div>
 		<div class="comments">
 			<div class="cmtList">
-				<%@ include file="../comment/list.jsp" %>
+				<c:import url="/comment/list.ag">
+					<c:param name="freeNo" value="${param.freeNo }"></c:param>
+				</c:import>
 				<%@ include file="../comment/write.jsp" %>
 			</div>
 		</div>

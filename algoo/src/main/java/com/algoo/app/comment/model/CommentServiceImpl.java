@@ -4,8 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.algoo.app.common.SearchVO;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class CommentServiceImpl implements CommentService{
@@ -21,6 +20,16 @@ public class CommentServiceImpl implements CommentService{
 	@Override
 	public List<CommentVO> selectComment(int freeNo) {
 		return cmtDao.selectComment(freeNo);
+	}
+	
+	@Override
+	@Transactional
+	public int insertReply(CommentVO vo) {
+		int cnt = cmtDao.updateSortNo(vo);
+		
+		cnt = cmtDao.insertReply(vo);
+		
+		return cnt;
 	}
 
 }

@@ -5,8 +5,14 @@
 <mapper namespace="com.mybatis.mapper.oracle.faq">
 	<sql id="searchWhere">
 		<where>
-			<if test="searchKeyword!=null and searchKeyword!=''">
+			<if test="searchCondition!=null and searchCondition!=''">
 				${searchCondition} 
+				like '%' || #{searchKeyword} || '%'
+			</if>
+			<if test="searchCondition==null and searchCondition==''">
+				title 
+				like '%' || #{searchKeyword} || '%'
+				and content
 				like '%' || #{searchKeyword} || '%'
 			</if>
 		</where>

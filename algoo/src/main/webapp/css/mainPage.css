@@ -2,7 +2,6 @@
 .divMain{
 	margin:auto;
 	width:1024px;
-	background-color:ivory;
 }
 
 /* 광고 및 기본기능 */
@@ -28,6 +27,26 @@
 	height:250px;
 	margin:5px;
 }
+.areaP{
+	padding-top:10px;
+	clear:none;
+	font-size:10px;
+	font-weight:normal;
+	text-align:left;
+}
+.areaP a{
+	color:black;
+}
+#spCity{
+	font-weight:bold;
+	
+}
+.divMap{
+	background-image:url("../images/map.png");
+	background-size:240px 200px;
+	width:240px;
+	height:200px;
+}
 .divJob{
 	width: 33%;
 	height:250px;
@@ -38,6 +57,10 @@
 	text-align:center;
 	font-weight:bold;
 	font-size:1.2em;
+}
+.divJob a{
+	text-decoration:none;
+	color:black;
 }
 .divJob table{
 	width: 250px;
@@ -205,4 +228,26 @@
 	margin-top:5px;
 	padding:5px 0px 5px 0px;
 	text-align:center;
+}
+
+/* 스페셜 공고 */
+.divOther{
+	
+}
+
+.mainEmp{
+	width:800px;
+	font-size:14px;
+	border-top:solid 3px black;
+	border-bottom:solid 3px black;
+}
+.mainEmp td{
+	padding-top:5px;
+	padding-bottom:5px;
+	border-top:solid 1px silver;
+	border-bottom:solid 1px silver;
+}
+.mainEmp td a{
+	text-decoration:none;
+	color:black;
 }

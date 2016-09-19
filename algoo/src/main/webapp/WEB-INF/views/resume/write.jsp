@@ -627,7 +627,12 @@
     		$("#detail").val(detail);
     		
     		/* 연락가능시간 */
-    		var contatctHour = $("#time1 option:selected").val()+" ~ "+$("#time2 option:selected").val();
+    		var contatctHour = "";
+    		if($("#time1 option:selected").val() != ""
+    					&& $("#time2 option:selected").val() != ""){
+    			contatctHour = $("#time1 option:selected").val()+" ~ "
+    								+$("#time2 option:selected").val();
+    		}
     		
     		$("#contatctHour").val(contatctHour);
     		
@@ -704,7 +709,12 @@
 			$("#day").val(day);
     		
     		/* 급여 */
-    		var pay = $("#pay1 option:selected").val() + " " + $("#pay2").val() + "원";
+    		var pay = "";
+    		
+    		if($("#pay1 option:selected").val() != ""){
+    			pay = $("#pay1 option:selected").val() + " " + $("#pay2").val() + "원";
+    		}
+    		
     		if($("#pay3").is(":checked")){
     			pay = "추후협의";
     		}
@@ -844,7 +854,15 @@
         			$("#collicense_place").focus();
         			return false;
     			}
-    		}
+    		}else if($("#contatctHour").val().length < 1){
+				alert("연락가능시간을 입력하셔야 합니다!!");
+    			$("#contatctHour").focus();
+    			return false;
+			}else if($("#pay").val().length < 1){
+				alert("급여를 입력하셔야 합니다!!");
+    			$("#pay").focus();
+    			return false;
+			}
     	}); //submit
     	
     	$("select").addClass("medium white textBox");
@@ -1187,7 +1205,7 @@
 		</tr>
 		<tr id="tr">
 			<td id="td1">
-				급여
+				<label id="a">*</label>&nbsp;급여
 			</td>
 			<td id="td2">
 				<select name="pay1" id="pay1">

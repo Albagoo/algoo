@@ -1,6 +1,8 @@
 package com.algoo.app.freeboard.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
@@ -29,9 +31,6 @@ public class FreeboardController {
 	
 	@Autowired
 	private FreeboardService freeService;
-	
-	@Autowired
-	private MemberService memService;
 	
 	@RequestMapping(value="/write.ag", method=RequestMethod.GET)
 	public String freeWrite_get(){
@@ -152,8 +151,15 @@ public class FreeboardController {
 	public String delete(@RequestParam(defaultValue="0") int freeNo, Model model){
 		logger.info("Freeboard 삭제 , 파라미터 freeNo = {}", freeNo);
 		
-		int cnt=freeService.deleteFreeboard(freeNo);
-		logger.info("글삭제 결과, cnt = {}", cnt);
+		FreeboardVO freeVo=freeService.selectFreeboardByNo(freeNo);
+		
+		Map<String, String> map=new HashMap<String, String>();
+		map.put("freeNo", Integer.toString(freeNo));
+		map.put("groupNo", freeVo.getGroupNo()+"");
+		map.put("step", freeVo.getStep()+"");
+		logger.info("글삭제시 파라미터 map = {}", map);
+					
+		freeService.deleteFreeboard(map);
 			
 		return "redirect:/freeboard/list.ag";
 	}

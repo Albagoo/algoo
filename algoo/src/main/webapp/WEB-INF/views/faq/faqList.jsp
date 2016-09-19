@@ -144,7 +144,7 @@
 <div class="divPage">
 	<c:if test="${pagingInfo.firstPage>1 }">	
 		<a href="#" onclick="pageProc(${pagingInfo.firstPage-1})">
-			<img src="<c:url value='/images/first.JPG'/>" alt="이전블럭으로">
+			<img src="<c:url value='/images/past.png'/>" alt="이전블럭으로" align=absmiddle>
 		</a>	
 	</c:if>
 	<c:forEach var="i" begin="${pagingInfo.firstPage }" 
@@ -163,7 +163,7 @@
 	<c:if test="${pagingInfo.lastPage<pagingInfo.totalPage }">	
 		<a href="#" 
 		onclick="pageProc(${pagingInfo.lastPage+1})">
-			<img src="<c:url value='/images/last.JPG'/>" alt="다음블럭으로">
+			<img src="<c:url value='/images/next.png'/>" alt="다음블럭으로" align=absmiddle>
 		</a>
 	</c:if>
 </div>

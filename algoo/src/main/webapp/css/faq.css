@@ -25,6 +25,26 @@
 #faqinfo p a{
 	color:black;	
 }
+.faqSearch{
+	margin: 30px 0 30px 0;
+	padding: 30px 0 30px 0;
+	border: 5px solid lightgray;
+	float: right;
+	width: 75.5%;
+}
+.faqSearch span{
+	font-weight: bold; 
+	font-size: 1.2em;
+	margin-right: 10px;
+	padding-left: 180px;
+}
+.faqSearch input[type="text"]{
+	
+}
+.faqSearch input[type="image"]{
+	height: 31px;
+	padding-bottom: 1px;
+}
 
 /* faqWrite */
 .center{
@@ -114,6 +134,9 @@ table.box2 td a{
 	color: black;
 	padding: 0 10px 0 10px;
 }
+.divPage img{
+	height: 16px;
+}
 .category{
 	font-size: 0.8em;
 	margin-bottom: 3px;
@@ -158,4 +181,7 @@ table.box2 td a{
 }
 #reply{
 	height: 15px;
+}
+.cmtList{
+	background-color: #eee;
 }

@@ -62,8 +62,75 @@
 						<!-- 지역별 알바 -->
 						지역별 알바
 						<hr width="90px">
-						<img src="<c:url value='/images/map.png'/>"
-						 width="240px" height="200">
+						<div class="divMap">
+						<p class="areaP">
+						<%-- <img src="<c:url value='/images/map.png'/>"
+						 width="240px" height="200px"> --%>
+						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 &nbsp;&nbsp;&nbsp;&nbsp;
+						 <a href="">
+						 경기</a>
+						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 <a href="">
+						 강원</a>
+						 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 <a id="spCity" href="">
+						 인천</a>
+						 &nbsp;&nbsp;
+						 <a id="spCity" href="">
+						 서울</a>
+						 <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 <a href="">
+						 충남</a>
+						 &nbsp;&nbsp;&nbsp;
+						 <a href="">
+						 충북</a>
+						 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 <a id="spCity" href="">
+						 대전</a>
+						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 &nbsp;
+						 <a href="">
+						 경북</a>
+						 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 <a href="">
+						 전북</a>
+						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 <a id="spCity" href="">
+						 대구</a>
+						 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 <a href="">
+						 경남</a>
+						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 <a id="spCity" href="">
+						 울산</a>
+						 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 &nbsp;&nbsp;&nbsp;&nbsp;
+						 <a id="spCity" href="">
+						 광주</a>
+						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 <a id="spCity" href="">
+						 부산</a>
+						 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 <a href="">
+						 전남</a>
+						 <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						 &nbsp;&nbsp;
+						 <a href="">
+						 제주</a>
+						</p>
+						</div>
 					</div>
 					<div class="divJob">
 						<!-- 업종별 알바 -->

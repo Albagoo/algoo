@@ -28,6 +28,25 @@
 	height:250px;
 	margin:5px;
 }
+.areaP{
+	padding-top:10px;
+	clear:none;
+	font-size:10px;
+	font-weight:normal;
+	text-align:left;
+}
+.areaP a{
+	color:black;
+}
+#spCity{
+	font-weight:bold;
+}
+.divMap{
+	background-image:url("../images/map.png");
+	background-size:240px 200px;
+	width:240px;
+	height:200px;
+}
 .divJob{
 	width: 33%;
 	height:250px;

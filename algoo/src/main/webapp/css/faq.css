@@ -192,3 +192,6 @@ table.box2 td a{
 .contentBox img{
 	height: 9px;
 }
+.contentBox{
+	margin-top: 20px;
+}

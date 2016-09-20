@@ -62,15 +62,26 @@ public class FreeboardController {
 		searchVo.setBlockSize(pagingInfo.getBlockSize());
 		searchVo.setRecordCountPerPage(pagingInfo.getRecordCountPerPage());
 		searchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
+		
+		PaginationInfo onePage = new PaginationInfo();
+		onePage.setBlockSize(1);
+		onePage.setRecordCountPerPage(20);
+		onePage.setCurrentPage(searchVo.getCurrentPage());
+		
+		searchVo.setBlockSize(onePage.getBlockSize());
+		searchVo.setRecordCountPerPage(onePage.getRecordCountPerPage());
+		searchVo.setFirstRecordIndex(onePage.getFirstRecordIndex());
 				
 		List<FreeboardVO> alist = freeService.selectAllFreeboard(searchVo);
 		logger.info("freeboard 목록 조회 결과 alist.size()={}", alist.size());
 		
 		int totalRecord=freeService.selectTotalCount(searchVo);
 		pagingInfo.setTotalRecord(totalRecord);
+		onePage.setTotalRecord(totalRecord);
 				
 		model.addAttribute("freeList", alist);
 		model.addAttribute("pagingInfo", pagingInfo);
+		model.addAttribute("onePage", onePage);
 		
 		return "freeboard/list";
 	}

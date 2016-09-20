@@ -18,7 +18,6 @@ import com.algoo.app.common.SearchVO;
 import com.algoo.app.faq.model.FaqService;
 import com.algoo.app.faq.model.FaqVO;
 import com.algoo.app.faq.model.ListFaqVO;
-import com.algoo.app.freeboard.model.FreeboardVO;
 
 @Controller
 @RequestMapping("/faq")
@@ -61,6 +60,15 @@ public class FaqController {
 		searchVo.setBlockSize(pagingInfo.getBlockSize());
 		searchVo.setRecordCountPerPage(pagingInfo.getRecordCountPerPage());
 		searchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
+		
+		PaginationInfo onePage = new PaginationInfo();
+		onePage.setBlockSize(1);
+		onePage.setRecordCountPerPage(20);
+		onePage.setCurrentPage(searchVo.getCurrentPage());
+		
+		searchVo.setBlockSize(onePage.getBlockSize());
+		searchVo.setRecordCountPerPage(onePage.getRecordCountPerPage());
+		searchVo.setFirstRecordIndex(onePage.getFirstRecordIndex());
 				
 		//List<FaqVO> alist = faqService.selectAllFaq(searchVo);
 		List<FaqVO> alist = new ArrayList<FaqVO>();
@@ -76,9 +84,11 @@ public class FaqController {
 		
 		int totalRecord=faqService.selectTotalCount(searchVo);
 		pagingInfo.setTotalRecord(totalRecord);
+		onePage.setTotalRecord(totalRecord);
 				
 		model.addAttribute("alist", alist);
 		model.addAttribute("pagingInfo", pagingInfo);
+		model.addAttribute("onePage", onePage);
 		
 		return "faq/faqList";
 	}
@@ -181,22 +191,32 @@ public class FaqController {
 		
 		PaginationInfo pagingInfo = new PaginationInfo();
 		pagingInfo.setBlockSize(10);
-		pagingInfo.setRecordCountPerPage(8);
+		pagingInfo.setRecordCountPerPage(20);
 		pagingInfo.setCurrentPage(searchVo.getCurrentPage());
 		
 		searchVo.setBlockSize(pagingInfo.getBlockSize());
 		searchVo.setRecordCountPerPage(pagingInfo.getRecordCountPerPage());
 		searchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
 		
+		PaginationInfo onePage = new PaginationInfo();
+		onePage.setBlockSize(1);
+		onePage.setRecordCountPerPage(20);
+		onePage.setCurrentPage(searchVo.getCurrentPage());
+		
+		searchVo.setBlockSize(onePage.getBlockSize());
+		searchVo.setRecordCountPerPage(onePage.getRecordCountPerPage());
+		searchVo.setFirstRecordIndex(onePage.getFirstRecordIndex());
 		
 		List<FaqVO> ulist = faqService.selectUserFaq(searchVo);
 		logger.info("FAQ UserList 조회 결과 ulist.size()={}", ulist.size());
 		
 		int totalRecord=faqService.selectTotalCount(searchVo);
 		pagingInfo.setTotalRecord(totalRecord);
-				
+		onePage.setTotalRecord(totalRecord);
+		
 		model.addAttribute("ulist", ulist);
 		model.addAttribute("pagingInfo", pagingInfo);
+		model.addAttribute("onePage", onePage);
 		
 		return "faq/faqUserList";
 	}

@@ -58,7 +58,7 @@
 	    } else {
 	        if (!$('#rightMenu').hasClass('fixed')) {
 	            $('#header').css('top', -150);
-	            $('#rightMenu').css('top', 0);
+	            $('#rightMenu').css('top', 10);
 	            $('#rightMenu').addClass('fixed');
 	        }
 	    }

@@ -53,7 +53,6 @@
 	
 	.divList{
 		width:100%;
-		border:1px solid #eee;
 		margin:2px;
 		text-align: center;
 		/* border-radius:4px; */
@@ -271,4 +270,33 @@ table.box2 td a{
 	font-weight: bold; 
 	font-size: 1.2em;
 	margin-right: 10px;
+}
+.noticeSearch input[type="image"]{
+	height: 31px;
+	padding-bottom: 1px;
+}
+.noticeSearch input[type="text"]{
+	 width: 200px;
+	 height: 25px;
+}
+.divPage img{
+	height: 16px;
+}
+.category{
+	font-size: 0.8em;
+	margin: 0 0 5px 3px;
+	float: left;
+	border: none;
+}
+/*이전글 다음글*/
+.contentBox a{
+	color:black;
+	font-size: 0.9em;
+}
+.contentBox img{
+	height: 9px;
+}
+.contentBox{
+	margin-top: 20px;
+	border: none;
 }

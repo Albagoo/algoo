@@ -13,4 +13,9 @@ public class CareerDAOMybatis extends SqlSessionDaoSupport
 		return getSqlSession().insert(namespace+".insertCareer", careerVo);
 	}
 
+	@Override
+	public CareerVO selectCareer(int careerCode) {
+		return getSqlSession().selectOne(namespace+".selectCareer", careerCode);
+	}
+
 }

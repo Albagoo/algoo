@@ -4,10 +4,15 @@
 
 <mapper namespace="com.mybatis.mapper.oracle.career">
 	<insert id="insertCareer" parameterType="CareerVO">
-	<selectKey keyProperty="careerCode" resultType="int" order="BEFORE">
-		select career_seq.nextval from dual
-	</selectKey>
-	insert into career
-	values(#{careerCode}, #{company}, #{period}, #{work})
+		<selectKey keyProperty="careerCode" resultType="int" order="BEFORE">
+			select career_seq.nextval from dual
+		</selectKey>
+		insert into career
+		values(#{careerCode}, #{company}, #{period}, #{work})
 	</insert>
+	
+	<select id="selectCareer" parameterType="int" resultType="CareerVO">
+		select * from career
+		where career_code = #{careerCode}
+	</select>
 </mapper>

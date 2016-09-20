@@ -4,11 +4,19 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ include file="../inc/simple_top.jsp" %>
-<link rel="stylesheet" type="text/css" href="<c:url value='/css/faq.css'/>" />
-<link rel="stylesheet" type="text/css" href="<c:url value='/css/recLayout.css'/>" />
-<script type="text/javascript" src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
+<link rel="stylesheet" type="text/css" href=
+"<c:url value='/css/faq.css'/>" />
+<link rel="stylesheet" type="text/css" href=
+"<c:url value='/css/recLayout.css'/>" />
+<script type="text/javascript" src
+="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+ 
 
-<script type="text/javascript" src="<c:url value='/scrollup-master/dist/jquery.scrollUp.min.js'/>"></script>
+<script type="text/javascript" src
+="<c:url value='../api/scrollup-master/dist/jquery.scrollUp.min.js'/>"></script>
+<script type="text/javascript" src
+="<c:url value='../api/scrollup-master/src/jquery.scrollUp.js'/>"></script>
 <link rel="stylesheet" type="text/css"
    href="<c:url value='/css/simpleButton.css'/>" />
 <link rel="stylesheet" href="<c:url value='/jquery/jquery-ui.css'/>"
@@ -16,25 +24,60 @@
 <script src="<c:url value='/jquery/jquery-ui.js'/>"
    type="text/javascript"></script>
 
-
+ <style>
+  
+  </style>
 
 <script type="text/javascript">  
+   
+
    $(document).ready(function(){
-      $(".divList .box2 tbody tr")
+	   
+	   $( "#jobTabs" ).tabs({});
+		  
+	   
+	   
+	   //업직종 보여주기
+	   // run the currently selected effect
+	    function runEffect(effect) {
+	      // get effect type from
+	      var selectedEffect = $( "#effectTypes" ).val();
+	 
+	      // Most effect types need no options passed by default
+	      var options = {};
+	      // some effects have required parameters
+	      if ( selectedEffect === "scale" ) {
+	        options = { percent: 50 };
+	      } else if ( selectedEffect === "size" ) {
+	        options = { to: { width: 200, height: 60 } };
+	      }
+	 
+	      // Run the effect
+	      $( effect ).toggle( selectedEffect, options, 500 );
+	    };
+	 
+	    // Set effect from select menu value
+	    $( "#button" ).on( "click", function() {
+	      runEffect("#effect");
+	    });
+	    $( "#button2" ).on( "click", function() {
+	      runEffect("#effect2");
+	    });
+	   
+	   
+	   $(".divList .box2 tbody tr")
       .hover(function(){
          $(this).css("background","eee").css("cursor","pointer");
       }, function(){
          $(this).css("background","");
       });
       
+      
 //지역구 셋팅  (서울,인천,경기..) 탭형식으로 볼수 있게 해줌
       $( "#tabs" ).tabs();
-      
-      
-      
 //지역구 셋팅  지역(서울,인천,경기..)에 
       $.ajax({
-          url:"<c:url value='/json/area.json'/>",
+          url:"<c:url value='/json/areas.json'/>",
           data:"GET",
           dataType:"json",
           success : function(res) {
@@ -103,14 +146,11 @@
            });//for
              $(tag).html(result);
       }//func
-   
-   
-    
-    
+    /* var guArr={"#GU0","#GU0","#GU0",} */
     function test() {
     	//선택한 지역 표시
         $.ajax({
-           url:"<c:url value='/json/area.json'/>",
+           url:"<c:url value='/json/areas.json'/>",
               data:"GET",
               dataType:"json",
               success : function(res) {
@@ -148,10 +188,16 @@
    function dong(aa) {
 	 if(maxLimit<5){
     	var d =$(aa).text();
-    	dd=$("#test").html()+"<label onclick='removeArea(this)' for="+d+
+    	dd=$("#test").html()+"<label name='ares'"+
+    	" onclick='removeArea(this)' for="+d+
     	">"+d+"<input type='button' title='"+d+
     	" 제거' id='"+d+"' value='x'>"+"</label>";
+    	dd.replace("지역을 선택하세요 (최대 5개 지역 선택가능)","->");
     	$("#test").html(dd);
+    	
+    	dd2=$("input[name=areas]").val()+d+",";
+    	$("input[name=areas]").val(dd2);
+    	/* alert(dd2); */
     	maxLimit+=1;
 	 }else{
 		 alert("5개 까지만 선택가능합니다");
@@ -186,9 +232,27 @@
 <div class="divList">
 <legend>채용정보 리스트</legend>
 
-<div class="divSearch" style="border:1px solid gray;">
+<div class="divSearch" style="border:1.5px solid #38F;
+      margin: 2px;text-align: left;">
       <form name="frmSearch" method="post" 
       action="<c:url value='/rec/recList.ag' />" >
+<input type="button" id="button" 
+class="ui-state-default ui-corner-all" value="지역별검색">
+      
+<input type="button" id="button2" 
+class="ui-state-default ui-corner-all" value="직종별검색">
+      
+         <div class="toggler">
+  <div id="effect" class="ui-widget-content ui-corner-all">
+    <h3 class="ui-widget-header ui-corner-all">
+     <div style="display: inline-block;"
+       id="test">
+               
+                지역을 선택하세요 (최대 5개 지역 선택가능)
+               
+       </div></h3>
+    <p>
+      
       
       <div id="tabs" >
          <ul class="li_font">
@@ -211,10 +275,13 @@
           <li><a href="#tabs-16" onclick="codeSet(this)">제주</a></li>
           <li><a href="#tabs-17" onclick="codeSet(this)">전국</a></li>
         </ul>
+       
       <div class="recListArea" id="recListArea">
         <div id="tabs-0"  >
           <p id="SI0">시도 지역이 나올 영역</p>
-          <p id="GU0">구군 지역이 나올 영역</p>
+          
+          <p id="GU0"></p>
+         
         </div>    
         <div id="tabs-1">
           <p id="SI1"></p>
@@ -285,12 +352,105 @@
           <p id="GU17"></p>
         </div>
       </div>
-      <span id="selectArea">선택한 지역:</span>
-      <div style="display: inline-block;"
-       id="test"></div>  
-     </div> 
-      
+      <!-- <span id="selectArea">선택한 지역:</span> -->
         
+     </div> 
+  
+        
+    </p>
+  </div>
+</div>
+ 
+  
+  
+<select name="effects" id="effectTypes" style="visibility: hidden;">
+  <option value="blind">Blind</option>
+  <option value="bounce">Bounce</option>
+  <option value="clip">Clip</option>
+  <option value="drop">Drop</option>
+  <option value="explode">Explode</option>
+  <option value="fade" selected="selected">Fade</option>
+  <option value="fold">Fold</option>
+  <option value="highlight">Highlight</option>
+  <option value="puff">Puff</option>
+  <option value="pulsate">Pulsate</option>
+  <option value="scale">Scale</option>
+  <option value="shake">Shake</option>
+  <option value="size" >Size</option>
+  <option value="slide">Slide</option>
+</select>
+ 
+
+ 
+     <div class="toggler">
+  <div id="effect2" class="ui-widget-content ui-corner-all">
+    <h3 class="ui-widget-header ui-corner-all">
+    <input type="text" placeholder="업 직종을 선택하세요 (최대 5개 업직종 선택가능)"
+    size="70"> </h3>
+    <p>
+      
+      <div id="jobTabs">
+  <ul id="jtab">
+    <li><a href="#jtabs-1" >외식·음료</a></li>
+    <li><a href="#jtabs-2">유통·판매</a></li>
+    <li><a href="#jtabs-3">문화·여가 생활</a></li>
+    <li><a href="#jtabs-4">서비스</a></li>
+    <li><a href="#jtabs-5">사무직</a></li>
+    <li><a href="#jtabs-6" >고객상담·리서치·영업</a></li>
+    <li><a href="#jtabs-7">생산·건설·운송</a></li>
+    <li><a href="#jtabs-8">IT·컴퓨터</a></li>
+    <li><a href="#jtabs-9">교육·강사</a></li>
+    <li><a href="#jtabs-10">디자인</a></li>
+    <li><a href="#jtabs-11">미디어</a></li>
+  </ul>
+  <div id="jtabs-1">
+    <p>1</p>
+  </div>
+  <div id="jtabs-2">
+    <p>2</p>
+  </div>
+  <div id="jtabs-3">
+    <p>3</p>
+    <p>3</p>
+  </div>
+  <div id="jtabs-4">
+    <p>4</p>
+  </div>
+  <div id="jtabs-5">
+    <p>5</p>
+  </div>
+  <div id="jtabs-6">
+    <p>6</p>
+  </div>
+  <div id="jtabs-7">
+    <p>7</p>
+  </div>
+  <div id="jtabs-8">
+    <p>8</p>
+  </div>
+  <div id="jtabs-9">
+    <p>9</p>
+  </div>
+  <div id="jtabs-10">
+    <p>10</p>
+  </div>
+  <div id="jtabs-11">
+    <p>11</p>
+  </div>
+</div>
+      
+      
+      
+      
+    </p>
+  </div>
+</div>
+ 
+
+     
+      <input type="hidden" name="areas" value="">
+       
+        <p style="text-align: center;">
         <select name="searchCondition" class="button white small"
          style="font-size: 0.75em;">
             <option value="title"
@@ -307,6 +467,7 @@
         <input type="text" name="searchKeyword" 
          title="검색어 입력" value="${param.searchKeyword}" >   
       <input type="submit" class="button white medium" value="검색">
+      </p>
     </form>
 </div>
 
@@ -317,6 +478,16 @@
 </c:if>
 <c:if test="${empty searchVO.searchKeyword }">
    <p>전체 조회 결과 - ${pagingInfo.totalRecord }건 조회되었습니다</p>
+   <p>
+   <c:if test="${!empty recSeachVO.area1 }">
+       검색지역 - 
+   </c:if>
+   ${recSeachVO.area1 }
+   ${recSeachVO.area2 }
+   ${recSeachVO.area3 }
+   ${recSeachVO.area4 }
+   ${recSeachVO.area5 }
+   </p>
 </c:if>
 </div>
 <table class="box2 recList">
@@ -420,7 +591,5 @@
     <input type = "Button" class="button white medium" value="채용공고 등록" 
          onclick="location.href='<c:url value="/rec/recWrite.ag"/>';" />
 </div>
-<p class="clearboth"></p> 
 </section>
-
 <%@ include file="../inc/simple_bottom.jsp" %>

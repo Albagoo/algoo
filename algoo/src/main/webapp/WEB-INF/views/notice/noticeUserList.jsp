@@ -33,14 +33,14 @@
 
 <section>
 <form name="frmPaging" method="post"
- action="<c:url value='/notice/list.ag'/>"
+ action="<c:url value='/notice/noticeUserList.ag'/>"
  id="frmPaging">
 	<input type="hidden" name="categoryName" id="categoryName" value="${param.categoryName }">
 	<input type="hidden" name="currentPage" id="currentPage"  >	
 </form>
 
 <form name="frmPage" id="frmPage" method="post" 
-action="<c:url value='/notice/list.ag'/>">
+action="<c:url value='/notice/noticeUserList.ag'/>">
 	<input type="hidden" name="categoryName" id="categoryName2" value="${param.categoryName }">
 	<input type="hidden" name="currentPage" id="currentPage2" value="1" >	
 </form>
@@ -51,11 +51,28 @@ action="<c:url value='/notice/list.ag'/>">
 </div>
 <div class="divListAll" align="center">
 <div class="noticeSearch">
-	<span>질문검색</span>
-	<input type="text" name="searchKeyword" title="검색어 입력" style="width: 200px;height: 25px;">
-	<input type="submit" value="검색" style="height: 30px;" align=absmiddle>
+	<form name="frmSearch" method="post" action="<c:url value='/notice/noticeUserList.ag' />" >
+	<span>공지사항 검색</span>
+	<input type="text" name="searchKeyword" title="검색어 입력">
+	<input type="image" src="<c:url value='/images/search.png'/>" value="검색" align=absmiddle>
+	</form>
 </div>
-
+<div class="category">
+   	<label for="categoryList">카테고리로 찾기</label>
+		<select name="categoryInput" id="categoryInput" title="카테고리"
+     	 class="button white small">
+     		<option value="">선택하세요</option>
+			<option value="공지"
+			 <c:if test="${param.categoryName=='공지' }">selected</c:if>>
+			 공지</option>
+			<option value="이벤트"
+			 <c:if test="${param.categoryName=='이벤트' }">selected</c:if>>
+			 이벤트</option>
+			<option value="서비스"
+			 <c:if test="${param.categoryName=='서비스' }">selected</c:if>>
+			 서비스</option>
+     	</select>
+</div>
 <div class="divList">
 	<table class="box2">
 		<colgroup>
@@ -109,7 +126,7 @@ action="<c:url value='/notice/list.ag'/>">
 <div class="divPage">
 	<c:if test="${pagingInfo.firstPage>1 }">	
 		<a href="#" onclick="pageProc(${pagingInfo.firstPage-1})">
-			<img src="<c:url value='/images/past.png'/>" alt="이전블럭으로">
+			<img src="<c:url value='/images/past.png'/>" alt="이전블럭으로" align=absmiddle>
 		</a>	
 	</c:if>
 	<c:forEach var="i" begin="${pagingInfo.firstPage }" 
@@ -128,8 +145,7 @@ action="<c:url value='/notice/list.ag'/>">
 	<c:if test="${pagingInfo.lastPage<pagingInfo.totalPage }">	
 		<a href="#" 
 		onclick="pageProc(${pagingInfo.lastPage+1})">
-			<img src="<c:url value='/images/next.png'/>" alt="다음블럭으로"
-				style="height: 15px;">
+			<img src="<c:url value='/images/next.png'/>" alt="다음블럭으로" align=absmiddle>
 		</a>
 	</c:if>
 </div>

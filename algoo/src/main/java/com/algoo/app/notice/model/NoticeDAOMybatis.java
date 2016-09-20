@@ -69,4 +69,14 @@ implements NoticeDAO{
 		return getSqlSession().delete(namespace
 				+".deleteNotice", no);
 	}
+
+	@Override
+	public NoticeVO prevContent(int no) {
+		return getSqlSession().selectOne(namespace+".prevContent", no);
+	}
+
+	@Override
+	public NoticeVO nextContent(int no) {
+		return getSqlSession().selectOne(namespace+".nextContent", no);
+	}
 }

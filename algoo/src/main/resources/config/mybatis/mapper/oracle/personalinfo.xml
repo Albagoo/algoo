@@ -10,4 +10,9 @@
 		insert into personal_info
 		values(#{personalInfoCode}, #{obstacle}, #{military}, #{veterans}, #{employment})
 	</insert>
+	
+	<select id="selectPersonalInfo" parameterType="int" resultType="PersonalInfoVO">
+		select * from personal_info
+		where personal_info_code = #{personalInfoCode}
+	</select>
 </mapper>

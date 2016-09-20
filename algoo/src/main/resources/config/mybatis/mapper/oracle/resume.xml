@@ -7,9 +7,32 @@
 		<selectKey keyProperty="hisCode" order="BEFORE" resultType="int">
 			select history_seq.nextval from dual
 		</selectKey>
-		insert into history
+		insert into history(his_code, title, hope_code, ability, detail, contatct_hour,
+			member_code, award, content, career_code, language_code, license_code, com_ability_code,
+			personal_info_code)
 		values(#{hisCode}, #{title}, #{hopeCode}, #{ability}, #{detail}, #{contatctHour}, 
 			#{memberCode}, #{award}, #{content}, #{careerCode}, #{languageCode}, #{licenseCode},
 			#{comAbilityCode}, #{personalInfoCode})
-		</insert> 
+	</insert>
+	
+	<select id="selectResume" resultType="ResumeListVO"
+		parameterType="ResumeSearchVO">
+		select * from
+		(select l.*, rownum as RNUM from listView l
+		order by regdate desc)
+		<![CDATA[
+		where RNUM > #{firstRecordIndex}
+		and RNUM <= #{firstRecordIndex} + #{recordCountPerPage}
+		]]>
+	</select> 
+	
+	<select id="selectResumeCount" resultType="int">
+		select count(*) from listView
+		order by regdate desc
+	</select>
+	
+	<select id="selectResumeByCode" parameterType="int" resultType="ResumeVO">
+		select * from history
+		where his_code = #{hisCode}
+	</select>
 </mapper>

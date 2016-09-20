@@ -46,12 +46,17 @@ body{
    border-radius: 1%;
     
 }
+#serviceInfo,#divService{
+	display: inline;
+	width: 300px; 
+}
 .recWrite dl dt {
    padding-bottom: 15px; 
 }
 .recWrite dl{
 	/* background: #fffcfc; */
 }
+
 .companyInfo,.personInfo,.workInfo,.workCondition,.requestCondition,.recContent,.detailContent {
    width: 880px;
    padding: 20px 0;
@@ -88,13 +93,15 @@ body{
    /* color: #511; */
 }
 .titd, .titcd{
+	margin-top:7px;
+	
    text-align:right;
    width: 70px;
    float: left;
    font-family:'bon godic';
    font-weight: bold;
    font-size: 10pt;
-   color: #511;
+   /* color: #511; */
 }
 
 
@@ -120,11 +127,30 @@ body{
 }
 
 
-.txt_30,.txt_35,.txt_40,.txt_45,.txt_50,.txt_55,.txt_60,.txt_65,.txt_70,.txt_75,.txt_80,.txt_85,.txt_90,.txt_95,.txt_100,.txt_105,.txt_110,.txt_115,.txt_120,.txt_125,.txt_130,.txt_135,.txt_140,.txt_145,.txt_150,.txt_155,.txt_160,.txt_165,.txt_170,.txt_175,.txt_180,.txt_185,.txt_190,.txt_195,.txt_200,.txt_205,.txt_210,.txt_220,.txt_230,.txt_240,.txt_250,.txt_260,.txt_270,.txt_280,.txt_290,.txt_300,.txt_350,.txt_400.txt_500{
-   margin:5px 10px;
+.txt_30,.txt_35,.txt_40,.txt_45,.txt_50,
+.txt_55,.txt_60,.txt_65,.txt_70,.txt_75,
+.txt_80,.txt_85,.txt_90,.txt_95,.txt_100,
+.txt_105,.txt_110,.txt_115,.txt_120,.txt_125,
+.txt_130,.txt_135,.txt_140,.txt_145,.txt_150,
+.txt_155,.txt_160,.txt_165,.txt_170,.txt_175,
+.txt_180,.txt_185,.txt_190,.txt_195,.txt_200,
+.txt_205,.txt_210,.txt_220,.txt_230,.txt_240,
+.txt_250,.txt_260,.txt_270,.txt_280,.txt_290,
+.txt_300,.txt_350,.txt_400,.txt_500{
+   margin:10px;
    float: left;
+   font: 11px dotumn, "돋움";
 }
-.txth_30,.txth_35,.txth_40,.txth_45,.txth_50,.txth_55,.txth_60,.txth_65,.txth_70,.txth_75,.txth_80,.txth_85,.txth_90,.txth_95,.txth_100,.txth_105,.txth_110,.txth_115,.txth_120,.txth_125,.txth_130,.txth_135,.txth_140,.txth_145,.txth_150,.txth_155,.txth_160,.txth_165,.txth_170,.txth_175,.txth_180,.txth_185,.txth_190,.txth_195,.txth_200,.txth_205,.txth_210,.txth_220,.txth_230,.txth_240,.txth_250,.txth_260,.txth_270,.txth_280,.txth_290,.txth_300,.txth_350,.txth_400{
+.txth_30,.txth_35,.txth_40,.txth_45,.txth_50,
+.txth_55,.txth_60,.txth_65,.txth_70,.txth_75,
+.txth_80,.txth_85,.txth_90,.txth_95,.txth_100,
+.txth_105,.txth_110,.txth_115,.txth_120,.txth_125,
+.txth_130,.txth_135,.txth_140,.txth_145,.txth_150,
+.txth_155,.txth_160,.txth_165,.txth_170,.txth_175,
+.txth_180,.txth_185,.txth_190,.txth_195,.txth_200,
+.txth_205,.txth_210,.txth_220,.txth_230,.txth_240,
+.txth_250,.txth_260,.txth_270,.txth_280,.txth_290,
+.txth_300,.txth_350,.txth_400{
    margin:10px 0;
    float: left;
 }
@@ -207,7 +233,7 @@ margin:10px;
    float: left;
 }
 .email2{
-   margin:10px;
+   margin:10Spx;
    width: 100px;
    float: left;
 }
@@ -221,6 +247,7 @@ margin:10px;
 }
 .recWrite h2{
 	width: 150px;
+	margin-top: 30px;
 }
 legend{
 	width: 250px;
@@ -251,8 +278,14 @@ legend{
       padding-right: 80px;
       margin-top: 30px;
 }
-.font_11{
+.bon{
+	font-family:'bon godic';
+}
+.font_10{
    font-size: 10pt;
+}
+.font_11{
+   font-size: 11pt;
 }
 .bgg{
  background: #F7F7F7
@@ -264,7 +297,7 @@ input[type="text"], input[type="radio"],input[type="checkbox"]{
    zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
    *display: inline;
    vertical-align: baseline;
-   margin: 8px 8px 0 2px;
+   margin: 5px 5px 0 2px;
    outline: none;
    cursor: Auto;
    text-decoration: none;
@@ -305,7 +338,8 @@ dt input[type="radio"],dt input[type="checkbox"]{
    height:
    float: left;
 }
-floatLeft input[type="checkbox"]{
+floatLeft input[type="checkbox"],
+.floatLeft{
 	float: left;
 }
 
@@ -321,6 +355,7 @@ floatLeft input[type="checkbox"]{
 .recDetail {
    font: 1em;
    font-weight: bold;
+   margin: 0;
 }
 .detail_content{
    width: 800px;
@@ -328,7 +363,7 @@ floatLeft input[type="checkbox"]{
 }
 .detail_area{
    width: 800px;
-   height: 700px;
+     
 }
 .detail_rec{
    width: 800px;
@@ -350,7 +385,7 @@ floatLeft input[type="checkbox"]{
 }
 
 .title {
-   padding: 30px 30px;
+   /* padding: 30px 30px; */
    /* border: 1px solid black; */
    text-align: center;
    font-weight: bold;
@@ -370,16 +405,19 @@ floatLeft input[type="checkbox"]{
 }
 
 .main_left {
-   width: 274px;
+   width: 260px;
    height: 530px;
-   /* border: 1px solid black; */
+   padding:15px;
+    border: 1px solid #eee; 
 }
 
 .main_right {
    /* border: 1pt solid Gray; */
-   width: 480px;
+   width: 470px;
    height: 530px;
    margin: 0;
+   padding:15px;
+    border: 1px solid #eee;
 }
 
 .tit,.titc {
@@ -410,10 +448,7 @@ floatLeft input[type="checkbox"]{
 }
 
 .txt_400 {
-   float: left;
-   width: 370px;
-   font: 15px dotumn, "돋움";
-   margin: 0 0 5px 30px;
+   width: 400px;
 }
 .txt_30 {
    float: left;
@@ -434,16 +469,16 @@ floatLeft input[type="checkbox"]{
    padding-bottom: 5px;
 }
 .font_9{
-   font-size: 9;
+   font-size: 9pt;
 }
 .font_11{
-   font-size: 11;
+   font-size: 11pt;
 }
 .font_13{
-   font-size: 13;
+   font-size: 13pt;
 }
 .font_15{
-   font-size: 15;
+   font-size: 15pt;
 }
 .margin_left_70{
    margin: 10px 0 10px 70px;
@@ -471,6 +506,7 @@ floatLeft input[type="checkbox"]{
    border-bottom: 10px solid #FFF;
 }
 .border_bottom{
+   /* margin-top:30px; */
    border-bottom: 2px solid skyblue;
    padding-bottom: 5px;
 }
@@ -508,7 +544,7 @@ floatLeft input[type="checkbox"]{
    margin: 0;
 }
 .recListArea div>p{
-padding:10px;
+padding:0px;
 border-bottom: 1px solid #aaa;
 background:#fafafa;
 text-align: left;	
@@ -518,7 +554,7 @@ text-align: left;
 background: #fafafa;
 border-bottom: 1px solid #eee;
 display: inline-block;
-margin: 10px;
+/* margin: 10px; */
 
 }
 .recListArea div div{
@@ -548,9 +584,64 @@ margin: 10px;
    padding: 0;
    margin: 0;
    text-align: left;
+   background: white;
 }
 
 #test input[type="button"]{
    padding: 0;
    margin: 0;
 }
+/* 페이지 스크롤 업 */
+/* 스크립트에
+   $(function(){
+         $.scrollUp();
+       });
+      
+*/
+#scrollUp {
+    background-image: url("https://github.com/markgoodyear/scrollup/blob/master/demo/img/top.png?raw=true");
+    bottom: 20px;
+    right: 20px;
+    width: 38px;    /* Width of image */
+    height: 38px;   /* Height of image */
+}
+
+/* 토글 */
+#jtab>li{
+	width: 200px;
+	font-family:'bon godic';
+   font-weight: bold;
+   font-size: 8.5pt;
+}	
+#tabs>ul>li{
+	width: 45px;
+	font-family:'bon godic';
+   font-weight: bold;
+   font-size: 8.5pt;
+}	
+	
+.toggler {
+	 /* position: relative;
+    width: 920px;
+    height: 400px;
+    padding: 0.4em;
+    margin:0 auto;
+    border: 1px solid #38f; */
+  } 
+#button,#button2 {
+    padding: .5em 1em;
+    text-decoration: none;
+  }
+#effect {
+     position: relative;  
+    width: 920px;
+    height: 470px;
+    padding: 0.4em;
+    margin:0 auto;
+    border: 1px solid #38f;
+  }
+#effect h3 {
+    margin: 0;
+    padding: 0.4em;
+    text-align: center;
+  }	

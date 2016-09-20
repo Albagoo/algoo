@@ -9,6 +9,47 @@
 				${searchCondition}
 				like '%' || #{searchKeyword} || '%'
 			</if>
+			
+			<if test="area1!=null and area1!=''">
+            <if test="searchKeyword!=null and searchKeyword!=''">
+            or
+            </if>
+            ADDRESS
+            like '%' || #{area1} || '%'
+         </if>
+         
+         <if test="area2!=null and area2!=''">
+   			<if test="area1!=null and area1!=''">
+            or
+            </if>
+            ADDRESS
+            like '%' || #{area2} || '%'
+         </if>
+         
+         <if test="area3!=null and area3!=''">
+            <if test="area2!=null and area2!=''">
+            or
+            </if>
+            ADDRESS
+            like '%' || #{area3} || '%'
+         </if>
+         
+         <if test="area4!=null and area4!=''">
+            <if test="area3!=null and area3!=''">
+            or
+            </if>
+            ADDRESS
+            like '%' || #{area4} || '%'
+         </if>
+         
+         <if test="area5!=null and area5!=''">
+            <if test="area4!=null and area4!=''">
+            or
+            </if>
+            ADDRESS
+            like '%' || #{area5} || '%'
+         </if>
+         
 		</where>
 	</sql>
 
@@ -68,7 +109,7 @@
 		recruit_Type,welfare,gender,age,educate_Lv,
 		career,preference,recruit_Member,recruit_Person,recruit_Method,
 		documents,detail_Recruit,comp_Code,service_Code,RECRUIT_DEADLINE,
-		regdate
+		
 		)
 		values(RECRUITMENT_seq.nextval, #{compName},#{title},#{jobName},#{jobName2},
 		#{zipcode},#{address},#{addressDetail},#{subRegion},
@@ -77,7 +118,7 @@
 		#{recruitType},#{welfare},#{gender},#{age},#{educateLv},
 		#{career},#{preference},#{recruitMember},#{recruitPerson},#{recruitMethod},
 		#{documents},#{detailRecruit},#{compCode},#{serviceCode},#{recruitDeadline},
-      #{regdate}
+      
 
 		)
 	</insert>

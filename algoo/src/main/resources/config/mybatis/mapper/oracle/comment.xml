@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mybatis.mapper.oracle.comment">
+	<insert id="insertComment" parameterType="CommentVO">
+		<selectKey keyProperty="commentNo" resultType="int" order="BEFORE">
+			select comments_SEQ.nextval from dual
+		</selectKey>
+		insert into comments(comment_no, content, group_no, nickname, userid, free_no)
+		values(#{commentNo}, #{content}, #{commentNo}, #{nickName}, #{userid}, #{freeNo})
+	</insert>
+	
+	<select id="selectAllCmt" resultType="CommentVO" parameterType="int">
+		select * from comments
+		where free_no=#{freeNo}
+		order by group_no asc, sort_no asc
+	</select>
+	
+	<update id="updateSortNo" parameterType="CommentVO">
+   		update comments
+   		set sort_No = sort_No+1
+   		where group_No = #{groupNo} and sort_No > #{sortNo}
+   </update>
+   
+   <insert id="insertReply" parameterType="CommentVO">
+		<selectKey keyProperty="commentNo" resultType="int"
+			order="BEFORE">
+			select comments_SEQ.nextval from dual
+		</selectKey>
+		insert into comments
+      	values(#{commentNo} ,#{content}, sysdate, #{groupNo},
+         #{sortNo}, #{step}, 'N', #{nickName}, #{freeNo}, #{userid})
+	</insert>
+	
+</mapper>

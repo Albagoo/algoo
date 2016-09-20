@@ -18,6 +18,59 @@
 		window.open("<c:url value='/login/login.ag'/>",	"login",
 		"width=390,height=480,left=700,top=200,resizable=yes,location=yes");
 	}
+	
+	/* top버튼 나타내기 */
+	$(document).ready(function(){
+	    $(".upMark").hide(); // 탑 버튼 숨김
+	    $(function () {
+	                 
+	        $(window).scroll(function () {
+	            if ($(this).scrollTop() > 100) { // 스크롤 내릴 표시
+	                $('.upMark').fadeIn();
+	            } else {
+	                $('.upMark').fadeOut();
+	            }
+	        });
+	                
+	        $('.upMark').click(function () {
+	            $('body,html').animate({
+	                scrollTop: 0
+	            }, 100);  // 탑 이동 스크롤 속도
+	            return false;
+	        });
+	    });
+	});
+	
+	/* 우측 메뉴의 이동 */
+	// 현재 스크롤바의 위치를 저장하는 변수 (px)
+	var currentScrollTop = 0;
+	     
+	window.onload = function() {
+	    // 새로고침 했을 경우를 대비한 메소드 실행
+	    scrollController();
+	     
+	    // 스크롤을 하는 경우에만 실행
+	    $(window).on('scroll', function() {
+	        scrollController();
+	    });
+	}
+	// 메인 메뉴의 위치를 제어
+	function scrollController() {
+	    currentScrollTop = $(window).scrollTop();
+	    if (currentScrollTop < 150) {
+	        $('#header').css('top', -(currentScrollTop));
+	        $('#rightMenu').css('top', 150-(currentScrollTop));
+	        if ($('#rightMenu').hasClass('fixed')) {
+	            $('#rightMenu').removeClass('fixed');
+	        }
+	    } else {
+	        if (!$('#rightMenu').hasClass('fixed')) {
+	            $('#header').css('top', -150);
+	            $('#rightMenu').css('top', 10);
+	            $('#rightMenu').addClass('fixed');
+	        }
+	    }
+	}
 </script>
 </head>
 <body>
@@ -30,7 +83,7 @@
 					<!-- 로그인이 안된 경우 -->
 					<c:if test="${empty sessionScope.userid }">
 						<a href="#" onclick="login()">로그인</a> |
-						<a href="<c:url value='/member/agreement.ag'/>">회원가입</a> |
+						<a href="<c:url value='/jj/join.ag'/>">회원가입</a> |
 					</c:if>
 					<!-- 로그인이된 경우 -->
 					<c:if test="${!empty sessionScope.userid }">
@@ -83,3 +136,45 @@
 		
 		<!-- container시작 -->
 		<div id="container">
+			<!-- 최상단으로 이동버튼 -->
+			<div class="upMark">
+			<a href="#">
+			<img id="upMark" src="<c:url value='/images/up_mark.png'/>">
+			</a></div>
+			
+			<!-- 좌측 고정배너 -->
+			<div id="leftBanner">
+				<img src="<c:url value='/images/banner/banner4_2.jpg'/>">
+			</div>
+			
+			<!-- 우측 메뉴(고정) -->
+			<div id="rightMenu">
+				<div id="mJoin">
+					가입
+					<img src="<c:url value='/images/icon_facebook.png'/>">
+					<img src="<c:url value='/images/icon_naver.png'/>">
+					<img src="<c:url value='/images/icon_kakao.png'/>">
+					<br>
+					<hr>
+					<ul type="circle">
+						<li><a href="#">이력서 등록</a></li>
+						<li><a href="#">채용공고 등록</a></li>
+					</ul>
+				</div>
+				<div id="mToday">
+					<div id="mTitle">오늘 본 인재 :
+					<a href="#">0</a></div>
+					<div id="mContent">
+						오늘 본 인재가<br> 없습니다.
+					</div>
+					<div id="mView">
+						<p>전체보기 1/0</p>
+						<span>∧</span>
+						<span>∨</span>
+					</div>
+				</div>
+				<div id="mReport">
+					<a href="#"><p>온라인 문의<img src="<c:url value='/images/question.png'/>"></p></a>
+					<a href="#"><p>허위정보 신고<img src="<c:url value='/images/van.png'/>"></p></a>
+				</div>
+			</div>

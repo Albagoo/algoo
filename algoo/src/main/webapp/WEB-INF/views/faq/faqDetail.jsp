@@ -27,6 +27,58 @@
         	<a href
 ="<c:url value='/faq/faqList.ag'/>" class="button white medium">목록</a>			
 		</div>
+		<div class="showContent">
+			<table class="contentBox">
+				<colgroup>
+					<col style="width:15%;" />
+					<col style="width:70%;" />
+					<col style="width:15%" />
+				</colgroup>
+				<thead>
+					<th class="arrow"></th>
+					<th class="ctitle"></th>
+					<th class="cdate"></th>
+				</thead>
+				<tbody>
+					<tr style="border-bottom: 1px dashed lightgray;">
+						<td style="padding-left: 5px;">
+							<a href="<c:url value='/faq/faqDetail.ag?faqNo=${preFaqVo.faqNo}' />">
+								<img alt="이전글 이미지" src="<c:url value='/images/up.png'/>">&nbsp;이전글
+							</a>
+						</td>
+						<td>
+							<c:if test="${empty preFaqVo.faqNo}">
+								<span style="color: gray">이전 글이 없습니다</span>
+							</c:if>
+							<a href="<c:url value='/faq/faqDetail.ag?faqNo=${preFaqVo.faqNo}' />">
+								${preFaqVo.title}
+							</a>
+						</td>
+						<td class="align_center">
+							<fmt:formatDate value="${preFaqVo.regdate }" pattern="yyyy-MM-dd"/>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding-left: 5px;">
+							<a href="<c:url value='/faq/faqDetail.ag?faqNo=${nextFaqVo.faqNo}' />">
+								<img alt="다음글 이미지" src="<c:url value='/images/down.png'/>">&nbsp;다음글
+							</a>
+						</td>
+						<td>
+							<c:if test="${empty nextFaqVo.faqNo}">
+								<span style="color: gray">다음 글이 없습니다</span>
+							</c:if>
+							<a href="<c:url value='/faq/faqDetail.ag?faqNo=${nextFaqVo.faqNo}' />">
+								${nextFaqVo.title }
+							</a>		
+						</td>
+						<td class="align_center">
+							<fmt:formatDate value="${nextFaqVo.regdate }" pattern="yyyy-MM-dd"/>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </section>
 

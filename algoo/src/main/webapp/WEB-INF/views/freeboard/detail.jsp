@@ -31,12 +31,25 @@ src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
 				</c:if>
 				<c:if test="${sessionScope.userid!=freeVo.userid}">
 				| <a href="<c:url value='/freeboard/write.ag'/>">글쓰기</a>
+				| <a href="<c:url value='/freeboard/list.ag' />">목록</a>	
 				</c:if>
 			</span>
 		</div>
 		<div class="secondDiv">
 			<p class="writer">${freeVo.nickName }(${fn:substring(freeVo.nickName, 0,3)}***)</p>
 			<p class="content">${freeVo.content }</p>
+		</div>
+		<div class="comments">
+			<!-- 댓글갯수 보여주기 -->
+			<!-- <div>
+			
+			</div> -->
+			<div class="cmtList">
+				<c:import url="/comment/list.ag">
+					<c:param name="freeNo" value="${param.freeNo }"></c:param>
+				</c:import>
+				<%@ include file="../comment/write.jsp" %>
+			</div>
 		</div>
 		<div class="center">
 		<br>
@@ -57,6 +70,58 @@ src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
       	<input type = "Button" class="button white medium" value="목록" 
       		 onclick="location.href
       			='<c:url value="/freeboard/list.ag" />'"/>		
+		</div>
+		<div class="showContent">
+			<table class="contentBox">
+				<colgroup>
+					<col style="width:10%;" />
+					<col style="width:70%;" />
+					<col style="width:10%;" />
+					<col style="width:10%" />
+				</colgroup>
+				<thead>
+					<th class="arrow"></th>
+					<th class="ctitle"></th>
+					<th class="cnick"></th>
+					<th class="cdate"></th>
+				</thead>
+				<tbody>
+					<tr style="border-bottom: 1px dashed lightgray;">
+						<td style="padding-left: 5px;">
+							<a href="<c:url value='/freeboard/detail.ag?freeNo=${preFreeVo.freeNo}' />">
+								<img alt="이전글 이미지" src="<c:url value='/images/up.png'/>">&nbsp;이전글
+							</a>
+						</td>
+						<td>
+							<c:if test="${empty preFreeVo.freeNo}">
+								<span style="color: gray">이전 글이 없습니다</span>
+							</c:if>
+							<a href="<c:url value='/freeboard/detail.ag?freeNo=${preFreeVo.freeNo}' />">
+								${preFreeVo.title}
+							</a>
+						</td>
+						<td>${preFreeVo.nickName }</td>
+						<td class="align_center"><fmt:formatDate value="${preFreeVo.regdate }" pattern="yyyy-MM-dd"/></td>
+					</tr>
+					<tr>
+						<td style="padding-left: 5px;">
+							<a href="<c:url value='/freeboard/detail.ag?freeNo=${nextFreeVo.freeNo}' />">
+								<img alt="다음글 이미지" src="<c:url value='/images/down.png'/>">&nbsp;다음글
+							</a>
+						</td>
+						<td>
+							<c:if test="${empty nextFreeVo.freeNo}">
+								<span style="color: gray">다음 글이 없습니다</span>
+							</c:if>
+							<a href="<c:url value='/freeboard/detail.ag?freeNo=${nextFreeVo.freeNo}' />">
+								${nextFreeVo.title }
+							</a>		
+						</td>
+						<td>${nextFreeVo.nickName }</td>
+						<td class="align_center"><fmt:formatDate value="${nextFreeVo.regdate }" pattern="yyyy-MM-dd"/></td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
 	</div>
 </section>

@@ -12,7 +12,7 @@
 		</where>
 	</sql>
 	
-	<parameterMap type="map" id="deleteParamMap">
+	<parameterMap type="map" id="delParamMap">
 		<parameter property="freeNo" javaType="string"
 			jdbcType="VARCHAR" mode="IN"/>
 		<parameter property="groupNo" javaType="string"
@@ -50,6 +50,24 @@
 		]]>
 	</select>
 	
+	<!-- 이전글 -->
+	<select id="prevContent" parameterType="int" resultType="FreeboardVO">
+		SELECT * FROM free_board
+		WHERE free_no IN (SELECT MAX(free_no)
+		<![CDATA[ 
+			FROM free_board WHERE free_no < #{freeNo})
+		]]>
+	</select>
+	
+	<!-- 다음글 -->
+	<select id="nextContent" parameterType="int" resultType="FreeboardVO">
+		SELECT * FROM free_board
+		WHERE free_no IN (SELECT MIN(free_no)
+		<![CDATA[
+			FROM free_board WHERE free_no > #{freeNo})
+		]]>
+	</select>
+	
 	<select id="selectTotalCount" resultType="int" 
 		parameterType="SearchVO">
 		select count(*) from free_board 
@@ -77,8 +95,8 @@
 		delete from free_board where free_no=#{freeNo}
 	</delete> -->
 	
-	<delete id="deleteFreeboard" parameterMap="deleteParamMap">
-		{call DELETE_REBOARD(?,?,?)}
+	<delete id="deleteFreeboard" parameterMap="delParamMap">
+		{call delete_freeboards(?,?,?)}
 	</delete>
 	
 	<update id="updateSortNo" parameterType="FreeboardVO">

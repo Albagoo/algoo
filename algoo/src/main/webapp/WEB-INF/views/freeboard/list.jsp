@@ -77,7 +77,7 @@
 					<!-- 삭제된 글에 대한 처리 -->
 					<c:if test="${fList.delYn=='Y'}">
 						<span style="color:gray">
-							삭제된 글입니다</span>
+							&nbsp; 삭제된 글입니다</span>
 					</c:if>
 					<c:if test="${fList.delYn!='Y'}">					
 						<!-- 답변의 경우 화살표 이미지 보여주기 -->
@@ -123,6 +123,7 @@
 			<img src="<c:url value='/images/first.JPG'/>" alt="이전블럭으로">
 		</a>	
 	</c:if>
+	
 	<c:forEach var="i" begin="${pagingInfo.firstPage }" 
 		end="${pagingInfo.lastPage }">	 
 		<c:if test="${i==pagingInfo.currentPage }">
@@ -132,7 +133,6 @@
 				<a href="#" onclick="pageProc(${i})" >
 				${i}</a>
 		</c:if>
-
 	</c:forEach>	
 	
 	<!-- 다음 블럭으로 이동 -->

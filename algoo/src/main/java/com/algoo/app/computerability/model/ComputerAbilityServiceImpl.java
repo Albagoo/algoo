@@ -12,6 +12,11 @@ public class ComputerAbilityServiceImpl implements ComputerAbilityService{
 	public int insertComputerAbility(ComputerAbilityVO computerAbilityVo) {
 		return computerAbilityDao.insertComputerAbility(computerAbilityVo);
 	}
+
+	@Override
+	public ComputerAbilityVO selectComputerAbility(int comAbilityCode) {
+		return computerAbilityDao.selectComputerAbility(comAbilityCode);
+	}
 	
 	
 	

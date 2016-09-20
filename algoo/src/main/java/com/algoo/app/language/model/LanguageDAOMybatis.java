@@ -14,4 +14,10 @@ public class LanguageDAOMybatis extends SqlSessionDaoSupport
 				languageVo);
 	}
 
+	@Override
+	public LanguageVO selectLanguage(int languageCode) {
+		return getSqlSession().selectOne(namespace+".selectLanguage", 
+				languageCode);
+	}
+
 }

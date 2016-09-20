@@ -8,4 +8,5 @@ public interface CommemDAO {
 	public int updateCompCode(CommemVO commemVo);
 	public int selectCompCode(String userid);
 	public int updateCompMember(CommemVO commemVo);
+	public int withdrawCommem(String userid);
 }

@@ -18,4 +18,5 @@ public interface CommemService {
 	public CommemVO selectMemberByUserid(String userid);
 	public int updateCompCode(CommemVO commemVo);
 	public int updateCompMember(CommemVO commemVo);
+	public int withdrawCommem(String userid);
 }

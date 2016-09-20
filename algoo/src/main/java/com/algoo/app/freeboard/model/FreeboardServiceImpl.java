@@ -1,6 +1,7 @@
 package com.algoo.app.freeboard.model;
 
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -49,8 +50,8 @@ public class FreeboardServiceImpl implements FreeboardService{
 	}
 
 	@Override
-	public int deleteFreeboard(int freeNo) {
-		return freeDao.deleteFreeboard(freeNo);
+	public void deleteFreeboard(Map<String, String> map) {
+		freeDao.deleteFreeboard(map);
 	}
 
 	@Override
@@ -63,5 +64,15 @@ public class FreeboardServiceImpl implements FreeboardService{
 		logger.info("답변처리 결과 cnt = {}", cnt);
 		
 		return cnt;
+	}
+
+	@Override
+	public FreeboardVO prevContent(int freeNo) {
+		return freeDao.prevContent(freeNo);
+	}
+
+	@Override
+	public FreeboardVO nextContent(int freeNo) {
+		return freeDao.nextContent(freeNo);
 	}
 }

@@ -2,16 +2,36 @@
 	pageEncoding="UTF-8"%>
 	<%@ include file="../inc/simple_top.jsp" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
 
 <link rel="stylesheet" type="text/css"
    href="<c:url value='/css/clear.css'/>" />
 <link rel="stylesheet" type="text/css"
    href="<c:url value='/css/recLayout.css'/>" />
-
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
+  
 <style>
-
+ .toggler {
+    width: 500px;
+    height: 200px;
+  }
+  #button {
+    padding: .5em 1em;
+    text-decoration: none;
+  }
+  #effect {
+    position: relative;
+    width: 240px;
+    height: 170px;
+    padding: 0.4em;
+  }
+  #effect h3 {
+    margin: 0;
+    padding: 0.4em;
+    text-align: center;
+  }
 </style>
 <link rel="stylesheet" type="text/css" 
 href="<c:url value='/css/clear.css'/>" />
@@ -21,11 +41,26 @@ href="<c:url value='/css/recLayout.css'/>"/>
 src="<c:url value='/js/member.js'/>"></script>
 <script type="text/javascript"
 src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
+<!-- 인쇄 스크립트 -->
+<%-- <script type="text/javascript"
+src="<c:url value='/api/jQuery-printPage-plugin-master/jquery-1.4.4.min.js'/>"></script> --%>
+<script type="text/javascript"
+src="<c:url value='/api/print/jquery.printPage.js'/>"></script>
+
+
 <link rel="stylesheet" type="text/css" 
 href="<c:url value='/css/simpleButton.css'/>" />
-<script type="text/javascript"></script>
+<!--   지도 스크립트            -->
+
+<script type="text/javascript" 
+src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libraries=services"></script>
+
+ <!-- 1c57e699ab04456074d086be7fd7be45 --><!-- 정섭API -->
+<!-- f06943e7a65fb3d3ded3394d978e6b56 --><!-- 대근API -->
 <script type="text/javascript">
    $(document).ready(function(){
+	   $(".btnPrint").printPage();
+	   
       $("#simple_top span").html("채용정보");
       //simple_top 이용시 자기가 맡은화면 명칭 innerHTML로 붙여주기
       
@@ -34,11 +69,34 @@ href="<c:url value='/css/simpleButton.css'/>" />
           ="<c:url value='/rec/recList.ag'/>";   
           frmList.submit();
           //나중에 카테고리 추가 예정
-       });
+      });
       
-      
-      
+      // run the currently selected effect
+      function runEffect() {
+        // get effect type from
+        var selectedEffect = $( "#effectTypes" ).val();
+   
+        // Most effect types need no options passed by default
+        var options = {};
+        // some effects have required parameters
+        if ( selectedEffect === "scale" ) {
+          options = { percent: 50 };
+        } else if ( selectedEffect === "size" ) {
+          options = { to: { width: 200, height: 60 } };
+        }
+   
+        // Run the effect
+        $( "#effect" ).toggle( selectedEffect, options, 500 );
+      };
+   
+      // Set effect from select menu value
+      $( "#button" ).on( "click", function() {
+        runEffect();
+      });
+  
    });
+   
+   
 </script>
 <div class="Wrap">
 	<p class="recDetail">채용정보 상세보기</p>
@@ -52,7 +110,9 @@ href="<c:url value='/css/simpleButton.css'/>" />
 		<p class="clear_both"></p>
 		<div class="detail_right">
 			<input type="button" class="button white small" value="스크랩">
+			<a class="btnPrint" href='recWrite.ag'>
 			<input type="button" class="button white small" value="인쇄">
+			</a>
 			<input type="button" class="button white small" value="신고">
 			<input type="button" class="button white small" value="E메일">
 			<input type="button" class="button white small" value="FaceBook">
@@ -67,102 +127,115 @@ href="<c:url value='/css/simpleButton.css'/>" />
 			src="${recVo.imgURL }">
 		</div>
 
-		채용기업정보
+		<span class="titd">
+		기업정보
+		</span>
 		<input type="button" class="white button small" value="?">
 		<a href="" class="detail_right font_11 ">자세히보기></a> <br class="br">
 		<div class="">
 			<dl style="display: block;" class="clearBoth">
-				<dt>${compVo.compName }</dt>
 				<dt>
-					 <a href="${compVo.homepage }">
+				  <span class="titd">회사명</span> 
+				  <span class="txt_170 ">
+				  ${compVo.compName }
+				  </span>
+				</dt>
+				<dt>
+				<span class="titd">홈페이지</span> 
+					 <a class="txt_170"
+					  href="${compVo.homepage }">
 					 ${compVo.homepage }</a>
 				</dt>
 				<br>
 				<dt>
 					<span class="titd">대표자</span> 
-					<span class="txt_180">${compVo.ceo }</span>
+					<span class="txt_100">${compVo.ceo }</span>
 				</dt>
 				<dt>
 					<span class="titd">회사주소</span> 
-					<span class="txt_180">${compVo.address }</span>
+					<span class="txt_170">${compVo.address }</span>
 				</dt>
 				<dt>
 					<span class="titd">사업내용</span> 
-					<span class="txt_180">${compVo.content }</span>
+					<span class="txt_100">${compVo.content }</span>
 				</dt>
 
 			</dl>
 		</div>
 	</div>
 	<div class="main_right detail_right">
-	  <p class="right_title">${compVo.compName }</p>
+	  <p class="right_title">${recVo.compName }</p>
 	  <dl class="clearBoth">
 	     <dt>
 	     <span class="titd">마감일</span>
-	     <span class="txt_400">
+	     <span class="txt_300">
 	     <fmt:formatDate  value="${serviceVo.deadline}" 
 	     pattern="yyyy-MM-dd"/> 
 	     (마감일 ${serviceVo.days+1 }일전)</span>
 	     </dt>
 	     <dt>
 	     <span class="titd">모집인원</span>
-	     <span class="txt_400">${recVo.recruitMember }</span>
+	     <span class="txt_300">
+	     <c:set value="${recVo.recruitMember }" var="recruitMember" />
+	     <c:set value="," var="comar" />
+	      ${fn:replace(recruitMember,comar,"")}
+	     </span>
 	     </dt>
 	     <dt>
 	     <span class="titd">성      별</span>
-	     <span class="txt_400">${recVo.gender }</span>
+	     <span class="txt_300">${recVo.gender }</span>
 	     </dt>
 	     <dt>
 	     <span class="titd">연      령</span>
-	     <span class="txt_400">${recVo.age }</span>
+	     <span class="txt_300">${recVo.age }</span>
 	     </dt>
 	     <dt>
 	     <span class="titd">학      력</span>
-	     <span class="txt_400">${recVo.educateLv }
+	     <span class="txt_300">${recVo.educateLv }
 	     </dt>
 	  <p class="right_title">&nbsp;</p>
         <dt>
         <span class="titd">담  당 자</span>
-        <span class="txt_400">${compVo.deptName }</span>
+        <span class="txt_300">${compVo.deptName }</span>
         </dt>	     
         <dt>
         <span class="titd">e - 메일</span>
-        <span class="txt_400">${compVo.email1}@${compVo.email2 }</span>
+        <span class="txt_300">${compVo.email1}@${compVo.email2 }</span>
         </dt>
         <dt>
         <span class="titd">전화번호</span>
-        <span class="txt_400">
+        <span class="txt_300">
          ${compVo.hp1}-${compVo.hp2}-${compVo.hp3}</span>
         </dt>
         <dt>
-            <span class="detail_left font_9 margin_left_70 border_radius padding_10_5">
-                           알구에서 채용정보 보고 전화드렸습니다. 라고 연락하시면 문의가 쉽습니다.</span>
+            <span class="detail_left font_9 margin_left_70 border_radius padding_10_5 bon">
+                           알구에서 채용정보 보고 전화드렸습니다.<br> 라고 연락하시면 문의가 쉽습니다.</span>
         </dt>
         <dt>
         <span class="titd">팩스번호</span>
-        <span class="txt_400">${compVo.fax1 }-${compVo.fax2 }-${compVo.fax3 }</span>
+        <span class="txt_300">${compVo.fax1 }-${compVo.fax2 }-${compVo.fax3 }</span>
         </dt>
 
 	  </dl>
 	  <br class="br"><br class="br">
 	  <a href="#" class="detail_left"><img 
-	  src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_00/btn_app_online.gif"
+	  src=""
 	  alt="온라인지원"></a>
 	  
 	  <a href="#" class="detail_left decoration_none">&nbsp;<img 
-     src="http://www.albamon.com/monimg/list/gi_skin/skin_v1_00/btn_app_email.gif"
+     src=""
      alt="e-메일지원"></a>
 	  <br class="clear_both">
-	  <div class="font_13">e-메일 지원 시 자사양식 다운로드후 지원해 주세요.
+	  <div class="font_10 bon bold">e-메일 지원 시 자사양식 다운로드후 지원해 주세요.
 	  <a href="#"><img
-	  src="http://www.albamon.com/monimg/corp/icon_corpform_ft_01.gif"
+	  src=""
 	  alt="양식다운로드"
 	  ></a>
 	  </div>
 	</div>
 	
 	<div class="bg clear_both main_board border_tb10 font_11 align_right">
-	 <span class="bold">현금카드, 통장비밀번호 요구엔 절대 응대하지 마세요.</span> 
+	 <span class="bold bon font_9">현금카드, 통장비밀번호 요구엔 절대 응대하지 마세요.</span> 
 	 취업을 빙자한 사기의 위험이 있습니다.&nbsp;&nbsp;&nbsp;&nbsp;
 	 <a href="#" target="_blank">자세히 보기 ></a></div>
 
@@ -170,71 +243,137 @@ href="<c:url value='/css/simpleButton.css'/>" />
 	<div class="detail_content background bg">
 		<dl class="clearBoth">
 			<dt>
-				<span class="titd">고용형태</span> 
-				<span class="txt_720">${recVo.recruitType }</span>
+				<span class="titc">고용형태</span> 
+				<span class="txt_150">${recVo.recruitType }</span>
 			</dt>
 			<dt>
-				<span class="titd">업직종</span> 
-				<span class="txt_720 decoration_none">
+				<span class="titc">업직종</span> 
+				<span class="txt_150 decoration_none">
 				  
                <a href="#">${compVo.compSort }</a>,
              
             </span>
 			</dt>
 			<dt>
-            <span class="titd">근무기간</span> 
-            <span class="txt_720">${recVo.workTerm }
+            <span class="titc">근무기간</span> 
+            <span class="txt_150">${recVo.workTerm }
             
             </span>
          </dt>
          <dt>
-            <span class="titd">근무요일</span> 
-            <span class="txt_720">${recVo.workDays }</span>
+            <span class="titc">근무요일</span> 
+            <span class="txt_150">${recVo.workDays }</span>
          </dt>
          <dt>
-            <span class="titd">근무시간</span> 
-            <span class="txt_720">
+            <span class="titc">근무시간</span> 
+            <span class="txt_150">
             ${recVo.workTime }:${recVo.workTime2 }
             ~
             ${recVo.workTime3 }:${recVo.workTime4 }
             </span>
          </dt>
          <dt>
-            <span class="titd">급여</span> 
-            <span class="txt_720">
-
+            <span class="titc">급여</span> 
+            <span class="txt_150">
+            ${recVo.payType }
             <fmt:formatNumber value="${recVo.pay }" 
             pattern="#,###" /> 원</span>
          </dt>
          <dt>
-            <span class="titd">복리후생</span> 
-            <span class="txt_720">${recVo.welfare }</span>
+            <span class="titc">복리후생</span> 
+            <span class="txt_150">
+            <c:if test="${!empty recVo.welfare }">
+            ${recVo.welfare }
+            </c:if>
+            <c:if test="${empty recVo.welfare }">
+                            없음
+            </c:if>
+            </span>
          </dt>
 		</dl>
 	</div>
 	<div class="border_bottom font_13 bold">> 근무지역</div>
-	<div class="detail_area background bg">
+	<div class="detail_area background bg" style="height: 500px">
 	<dl class="clearBoth">
       <dt>
-         <span class="titd">근무지역</span>
-         <span class="txt_720">${recVo.address }<br>[상세정보] ${rec.addressDetail }</span>
+         <span class="titc">근무지역</span>
+         <input id="keyworldMap" type="hidden" value="${recVo.address }">
+         <span class="txt_500">${recVo.address }<br>[상세정보] ${rec.addressDetail }</span>
       </dt>	
          
 	   <dt>
-         <span class="titd">인근전철</span>
-         <span class="txt_720">
+         <span class="titc">인근전철</span>
+         <span class="txt_300">
+            <c:if test="${recVo.subRegion=='null' }">
+                           없음
+            </c:if>
+            <c:if test="${recVo.subRegion!='null' }">
             ${recVo.subRegion }
+            </c:if>
             ${recVo.subNum }
             ${recVo.subName }
             ${recVo.subInfo }
          </span>
       </dt> 
       <dt>
-         <span class="titd">지도</span>
-         <span class="txt_720">※ 지도는  <span class="red textBox">근무지 위치</span>를 나타내며 회사 소재지와 일치하지 않을 수 있습니다.</span>
-      </dt>
-      <div id="map" class="border">지도나올영역 </div> 
+         <span class="titc">지도</span>
+         <span class="txt_100" style="width: 600px">※ 지도는  <span class="red">근무지 위치</span>를 나타내며 회사 소재지와 일치하지 않을 수 있습니다.</span>
+      </dt> 
+     <p style="margin-top:-12px">
+    <em class="link">
+        <a href="javascript:void(0);" style="font-size: 9pt;
+        float: left;" 
+        onclick="window.open('http://fiy.daum.net/fiy/map/CsGeneral.daum', '_blank', 'width=981, height=650')">
+            혹시 주소 결과가 잘못 나오는 경우에는 여기에 제보해주세요.
+        </a>
+    </em>
+</p>
+<div id="map" style="width:100%;height:350px;"></div>
+<input type="hidden" id="recCompName" value="${recVo.compName }">
+
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = {
+        center: new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };  
+
+// 지도를 생성합니다    
+var map = new daum.maps.Map(mapContainer, mapOption); 
+
+// 주소-좌표 변환 객체를 생성합니다
+var geocoder = new daum.maps.services.Geocoder();
+
+// 주소로 좌표를 검색합니다
+var kwd = $("#keyworldMap").val();
+geocoder.addr2coord(kwd, function(status, result) {
+
+    // 정상적으로 검색이 완료됐으면 
+     if (status === daum.maps.services.Status.OK) {
+
+        var coords = new daum.maps.LatLng(result.addr[0].lat, result.addr[0].lng);
+
+        // 결과값으로 받은 위치를 마커로 표시합니다
+        var marker = new daum.maps.Marker({
+            map: map,
+            position: coords
+        });
+
+        // 인포윈도우로 장소에 대한 설명을 표시합니다
+        var recCompName = $("#recCompName").val();
+        var infowindow = new daum.maps.InfoWindow({
+            content: '<div style="width:150px;text-align:center;padding:6px 0;">'+recCompName+'</div>'
+        });
+        infowindow.open(map, marker);
+
+        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+        map.setCenter(coords);
+    } 
+});    
+</script>
+
 	</dl>
+	</div>
 	</div>
 	<div class="border_bottom font_13 bold">> 상세 모집 요강</div>
 	<div class="detail_rec bg">

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.algoo.app.faq.model.FaqVO;
 import com.algoo.app.notice.common.ListNoticeVO;
 import com.algoo.app.notice.common.PaginationInfo;
 import com.algoo.app.notice.common.Utility;
@@ -121,8 +122,16 @@ public class NoticeController {
 		NoticeVO noticeVo = noticeService.selectByNo(no);
 		logger.info("공지 상세보기 결과 noticeVo={}", noticeVo);
 		
+		NoticeVO noticePreVo =noticeService.prevContent(no);
+		logger.info("이전글 보기 결과 noticeVo = {}", noticePreVo);
+		
+		NoticeVO noticeNextVo =noticeService.nextContent(no);
+		logger.info("다음글 보기 결과 noticeVo = {}", noticeNextVo);
+		
 		//3. result save
 		model.addAttribute("noticeVo", noticeVo);
+		model.addAttribute("preNoticeVo", noticePreVo);
+		model.addAttribute("nextNoticeVo", noticeNextVo);
 		
 		return "notice/detail";
 	}

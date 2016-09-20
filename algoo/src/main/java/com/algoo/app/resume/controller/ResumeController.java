@@ -15,10 +15,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.algoo.app.career.model.CareerVO;
 import com.algoo.app.common.FileUploadWebUtil;
+import com.algoo.app.common.PaginationInfo;
 import com.algoo.app.computerability.model.ComputerAbilityVO;
 import com.algoo.app.hope.model.HopeVO;
 import com.algoo.app.language.model.LanguageVO;
@@ -26,6 +28,7 @@ import com.algoo.app.license.model.LicenseVO;
 import com.algoo.app.member.model.MemberService;
 import com.algoo.app.member.model.MemberVO;
 import com.algoo.app.personalInfo.model.PersonalInfoVO;
+import com.algoo.app.resume.model.ResumeSearchVO;
 import com.algoo.app.resume.model.ResumeService;
 import com.algoo.app.resume.model.ResumeVO;
 
@@ -65,7 +68,7 @@ public class ResumeController {
 	public int imageUp_post(
 			@ModelAttribute MemberVO memberVo,
 			HttpServletRequest request){
-		logger.info("메서드 들어왔당!!");
+		logger.info("imageUp_post() 메서드 진입");
 		
 		List<Map<String, Object>> fileList 
 			= fileUtil.FileUpload(request, FileUploadWebUtil.IMAGE_UPLOAD);
@@ -110,7 +113,8 @@ public class ResumeController {
 			@ModelAttribute LanguageVO languageVo,
 			@ModelAttribute LicenseVO licenseVo,
 			@ModelAttribute ComputerAbilityVO computerAbilityVo,
-			@ModelAttribute PersonalInfoVO personalInfoVo){
+			@ModelAttribute PersonalInfoVO personalInfoVo,
+			Model model){
 		logger.info("resumeWrite_post()핸들러 진입, 파라미터 resumeVo = {}"
 				, resumeVo);
 		logger.info("resumeWrite_post()핸들러 진입, 파라미터 hopeVo = {}"
@@ -131,6 +135,66 @@ public class ResumeController {
 		
 		logger.info("이력서 입력 결과 cnt = {}", cnt , resumeVo);
 		
-		return "redirect:/home.ag";
+		String msg = "", url = "";
+		if(cnt>0){
+			msg = "이력서 등록 성공!!";
+			url = "/resume/list.ag";
+		}else{
+			msg = "이력서 등록 실패";
+			url = "/resume/write.ag";
+		}
+		
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		
+		return "common/message";
+	}
+	
+	@RequestMapping("/list.ag")
+	public String list(@ModelAttribute ResumeSearchVO resumeSearchVo,
+			Model model){
+		
+		PaginationInfo pagingInfo = new PaginationInfo();
+		pagingInfo.setBlockSize(10);
+		pagingInfo.setCurrentPage(resumeSearchVo.getCurrentPage());
+		pagingInfo.setRecordCountPerPage(10);
+		
+		resumeSearchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
+		resumeSearchVo.setRecordCountPerPage(10);
+		
+		List<ResumeVO> alist = resumeService.selectResume(resumeSearchVo);
+		
+		int totalRecord = resumeService.selectResumeCount();
+		
+		pagingInfo.setTotalRecord(totalRecord);
+		
+		model.addAttribute("pagingInfo", pagingInfo);
+		model.addAttribute("alist", alist);
+		
+		return "resume/list";
+	}
+	
+	@RequestMapping("/detail.ag")
+	public String detail(
+			@RequestParam(defaultValue="0") int hisCode,
+			Model model){
+		
+		Map<String, Object> alist = resumeService.selectResumeByCode(hisCode);
+		
+		ResumeVO resumeVo = (ResumeVO)alist.get("resumeVo");
+		
+		MemberVO memberVo = memberService.selectMemberByCode(resumeVo.getMemberCode());
+		
+		logger.info("alist = {}" , alist);
+		
+		model.addAttribute("resumeVo", resumeVo);
+		model.addAttribute("hopeVo", alist.get("hopeVo"));
+		model.addAttribute("languageVo", alist.get("languageVo"));
+		model.addAttribute("careerVo", alist.get("careerVo"));
+		model.addAttribute("computerAbilityVo", alist.get("computerAbilityVo"));
+		model.addAttribute("personalInfoVo", alist.get("personalInfoVo"));
+		model.addAttribute("memberVo", memberVo);
+		
+		return "resume/detail";
 	}
 }

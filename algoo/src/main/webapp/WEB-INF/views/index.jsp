@@ -37,29 +37,6 @@
 		"width=390,height=480,left=700,top=200,resizable=yes,location=yes");
 	}
 	
-	/* top버튼 나타내기 */
-	$(document).ready(function(){
-	    $(".upMark").hide(); // 탑 버튼 숨김
-	    $(function () {
-	                 
-	        $(window).scroll(function () {
-	            if ($(this).scrollTop() > 100) { // 스크롤 내릴 표시
-	                $('.upMark').fadeIn();
-	            } else {
-	                $('.upMark').fadeOut();
-	            }
-	        });
-	                
-	        $('.upMark').click(function () {
-	            $('body,html').animate({
-	                scrollTop: 0
-	            }, 100);  // 탑 이동 스크롤 속도
-	            return false;
-	        });
-	    });
-	 
-	});
-	
 	/* 우측 메뉴의 이동 */
 	// 현재 스크롤바의 위치를 저장하는 변수 (px)
 	var currentScrollTop = 0;
@@ -135,13 +112,6 @@
 				<a href="#"><p>허위정보 신고<img src="<c:url value='/images/van.png'/>"></p></a>
 			</div>
 		</div>
-		
-		<!-- 최상단으로 이동버튼 -->
-		<div class="upMark">
-		<a href="#">
-		<img id="upMark" src="<c:url value='/images/up_mark.png'/>">
-		</a></div>
-		
 	
 		<div class="divMain">
 			<!-- 광고 및 기본 기능 -->

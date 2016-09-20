@@ -51,11 +51,6 @@
 		 }
 		});
 	   
-	   //스크롤업
-	   $(function(){
-		   $.scrollUp();
-		 });
-	   
 	   
    $("#simple_top span").html("채용공고 등록");
    //simple_top 이용시 자기가 맡은화면 명칭 innerHTML로 붙여주기

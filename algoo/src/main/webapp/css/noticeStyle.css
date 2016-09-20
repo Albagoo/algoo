@@ -288,3 +288,15 @@ table.box2 td a{
 	float: left;
 	border: none;
 }
+/*이전글 다음글*/
+.contentBox a{
+	color:black;
+	font-size: 0.9em;
+}
+.contentBox img{
+	height: 9px;
+}
+.contentBox{
+	margin-top: 20px;
+	border: none;
+}

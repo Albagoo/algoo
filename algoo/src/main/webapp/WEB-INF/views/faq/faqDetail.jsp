@@ -40,7 +40,7 @@
 					<th class="cdate"></th>
 				</thead>
 				<tbody>
-					<tr>
+					<tr style="border-bottom: 1px dashed lightgray;">
 						<td style="padding-left: 5px;">
 							<a href="<c:url value='/faq/faqDetail.ag?faqNo=${preFaqVo.faqNo}' />">
 								<img alt="이전글 이미지" src="<c:url value='/images/up.png'/>">&nbsp;이전글

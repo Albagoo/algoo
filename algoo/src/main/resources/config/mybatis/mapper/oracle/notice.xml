@@ -105,6 +105,24 @@
 		]]>
 	</select>
 	
+	<!-- 이전글 -->
+	<select id="prevContent" parameterType="int" resultType="NoticeVO">
+		SELECT * FROM main_board
+		WHERE main_no IN (SELECT MAX(main_no)
+		<![CDATA[ 
+			FROM main_board WHERE main_no < #{mainNo})
+		]]>
+	</select>
+	
+	<!-- 다음글 -->
+	<select id="nextContent" parameterType="int" resultType="NoticeVO">
+		SELECT * FROM main_board
+		WHERE main_no IN (SELECT MIN(main_no)
+		<![CDATA[
+			FROM main_board WHERE main_no > #{mainNo})
+		]]>
+	</select>
+	
 	<select id="selectTotalCount" resultType="int"
 		parameterType="SearchVO">
 		select count(*) from main_board

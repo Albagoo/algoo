@@ -242,7 +242,8 @@
 				</div>
 				<div class="divFunction">
 					<!-- 로그인상자 및 광고 -->
-					<%-- <div class="loginBox1">
+					<c:if test="${empty sessionScope.userid }">
+					<div class="loginBox1">
 						<!-- 로그인상자 -->
 						<a href="#" onclick="login2_1()">
 						<div class="personalLogin">
@@ -261,26 +262,28 @@
 							아이디 찾기 |
 							비밀번호 찾기
 						</div>
-					</div> --%>
-					
+					</div>
+					</c:if>
+					<c:if test="${!empty sessionScope.userid }">
 					<div class="loginBox2">
 						<!-- 로그인된 경우 -->
 						<div class="logOver">
 							<div id="logImg">
-							<img src="">
+							<img src="<c:url value='/images/unImg.jpg'/>">
 							</div>
 							<div id="logText">
-							<span>대왕</span>님
+							<span>${sessionScope.nickName }</span>님
 							<p>환영합니다</p>
 							</div>
 						</div>
 						<div class="logUnder">
-							<a href="#">
+							<a href="<c:url value='/member/memInfo.ag'/>">
 							▷회원정보 수정</a>
-							<a href="#">
+							<a href="<c:url value='/member/logout.ag'/>">
 							<span>로그아웃</span></a>
 						</div>
 					</div>
+					</c:if>
 					
 					<div class="">
 						<img src="<c:url value='/images/spam.jpg'/>"

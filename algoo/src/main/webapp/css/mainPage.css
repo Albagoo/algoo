@@ -113,8 +113,8 @@
 	margin:5px;
 	float: left;
 }
-.loginBox{
-	height:120px;
+.loginBox1{
+	height:158px;
 	border:solid 1px LightGray;
 	text-align:center;
 	margin-bottom:5px;
@@ -123,7 +123,6 @@
 	margin-top:5px;
 	margin-bottom:5px;
 }
-
 .personalLogin{
 	width:49%;
 	height:90px;
@@ -149,10 +148,58 @@
 	height:28px;
 	padding-top:8px;
 	border:solid 1px LightGray;
-	background-color:Gainsboro;
+	background-color:#f7f7f7;
 	font-size:12px;
 	float:left;
 }
+
+.loginBox2{
+	height:158px;
+	/* border:solid 1px LightGray; */
+	text-align:center;
+	margin-bottom:5px;
+}
+.logOver{
+	text-align:left;
+	padding:5px;
+	height:108px;
+	border:solid 1px LightGray;
+	font-size:12px;
+}
+.logOver span{
+	font-weight:bold;
+}
+	#logImg{
+		float:left;
+		width:85px;
+		height:105px;
+	}
+	#logText{
+		padding-top:25px;
+		float:left;
+		width:120px;
+		height:105px;
+	}
+.logOver img{
+	width:75px;
+	height:100px;
+	margin:5px;
+}
+.logUnder{
+	padding-bottom:2px;
+	height:41px;
+	border:solid 1px LightGray;
+	font-size:12px;
+	background-color:#f7f7f7;
+}
+.logUnder span{
+	margin-left:10px;
+	padding:5px;
+	border:solid 1px LightGray;
+	border-radius:5px;
+	background-color:white;
+}
+
 .divCommercial2{
 	width:99%;
 	height:150px;

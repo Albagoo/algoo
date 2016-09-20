@@ -242,7 +242,7 @@
 				</div>
 				<div class="divFunction">
 					<!-- 로그인상자 및 광고 -->
-					<div class="loginBox">
+					<%-- <div class="loginBox1">
 						<!-- 로그인상자 -->
 						<a href="#" onclick="login2_1()">
 						<div class="personalLogin">
@@ -261,7 +261,25 @@
 							아이디 찾기 |
 							비밀번호 찾기
 						</div>
+					</div> --%>
+					
+					<div class="loginBox2">
+						<!-- 로그인된 경우 -->
+						<div class="logOver">
+							<div id="logImg">
+							<img src="">
+							</div>
+							<div id="logText">
+							<span>대왕</span>님
+							<p>환영합니다</p>
+							</div>
+						</div>
+						<div class="logUnder">
+							▷회원정보 수정
+							<span>로그아웃</span>
+						</div>
 					</div>
+					
 					<div class="">
 						<img src="<c:url value='/images/spam.jpg'/>"
 						 width="220px">
@@ -271,7 +289,8 @@
 						<img src="<c:url value='/images/banner/banner3.jpg'/>"
 						 width="220px" height="140px">
 					</div>
-				</div>
+				</div><!-- divFunction -->
+				
 				<div class="divBrand">
 				
 				

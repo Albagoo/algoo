@@ -59,6 +59,38 @@
 	    });
 	 
 	});
+	
+	/* 우측 메뉴의 이동 */
+	// 현재 스크롤바의 위치를 저장하는 변수 (px)
+	var currentScrollTop = 0;
+	     
+	window.onload = function() {
+	    // 새로고침 했을 경우를 대비한 메소드 실행
+	    scrollController();
+	     
+	    // 스크롤을 하는 경우에만 실행
+	    $(window).on('scroll', function() {
+	        scrollController();
+	    });
+	}
+	     
+	// 메인 메뉴의 위치를 제어
+	function scrollController() {
+	    currentScrollTop = $(window).scrollTop();
+	    if (currentScrollTop < 150) {
+	        $('#header').css('top', -(currentScrollTop));
+	        $('#rightMenu').css('top', 150-(currentScrollTop));
+	        if ($('#rightMenu').hasClass('fixed')) {
+	            $('#rightMenu').removeClass('fixed');
+	        }
+	    } else {
+	        if (!$('#rightMenu').hasClass('fixed')) {
+	            $('#header').css('top', -150);
+	            $('#rightMenu').css('top', 0);
+	            $('#rightMenu').addClass('fixed');
+	        }
+	    }
+	}
 </script>
 
 	<%-- <!-- 메인 컨테이너 페이지 -->

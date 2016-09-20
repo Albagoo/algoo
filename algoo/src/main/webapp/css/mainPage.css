@@ -1,5 +1,6 @@
 @CHARSET "UTF-8";
 .divMain{
+	position:static;
 	margin:auto;
 	width:900px;
 }
@@ -114,7 +115,6 @@
 	float: left;
 }
 .loginBox1{
-	height:158px;
 	border:solid 1px LightGray;
 	text-align:center;
 	margin-bottom:5px;
@@ -125,8 +125,8 @@
 }
 .personalLogin{
 	width:49%;
-	height:90px;
-	padding-top:30px;
+	height:60px;
+	padding-top:5px;
 	border:solid 1px LightGray;
 	float:left;
 	font-size:20px;
@@ -135,8 +135,8 @@
 }
 .companyLogin{
 	width:49%;
-	height:90px;
-	padding-top:30px;
+	height:60px;
+	padding-top:5px;
 	border:solid 1px LightGray;
 	float:left;
 	font-size:20px;
@@ -154,7 +154,6 @@
 }
 
 .loginBox2{
-	height:158px;
 	/* border:solid 1px LightGray; */
 	text-align:center;
 	margin-bottom:5px;
@@ -162,7 +161,7 @@
 .logOver{
 	text-align:left;
 	padding:5px;
-	height:108px;
+	height:60px;
 	border:solid 1px LightGray;
 	font-size:12px;
 }
@@ -171,23 +170,23 @@
 }
 	#logImg{
 		float:left;
-		width:85px;
-		height:105px;
+		width:60px;
+		height:60px;
 	}
 	#logText{
-		padding-top:25px;
+		padding-top:15px;
 		float:left;
-		width:120px;
-		height:105px;
+		width:60px;
+		height:60px;
 	}
 .logOver img{
-	width:75px;
-	height:100px;
+	width:45px;
+	height:55px;
 	margin:5px;
 }
 .logUnder{
-	padding-bottom:2px;
-	height:41px;
+	width:218px;
+	height:28px;
 	border:solid 1px LightGray;
 	font-size:12px;
 	background-color:#f7f7f7;
@@ -197,7 +196,7 @@
 }
 .logUnder span{
 	margin-left:10px;
-	padding:5px;
+	padding:2px;
 	border:solid 1px LightGray;
 	border-radius:5px;
 	background-color:white;
@@ -254,7 +253,7 @@
 }
 .divSpecial .SpBox{
 	margin:0 auto;
-	width: 200px;
+	width: 210px;
 	height: 160px;
 	border:solid 1px LightGray;
 	text-align: center;
@@ -283,7 +282,7 @@
 	text-align:left;
 }
 .divGrand .GrBox{
-	width: 270px;
+	width: 283px;
 	height: 140px;
 	border:solid 1px LightGray;
 	text-align: center;

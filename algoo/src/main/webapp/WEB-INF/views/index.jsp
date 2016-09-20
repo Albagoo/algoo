@@ -292,7 +292,9 @@
 					<div class="divCommercial2">
 						<!-- 다른 사이즈의 광고 -->
 						<img src="<c:url value='/images/banner/banner3.jpg'/>"
-						 width="220px" height="140px">
+						 width="220px" height="120px">
+						<img src="<c:url value='/images/banner/banner5.jpg'/>"
+						 width="220px" height="65px">
 					</div>
 				</div><!-- divFunction -->
 				

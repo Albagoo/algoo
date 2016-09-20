@@ -4,6 +4,12 @@
 	width:900px;
 }
 
+#upMark{
+	display:scroll;
+	position:fixed;
+	bottom:10px;
+	right:10px;
+}
 #leftBanner{
 	position:fixed;
 	top:25%;

@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ include file="inc/top.jsp" %>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/mainPage.css'/>" />
+<%-- <script src="<c:url value='/js/jquery.scroll.pack.js'/>"></script>
+<script src="<c:url value='/js/jquery.easing.js'/>"></script> --%>
 
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -34,6 +36,29 @@
 		window.open("<c:url value='/login/login.ag?type="+type+"'/>", "login",
 		"width=390,height=480,left=700,top=200,resizable=yes,location=yes");
 	}
+	
+	/* top버튼 나타내기 */
+	$(document).ready(function(){
+	    $(".upMark").hide(); // 탑 버튼 숨김
+	    $(function () {
+	                 
+	        $(window).scroll(function () {
+	            if ($(this).scrollTop() > 100) { // 스크롤 내릴 표시
+	                $('.upMark').fadeIn();
+	            } else {
+	                $('.upMark').fadeOut();
+	            }
+	        });
+	                
+	        $('.upMark').click(function () {
+	            $('body,html').animate({
+	                scrollTop: 0
+	            }, 100);  // 탑 이동 스크롤 속도
+	            return false;
+	        });
+	    });
+	 
+	});
 </script>
 
 	<%-- <!-- 메인 컨테이너 페이지 -->
@@ -74,10 +99,15 @@
 				</div>
 			</div>
 			<div id="mReport">
-				<p>온라인 문의<img src="<c:url value='/images/question.png'/>"></p>
-				<p>허위정보 신고<img src="<c:url value='/images/van.png'/>"></p>
+				<a href="#"><p>온라인 문의<img src="<c:url value='/images/question.png'/>"></p></a>
+				<a href="#"><p>허위정보 신고<img src="<c:url value='/images/van.png'/>"></p></a>
 			</div>
 		</div>
+		<!-- 최상단으로 이동버튼 -->
+		<div class="upMark">
+		<a href="#">
+		<img id="upMark" src="<c:url value='/images/up_mark.png'/>">
+		</a></div>
 		
 	
 		<div class="divMain">

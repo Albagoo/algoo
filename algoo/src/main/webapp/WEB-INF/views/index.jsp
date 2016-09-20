@@ -77,10 +77,6 @@
 	<br><br> --%>
 	
 	<section>
-		<!-- 좌측 배너(고정) -->
-		<%-- <div id="leftBanner">
-			<img src="<c:url value='/images/banner/banner4_1.jpg'/>">
-		</div> --%>
 		<!-- 우측 메뉴(고정) -->
 		<div id="rightMenu">
 			<div id="mJoin">

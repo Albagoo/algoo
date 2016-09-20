@@ -15,8 +15,8 @@
 <div id="mainEmp">
 	<br><br>
 	<span id="divTitle">스페셜 채용공고</span>
+	
 	<table class="mainEmp" summary="스페셜 공고 리스트">
-		<tbody>
 		<c:if test="${empty alist}">
 			<tr>
 				<td class="align_center">
@@ -63,7 +63,6 @@
 			</tr>
 		</c:forEach>
 		<!-- 반복 끝 -->
-		</tbody>
 	</table>
 </div>
 

@@ -18,6 +18,28 @@
 		window.open("<c:url value='/login/login.ag'/>",	"login",
 		"width=390,height=480,left=700,top=200,resizable=yes,location=yes");
 	}
+	
+	/* top버튼 나타내기 */
+	$(document).ready(function(){
+	    $(".upMark").hide(); // 탑 버튼 숨김
+	    $(function () {
+	                 
+	        $(window).scroll(function () {
+	            if ($(this).scrollTop() > 100) { // 스크롤 내릴 표시
+	                $('.upMark').fadeIn();
+	            } else {
+	                $('.upMark').fadeOut();
+	            }
+	        });
+	                
+	        $('.upMark').click(function () {
+	            $('body,html').animate({
+	                scrollTop: 0
+	            }, 100);  // 탑 이동 스크롤 속도
+	            return false;
+	        });
+	    });
+	});
 </script>
 </head>
 <body>
@@ -83,3 +105,8 @@
 		
 		<!-- container시작 -->
 		<div id="container">
+			<!-- 최상단으로 이동버튼 -->
+			<div class="upMark">
+			<a href="#">
+			<img id="upMark" src="<c:url value='/images/up_mark.png'/>">
+			</a></div>

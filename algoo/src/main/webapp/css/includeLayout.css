@@ -236,3 +236,10 @@
 	height:12px;
 }
 
+/* 위로 이동 버튼 */
+#upMark{
+	display:scroll;
+	position:fixed;
+	bottom:1%;
+	right:23%;
+}

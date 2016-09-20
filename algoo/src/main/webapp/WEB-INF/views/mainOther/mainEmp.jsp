@@ -14,7 +14,7 @@
 
 <div id="mainEmp">
 	<br><br>
-	<span id="divTitle">스페셜 채용공고</span>
+	<span id="divTitle">&nbsp;스페셜 채용공고</span>
 	
 	<table class="mainEmp" summary="스페셜 공고 리스트">
 		<c:if test="${empty alist}">

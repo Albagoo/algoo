@@ -135,6 +135,7 @@
 				<a href="#"><p>허위정보 신고<img src="<c:url value='/images/van.png'/>"></p></a>
 			</div>
 		</div>
+		
 		<!-- 최상단으로 이동버튼 -->
 		<div class="upMark">
 		<a href="#">

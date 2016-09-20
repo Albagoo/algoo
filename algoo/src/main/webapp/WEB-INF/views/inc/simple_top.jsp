@@ -10,6 +10,29 @@
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleInc.css'/>" />
 <script type="text/javascript" 
 	src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
+<script type="text/javascript">
+/* top버튼 나타내기 */
+$(document).ready(function(){
+    $(".upMark").hide(); // 탑 버튼 숨김
+    $(function () {
+                 
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 100) { // 스크롤 내릴 표시
+                $('.upMark').fadeIn();
+            } else {
+                $('.upMark').fadeOut();
+            }
+        });
+                
+        $('.upMark').click(function () {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 100);  // 탑 이동 스크롤 속도
+            return false;
+        });
+    });
+});
+</script>
 <!--[if lt IE 9]>
       <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>      
     <![endif]-->

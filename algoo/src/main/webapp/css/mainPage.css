@@ -46,11 +46,53 @@
 	
 }
 .divMap{
+	position:relative;
 	background-image:url("../images/map.png");
 	background-size:230px 200px;
 	width:210px;
 	height:200px;
 }
+	.kyunggi{
+		position:absolute;
+		top:16px;
+		left:60px;
+	}
+	.kangwon{
+		position:absolute;
+		top:18px;
+		left:125px;
+	}
+	.incheon{
+		position:absolute;
+		top:22px;
+		left:30px;
+	}
+	/* 여기서부터 다시 */
+	.seoul{
+		position:absolute;
+		top:18px;
+		left:-19px;
+	}
+	.chungnam{
+		position:absolute;
+		top:50px;
+		left:-60px;
+	}
+	.chungbuk{
+		position:absolute;
+		top:40px;
+		left:-40px;
+	}
+	.daejeon{
+		position:absolute;
+		top:65px;
+		left:-80px;
+	}
+	.kyungbuk{
+		position:absolute;
+		top:55px;
+		left:40px;
+	}
 .divJob1{
 	width: 230px;
 	height:250px;

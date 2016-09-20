@@ -103,7 +103,13 @@
 							<img src="<c:url value='/images/new5.png'/>" alt="new 이미지" 
 								style="height: 14px;" align=absmiddle >
 						</c:if>
-					</c:if>	
+					</c:if>
+					<c:if test="${fList.delYn!='Y'}">
+						(${fList.count})
+					</c:if>
+					<c:if test="${fList.delYn=='Y'}">
+						
+					</c:if>
 				</td>
 				<td>${fList.nickName}</td>
 				<td><fmt:formatDate value="${fList.regdate}" pattern="yyyy-MM-dd"/>

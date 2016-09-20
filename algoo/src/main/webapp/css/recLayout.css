@@ -600,17 +600,19 @@ display: inline-block;
 /* 토글 */
 /* 직종 탭부분 CSS */
 #jtab>li{
-	width: 200px;
+	width: 228px;
+	
 	font-family:'bon godic';
    font-weight: bold;
-   font-size: 8.5pt;
+   font-size: 9pt;
+   text-align:center;
 }	
 /* 지역 탭부분 CSS */
 #tabs>ul>li{
 	width: 45px;
 	font-family:'bon godic';
    font-weight: bold;
-   font-size: 8.5pt;
+   font-size: 9pt;
 }	
 /* 탭 화면 고정크기 */	
 .toggler {
@@ -629,7 +631,7 @@ display: inline-block;
 /* 탭 내용 CSS */  
 #effect {
     position: relative;  
-    width: 920px;
+    width: 860px;
 /*     height: 460px; */
     padding: 0.1em;
     margin:0 auto;

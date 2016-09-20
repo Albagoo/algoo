@@ -5,7 +5,10 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ include file="../inc/simple_top.jsp" %>
 <script type="text/javascript" src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
-
+<link rel="stylesheet" href="<c:url value='/jquery/jquery-ui.css'/>"
+   type="text/css">
+<script src="<c:url value='/jquery/jquery-ui.js'/>"
+   type="text/javascript"></script>
 
 
 <link rel="stylesheet" type="text/css" href=
@@ -17,10 +20,7 @@
 
 <link rel="stylesheet" type="text/css"
    href="<c:url value='/css/simpleButton.css'/>" />
-<link rel="stylesheet" href="<c:url value='/jquery/jquery-ui.css'/>"
-   type="text/css">
-<script src="<c:url value='/jquery/jquery-ui.js'/>"
-   type="text/javascript"></script>
+
 
  <style>
   
@@ -37,7 +37,7 @@
          data:"GET",
          dataType:"json",
          success : function(res) {
-             for(var i=0;i<=10;i++){
+             for(var i=0;i<10;i++){
              var Jno="J0"+(i+1);
              var Jobno="#job-"+i;
              job2Set(res,Jno,Jobno);
@@ -45,8 +45,8 @@
              }
              
              for(var i=9;i<13;i++){
-             var Jno="J"+(i+1);
-             var Jobno="#job-"+i;
+              Jno="J"+(i+1);
+              Jobno="#job-"+i;
              job2Set(res,Jno,Jobno);
              /* alert(Jno+":"+Jobno); */
              }
@@ -55,57 +55,27 @@
           error : function(xhr,statust, error) {
           alert(status + ":"+ error);
           }
-          
-          
-          
       });//ajax
-      
-      
-      
     //업종셋팅 셋팅 -2 ( 일반음식점, 레스토랑 ....)
      function job2Set(res,code,tag) {
         /* var tempJob=""; */
         var resultJob="";
+        var firsts="";
         $.each(res.DATA,function() {
-             /* if(temp!=this.JOB_FIRST){ */
               if(this.JOB_CODE==code){
-             	   
-                 resultJob+="<div><a href='#' onclick='jobasdf(this)'>"+
-                 this.JOB_SECOND
-                 +"</a></div>";
+            	  firsts=this.JOB_FIRST;
+                 resultJob+="<div> <a href='#'"+
+                 "onclick='asdf(this)' title="+
+                 this.JOB_SECOND+">"+ 
+                 this.JOB_SECOND.replace("전체",firsts+" 전체")
+                 +"</a> </div>";
               }//if
-             /* }//if */ 
-             /* tempJob=this.JOB_FIRST; */
              
         });//for
           $(tag).html(resultJob);
       }//func     
-	       
-     
-      //선택한 지역에 넣기     
-      function jobasdf(aa) {
-      var ff=" ";
-      var maxjobLimit=0;
+   
     
-      if(maxjobLimit<5){
-        var f =$(aa).text();
-        ff=$("#test2").html()+"  <label name='jobs'"+
-        " onclick='removeJobs(this)' for="+f+
-        ">"+f+"<input type='button' title='"+f+
-        " 제거' id='"+f+"' value='x'>"+"</label>";
-        
-        ff=ff.replace("지역을 선택하세요 (최대 5개 지역 선택가능)","　");
-        
-        $("#test2").html(ff);
-        
-        /* ff2=$("input[name=jobs]").val()+f+",";
-        $("input[name=jobs]").val(ff2);
-         alert(ff2); */ 
-        maxjobLimit+=1;
-      }else{
-         alert("5개 까지만 선택가능합니다");
-      }
-     }
 	   
 	   
 	   // run the currently selected effect
@@ -165,37 +135,68 @@
        });//ajax  
    });//jquery
    
+   //3 직종 선택한 지역에 넣기      
+   var ff=" ";
+   var maxjobLimit=0;
+   function asdf(aa) {
+   
+   
+   if(maxjobLimit<5){
+     var f =$(aa).text();
+     
+     var f2=f.replace("전체",f);
+     /* alert(aa); */
+     ff=$("#test2").html()+"  <label name='jobs'"+
+     " onclick='removeJobs(this)' for="+f+
+     ">"+f2+"<input type='button' title='"+f+
+     " 제거 'id='"+ f2 +"'value='x'>"+"</label>";
+     
+     ff=ff.replace("지역을 선택하세요 (최대 5개 지역 선택가능)","　");
+     
+     $("#test2").html(ff);
+     
+      ff2=$("input[name=jobs]").val()+f+",";
+     $("input[name=jobs]").val(ff2);
+      alert(ff2);   
+     maxjobLimit+=1;
+   }else{
+      alert("5개 까지만 선택가능합니다");
+   }
+  }
+   
+   
+   
  //지역구 셋팅 -2
    function areaSet(res,code,tag) {
-      var temp="";
+      var temps="";
          var tw=0;
          var result="";
          $.each(res.DATA,function() {
-              if(temp!=this.GU){
+              if(temps!=this.GU){
                if(this.CODE==code){
                   result+="<div><a href='#' onclick='GU(this)'>"+
                   this.GU
                   +"</a></div>";
                }//if
               }//if 
-              temp=this.GU;
+              temps=this.GU;
          });//for
            $(tag).html(result);
     }//func
   //지역구 셋팅 -3    
-   var d=""; 
+   var ddd=""; 
     function GU(aa){
-    	d =$(aa).text();
-    	$(function(d) {
+    	ddd =$(aa).text();
+    	$(function(ddd) {
 			test();
 		});
     }
     
 //동읍면 셋팅-1
     function dongSet(res,code,tag,SI) {
-    	var temp="";
-           var tw=0;
-           var result="";
+    	temp="";
+           tw=0;
+           result="";
            $.each(res.DATA,function() {
                  if(this.GU==code&&this.SI==SI){
                     result+="<div><a href='#' onclick='dong(this)'>"+
@@ -250,10 +251,14 @@
    function removeArea(item) {
 	 item.remove();
 	 maxLimit-=1;
+	 alert($("#test").text());
+	 if($("#test").text().equals("")){
+		 $("#test").text("지역을 선택하세요 (최대 5개 지역 선택가능)");
+	 }
 	}
-   function removeJobs(item) {
-	 item.remove();
-	 maxjobLimit-=1;
+   function removeJobs(item2) {
+	 item2.remove();
+	 maxjobLimit=maxjobLimit-1;
 	}
    
    var abc="서울";
@@ -264,7 +269,7 @@
 	var bcd="외식·음료";
    function jobSet(job) {
 	bcd=$(job).text();
-	/* $("#jobTabs div p+p").text(""); */
+	 /* $("#jobTabs div p+p").text(""); */ 
 	}
    
    function pageProc(curPage){
@@ -284,7 +289,7 @@
 </form>
 
 <div class="divList">
-<legend>채용정보 리스트</legend>
+<h2>채용정보 리스트</h2>
 
 <div class="divSearch" style="border:1.5px solid #38F;
       margin: 2px;text-align: left;">
@@ -298,10 +303,10 @@ class="ui-state-default ui-corner-all" value="직종별검색">
       
          <div class="toggler">
   <div id="effect" class="ui-widget-content ui-corner-all">
-    <h3 class="ui-widget-header ui-corner-all">
-     <div style="display: inline-block;" id="test">
-                지역을 선택하세요 (최대 5개 지역 선택가능)
-       </div></h3>
+     <div style="display: inline-block" id="test">
+     <h3 class="ui-widget-header ui-corner-all">
+     지역을 선택하세요 (최대 5개 지역 선택가능)</h3></div>
+    
       <div id="tabs" style="padding: 10px;">
          <ul class="li_font">
           <li><a href="#tabs-0" onclick="codeSet(this)">서울</a></li>
@@ -361,9 +366,10 @@ class="ui-state-default ui-corner-all" value="직종별검색">
  
      <div class="toggler">
   <div id="effect2" class="ui-widget-content ui-corner-all">
+<div style="display: inline-block;"id="test2">  
     <h3 class="ui-widget-header ui-corner-all">
-    <div style="display: inline-block;"id="test2">ㅎ</div> </h3>
-    <p>
+    ㅎ </h3></div>
+    <!-- <p> -->
       <div id="jobTabs">
   <ul id="jtab">
     <li><a href="#jtabs-1" onclick="jobSet(this)">외식·음료</a></li>
@@ -414,14 +420,14 @@ class="ui-state-default ui-corner-all" value="직종별검색">
     <p id="job-11">11</p>
   </div>
 </div>
-    </p>
+    <!-- </p> -->
   </div>
 </div>
  
 
      
       <input type="hidden" name="areas" value="">
-       
+      <input type="hidden" name="jobs" value=""> 
         <p style="text-align: center;">
         <select name="searchCondition" class="button white small"
          style="font-size: 0.75em;">
@@ -495,8 +501,8 @@ class="ui-state-default ui-corner-all" value="직종별검색">
             <!-- 근무지 -->
             <td>
                <c:set var="addr" value="${fn:split(vo.address,' ')}"/>
-               <c:forEach var="i" begin="0" end="1">
-                  ${addr[i] }<br>
+               <c:forEach var="j" begin="0" end="1">
+                  ${addr[j] }<br>
                </c:forEach>
             </td>
             <!-- 기업명/모집제목 -->

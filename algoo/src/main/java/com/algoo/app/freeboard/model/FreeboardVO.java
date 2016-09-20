@@ -18,6 +18,17 @@ public class FreeboardVO {
 	//24시간 이내 글
 	private int newImgTerm;
 
+	//댓글 개수
+	private int count;
+	
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
 	public int getFreeNo() {
 		return freeNo;
 	}
@@ -119,6 +130,6 @@ public class FreeboardVO {
 		return "FreeboardVO [freeNo=" + freeNo + ", title=" + title + ", content=" + content + ", readCount="
 				+ readCount + ", groupNo=" + groupNo + ", sortNo=" + sortNo + ", step=" + step + ", regdate=" + regdate
 				+ ", delYn=" + delYn + ", userid=" + userid + ", nickName=" + nickName + ", newImgTerm=" + newImgTerm
-				+ "]";
+				+ ", count=" + count + "]";
 	}
 }

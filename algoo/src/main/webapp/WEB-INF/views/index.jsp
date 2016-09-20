@@ -124,34 +124,16 @@
 						<hr width="90px">
 						<div class="divMap">
 						<p class="areaP">
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;&nbsp;&nbsp;&nbsp;
-						 <a href="">
-						 경기</a>
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 <a href="">
-						 강원</a>
-						 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 <a id="spCity" href="">
-						 인천</a>
-						 &nbsp;&nbsp;
-						 <a id="spCity" href="">
-						 서울</a>
-						 <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 <a href="">
-						 충남</a>
-						 &nbsp;&nbsp;&nbsp;
-						 <a href="">
-						 충북</a>
-						 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 <a id="spCity" href="">
-						 대전</a>
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;
-						 <a href="">
+						 <a href="" class="kyunggi">경기</a>
+						 <a href="" class="kangwon">강원</a>
+						 <a href="" class="incheon" id="spCity">인천</a>
+						 <a href="" class="seoul" id="spCity">서울</a>
+						 <a href="" class="chungnam">충남</a>
+						 <a href="" class="chungbuk">충북</a>
+						 <a href="" class="daejeon" id="spCity">대전</a>
+						 <a href="" class="kyungbuk">경북</a>
+						 
+						 <!-- 
 						 경북</a>
 						 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -187,7 +169,7 @@
 						 &nbsp;&nbsp;
 						 <a href="">
 						 제주</a>
-						</p>
+						</p> -->
 						</div>
 					</div>
 					<div class="divJob2">

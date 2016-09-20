@@ -37,37 +37,6 @@
 		"width=390,height=480,left=700,top=200,resizable=yes,location=yes");
 	}
 	
-	/* 우측 메뉴의 이동 */
-	// 현재 스크롤바의 위치를 저장하는 변수 (px)
-	var currentScrollTop = 0;
-	     
-	window.onload = function() {
-	    // 새로고침 했을 경우를 대비한 메소드 실행
-	    scrollController();
-	     
-	    // 스크롤을 하는 경우에만 실행
-	    $(window).on('scroll', function() {
-	        scrollController();
-	    });
-	}
-	     
-	// 메인 메뉴의 위치를 제어
-	function scrollController() {
-	    currentScrollTop = $(window).scrollTop();
-	    if (currentScrollTop < 150) {
-	        $('#header').css('top', -(currentScrollTop));
-	        $('#rightMenu').css('top', 150-(currentScrollTop));
-	        if ($('#rightMenu').hasClass('fixed')) {
-	            $('#rightMenu').removeClass('fixed');
-	        }
-	    } else {
-	        if (!$('#rightMenu').hasClass('fixed')) {
-	            $('#header').css('top', -150);
-	            $('#rightMenu').css('top', 0);
-	            $('#rightMenu').addClass('fixed');
-	        }
-	    }
-	}
 </script>
 
 	<%-- <!-- 메인 컨테이너 페이지 -->
@@ -77,38 +46,6 @@
 	<br><br> --%>
 	
 	<section>
-		<!-- 우측 메뉴(고정) -->
-		<div id="rightMenu">
-			<div id="mJoin">
-				가입
-				<img src="<c:url value='/images/icon_facebook.png'/>">
-				<img src="<c:url value='/images/icon_naver.png'/>">
-				<img src="<c:url value='/images/icon_kakao.png'/>">
-				<br>
-				<hr>
-				<ul type="circle">
-					<li><a href="#">이력서 등록</a></li>
-					<li><a href="#">채용공고 등록</a></li>
-				</ul>
-			</div>
-			<div id="mToday">
-				<div id="mTitle">오늘 본 인재 :
-				<a href="#">0</a></div>
-				<div id="mContent">
-					오늘 본 인재가<br> 없습니다.
-				</div>
-				<div id="mView">
-					<p>전체보기 1/0</p>
-					<span>∧</span>
-					<span>∨</span>
-				</div>
-			</div>
-			<div id="mReport">
-				<a href="#"><p>온라인 문의<img src="<c:url value='/images/question.png'/>"></p></a>
-				<a href="#"><p>허위정보 신고<img src="<c:url value='/images/van.png'/>"></p></a>
-			</div>
-		</div>
-	
 		<div class="divMain">
 			<!-- 광고 및 기본 기능 -->
 			<div class="divCategory">

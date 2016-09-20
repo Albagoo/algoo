@@ -120,7 +120,7 @@
 					<!-- 알바 분류 -->
 					<div class="divJob1">
 						<!-- 지역별 알바 -->
-						지역별 알바
+						<span>지역별 알바</span>
 						<hr width="90px">
 						<div class="divMap">
 						<p class="areaP">
@@ -192,7 +192,7 @@
 					</div>
 					<div class="divJob2">
 						<!-- 업종별 알바 -->
-						업종별 알바
+						<span>업종별 알바</span>
 						<hr width="90px">
 						<table>
 							<tr>
@@ -221,7 +221,7 @@
 					</div>
 					<div class="divJob3">
 						<!-- 테마별 알바 -->
-						테마별 알바
+						<span>테마별 알바</span>
 						<hr width="90px">
 						<table>
 							<tr>

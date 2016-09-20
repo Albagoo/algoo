@@ -24,7 +24,6 @@
 		});
 	});
 	
-	//08-31 paging
 	function pageProc(curPage){
 		document.frmPage.currentPage.value=curPage;
 		document.frmPage.submit();
@@ -33,10 +32,7 @@
 
 <section>
 <!-- 08-31 paging form start-->
-<form name="frmPaging" method="post"
- action="<c:url value='/notice/list.ag'/>"
- id="frmPaging">
- 	<!-- 09-02 category searching -->
+<form name="frmPaging" method="post" action="<c:url value='/notice/list.ag'/>" id="frmPaging">
 	<input type="hidden" name="categoryName" id="categoryName" value="${param.categoryName }">
 	<input type="hidden" name="currentPage" id="currentPage"  >	
 </form>
@@ -129,11 +125,18 @@ action="<c:url value='/notice/list.ag'/>">
 
 <!-- 08-31 Paging-->
 <div class="divPage">
-	<c:if test="${pagingInfo.firstPage>1 }">	
-		<a href="#" onclick="pageProc(${pagingInfo.firstPage-1})">
-			<img src="<c:url value='/images/past.png'/>" alt="이전블럭으로">
+	<c:if test="${onePage.firstPage>1 }">	
+		<c:if test="${pagingInfo.firstPage>1 }">	
+			<a href="#" onclick="pageProc(${pagingInfo.firstPage-1})">
+				<img src="<c:url value='/images/pastone.png'/>" alt="이전블럭으로" align=absmiddle
+				style="height: 15px;">
+			</a>	
+		</c:if>
+		<a href="#" onclick="pageProc(${onePage.firstPage-1})">
+			<img src="<c:url value='/images/past.png'/>" alt="이전페이지로" align=absmiddle>
 		</a>	
 	</c:if>
+	
 	<c:forEach var="i" begin="${pagingInfo.firstPage }" 
 		end="${pagingInfo.lastPage }">	 
 		<c:if test="${i==pagingInfo.currentPage }">
@@ -143,16 +146,21 @@ action="<c:url value='/notice/list.ag'/>">
 				<a href="#" onclick="pageProc(${i})" >
 				${i}</a>
 		</c:if>
-
 	</c:forEach>	
 	
 	<!-- 다음 블럭으로 이동 -->
-	<c:if test="${pagingInfo.lastPage<pagingInfo.totalPage }">	
+	<c:if test="${onePage.lastPage<onePage.totalPage }">	
 		<a href="#" 
-		onclick="pageProc(${pagingInfo.lastPage+1})">
-			<img src="<c:url value='/images/next.png'/>" alt="다음블럭으로"
-				style="height: 15px;">
+		onclick="pageProc(${onePage.lastPage+1})">
+			<img src="<c:url value='/images/next.png'/>" alt="다음페이지로" align=absmiddle>
 		</a>
+		<c:if test="${pagingInfo.lastPage<pagingInfo.totalPage }">	
+			<a href="#" 
+			onclick="pageProc(${pagingInfo.lastPage+1})">
+				<img src="<c:url value='/images/nextone.png'/>" alt="다음블럭으로" align=absmiddle
+				 style="height: 15px;">
+			</a>
+		</c:if>
 	</c:if>
 </div>
 <br>

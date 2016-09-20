@@ -5,17 +5,19 @@
 <script type="text/javascript" 
 	src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 <script type="text/javascript">
+
+	
 	function reply(i) {
-		if($("#replyB").val() == "N"){
-			$("#p"+i).append("<div id='p_"+i+"'><textarea id='content' name='content'style='width: 83%;height: 60px;margin-right: 15px;'>"
+		if($("#replyB"+i).val() == "N"){
+			$("#p"+i).append("<div id='p_"+i+"'><textarea id='content' name='content'style='width: 83%;height: 60px;vertical-align: middle;margin-right: 15px;'>"
 					+"</textarea><span><input class='button white' type = 'submit' value='등록'" 
-					+"	style='height: 60px;text-align: left;'/></span></div>");
-			$("#replyB").val("Y");
-		}else if($("#replyB").val() == "Y"){
+					+"	style='height: 68px;text-align: left;'/></span></div>");
+			$("#replyB"+i).val("Y");
+		}else if($("#replyB"+i).val() == "Y"){
 			$("#p_"+i).remove();
-			$("#replyB").val("N");
+			$("#replyB"+i).val("N");
 		}
-	}
+	};
 </script>
 <div>
 	<c:if test="${empty clist }">
@@ -31,25 +33,25 @@
 				<input type="hidden" name="freeNo" value="${cmtVo.freeNo }">
 				<input type="hidden" name="nickName" value="${sessionScope.nickName }">
 				<input type="hidden" name="userid" value="${sessionScope.userid }">
-				<input type="hidden" name="replyB" id="replyB" value="N">
+				<input type="hidden" id="replyB${i }" value="N">
 				<c:if test="${cmtVo.step>0 }">
-						<c:forEach var="i" 
+						<c:forEach var="a" 
 							begin="1" end="${cmtVo.step}">
 							&nbsp;&nbsp;
 						</c:forEach>
 						<img src="<c:url value='/images/rere.png' />" alt="rere이미지"
-							 align="top" id="reply" style="height: 9px;">
-				</c:if>
+							 align="top" style="height: 9px;">
+				</c:if> 
 				<span style="font-weight: bold;">${cmtVo.nickName }</span>
 				<span><fmt:formatDate value="${cmtVo.regdate }" pattern="yyyy.MM.dd HH:mm"/> </span>
 				
 				<c:if test="${!empty sessionScope.userid}">
 					<img alt="답글이미지" src="../images/reply.png" style="height: 10px;">
-					<span id="reply" onclick="reply(${i})">답글</span>
+					<span onclick="reply(${i})">답글</span>
 				</c:if>
 				<p id="p${i}">
-					<c:if test="${cmtVo.step>0 }">
-						<c:forEach var="i" 
+					 <c:if test="${cmtVo.step>0 }">
+						<c:forEach var="b" 
 							begin="1" end="${cmtVo.step}">
 							&nbsp;&nbsp;&nbsp;&nbsp;
 						</c:forEach>

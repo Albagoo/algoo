@@ -1,6 +1,7 @@
 package com.algoo.app.comment.model;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.stereotype.Repository;
@@ -31,5 +32,15 @@ public class CommentDAOMybatis extends SqlSessionDaoSupport implements CommentDA
 		vo.setSortNo(vo.getSortNo()+1);
 		vo.setStep(vo.getStep()+1);
 		return getSqlSession().insert(namespace+".insertReply", vo);
+	}
+
+	@Override
+	public void deleteComment(Map<String, String> map) {
+		getSqlSession().delete(namespace+".deleteComment", map);
+	}
+
+	@Override
+	public CommentVO selectCommentByNo(int cmtNo) {
+		return getSqlSession().selectOne(namespace+".selectCommentByNo", cmtNo);
 	}
 }

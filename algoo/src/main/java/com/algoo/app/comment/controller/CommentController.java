@@ -1,6 +1,8 @@
 package com.algoo.app.comment.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.algoo.app.comment.model.CommentService;
 import com.algoo.app.comment.model.CommentVO;
+import com.algoo.app.freeboard.model.FreeboardVO;
 
 @Controller
 public class CommentController {
@@ -54,6 +57,23 @@ public class CommentController {
 		//2. db
 		int cnt = cmtService.insertReply(cmtVo);
 		
+		return "redirect:/freeboard/detail.ag?freeNo="+cmtVo.getFreeNo();
+	}
+	
+	@RequestMapping("/comment/delete.ag")
+	public String delete(@RequestParam(defaultValue="0") int commentNo, Model model){
+		logger.info("댓글삭제 , 파라미터 cmtNo = {}", commentNo);
+		
+		CommentVO cmtVo=cmtService.selectCommentByNo(commentNo);
+		
+		Map<String, String> map=new HashMap<String, String>();
+		map.put("cmtNo", Integer.toString(commentNo));
+		map.put("groupNo", cmtVo.getGroupNo()+"");
+		map.put("step", cmtVo.getStep()+"");
+		logger.info("댓글삭제 파라미터 map = {}", map);
+					
+		cmtService.deleteComment(map);
+			
 		return "redirect:/freeboard/detail.ag?freeNo="+cmtVo.getFreeNo();
 	}
 }

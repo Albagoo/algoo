@@ -192,6 +192,9 @@
 	font-size:12px;
 	background-color:#f7f7f7;
 }
+.logUnder a{
+	color:black;
+}
 .logUnder span{
 	margin-left:10px;
 	padding:5px;

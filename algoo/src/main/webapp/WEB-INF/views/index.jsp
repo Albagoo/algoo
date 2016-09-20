@@ -275,8 +275,10 @@
 							</div>
 						</div>
 						<div class="logUnder">
-							▷회원정보 수정
-							<span>로그아웃</span>
+							<a href="#">
+							▷회원정보 수정</a>
+							<a href="#">
+							<span>로그아웃</span></a>
 						</div>
 					</div>
 					

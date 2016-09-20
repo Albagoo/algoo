@@ -58,3 +58,8 @@ $(document).ready(function(){
 		<!-- /헤더영역 -->
 		
 		<div id="container">
+			<!-- 최상단으로 이동버튼 -->
+			<div class="upMark">
+			<a href="#">
+			<img id="upMark" src="<c:url value='/images/up_mark.png'/>">
+			</a></div>

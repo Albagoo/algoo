@@ -38,7 +38,55 @@
 	      		 onclick="location.href
       			='<c:url value="/notice/list.ag" />'"/>
 		</div>
+		<div class="showContent">
+			<table class="contentBox">
+				<colgroup>
+					<col style="width:15%;" />
+					<col style="width:70%;" />
+					<col style="width:15%" />
+				</colgroup>
+				<thead>
+					<th class="arrow"></th>
+					<th class="ctitle"></th>
+					<th class="cdate"></th>
+				</thead>
+				<tbody>
+					<tr style="border-bottom: 1px dashed lightgray;">
+						<td style="padding-left: 5px;">
+							<a href="<c:url value='/notice/detail.ag?no=${preNoticeVo.mainNo}' />">
+								<img alt="이전글 이미지" src="<c:url value='/images/up.png'/>">&nbsp;이전글
+							</a>
+						</td>
+						<td>
+							<c:if test="${empty preNoticeVo.mainNo}">
+								<span style="color: gray">이전 글이 없습니다</span>
+							</c:if>
+							<a href="<c:url value='/notice/detail.ag?no=${preNoticeVo.mainNo}' />">
+								${preNoticeVo.title}
+							</a>
+						</td>
+						<td class="align_center"><fmt:formatDate value="${preNoticeVo.regdate }" pattern="yyyy-MM-dd"/></td>
+					</tr>
+					<tr>
+						<td style="padding-left: 5px;">
+							<a href="<c:url value='/notice/detail.ag?no=${nextNoticeVo.mainNo}' />">
+								<img alt="다음글 이미지" src="<c:url value='/images/down.png'/>">&nbsp;다음글
+							</a>
+						</td>
+						<td>
+							<c:if test="${empty nextNoticeVo.mainNo}">
+								<span style="color: gray">다음 글이 없습니다</span>
+							</c:if>
+							<a href="<c:url value='/notice/detail.ag?no=${nextNoticeVo.mainNo}' />">
+								${nextNoticeVo.title }
+							</a>		
+						</td>
+						<td class="align_center"><fmt:formatDate value="${nextNoticeVo.regdate }" pattern="yyyy-MM-dd"/></td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
+</div>
 </section>
 
 <%@ include file="../inc/simple_bottom.jsp" %> 

@@ -54,14 +54,14 @@
 <c:if test="${!empty param.searchKeyword }">
 	<p>검색어 : ${param.searchKeyword }, ${pagingInfo.totalRecord }건 검색되었습니다.</p>
 </c:if>
-<c:if test="${empty searchVO.searchKeyword }">
-	<p>전체 조회 결과 - ${pagingInfo.totalRecord }건 조회되었습니다</p>
+<c:if test="${empty param.searchKeyword }">
+	<p>전체 조회 결과 - ${pagingInfo.totalRecord }건</p>
 </c:if>
 </div>
 <div class="category">
    	<label for="categoryList">카테고리로 찾기</label>
 		<select name="categoryInput" id="categoryInput" title="카테고리"
-     	 class="button white small" style="font-size: 0.9em;">
+     	 class="button white small" style="font-size: 0.85em; margin-bottom: 5px;">
      		<option value="">선택하세요</option>
      		<option value="개인회원 가입 및 탈퇴"
      		 <c:if test="${param.categoryName=='개인회원 가입 및 탈퇴' }">selected</c:if>>
@@ -121,7 +121,7 @@
 	<c:if test="${empty alist}">
 		<tr>
 			<td colspan="3" class="align_center">
-			검색된 질문이 없습니다
+				검색된 질문이 없습니다
 			</td>
 		</tr>
 	</c:if>

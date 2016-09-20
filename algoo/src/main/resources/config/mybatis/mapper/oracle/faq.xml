@@ -52,6 +52,24 @@
 		]]>
 	</select>
 	
+	<!-- 이전글 -->
+	<select id="prevContent" parameterType="int" resultType="FaqVO">
+		SELECT * FROM faq
+		WHERE faq_no IN (SELECT MAX(faq_no)
+		<![CDATA[ 
+			FROM faq WHERE faq_no < #{faqNo})
+		]]>
+	</select>
+	
+	<!-- 다음글 -->
+	<select id="nextContent" parameterType="int" resultType="FaqVO">
+		SELECT * FROM faq
+		WHERE faq_no IN (SELECT MIN(faq_no)
+		<![CDATA[
+			FROM faq WHERE faq_no > #{faqNo})
+		]]>
+	</select>
+	
 	<select id="searchCategory" parameterType="ListFaqVO" resultType="FaqVO">
 		select *
 		from

@@ -6,6 +6,7 @@ import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.stereotype.Repository;
 
 import com.algoo.app.common.SearchVO;
+import com.algoo.app.freeboard.model.FreeboardVO;
 
 @Repository
 public class FaqDAOMybatis extends SqlSessionDaoSupport implements FaqDAO{
@@ -49,5 +50,15 @@ public class FaqDAOMybatis extends SqlSessionDaoSupport implements FaqDAO{
 	@Override
 	public List<FaqVO> searchCategory(ListFaqVO searchVo) {
 		return getSqlSession().selectList(namespace+".searchCategory", searchVo);
+	}
+
+	@Override
+	public FaqVO prevContent(int faqNo) {
+		return getSqlSession().selectOne(namespace+".prevContent", faqNo);
+	}
+
+	@Override
+	public FaqVO nextContent(int faqNo) {
+		return getSqlSession().selectOne(namespace+".nextContent", faqNo);
 	}
 }

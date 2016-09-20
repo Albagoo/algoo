@@ -3,6 +3,7 @@ package com.algoo.app.faq.model;
 import java.util.List;
 
 import com.algoo.app.common.SearchVO;
+import com.algoo.app.freeboard.model.FreeboardVO;
 
 public interface FaqDAO {
 	public int WriteFaq(FaqVO faqVo);
@@ -13,4 +14,6 @@ public interface FaqDAO {
 	public int updateFaq(FaqVO faqVo);
 	public int deleteFaq(int faqNo);
 	public List<FaqVO> selectUserFaq(SearchVO searchVo);
+	public FaqVO prevContent(int faqNo);
+	public FaqVO nextContent(int faqNo);
 }

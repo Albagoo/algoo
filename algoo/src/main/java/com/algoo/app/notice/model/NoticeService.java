@@ -13,4 +13,6 @@ public interface NoticeService {
 	public NoticeVO selectByNo(int no);
 	public int updateNotice(NoticeVO noticeVo);
 	public int deleteNotice(int no);
+	public NoticeVO prevContent(int no);
+	public NoticeVO nextContent(int no);
 }

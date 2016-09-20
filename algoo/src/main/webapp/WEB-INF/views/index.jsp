@@ -43,12 +43,49 @@
 	<br><br> --%>
 	
 	<section>
+		<!-- 좌측 배너(고정) -->
+		<div id="leftBanner">
+			<img src="<c:url value='/images/banner/banner4_1.jpg'/>">
+		</div>
+		<!-- 우측 메뉴(고정) -->
+		<div id="rightMenu">
+			<div id="mJoin">
+				가입
+				<img src="<c:url value='/images/icon_facebook.png'/>">
+				<img src="<c:url value='/images/icon_naver.png'/>">
+				<img src="<c:url value='/images/icon_kakao.png'/>">
+				<br>
+				<hr>
+				<ul type="circle">
+					<li><a href="#">이력서 등록</a></li>
+					<li><a href="#">채용공고 등록</a></li>
+				</ul>
+			</div>
+			<div id="mToday">
+				<div id="mTitle">오늘 본 인재 :
+				<a href="#">0</a></div>
+				<div id="mContent">
+					오늘 본 인재가<br> 없습니다.
+				</div>
+				<div id="mView">
+					<p>전체보기 1/0</p>
+					<span>∧</span>
+					<span>∨</span>
+				</div>
+			</div>
+			<div id="mReport">
+				<p>온라인 문의<img src="<c:url value='/images/question.png'/>"></p>
+				<p>허위정보 신고<img src="<c:url value='/images/van.png'/>"></p>
+			</div>
+		</div>
+		
+	
 		<div class="divMain">
+			<!-- 광고 및 기본 기능 -->
 			<div class="divCategory">
-				<!-- 광고 및 기본 기능 -->
 				<div class="divCAD">
+				<!-- 광고배너(2개) -->
 				<div class="divCmHeader">
-					<!-- 광고배너(2개) -->
 					<table>
 					<td>
 					<script type="text/javascript">
@@ -111,7 +148,8 @@
 						height="111px"> --%>
 					</td>
 					</table>
-				</div>
+				</div><!-- divCmHeader -->
+				
 				<div class="divDivision">
 					<!-- 알바 분류 -->
 					<div class="divJob1">
@@ -234,7 +272,7 @@
 							</tr>
 						</table>
 					</div>
-				</div>
+				</div><!-- divDivision -->
 				</div>
 				<div class="divFunction">
 					<!-- 로그인상자 및 광고 -->

@@ -18,6 +18,7 @@ import com.algoo.app.common.SearchVO;
 import com.algoo.app.faq.model.FaqService;
 import com.algoo.app.faq.model.FaqVO;
 import com.algoo.app.faq.model.ListFaqVO;
+import com.algoo.app.freeboard.model.FreeboardVO;
 
 @Controller
 @RequestMapping("/faq")
@@ -96,7 +97,16 @@ public class FaqController {
 		FaqVO faqVo=faqService.selectByNo(faqNo);
 		logger.info("FAQ 답변보기 결과, faqVo={}", faqVo);
 		
+		FaqVO faqPreVo=faqService.prevContent(faqNo);
+		logger.info("이전글 보기 결과 faqVo = {}", faqVo);
+		
+		FaqVO faqNextVo=faqService.nextContent(faqNo);
+		logger.info("다음글 보기 결과 faqVo = {}", faqVo);
+		
+		
 		model.addAttribute("faqVo", faqVo);
+		model.addAttribute("preFaqVo", faqPreVo);
+		model.addAttribute("nextFaqVo", faqNextVo);
 		
 		return "faq/faqDetail";
 	}

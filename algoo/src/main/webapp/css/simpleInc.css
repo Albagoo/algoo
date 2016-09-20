@@ -5,11 +5,11 @@
 }
 /* 심플한 include-top */
 #simple_wrap{
-	width:100%;
+	width:1900px;
 	font-family:'bon godic';
 }
 header{
-	width:100%;
+	width:1900px;
 	height:85px;
 	border-bottom:5px solid #E70400;
 	margin-bottom:20px;
@@ -45,7 +45,7 @@ header{
 
 /* 컨테이너 영역[navigator,section,aside] */
 #container{
-	width:960px;
+	width:880px;
 	margin:0 auto;
 	padding:0;
 	margin-bottom:15px;
@@ -53,7 +53,7 @@ header{
 
 /* 심플한 include-bottom */
 footer{
-	width: 960px;
+	width: 880px;
 	margin:0 auto;
 	text-align:center;
     color:#8e8e8e;

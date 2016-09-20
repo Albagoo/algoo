@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.algoo.app.common.SearchVO;
+import com.algoo.app.freeboard.model.FreeboardVO;
 
 @Service
 public class FaqServiceImpl implements FaqService{
@@ -50,6 +51,16 @@ public class FaqServiceImpl implements FaqService{
 	@Override
 	public List<FaqVO> searchCategory(ListFaqVO searchVo) {
 		return faqDao.searchCategory(searchVo);
+	}
+
+	@Override
+	public FaqVO prevContent(int faqNo) {
+		return faqDao.prevContent(faqNo);
+	}
+
+	@Override
+	public FaqVO nextContent(int faqNo) {
+		return faqDao.nextContent(faqNo);
 	}
 	
 }

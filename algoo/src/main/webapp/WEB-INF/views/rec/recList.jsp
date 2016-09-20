@@ -13,10 +13,6 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
  
 
-<script type="text/javascript" src
-="<c:url value='../api/scrollup-master/dist/jquery.scrollUp.min.js'/>"></script>
-<script type="text/javascript" src
-="<c:url value='../api/scrollup-master/src/jquery.scrollUp.js'/>"></script>
 <link rel="stylesheet" type="text/css"
    href="<c:url value='/css/simpleButton.css'/>" />
 <link rel="stylesheet" href="<c:url value='/jquery/jquery-ui.css'/>"
@@ -29,15 +25,10 @@
   </style>
 
 <script type="text/javascript">  
-   
-
    $(document).ready(function(){
-	   
-	   $( "#jobTabs" ).tabs({});
-		  
-	   
-	   
+	   runEffect("#effect");
 	   //업직종 보여주기
+	   $( "#jobTabs" ).tabs({});
 	   // run the currently selected effect
 	    function runEffect(effect) {
 	      // get effect type from
@@ -72,7 +63,6 @@
          $(this).css("background","");
       });
       
-      
 //지역구 셋팅  (서울,인천,경기..) 탭형식으로 볼수 있게 해줌
       $( "#tabs" ).tabs();
 //지역구 셋팅  지역(서울,인천,경기..)에 
@@ -81,24 +71,12 @@
           data:"GET",
           dataType:"json",
           success : function(res) {
-            areaSet(res,"SI0","#SI0");
-            areaSet(res,"SI1","#SI1");
-            areaSet(res,"SI2","#SI2");
-            areaSet(res,"SI3","#SI3");
-            areaSet(res,"SI4","#SI4");
-            areaSet(res,"SI5","#SI5");
-            areaSet(res,"SI6","#SI6");
-            areaSet(res,"SI7","#SI7");
-            areaSet(res,"SI8","#SI8");
-            areaSet(res,"SI9","#SI9");
-            areaSet(res,"SI10","#SI10");
-            areaSet(res,"SI11","#SI11");
-            areaSet(res,"SI12","#SI12");
-            areaSet(res,"SI13","#SI13");
-            areaSet(res,"SI14","#SI14");
-            areaSet(res,"SI15","#SI15");
-            areaSet(res,"SI16","#SI16");
-            areaSet(res,"SI17","#SI17");
+	        	  for(var i=0;i<18;i++){
+	           var SIno="SI"+i;
+	        	  var IdSIno="#SI"+i;
+	        	  areaSet(res,SIno,IdSIno);
+	        	  }
+        	  
            },
            error : function(xhr,statust, error) {
            alert(status + ":"+ error);
@@ -146,7 +124,6 @@
            });//for
              $(tag).html(result);
       }//func
-    /* var guArr={"#GU0","#GU0","#GU0",} */
     function test() {
     	//선택한 지역 표시
         $.ajax({
@@ -154,27 +131,11 @@
               data:"GET",
               dataType:"json",
               success : function(res) {
-            	  var glist=["#GU0","#GU1"];
-            	  
-            	  dongSet(res,d,"#GU0",abc);
-            	  dongSet(res,d,"#GU1",abc);
-            	  dongSet(res,d,"#GU2",abc);
-            	  dongSet(res,d,"#GU3",abc);
-            	  dongSet(res,d,"#GU4",abc);
-            	  dongSet(res,d,"#GU5",abc);
-            	  dongSet(res,d,"#GU6",abc);
-            	  dongSet(res,d,"#GU7",abc);
-            	  dongSet(res,d,"#GU8",abc);
-            	  dongSet(res,d,"#GU9",abc);
-            	  dongSet(res,d,"#GU10",abc);
-            	  dongSet(res,d,"#GU11",abc);
-            	  dongSet(res,d,"#GU12",abc);
-            	  dongSet(res,d,"#GU13",abc);
-            	  dongSet(res,d,"#GU14",abc);
-            	  dongSet(res,d,"#GU15",abc);
-            	  dongSet(res,d,"#GU16",abc);
-            	  dongSet(res,d,"#GU17",abc);
-            	  
+
+            	     for(var i=0;i<18;i++){
+                         var GUno="#GU"+i;
+                         dongSet(res,d,GUno,abc);
+                         }
               },
               error : function(xhr,statust, error) {
                   alert(status + ":"+ error);
@@ -247,13 +208,8 @@ class="ui-state-default ui-corner-all" value="직종별검색">
     <h3 class="ui-widget-header ui-corner-all">
      <div style="display: inline-block;"
        id="test">
-               
                 지역을 선택하세요 (최대 5개 지역 선택가능)
-               
        </div></h3>
-    <p>
-      
-      
       <div id="tabs" >
          <ul class="li_font">
           <li><a href="#tabs-0" onclick="codeSet(this)">서울</a></li>
@@ -277,12 +233,13 @@ class="ui-state-default ui-corner-all" value="직종별검색">
         </ul>
        
       <div class="recListArea" id="recListArea">
+      
+
         <div id="tabs-0"  >
           <p id="SI0">시도 지역이 나올 영역</p>
-          
           <p id="GU0"></p>
-         
-        </div>    
+        </div>
+            
         <div id="tabs-1">
           <p id="SI1"></p>
           <p id="GU1"></p>
@@ -353,15 +310,9 @@ class="ui-state-default ui-corner-all" value="직종별검색">
         </div>
       </div>
       <!-- <span id="selectArea">선택한 지역:</span> -->
-        
      </div> 
-  
-        
-    </p>
   </div>
 </div>
- 
-  
   
 <select name="effects" id="effectTypes" style="visibility: hidden;">
   <option value="blind">Blind</option>
@@ -380,15 +331,12 @@ class="ui-state-default ui-corner-all" value="직종별검색">
   <option value="slide">Slide</option>
 </select>
  
-
- 
      <div class="toggler">
   <div id="effect2" class="ui-widget-content ui-corner-all">
     <h3 class="ui-widget-header ui-corner-all">
     <input type="text" placeholder="업 직종을 선택하세요 (최대 5개 업직종 선택가능)"
     size="70"> </h3>
     <p>
-      
       <div id="jobTabs">
   <ul id="jtab">
     <li><a href="#jtabs-1" >외식·음료</a></li>
@@ -438,10 +386,6 @@ class="ui-state-default ui-corner-all" value="직종별검색">
     <p>11</p>
   </div>
 </div>
-      
-      
-      
-      
     </p>
   </div>
 </div>
@@ -453,16 +397,16 @@ class="ui-state-default ui-corner-all" value="직종별검색">
         <p style="text-align: center;">
         <select name="searchCondition" class="button white small"
          style="font-size: 0.75em;">
-            <option value="title"
+            <option value="comp_name"
                <c:if test="${param.searchCondition=='title'}">
                   selected
                </c:if>
             >기업명</option>
-            <option value="content" 
+            <option value="title" 
                <c:if test="${param.searchCondition=='content'}">
                   selected
                </c:if>
-            >작성자</option>
+            >채용제목</option>
         </select>   
         <input type="text" name="searchKeyword" 
          title="검색어 입력" value="${param.searchKeyword}" >   

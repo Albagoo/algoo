@@ -11,10 +11,6 @@
    href="<c:url value='/css/recLayout.css'/>" />
    
 <script type="text/javascript" src
-="<c:url value='../api/scrollup-master/dist/jquery.scrollUp.min.js'/>"></script>
-<script type="text/javascript" src
-="<c:url value='../api/scrollup-master/src/jquery.scrollUp.js'/>"></script>
-<script type="text/javascript" src
 ="<c:url value='/js/member.js'/>"></script>
 <script type="text/javascript" src
 ="<c:url value='/js/recWrite.js'/>"></script>

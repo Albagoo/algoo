@@ -633,9 +633,9 @@ display: inline-block;
     text-decoration: none;
   }
 #effect {
-     position: relative;  
+    position: relative;  
     width: 920px;
-    height: 470px;
+    height: 430px;
     padding: 0.4em;
     margin:0 auto;
     border: 1px solid #38f;

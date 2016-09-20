@@ -243,3 +243,12 @@
 	bottom:1%;
 	right:23%;
 }
+
+/* 좌측 고정배너 */
+#leftBanner{
+	position:fixed;
+	top:25%;
+	left:23%;
+	width:70px;
+	height:210px;
+}

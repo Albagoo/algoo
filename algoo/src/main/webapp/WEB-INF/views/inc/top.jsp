@@ -110,3 +110,8 @@
 			<a href="#">
 			<img id="upMark" src="<c:url value='/images/up_mark.png'/>">
 			</a></div>
+			
+			<!-- 좌측 고정배너 -->
+			<div id="leftBanner">
+				<img src="<c:url value='/images/banner/banner4_2.jpg'/>">
+			</div>

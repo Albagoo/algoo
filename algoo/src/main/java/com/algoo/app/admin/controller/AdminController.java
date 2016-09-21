@@ -44,7 +44,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/adminBoard.ag")
-	public String adminBoardList(Model model, @RequestParam(defaultValue="0") int nco){
+	public String adminBoardList(Model model, @RequestParam(defaultValue="0") String nco){
 		logger.info("관리자페이지 게시판 리스트");
 		
 		List<NoticeVO> nlist=noticeService.selectAll();

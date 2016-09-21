@@ -20,10 +20,10 @@ implements NoticeDAO{
 	}
 	
 	@Override
-	public List<NoticeVO> selectAll(NoticeVO noticeVo){
+	public List<NoticeVO> selectAll(){
 		//공지 리스트
 		List<NoticeVO> alist
-		=getSqlSession().selectList(namespace+".selectAll", noticeVo);
+		=getSqlSession().selectList(namespace+".selectAll");
 		
 		return alist;
 	}

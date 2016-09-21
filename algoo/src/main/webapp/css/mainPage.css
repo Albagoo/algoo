@@ -13,6 +13,7 @@
 	font-family: '중고딕';
 	font-weight: bold;
 	font-size: 20px;
+	margin-bottom:5px;
 }
 .divCAD{
 	width:655px;
@@ -54,7 +55,7 @@
 }
 	.kyunggi{
 		position:absolute;
-		top:16px;
+		top:14px;
 		left:60px;
 	}
 	.kangwon{
@@ -67,32 +68,72 @@
 		top:22px;
 		left:30px;
 	}
-	/* 여기서부터 다시 */
 	.seoul{
 		position:absolute;
-		top:18px;
-		left:-19px;
+		top:28px;
+		left:60px;
 	}
 	.chungnam{
 		position:absolute;
-		top:50px;
-		left:-60px;
+		top:58px;
+		left:55px;
 	}
 	.chungbuk{
 		position:absolute;
-		top:40px;
-		left:-40px;
+		top:50px;
+		left:100px;
 	}
 	.daejeon{
 		position:absolute;
-		top:65px;
-		left:-80px;
+		top:74px;
+		left:85px;
 	}
 	.kyungbuk{
 		position:absolute;
-		top:55px;
-		left:40px;
+		top:65px;
+		left:150px;
 	}
+	.jeonbuk{
+		position:absolute;
+		top:95px;
+		left:70px;
+	}
+	.daegu{
+		position:absolute;
+		top:92px;
+		left:148px;
+	}
+	.kyungnam{
+		position:absolute;
+		top:115px;
+		left:135px;
+	}
+	.ulsan{
+		position:absolute;
+		top:100px;
+		left:180px;
+	}
+	.kwangju{
+		position:absolute;
+		top:115px;
+		left:55px;
+	}
+	.busan{
+		position:absolute;
+		top:115px;
+		left:180px;
+	}
+	.jeonnam{
+		position:absolute;
+		top:135px;
+		left:45px;
+	}
+	.jeju{
+		position:absolute;
+		top:175px;
+		left:35px;
+	}
+	
 .divJob1{
 	width: 230px;
 	height:250px;
@@ -160,6 +201,8 @@
 	border:solid 1px LightGray;
 	text-align:center;
 	margin-bottom:5px;
+	font-size:16px;
+	font-weight:bold;
 }
 .divFunction img{
 	margin-top:5px;
@@ -168,21 +211,17 @@
 .personalLogin{
 	width:49%;
 	height:60px;
-	padding-top:5px;
+	padding-top:12px;
 	border:solid 1px LightGray;
 	float:left;
-	font-size:20px;
-	font-weight:bold;
 	color:DimGray;
 }
 .companyLogin{
 	width:49%;
 	height:60px;
-	padding-top:5px;
+	padding-top:12px;
 	border:solid 1px LightGray;
 	float:left;
-	font-size:20px;
-	font-weight:bold;
 	color:DimGray;
 }
 .selectLogin{
@@ -227,12 +266,17 @@
 	margin:5px;
 }
 .logUnder{
+	position:static;
 	width:218px;
 	height:28px;
 	border:solid 1px LightGray;
 	font-size:12px;
 	background-color:#f7f7f7;
 }
+	#underLogText{
+		position:relative;
+		top:-10px;
+	}
 .logUnder a{
 	color:black;
 }
@@ -284,16 +328,16 @@
 }
 
 /* 스페셜 공고 */
-.divSpecial{
+.divSuper{
 	width: 100%;
 	float: left;
 }
-.divSpecial p{
+.divSuper p{
 	padding-left:10px;
 	padding-right:10px;
 	text-align:left;
 }
-.divSpecial .SpBox{
+.divSuper .SpBox{
 	margin:0 auto;
 	width: 210px;
 	height: 160px;
@@ -302,14 +346,14 @@
 	float:left;
 	margin: 5px;
 }
-.divSpecial a{
+.divSuper a{
 	text-decoration:none;
 	color:black;
 }
-.divSpecial #title{
+.divSuper #title{
 	font-weight:bold;
 }
-.divSpecial #content{
+.divSuper #content{
 	text-align:left;
 }
 
@@ -354,23 +398,44 @@
 }
 
 /* 스페셜 공고 */
-.divOther{
-	
+.divSpecial{
+	float:left;
 }
 
-.mainEmp{
-	width:880px;
+.specialEmp{
+	width:710px;
 	font-size:14px;
 	border-top:solid 3px black;
 	border-bottom:solid 3px black;
 }
-.mainEmp td{
+.specialEmp td{
 	padding-top:5px;
 	padding-bottom:5px;
 	border-top:solid 1px silver;
 	border-bottom:solid 1px silver;
 }
-.mainEmp td a{
+.specialEmp td a{
 	text-decoration:none;
 	color:black;
+}
+
+/* 스피드 공고 */
+.divSpeed{
+	float:left;
+	margin:10px;
+	width:160px;
+	font-size:14px;
+}
+.speedCon{
+	border:solid 1px silver;
+	padding:5px 5px 5px 10px;
+	font-size:13px;
+	margin-bottom:5px;
+}
+.divSpeed a{
+	text-decoration:none;
+	color:black;
+}
+.divSpeed span{
+	font-weight:bold;
 }

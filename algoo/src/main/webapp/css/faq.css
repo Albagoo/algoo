@@ -93,10 +93,12 @@ table.box, table.box2{
 }
 table.box2 th{
 	height:35px;
+	background-color: #ffeaea;
 }
 table.box2 td{
 	text-decoration: none;
 	height:30px;
+	border: 1px solid #ffeaea;
 }
 table.box2 td a{
 	color: black;
@@ -108,9 +110,6 @@ table.box2 td a{
 .divSearch, .divPage{
 	text-align: center;
 	padding-top: 20px;
-}
-.divSearch{
-	margin-left: 200px;
 }
 .divBtn{
 	float: right;
@@ -150,7 +149,7 @@ table.box2 td a{
 }
 /*faqDetail*/
 .firstDiv2{
-	background-color: #eee;
+	background-color: #ffeaea;
 	height: 30px;
 }
 .firstDiv2 .sp1{
@@ -161,7 +160,7 @@ table.box2 td a{
 	font-weight: bold;
 }
 .secondDiv{
-	border: 1px solid #eee;
+	border: 1px solid #ffeaea;
 	height:500px;
 }
 .firstDiv2 .sp2{
@@ -186,7 +185,7 @@ table.box2 td a{
 	height: 15px;
 }
 .cmtList{
-	background-color: #eee;
+	background-color: #ffeaea;
 }
 .contentBox a{
 	color:black;

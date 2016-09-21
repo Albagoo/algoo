@@ -75,4 +75,9 @@ public class FreeboardServiceImpl implements FreeboardService{
 	public FreeboardVO nextContent(int freeNo) {
 		return freeDao.nextContent(freeNo);
 	}
+
+	@Override
+	public List<FreeboardVO> selectAll() {
+		return freeDao.selectAll();
+	}
 }

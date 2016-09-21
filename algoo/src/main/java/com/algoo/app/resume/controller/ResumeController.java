@@ -185,15 +185,27 @@ public class ResumeController {
 		
 		MemberVO memberVo = memberService.selectMemberByCode(resumeVo.getMemberCode());
 		
+		String detail = resumeVo.getDetail();
+		
+		String[] detailArr = null;
+		int length = 0;
+		if(detail != null && !detail.isEmpty()){
+			detailArr = detail.split(",");
+			
+			length = detailArr.length;
+		}
+		
 		logger.info("alist = {}" , alist);
 		
 		model.addAttribute("resumeVo", resumeVo);
 		model.addAttribute("hopeVo", alist.get("hopeVo"));
 		model.addAttribute("languageVo", alist.get("languageVo"));
+		model.addAttribute("licenseVo", alist.get("licenseVo"));
 		model.addAttribute("careerVo", alist.get("careerVo"));
 		model.addAttribute("computerAbilityVo", alist.get("computerAbilityVo"));
 		model.addAttribute("personalInfoVo", alist.get("personalInfoVo"));
 		model.addAttribute("memberVo", memberVo);
+		model.addAttribute("length", length);
 		
 		return "resume/detail";
 	}

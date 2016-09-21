@@ -15,7 +15,9 @@ action="<c:url value='/faq/faqDelete.ag'/>">
 		<input type="hidden" name="faqNo" value="${param.faqNo }">
 		
 		<fieldset>
-		<legend>FAQ 삭제</legend>
+		<div id="Qmark">
+			<img src="<c:url value='/images/faqicon.png'/>" style="height: 50px;">
+		</div>
 	        <div>           
 	        	<span class="sp">FAQ ${param.faqNo }번 질문을 삭제하겠습니까?</span>                        
 	        </div>

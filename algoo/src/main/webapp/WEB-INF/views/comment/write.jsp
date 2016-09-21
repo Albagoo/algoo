@@ -9,7 +9,10 @@
 				$("#content").focus();
 				event.preventDefault();
 			}
+			
+			$('#content').val().replace(/\n/g, "<br>")
 		});
+		
 	});
 </script>
 <div class="cmtWrite" style="margin: 0 0 20px 0;">
@@ -20,7 +23,7 @@
 <input type="hidden" id="freeNo" name="freeNo" value="${param.freeNo }">
 	<div class="cmtWrite" style="padding-left:30px;">    
 		<div>
-			<textarea id="content" name="content" 
+			<textarea id="content" name="content" wrap="hard"
 				style="width: 83%;height: 60px;margin-right: 15px;
 				vertical-align: middle;"></textarea>
 			<span>

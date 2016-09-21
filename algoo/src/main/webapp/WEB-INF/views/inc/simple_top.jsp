@@ -49,15 +49,15 @@
 	// 메인 메뉴의 위치를 제어
 	function scrollController() {
 	    currentScrollTop = $(window).scrollTop();
-	    if (currentScrollTop < 150) {
+	    if (currentScrollTop < 220) {
 	        $('#header').css('top', -(currentScrollTop));
-	        $('#rightMenu').css('top', 150-(currentScrollTop));
+	        $('#rightMenu').css('top', 220-(currentScrollTop));
 	        if ($('#rightMenu').hasClass('fixed')) {
 	            $('#rightMenu').removeClass('fixed');
 	        }
 	    } else {
 	        if (!$('#rightMenu').hasClass('fixed')) {
-	            $('#header').css('top', -150);
+	            $('#header').css('top', -220);
 	            $('#rightMenu').css('top', 10);
 	            $('#rightMenu').addClass('fixed');
 	        }
@@ -97,6 +97,30 @@
 			
 			<!-- 좌측 고정배너 -->
 			<div id="leftBanner">
+				<script type="text/javascript">
+					var how_many_ads = 2; 
+					var now = new Date() 
+					var sec = now.getSeconds() 
+					var ad = sec % how_many_ads; 
+					ad +=1; 
+					if (ad==1) { 
+						url="#"; 
+						banner="<c:url value='/images/banner/banner4_1.jpg'/>"; 
+						height="111px"; 
+					} 
+					if (ad==2) { 
+						url="#"; 
+						banner="<c:url value='/images/banner/banner4_2.jpg'/>"; 
+						height="111px"; 
+					}
+					document.write('<center>'); 
+					document.write('<a href="' + url + '" target="_top">'); 
+					document.write('<img src="' + banner + '" width=') 
+					document.write(width + ' height=' + height + ' '); 
+					document.write('alt="' + alt + '" border=0><br>'); 
+					document.write('<small>' + txt + '</small></a>'); 
+					document.write('</center>'); 
+				</script>
 				<img src="<c:url value='/images/banner/banner4_2.jpg'/>">
 			</div>
 			

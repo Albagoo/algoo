@@ -61,4 +61,9 @@ public class FaqDAOMybatis extends SqlSessionDaoSupport implements FaqDAO{
 	public FaqVO nextContent(int faqNo) {
 		return getSqlSession().selectOne(namespace+".nextContent", faqNo);
 	}
+
+	@Override
+	public List<FaqVO> selectAll() {
+		return getSqlSession().selectList(namespace+".selectAll");
+	}
 }

@@ -1,5 +1,7 @@
 package com.algoo.app.resume.model;
 
+import java.sql.Timestamp;
+
 public class ResumeVO {
 	private int hisCode; /* 이력서코드 */
 	private String title; /* 이력서제목 */
@@ -15,7 +17,14 @@ public class ResumeVO {
 	private int licenseCode; /* 자격증 */
 	private int comAbilityCode; /* 컴퓨터활용능력 */
 	private int personalInfoCode; /* 개인부가정보 */
+	private Timestamp regdate;
 	
+	public Timestamp getRegdate() {
+		return regdate;
+	}
+	public void setRegdate(Timestamp regdate) {
+		this.regdate = regdate;
+	}
 	public int getHisCode() {
 		return hisCode;
 	}
@@ -104,10 +113,10 @@ public class ResumeVO {
 	@Override
 	public String toString() {
 		return "ResumeVO [hisCode=" + hisCode + ", title=" + title + ", hopeCode=" + hopeCode + ", ability=" + ability
-				+ ", detail=" + detail + ", contatctHour=" + contatctHour
-				+ ", memberCode=" + memberCode + ", award=" + award + ", content=" + content + ", careerCode="
-				+ careerCode + ", languageCode=" + languageCode + ", licenseCode=" + licenseCode + ", comAbilityCode="
-				+ comAbilityCode + ", personalInfoCode=" + personalInfoCode + "]";
+				+ ", detail=" + detail + ", contatctHour=" + contatctHour + ", memberCode=" + memberCode + ", award="
+				+ award + ", content=" + content + ", careerCode=" + careerCode + ", languageCode=" + languageCode
+				+ ", licenseCode=" + licenseCode + ", comAbilityCode=" + comAbilityCode + ", personalInfoCode="
+				+ personalInfoCode + ", regdate=" + regdate + "]";
 	}
 	
 	

@@ -35,6 +35,10 @@
 		values(#{faqNo}, #{category}, #{title}, #{content}, sysdate)
 	</insert>
 	
+	<select id="selectAll" resultType="FaqVO">
+		select * from faq order by faq_no desc
+	</select>
+	
 	<select id="selectAllFaq" resultType="FaqVO" parameterType="SearchVO">
 		select *
 		from

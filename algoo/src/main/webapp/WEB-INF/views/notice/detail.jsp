@@ -51,7 +51,7 @@
 					<th class="cdate"></th>
 				</thead>
 				<tbody>
-					<tr style="border-bottom: 1px dashed lightgray;">
+					<tr style="border-bottom: 1px dashed #ffdddd;">
 						<td style="padding-left: 5px;">
 							<a href="<c:url value='/notice/detail.ag?no=${preNoticeVo.mainNo}' />">
 								<img alt="이전글 이미지" src="<c:url value='/images/up.png'/>">&nbsp;이전글

@@ -40,7 +40,7 @@ $(document).ready(function(){
          if ( selectedEffect === "scale" ) {
            options = { percent: 50 };
          } else if ( selectedEffect === "size" ) {
-           options = { to: { width: 200, height: 60 } };
+           options = { to: { width: 10, height: 3 } };
          }
     
          // Run the effect
@@ -105,8 +105,6 @@ $(document).ready(function(){
 	        });//for
 	          $(tag).html(resultJob);
 	      }//func     
-   
-    
   
       
 //지역구 셋팅  (서울,인천,경기..) 탭형식 보여주기
@@ -130,7 +128,7 @@ $(document).ready(function(){
 });//jquery
    
    //3 선택한 직종 넣기      
-   var selectJob=" ";
+   var selectJob="";
    var maxjobLimit=0;
    var jobTemp=""
    function asdf(aa) {
@@ -144,15 +142,17 @@ $(document).ready(function(){
       }
      jobTemp=$(aa).text();
      //상세카테고리가 전체인경우 카테코리명도 포함
-     var JobName2=JobName.replace("전체","");
+     var JobName2=JobName.replace(" 전체","");
      /* alert(JobName2); */
-     selectJob=$("#test2").html()+"  <label name='jobs'"+
-     " onclick='removeJobs(this)' for="+JobName+
-     ">"+JobName+"<input type='button' title='"+JobName+
+     selectJob=$("#test2").html()+
+     "<label name='jobs'"+" onclick='removeJobs(this)' for="+
+     JobName+">"+JobName+
+     "<input type='button' title='"+JobName+
      " 제거 'id='"+ JobName2 +"'value='x'>"+"</label>";
      
      selectJob
-      =selectJob.replace("직종을 선택하세요 (최대 5개 직종 선택가능)","　");
+      =selectJob.replace("직종을 선택하세요(최대 5개 직종 선택가능)","　");
+     
      //사용자에게 보여지는 값
      $("#test2").html(selectJob);
      //실제 들어가는 값
@@ -239,7 +239,7 @@ $(document).ready(function(){
     	}
     	//사용자에게 보여지는 값
     	aeraTemp=$(aa).text();
-      selectArea=$("#test").html()+"  <label name='areas'"+
+      selectArea=$("#test").html()+"  <label name='areas'"+"style='color=#D50C0C'"+
       " onclick='removeArea(this)' for="+areaName+
       ">"+areaName+"<input type='button' title='"+areaName+
       " 제거' id='"+areaName+"' value='x'>"+"</label>";
@@ -254,14 +254,16 @@ $(document).ready(function(){
     }
    }
    function removeArea(as) {
-    alert(this.text());
-    as.remove();
+    
+	   var a=as;  
+	   alert(a);
+    as.remove(a);
     maxLimit-=1;
     /* alert($("#test").text()); */
     /* $("#areas").val().replace */
-    if($("#test").text().equals("")){
+    /* if($("#test").text().equals("")){
        $("#test").text("지역을 선택하세요 (최대 5개 지역 선택가능)");
-    }
+    } */
    }
    function removeJobs(item2) {
     item2.remove();
@@ -306,12 +308,15 @@ class="ui-state-default ui-corner-all" value="지역별검색">
       
 <input type="button" id="button2" 
 class="ui-state-default ui-corner-all" value="직종별검색">
+
+<input type="button" id="button3" 
+class="ui-state-default ui-corner-all" value="상세검색">
       
          <div class="toggler">
   <div id="effect" class="ui-widget-content ui-corner-all">
+     
      <div style="display: inline-block" id="test">
-     <h3 class="ui-widget-header ui-corner-all">
-     지역을 선택하세요 (최대 5개 지역 선택가능)</h3></div>
+             지역을 선택하세요 (최대 5개 지역 선택가능)</div>
     
       <div id="tabs" style="padding: 10px;">
          <ul class="li_font">
@@ -342,8 +347,8 @@ class="ui-state-default ui-corner-all" value="직종별검색">
 <c:set var="tabsNo" value="tabs-${i}"/>
 <c:set var="SINo" value="SI${i}"/>
 <c:set var="GUNo" value="GU${i}"/>
-        <div id="${tabsNo}" style="margin: 3px;" >
-          <p id="${SINo }" style="margin: 3px;"></p>
+        <div id="${tabsNo}" style="margin: 3px;padding: 3px;" >
+          <p id="${SINo }" style="margin: 3px;padding:3px;"></p>
           <p id="${GUNo }" style="margin-bottom: 5px;"></p>
         </div>
 </c:forEach>
@@ -355,26 +360,25 @@ class="ui-state-default ui-corner-all" value="직종별검색">
   
 <select name="effects" id="effectTypes" style="visibility: hidden;">
   <option value="blind">Blind</option>
-  <option value="bounce">Bounce</option>
-  <option value="clip">Clip</option>
+  <option value="bounce" >Bounce</option>
+  <option value="clip" >Clip</option>
   <option value="drop">Drop</option>
-  <option value="explode" selected="selected">Explode</option>
+  <option value="explode" >Explode</option>
   <option value="fade" >Fade</option>
   <option value="fold" >Fold</option>
   <option value="highlight">Highlight</option>
   <option value="puff">Puff</option>
   <option value="pulsate" >Pulsate</option>
-  <option value="scale">Scale</option>
+  <option value="scale" >Scale</option>
   <option value="shake">Shake</option>
   <option value="size" >Size</option>
-  <option value="slide">Slide</option>
+  <option value="slide" >Slide</option>
 </select>
  
      <div class="toggler">
   <div id="effect2" class="ui-widget-content ui-corner-all">
 <div style="display: inline-block;"id="test2">  
-    <h3 class="ui-widget-header ui-corner-all">
-    직종을 선택하세요(최대 5개 직종 선택가능) </h3></div>
+    직종을 선택하세요(최대 5개 직종 선택가능) </div>
     <!-- <p> -->
       <div id="jobTabs">
   <ul id="jtab">
@@ -406,9 +410,9 @@ class="ui-state-default ui-corner-all" value="직종별검색">
  </div>
 
       <!-- 선택한 지역 Controller로 보낼 값 저장 -->
-      <input type="text" size="200" name="areas" value="">
+      <input type="hidden" size="200" name="areas" value="">
       <!-- 선택한 직종 Controller로 보낼 값 저장 -->
-      <input type="text" size="200" name="jobs" value=""> 
+      <input type="hidden" size="200" name="jobs" value=""> 
       
         <p style="text-align: center;">
         <select name="searchCondition" class="button white small"
@@ -447,7 +451,7 @@ class="ui-state-default ui-corner-all" value="직종별검색">
    ${recSeachVO.area3 }
    ${recSeachVO.area4 }
    ${recSeachVO.area5 }
-   </p>
+   
    <c:if test="${!empty recSeachVO.job1 }">
        검색직종 - 
    </c:if>

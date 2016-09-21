@@ -313,20 +313,6 @@
 	float:left;
 }
 
-#pay{
-	margin-top:12px;
-	font-size:12px;
-}
-#pay #time{
-	color:white;
-	background-color:gray;
-	padding:1px;
-	border-radius:3px;
-}
-#pay #money{
-	font-weight:bold;
-}
-
 /* 스페셜 공고 */
 .divSuper{
 	width: 100%;
@@ -395,6 +381,45 @@
 	margin-top:5px;
 	padding:5px 0px 5px 0px;
 	text-align:center;
+}
+	#pay{
+		margin-top:12px;
+		font-size:12px;
+	}
+	#pay #time{
+		color:white;
+		background-color:gray;
+		padding:1px;
+		border-radius:3px;
+	}
+	#pay #money{
+		font-weight:bold;
+	}
+
+/* 그랜드 공고 */
+.divGrand{
+	float:left;
+}
+.grandEmp{
+	width:880px;
+	font-size:14px;
+	border-top:solid 3px black;
+	border-bottom:solid 3px black;
+}
+.grandCon{
+	width: 283px;
+	height: 140px;
+	border:solid 1px LightGray;
+	text-align: center;
+	float:left;
+	margin: 5px;
+}
+.divGrand a{
+	text-decoration:none;
+	color:black;
+}
+.divGrand span{
+	font-weight:bold;
 }
 
 /* 스페셜 공고 */

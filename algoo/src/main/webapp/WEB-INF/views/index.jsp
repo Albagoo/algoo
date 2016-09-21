@@ -547,6 +547,12 @@
 				</div>
 			</div>
 			
+			<div class="divGrand">
+				<!-- 그랜드 공고 리스트 -->
+				<article id="divGrand">
+				<c:import url="/grandList.ag"></c:import>
+				</article>
+			</div>
 			<div class="divSpecial">
 				<!-- 스페셜 공고 리스트(게시판형) -->
 				<article id="divSpecial">

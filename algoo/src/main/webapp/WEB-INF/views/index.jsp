@@ -246,7 +246,7 @@
 					<div class="divCommercial2">
 						<!-- 다른 사이즈의 광고 -->
 						<script type="text/javascript">
-							var how_many_ads = 2; 
+							var how_many_ads = 4; 
 							var now = new Date() 
 							var sec = now.getSeconds() 
 							var ad = sec % how_many_ads; 
@@ -259,6 +259,16 @@
 							if (ad==2) { 
 								url="#"; 
 								banner="<c:url value='/images/banner/banner3_2.jpg'/>"; 
+								width="220px"; 
+							}
+							if (ad==3) { 
+								url="#"; 
+								banner="<c:url value='/images/banner/banner3_3.jpg'/>"; 
+								width="220px"; 
+							}
+							if (ad==4) { 
+								url="#"; 
+								banner="<c:url value='/images/banner/banner3_4.jpg'/>"; 
 								width="220px"; 
 							}
 							document.write('<center>'); 

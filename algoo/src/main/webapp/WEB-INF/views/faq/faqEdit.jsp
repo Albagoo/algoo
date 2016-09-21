@@ -40,7 +40,9 @@ $(document).ready(function(){
 	<input type="hidden" name="faqNo" value="${faqVo.faqNo}">
 	
     <fieldset>
-	<legend>FAQ 수정</legend>
+	<div id="Qmark">
+		<img src="<c:url value='/images/faqicon.png'/>" style="height: 50px;">
+	</div>
 		<div class="category">
         	<label for="category">카테고리 분류</label>
         	<select name="category" id="category" title="카테고리" class="textBox" style="font-size: 0.75em;">

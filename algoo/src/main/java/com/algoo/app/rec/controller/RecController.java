@@ -1,5 +1,6 @@
 package com.algoo.app.rec.controller;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -79,9 +80,6 @@ public class RecController {
 		logger.info("compVo={}",compVo);
 		//3
 		model.addAttribute("compVo", compVo);
-		
-		
-		
 		return "rec/recWrite";
 	}
 	
@@ -138,7 +136,6 @@ public class RecController {
 						areaArr[i]=" ";
 					}
 				}
-			
 				searchVo.setArea1(areaArr[0]);
 				if(cnt>=2)searchVo.setArea2(areaArr[1]);
 				if(cnt>=3)searchVo.setArea3(areaArr[2]);
@@ -148,6 +145,28 @@ public class RecController {
 			logger.info("동네={},갯수={}",searchVo.getAreas(),cnt);
 			logger.info("area1={},area2={}",searchVo.getArea1(),searchVo.getArea2());
 			logger.info("area3={},area4={}",searchVo.getArea3(),searchVo.getArea4());
+			
+		}
+
+		if(searchVo.getJobs()!=null && !searchVo.getJobs().isEmpty()){
+			String[] JobArr=(searchVo.getJobs()).split(",");
+			
+			int cnt=JobArr.length;
+			
+			for (int i = 0; i < JobArr.length; i++) {
+				/*if(JobArr[i].equals("전국전체")){
+					JobArr[i]=" ";
+				}*/
+			}
+			searchVo.setJob1(JobArr[0]);
+			if(cnt>=2)searchVo.setJob2(JobArr[1]);
+			if(cnt>=3)searchVo.setJob3(JobArr[2]);
+			if(cnt>=4)searchVo.setJob4(JobArr[3]);
+			if(cnt>=5)searchVo.setJob5(JobArr[4]);
+			
+			logger.info("직종={},갯수={}",searchVo.getJobs(),cnt);
+			logger.info("job1={},job2={}",searchVo.getJob1(),searchVo.getJob2());
+			logger.info("job3={},job4={}",searchVo.getJob3(),searchVo.getJob4());
 			
 		}
 		//2
@@ -162,7 +181,7 @@ public class RecController {
 		searchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
 		logger.info("파라미터 ={}",searchVo);		
 		List<RecVO> alist = recService.selectAllRec(searchVo);
-		logger.info("FAQ 목록 조회 결과 alist.size()={}", alist.size());
+		logger.info("채용정보 목록 조회 결과 alist.size()={}", alist.size());
 		
 		int totalRecord=recService.selectTotalCount(searchVo);
 		pagingInfo.setTotalRecord(totalRecord);
@@ -177,7 +196,7 @@ public class RecController {
 			@RequestParam(defaultValue="0") int recCode,
 			Model model){
 		
-		logger.info("FAQ 조회수 증가, 파라미터 recCode = {}", recCode);
+		logger.info("채용정보 조회수 증가, 파라미터 recCode = {}", recCode);
 		
 		if(recCode==0){
 			model.addAttribute("msg", "잘못된 url입니다");
@@ -187,7 +206,7 @@ public class RecController {
 		}
 		
 		int cnt=recService.updateReadCount(recCode);
-		logger.info("FAQ 조회수 증가 결과, cnt = {}", cnt);
+		logger.info("채용정보 조회수 증가 결과, cnt = {}", cnt);
 
 		return "redirect:/rec/recDetail.ag?recCode="+recCode;
 	}

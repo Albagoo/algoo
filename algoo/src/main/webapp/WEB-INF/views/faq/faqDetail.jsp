@@ -9,7 +9,9 @@
 
 <section>
 	<div class="divForm">
-	<legend>FAQ 상세보기</legend>
+	<div id="Qmark">
+		<img src="<c:url value='/images/faqicon.png'/>" style="height: 50px;">
+	</div>
 		<div class="firstDiv2">
 			<span class="sp1">[${faqVo.category }] ${faqVo.title }</span>
 			<span class="sp2">등록일 <fmt:formatDate value="${faqVo.regdate }" pattern="yyyy-MM-dd"/></span>
@@ -40,7 +42,7 @@
 					<th class="cdate"></th>
 				</thead>
 				<tbody>
-					<tr style="border-bottom: 1px dashed lightgray;">
+					<tr style="border-bottom: 1px dashed #ffdddd;">
 						<td style="padding-left: 5px;">
 							<a href="<c:url value='/faq/faqDetail.ag?faqNo=${preFaqVo.faqNo}' />">
 								<img alt="이전글 이미지" src="<c:url value='/images/up.png'/>">&nbsp;이전글

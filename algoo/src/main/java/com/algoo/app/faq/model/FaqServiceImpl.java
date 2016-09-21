@@ -62,5 +62,10 @@ public class FaqServiceImpl implements FaqService{
 	public FaqVO nextContent(int faqNo) {
 		return faqDao.nextContent(faqNo);
 	}
+
+	@Override
+	public List<FaqVO> selectAll() {
+		return faqDao.selectAll();
+	}
 	
 }

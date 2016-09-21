@@ -10,7 +10,7 @@
    color: #999;
 } */
 p {
-   margin: 0 0 2em;
+   margin: 0;
 }
 h1 {
    margin: 0;
@@ -545,25 +545,30 @@ floatLeft input[type="checkbox"],
 }
 
 
-.recListArea div>p{
-padding:0px;
-border-bottom: 1px solid #aaa;
-background:#fafafa;
-text-align: left;	
+.recListArea div>p:first-child{
+
+ border-bottom: 1px solid #007FFF; 
+/* background:#fdfdfd; */
+text-align: left;
+	
 }
 .recListArea>div{
 text-align: left;
-background: #fafafa;
-border-bottom: 1px solid #eee;
+
+/* background: #fdfdfd; */
+/* border-bottom: 1px solid #68F; */
 display: inline-block;
- margin: 0px; 
 
 }
 /* 지역별 시구군 내용  간격DIV*/
+/* 직종별 시구군 내용  간격DIV*/
+
 .recListArea div div,
 #jobTabs div p>div{
-   width: 150px;
+   width: 142px;
    display: inline-block;
+   padding: 3px;
+   margin: 0;
 }
 /* 지역별 시구군 A태그 폰트CSS */
 .recListArea div div a,
@@ -572,6 +577,20 @@ display: inline-block;
    font-family:'bon godic';
    font-size: 9pt; 
 }
+.toggler div a:hover,
+.toggler p>div:hover{
+	color:#FFF;
+	background: #007FFF;
+	border-radius: 0.2em;
+}
+.toggler div a:active,
+.toggler p>div:active{
+	color:#FFF;
+	background: #0033FF;
+	border-radius: 0.2em;
+}
+
+
 .li_font li,#selectArea,
 .recList thead tr>th{
 	font-family:'bon godic';
@@ -582,37 +601,44 @@ display: inline-block;
 }
 /* 직종 선택값 들어가는 부분 CSS */
 #test,#test2{
-	width:500px;
+	width:800px;
+	height: 30px;
 	font-family:'bon godic';
    font-weight: bold;
    font-size: 8.5pt;
-   padding: 0;
+   padding-left: 30px;
    margin: 0;
    text-align: left;
    background: #fafafa;
 }
-
-#test input[type="button"]{
-   padding: 0;
-   margin: 0;
+#test label,#test2 label{
+	color:#D50C0C;
+	font-family:'bon godic';
+   font-weight: bold;
+   font-size: 9pt;
+   margin: 0 3px;
 }
-
+#test labe button,#test2 label button{
+	
+}
 /* 토글 */
 /* 직종 탭부분 CSS */
 #jtab>li{
-	width: 228px;
+	width: 208px;
 	
 	font-family:'bon godic';
    font-weight: bold;
    font-size: 9pt;
-   text-align:center;
+   text-align: center;
 }	
 /* 지역 탭부분 CSS */
 #tabs>ul>li{
-	width: 45px;
+	width: 41.2px;
 	font-family:'bon godic';
    font-weight: bold;
    font-size: 9pt;
+   text-align: center;
+   
 }	
 /* 탭 화면 고정크기 */	
 .toggler {
@@ -624,10 +650,24 @@ display: inline-block;
     border: 1px solid #38f; */
   }
 /* 지역별검색, 직종별검색 버튼 CSS */   
-#button,#button2 {
+#button,#button2,#button3 {
     padding: .5em 1em;
     text-decoration: none;
   }
+#button:hover,
+#button2:hover,
+#button3:hover{
+	color:#FFF;
+   background: #007FFF;
+   border-radius: 0.2em;
+}  
+#button:active,
+#button2:active,
+#button3:active{
+	color:#FFF;
+   background: #0033FF;
+   border-radius: -1em;
+}  
 /* 탭 내용 CSS */  
 #effect {
     position: relative;  
@@ -635,7 +675,7 @@ display: inline-block;
 /*     height: 460px; */
     padding: 0.1em;
     margin:0 auto;
-    border: 1px solid #15f;
+    /* border: 1px solid #15f; */
   }
 /* 탭 제목 CSS */  
 #effect h3 {

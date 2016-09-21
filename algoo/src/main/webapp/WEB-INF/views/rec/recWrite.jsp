@@ -27,6 +27,28 @@
  
    $(document).ready(function() {
 	   
+	   //모집종료일 달력기능
+	   $("#calText").datepicker({
+	      dateFormat:"yy-mm-dd",
+	        changeYear:true,
+	        dayNamesMin:['일','월','화','수','목','금','토'],
+	         monthNames:['1월','2월','3월','4월','5월','6월',
+	                     '7월','8월','9월','10월','11월','S12월']
+		   
+	   });
+	   
+	   $("#calText").change(function() {
+		 
+		   var cal=$("#calText").val();
+		   $("#calText2").val(cal);
+	   });
+	   
+	   /* $("#calText").keyup(function() {
+		return;
+	}) */
+
+	   
+	   
 	   //모집인원 입력시 체크해제되도록
 	   $("#writeMember").keyup(function() {
         $("#tenPeople").attr('checked',false);
@@ -98,9 +120,18 @@
       if ($("#grade").val().length < 1) {
          alert("서비스기간을 설정해주세요");
          $("#serviceBt").focus();
+      } else if ($("input[name='compName']").val().length < 1) {
+         alert("근무지 이름을 설정해주세요");
+         $("input[name='compName']").focus();
       } else if ($("#title").val().length < 1) {
          alert("채용 제목을 설정해주세요");
          $("#title").focus();
+      } else if ($("#zipcode").val().length < 1) {
+         alert("근무지 주소를 설정해주세요");
+         $("#btnZipcode").focus();
+      } else if ($("#calText").val().length < 1) {
+         alert("모집 종료일을 설정해주세요");
+         $("#calText").focus();
       } else if ($("#grade").val().length < 1) {
          alert("등급을 선택하세요");
          $("#grade").focus();
@@ -212,7 +243,7 @@
          success : function(res) {
             $.each(res.DATA,function() {
                if (sw == this.JOB_CODE) {
-                  jobN2 += "<option value="+this.JOB_SECOND+">";
+                  jobN2 += "<option value="+this.JOB_FIRST+','+this.JOB_SECOND+">";
                   jobN2 += this.JOB_SECOND+ "</option>";
                }//if 
             });
@@ -420,40 +451,62 @@ style="width: 150px;height: 100px;border: 1px solid gray">
       <div class="workCondition bg checks">
          <dl class="clearBoth">
             <dt>
-               <span class="tit">근무기간</span> <input type="radio" id="one"
-                  name="workTerm" value="하루(1일)" checked="checked"> <label
-                  for="one"> 하루(1일)</label> <input type="radio" id="week"
-                  name="workTerm" value="1주일이하"> <label for="week">
-                  1주일이하</label> <input type="radio" id="month" name="workTerm"
-                  value="1주일~1개월"> <label for="month"> 1주일~1개월</label> <input
-                  type="radio" id="threeMonth" name="workTerm" value="1개월~3개월">
-               <label for="threeMonth"> 1개월~3개월</label> <input type="radio"
-                  id="sixMonth" name="workTerm" value="3개월~6개월"> <label
-                  for="sixMonth"> 3개월~6개월 </label> <input type="radio" id="year"
-                  name="workTerm" value="6개월~1년"> <label for="year">
-                  6개월~1년</label> <input type="radio" id="consult" name="workTerm"
-                  value="기간협의"> <label for="consult"> 기간협의</label>
+               <span class="tit">근무기간</span> 
+               <input type="radio" id="one" name="workTerm" 
+               value="하루(1일)" checked="checked"> 
+               <label for="one"> 하루(1일)</label> 
+               <input type="radio" id="week"
+                  name="workTerm" value="1주일이하"> 
+               <label for="week"> 1주일이하</label> 
+               <input type="radio" id="month" name="workTerm"
+                  value="1주일~1개월"> 
+               <label for="month"> 1주일~1개월</label> 
+               <input type="radio" id="threeMonth" name="workTerm" 
+               value="1개월~3개월">
+               <label for="threeMonth"> 1개월~3개월</label> 
+               <input type="radio" id="sixMonth" name="workTerm" 
+               value="3개월~6개월"> 
+               <label for="sixMonth"> 3개월~6개월 </label> 
+               <input type="radio" id="year"  name="workTerm" 
+               value="6개월~1년"> 
+               <label for="year">  6개월~1년</label> 
+               <input type="radio" id="consult" name="workTerm"
+                 value="기간협의"> 
+                 <label for="consult"> 기간협의</label>
 
             </dt>
             <dt>
-               <span class="tit">근무요일</span> <input type="radio" id="MontoSun"
-                  name="workDays" checked="checked" value="월~일"> <label
-                  for="MontoSun"> 월~일</label> <input type="radio" id="MontoSat"
-                  name="workDays" value="월~토"> <label for="MontoSat">
-                  월~토</label> <input type="radio" id="MontoFri" name="workDays" value="월~금">
-               <label for="MontoFri"> 월~금</label> <input type="radio" id="SatSun"
-                  name="workDays" value="주말(토,일)"> <label for="SatSun">
-                  주말(토,일)</label> <input type="radio" id="sixDay" name="workDays"
-                  value="주 6일"> <label for="sixDay"> 주 6일</label> <input
-                  type="radio" id="fiveDay" name="workDays" value="주 5일"> <label
-                  for="fiveDay"> 주 5일</label> <input type="radio" id="fourDay"
-                  name="workDays" value="주 4일"> <label for="fourDay">
-                  주 4일</label> <input type="radio" id="threeDay" name="workDays"
-                  value="주 3일"> <label for="threeDay"> 주 3일</label> <input
-                  type="radio" id="twoDay" name="workDays" value="주 2일"> <label
-                  for="twoDay"> 주 2일</label> <input type="radio" id="oneDay"
-                  name="workDays" value="주 1일"> <label for="oneDay">
-                  주 1일</label>
+               <span class="tit">근무요일</span> 
+               <input type="radio" id="MontoSun"
+                  name="workDays" checked="checked" value="월~일"> 
+               <label for="MontoSun"> 월~일</label> 
+               <input type="radio" id="MontoSat"
+                  name="workDays" value="월~토"> 
+               <label for="MontoSat"> 월~토</label> 
+               <input type="radio" id="MontoFri" name="workDays" 
+                  value="월~금">
+               <label for="MontoFri"> 월~금</label> 
+               <input type="radio" id="SatSun"
+                  name="workDays" value="주말(토,일)"> 
+               <label for="SatSun"> 주말(토,일)</label> 
+               <input type="radio" id="sixDay" name="workDays"
+                  value="주 6일"> 
+               <label for="sixDay"> 주 6일</label> 
+               <input type="radio" id="fiveDay" name="workDays" 
+                  value="주 5일"> 
+               <label for="fiveDay"> 주 5일</label> 
+               <input type="radio" id="fourDay" name="workDays"
+                value="주 4일"> 
+               <label for="fourDay">  주 4일</label> 
+               <input type="radio" id="threeDay" name="workDays"
+                  value="주 3일"> 
+               <label for="threeDay"> 주 3일</label> 
+               <input type="radio" id="twoDay" name="workDays" 
+                  value="주 2일"> 
+               <label for="twoDay"> 주 2일</label> 
+               <input type="radio" id="oneDay" name="workDays" 
+               value="주 1일"> 
+               <label for="oneDay"> 주 1일</label>
 
 
             </dt>
@@ -722,10 +775,11 @@ style="width: 150px;height: 100px;border: 1px solid gray">
             </dt>
             <dt>
                <span class="titc">모집종료일</span>
-                 <input type="hidden" id="calText" size="10"
-                 name="recruitDeadline">
+               
+                 <input type="hidden" id="calText2" size="10"
+                 name="recruitDeadline" value="${serv }">
                  <input type="text" id="calText" size="10"
-                 name="recruitDeadlineView">
+                 name="recruitDeadlineView" maxlength="10">
                  <input type="button" id="weekCal"
                    value="일주일동안" class="white small textBox"> 
                  <input type="button" id="monthCal"

@@ -6,10 +6,6 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
-<!-- Start WOW Slider.com HEAD section -->
-<link rel="stylesheet" type="text/css" href="engine1/style.css" />
-<script type="text/javascript" src="engine1/jquery.js"></script>
-<!-- End WOW Slider.com HEAD section -->
 
 <link rel="stylesheet" type="text/css"
    href="<c:url value='/css/clear.css'/>" />
@@ -47,12 +43,6 @@ href="<c:url value='/css/recLayout.css'/>"/>
 src="<c:url value='/js/member.js'/>"></script>
 <script type="text/javascript"
 src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
-<!-- 인쇄 스크립트 -->
-<%-- <script type="text/javascript"
-src="<c:url value='/api/jQuery-printPage-plugin-master/jquery-1.4.4.min.js'/>"></script> --%>
-<script type="text/javascript"
-src="<c:url value='/api/print/jquery.printPage.js'/>"></script>
-
 
 <link rel="stylesheet" type="text/css" 
 href="<c:url value='/css/simpleButton.css'/>" />
@@ -65,7 +55,7 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
 <!-- f06943e7a65fb3d3ded3394d978e6b56 --><!-- 대근API -->
 <script type="text/javascript">
    $(document).ready(function(){
-	   $(".btnPrint").printPage();
+	   
 	   
       $("#simple_top span").html("채용정보");
       //simple_top 이용시 자기가 맡은화면 명칭 innerHTML로 붙여주기
@@ -99,9 +89,17 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
       $( "#button" ).on( "click", function() {
         runEffect();
       });
-  
+      
+     
    });
    
+   function copyURL(homePage) {
+	URL='<a href='+homePage+' target="_blank">홈페이지</a>';
+	window.clipboardData.setData('Text',URL);
+	alert('주소가 복사되었습니다.');
+
+  
+}
    
 </script>
 <div class="Wrap">
@@ -111,15 +109,17 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
 		pattern="yyyy-MM-dd"/> </span>
 		
 		<div class="detail_right">
-			<span class="url"> <a href="#">http://www.algoo.com/</a></span>
-			<input type="button" class="button white medium" value="단축키 URL복사"></button>
+			<span class="url"> <a href="#">${compVo.homepage }</a></span>
+			<input type="button" class="button white medium" value="URL복사"
+			onclick="copyURL('${compVo.homepage }')">
 		</div>
 		<p class="clear_both"></p>
 		<div class="detail_right">
 			<input type="button" class="button white small" value="스크랩">
-			<a class="btnPrint" href='recWrite.ag'>
-			<input type="button" class="button white small" value="인쇄">
-			</a>
+			
+			<input type="button" class="button white small" value="인쇄"
+			onclick="window.print()">
+			
 			<input type="button" class="button white small" value="신고">
 			<input type="button" class="button white small" value="E메일">
 			<input type="button" class="button white small" value="FaceBook">

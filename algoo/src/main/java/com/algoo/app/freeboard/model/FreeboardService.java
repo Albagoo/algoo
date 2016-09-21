@@ -17,4 +17,5 @@ public interface FreeboardService {
 	public int insertReply(FreeboardVO freeVo);
 	public FreeboardVO prevContent(int freeNo);
 	public FreeboardVO nextContent(int freeNo);
+	public List<FreeboardVO> selectAll();
 }

@@ -37,9 +37,9 @@
 			values(#{mainNo}, #{category}, #{title}, #{content}, sysdate)
 	</insert>
 	
-	<!-- <select id="selectAll" resultType="NoticeVO">
+	<select id="selectAll" resultType="NoticeVO">
 		select * from main_board order by main_no desc
-	</select> -->
+	</select>
 	
 	<!-- 08-31 paging -->
 	<!-- <select id="selectByCategory"  parameterType="ListNoticeVO"

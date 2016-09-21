@@ -12,7 +12,7 @@
 	$(document).ready(function(){
 		$(".divList .box2 tbody td:nth-of-type(2)")
 		.hover(function(){
-			$(this).css("background","#eee").css("cursor","pointer");
+			$(this).css("background","#fff7f7").css("cursor","pointer");
 		}, function(){
 			$(this).css("background","");
 		});
@@ -49,7 +49,9 @@
 </form>
 
 <div class="divList">
-<legend>FAQ 리스트</legend>
+<div id="Qmark">
+	<img src="<c:url value='/images/faqicon.png'/>" style="height: 50px;">
+</div>
 <div class="list">
 <c:if test="${!empty param.searchKeyword }">
 	<p>검색어 : ${param.searchKeyword }, ${pagingInfo.totalRecord }건 검색되었습니다.</p>

@@ -29,8 +29,11 @@
 		values(#{freeNo} ,#{title},#{content},#{freeNo},#{userid},#{nickName})
 	</insert>
 	
-	<select id="selectAllFreeboard" resultType="FreeboardVO" 
-		parameterType="SearchVO">
+	<select id="selectAll" resultType="FreeboardVO">
+		select * from free_board order by free_no desc
+	</select>
+	
+	<select id="selectAllFreeboard" resultType="FreeboardVO" parameterType="SearchVO">
 		select *
 		from
 		(

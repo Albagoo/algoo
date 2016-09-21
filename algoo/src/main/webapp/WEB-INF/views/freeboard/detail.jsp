@@ -27,7 +27,7 @@ src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
 			<span class="sp2">작성일 <fmt:formatDate value="${freeVo.regdate }" pattern="yyyy/MM/dd" />
 				<c:if test="${sessionScope.userid==freeVo.userid}">
 				| <a href="<c:url value='/freeboard/edit.ag?freeNo=${freeVo.freeNo}'/>">수정</a>
-				| <a href="<c:url value='/freeboard/delete.ag?freeNo=${freeVo.freeNo}'/>">삭제</a>
+				| <a href="#" onclick="del(${freeVo.freeNo})">삭제</a>
 				</c:if>
 				<c:if test="${sessionScope.userid!=freeVo.userid}">
 				| <a href="<c:url value='/freeboard/write.ag'/>">글쓰기</a>
@@ -86,7 +86,7 @@ src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
 					<th class="cdate"></th>
 				</thead>
 				<tbody>
-					<tr style="border-bottom: 1px dashed lightgray;">
+					<tr style="border-bottom: 1px dashed #ffdddd;">
 						<td style="padding-left: 5px;">
 							<a href="<c:url value='/freeboard/detail.ag?freeNo=${preFreeVo.freeNo}' />">
 								<img alt="이전글 이미지" src="<c:url value='/images/up.png'/>">&nbsp;이전글

@@ -49,15 +49,15 @@
 	// 메인 메뉴의 위치를 제어
 	function scrollController() {
 	    currentScrollTop = $(window).scrollTop();
-	    if (currentScrollTop < 150) {
+	    if (currentScrollTop < 220) {
 	        $('#header').css('top', -(currentScrollTop));
-	        $('#rightMenu').css('top', 150-(currentScrollTop));
+	        $('#rightMenu').css('top', 220-(currentScrollTop));
 	        if ($('#rightMenu').hasClass('fixed')) {
 	            $('#rightMenu').removeClass('fixed');
 	        }
 	    } else {
 	        if (!$('#rightMenu').hasClass('fixed')) {
-	            $('#header').css('top', -150);
+	            $('#header').css('top', -220);
 	            $('#rightMenu').css('top', 10);
 	            $('#rightMenu').addClass('fixed');
 	        }

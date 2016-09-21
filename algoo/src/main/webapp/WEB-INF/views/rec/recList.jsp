@@ -10,29 +10,63 @@
 <script src="<c:url value='/jquery/jquery-ui.js'/>"
    type="text/javascript"></script>
 
-
 <link rel="stylesheet" type="text/css" href=
 "<c:url value='/css/faq.css'/>" />
 <link rel="stylesheet" type="text/css" href=
 "<c:url value='/css/recLayout.css'/>" />
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
- 
 
 <link rel="stylesheet" type="text/css"
    href="<c:url value='/css/simpleButton.css'/>" />
-
 
  <style>
   
   </style>
 
 <script type="text/javascript">  
-   $(document).ready(function(){
-	   runEffect("#effect");
-	   //업직종 보여주기
-	   $( "#jobTabs" ).tabs({});
-//업종 셋팅  (외식음료, 유통판매, ...) 
-     $.ajax({
+$(document).ready(function(){
+     //임시 
+	  /* runEffect("#effect"); */
+      
+    
+      
+      // run the currently selected effect
+       function runEffect(effect) {
+         // get effect type from
+         var selectedEffect = $( "#effectTypes" ).val();
+         // Most effect types need no options passed by default
+         var options = {};
+         // some effects have required parameters
+         if ( selectedEffect === "scale" ) {
+           options = { percent: 50 };
+         } else if ( selectedEffect === "size" ) {
+           options = { to: { width: 200, height: 60 } };
+         }
+    
+         // Run the effect
+         $( effect ).toggle( selectedEffect, options, 500 );
+       };
+    
+       // Set effect from select menu value
+       $( "#button" ).on( "click", function() {
+         runEffect("#effect");
+       });
+       $( "#button2" ).on( "click", function() {
+         runEffect("#effect2");
+       });
+      
+      
+      $(".divList .box2 tbody tr")
+      .hover(function(){
+         $(this).css("background","eee").css("cursor","pointer");
+      }, function(){
+         $(this).css("background","");
+      });
+     
+      //업직종 탭형식으로 보여주기
+      $( "#jobTabs" ).tabs({});
+      //업종카테코리 셋팅  (외식음료, 유통판매, ...) 
+      $.ajax({
          url:"<c:url value='/json/Job2.json'/>",
          data:"GET",
          dataType:"json",
@@ -41,123 +75,90 @@
              var Jno="J0"+(i+1);
              var Jobno="#job-"+i;
              job2Set(res,Jno,Jobno);
-             /* alert(Jno+":"+Jobno); */
              }
-             
              for(var i=9;i<13;i++){
               Jno="J"+(i+1);
               Jobno="#job-"+i;
              job2Set(res,Jno,Jobno);
-             /* alert(Jno+":"+Jobno); */
              }
-          
           },
           error : function(xhr,statust, error) {
           alert(status + ":"+ error);
           }
-      });//ajax
-    //업종셋팅 셋팅 -2 ( 일반음식점, 레스토랑 ....)
-     function job2Set(res,code,tag) {
-        /* var tempJob=""; */
-        var resultJob="";
-        var firsts="";
-        $.each(res.DATA,function() {
-              if(this.JOB_CODE==code){
-            	  firsts=this.JOB_FIRST;
-                 resultJob+="<div> <a href='#'"+
-                 "onclick='asdf(this)' title="+
-                 this.JOB_SECOND+">"+ 
-                 this.JOB_SECOND.replace("전체",firsts+" 전체")
-                 +"</a> </div>";
-              }//if
-             
-        });//for
-          $(tag).html(resultJob);
-      }//func     
+       });//ajax
+      
+	    //업종상세카테고리 셋팅 -2 ( 일반음식점, 레스토랑 ....)
+	     function job2Set(res,code,tag) {
+	        /* var tempJob=""; */
+	        var resultJob="";
+	        var firsts="";
+	        $.each(res.DATA,function() {
+	              if(this.JOB_CODE==code){
+	                 firsts=this.JOB_FIRST;
+	                 resultJob+="<div> <a href='#'"+
+	                 "onclick='asdf(this)' title="+
+	                 this.JOB_SECOND+">"+ 
+	                 this.JOB_SECOND.replace("전체",firsts+" 전체")
+	                 +"</a> </div>";
+	              }//if
+	             
+	        });//for
+	          $(tag).html(resultJob);
+	      }//func     
    
     
-	   
-	   
-	   // run the currently selected effect
-	    function runEffect(effect) {
-	      // get effect type from
-	      var selectedEffect = $( "#effectTypes" ).val();
-	      // Most effect types need no options passed by default
-	      var options = {};
-	      // some effects have required parameters
-	      if ( selectedEffect === "scale" ) {
-	        options = { percent: 50 };
-	      } else if ( selectedEffect === "size" ) {
-	        options = { to: { width: 200, height: 60 } };
-	      }
-	 
-	      // Run the effect
-	      $( effect ).toggle( selectedEffect, options, 500 );
-	    };
-	 
-	    // Set effect from select menu value
-	    $( "#button" ).on( "click", function() {
-	      runEffect("#effect");
-	    });
-	    $( "#button2" ).on( "click", function() {
-	      runEffect("#effect2");
-	    });
-	   
-	   
-	   $(".divList .box2 tbody tr")
-      .hover(function(){
-         $(this).css("background","eee").css("cursor","pointer");
-      }, function(){
-         $(this).css("background","");
-      });
+  
       
-	   
-	   
-	   
-//지역구 셋팅  (서울,인천,경기..) 탭형식으로 볼수 있게 해줌
+//지역구 셋팅  (서울,인천,경기..) 탭형식 보여주기
       $( "#tabs" ).tabs();
-//지역구 셋팅  지역(서울,인천,경기..)에 
+//지역구 셋팅  지역(서울,인천,경기..)
       $.ajax({
           url:"<c:url value='/json/areas.json'/>",
           data:"GET",
           dataType:"json",
           success : function(res) {
-	        	  for(var i=0;i<18;i++){
-	           var SIno="SI"+i;
-	        	  var IdSIno="#SI"+i;
-	        	  areaSet(res,SIno,IdSIno);
-	        	  }
-        	  
+              for(var i=0;i<18;i++){
+              var SIno="SI"+i;
+              var IdSIno="#SI"+i;
+              areaSet(res,SIno,IdSIno);
+              }
            },
            error : function(xhr,statust, error) {
            alert(status + ":"+ error);
            }
        });//ajax  
-   });//jquery
+});//jquery
    
-   //3 직종 선택한 지역에 넣기      
-   var ff=" ";
+   //3 선택한 직종 넣기      
+   var selectJob=" ";
    var maxjobLimit=0;
+   var jobTemp=""
    function asdf(aa) {
    
-   
    if(maxjobLimit<5){
-     var f =$(aa).text();
+	   
+     var JobName =$(aa).text();
+     /* alert(JobName); */
+     if(jobTemp==JobName){
+         return;
+      }
+     jobTemp=$(aa).text();
+     //상세카테고리가 전체인경우 카테코리명도 포함
+     var JobName2=JobName.replace("전체","");
+     /* alert(JobName2); */
+     selectJob=$("#test2").html()+"  <label name='jobs'"+
+     " onclick='removeJobs(this)' for="+JobName+
+     ">"+JobName+"<input type='button' title='"+JobName+
+     " 제거 'id='"+ JobName2 +"'value='x'>"+"</label>";
      
-     var f2=f.replace("전체",f);
-     /* alert(aa); */
-     ff=$("#test2").html()+"  <label name='jobs'"+
-     " onclick='removeJobs(this)' for="+f+
-     ">"+f2+"<input type='button' title='"+f+
-     " 제거 'id='"+ f2 +"'value='x'>"+"</label>";
-     
-     ff=ff.replace("지역을 선택하세요 (최대 5개 지역 선택가능)","　");
-     
-     $("#test2").html(ff);
-     
-      ff2=$("input[name=jobs]").val()+f+",";
-     $("input[name=jobs]").val(ff2);
-      alert(ff2);   
+     selectJob
+      =selectJob.replace("직종을 선택하세요 (최대 5개 직종 선택가능)","　");
+     //사용자에게 보여지는 값
+     $("#test2").html(selectJob);
+     //실제 들어가는 값
+      selectJob2=$("input[name=jobs]").val()+JobName2+",";
+     $("input[name=jobs]").val(selectJob2);
+     /* alert(selectJob2); */
      maxjobLimit+=1;
    }else{
       alert("5개 까지만 선택가능합니다");
@@ -166,117 +167,122 @@
    
    
    
- //지역구 셋팅 -2
-   function areaSet(res,code,tag) {
-      var temps="";
-         var tw=0;
-         var result="";
+ //탭에 시도에 해당하는 구군 뿌려주기(서울-광진구, 강동구...) -2
+   function areaSet(res,areaCode,gutab) {
+      var guTemp="";
+      var guRes="";
          $.each(res.DATA,function() {
-              if(temps!=this.GU){
-               if(this.CODE==code){
-                  result+="<div><a href='#' onclick='GU(this)'>"+
-                  this.GU
-                  +"</a></div>";
+              if(guTemp!=this.GU){
+               if(this.CODE==areaCode){
+            	   guRes+="<div><a href='#' onclick='GU(this)'>"+
+                  this.GU +"</a></div>";
                }//if
               }//if 
-              temps=this.GU;
+              //중복제거용
+              guTemp=this.GU;
          });//for
-           $(tag).html(result);
+           $(gutab).html(guRes);
     }//func
-  //지역구 셋팅 -3    
-   var ddd=""; 
-    function GU(aa){
-    	ddd =$(aa).text();
-    	$(function(ddd) {
-			test();
-		});
+    
+  //선택한 구이름 가져오기 -3    
+   var guName=""; 
+    function GU(guAtag){
+      guName =$(guAtag).text();
+      $(function() {
+         test(guName);
+      });
     }
     
-//동읍면 셋팅-1
-    function dongSet(res,code,tag,SI) {
-    	temp="";
-           tw=0;
-           result="";
-           $.each(res.DATA,function() {
-                 if(this.GU==code&&this.SI==SI){
-                    result+="<div><a href='#' onclick='dong(this)'>"+
-                    this.DONG
-                    +"</a></div>";
-                  }
-           });//for
-             $(tag).html(result);
-      }//func
-    function test() {
-    	//선택한 지역 표시
+    //선택한 구군에 해당하는 동읍면 뿌려주기(광진구-광장동,구의동...)
+    function test(guName) {
+      //선택한 지역 표시
         $.ajax({
            url:"<c:url value='/json/areas.json'/>",
               data:"GET",
               dataType:"json",
               success : function(res) {
-
-            	     for(var i=0;i<18;i++){
+                    for(var i=0;i<18;i++){
                          var GUno="#GU"+i;
-                         dongSet(res,d,GUno,abc);
+                         dongSet(res,guName,GUno,abc);
                          }
               },
               error : function(xhr,statust, error) {
                   alert(status + ":"+ error);
               }
-        });
-       }
-       
- //선택한 지역에 넣기     
-    var dd=" ";
+        });//ajax
+       }//func
+    
+    //동읍면 셋팅-1
+    function dongSet(res,code,dongTab,SI) {
+           dongRes="";
+           $.each(res.DATA,function() {
+                 if(this.GU==code&&this.SI==SI){
+                	 dongRes+="<div><a href='#' onclick='dong(this)'>"+
+                    this.DONG
+                    +"</a></div>";
+                  }
+           });//for
+             $(dongTab).html(dongRes);
+      }//func
+
+   //선택한 지역 넣기     
+    var selectArea=" ";
     var maxLimit=0;
+    var aeraTemp="";
    function dong(aa) {
-	 if(maxLimit<5){
-    	var d =$(aa).text();
-    	dd=$("#test").html()+"  <label name='areas'"+
-    	" onclick='removeArea(this)' for="+d+
-    	">"+d+"<input type='button' title='"+d+
-    	" 제거' id='"+d+"' value='x'>"+"</label>";
-    	/* alert(dd); */
-    	dd=dd.replace("지역을 선택하세요 (최대 5개 지역 선택가능)","　");
-    	/* alert(dd); */
-    	$("#test").html(dd);
-    	
-    	dd2=$("input[name=areas]").val()+d+",";
-    	$("input[name=areas]").val(dd2);
-    	/* alert(dd2); */
-    	maxLimit+=1;
-	 }else{
-		 alert("5개 까지만 선택가능합니다");
-	 }
+    if(maxLimit<5){
+      var areaName =$(aa).text();
+    /*   alert("areaName="+areaName+",aeraTemp="+aeraTemp); */
+    	if(aeraTemp==areaName){
+    		/* alert("a"); */
+    		return;
+    	}
+    	//사용자에게 보여지는 값
+    	aeraTemp=$(aa).text();
+      selectArea=$("#test").html()+"  <label name='areas'"+
+      " onclick='removeArea(this)' for="+areaName+
+      ">"+areaName+"<input type='button' title='"+areaName+
+      " 제거' id='"+areaName+"' value='x'>"+"</label>";
+      selectArea=selectArea.replace("지역을 선택하세요 (최대 5개 지역 선택가능)","　");
+      $("#test").html(selectArea);
+      //실제 들어가는 값
+      selectArea2=$("input[name=areas]").val()+areaName+",";
+      $("input[name=areas]").val(selectArea2);
+      maxLimit+=1;
+    }else{
+       alert("5개 까지만 선택가능합니다");
+    }
    }
-   function removeArea(item) {
-	 item.remove();
-	 maxLimit-=1;
-	 alert($("#test").text());
-	 if($("#test").text().equals("")){
-		 $("#test").text("지역을 선택하세요 (최대 5개 지역 선택가능)");
-	 }
-	}
+   function removeArea(as) {
+    alert(this.text());
+    as.remove();
+    maxLimit-=1;
+    /* alert($("#test").text()); */
+    /* $("#areas").val().replace */
+    if($("#test").text().equals("")){
+       $("#test").text("지역을 선택하세요 (최대 5개 지역 선택가능)");
+    }
+   }
    function removeJobs(item2) {
-	 item2.remove();
-	 maxjobLimit=maxjobLimit-1;
-	}
+    item2.remove();
+    maxjobLimit=maxjobLimit-1;
+   }
    
    var abc="서울";
    function codeSet(code) {
-	abc=$(code).text();
-	$("#recListArea div p+p").text("");
+   abc=$(code).text();
+   $("#recListArea div p+p").text("");
    }
-	var bcd="외식·음료";
+   var bcd="외식·음료";
    function jobSet(job) {
-	bcd=$(job).text();
-	 /* $("#jobTabs div p+p").text(""); */ 
-	}
+   bcd=$(job).text();
+    /* $("#jobTabs div p+p").text(""); */ 
+   }
    
    function pageProc(curPage){
       document.frmPage.currentPage.value=curPage;
       document.frmPage.submit();
    }
-    
     
 </script>   
 
@@ -368,7 +374,7 @@ class="ui-state-default ui-corner-all" value="직종별검색">
   <div id="effect2" class="ui-widget-content ui-corner-all">
 <div style="display: inline-block;"id="test2">  
     <h3 class="ui-widget-header ui-corner-all">
-    ㅎ </h3></div>
+    직종을 선택하세요(최대 5개 직종 선택가능) </h3></div>
     <!-- <p> -->
       <div id="jobTabs">
   <ul id="jtab">
@@ -385,49 +391,25 @@ class="ui-state-default ui-corner-all" value="직종별검색">
     <li><a href="#jtabs-11" onclick="jobSet(this)">미디어</a></li>
   </ul>
   
-  <div id="jtabs-1">
-    <p id="job-1">1</p>
-  </div>
-  <div id="jtabs-2">
-    <p id="job-2">2</p>
-  </div>
-  <div id="jtabs-3">
-    <p id="job-3">3</p>
-    <p>3</p>
-  </div>
-  <div id="jtabs-4">
-    <p id="job-4">4</p>
-  </div>
-  <div id="jtabs-5">
-    <p id="job-5">5</p>
-  </div>
-  <div id="jtabs-6">
-    <p id="job-6">6</p>
-  </div>
-  <div id="jtabs-7">
-    <p id="job-7">7</p>
-  </div>
-  <div id="jtabs-8">
-    <p id="job-8">8</p>
-  </div>
-  <div id="jtabs-9">
-    <p id="job-9">9</p>
-  </div>
-  <div id="jtabs-10">
-    <p id="job-10">10</p>
-  </div>
-  <div id="jtabs-11">
-    <p id="job-11">11</p>
-  </div>
-</div>
+  
+  <c:forEach begin="1" end="11" var="i">
+<c:set var="jtabsNo" value="jtabs-${i}"/>
+<c:set var="jobNo" value="job-${i}"/>
+        <div id="${jtabsNo}" style="margin: 3px;" >
+          <p id="${jobNo }" style="margin: 3px;"></p>
+        </div>
+</c:forEach>
+  
     <!-- </p> -->
   </div>
 </div>
- 
+ </div>
 
-     
-      <input type="hidden" name="areas" value="">
-      <input type="hidden" name="jobs" value=""> 
+      <!-- 선택한 지역 Controller로 보낼 값 저장 -->
+      <input type="text" size="200" name="areas" value="">
+      <!-- 선택한 직종 Controller로 보낼 값 저장 -->
+      <input type="text" size="200" name="jobs" value=""> 
+      
         <p style="text-align: center;">
         <select name="searchCondition" class="button white small"
          style="font-size: 0.75em;">
@@ -466,6 +448,15 @@ class="ui-state-default ui-corner-all" value="직종별검색">
    ${recSeachVO.area4 }
    ${recSeachVO.area5 }
    </p>
+   <c:if test="${!empty recSeachVO.job1 }">
+       검색직종 - 
+   </c:if>
+   ${recSeachVO.job1 }
+   ${recSeachVO.job2 }
+   ${recSeachVO.job3 }
+   ${recSeachVO.job4 }
+   ${recSeachVO.job5 }
+   </p>
 </c:if>
 </div>
 <table class="box2 recList">
@@ -502,13 +493,13 @@ class="ui-state-default ui-corner-all" value="직종별검색">
             <td>
                <c:set var="addr" value="${fn:split(vo.address,' ')}"/>
                <c:forEach var="j" begin="0" end="1">
-                  ${addr[j] }<br>
+                  ${addr[j] }<br>&nbsp;
                </c:forEach>
             </td>
             <!-- 기업명/모집제목 -->
             <td style="text-align: left">
                <a href="<c:url value='/rec/updateCount.ag?recCode=${vo.recCode}'/>">
-                  &nbsp; [${vo.compName }]<br> ${vo.title}</a>
+                  &nbsp;&nbsp; [${vo.compName }]<br>&nbsp;&nbsp; ${vo.title}<br>&nbsp;</a>
             </td>
             <!-- 연령 -->
             <td>

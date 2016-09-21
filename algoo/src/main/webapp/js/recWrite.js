@@ -3,7 +3,7 @@
  */
 
 $(document).ready(function(){
-
+	
 	
 	$("#weekCal").click(function() {
 		var date = new Date();
@@ -71,14 +71,7 @@ $(document).ready(function(){
 		uiColor : '#FFFFFF'
 	});
 	
-	//모집종료일 달력기능
-	$("#calText").datepicker({
-		dateFormat:"yy-mm-dd",
-        changeYear:true,
-        dayNamesMin:['일','월','화','수','목','금','토'],
-         monthNames:['1월','2월','3월','4월','5월','6월',
-                     '7월','8월','9월','10월','11월','S12월']
-	});
+
 	
     //이메일보여주기
     $("#email3").css("visibility","hidden");

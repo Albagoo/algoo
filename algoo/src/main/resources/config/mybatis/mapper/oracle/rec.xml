@@ -50,6 +50,45 @@
             like '%' || #{area5} || '%'
          </if>
          
+         <if test="job1!=null and job1!=''">
+            <if test="searchKeyword!=null and searchKeyword!=''">
+            or
+            </if>
+            JOB_NAME2
+            like '%' || #{job1} || '%'
+         </if>
+         
+         <if test="job2!=null and job2!=''">
+            <if test="job1!=null and job1!=''">
+            or
+            </if>
+            JOB_NAME2
+            like '%' || #{job2} || '%'
+         </if>
+         
+         <if test="job3!=null and job3!=''">
+            <if test="job2!=null and job2!=''">
+            or
+            </if>
+            JOB_NAME2
+            like '%' || #{job3} || '%'
+         </if>
+         
+         <if test="job4!=null and job4!=''">
+            <if test="job3!=null and job3!=''">
+            or
+            </if>
+            JOB_NAME2
+            like '%' || #{job4} || '%'
+         </if>
+         
+         <if test="job5!=null and job5!=''">
+            <if test="job4!=null and job4!=''">
+            or
+            </if>
+            JOB_NAME2
+            like '%' || #{job5} || '%'
+         </if>
 		</where>
 	</sql>
 
@@ -108,8 +147,7 @@
 		work_Time,work_Time2,work_Time3,work_Time4,pay_type,pay,
 		recruit_Type,welfare,gender,age,educate_Lv,
 		career,preference,recruit_Member,recruit_Person,recruit_Method,
-		documents,detail_Recruit,comp_Code,service_Code,RECRUIT_DEADLINE,
-		
+		documents,detail_Recruit,comp_Code,service_Code,RECRUIT_DEADLINE
 		)
 		values(RECRUITMENT_seq.nextval, #{compName},#{title},#{jobName},#{jobName2},
 		#{zipcode},#{address},#{addressDetail},#{subRegion},
@@ -117,9 +155,7 @@
 		#{workTime},#{workTime2},#{workTime3},#{workTime4},#{payType},#{pay},
 		#{recruitType},#{welfare},#{gender},#{age},#{educateLv},
 		#{career},#{preference},#{recruitMember},#{recruitPerson},#{recruitMethod},
-		#{documents},#{detailRecruit},#{compCode},#{serviceCode},#{recruitDeadline},
-      
-
+		#{documents},#{detailRecruit},#{compCode},#{serviceCode},#{recruitDeadline}
 		)
 	</insert>
 

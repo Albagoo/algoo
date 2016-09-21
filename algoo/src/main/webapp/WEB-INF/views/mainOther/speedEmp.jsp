@@ -9,6 +9,18 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>mainOther/speedEmp</title>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#divSpeed .speedEmp div")
+			.hover(function(){
+				$(this).css("border-color","black")
+				.css("border-width", "1px")
+				.css("cursor","pointer");
+			},function(){
+				$(this).css("border","");
+			});
+	});
+</script>
 </head>
 <body>
 
@@ -16,19 +28,20 @@
 	<br><br>
 	<p id="divTitle">스피드 채용공고</p>
 	
-	<table class="speedEmp" summary="스페셜 공고 리스트">
+	<div class="speedEmp" summary="스페셜 공고 리스트">
 		<c:if test="${empty alist}">
-			<tr>
-				<td class="align_center">
-					공고가 없습니다</td>
-			</tr>
+			<!-- <tr> -->
+				<div class="align_center">
+					공고가 없습니다</div>
+			<!-- </tr> -->
 		</c:if>
 		<c:if test="${empty alist}">
 		</c:if>
 		<!-- 반복 시작 -->
 		<c:forEach var="vo" items="${alist}">
-			<tr>
-				<td>
+			<!-- <tr>
+				<td> -->
+				<div class="speedCon">
 				   <span><a href="<c:url value='/rec/updateCount.ag?recCode=${vo.recCode}'/>">
 	                  ${vo.compName }</a></span>
 	               <br>
@@ -41,22 +54,23 @@
 	               </c:forEach>
 	               <br>
 	               <c:if test="${vo.payType=='시급' }">
-	                <span style="padding:1px;border:solid 1px CornflowerBlue;border-radius:3px;font-size:8px;color:CornflowerBlue">시</span></c:if>
+	                <span style="color:white;background-color:gray;padding:1px;border-radius:3px;font-weight:normal">시</span></c:if>
 	               <c:if test="${vo.payType=='일급' }">
-	                <span style="padding:1px;border:solid 1px LimeGreen;border-radius:3px;font-size:8px;color:LimeGreen">일</span></c:if>
+	                <span style="color:white;background-color:gray;padding:1px;border-radius:3px;font-weight:normal">일</span></c:if>
 	               <c:if test="${vo.payType=='주급' }">
-	                 <span style="padding:1px;border:solid 1px OrangeRed;border-radius:3px;font-size:8px;color:OrangeRed">주</span></c:if>
+	                 <span style="color:white;background-color:gray;padding:1px;border-radius:3px;font-weight:normal">주</span></c:if>
 	               <c:if test="${vo.payType=='월급' }">
-	                 <span style="padding:1px;border:solid 1px red;border-radius:3px;font-size:8px;color:red">월</span></c:if>
+	                 <span style="color:white;background-color:gray;padding:1px;border-radius:3px;font-weight:normal">월</span></c:if>
 	               <c:if test="${vo.payType=='연봉' }">
-	                 <span style="padding:1px;border:solid 1px SaddleBrown;border-radius:3px;font-size:8px;color:SaddleBrown">연</span></c:if>
+	                 <span style="color:white;background-color:gray;padding:1px;border-radius:3px;font-weight:normal">연</span></c:if>
 	               <fmt:formatNumber pattern="#,###"
 	               value="${vo.pay }"/>원
-	            </td>
-			</tr>
+	            </div>
+	            <!-- </td>
+			</tr> -->
 		</c:forEach>
 		<!-- 반복 끝 -->
-	</table>
+	</div>
 </div>
 
 </body>

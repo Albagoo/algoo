@@ -104,7 +104,7 @@ public class MainRecController {
 
 		PaginationInfo pagingInfo = new PaginationInfo();
 		pagingInfo.setBlockSize(10);
-		pagingInfo.setRecordCountPerPage(9);
+		pagingInfo.setRecordCountPerPage(8);
 		pagingInfo.setCurrentPage(searchVo.getCurrentPage());
 		
 		searchVo.setBlockSize(pagingInfo.getBlockSize());

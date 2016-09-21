@@ -21,14 +21,14 @@ import com.algoo.app.service.model.ServiceService;
 public class MainRecController {
 	public static final Logger logger
 	=LoggerFactory.getLogger(RecController.class);
-	
+
 	@Autowired
 	private RecService recService;
 	@Autowired
 	private CompanyService companyService;
 	@Autowired
 	private ServiceService serviceService;
-
+	
 	@RequestMapping("/specialList.ag")
 	public String specialList(
 			@ModelAttribute RecSeachVO searchVo,
@@ -40,6 +40,12 @@ public class MainRecController {
 			String[] areaArr=(searchVo.getAreas()).split(",");
 			
 			int cnt=areaArr.length;
+			
+				for (int i = 0; i < areaArr.length; i++) {
+					if(areaArr[i].equals("전국전체")){
+						areaArr[i]=" ";
+					}
+				}
 			
 				searchVo.setArea1(areaArr[0]);
 				if(cnt>=2)searchVo.setArea2(areaArr[1]);
@@ -85,6 +91,12 @@ public class MainRecController {
 			String[] areaArr=(searchVo.getAreas()).split(",");
 			
 			int cnt=areaArr.length;
+			
+				for (int i = 0; i < areaArr.length; i++) {
+					if(areaArr[i].equals("전국전체")){
+						areaArr[i]=" ";
+					}
+				}
 			
 				searchVo.setArea1(areaArr[0]);
 				if(cnt>=2)searchVo.setArea2(areaArr[1]);

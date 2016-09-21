@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.algoo.app.common.PaginationInfo;
 import com.algoo.app.common.SearchVO;
@@ -43,7 +44,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/adminBoard.ag")
-	public String adminBoardList(Model model){
+	public String adminBoardList(Model model, @RequestParam(defaultValue="0") int nco){
 		logger.info("관리자페이지 게시판 리스트");
 		
 		List<NoticeVO> nlist=noticeService.selectAll();

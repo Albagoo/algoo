@@ -3,7 +3,6 @@ package com.algoo.app.admin.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.xml.serialize.IndentPrinter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.algoo.app.admin.model.AdminMemberService;
 import com.algoo.app.admin.model.Utility;
@@ -34,13 +32,18 @@ public class AdminMemberController {
 		//1.
 		logger.info("회원관리 조회 페이지, 파라미터 SearchVo={}",searchVo);
 		
+		int RCPP =searchVo.getRecordCountPerPage();
+		if(RCPP<0){
+			RCPP=Utility.RECORD_COUNT_PER_PAGE;
+		}
+		
 		PaginationInfo pagingInfo = new PaginationInfo();
 		pagingInfo.setBlockSize(Utility.BLOCK_SIZE);
-		pagingInfo.setRecordCountPerPage(Utility.RECORD_COUNT_PER_PAGE);
+		pagingInfo.setRecordCountPerPage(RCPP);
 		pagingInfo.setCurrentPage(searchVo.getCurrentPage());
 		
 		searchVo.setBlockSize(Utility.BLOCK_SIZE);
-		searchVo.setRecordCountPerPage(Utility.RECORD_COUNT_PER_PAGE);
+		searchVo.setRecordCountPerPage(RCPP);
 		searchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
 		
 		//2.

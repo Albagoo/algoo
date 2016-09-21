@@ -28,8 +28,6 @@ $(document).ready(function(){
      //임시 
 	  /* runEffect("#effect"); */
       
-    
-      
       // run the currently selected effect
        function runEffect(effect) {
          // get effect type from
@@ -54,6 +52,9 @@ $(document).ready(function(){
        $( "#button2" ).on( "click", function() {
          runEffect("#effect2");
        });
+       $( "#button3" ).on( "click", function() {
+         runEffect("#effect3");
+       });
       
       
       $(".divList .box2 tbody tr")
@@ -62,7 +63,10 @@ $(document).ready(function(){
       }, function(){
          $(this).css("background","");
       });
-     
+      //업직종 탭형식으로 보여주기
+      $( "#detailTabs" ).tabs({});
+      
+      
       //업직종 탭형식으로 보여주기
       $( "#jobTabs" ).tabs({});
       //업종카테코리 셋팅  (외식음료, 유통판매, ...) 
@@ -259,11 +263,6 @@ $(document).ready(function(){
 	   alert(a);
     as.remove(a);
     maxLimit-=1;
-    /* alert($("#test").text()); */
-    /* $("#areas").val().replace */
-    /* if($("#test").text().equals("")){
-       $("#test").text("지역을 선택하세요 (최대 5개 지역 선택가능)");
-    } */
    }
    function removeJobs(item2) {
     item2.remove();
@@ -408,6 +407,199 @@ class="ui-state-default ui-corner-all" value="상세검색">
   </div>
 </div>
  </div>
+<dl class="clearBoth">
+            <dt>
+               <span class="tit">근무기간</span> 
+               <input type="radio" id="one" name="workTerm" 
+               value="하루(1일)" checked="checked"> 
+               <label for="one"> 하루(1일)</label> 
+               <input type="radio" id="week"
+                  name="workTerm" value="1주일이하"> 
+               <label for="week"> 1주일이하</label> 
+               <input type="radio" id="month" name="workTerm"
+                  value="1주일~1개월"> 
+               <label for="month"> 1주일~1개월</label> 
+               <input type="radio" id="threeMonth" name="workTerm" 
+               value="1개월~3개월">
+               <label for="threeMonth"> 1개월~3개월</label> 
+               <input type="radio" id="sixMonth" name="workTerm" 
+               value="3개월~6개월"> 
+               <label for="sixMonth"> 3개월~6개월 </label> 
+               <input type="radio" id="year"  name="workTerm" 
+               value="6개월~1년"> 
+               <label for="year">  6개월~1년</label> 
+               <input type="radio" id="consult" name="workTerm"
+                 value="기간협의"> 
+                 <label for="consult"> 기간협의</label>
+
+            </dt>
+            <dt>
+               <span class="tit">근무요일</span> 
+               <input type="radio" id="MontoSun"
+                  name="workDays" checked="checked" value="월~일"> 
+               <label for="MontoSun"> 월~일</label> 
+               <input type="radio" id="MontoSat"
+                  name="workDays" value="월~토"> 
+               <label for="MontoSat"> 월~토</label> 
+               <input type="radio" id="MontoFri" name="workDays" 
+                  value="월~금">
+               <label for="MontoFri"> 월~금</label> 
+               <input type="radio" id="SatSun"
+                  name="workDays" value="주말(토,일)"> 
+               <label for="SatSun"> 주말(토,일)</label> 
+               <input type="radio" id="sixDay" name="workDays"
+                  value="주 6일"> 
+               <label for="sixDay"> 주 6일</label> 
+               <input type="radio" id="fiveDay" name="workDays" 
+                  value="주 5일"> 
+               <label for="fiveDay"> 주 5일</label> 
+               <input type="radio" id="fourDay" name="workDays"
+                value="주 4일"> 
+               <label for="fourDay">  주 4일</label> 
+               <input type="radio" id="threeDay" name="workDays"
+                  value="주 3일"> 
+               <label for="threeDay"> 주 3일</label> 
+               <input type="radio" id="twoDay" name="workDays" 
+                  value="주 2일"> 
+               <label for="twoDay"> 주 2일</label> 
+               <input type="radio" id="oneDay" name="workDays" 
+               value="주 1일"> 
+               <label for="oneDay"> 주 1일</label>
+   
+
+            </dt>
+        </dl>
+<div class="toggler">
+  <div id="effect3" class="ui-widget-content ui-corner-all">
+    <dl class="clearBoth">
+            <dt>
+               <span class="tit" >급여선택</span> 
+               <select class="txt_85 white textBox small" 
+                  name="payType" style="margin-top: 10px">
+                  <option value="시급">시급</option>
+                  <option value="일급">일당</option>
+                  <option value="주급">주급</option>
+                  <option value="월급">월급</option>
+                  <option value="연봉">연봉</option>
+               </select> 
+               <input type="text" class="txt_150" 
+               name="pay" id="pay" value="0">
+               <span class="txt_30">원</span> 
+              
+                <input id="minPay" value="최저임금  6030원"
+                class="white small"
+                type="button" onclick="minPaySet()"> 
+            </dt>
+            <dt >
+               <span class="tit">근무형태</span> <input type="checkbox"
+                  name="recruitType" value="알바" id="alba"> <label for="alba">알바</label>
+
+
+               <input type="checkbox" value="J" id="jung"> <label
+                  for="jung"> 정규직</label> <input type="checkbox" value="G" id="gye">
+               <label for="gye"> 계약직</label> <input type="checkbox" value="F"
+                  id="fageon"> <label for="fageon">파견직</label> <input
+                  type="checkbox" value="I" id="intern"> <label for="intern">인턴직</label>
+
+
+               <input type="checkbox" value="W" id="wechock"> <label
+                  for="wechock">위촉직</label>
+
+            </dt>
+            <dt>
+               <span class="tit">복리후생</span> <input type="text" class="txt"
+                  name="welfare" id="welfare">
+
+            </dt>
+             <dt>
+               <span class="titc">학력조건</span> 
+               <input type="radio" id="eduLv" name="educateLv" 
+                checked="checked" value="학력무관"> 
+               <label for="eduLv"> 학력무관</label> 
+               <input type="radio" id="middle"
+                name="educateLv" value="중학교졸업"> 
+               <label for="middle"> 중학교졸업 </label> 
+               <input type="radio" id="high" name="educateLv"
+                value="고등학교졸업"> 
+               <label for="high"> 고등학교졸업 </label> 
+               <input type="radio" id="univ23" name="educateLv" 
+                value="대학(2,3년제)졸업">
+               <label for="univ23"> 대학(2,3년제)졸업 </label> 
+               <input type="radio" id="univ4" name="educateLv" 
+                value="대학(4년제)졸업"> 
+               <label for="univ4"> 대학(4년제)졸업 </label> 
+               <input type="radio" id="graduate" name="educateLv" 
+                value="대학원졸업~"> 
+               <label for="graduate"> 대학원졸업~ </label>
+            </dt>
+             <dt>
+               <div style="height: 110px;">
+                 <span class="clearBoth titc">우대조건</span> 
+                 <input type="checkbox" id="expPre" 
+                  name="preference" value="동종업계 경력자"> 
+                 <label class="rence" for="expPre"> 
+                                        동종업계 경력자 </label> 
+                 <input type="checkbox" id="licensePre" 
+                  name="preference" value="관련자격증 소시자"> 
+                 <label class="rence" for="licensePre">
+                                        관련자격증 소지자 </label> 
+                 <input type="checkbox" id="pcPre" 
+                  name="preference" value="컴퓨터활용 가능자"> 
+                 <label class="rence" for="pcPre">
+                                        컴퓨터활용 가능자 </label> 
+                 <input type="checkbox" id="longPre" 
+                  name="preference" value="장기근무 가능자"> 
+                 <label class="rence" for="longPre">
+                                        장기근무 가능자 </label> 
+                 <span class="clearBoth titc"> </span> 
+                 <input type="checkbox" id="engPre" 
+                  name="preference" value="영어 가능자">
+                 <label class="rence" for="engPre"> 
+                                        영어 가능자 </label> 
+                 <input type="checkbox" id="jpPre" 
+                  name="preference" value="일어 가능자">
+                 <label class="rence" for="jpPre"> 
+                                         일어 가능자 </label> 
+                 <input type="checkbox" id="cnPre" 
+                  name="preference" value="중국어 가능자">
+                 <label class="rence" for="cnPre"> 
+                                         중국어 가능자 </label> 
+                 <input type="checkbox" id="insidePre" 
+                  name="preference" value="인근 거주자">
+                 <label class="rence" for="insidePre"> 
+                                         인근 거주자 </label> 
+                 <span class="clearBoth titc"> </span> 
+                 <input type="checkbox" id="drivePre" 
+                  name="preference" value="운전면허 소지자"> 
+                 <label class="rence" for="drivePre"> 
+                                        운전면허 소지자 </label> 
+                 <input type="checkbox" id="byclePre" 
+                  name="preference" value="원동기면허 소지자">
+                 <label class="rence" for="byclePre"> 
+                                         원동기면허 소지자 </label> 
+                 <input type="checkbox" id="carPre" 
+                  name="preference" value="차량 소지자">
+                 <label class="rence" for="carPre"> 
+                                        차량 소지자 </label> 
+                 <input type="checkbox" id="militaryPre" 
+                  name="preference" value="군필자">
+                 <label class="rence" for="militaryPre"> 
+                                        군필자 </label> 
+                 <span class="clearBoth titc"> </span> 
+                 <input type="checkbox" id="femailPre" 
+                  name="preference" value="여성"> 
+                 <label class="rence" for="femailPre"> 
+                                          여성 </label> 
+                 <input type="checkbox" id="mrsPre" 
+                  name="preference" value="경력단절여성"> 
+                 <label class="rence" for="mrsPre"> 
+                                        경력단절여성 </label>
+               </div>
+            </dt>
+         </dl>
+  </div>
+</div>
+
 
       <!-- 선택한 지역 Controller로 보낼 값 저장 -->
       <input type="hidden" size="200" name="areas" value="">

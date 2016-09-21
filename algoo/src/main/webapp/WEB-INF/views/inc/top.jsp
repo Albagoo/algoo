@@ -162,7 +162,7 @@
 					}
 					document.write('<center>'); 
 					document.write('<a href="' + url + '" target="_top">'); 
-					document.write('<img src="' + banner + '" width=') 
+					document.write('<img src="' + banner + '" width='); 
 					document.write(width + ' height=' + height + ' '); 
 					document.write('alt="' + alt + '" border=0><br>'); 
 					document.write('<small>' + txt + '</small></a>'); 

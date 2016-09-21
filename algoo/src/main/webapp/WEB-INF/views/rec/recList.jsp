@@ -315,8 +315,6 @@ class="ui-state-default ui-corner-all" value="지역별검색">
 <input type="button" id="button2" 
 class="ui-state-default ui-corner-all" value="직종별검색">
 
-<input type="button" id="button3" 
-class="ui-state-default ui-corner-all" value="상세검색">
       
          <div class="toggler">
   <div id="effect" class="ui-widget-content ui-corner-all">
@@ -418,25 +416,25 @@ class="ui-state-default ui-corner-all" value="상세검색">
 <dl class="clearBoth">
             <dt>
                <span class="titd">근무기간</span> 
-               <input type="radio" id="one" name="workTerm" 
-               value="하루(1일)" checked="checked"> 
+               <input type="checkbox" id="one" name="workTerm" 
+               value="하루(1일)"> 
                <label for="one"> 하루(1일)</label> 
-               <input type="radio" id="week"
+               <input type="checkbox" id="week"
                   name="workTerm" value="1주일이하"> 
                <label for="week"> 1주일이하</label> 
-               <input type="radio" id="month" name="workTerm"
+               <input type="checkbox" id="month" name="workTerm"
                   value="1주일~1개월"> 
                <label for="month"> 1주일~1개월</label> 
-               <input type="radio" id="threeMonth" name="workTerm" 
+               <input type="checkbox" id="threeMonth" name="workTerm" 
                value="1개월~3개월">
                <label for="threeMonth"> 1개월~3개월</label> 
-               <input type="radio" id="sixMonth" name="workTerm" 
+               <input type="checkbox" id="sixMonth" name="workTerm" 
                value="3개월~6개월"> 
                <label for="sixMonth"> 3개월~6개월 </label> 
-               <input type="radio" id="year"  name="workTerm" 
+               <input type="checkbox" id="year"  name="workTerm" 
                value="6개월~1년"> 
                <label for="year">  6개월~1년</label> 
-               <input type="radio" id="consult" name="workTerm"
+               <input type="checkbox" id="consult" name="workTerm"
                  value="기간협의"> 
                  <label for="consult"> 기간협의</label>
 
@@ -618,7 +616,7 @@ class="ui-state-default ui-corner-all" value="상세검색">
       <input type="hidden" size="200" name="jobs" value=""> 
       
         <p style="text-align: center;">
-        <select name="searchCondition" class="button white small"
+        <select name="searchCondition" class="ui-state-default ui-corner-all"
          style="font-size: 0.75em;">
             <option value="comp_name"
                <c:if test="${param.searchCondition=='title'}">
@@ -631,10 +629,14 @@ class="ui-state-default ui-corner-all" value="상세검색">
                </c:if>
             >채용제목</option>
         </select>   
-        <input type="text" name="searchKeyword" 
+        <input type="text" name="searchKeyword"  
          title="검색어 입력" value="${param.searchKeyword}" >   
-      <input type="submit" class="button white medium" value="검색">
+      <input type="submit" class="ui-state-default ui-corner-all" value="검색">
+      
+<input type="button" id="button3" 
+class="ui-state-default ui-corner-all" value="상세검색">
       </p>
+      
     </form>
 </div>
 
@@ -700,13 +702,13 @@ class="ui-state-default ui-corner-all" value="상세검색">
             <td>
                <c:set var="addr" value="${fn:split(vo.address,' ')}"/>
                <c:forEach var="j" begin="0" end="1">
-                  ${addr[j] }<br>&nbsp;
+                  ${addr[j] }<br>
                </c:forEach>
             </td>
             <!-- 기업명/모집제목 -->
             <td style="text-align: left">
                <a href="<c:url value='/rec/updateCount.ag?recCode=${vo.recCode}'/>">
-                  &nbsp;&nbsp; [${vo.compName }]<br>&nbsp;&nbsp; ${vo.title}<br>&nbsp;</a>
+                  &nbsp;&nbsp; [${vo.compName }]<br>&nbsp;&nbsp; ${vo.title}</a>
             </td>
             <!-- 연령 -->
             <td>
@@ -715,10 +717,21 @@ class="ui-state-default ui-corner-all" value="상세검색">
                   ${age1 }<br>
                </c:forEach>
             <!-- 급여 -->
-            <td>
-               ${vo.payType }
+            <td style="text-align: right">
+               <c:if test="${vo.payType=='시급' }">
+                <span style="padding:1px;border:solid 1px CornflowerBlue;border-radius:3px;font-size:8px;color:CornflowerBlue">시</span></c:if>
+               <c:if test="${vo.payType=='일급' }">
+                <span style="padding:1px;border:solid 1px LimeGreen;border-radius:3px;font-size:8px;color:LimeGreen">일</span></c:if>
+               <c:if test="${vo.payType=='주급' }">
+                <span style="padding:1px;border:solid 1px OrangeRed;border-radius:3px;font-size:8px;color:OrangeRed">주</span></c:if>
+               <c:if test="${vo.payType=='월급' }">
+                <span style="padding:1px;border:solid 1px red;border-radius:3px;font-size:8px;color:red">월</span></c:if>
+               <c:if test="${vo.payType=='연봉' }">
+                <span style="padding:1px;border:solid 1px SaddleBrown;border-radius:3px;font-size:8px;color:SaddleBrown">연</span></c:if>
+                  <%-- ${vo.payType } --%>
                <fmt:formatNumber pattern="#,###"
-               value="${vo.pay }"/>원</td>
+               value="${vo.pay }"/>원
+            </td>
             <!-- 근무시간 -->
             <td>
                ${vo.workTime}:${vo.workTime2}-${vo.workTime3}:${vo.workTime4}

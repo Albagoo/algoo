@@ -1,5 +1,8 @@
 package com.algoo.app.rec.model;
 
+import java.util.Arrays;
+import java.util.Map;
+
 import com.algoo.app.common.SearchVO;
 
 public class RecSeachVO extends SearchVO {
@@ -19,7 +22,29 @@ public class RecSeachVO extends SearchVO {
 	private String job4;
 	private String job5;
 	
+	private String[] workTerm;
 	
+	
+	private Map<String,Object> map;
+	
+	
+	
+	public Map<String, Object> getMap() {
+		return map;
+	}
+
+	public void setMap(Map<String, Object> map) {
+		this.map = map;
+	}
+
+	public String[] getWorkTerm() {
+		return workTerm;
+	}
+
+	public void setWorkTerm(String[] workTerm) {
+		this.workTerm = workTerm;
+	}
+
 	public String getJobs() {
 		return jobs;
 	}
@@ -120,7 +145,8 @@ public class RecSeachVO extends SearchVO {
 	public String toString() {
 		return "RecSeachVO [areas=" + areas + ", area1=" + area1 + ", area2=" + area2 + ", area3=" + area3 + ", area4="
 				+ area4 + ", area5=" + area5 + ", jobs=" + jobs + ", job1=" + job1 + ", job2=" + job2 + ", job3=" + job3
-				+ ", job4=" + job4 + ", job5=" + job5 + ", toString()=" + super.toString() + "]";
+				+ ", job4=" + job4 + ", job5=" + job5 + ", workTerm=" + Arrays.toString(workTerm) + ", map=" + map
+				+ ", toString()=" + super.toString() + "]";
 	}
 
 }

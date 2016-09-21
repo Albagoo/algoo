@@ -1,6 +1,6 @@
 package com.algoo.app.rec.controller;
 
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -126,6 +126,10 @@ public class RecController {
 		//1
 		logger.info("채용 정보 보여주기");
 		
+		
+		String[] workTerms=searchVo.getWorkTerm();
+		
+		
 		if(searchVo.getAreas()!=null && !searchVo.getAreas().isEmpty()){
 			String[] areaArr=(searchVo.getAreas()).split(",");
 			
@@ -171,6 +175,16 @@ public class RecController {
 		}
 		//2
 
+		List<RecSeachVO> recList=new ArrayList<RecSeachVO>();
+		if(workTerms!=null){
+			Map<String,Object> map = new HashMap<String, Object>();
+			map.put("workTerm", workTerms);
+			
+			searchVo.setMap(map);
+		}
+		
+		
+		
 		PaginationInfo pagingInfo = new PaginationInfo();
 		pagingInfo.setBlockSize(10);
 		pagingInfo.setRecordCountPerPage(20);

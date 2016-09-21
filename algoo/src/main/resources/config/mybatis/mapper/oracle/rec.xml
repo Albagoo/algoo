@@ -84,11 +84,20 @@
          
          <if test="job5!=null and job5!=''">
             <if test="job4!=null and job4!=''">
-            or
+             or
             </if>
             JOB_NAME2
             like '%' || #{job5} || '%'
          </if>
+         <if test="workTerm != null">
+         work_term IN 
+         <foreach collection="workTerm" item="workTerm" 
+            index="index" open="(" close=")" separator=",">
+            #{workTerm}
+         </foreach>
+      </if>
+         
+         
 		</where>
 	</sql>
 

@@ -197,3 +197,11 @@ table.box2 td a{
 .contentBox{
 	margin-top: 20px;
 }
+/*게시글 수 바꾸기*/
+input[name="num"]{
+	width: 20px;
+	border: none;
+}
+.boardPrint{
+	text-align: right;
+}

@@ -31,7 +31,6 @@
 </script>	
 
 <section>
-
 <form name="frmCategory" method="post"
  action="<c:url value='/faq/faqList.ag'/>"
  id="frmCategory">

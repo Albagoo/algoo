@@ -52,11 +52,18 @@
 		margin-bottom: 5px;
 	}
 	.box1{
+		
+	}
+	.box1 tr{
+		text-align: center;
 		border: 1px solid #ffeaea;
+		border-left: none;
+		border-right: none;
 	}
 	.box1 th{
 		background-color: #ffeaea;
 		height: 35px;
+		font-size: 0.95em;
 	}
 	.box1 a{
 		color:black;
@@ -64,27 +71,41 @@
 	.box1 td:nth-of-type(2) a, .box1 td:nth-of-type(4) a, .box1 td:nth-of-type(5) a{
 		text-decoration: none;
 	}
-	.box2{
-		border: 1px solid #ffeaea;
+	.box1 td{
+		padding: 3px 0 3px 0;
+		font-size: 0.9em;
 	}
 	.box2 th{
 		background-color: #ffeaea;
 		height: 35px;
+		font-size: 0.95em;
+	}
+	.box2 tr{
+		text-align: center;
+		border: 1px solid #ffeaea;
+		border-left: none;
+		border-right: none;
+	}
+	.box2 td{
+		padding: 3px 0 3px 0;
+		font-size: 0.9em;
 	}
 	.box2 a{
 		color:black;
+		
 	}
-	.box2 td:nth-of-type(2) a, .box1 td:nth-of-type(6) a, .box1 td:nth-of-type(7) a{
+	.box2 td:nth-of-type(2) a, .box2 td:nth-of-type(6) a, .box2 td:nth-of-type(7) a{
 		text-decoration: none;
 	}
 	input[name="num"]{
 		width: 20px;
 		border: none;
 	}
+	input[name="btNco"]{
+		vertical-align: middle;
+	}
 	.boardPrint{
 		text-align: right;
-
-		
 	}
 </style>
 <section>
@@ -103,8 +124,8 @@
 	<div class="boardPrint">
 		<form action="<c:url value='/admin/adminBoard.ag'/> " method="post" id="frmCount">	
 			게시글  
-			(<input type="text" id="num" name="num">)개 만큼 보기&nbsp;
-			<input type="button" value="확인" id="btNco">
+			(<input type="text" id="num" name="num">)개 보기&nbsp;
+			<input type="button" value="확인" id="btNco" name="btNco" class="button white medium">
 			<input type="hidden" name="nco" value="${param.nco }">
 		</form>
 	</div>
@@ -140,7 +161,7 @@
 								<input type="checkbox" name="notice[${i}].mainNo"
 									id="chk1_${i }" value="${nVo.mainNo}" >
 							</td>
-							<td>
+							<td style="text-align: left;padding-left: 10px;">
 								<a href="<c:url value='/notice/detail.ag?no=${nVo.mainNo}'/>">
 								[${nVo.category }] ${nVo.title } </a>
 							 </td>
@@ -184,7 +205,7 @@
 								<input type="checkbox" name="faq[${j}].faqNo"
 									id="chk2_${j }" value="${fVo.faqNo}" >
 							</td>
-							<td>
+							<td style="text-align: left;padding-left: 10px;">
 								<a href="<c:url value='/faq/faqDetail.ag?faqNo=${fVo.faqNo}'/>">
 								[${fVo.category }] ${fVo.title } </a>
 							 </td>
@@ -232,7 +253,7 @@
 								<input type="checkbox" name="free[${k}].freeNo"
 									id="chk3_${k }" value="${tVo.freeNo}" >
 							</td>
-							<td>
+							<td style="text-align: left; padding-left: 10px;">
 								<a href="<c:url value='/freeboard/detail.ag?freeNo=${tVo.freeNo}'/>">
 								${tVo.title } </a>
 							</td>

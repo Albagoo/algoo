@@ -9,17 +9,20 @@
    href="<c:url value='/css/clear.css'/>" />
 <link rel="stylesheet" type="text/css"
    href="<c:url value='/css/recLayout.css'/>" />
+<link rel="stylesheet" type="text/css"
+   href="<c:url value='/css/simpleButton.css'/>" />
+<link rel="stylesheet" type="text/css" 
+href="<c:url value='/jquery/jquery-ui.css'/>"/>
    
+      
 <script type="text/javascript" src
 ="<c:url value='/js/member.js'/>"></script>
 <script type="text/javascript" src
 ="<c:url value='/js/recWrite.js'/>"></script>
-<link rel="stylesheet" type="text/css"
-   href="<c:url value='/css/simpleButton.css'/>" />
+
+
 <script src="<c:url value='/ckeditor/ckeditor.js'/>"
    type="text/javascript"></script>
-<link rel="stylesheet" href="<c:url value='/jquery/jquery-ui.css'/>"
-   type="text/css">
 <script src="<c:url value='/jquery/jquery-ui.js'/>"
    type="text/javascript"></script>
 

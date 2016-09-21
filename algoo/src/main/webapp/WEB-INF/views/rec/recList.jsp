@@ -4,20 +4,27 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ include file="../inc/simple_top.jsp" %>
-<script type="text/javascript" src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
-<link rel="stylesheet" href="<c:url value='/jquery/jquery-ui.css'/>"
+<script type="text/javascript" 
+src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
+
+<link rel="stylesheet" 
+href="<c:url value='/jquery/jquery-ui.css'/>"
    type="text/css">
+<link rel="stylesheet" type="text/css"
+href="<c:url value='/css/simpleButton.css'/>" />
+<link rel="stylesheet" type="text/css"
+   href="<c:url value='/css/clear.css'/>" />
+<link rel="stylesheet" type="text/css" 
+href="<c:url value='/css/faq.css'/>" />
+<link rel="stylesheet" type="text/css" 
+href="<c:url value='/css/recLayout.css'/>" />
+<link rel="stylesheet" type="text/css" 
+href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">   
+   
+   
 <script src="<c:url value='/jquery/jquery-ui.js'/>"
    type="text/javascript"></script>
 
-<link rel="stylesheet" type="text/css" href=
-"<c:url value='/css/faq.css'/>" />
-<link rel="stylesheet" type="text/css" href=
-"<c:url value='/css/recLayout.css'/>" />
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
-<link rel="stylesheet" type="text/css"
-   href="<c:url value='/css/simpleButton.css'/>" />
 
  <style>
   
@@ -407,9 +414,10 @@ class="ui-state-default ui-corner-all" value="상세검색">
   </div>
 </div>
  </div>
+ <div class="workCondition bg checks">
 <dl class="clearBoth">
             <dt>
-               <span class="tit">근무기간</span> 
+               <span class="titd">근무기간</span> 
                <input type="radio" id="one" name="workTerm" 
                value="하루(1일)" checked="checked"> 
                <label for="one"> 하루(1일)</label> 
@@ -434,7 +442,7 @@ class="ui-state-default ui-corner-all" value="상세검색">
 
             </dt>
             <dt>
-               <span class="tit">근무요일</span> 
+               <span class="titd">근무요일</span> 
                <input type="radio" id="MontoSun"
                   name="workDays" checked="checked" value="월~일"> 
                <label for="MontoSun"> 월~일</label> 
@@ -469,11 +477,13 @@ class="ui-state-default ui-corner-all" value="상세검색">
 
             </dt>
         </dl>
+   </div>
 <div class="toggler">
   <div id="effect3" class="ui-widget-content ui-corner-all">
+  <div class="workCondition bg checks">
     <dl class="clearBoth">
             <dt>
-               <span class="tit" >급여선택</span> 
+               <span class="titd" >급여선택</span> 
                <select class="txt_85 white textBox small" 
                   name="payType" style="margin-top: 10px">
                   <option value="시급">시급</option>
@@ -491,7 +501,7 @@ class="ui-state-default ui-corner-all" value="상세검색">
                 type="button" onclick="minPaySet()"> 
             </dt>
             <dt >
-               <span class="tit">근무형태</span> <input type="checkbox"
+               <span class="titd">근무형태</span> <input type="checkbox"
                   name="recruitType" value="알바" id="alba"> <label for="alba">알바</label>
 
 
@@ -507,12 +517,12 @@ class="ui-state-default ui-corner-all" value="상세검색">
 
             </dt>
             <dt>
-               <span class="tit">복리후생</span> <input type="text" class="txt"
+               <span class="titd">복리후생</span> <input type="text" class="txt"
                   name="welfare" id="welfare">
 
             </dt>
              <dt>
-               <span class="titc">학력조건</span> 
+               <span class="titd">학력조건</span> 
                <input type="radio" id="eduLv" name="educateLv" 
                 checked="checked" value="학력무관"> 
                <label for="eduLv"> 학력무관</label> 
@@ -534,7 +544,7 @@ class="ui-state-default ui-corner-all" value="상세검색">
             </dt>
              <dt>
                <div style="height: 110px;">
-                 <span class="clearBoth titc">우대조건</span> 
+                 <span class="clearBoth titd">우대조건</span> 
                  <input type="checkbox" id="expPre" 
                   name="preference" value="동종업계 경력자"> 
                  <label class="rence" for="expPre"> 
@@ -551,7 +561,7 @@ class="ui-state-default ui-corner-all" value="상세검색">
                   name="preference" value="장기근무 가능자"> 
                  <label class="rence" for="longPre">
                                         장기근무 가능자 </label> 
-                 <span class="clearBoth titc"> </span> 
+                 <span class="clearBoth titd"> </span> 
                  <input type="checkbox" id="engPre" 
                   name="preference" value="영어 가능자">
                  <label class="rence" for="engPre"> 
@@ -568,7 +578,7 @@ class="ui-state-default ui-corner-all" value="상세검색">
                   name="preference" value="인근 거주자">
                  <label class="rence" for="insidePre"> 
                                          인근 거주자 </label> 
-                 <span class="clearBoth titc"> </span> 
+                 <span class="clearBoth titd"> </span> 
                  <input type="checkbox" id="drivePre" 
                   name="preference" value="운전면허 소지자"> 
                  <label class="rence" for="drivePre"> 
@@ -585,7 +595,7 @@ class="ui-state-default ui-corner-all" value="상세검색">
                   name="preference" value="군필자">
                  <label class="rence" for="militaryPre"> 
                                         군필자 </label> 
-                 <span class="clearBoth titc"> </span> 
+                 <span class="clearBoth titd"> </span> 
                  <input type="checkbox" id="femailPre" 
                   name="preference" value="여성"> 
                  <label class="rence" for="femailPre"> 
@@ -597,6 +607,7 @@ class="ui-state-default ui-corner-all" value="상세검색">
                </div>
             </dt>
          </dl>
+         </div>
   </div>
 </div>
 

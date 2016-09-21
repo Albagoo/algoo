@@ -39,17 +39,27 @@
                	  <c:forEach var="i" begin="0" end="1">
                   ${addr[i] }
                   </c:forEach>
-                  <span id="time">
+                  <span id="timeType">
                    <c:if test="${vo.payType=='시급' }">
-	                <span style="color:white;background-color:gray;padding:1px;border-radius:3px;font-weight:normal">시</span></c:if>
+                    <span style="margin-top:12px;font-size:12px;color:white;
+					 background-color:gray;padding:1px;border-radius:3px;">
+	                 시</span></c:if>
 	               <c:if test="${vo.payType=='일급' }">
-	                <span style="color:white;background-color:gray;padding:1px;border-radius:3px;font-weight:normal">일</span></c:if>
+	                <span style="margin-top:12px;font-size:12px;color:white;
+					 background-color:gray;padding:1px;border-radius:3px;">
+	                 일</span></c:if>
 	               <c:if test="${vo.payType=='주급' }">
-	                 <span style="color:white;background-color:gray;padding:1px;border-radius:3px;font-weight:normal">주</span></c:if>
+	                <span style="margin-top:12px;font-size:12px;color:white;
+					 background-color:gray;padding:1px;border-radius:3px;">
+	                 주</span></c:if>
 	               <c:if test="${vo.payType=='월급' }">
-	                 <span style="color:white;background-color:gray;padding:1px;border-radius:3px;font-weight:normal">월</span></c:if>
+	                <span style="margin-top:12px;font-size:12px;color:white;
+					 background-color:gray;padding:1px;border-radius:3px;">
+	                 월</span></c:if>
 	               <c:if test="${vo.payType=='연봉' }">
-	                 <span style="color:white;background-color:gray;padding:1px;border-radius:3px;font-weight:normal">연</span></c:if>
+	                <span style="margin-top:12px;font-size:12px;color:white;
+					 background-color:gray;padding:1px;border-radius:3px;">
+	                 연</span></c:if>
                   </span>
                   <span id="money"><fmt:formatNumber pattern="#,###"
               		 value="${vo.pay }"/></span>원</p>

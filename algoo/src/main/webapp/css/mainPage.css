@@ -313,6 +313,21 @@
 	float:left;
 }
 
+/* 공고 리스트의 폰트 */
+	#pay{
+		margin-top:12px;
+		font-size:12px;
+	}
+	#pay #time{
+		color:white;
+		background-color:gray;
+		padding:1px;
+		border-radius:3px;
+	}
+	#pay #money{
+		font-weight:bold;
+	}
+
 /* 스페셜 공고 */
 .divSuper{
 	width: 100%;
@@ -382,22 +397,9 @@
 	padding:5px 0px 5px 0px;
 	text-align:center;
 }
-	#pay{
-		margin-top:12px;
-		font-size:12px;
-	}
-	#pay #time{
-		color:white;
-		background-color:gray;
-		padding:1px;
-		border-radius:3px;
-	}
-	#pay #money{
-		font-weight:bold;
-	}
 
 /* 그랜드 공고 */
-.divGrand{
+/* .divGrand{
 	float:left;
 }
 .grandEmp{
@@ -420,7 +422,7 @@
 }
 .divGrand span{
 	font-weight:bold;
-}
+} */
 
 /* 스페셜 공고 */
 .divSpecial{

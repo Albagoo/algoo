@@ -225,14 +225,16 @@
 							</div>
 							<div id="logText">
 							<span>${sessionScope.nickName }</span>님
-							<p>환영합니다</p>
+							<br>환영합니다
 							</div>
 						</div>
 						<div class="logUnder">
+							<p id="underLogText"><br>
 							<a href="<c:url value='/member/memInfo.ag'/>">
 							▷회원정보 수정</a>
 							<a href="<c:url value='/member/logout.ag'/>">
 							<span>로그아웃</span></a>
+							</p>
 						</div>
 					</div>
 					</c:if>

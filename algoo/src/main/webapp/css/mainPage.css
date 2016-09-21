@@ -268,12 +268,17 @@
 	margin:5px;
 }
 .logUnder{
+	position:static;
 	width:218px;
 	height:28px;
 	border:solid 1px LightGray;
 	font-size:12px;
 	background-color:#f7f7f7;
 }
+	#underLogText{
+		position:relative;
+		top:-10px;
+	}
 .logUnder a{
 	color:black;
 }

@@ -132,44 +132,14 @@
 						 <a href="" class="chungbuk">충북</a>
 						 <a href="" class="daejeon" id="spCity">대전</a>
 						 <a href="" class="kyungbuk">경북</a>
-						 
-						 <!-- 
-						 경북</a>
-						 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 <a href="">
-						 전북</a>
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 <a id="spCity" href="">
-						 대구</a>
-						 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 <a href="">
-						 경남</a>
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 <a id="spCity" href="">
-						 울산</a>
-						 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;&nbsp;&nbsp;&nbsp;
-						 <a id="spCity" href="">
-						 광주</a>
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 <a id="spCity" href="">
-						 부산</a>
-						 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 <a href="">
-						 전남</a>
-						 <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;&nbsp;
-						 <a href="">
-						 제주</a>
-						</p> -->
+						 <a href="" class="jeonbuk">전북</a>
+						 <a href="" class="daegu" id="spCity">대구</a>
+						 <a href="" class="kyungnam">경남</a>
+						 <a href="" class="ulsan" id="spCity">울산</a>
+						 <a href="" class="kwangju" id="spCity">광주</a>
+						 <a href="" class="busan" id="spCity">부산</a>
+						 <a href="" class="jeonnam">전남</a>
+						 <a href="" class="jeju">제주</a>
 						</div>
 					</div>
 					<div class="divJob2">

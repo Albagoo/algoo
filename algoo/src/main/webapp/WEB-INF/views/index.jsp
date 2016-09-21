@@ -7,7 +7,7 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		$(".divSpecial .SpBox")
+		$(".divSuper .SpBox")
 			.hover(function(){
 				$(this).css("border-color","red")
 					.css("border-width", "1px")
@@ -132,44 +132,14 @@
 						 <a href="" class="chungbuk">충북</a>
 						 <a href="" class="daejeon" id="spCity">대전</a>
 						 <a href="" class="kyungbuk">경북</a>
-						 
-						 <!-- 
-						 경북</a>
-						 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 <a href="">
-						 전북</a>
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 <a id="spCity" href="">
-						 대구</a>
-						 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 <a href="">
-						 경남</a>
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 <a id="spCity" href="">
-						 울산</a>
-						 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;&nbsp;&nbsp;&nbsp;
-						 <a id="spCity" href="">
-						 광주</a>
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 <a id="spCity" href="">
-						 부산</a>
-						 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 <a href="">
-						 전남</a>
-						 <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;&nbsp;
-						 <a href="">
-						 제주</a>
-						</p> -->
+						 <a href="" class="jeonbuk">전북</a>
+						 <a href="" class="daegu" id="spCity">대구</a>
+						 <a href="" class="kyungnam">경남</a>
+						 <a href="" class="ulsan" id="spCity">울산</a>
+						 <a href="" class="kwangju" id="spCity">광주</a>
+						 <a href="" class="busan" id="spCity">부산</a>
+						 <a href="" class="jeonnam">전남</a>
+						 <a href="" class="jeju">제주</a>
 						</div>
 					</div>
 					<div class="divJob2">
@@ -255,14 +225,16 @@
 							</div>
 							<div id="logText">
 							<span>${sessionScope.nickName }</span>님
-							<p>환영합니다</p>
+							<br>환영합니다
 							</div>
 						</div>
 						<div class="logUnder">
+							<p id="underLogText"><br>
 							<a href="<c:url value='/member/memInfo.ag'/>">
 							▷회원정보 수정</a>
 							<a href="<c:url value='/member/logout.ag'/>">
 							<span>로그아웃</span></a>
+							</p>
 						</div>
 					</div>
 					</c:if>
@@ -273,16 +245,47 @@
 					</div>
 					<div class="divCommercial2">
 						<!-- 다른 사이즈의 광고 -->
+						<script type="text/javascript">
+							var how_many_ads = 4; 
+							var now = new Date() 
+							var sec = now.getSeconds() 
+							var ad = sec % how_many_ads; 
+							ad +=1; 
+							if (ad==1) { 
+								url="#"; 
+								banner="<c:url value='/images/banner/banner3.jpg'/>"; 
+								width="220px"; 
+							} 
+							if (ad==2) { 
+								url="#"; 
+								banner="<c:url value='/images/banner/banner3_2.jpg'/>"; 
+								width="220px"; 
+							}
+							if (ad==3) { 
+								url="#"; 
+								banner="<c:url value='/images/banner/banner3_3.jpg'/>"; 
+								width="220px"; 
+							}
+							if (ad==4) { 
+								url="#"; 
+								banner="<c:url value='/images/banner/banner3_4.jpg'/>"; 
+								width="220px"; 
+							}
+							document.write('<center>'); 
+							document.write('<a href="' + url + '" target="_top">'); 
+							document.write('<img src="' + banner + '" width=') 
+							document.write(width + ' height=' + height + ' '); 
+							document.write('alt="' + alt + '" border=0><br>'); 
+							document.write('<small>' + txt + '</small></a>'); 
+							document.write('</center>'); 
+						</script>
 						<img src="<c:url value='/images/banner/banner3.jpg'/>"
-						 width="220px" height="120px">
+						 width="220px" height="65px">
 						<img src="<c:url value='/images/banner/banner5.jpg'/>"
 						 width="220px" height="65px">
 					</div>
 				</div><!-- divFunction -->
-				
 				<div class="divBrand">
-				
-				
 				<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js">
 				</script>
 				<script type="text/javascript" src="<c:url value='/jquery/jquery.simplyscroll.js'/>"></script>
@@ -317,9 +320,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="divSpecial">
+			<div class="divSuper">
 				<br><br>
-				<span id="divTitle">슈퍼 채용공고</span>
+				<p id="divTitle">슈퍼 채용공고</p>
 				<div>
 				<!-- 슈퍼 채용공고 리스트 -->
 						<a href="#"><div class="SpBox">
@@ -489,7 +492,7 @@
 
 			<div class="divGrand">
 				<br><br>
-				<span id="divTitle">그랜드 채용공고</span>
+				<p id="divTitle">그랜드 채용공고</p>
 				<div>
 						<a href="#"><div class="GrBox">
 						 <img src="<c:url value='/images/company/026.jpg'/>">
@@ -544,10 +547,16 @@
 				</div>
 			</div>
 			
-			<div class="divOther">
-				<!-- 일반 공고 리스트(게시판형) -->
-				<article id="divOther">
-				<c:import url="/mainRecList.ag"></c:import>
+			<div class="divSpecial">
+				<!-- 스페셜 공고 리스트(게시판형) -->
+				<article id="divSpecial">
+				<c:import url="/specialList.ag"></c:import>
+				</article>
+			</div>
+			<div class="divSpeed">
+				<!-- 스피드 공고 리스트(게시판형) -->
+				<article id="divSpeed">
+				<c:import url="/speedList.ag"></c:import>
 				</article>
 			</div>
 			<div class="divCmFooter">

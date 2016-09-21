@@ -9,14 +9,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>mainOther/mainEmp</title>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#specialEmp .specialEmp tr")
+			.hover(function(){
+				$(this).css("background","ivory")
+					.css("cursor","pointer");
+			},function(){
+				$(this).css("background","");
+			});
+	});
+</script>
 </head>
 <body>
 
-<div id="mainEmp">
+<div id="specialEmp">
 	<br><br>
-	<span id="divTitle">&nbsp;스페셜 채용공고</span>
+	<p id="divTitle">스페셜 채용공고</p>
 	
-	<table class="mainEmp" summary="스페셜 공고 리스트">
+	<table class="specialEmp" summary="스페셜 공고 리스트">
 		<c:if test="${empty alist}">
 			<tr>
 				<td class="align_center">

@@ -8,26 +8,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>mainOther/mainEmp</title>
-<script type="text/javascript">
-	$(document).ready(function(){
-		$("#specialEmp .specialEmp tr")
-			.hover(function(){
-				$(this).css("background","ivory")
-					.css("cursor","pointer");
-			},function(){
-				$(this).css("background","");
-			});
-	});
-</script>
+<title>mainOther/speedEmp</title>
 </head>
 <body>
 
-<div id="specialEmp">
+<div id="divSpeed">
 	<br><br>
-	<p id="divTitle">스페셜 채용공고</p>
+	<p id="divTitle">스피드 채용공고</p>
 	
-	<table class="specialEmp" summary="스페셜 공고 리스트">
+	<table class="speedEmp" summary="스페셜 공고 리스트">
 		<c:if test="${empty alist}">
 			<tr>
 				<td class="align_center">
@@ -40,25 +29,17 @@
 		<c:forEach var="vo" items="${alist}">
 			<tr>
 				<td>
+				   <span><a href="<c:url value='/rec/updateCount.ag?recCode=${vo.recCode}'/>">
+	                  ${vo.compName }</a></span>
+	               <br>
+	               <a href="<c:url value='/rec/updateCount.ag?recCode=${vo.recCode}'/>">
+	                  ${vo.title}</a>
+	               <br>
 	               <c:set var="addr" value="${fn:split(vo.address,' ')}"/>
 	               <c:forEach var="i" begin="0" end="1">
 	                  ${addr[i] }
 	               </c:forEach>
-	            </td>
-	            
-	            <td style="text-align: left">
-	               <a href="<c:url value='/rec/updateCount.ag?recCode=${vo.recCode}'/>">
-	                  &nbsp; ${vo.title}</a>
-	            </td>
-	            
-	            <td style="text-align: left">
-	               <a href="<c:url value='/rec/updateCount.ag?recCode=${vo.recCode}'/>">
-	                  &nbsp; [${vo.compName }]</a>
-	            </td>
-	            
-	            <td style="text-align: right">
-	               <fmt:formatNumber pattern="#,###"
-	               value="${vo.pay }"/>원
+	               <br>
 	               <c:if test="${vo.payType=='시급' }">
 	                <span style="padding:1px;border:solid 1px CornflowerBlue;border-radius:3px;font-size:8px;color:CornflowerBlue">시</span></c:if>
 	               <c:if test="${vo.payType=='일급' }">
@@ -69,7 +50,8 @@
 	                 <span style="padding:1px;border:solid 1px red;border-radius:3px;font-size:8px;color:red">월</span></c:if>
 	               <c:if test="${vo.payType=='연봉' }">
 	                 <span style="padding:1px;border:solid 1px SaddleBrown;border-radius:3px;font-size:8px;color:SaddleBrown">연</span></c:if>
-	               <%-- ${vo.payType } --%>
+	               <fmt:formatNumber pattern="#,###"
+	               value="${vo.pay }"/>원
 	            </td>
 			</tr>
 		</c:forEach>

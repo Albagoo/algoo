@@ -7,7 +7,7 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		$(".divSpecial .SpBox")
+		$(".divSuper .SpBox")
 			.hover(function(){
 				$(this).css("border-color","red")
 					.css("border-width", "1px")
@@ -287,9 +287,9 @@
 					</div>
 				</div>
 			</div>
-			<div class="divSpecial">
+			<div class="divSuper">
 				<br><br>
-				<span id="divTitle">슈퍼 채용공고</span>
+				<p id="divTitle">슈퍼 채용공고</p>
 				<div>
 				<!-- 슈퍼 채용공고 리스트 -->
 						<a href="#"><div class="SpBox">
@@ -459,7 +459,7 @@
 
 			<div class="divGrand">
 				<br><br>
-				<span id="divTitle">그랜드 채용공고</span>
+				<p id="divTitle">그랜드 채용공고</p>
 				<div>
 						<a href="#"><div class="GrBox">
 						 <img src="<c:url value='/images/company/026.jpg'/>">
@@ -514,10 +514,16 @@
 				</div>
 			</div>
 			
-			<div class="divOther">
-				<!-- 일반 공고 리스트(게시판형) -->
-				<article id="divOther">
-				<c:import url="/mainRecList.ag"></c:import>
+			<div class="divSpecial">
+				<!-- 스페셜 공고 리스트(게시판형) -->
+				<article id="divSpecial">
+				<c:import url="/specialList.ag"></c:import>
+				</article>
+			</div>
+			<div class="divSpeed">
+				<!-- 스피드 공고 리스트(게시판형) -->
+				<article id="divSpeed">
+				<c:import url="/speedList.ag"></c:import>
 				</article>
 			</div>
 			<div class="divCmFooter">

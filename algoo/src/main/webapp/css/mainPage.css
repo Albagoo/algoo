@@ -13,6 +13,7 @@
 	font-family: '중고딕';
 	font-weight: bold;
 	font-size: 20px;
+	margin-bottom:5px;
 }
 .divCAD{
 	width:655px;
@@ -324,16 +325,16 @@
 }
 
 /* 스페셜 공고 */
-.divSpecial{
+.divSuper{
 	width: 100%;
 	float: left;
 }
-.divSpecial p{
+.divSuper p{
 	padding-left:10px;
 	padding-right:10px;
 	text-align:left;
 }
-.divSpecial .SpBox{
+.divSuper .SpBox{
 	margin:0 auto;
 	width: 210px;
 	height: 160px;
@@ -342,14 +343,14 @@
 	float:left;
 	margin: 5px;
 }
-.divSpecial a{
+.divSuper a{
 	text-decoration:none;
 	color:black;
 }
-.divSpecial #title{
+.divSuper #title{
 	font-weight:bold;
 }
-.divSpecial #content{
+.divSuper #content{
 	text-align:left;
 }
 
@@ -394,23 +395,43 @@
 }
 
 /* 스페셜 공고 */
-.divOther{
-	
+.divSpecial{
+	float:left;
 }
 
-.mainEmp{
-	width:880px;
+.specialEmp{
+	width:710px;
 	font-size:14px;
 	border-top:solid 3px black;
 	border-bottom:solid 3px black;
 }
-.mainEmp td{
+.specialEmp td{
 	padding-top:5px;
 	padding-bottom:5px;
 	border-top:solid 1px silver;
 	border-bottom:solid 1px silver;
 }
-.mainEmp td a{
+.specialEmp td a{
 	text-decoration:none;
 	color:black;
+}
+
+/* 스피드 공고 */
+.divSpeed{
+	float:left;
+	margin:10px;
+	width:160px;
+	font-size:14px;
+}
+.divSpeed td{
+	border:solid 1px silver;
+	padding-left:10px;
+	font-size:13px;
+}
+.divSpeed a{
+	text-decoration:none;
+	color:black;
+}
+.divSpeed span{
+	font-weight:bold;
 }

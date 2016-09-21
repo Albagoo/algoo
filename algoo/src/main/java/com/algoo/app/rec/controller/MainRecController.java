@@ -9,16 +9,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.algoo.app.common.PaginationInfo;
 import com.algoo.app.company.model.CompanyService;
-import com.algoo.app.company.model.CompanyVO;
 import com.algoo.app.rec.model.RecSeachVO;
 import com.algoo.app.rec.model.RecService;
 import com.algoo.app.rec.model.RecVO;
 import com.algoo.app.service.model.ServiceService;
-import com.algoo.app.service.model.ServiceVO;
 
 @Controller
 public class MainRecController {

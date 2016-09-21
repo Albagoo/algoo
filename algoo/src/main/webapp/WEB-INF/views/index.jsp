@@ -547,6 +547,12 @@
 				</div>
 			</div>
 			
+			<div class="divSuper">
+				<!-- 슈퍼 공고 리스트 -->
+				<article id="divSuper">
+				<c:import url="/superList.ag"></c:import>
+				</article>
+			</div>
 			<div class="divGrand">
 				<!-- 그랜드 공고 리스트 -->
 				<article id="divGrand">

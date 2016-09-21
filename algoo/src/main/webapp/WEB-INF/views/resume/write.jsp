@@ -8,7 +8,6 @@
 <style type="text/css">
 	#resume{
 		text-align: left;
-		margin: 30px;
 	}
 	
 	h2{
@@ -601,26 +600,26 @@
     		
     		var detail = "";
     		if($("#detail1").is(":checked")){
-    			detail += "고등학교 : "+$("#detail1_year1 option:selected").val()
-    						+"년 ~ "+$("#detail1_year2 option:selected").val()+"년 "
+    			detail += $("#detail1_year1 option:selected").val()
+    						+"년 ~ "+$("#detail1_year2 option:selected").val()+"년 - "
     						+$("#university1").val();
     		}
     		
     		if($("#detail2").is(":checked")){
-    			detail += ",대학교 (2, 3년제) : "+$("#detail2_year1 option:selected").val()
-								+"년 ~ "+$("#detail2_year2 option:selected").val()+"년 "
+    			detail += ","+$("#detail2_year1 option:selected").val()
+								+"년 ~ "+$("#detail2_year2 option:selected").val()+"년 -"
 								+$("#university2").val()+" 전공 : "+$("#university2_2").val();
     		}
     		
     		if($("#detail3").is(":checked")){
-    			detail += ",대학교 (4년제) : "+$("#detail3_year1 option:selected").val()
-								+"년 ~ "+$("#detail3_year2 option:selected").val()+"년 "
+    			detail += ","+$("#detail3_year1 option:selected").val()
+								+"년 ~ "+$("#detail3_year2 option:selected").val()+"년 -"
 								+$("#university3").val()+" 전공 : "+$("#university3_3").val();
     		}
     		
     		if($("#detail4").is(":checked")){
-    			detail += ",대학교 (4년제) : "+$("#detail4_year1 option:selected").val()
-								+"년 ~ "+$("#detail4_year2 option:selected").val()+"년 "
+    			detail += ","+$("#detail4_year1 option:selected").val()
+								+"년 ~ "+$("#detail4_year2 option:selected").val()+"년 -"
 								+$("#university4").val()+" "+$("#university option:selected").val()+" 전공 : "+$("#university4_4").val();
     		}
     		
@@ -1472,34 +1471,34 @@
 			</td>
 			<td id="td2">
 				워드
-			    <input checked="checked" id="word1" name="word" type="radio" value="상" 
+			    <input checked="checked" id="word1" name="word" type="radio" value="상 : 표/도구 활용" 
 			    	style="margin-top: 20px;"/>
-			    <label for="word1">상</label>
-			    <input id="word2" name="word" type="radio" value="중" />
-			    <label for="word2">중</label>
-			    <input id="word3" name="word" type="radio" value="하" />
-			    <label for="word3">하</label><br><br>
+			    <label for="word1">상 : 표/도구 활용</label>
+			    <input id="word2" name="word" type="radio" value="중 : 문서편집" />
+			    <label for="word2">중 : 문서편집</label>
+			    <input id="word3" name="word" type="radio" value="하 : 기본사용" />
+			    <label for="word3">하 : 기본사용</label><br><br>
 			    파워포인트
-			    <input checked="checked" id="power_point1" name="powerPoint" type="radio" value="상" />
-			    <label for="power_point1">상</label>
-			    <input id="power_point2" name="powerPoint" type="radio" value="중" />
-			    <label for="power_point2">중</label>
-			    <input id="power_point3" name="powerPoint" type="radio" value="하" />
-			    <label for="power_point3">하</label><br><br>
+			    <input checked="checked" id="power_point1" name="powerPoint" type="radio" value="상 : 차트/효과 활용" />
+			    <label for="power_point1">상 : 차트/효과 활용</label>
+			    <input id="power_point2" name="powerPoint" type="radio" value="중 : 서식/도형 활용" />
+			    <label for="power_point2">중 : 서식/도형 활용</label>
+			    <input id="power_point3" name="powerPoint" type="radio" value="하 : 기본사용" />
+			    <label for="power_point3">하 : 기본사용</label><br><br>
 			    엑셀
-			    <input checked="checked" id="excel1" name="excel" type="radio" value="상" />
-			    <label for="excel1">상</label>
-			    <input id="excel2" name="excel" type="radio" value="중" />
-			    <label for="excel2">중</label>
-			    <input id="excel3" name="excel" type="radio" value="하" />
-			    <label for="excel3">하</label><br><br>
+			    <input checked="checked" id="excel1" name="excel" type="radio" value="상 : 수식/함수 활용" />
+			    <label for="excel1">상 : 수식/함수 활용</label>
+			    <input id="excel2" name="excel" type="radio" value="중 : 데이터 입력/편집" />
+			    <label for="excel2">중 : 데이터 입력/편집</label>
+			    <input id="excel3" name="excel" type="radio" value="하 : 기본사용" />
+			    <label for="excel3">하 : 기본사용</label><br><br>
 			    인터넷
-			    <input checked="checked" id="internet1" name="internet" type="radio" value="상" />
-			    <label for="internet1">상</label>
-			    <input id="internet2" name="internet" type="radio" value="중" />
-			    <label for="internet2">중</label>
-			    <input id="internet3" name="internet" type="radio" value="하" />
-			   <label for="internet3">하</label><br><br>
+			    <input checked="checked" id="internet1" name="internet" type="radio" value="상 : 정보수집능숙" />
+			    <label for="internet1">상 : 정보수집능숙</label>
+			    <input id="internet2" name="internet" type="radio" value="중 : 검색/정보수집" />
+			    <label for="internet2">중 : 검색/정보수집</label>
+			    <input id="internet3" name="internet" type="radio" value="하 : 기본사용" />
+			   <label for="internet3">하 : 기본사용</label><br><br>
 			</td>
 		</tr>
 		<tr id="tr">

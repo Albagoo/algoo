@@ -5,12 +5,18 @@
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+
+<!-- Start WOW Slider.com HEAD section -->
+<link rel="stylesheet" type="text/css" href="engine1/style.css" />
+<script type="text/javascript" src="engine1/jquery.js"></script>
+<!-- End WOW Slider.com HEAD section -->
+
 <link rel="stylesheet" type="text/css"
    href="<c:url value='/css/clear.css'/>" />
 <link rel="stylesheet" type="text/css"
    href="<c:url value='/css/recLayout.css'/>" />
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
+
   
 <style>
  .toggler {
@@ -103,6 +109,7 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
 	<div>
 		<span>등록일 :<fmt:formatDate value="${recVo.regdate }" 
 		pattern="yyyy-MM-dd"/> </span>
+		
 		<div class="detail_right">
 			<span class="url"> <a href="#">http://www.algoo.com/</a></span>
 			<input type="button" class="button white medium" value="단축키 URL복사"></button>

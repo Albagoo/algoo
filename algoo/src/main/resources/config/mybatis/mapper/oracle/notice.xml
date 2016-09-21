@@ -6,7 +6,6 @@
 	<!-- 09-02 searching -->
 	<sql id="searchWhere">
 		<where>
-			<where>
 			<if test="searchCondition!=null and searchCondition!=''">
 				${searchCondition} 
 				like '%' || #{searchKeyword} || '%'
@@ -17,7 +16,6 @@
 				and content
 				like '%' || #{searchKeyword} || '%'
 			</if>
-		</where>
 		</where>
 	</sql>
 	
@@ -79,9 +77,9 @@
 		        order by main_no desc) LIST_ALL
 		)
 		<![CDATA[
-		where RNUM>#{firstRecordIndex}
-		 and RNUM<=#{firstRecordIndex}
-		 +#{recordCountPerPage}
+		where  RNUM> #{firstRecordIndex} 
+			and RNUM<= #{firstRecordIndex}
+			+ #{recordCountPerPage}
 		]]>
 	</select>
 	
@@ -99,7 +97,7 @@
 		        ) LIST_ALL    
 		)
 		<![CDATA[
-			where  RNUM> #{firstRecordIndex} 
+		where  RNUM> #{firstRecordIndex} 
 			and RNUM<= #{firstRecordIndex}
 			+ #{recordCountPerPage}
 		]]>

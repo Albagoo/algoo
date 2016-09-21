@@ -120,38 +120,20 @@
 					<!-- 알바 분류 -->
 					<div class="divJob1">
 						<!-- 지역별 알바 -->
-						지역별 알바
+						<span>지역별 알바</span>
 						<hr width="90px">
 						<div class="divMap">
 						<p class="areaP">
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;&nbsp;&nbsp;&nbsp;
-						 <a href="">
-						 경기</a>
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 <a href="">
-						 강원</a>
-						 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 <a id="spCity" href="">
-						 인천</a>
-						 &nbsp;&nbsp;
-						 <a id="spCity" href="">
-						 서울</a>
-						 <br><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 <a href="">
-						 충남</a>
-						 &nbsp;&nbsp;&nbsp;
-						 <a href="">
-						 충북</a>
-						 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 <a id="spCity" href="">
-						 대전</a>
-						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						 &nbsp;
-						 <a href="">
+						 <a href="" class="kyunggi">경기</a>
+						 <a href="" class="kangwon">강원</a>
+						 <a href="" class="incheon" id="spCity">인천</a>
+						 <a href="" class="seoul" id="spCity">서울</a>
+						 <a href="" class="chungnam">충남</a>
+						 <a href="" class="chungbuk">충북</a>
+						 <a href="" class="daejeon" id="spCity">대전</a>
+						 <a href="" class="kyungbuk">경북</a>
+						 
+						 <!-- 
 						 경북</a>
 						 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -187,12 +169,12 @@
 						 &nbsp;&nbsp;
 						 <a href="">
 						 제주</a>
-						</p>
+						</p> -->
 						</div>
 					</div>
 					<div class="divJob2">
 						<!-- 업종별 알바 -->
-						업종별 알바
+						<span>업종별 알바</span>
 						<hr width="90px">
 						<table>
 							<tr>
@@ -221,7 +203,7 @@
 					</div>
 					<div class="divJob3">
 						<!-- 테마별 알바 -->
-						테마별 알바
+						<span>테마별 알바</span>
 						<hr width="90px">
 						<table>
 							<tr>
@@ -242,7 +224,8 @@
 				</div>
 				<div class="divFunction">
 					<!-- 로그인상자 및 광고 -->
-					<div class="loginBox">
+					<c:if test="${empty sessionScope.userid }">
+					<div class="loginBox1">
 						<!-- 로그인상자 -->
 						<a href="#" onclick="login2_1()">
 						<div class="personalLogin">
@@ -262,6 +245,28 @@
 							비밀번호 찾기
 						</div>
 					</div>
+					</c:if>
+					<c:if test="${!empty sessionScope.userid }">
+					<div class="loginBox2">
+						<!-- 로그인된 경우 -->
+						<div class="logOver">
+							<div id="logImg">
+							<img src="<c:url value='/images/unImg.jpg'/>">
+							</div>
+							<div id="logText">
+							<span>${sessionScope.nickName }</span>님
+							<p>환영합니다</p>
+							</div>
+						</div>
+						<div class="logUnder">
+							<a href="<c:url value='/member/memInfo.ag'/>">
+							▷회원정보 수정</a>
+							<a href="<c:url value='/member/logout.ag'/>">
+							<span>로그아웃</span></a>
+						</div>
+					</div>
+					</c:if>
+					
 					<div class="">
 						<img src="<c:url value='/images/spam.jpg'/>"
 						 width="220px">
@@ -269,9 +274,12 @@
 					<div class="divCommercial2">
 						<!-- 다른 사이즈의 광고 -->
 						<img src="<c:url value='/images/banner/banner3.jpg'/>"
-						 width="220px" height="140px">
+						 width="220px" height="120px">
+						<img src="<c:url value='/images/banner/banner5.jpg'/>"
+						 width="220px" height="65px">
 					</div>
-				</div>
+				</div><!-- divFunction -->
+				
 				<div class="divBrand">
 				
 				

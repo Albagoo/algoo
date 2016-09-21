@@ -543,28 +543,32 @@ floatLeft input[type="checkbox"],
 .margin_0{
    margin: 0;
 }
+
+
 .recListArea div>p{
 padding:0px;
 border-bottom: 1px solid #aaa;
 background:#fafafa;
 text-align: left;	
 }
-.recListArea > div{
+.recListArea>div{
 text-align: left;
 background: #fafafa;
 border-bottom: 1px solid #eee;
 display: inline-block;
-/* margin: 10px; */
+ margin: 0px; 
 
 }
-.recListArea div div{
+/* 지역별 시구군 내용  간격DIV*/
+.recListArea div div,
+#jobTabs div p>div{
    width: 150px;
    display: inline-block;
-   
-   
 }
-.recListArea div div a{
-	padding: 5px;
+/* 지역별 시구군 A태그 폰트CSS */
+.recListArea div div a,
+#jobTabs div p div>a{
+	/* padding: 5px; */
    font-family:'bon godic';
    font-size: 9pt; 
 }
@@ -576,7 +580,8 @@ display: inline-block;
    padding: 0;
    margin: 0;
 }
-#test{
+/* 직종 선택값 들어가는 부분 CSS */
+#test,#test2{
 	width:500px;
 	font-family:'bon godic';
    font-weight: bold;
@@ -584,42 +589,32 @@ display: inline-block;
    padding: 0;
    margin: 0;
    text-align: left;
-   background: white;
+   background: #fafafa;
 }
 
 #test input[type="button"]{
    padding: 0;
    margin: 0;
 }
-/* 페이지 스크롤 업 */
-/* 스크립트에
-   $(function(){
-         $.scrollUp();
-       });
-      
-*/
-#scrollUp {
-    background-image: url("https://github.com/markgoodyear/scrollup/blob/master/demo/img/top.png?raw=true");
-    bottom: 20px;
-    right: 20px;
-    width: 38px;    /* Width of image */
-    height: 38px;   /* Height of image */
-}
 
 /* 토글 */
+/* 직종 탭부분 CSS */
 #jtab>li{
-	width: 200px;
+	width: 228px;
+	
 	font-family:'bon godic';
    font-weight: bold;
-   font-size: 8.5pt;
+   font-size: 9pt;
+   text-align:center;
 }	
+/* 지역 탭부분 CSS */
 #tabs>ul>li{
 	width: 45px;
 	font-family:'bon godic';
    font-weight: bold;
-   font-size: 8.5pt;
+   font-size: 9pt;
 }	
-	
+/* 탭 화면 고정크기 */	
 .toggler {
 	 /* position: relative;
     width: 920px;
@@ -627,19 +622,22 @@ display: inline-block;
     padding: 0.4em;
     margin:0 auto;
     border: 1px solid #38f; */
-  } 
+  }
+/* 지역별검색, 직종별검색 버튼 CSS */   
 #button,#button2 {
     padding: .5em 1em;
     text-decoration: none;
   }
+/* 탭 내용 CSS */  
 #effect {
-     position: relative;  
-    width: 920px;
-    height: 470px;
-    padding: 0.4em;
+    position: relative;  
+    width: 860px;
+/*     height: 460px; */
+    padding: 0.1em;
     margin:0 auto;
-    border: 1px solid #38f;
+    border: 1px solid #15f;
   }
+/* 탭 제목 CSS */  
 #effect h3 {
     margin: 0;
     padding: 0.4em;

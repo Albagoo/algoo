@@ -5,7 +5,6 @@ import javax.servlet.http.HttpSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -35,6 +34,9 @@ public class CompanyController {
 	public String companyRegister_get(HttpSession session,Model model){
 		
 		String userid=(String)session.getAttribute("userid");
+		
+		logger.info(""+companyService);
+		
 		CompanyVO companyVo = companyService.selectCompanyByUserid(userid);
 		
 		model.addAttribute("companyVo", companyVo);

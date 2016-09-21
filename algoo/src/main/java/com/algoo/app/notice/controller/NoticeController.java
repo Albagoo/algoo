@@ -13,10 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.algoo.app.faq.model.FaqVO;
+import com.algoo.app.common.PaginationInfo;
 import com.algoo.app.notice.common.ListNoticeVO;
-import com.algoo.app.notice.common.PaginationInfo;
-import com.algoo.app.notice.common.Utility;
 import com.algoo.app.notice.model.NoticeService;
 import com.algoo.app.notice.model.NoticeVO;
 
@@ -52,25 +50,30 @@ public class NoticeController {
 	}
 	
 	@RequestMapping("/list.ag")
-	public String listNotice(
-			@ModelAttribute ListNoticeVO searchVo,
-			@RequestParam(required=false) String categoryName,	//09-02 searching category
-			Model model){
+	public String listNotice(@ModelAttribute ListNoticeVO searchVo,
+			@RequestParam(required=false) String categoryName, Model model){
 		//2) 공지 리스트(전체)
 		//1. parameter
 		logger.info("공지 리스트 조회, 파라미터 noticeVo={}", searchVo);
 		logger.info("카테고리 ={}",categoryName);
-		//paging 08-31
-		//[1] pagingInfo
+
 		PaginationInfo pagingInfo = new PaginationInfo();
-		pagingInfo.setBlockSize(pagingInfo.BLOCK_SIZE);
-		pagingInfo.setRecordCountPerPage(pagingInfo.RECORD_COUNT_PER_PAGE);
+		pagingInfo.setBlockSize(10);
+		pagingInfo.setRecordCountPerPage(20);
 		pagingInfo.setCurrentPage(searchVo.getCurrentPage());
 		
-		//[2] searchVo
-		searchVo.setBlockSize(Utility.BLOCK_SIZE);
+		searchVo.setBlockSize(pagingInfo.getBlockSize());
 		searchVo.setRecordCountPerPage(pagingInfo.getRecordCountPerPage());
 		searchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
+		
+		PaginationInfo onePage = new PaginationInfo();
+		onePage.setBlockSize(1);
+		onePage.setRecordCountPerPage(20);
+		onePage.setCurrentPage(searchVo.getCurrentPage());
+		
+		searchVo.setBlockSize(onePage.getBlockSize());
+		searchVo.setRecordCountPerPage(onePage.getRecordCountPerPage());
+		searchVo.setFirstRecordIndex(onePage.getFirstRecordIndex());
 		
 		//2. db process
 		List<NoticeVO> alist = new ArrayList<NoticeVO>();
@@ -88,14 +91,17 @@ public class NoticeController {
 					alist.size());
 		}
 		//record counting 08-31
+		
 		int totalRecord
 		=noticeService.selectTotalCount(searchVo);
 		logger.info("전체 레코드 개수 totalRecord={}", totalRecord);
-		pagingInfo.setTotalRecord(totalRecord);
 		
-		//3. result save
+		pagingInfo.setTotalRecord(totalRecord);
+		onePage.setTotalRecord(totalRecord);
+		
 		model.addAttribute("noticeList", alist);
-		model.addAttribute("pagingInfo", pagingInfo); //08-31
+		model.addAttribute("pagingInfo", pagingInfo);
+		model.addAttribute("onePage", onePage);
 		
 		logger.info("페이징인포={}",pagingInfo.getCurrentPage());
 		
@@ -214,13 +220,22 @@ public class NoticeController {
 		logger.info("카테고리 = {}",categoryName);
 
 		PaginationInfo pagingInfo = new PaginationInfo();
-		pagingInfo.setBlockSize(pagingInfo.BLOCK_SIZE);
-		pagingInfo.setRecordCountPerPage(pagingInfo.RECORD_COUNT_PER_PAGE);
+		pagingInfo.setBlockSize(10);
+		pagingInfo.setRecordCountPerPage(20);
 		pagingInfo.setCurrentPage(searchVo.getCurrentPage());
 		
-		searchVo.setBlockSize(Utility.BLOCK_SIZE);
+		searchVo.setBlockSize(pagingInfo.getBlockSize());
 		searchVo.setRecordCountPerPage(pagingInfo.getRecordCountPerPage());
 		searchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
+		
+		PaginationInfo onePage = new PaginationInfo();
+		onePage.setBlockSize(1);
+		onePage.setRecordCountPerPage(20);
+		onePage.setCurrentPage(searchVo.getCurrentPage());
+		
+		searchVo.setBlockSize(onePage.getBlockSize());
+		searchVo.setRecordCountPerPage(onePage.getRecordCountPerPage());
+		searchVo.setFirstRecordIndex(onePage.getFirstRecordIndex());
 
 		List<NoticeVO> alist = new ArrayList<NoticeVO>();
 		
@@ -239,9 +254,11 @@ public class NoticeController {
 		int totalRecord=noticeService.selectTotalCount(searchVo);
 		logger.info("전체 레코드 개수 totalRecord={}", totalRecord);
 		pagingInfo.setTotalRecord(totalRecord);
+		onePage.setTotalRecord(totalRecord);
 		
 		model.addAttribute("noticeList", alist);
 		model.addAttribute("pagingInfo", pagingInfo);
+		model.addAttribute("onePage", onePage);
 		
 		logger.info("회원 pagingInfo={}", pagingInfo.getCurrentPage());
 		

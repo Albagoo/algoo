@@ -1,6 +1,7 @@
 package com.algoo.app.comment.model;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,4 +33,13 @@ public class CommentServiceImpl implements CommentService{
 		return cnt;
 	}
 
+	@Override
+	public void deleteComment(Map<String, String> map) {
+		cmtDao.deleteComment(map);
+	}
+
+	@Override
+	public CommentVO selectCommentByNo(int cmtNo) {
+		return cmtDao.selectCommentByNo(cmtNo);
+	}
 }

@@ -12,7 +12,7 @@
 #jQuery_accordion{
 	float:left;
 	width: 75%;
-	padding: 10px 0 0 30px;
+	padding: 10px 0 0 33px;
 }
 #faqBody{
 	padding: 16px 0 0 0;
@@ -20,13 +20,13 @@
 #faqinfo p{
 	font-size: 0.8em;
 	text-align: left;
-	margin-left:220px;
+	margin:0 0 0 220px;
 }
 #faqinfo p a{
 	color:black;	
 }
 .faqSearch{
-	margin: 30px 0 30px 0;
+	margin: 17px 0 30px 0;
 	padding: 30px 0 30px 0;
 	border: 5px solid lightgray;
 	float: right;
@@ -109,6 +109,9 @@ table.box2 td a{
 	text-align: center;
 	padding-top: 20px;
 }
+.divSearch{
+	margin-left: 200px;
+}
 .divBtn{
 	float: right;
 }
@@ -130,6 +133,9 @@ table.box2 td a{
 	font-size: 0.9em;
 	color: black;
 	padding: 0 10px 0 10px;
+}
+.divPage a:hover{
+	text-decoration: none;
 }
 .divPage img{
 	height: 16px;

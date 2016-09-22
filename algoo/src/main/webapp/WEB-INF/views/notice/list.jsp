@@ -25,8 +25,23 @@
 		});
 		
 		$("input[name='chkAllNotice']").click(function(){
-			$(".noticeBody input[type=checkbox]").prop("checked", this.checked);
+			$("tbody input[type=checkbox]").prop("checked", this.checked);
 		});
+		
+		//선택글 삭제
+		$("#btDel").click(function(){
+			var count
+			=$("tbody input[type=checkbox]:checked").length;
+			
+			if(count==0){
+				alert("삭제할 공지사항을 먼저 선택하세요");
+				return false;
+			}
+			
+			frmList.action="<c:url value='/notice/selectDelete.ag'/>";
+			frmList.submit();
+		});
+		
 	});
 	
 	function pageProc(curPage){
@@ -51,6 +66,9 @@ action="<c:url value='/notice/list.ag'/>">
 	<input type="hidden" name="searchCondition" value="${param.searchCondition }">
 	<input type="hidden" name="searchKeyword" value="${searchVO.searchKeyword }">	
 </form>
+
+<form name="frmList" method="post"
+	action="<c:url value='/notice/list.ag'/>" >
 <div class="divList">
 <div id="Qmark">
 		<img src="<c:url value='/images/notice.png'/>" style="height: 48px;" align=absmiddle>
@@ -106,7 +124,7 @@ action="<c:url value='/notice/list.ag'/>">
 	    <th scope="col">작성일</th>
 	  </tr>
 	</thead> 
-		<tbody class="noticeBody">
+		<tbody>
 			<c:if test="${empty noticeList}">
 				<tr>
 					<td colspan="4" class="align_center">
@@ -120,8 +138,8 @@ action="<c:url value='/notice/list.ag'/>">
 		
 				<tr>
 					<td class="align_center">
-						<input type="checkbox" name="notice[${i}].mainNo"
-							id="chkN_${i }" value="${vo.mainNo}" >
+						<input type="checkbox" name="noticeList[${i}].mainNo"
+							id="chk_${i }" value="${vo.mainNo}" >
 					</td>
 					<td  class="align_center">
 						${vo.category }
@@ -134,13 +152,16 @@ action="<c:url value='/notice/list.ag'/>">
 						<fmt:formatDate value="${vo.regdate }" pattern="yyyy-MM-dd" /> 
 					</td>
 				</tr>
-				
+				<c:set var="i" value="${i+1}" />
 				</c:forEach>
 			</c:if>
 		</tbody>	
 	</table>
+	<br>
+	<input type="button" id="btDel" value="선택한 공지사항 삭제">
 </div>
 </div>
+</form>
 <!-- 08-31 Paging-->
 <div class="divPage">
 	<c:if test="${onePage.firstPage>1 }">	

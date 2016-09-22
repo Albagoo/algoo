@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.algoo.app.notice.common.ListNoticeVO;
 
@@ -61,5 +62,24 @@ public class NoticeServiceImpl implements NoticeService{
 	@Override
 	public NoticeVO nextContent(int no) {
 		return noticeDao.nextContent(no);
+	}
+	
+	@Override
+	@Transactional
+	public int deleteSelectNotice(List<NoticeVO> nList) {
+		int cnt=0;
+		try{
+			for(NoticeVO vo : nList){
+				int no=vo.getMainNo();
+				if(no!=0){
+					cnt=noticeDao.deleteNotice(no);
+				}
+			}//for
+		}catch(RuntimeException e){
+			e.printStackTrace();
+			cnt=-1;
+		}
+		
+		return cnt;
 	}
 }

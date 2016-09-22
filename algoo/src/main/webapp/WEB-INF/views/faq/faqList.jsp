@@ -26,6 +26,19 @@
 		$("input[name='chkAllFaq']").click(function(){
 			$(".faqBody input[type=checkbox]").prop("checked", this.checked);
 		});
+		
+		$("#btDel").click(function(){
+			var count
+			=$("tbody input[type=checkbox]:checked").length;
+			
+			if(count==0){
+				alert("삭제할 FAQ를 먼저 선택하세요");
+				return false;
+			}
+			
+			frmList.action="<c:url value='/faq/selectDelete.ag'/>";
+			frmList.submit();
+		});
 	});
 	
 	function pageProc(curPage){
@@ -51,6 +64,8 @@
 <input type="hidden" name="searchKeyword" value="${searchVO.searchKeyword }">	
 </form>
 
+<form name="frmList" method="post"
+	action="<c:url value='/faq/faqList.ag'/>" >
 <div class="divList">
 <div id="Qmark">
 	<img src="<c:url value='/images/faqicon.png'/>" style="height: 50px;">
@@ -145,8 +160,8 @@
 		<c:forEach var="vo" items="${alist }">
 			<tr style="text-align: center">
 				<td class="faqBody">
-					<input type="checkbox" name="faq[${j}].faqNo"
-						id="chk2_${j }" value="${vo.faqNo}" >
+					<input type="checkbox" name="faqList[${j}].faqNo"
+						id="chk_${j }" value="${vo.faqNo}" >
 				</td>
 				<td>${vo.faqNo}</td>
 				<td style="text-align: left;">
@@ -156,11 +171,14 @@
 				<td><fmt:formatDate value="${vo.regdate}" pattern="yyyy-MM-dd"/>
 				</td>
 			</tr>				
+			<c:set var="j" value="${j+1 }" />
 		</c:forEach>
 	</c:if>
 	</tbody>
-</table>	   
+</table>
+<input type="button" id="btDel" value="선택한 FAQ 삭제">   
 </div>
+</form>
 <div class="divPage">
 	<c:if test="${onePage.firstPage>1 }">	
 		<c:if test="${pagingInfo.firstPage>1 }">	

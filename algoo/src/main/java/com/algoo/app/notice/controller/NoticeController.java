@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.algoo.app.common.PaginationInfo;
 import com.algoo.app.notice.common.ListNoticeVO;
+import com.algoo.app.notice.model.NoticeListVO;
 import com.algoo.app.notice.model.NoticeService;
 import com.algoo.app.notice.model.NoticeVO;
 
@@ -215,7 +216,7 @@ public class NoticeController {
 	
 	@RequestMapping("/noticeAdminDelete.ag")
 	public String noticeAdminDelete(@RequestParam(defaultValue="0") int no,	Model model){
-		logger.info("관리자 공지 삭제 파라미터 no={}", no);
+		logger.info("공지 삭제 파라미터 no={}", no);
 		
 		String msg="", url="";
 		int cnt = noticeService.deleteNotice(no);
@@ -282,5 +283,40 @@ public class NoticeController {
 		logger.info("회원 pagingInfo={}", pagingInfo.getCurrentPage());
 		
 		return "notice/noticeUserList";
+	}
+	
+	@RequestMapping("/selectDelete.ag")
+	public String selectDelete(@ModelAttribute NoticeListVO nListVo, Model model){
+		//선택한 상품 삭제
+		//1.
+		logger.info("관리자 선택한 공지사항 삭제, 파라미터 nListVo = {}", nListVo);
+		List<NoticeVO> nList = nListVo.getNoticeList();
+		
+		logger.info("nList.size() = {}", nList.size());
+		
+		//2.
+		int cnt=noticeService.deleteSelectNotice(nList);
+		logger.info("선택한 공지사항 삭제 처리 결과, cnt = {}", cnt);
+		
+		String msg="", url="/notice/list.ag";
+		
+		if(cnt>0){
+			for(int i=0;i<nList.size();i++){
+				NoticeVO noticeVo=nList.get(i);
+				
+				int mainNo=noticeVo.getMainNo();
+
+				logger.info("i = {}, mainNo = {}", i, mainNo);
+			}//for
+			msg="선택한 공지사항 삭제 성공";
+		}else{
+			msg="선택한 공지사항 삭제 실패";
+		}//if
+		
+		//3.
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		
+		return "common/message";
 	}
 }

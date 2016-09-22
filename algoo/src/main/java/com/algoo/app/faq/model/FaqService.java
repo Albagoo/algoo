@@ -17,4 +17,5 @@ public interface FaqService {
 	public FaqVO prevContent(int faqNo);
 	public FaqVO nextContent(int faqNo);
 	public List<FaqVO> selectAll();
+	public int selectDelete(List<FaqVO> faqList);
 }

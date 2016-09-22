@@ -15,9 +15,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.algoo.app.common.PaginationInfo;
 import com.algoo.app.common.SearchVO;
+import com.algoo.app.faq.model.FaqListVO;
 import com.algoo.app.faq.model.FaqService;
 import com.algoo.app.faq.model.FaqVO;
 import com.algoo.app.faq.model.ListFaqVO;
+import com.algoo.app.notice.model.NoticeListVO;
+import com.algoo.app.notice.model.NoticeVO;
 
 @Controller
 @RequestMapping("/faq")
@@ -238,5 +241,40 @@ public class FaqController {
 		model.addAttribute("onePage", onePage);
 		
 		return "faq/faqUserList";
+	}
+	
+	@RequestMapping("/selectDelete.ag")
+	public String selectDelete(@ModelAttribute FaqListVO fListVo, Model model){
+		//선택한 상품 삭제
+		//1.
+		logger.info("관리자 선택한 FAQ 삭제, 파라미터 nListVo = {}", fListVo);
+		List<FaqVO> fList = fListVo.getFaqList();
+		
+		logger.info("fList.size() = {}", fList.size());
+		
+		//2.
+		int cnt=faqService.selectDelete(fList);
+		logger.info("선택한 FAQ 삭제 처리 결과, cnt = {}", cnt);
+		
+		String msg="", url="/faq/faqList.ag";
+		
+		if(cnt>0){
+			for(int i=0;i<fList.size();i++){
+				FaqVO faqVo=fList.get(i);
+				
+				int faqNo=faqVo.getFaqNo();
+
+				logger.info("i = {}, mainNo = {}", i, faqNo);
+			}//for
+			msg="선택한 FAQ 삭제 성공";
+		}else{
+			msg="선택한 FAQ 삭제 실패";
+		}//if
+		
+		//3.
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		
+		return "common/message";
 	}
 }

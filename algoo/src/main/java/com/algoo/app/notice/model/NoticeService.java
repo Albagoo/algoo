@@ -15,4 +15,5 @@ public interface NoticeService {
 	public int deleteNotice(int no);
 	public NoticeVO prevContent(int no);
 	public NoticeVO nextContent(int no);
+	public int deleteSelectNotice(List<NoticeVO> nList);
 }

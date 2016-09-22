@@ -80,4 +80,22 @@ public class FreeboardServiceImpl implements FreeboardService{
 	public List<FreeboardVO> selectAll() {
 		return freeDao.selectAll();
 	}
+
+	/*@Override
+	public int selectDelete(List<FreeboardVO> fList) {
+		int cnt=0;
+		try{
+			for(FreeboardVO vo : fList){
+				int no=vo.getMainNo();
+				if(no!=0){
+					cnt=freeDao.deleteFreeboard(map);
+				}
+			}//for
+		}catch(RuntimeException e){
+			e.printStackTrace();
+			cnt=-1;
+		}
+		
+		return cnt;
+	}*/
 }

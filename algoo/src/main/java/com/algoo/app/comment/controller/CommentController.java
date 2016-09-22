@@ -30,6 +30,10 @@ public class CommentController {
 	public String writeComment(@ModelAttribute CommentVO cmtVo){
 		logger.info("댓글 쓰기, 파라미터 cmtVo = {}", cmtVo);
 		
+		String content=cmtVo.getContent();
+		content=content.replace("\r\n", "<br>");
+		cmtVo.setContent(content);
+		
 		int cnt=cmtService.insertComment(cmtVo);
 		logger.info("댓글 쓰기 결과 cnt = {}", cnt);
 		

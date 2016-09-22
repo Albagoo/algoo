@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <script type="text/javascript">
 	$(document).ready(function(){
 	
@@ -10,7 +11,6 @@
 				event.preventDefault();
 			}
 		});
-		
 	});
 </script>
 <div class="cmtWrite" style="margin: 0 0 20px 0;">
@@ -21,9 +21,10 @@
 <input type="hidden" id="freeNo" name="freeNo" value="${param.freeNo }">
 	<div class="cmtWrite" style="padding-left:30px;">    
 		<div>
-			<textarea id="content" name="content" wrap="hard"
+			<textarea id="content" name="content"
 				style="width: 83%;height: 60px;margin-right: 15px;
-				vertical-align: middle;"></textarea>
+				vertical-align: middle;">
+			</textarea>
 			<span>
 			<input class="button white" type = "submit" value="등록" 
 				style="height: 68px;text-align: left;"/>

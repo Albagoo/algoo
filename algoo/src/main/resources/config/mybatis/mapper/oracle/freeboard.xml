@@ -30,7 +30,9 @@
 	</insert>
 	
 	<select id="selectAll" resultType="FreeboardVO">
-		select * from free_board order by free_no desc
+		select free_no, title, content, read_count, group_no, sort_no, step, del_yn, regdate, nickname, 
+			userid, (select count(*) from comments where free_no = f.free_no) as count 
+		from free_board f order by free_no desc
 	</select>
 	
 	<select id="selectAllFreeboard" resultType="FreeboardVO" parameterType="SearchVO">

@@ -291,7 +291,13 @@
 							</td>
 							<td style="text-align: left;padding-left: 10px;">
 								<a href="<c:url value='/notice/detail.ag?no=${nVo.mainNo}'/>">
-								[${nVo.category }] ${nVo.title } </a>
+								[${nVo.category }] 
+								<c:if test="${fn:length(nVo.title)>18}">
+									${fn:substring(nVo.title, 0,18)}...
+								</c:if>
+								<c:if test="${fn:length(nVo.title)<=18}">
+									${nVo.title }
+								</c:if> </a>
 							 </td>
 							<td>
 								<fmt:formatDate value="${nVo.regdate }" pattern="yyyy-MM-dd" /> 
@@ -343,7 +349,13 @@
 							</td>
 							<td style="text-align: left;padding-left: 10px;">
 								<a href="<c:url value='/faq/faqDetail.ag?faqNo=${fVo.faqNo}'/>">
-								[${fVo.category }] ${fVo.title } </a>
+								[${fVo.category }] 
+								<c:if test="${fn:length(fVo.title)>18}">
+									${fn:substring(fVo.title, 0,18)}...
+								</c:if>
+								<c:if test="${fn:length(fVo.title)<=18}">
+									${fVo.title }
+								</c:if>	 </a>
 							 </td>
 							<td>
 								<fmt:formatDate value="${fVo.regdate }" pattern="yyyy-MM-dd" /> 
@@ -398,9 +410,42 @@
 								<input type="checkbox" name="free[${k}].freeNo"
 									id="chk3_${k }" value="${tVo.freeNo}" >
 							</td>
+							
 							<td style="text-align: left; padding-left: 10px;">
-								<a href="<c:url value='/freeboard/detail.ag?freeNo=${tVo.freeNo}'/>">
-								${tVo.title } </a>
+								<!-- 삭제된 글에 대한 처리 -->
+								<c:if test="${tVo.delYn=='Y'}">
+									<span style="color:gray">
+										삭제된 글입니다</span>
+								</c:if>
+								<c:if test="${tVo.delYn!='Y' }">
+								<!-- 답변의 경우 화살표 이미지 보여주기 -->
+									<c:if test="${tVo.step>0 }">
+										<c:forEach var="i" 
+											begin="1" end="${tVo.step}">
+											&nbsp;&nbsp;
+										</c:forEach>
+										<img src
+										="<c:url value='/images/re2.png' />" alt="re이미지"
+											 align=absmiddle id="reply">
+									</c:if>
+									<!-- 제목이 긴 경우 일부만 보여주기 -->
+									<a href="<c:url value='/freeboard/detail.ag?freeNo=${tVo.freeNo}'/>">
+										<c:if test="${fn:length(tVo.title)>20}">
+											${fn:substring(tVo.title, 0,20)}...
+										</c:if>
+										<c:if test="${fn:length(tVo.title)<=20}">
+											${tVo.title}
+										</c:if>	
+									</a>
+									<c:if test="${tVo.delYn!='Y'}">
+										(${tVo.count})
+									</c:if>
+									<!-- new 이미지 -->
+									<c:if test="${tVo.newImgTerm<24}">
+										<img src="<c:url value='/images/new5.png'/>" alt="new 이미지" 
+											style="height: 14px;" align=absmiddle >
+									</c:if>
+								</c:if>
 							</td>
 							<td>
 								${tVo.nickName }
@@ -411,8 +456,12 @@
 							<td>
 								<fmt:formatDate value="${tVo.regdate }" pattern="yyyy-MM-dd" /> 
 							</td>
-							<td><a href="<c:url value='/freeboard/edit.ag?freeNo=${tVo.freeNo}'/>" >수정</a></td>
-							<td><a href="#" onclick="delFree(${tVo.freeNo})">삭제</a></td>
+							<td>
+								<a href="<c:url value='/freeboard/edit.ag?freeNo=${tVo.freeNo}'/>" >수정</a>
+							</td>
+							<td>
+								<a href="#" onclick="delFree(${tVo.freeNo})">삭제</a>
+							</td>
 						</tr>
 				</c:forEach>
 				</tbody>

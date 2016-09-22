@@ -146,7 +146,12 @@ action="<c:url value='/notice/list.ag'/>">
 					</td>
 					<td class="align_left" style="padding-left:10px">
 						<a href="<c:url value='/notice/detail.ag?no=${vo.mainNo}'/>">
-						${vo.title } </a>
+						<c:if test="${fn:length(vo.title)>18}">
+							${fn:substring(vo.title, 0,18)}...
+						</c:if>
+						<c:if test="${fn:length(vo.title)<=18}">
+							${vo.title }
+						</c:if> </a>
 					 </td>
 					<td  class="align_center">
 						<fmt:formatDate value="${vo.regdate }" pattern="yyyy-MM-dd" /> 

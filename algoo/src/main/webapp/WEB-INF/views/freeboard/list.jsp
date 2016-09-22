@@ -116,17 +116,14 @@
 								&nbsp; ${fList.title}
 							</c:if>
 						</a>
+						<c:if test="${fList.delYn!='Y'}">
+							(${fList.count})
+						</c:if>
 						<!-- 24시간 이내의 글인 경우 new 이미지 보여주기 -->
 						<c:if test="${fList.newImgTerm<24}">
 							<img src="<c:url value='/images/new5.png'/>" alt="new 이미지" 
 								style="height: 14px;" align=absmiddle >
 						</c:if>
-					</c:if>
-					<c:if test="${fList.delYn!='Y'}">
-						(${fList.count})
-					</c:if>
-					<c:if test="${fList.delYn=='Y'}">
-						
 					</c:if>
 				</td>
 				<td>${fList.nickName}</td>

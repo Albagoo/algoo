@@ -72,6 +72,30 @@
 				</foreach>
 			</if>
 
+			<if test="recruitType != null and recruitType!=''">
+				AND recruit_Type IN
+				<foreach collection="recruitType" item="recruitType" index="index"
+					open="(" close=")" separator=",">
+					#{recruitType}
+				</foreach>
+			</if>
+			
+			<if test="welfare != null and welfare !='' and welfare !=' '">
+				AND welfare IN
+				<foreach collection="welfare" item="welfare" index="index"
+					open="(" close=")" separator=",">
+					#{welfare}
+				</foreach>
+			</if>
+         
+			<if test="preference != null and preference!=''">
+				AND preference IN
+				<foreach collection="preference" item="preference" index="index"
+					open="(" close=")" separator=",">
+					#{preference}
+				</foreach>
+			</if>
+
 		 </where> 
 	</sql>
 

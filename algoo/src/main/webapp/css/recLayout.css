@@ -115,10 +115,15 @@ body{
    width:115px;
    float: left;
 }
-.rence{
+.rence label{
    margin: 5px 0 0 0px;
    float: left;
    width: 110px;
+}
+.ren label{
+   margin: 5px 0 0 0px;
+   float: left;
+   width: 80px;
 }
 .txt{
    margin:10px;
@@ -244,6 +249,12 @@ margin:10px;
 }
 .clearBoth, .clearBoth dt{
    clear: both;
+   
+}
+.zero{
+	margin: 0;
+   border: 0;
+   padding: 0;
 }
 .recWrite h2{
 	width: 150px;
@@ -375,20 +386,17 @@ floatLeft input[type="checkbox"],
 .detail_left {
    float: left;
 }
-
-.clear_both {
-   clear: both;
-}
-
 .br {
    padding: 20px 0 20px 0;
 }
 
 .title {
-   /* padding: 30px 30px; */
-   /* border: 1px solid black; */
-   text-align: center;
+	padding: 2px 0 2px 250px;
    font-weight: bold;
+   background:#D50C0C;
+   border-top: 0.5px dotted #D50C0C; 
+   border-bottom: 2px solid #D50C0C; 
+  font-family:'bon godic';
 }
 
 .logo {

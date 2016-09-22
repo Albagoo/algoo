@@ -91,30 +91,42 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
       });
       
      
-   });
+      $("#btCopy").click(function() {
+    	  var juso =location.href;
+    	  
+    	  $("input[name='homeCopy']").val(juso).select();
+         document.execCommand("copy");
+         alert('주소가 복사되었습니다.');
+	   });
+      
+    	  //[출처] [AngularJS, Jquery] URL 또는 TEXT 복사하기 |작성자 지니고
+      
+   }); 
    
-   function copyURL(homePage) {
-	URL='<a href='+homePage+' target="_blank">홈페이지</a>';
-	window.clipboardData.setData('Text',URL);
-	alert('주소가 복사되었습니다.');
-
+   
   
-}
    
 </script>
 <div class="Wrap">
 	<p class="recDetail">채용정보 상세보기</p>
 	<div>
-		<span>등록일 :<fmt:formatDate value="${recVo.regdate }" 
-		pattern="yyyy-MM-dd"/> </span>
-		
 		<div class="detail_right">
-			<span class="url"> <a href="#">${compVo.homepage }</a></span>
-			<input type="button" class="button white medium" value="URL복사"
-			onclick="copyURL('${compVo.homepage }')">
+			<span class="url"> 
+			<input size="1" type="text" 
+			readonly="readonly" name="homeCopy" 
+			value="${compVo.homepage }"
+			style="color:#FFF;backgroun:#FFF;
+			width: 0.1px;height: 0.1px;margin: 0;padding: 0;
+			border: 0;"></span>
+			<input type="button" class="button white medium" 
+			value="URL주소복사"  id="btCopy" >
 		</div>
 		<p class="clear_both"></p>
-		<div class="detail_right">
+		
+		 <div class="detail_right"> 
+		
+      
+      
 			<input type="button" class="button white small" value="스크랩">
 			
 			<input type="button" class="button white small" value="인쇄"
@@ -124,10 +136,13 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
 			<input type="button" class="button white small" value="E메일">
 			<input type="button" class="button white small" value="FaceBook">
 			<input type="button" class="button white small" value="Twiter">
-		</div>
+		<!-- </div> -->
 	</div>
-	<p class="clear_both"></p>
-	<div class="title"> ${recVo.title }</div>
+	<p class="clearboth" style="margin-bottom: 5px"><span style="text-align: left">등록일 :<fmt:formatDate value="${recVo.regdate }" 
+      pattern="yyyy-MM-dd"/> </span></p>
+	 
+	<div class="title">
+	 ${recVo.title }</div>
 	<div class="main_left detail_left">
 		<div class="logo">
 			<img alt="${compVo.compName }" 

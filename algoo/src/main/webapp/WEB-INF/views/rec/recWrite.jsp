@@ -586,7 +586,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                 type="button" onclick="minPaySet()"> 
             </dt>
             <dt >
-               <span class="tit">근무형태</span> <input type="checkbox"
+               <span class="tit">고용형태</span> <input type="checkbox"
                   name="recruitType" value="알바" id="alba"> <label for="alba">알바</label>
 
 

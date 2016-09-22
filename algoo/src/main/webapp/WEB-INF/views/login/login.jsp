@@ -223,19 +223,16 @@
 		<img alt="구글로고" src="<c:url value='/images/icon_google.png'/>"/>
 		<input type="button" id="bt_google" value="구글로 로그인">
 	</div>
-	<!-- <div id="naver_id_login"></div>
-		//네이버아이디로로그인 버튼 노출 영역
+	<div id="naver_id_login"></div>
 		
-		네이버아디디로로그인 초기화 Script
 	<script type="text/javascript">
 		var naver_id_login = new naver_id_login("auJlpwcbWWsD_1mAuGmP", "http://localhost:9090/algoo/resume/list.ag");
 		var state = naver_id_login.getUniqState();
 		naver_id_login.setButton("white", 2,40);
 		naver_id_login.setDomain(".service.com");
 		naver_id_login.setState(state);
-		naver_id_login.setPopup();
 		naver_id_login.init_naver_id_login();
-	</script> -->
+	</script>
 	<div id="join_kakao" style="display:inline-block;">
 		<img alt="카카오로고" src="<c:url value='/images/icon_kakao.png'/>"/>
 		<input type="button" id="bt_kakao" value="카카오로 로그인">

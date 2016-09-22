@@ -1,5 +1,10 @@
 package com.algoo.app.company.controller;
 
+import java.io.File;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -14,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.algoo.app.commem.model.CommemService;
 import com.algoo.app.commem.model.CommemVO;
+import com.algoo.app.common.FileUploadWebUtil;
 import com.algoo.app.company.model.CompanyService;
 import com.algoo.app.company.model.CompanyVO;
 
@@ -29,12 +35,13 @@ public class CompanyController {
 	@Autowired
 	private CommemService commemService;
 	
+	@Autowired
+	private FileUploadWebUtil fileUtil;
+	
 	@RequestMapping(value="/compRegister.ag", method=RequestMethod.GET)
 	public String companyRegister_get(HttpSession session,Model model){
 		
 		String userid=(String)session.getAttribute("userid");
-		
-		logger.info(""+companyService);
 		
 		CompanyVO companyVo = companyService.selectCompanyByUserid(userid);
 		
@@ -45,9 +52,82 @@ public class CompanyController {
 	
 	@RequestMapping(value="/compRegister.ag", method=RequestMethod.POST)
 	public String companyRegister_post(@ModelAttribute CompanyVO companyVo,
-			@RequestParam(required=false) String email3, HttpSession session){
+			@RequestParam(required=false) String email3,
+			HttpServletRequest request,
+			HttpSession session){
 		
 		logger.info("회사등록 파라미터 companyVo={}", companyVo);
+		
+		List<Map<String, Object>> fileList 
+			= fileUtil.FileUpload(request, FileUploadWebUtil.IMAGE_UPLOAD);
+		logger.info("업로드 파일 fileList.size() = {}"
+				, fileList.size());
+		
+		if(companyVo.getImageUrl1() != null
+					&& !companyVo.getImageUrl1().isEmpty()){
+			//기존 파일이 존재하면, 기존 파일 삭제
+			String upPath = fileUtil.getUploadPath(request, FileUploadWebUtil.IMAGE_UPLOAD);
+			String oldFileName = companyVo.getImageUrl1();
+			File oldFile = new File(upPath, oldFileName);
+			if(oldFile.exists()){
+				boolean bool = oldFile.delete();
+				logger.info("기존 파일 삭제 여부 = {}", bool);
+			}
+		}
+		if(companyVo.getImageUrl2() != null
+				&& !companyVo.getImageUrl2().isEmpty()){
+			//기존 파일이 존재하면, 기존 파일 삭제
+			String upPath = fileUtil.getUploadPath(request, FileUploadWebUtil.IMAGE_UPLOAD);
+			String oldFileName = companyVo.getImageUrl2();
+			File oldFile = new File(upPath, oldFileName);
+			if(oldFile.exists()){
+				boolean bool = oldFile.delete();
+				logger.info("기존 파일 삭제 여부 = {}", bool);
+			}
+		}
+		if(companyVo.getImageUrl3() != null
+				&& !companyVo.getImageUrl3().isEmpty()){
+			//기존 파일이 존재하면, 기존 파일 삭제
+			String upPath = fileUtil.getUploadPath(request, FileUploadWebUtil.IMAGE_UPLOAD);
+			String oldFileName = companyVo.getImageUrl3();
+			File oldFile = new File(upPath, oldFileName);
+			if(oldFile.exists()){
+				boolean bool = oldFile.delete();
+				logger.info("기존 파일 삭제 여부 = {}", bool);
+			}
+		}
+		if(companyVo.getImageUrl4() != null
+				&& !companyVo.getImageUrl4().isEmpty()){
+			//기존 파일이 존재하면, 기존 파일 삭제
+			String upPath = fileUtil.getUploadPath(request, FileUploadWebUtil.IMAGE_UPLOAD);
+			String oldFileName = companyVo.getImageUrl4();
+			File oldFile = new File(upPath, oldFileName);
+			if(oldFile.exists()){
+				boolean bool = oldFile.delete();
+				logger.info("기존 파일 삭제 여부 = {}", bool);
+			}
+		}
+		
+		//업로드된 파일명 구해오기
+		String fileName = "";
+		long fileSize = 0;
+		int i = 1;
+		for(Map<String, Object> mymap : fileList){
+			fileName = (String)mymap.get("fileName");
+			fileSize = (Long)mymap.get("fileSize");
+			if(i == 1){
+				companyVo.setImageUrl1(fileName);
+			}else if(i == 2){
+				companyVo.setImageUrl2(fileName);
+			}else if(i == 3){
+				companyVo.setImageUrl3(fileName);
+			}else if(i == 4){
+				companyVo.setImageUrl4(fileName);
+			}
+			i++;
+		}
+		
+		
 		
 		String hp2=companyVo.getHp2();
 		String hp3=companyVo.getHp3();

@@ -8,7 +8,10 @@ public class CompanyVO {
 	private String zipcode;//
 	private String address;//
 	private String addressDetail;//
-	private String imageURL;//
+	private String imageUrl1;//
+	private String imageUrl2;//
+	private String imageUrl3;//
+	private String imageUrl4;//
 	private String deptName;// VARCHAR2(50), /* 담당자명 */
 	private String phone1;// VARCHAR2(50), /* 전화번호1 */
 	private String phone2;// VARCHAR2(50), /* 전화번호2 */
@@ -69,11 +72,29 @@ public class CompanyVO {
 	public void setAddressDetail(String addressDetail) {
 		this.addressDetail = addressDetail;
 	}
-	public String getImageURL() {
-		return imageURL;
+	public String getImageUrl1() {
+		return imageUrl1;
 	}
-	public void setImageURL(String imageURL) {
-		this.imageURL = imageURL;
+	public void setImageUrl1(String imageUrl1) {
+		this.imageUrl1 = imageUrl1;
+	}
+	public String getImageUrl2() {
+		return imageUrl2;
+	}
+	public void setImageUrl2(String imageUrl2) {
+		this.imageUrl2 = imageUrl2;
+	}
+	public String getImageUrl3() {
+		return imageUrl3;
+	}
+	public void setImageUrl3(String imageUrl3) {
+		this.imageUrl3 = imageUrl3;
+	}
+	public String getImageUrl4() {
+		return imageUrl4;
+	}
+	public void setImageUrl4(String imageUrl4) {
+		this.imageUrl4 = imageUrl4;
 	}
 	public String getDeptName() {
 		return deptName;
@@ -186,13 +207,15 @@ public class CompanyVO {
 	@Override
 	public String toString() {
 		return "CompanyVO [compCode=" + compCode + ", compName=" + compName + ", ceo=" + ceo + ", compNum=" + compNum
-				+ ", zipcode=" + zipcode + ", address=" + address + ", addressDetail=" + addressDetail + ", imageURL="
-				+ imageURL + ", detpName=" + deptName + ", phone1=" + phone1 + ", phone2=" + phone2 + ", phone3="
-				+ phone3 + ", hp1=" + hp1 + ", hp2=" + hp2 + ", hp3=" + hp3 + ", fax1=" + fax1 + ", fax2=" + fax2
-				+ ", fax3=" + fax3 + ", email1=" + email1 + ", email2=" + email2 + ", compSort=" + compSort
-				+ ", content=" + content + ", homepage=" + homepage + ", review=" + review + ", type=" + type
-				+ ", cosdac=" + cosdac + "]";
+				+ ", zipcode=" + zipcode + ", address=" + address + ", addressDetail=" + addressDetail + ", imageUrl1="
+				+ imageUrl1 + ", imageUrl2=" + imageUrl2 + ", imageUrl3=" + imageUrl3 + ", imageUrl4=" + imageUrl4
+				+ ", deptName=" + deptName + ", phone1=" + phone1 + ", phone2=" + phone2 + ", phone3=" + phone3
+				+ ", hp1=" + hp1 + ", hp2=" + hp2 + ", hp3=" + hp3 + ", fax1=" + fax1 + ", fax2=" + fax2 + ", fax3="
+				+ fax3 + ", email1=" + email1 + ", email2=" + email2 + ", compSort=" + compSort + ", content=" + content
+				+ ", homepage=" + homepage + ", review=" + review + ", type=" + type + ", cosdac=" + cosdac + "]";
 	}
+	
+	
 	
 	
 }

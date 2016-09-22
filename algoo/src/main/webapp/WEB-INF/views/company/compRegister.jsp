@@ -21,6 +21,42 @@
 			$("#frm1").prop("action","<c:url value='/company/compEdit.ag' />");
 			$("#frm1").submit();
 		});
+		
+		$("#frm1").submit(function(){
+			
+			var imageUrl1= $("#imageUrl_1").val().split(".");
+			if(!(imageUrl1[1] == "jpg" || imageUrl1[1] == "png"
+					|| imageUrl1[1] == "gif" || imageUrl1[1] == "jpeg"
+					|| imageUrl1[1] == "JPG" || imageUrl1[1] == "PNG"
+					|| imageUrl1[1] == "JPEG" || imageUrl1[1] == "GIF")){
+				alert("사진 파일은 jpg, png, gif, jpeg 파일만 가능합니다!!!");
+				return false;
+			}
+			var imageUrl2= $("#imageUrl_2").val().split(".");
+			if(!(imageUrl2[1] == "jpg" || imageUrl2[1] == "png"
+					|| imageUrl2[1] == "gif" || imageUrl2[1] == "jpeg"
+					|| imageUrl2[1] == "JPG" || imageUrl2[1] == "PNG"
+					|| imageUrl2[1] == "JPEG" || imageUrl2[1] == "GIF")){
+				alert("사진 파일은 jpg, png, gif, jpeg 파일만 가능합니다!!!");
+				return false;
+			}
+			var imageUrl3= $("#imageUrl_3").val().split(".");
+			if(!(imageUrl3[1] == "jpg" || imageUrl3[1] == "png"
+					|| imageUrl3[1] == "gif" || imageUrl3[1] == "jpeg"
+					|| imageUrl3[1] == "JPG" || imageUrl3[1] == "PNG"
+					|| imageUrl3[1] == "JPEG" || imageUrl3[1] == "GIF")){
+				alert("사진 파일은 jpg, png, gif, jpeg 파일만 가능합니다!!!");
+				return false;
+			}
+			var imageUrl4= $("#imageUrl_1").val().split(".");
+			if(!(imageUrl4[1] == "jpg" || imageUrl4[1] == "png"
+					|| imageUrl4[1] == "gif" || imageUrl4[1] == "jpeg"
+					|| imageUrl4[1] == "JPG" || imageUrl4[1] == "PNG"
+					|| imageUrl4[1] == "JPEG" || imageUrl4[1] == "GIF")){
+				alert("사진 파일은 jpg, png, gif, jpeg 파일만 가능합니다!!!");
+				return false;
+			}
+		});
 	});
 	
 	function getZipcode(){
@@ -50,20 +86,24 @@
 </div>
 <div id="memInfo">
 	<section>
-		<div id="photo_div">
-			<label for="photo">사진</label>
-			<p id="photo_img">
-				<img alt="" src="">
-			</p>
-			<div>
-				<input type="button" class="white" value="사진등록">
+		<c:if test="${companyVo.compCode != 0 }">
+			<div id="photo_div">
+				<label for="photo">사진</label>
+				<p id="photo_img">
+					<img alt="" src="<c:url value='/algoo_images/${companyVo.imageUrl1 }'/>">
+				</p>
+				<div>
+					<input type="button" class="white" value="사진등록">
+				</div> 
 			</div>
-		</div>
-		<form name="frm1" id="frm1" method="post" action="<c:url value='/company/compRegister.ag'/>">
+		</c:if>
+		<form name="frm1" id="frm1" method="post" 
+			action="<c:url value='/company/compRegister.ag'/>"
+			enctype="multipart/form-data">
 		<div id="compName_div">
 	        <label for="compName">회사명</label>
 	        <input type="text" class="textBox" name="compName" id="compName"
-	        value="${companyVo.compName }">
+	        	value="${companyVo.compName }">
 	    </div>
 		<div id="ceo_div">
 	        <label for="ceo">사업자명</label>
@@ -297,6 +337,18 @@
 				>비상장</option>
 			</select>
 		</div>
+		<c:if test="${companyVo.compCode == 0 }">
+			<div style="height: 100px;">
+				<label>사진1</label>
+				<input type="file" name="imageUrl_1" id="imageUrl_1"><br>
+				<label>사진2</label>
+				<input type="file" name="imageUrl_2" id="imageUrl_2"><br>
+				<label>사진3</label>
+				<input type="file" name="imageUrl_3" id="imageUrl_3"><br>
+				<label>사진4</label>
+				<input type="file" name="imageUrl_4" id="imageUrl_4">
+			</div>
+		</c:if>
 		<p id="button_div">
 			<input type="submit" class="white" id="BtWrite" value="등록">
 			<input type="submit" class="white" id="BtEdit" value="수정">

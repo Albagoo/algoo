@@ -8,9 +8,9 @@
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/provision.css'/>" />
 
 <div class="provision">	
-	<div class="provTitle">
-		<a href="">개인회원</a>
-		<span><a href="">기업회원</a></span>
+	<div class="pProvTitle">
+		<span><a href="">개인회원</a></span>
+		<a href="">기업회원</a>
 		<a href="">위치기반서비스</a>
 		<br>
 	</div><br><br>

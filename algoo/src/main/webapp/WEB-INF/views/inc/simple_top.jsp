@@ -106,22 +106,22 @@
 					if (ad==1) { 
 						url="#"; 
 						banner="<c:url value='/images/banner/banner4_1.jpg'/>"; 
-						height="111px"; 
+						height="205px"; 
 					} 
 					if (ad==2) { 
 						url="#"; 
 						banner="<c:url value='/images/banner/banner4_2.jpg'/>"; 
-						height="111px"; 
+						height="205px"; 
 					}
 					document.write('<center>'); 
 					document.write('<a href="' + url + '" target="_top">'); 
-					document.write('<img src="' + banner + '" width='); 
-					document.write(width + ' height=' + height + ' '); 
-					document.write('alt="' + alt + '" border=0><br>'); 
-					document.write('<small>' + txt + '</small></a>'); 
+					document.write('<img src="' + banner + '"'); 
+					document.write(' height=' + height + ' '); 
+					document.write(' border=0><br>'); 
+					document.write('</a>'); 
 					document.write('</center>'); 
 				</script>
-				<img src="<c:url value='/images/banner/banner4_2.jpg'/>">
+				<%-- <img src="<c:url value='/images/banner/banner4_2.jpg'/>"> --%>
 			</div>
 			
 			<!-- 우측 메뉴(고정) -->

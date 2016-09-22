@@ -124,22 +124,22 @@
 						<hr width="90px">
 						<div class="divMap">
 						<p class="areaP">
-						 <a href="" class="kyunggi">경기</a>
-						 <a href="" class="kangwon">강원</a>
-						 <a href="" class="incheon" id="spCity">인천</a>
-						 <a href="" class="seoul" id="spCity">서울</a>
-						 <a href="" class="chungnam">충남</a>
-						 <a href="" class="chungbuk">충북</a>
-						 <a href="" class="daejeon" id="spCity">대전</a>
-						 <a href="" class="kyungbuk">경북</a>
-						 <a href="" class="jeonbuk">전북</a>
-						 <a href="" class="daegu" id="spCity">대구</a>
-						 <a href="" class="kyungnam">경남</a>
-						 <a href="" class="ulsan" id="spCity">울산</a>
-						 <a href="" class="kwangju" id="spCity">광주</a>
-						 <a href="" class="busan" id="spCity">부산</a>
-						 <a href="" class="jeonnam">전남</a>
-						 <a href="" class="jeju">제주</a>
+						 <a href="<c:url value='http://localhost:9090/algoo/rec/recList.ag?areas=%EA%B2%BD%EA%B8%B0%EB%8F%84'/>" class="kyunggi">경기</a>
+						 <a href="<c:url value='http://localhost:9090/algoo/rec/recList.ag?areas=%EA%B0%95%EC%9B%90%EB%8F%84'/>" class="kangwon">강원</a>
+						 <a href="<c:url value='http://localhost:9090/algoo/rec/recList.ag?areas=%EC%9D%B8%EC%B2%9C'/>" class="incheon" id="spCity">인천</a>
+						 <a href="<c:url value='http://localhost:9090/algoo/rec/recList.ag?areas=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C'/>" class="seoul" id="spCity">서울</a>
+						 <a href="<c:url value='http://localhost:9090/algoo/rec/recList.ag?areas=%EC%B6%A9%EC%B2%AD%EB%82%A8%EB%8F%84'/>" class="chungnam">충남</a>
+						 <a href="<c:url value='http://localhost:9090/algoo/rec/recList.ag?areas=%EC%B6%A9%EC%B2%AD%EB%B6%81%EB%8F%84'/>" class="chungbuk">충북</a>
+						 <a href="<c:url value='http://localhost:9090/algoo/rec/recList.ag?areas=%EB%8C%80%EC%A0%84%EA%B4%91%EC%97%AD%EC%8B%9C'/>" class="daejeon" id="spCity">대전</a>
+						 <a href="<c:url value='http://localhost:9090/algoo/rec/recList.ag?areas=%EA%B2%BD%EC%83%81%EB%B6%81%EB%8F%84'/>" class="kyungbuk">경북</a>
+						 <a href="<c:url value='http://localhost:9090/algoo/rec/recList.ag?areas=%EC%A0%84%EB%9D%BC%EB%B6%81%EB%8F%84'/>" class="jeonbuk">전북</a>
+						 <a href="<c:url value='http://localhost:9090/algoo/rec/recList.ag?areas=%EB%8C%80%EA%B5%AC%EA%B4%91%EC%97%AD%EC%8B%9C'/>" class="daegu" id="spCity">대구</a>
+						 <a href="<c:url value='http://localhost:9090/algoo/rec/recList.ag?areas=%EA%B2%BD%EC%83%81%EB%82%A8%EB%8F%84'/>" class="kyungnam">경남</a>
+						 <a href="<c:url value='http://localhost:9090/algoo/rec/recList.ag?areas=%EC%9A%B8%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C'/>" class="ulsan" id="spCity">울산</a>
+						 <a href="<c:url value='http://localhost:9090/algoo/rec/recList.ag?areas=%EA%B4%91%EC%A3%BC%EA%B4%91%EC%97%AD%EC%8B%9C'/>" class="kwangju" id="spCity">광주</a>
+						 <a href="<c:url value='http://localhost:9090/algoo/rec/recList.ag?areas=%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C'/>" class="busan" id="spCity">부산</a>
+						 <a href="<c:url value='http://localhost:9090/algoo/rec/recList.ag?areas=%EC%A0%84%EB%9D%BC%EB%82%A8%EB%8F%84'/>" class="jeonnam">전남</a>
+						 <a href="<c:url value='http://localhost:9090/algoo/rec/recList.ag?areas=%EC%A0%9C%EC%A3%BC%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84'/>" class="jeju">제주</a>
 						</div>
 					</div>
 					<div class="divJob2">

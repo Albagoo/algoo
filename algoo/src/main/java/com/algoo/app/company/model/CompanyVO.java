@@ -8,10 +8,17 @@ public class CompanyVO {
 	private String zipcode;//
 	private String address;//
 	private String addressDetail;//
+<<<<<<< HEAD
 	private String imageUrl1;//
 	private String imageUrl2;//
 	private String imageUrl3;//
 	private String imageUrl4;//
+=======
+	private String imageURL1;//
+	private String imageURL2;//
+	private String imageURL3;//
+	private String imageURL4;//
+>>>>>>> branch 'master' of https://github.com/Albagoo/algoo.git
 	private String deptName;// VARCHAR2(50), /* 담당자명 */
 	private String phone1;// VARCHAR2(50), /* 전화번호1 */
 	private String phone2;// VARCHAR2(50), /* 전화번호2 */
@@ -72,9 +79,15 @@ public class CompanyVO {
 	public void setAddressDetail(String addressDetail) {
 		this.addressDetail = addressDetail;
 	}
+<<<<<<< HEAD
 	public String getImageUrl1() {
 		return imageUrl1;
+=======
+	public String getImageURL1() {
+		return imageURL1;
+>>>>>>> branch 'master' of https://github.com/Albagoo/algoo.git
 	}
+<<<<<<< HEAD
 	public void setImageUrl1(String imageUrl1) {
 		this.imageUrl1 = imageUrl1;
 	}
@@ -95,6 +108,28 @@ public class CompanyVO {
 	}
 	public void setImageUrl4(String imageUrl4) {
 		this.imageUrl4 = imageUrl4;
+=======
+	public void setImageURL1(String imageURL1) {
+		this.imageURL1 = imageURL1;
+	}
+	public String getImageURL2() {
+		return imageURL2;
+	}
+	public void setImageURL2(String imageURL2) {
+		this.imageURL2 = imageURL2;
+	}
+	public String getImageURL3() {
+		return imageURL3;
+	}
+	public void setImageURL3(String imageURL3) {
+		this.imageURL3 = imageURL3;
+	}
+	public String getImageURL4() {
+		return imageURL4;
+	}
+	public void setImageURL4(String imageURL4) {
+		this.imageURL4 = imageURL4;
+>>>>>>> branch 'master' of https://github.com/Albagoo/algoo.git
 	}
 	public String getDeptName() {
 		return deptName;
@@ -207,8 +242,13 @@ public class CompanyVO {
 	@Override
 	public String toString() {
 		return "CompanyVO [compCode=" + compCode + ", compName=" + compName + ", ceo=" + ceo + ", compNum=" + compNum
+<<<<<<< HEAD
 				+ ", zipcode=" + zipcode + ", address=" + address + ", addressDetail=" + addressDetail + ", imageUrl1="
 				+ imageUrl1 + ", imageUrl2=" + imageUrl2 + ", imageUrl3=" + imageUrl3 + ", imageUrl4=" + imageUrl4
+=======
+				+ ", zipcode=" + zipcode + ", address=" + address + ", addressDetail=" + addressDetail + ", imageURL1="
+				+ imageURL1 + ", imageURL2=" + imageURL2 + ", imageURL3=" + imageURL3 + ", imageURL4=" + imageURL4
+>>>>>>> branch 'master' of https://github.com/Albagoo/algoo.git
 				+ ", deptName=" + deptName + ", phone1=" + phone1 + ", phone2=" + phone2 + ", phone3=" + phone3
 				+ ", hp1=" + hp1 + ", hp2=" + hp2 + ", hp3=" + hp3 + ", fax1=" + fax1 + ", fax2=" + fax2 + ", fax3="
 				+ fax3 + ", email1=" + email1 + ", email2=" + email2 + ", compSort=" + compSort + ", content=" + content

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mybatis.mapper.oracle.adminMember">
+	<sql id="searchWhere">
+		<where>
+			<if test="searchKeyword!=null and searchKeyword!=''">
+				${searchCondition} 
+				like '%' || #{searchKeyword} || '%'
+			</if>
+			and out_date is null
+		</where>
+	</sql>
+
+	<select id="selectMemberList" parameterType="SearchVO" resultType="MemberVO">
+		select * from 
+		(
+		    select rownum as RNUM, LIST_ALL.* from
+		        (select member_code, userid, nickname, username, birth, gender,
+		            email1, email2, hp1, hp2, hp3, zipcode, address, address_detail
+		            ,out_date
+		        from member
+		        <include refid="searchWhere"></include>  
+		        ) List_ALL
+		
+		)
+		<![CDATA[
+		where RNUM> #{firstRecordIndex} and RNUM<= #{firstRecordIndex}
+		+ #{recordCountPerPage} 
+		]]>
+	</select>
+	
+	<select id="selectMemberCount" resultType="int">
+		select count(*) from member
+			<include refid="searchWhere"></include>
+	</select>
+
+	<update id="deleteMem" parameterType="string">
+		update member
+		set out_date=sysdate
+		where userid=#{userid}
+	</update>
+	
+	<update id="updateMem" parameterType="MemberVO" >
+		update member
+		set nickName=#{nickName}, userName=#{userName}, birth=#{birth},gender=#{gender}
+		,email1=#{email1},email2=#{email2},hp1=#{hp1},hp2=#{hp2},hp3=#{hp3}
+		where userid=#{userid}
+	</update>
+</mapper>

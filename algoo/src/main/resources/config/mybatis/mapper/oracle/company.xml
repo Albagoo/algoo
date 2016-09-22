@@ -20,10 +20,19 @@
 			select company_seq.nextval from dual 
 		</selectKey>
 		insert into company(comp_code,comp_name,ceo,comp_num,zipcode,address,address_detail,dept_name,phone1,phone2,
+<<<<<<< HEAD
 			phone3,hp1,hp2,hp3,fax1,fax2,fax3,email1,email2,comp_sort,content,homepage,type,cosdac, image_url1, image_url2, image_url3, image_url4)
+=======
+			phone3,hp1,hp2,hp3,fax1,fax2,fax3,email1,email2,comp_sort,content,homepage,type,cosdac,img_url1,img_url2,img_url3,img_url4)
+>>>>>>> branch 'master' of https://github.com/Albagoo/algoo.git
 		values(#{compCode},#{compName},#{ceo},#{compNum},#{zipcode},#{address},#{addressDetail},#{deptName},#{phone1},#{phone2},#{phone3},
+<<<<<<< HEAD
 			#{hp1},#{hp2},#{hp3},#{fax1},#{fax2},#{fax3},#{email1},#{email2},#{compSort},#{content},#{homepage},#{type},#{cosdac}
 			,#{imageUrl1},#{imageUrl2},#{imageUrl3},#{imageUrl4})
+=======
+			#{hp1},#{hp2},#{hp3},#{fax1},#{fax2},#{fax3},#{email1},#{email2},#{compSort},#{content},#{homepage},#{type},#{cosdac},
+			#{imgURL1},#{imgURL2},#{imgURL3},#{imgURL4},)
+>>>>>>> branch 'master' of https://github.com/Albagoo/algoo.git
 	</insert>
 	
 	<update id="updateCompany" parameterType="CompanyVO">

@@ -27,7 +27,7 @@ src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
 			<span class="sp2">작성일 <fmt:formatDate value="${freeVo.regdate }" pattern="yyyy/MM/dd" />
 				<c:if test="${sessionScope.userid==freeVo.userid}">
 				| <a href="<c:url value='/freeboard/edit.ag?freeNo=${freeVo.freeNo}'/>">수정</a>
-				| <a href="<c:url value='/freeboard/delete.ag?freeNo=${freeVo.freeNo}'/>">삭제</a>
+				| <a href="#" onclick="del(${freeVo.freeNo})">삭제</a>
 				</c:if>
 				<c:if test="${sessionScope.userid!=freeVo.userid}">
 				| <a href="<c:url value='/freeboard/write.ag'/>">글쓰기</a>
@@ -36,15 +36,11 @@ src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
 			</span>
 		</div>
 		<div class="secondDiv">
-			<p class="writer">${freeVo.nickName }(${fn:substring(freeVo.nickName, 0,3)}***)</p>
+			<p class="writer">${freeVo.nickName }(${fn:substring(freeVo.userid, 0,3)}***)</p>
 			<p class="content">${freeVo.content }</p>
 		</div>
 		<div class="comments">
-			<!-- 댓글갯수 보여주기 -->
-			<!-- <div>
-			
-			</div> -->
-			<div class="cmtList">
+			<div class="cmtList" style="margin: 0 0 20px 0;">
 				<c:import url="/comment/list.ag">
 					<c:param name="freeNo" value="${param.freeNo }"></c:param>
 				</c:import>
@@ -86,7 +82,7 @@ src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
 					<th class="cdate"></th>
 				</thead>
 				<tbody>
-					<tr style="border-bottom: 1px dashed lightgray;">
+					<tr style="border-bottom: 1px dashed #ffdddd;">
 						<td style="padding-left: 5px;">
 							<a href="<c:url value='/freeboard/detail.ag?freeNo=${preFreeVo.freeNo}' />">
 								<img alt="이전글 이미지" src="<c:url value='/images/up.png'/>">&nbsp;이전글
@@ -94,7 +90,7 @@ src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
 						</td>
 						<td>
 							<c:if test="${empty preFreeVo.freeNo}">
-								<span style="color: gray">이전 글이 없습니다</span>
+								<span style="color: gray;font-size: 0.9em;">이전 글이 없습니다</span>
 							</c:if>
 							<a href="<c:url value='/freeboard/detail.ag?freeNo=${preFreeVo.freeNo}' />">
 								${preFreeVo.title}
@@ -111,7 +107,7 @@ src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
 						</td>
 						<td>
 							<c:if test="${empty nextFreeVo.freeNo}">
-								<span style="color: gray">다음 글이 없습니다</span>
+								<span style="color: gray;font-size: 0.9em;">다음 글이 없습니다</span>
 							</c:if>
 							<a href="<c:url value='/freeboard/detail.ag?freeNo=${nextFreeVo.freeNo}' />">
 								${nextFreeVo.title }

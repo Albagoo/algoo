@@ -22,6 +22,7 @@ import com.algoo.app.commem.model.CommemVO;
 import com.algoo.app.common.FileUploadWebUtil;
 import com.algoo.app.company.model.CompanyService;
 import com.algoo.app.company.model.CompanyVO;
+import com.algoo.app.member.model.MemberService;
 
 @Controller
 @RequestMapping("/company")
@@ -41,6 +42,11 @@ public class CompanyController {
 	@RequestMapping(value="/compRegister.ag", method=RequestMethod.GET)
 	public String companyRegister_get(HttpSession session,Model model){
 		
+		
+		if((String)session.getAttribute("userid")==null
+				||(String)session.getAttribute("userid")==""){
+			return "index.ag";
+		}
 		String userid=(String)session.getAttribute("userid");
 		
 		CompanyVO companyVo = companyService.selectCompanyByUserid(userid);
@@ -244,4 +250,21 @@ public class CompanyController {
 		return "redirect:/company/compRegister.ag";
 	}
 	
+	@RequestMapping("/compDetail.ag")
+	public String companyDetail(@ModelAttribute CompanyVO companyVo, 
+			HttpSession session, Model model){
+		
+		String userid=(String)session.getAttribute("userid");
+		CommemVO commemVo
+			= commemService.selectMemberByUserid(userid);
+		
+		companyVo.setCompCode(commemVo.getCompCode());
+		
+		companyVo =companyService.selectCompanyByCode(companyVo.getCompCode());
+		logger.info("기업 정보 화면 보여주기 companyVo={}", companyVo);
+		
+		model.addAttribute("companyVo", companyVo);
+		
+		return "company/compDetail";
+	}
 }

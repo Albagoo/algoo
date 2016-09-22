@@ -79,9 +79,6 @@ public class RecController {
 		logger.info("compVo={}",compVo);
 		//3
 		model.addAttribute("compVo", compVo);
-		
-		
-		
 		return "rec/recWrite";
 	}
 	
@@ -128,30 +125,63 @@ public class RecController {
 		//1
 		logger.info("채용 정보 보여주기");
 		
+
+		
+		//근무지
 		if(searchVo.getAreas()!=null && !searchVo.getAreas().isEmpty()){
 			String[] areaArr=(searchVo.getAreas()).split(",");
 			
 			int cnt=areaArr.length;
-			
 				for (int i = 0; i < areaArr.length; i++) {
 					if(areaArr[i].equals("전국전체")){
 						areaArr[i]=" ";
 					}
 				}
-			
 				searchVo.setArea1(areaArr[0]);
 				if(cnt>=2)searchVo.setArea2(areaArr[1]);
 				if(cnt>=3)searchVo.setArea3(areaArr[2]);
 				if(cnt>=4)searchVo.setArea4(areaArr[3]);
 				if(cnt>=5)searchVo.setArea5(areaArr[4]);
-			
 			logger.info("동네={},갯수={}",searchVo.getAreas(),cnt);
-			logger.info("area1={},area2={}",searchVo.getArea1(),searchVo.getArea2());
-			logger.info("area3={},area4={}",searchVo.getArea3(),searchVo.getArea4());
-			
 		}
+		//직종
+		if(searchVo.getJobs()!=null && !searchVo.getJobs().isEmpty()){
+			String[] JobArr=(searchVo.getJobs()).split(",");
+			int cnt=JobArr.length;
+			searchVo.setJob1(JobArr[0]);
+			if(cnt>=2)searchVo.setJob2(JobArr[1]);
+			if(cnt>=3)searchVo.setJob3(JobArr[2]);
+			if(cnt>=4)searchVo.setJob4(JobArr[3]);
+			if(cnt>=5)searchVo.setJob5(JobArr[4]);
+			logger.info("직종={},갯수={}",searchVo.getJobs(),cnt);
+			logger.info("searchVo={}",searchVo);
+		}
+		//근무기간
+		String[] workTerms=searchVo.getWorkTerm();
+		//근무요일
+		//급여
+		//고용형태
+		String[] recruitTypes=searchVo.getRecruitType();
+		//복리후생
+		String[] welfares=searchVo.getWelfare();
+		//학력조건
+		//우대조건
+		String[] preferences=searchVo.getPreference();
 		//2
 
+		/*List<RecSeachVO> recList=new ArrayList<RecSeachVO>();*/
+		
+		if(workTerms!=null){
+			Map<String,Object> map = new HashMap<String, Object>();
+			map.put("workTerm", workTerms);
+			map.put("recruitType", recruitTypes);
+			map.put("welfare", welfares);
+			map.put("preference", preferences);
+			searchVo.setMap(map);
+		}
+		
+		
+		//페이징 처리
 		PaginationInfo pagingInfo = new PaginationInfo();
 		pagingInfo.setBlockSize(10);
 		pagingInfo.setRecordCountPerPage(20);
@@ -162,8 +192,8 @@ public class RecController {
 		searchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
 		logger.info("파라미터 ={}",searchVo);		
 		List<RecVO> alist = recService.selectAllRec(searchVo);
-		logger.info("FAQ 목록 조회 결과 alist.size()={}", alist.size());
-		
+		logger.info("채용정보 목록 조회 결과 alist.size()={}", alist.size());
+		//전체갯수구하기
 		int totalRecord=recService.selectTotalCount(searchVo);
 		pagingInfo.setTotalRecord(totalRecord);
 		//3				
@@ -177,7 +207,7 @@ public class RecController {
 			@RequestParam(defaultValue="0") int recCode,
 			Model model){
 		
-		logger.info("FAQ 조회수 증가, 파라미터 recCode = {}", recCode);
+		logger.info("채용정보 조회수 증가, 파라미터 recCode = {}", recCode);
 		
 		if(recCode==0){
 			model.addAttribute("msg", "잘못된 url입니다");
@@ -187,7 +217,7 @@ public class RecController {
 		}
 		
 		int cnt=recService.updateReadCount(recCode);
-		logger.info("FAQ 조회수 증가 결과, cnt = {}", cnt);
+		logger.info("채용정보 조회수 증가 결과, cnt = {}", cnt);
 
 		return "redirect:/rec/recDetail.ag?recCode="+recCode;
 	}

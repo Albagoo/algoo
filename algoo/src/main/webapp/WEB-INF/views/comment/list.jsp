@@ -5,8 +5,6 @@
 <script type="text/javascript" 
 	src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 <script type="text/javascript">
-
-	
 	function reply(i) {
 		if($("#replyB"+i).val() == "N"){
 			$("#p"+i).append("<div id='p_"+i+"'><textarea id='content' name='content'style='width: 83%;height: 60px;vertical-align: middle;margin-right: 15px;'>"
@@ -17,9 +15,17 @@
 			$("#p_"+i).remove();
 			$("#replyB"+i).val("N");
 		}
+		
 	};
+	
+		function del(no){
+			if(confirm("댓글을 삭제하시겠습니까?")){
+				location.href
+			="<c:url value='/comment/delete.ag?commentNo="+no+"'/>";
+			}
+		}
 </script>
-<div>
+<div class="commentList">
 	<c:if test="${empty clist }">
 		<span style="display: none;"></span>
 	</c:if>
@@ -42,8 +48,8 @@
 						<img src="<c:url value='/images/rere.png' />" alt="rere이미지"
 							 align="top" style="height: 9px;">
 				</c:if> 
-				<span style="font-weight: bold;">${cmtVo.nickName }</span>
-				<span><fmt:formatDate value="${cmtVo.regdate }" pattern="yyyy.MM.dd HH:mm"/> </span>
+				<span id="cmtNick">${cmtVo.nickName }</span>
+				<span id="cmtDate"><fmt:formatDate value="${cmtVo.regdate }" pattern="yyyy.MM.dd HH:mm"/> </span>
 				
 				<c:if test="${!empty sessionScope.userid}">
 					<img alt="답글이미지" src="../images/reply.png" style="height: 10px;">
@@ -55,8 +61,11 @@
 							begin="1" end="${cmtVo.step}">
 							&nbsp;&nbsp;&nbsp;&nbsp;
 						</c:forEach>
-					</c:if>${cmtVo.content }</p>
+					</c:if><p id="cmtCon">${cmtVo.content }</p></p>
 				<c:set var="i" value="${i+1 }"></c:set>
+				<span style="text-align: right;">
+					<a href="#" onclick=del(${cmtVo.commentNo })>삭제</a>
+				</span>
 			</form>
 		</c:forEach>		
 	</c:if>

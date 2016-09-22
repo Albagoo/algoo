@@ -39,7 +39,9 @@ type="text/javascript"></script>
 <form name="frmWrite" id="frmWrite" method="post" 
   action="<c:url value='/faq/faqWrite.ag'/>" >
  <fieldset>
-	<legend>FAQ 작성</legend>
+	<div id="Qmark">
+		<img src="<c:url value='/images/faqicon.png'/>" style="height: 50px;">
+	</div>
         <div class="category">
         	<label for="category">카테고리 분류</label>
         	<select name="category" id="category" title="카테고리" class="textBox" style="font-size: 0.85em;">

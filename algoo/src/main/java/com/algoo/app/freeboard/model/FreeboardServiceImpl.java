@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.algoo.app.common.SearchVO;
+import com.algoo.app.notice.model.NoticeVO;
 
 @Service
 public class FreeboardServiceImpl implements FreeboardService{
@@ -74,5 +75,10 @@ public class FreeboardServiceImpl implements FreeboardService{
 	@Override
 	public FreeboardVO nextContent(int freeNo) {
 		return freeDao.nextContent(freeNo);
+	}
+
+	@Override
+	public List<FreeboardVO> selectAll() {
+		return freeDao.selectAll();
 	}
 }

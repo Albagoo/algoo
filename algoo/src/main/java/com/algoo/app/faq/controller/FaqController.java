@@ -15,9 +15,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.algoo.app.common.PaginationInfo;
 import com.algoo.app.common.SearchVO;
+import com.algoo.app.faq.model.FaqListVO;
 import com.algoo.app.faq.model.FaqService;
 import com.algoo.app.faq.model.FaqVO;
 import com.algoo.app.faq.model.ListFaqVO;
+import com.algoo.app.notice.model.NoticeListVO;
+import com.algoo.app.notice.model.NoticeVO;
 
 @Controller
 @RequestMapping("/faq")
@@ -185,6 +188,25 @@ public class FaqController {
 		return "redirect:/faq/faqList.ag";
 	}
 	
+	@RequestMapping("/faqAdminDelete.ag")
+	public String faqAdminDelete(@RequestParam(defaultValue="0") int faqNo,	Model model){
+		logger.info("관리자 FAQ 삭제 파라미터 faqNo={}", faqNo);
+		
+		String msg="", url="";
+		int cnt = faqService.deleteFaq(faqNo);
+		if(cnt>0){
+			msg="FAQ 삭제 성공";
+			url="/admin/adminBoard.ag";
+		}else{
+			msg="FAQ 삭제 실패";
+		}
+		
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		
+		return "common/message";
+	}
+	
 	@RequestMapping(value="/faqUserList.ag")
 	public String userList(@ModelAttribute SearchVO searchVo, Model model){
 		logger.info("FAQ UserList 조회, 파라미터 searchVo = {}", searchVo);
@@ -219,5 +241,39 @@ public class FaqController {
 		model.addAttribute("onePage", onePage);
 		
 		return "faq/faqUserList";
+	}
+	
+	@RequestMapping("/selectDelete.ag")
+	public String selectDelete(@ModelAttribute FaqListVO fListVo, Model model){
+		//1.
+		logger.info("관리자 선택한 FAQ 삭제, 파라미터 fListVo = {}", fListVo);
+		List<FaqVO> fList = fListVo.getFaqList();
+		
+		logger.info("fList.size() = {}", fList.size());
+		
+		//2.
+		int cnt=faqService.selectDelete(fList);
+		logger.info("선택한 FAQ 삭제 처리 결과, cnt = {}", cnt);
+		
+		String msg="", url="/faq/faqList.ag";
+		
+		if(cnt>0){
+			for(int i=0;i<fList.size();i++){
+				FaqVO faqVo=fList.get(i);
+				
+				int faqNo=faqVo.getFaqNo();
+
+				logger.info("i = {}, faqNo = {}", i, faqNo);
+			}//for
+			msg="선택한 FAQ 삭제 성공";
+		}else{
+			msg="선택한 FAQ 삭제 실패";
+		}//if
+		
+		//3.
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		
+		return "common/message";
 	}
 }

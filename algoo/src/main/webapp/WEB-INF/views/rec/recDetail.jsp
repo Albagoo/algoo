@@ -6,10 +6,6 @@
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 
-<!-- Start WOW Slider.com HEAD section -->
-<link rel="stylesheet" type="text/css" href="engine1/style.css" />
-<script type="text/javascript" src="engine1/jquery.js"></script>
-<!-- End WOW Slider.com HEAD section -->
 
 <link rel="stylesheet" type="text/css"
    href="<c:url value='/css/clear.css'/>" />
@@ -47,12 +43,6 @@ href="<c:url value='/css/recLayout.css'/>"/>
 src="<c:url value='/js/member.js'/>"></script>
 <script type="text/javascript"
 src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
-<!-- 인쇄 스크립트 -->
-<%-- <script type="text/javascript"
-src="<c:url value='/api/jQuery-printPage-plugin-master/jquery-1.4.4.min.js'/>"></script> --%>
-<script type="text/javascript"
-src="<c:url value='/api/print/jquery.printPage.js'/>"></script>
-
 
 <link rel="stylesheet" type="text/css" 
 href="<c:url value='/css/simpleButton.css'/>" />
@@ -65,7 +55,7 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
 <!-- f06943e7a65fb3d3ded3394d978e6b56 --><!-- 대근API -->
 <script type="text/javascript">
    $(document).ready(function(){
-	   $(".btnPrint").printPage();
+	   
 	   
       $("#simple_top span").html("채용정보");
       //simple_top 이용시 자기가 맡은화면 명칭 innerHTML로 붙여주기
@@ -99,45 +89,72 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
       $( "#button" ).on( "click", function() {
         runEffect();
       });
-  
-   });
+      
+     
+      $("#btCopy").click(function() {
+    	  var juso =location.href;
+    	  
+    	  $("input[name='homeCopy']").val(juso).select();
+         document.execCommand("copy");
+         alert('주소가 복사되었습니다.');
+	   });
+      
+    	  //[출처] [AngularJS, Jquery] URL 또는 TEXT 복사하기 |작성자 지니고
+      
+   }); 
    
+   
+  
    
 </script>
 <div class="Wrap">
 	<p class="recDetail">채용정보 상세보기</p>
 	<div>
-		<span>등록일 :<fmt:formatDate value="${recVo.regdate }" 
-		pattern="yyyy-MM-dd"/> </span>
-		
 		<div class="detail_right">
-			<span class="url"> <a href="#">http://www.algoo.com/</a></span>
-			<input type="button" class="button white medium" value="단축키 URL복사"></button>
+			<span class="url"> 
+			<input size="1" type="text" 
+			readonly="readonly" name="homeCopy" 
+			value="${compVo.homepage }"
+			style="color:#FFF;backgroun:#FFF;
+			width: 0.1px;height: 0.1px;margin: 0;padding: 0;
+			border: 0;"></span>
+			<input type="button" class="button white small" 
+			value="URL주소복사"  id="btCopy" >
 		</div>
 		<p class="clear_both"></p>
-		<div class="detail_right">
-			<input type="button" class="button white small" value="스크랩">
-			<a class="btnPrint" href='recWrite.ag'>
-			<input type="button" class="button white small" value="인쇄">
-			</a>
-			<input type="button" class="button white small" value="신고">
-			<input type="button" class="button white small" value="E메일">
-			<input type="button" class="button white small" value="FaceBook">
-			<input type="button" class="button white small" value="Twiter">
-		</div>
+		
+		 <div class="detail_right"> 
+		
+      
+      
+			<input type="button" class="button rosy small" value="스크랩">
+			
+			<input type="button" class="button rosy small" value="인쇄"
+			onclick="window.print()">
+			
+			<input type="button" class="button rosy small" value="신고">
+			<input type="button" class="button rosy small" value="E메일">
+			<input type="button" class="button rosy small" value="FaceBook">
+			<input type="button" class="button rosy small" value="Twiter">
+		<!-- </div> -->
 	</div>
-	<p class="clear_both"></p>
-	<div class="title"> ${recVo.title }</div>
+	<p class="clearboth" style="margin-bottom: 5px">
+	<span style="text-align: left;font-size: 9.3pt;"
+	 class="bon">등록일 :<fmt:formatDate value="${recVo.regdate }" 
+      pattern="yyyy-MM-dd"/> </span></p>
+	 
+	<div class="title">
+	 ${recVo.title }</div>
 	<div class="main_left detail_left">
-		<div class="logo">
+		<div class="logo bon">
 			<img alt="${compVo.compName }" 
-			src="${recVo.imgURL }">
+			src="<c:url value='/images/${compVo.imageURL1 }'/>">
 		</div>
 
 		<span class="titd">
 		기업정보
 		</span>
-		<input type="button" class="white button small" value="?">
+		<input type="button" class="rosy button small" value="?">
 		<a href="" class="detail_right font_11 ">자세히보기></a> <br class="br">
 		<div class="">
 			<dl style="display: block;" class="clearBoth">
@@ -225,14 +242,14 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
 
 	  </dl>
 	  <br class="br"><br class="br">
-	  <a href="#" class="detail_left"><img 
+	  <a href="#" class="detail_left"><img  
 	  src=""
-	  alt="온라인지원"></a>
+	  alt='온라인지원'></a>
 	  
-	  <a href="#" class="detail_left decoration_none">&nbsp;<img 
+	  <a href="#" class="detail_left decoration_none">&nbsp;<img  
      src=""
      alt="e-메일지원"></a>
-	  <br class="clear_both">
+	  <br class="clearBoth">
 	  <div class="font_10 bon bold">e-메일 지원 시 자사양식 다운로드후 지원해 주세요.
 	  <a href="#"><img
 	  src=""

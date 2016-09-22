@@ -4,7 +4,7 @@
 
 <mapper namespace="com.mybatis.mapper.oracle.comment">
 	<parameterMap type="map" id="delParamMap">
-		<parameter property="freeNo" javaType="string"
+		<parameter property="commnetNo" javaType="string"
 			jdbcType="VARCHAR" mode="IN"/>
 		<parameter property="groupNo" javaType="string"
 			jdbcType="VARCHAR" mode="IN"/>
@@ -27,9 +27,9 @@
 		order by group_no asc, sort_no asc
 	</select>
 	
-	<select id="selectCommentByNo" parameterType="CommentVO" resultType="CommentVO">
+	<select id="selectCommentByNo" parameterType="int" resultType="CommentVO">
 		select * from comments
-		where comment_no = #{commnetNo} and free_no=#{freeNo}
+		where comment_no = #{commentNo}
 	</select>
 	
 	<update id="updateSortNo" parameterType="CommentVO">
@@ -49,6 +49,6 @@
 	</insert>
 	
 	<delete id="deleteComment" parameterMap="delParamMap">
-		{call delete_comment(?,?,?)}
+		{call delete_comments(?,?,?)}
 	</delete>
 </mapper>

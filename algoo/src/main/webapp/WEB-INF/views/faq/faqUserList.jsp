@@ -52,7 +52,7 @@ action="<c:url value='/faq/faqUserList.ag'/>">
 </form>
 <div id="userList">
 	<div id="Qmark">
-	<img src="<c:url value='/images/faqicon.png'/>" style="height: 50px;">
+		<img src="<c:url value='/images/faqicon.png'/>" style="height: 50px;">
 	</div>
 	<div id="naviDiv">
 		<nav>

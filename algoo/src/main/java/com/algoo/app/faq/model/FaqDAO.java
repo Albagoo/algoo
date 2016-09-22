@@ -16,4 +16,5 @@ public interface FaqDAO {
 	public List<FaqVO> selectUserFaq(SearchVO searchVo);
 	public FaqVO prevContent(int faqNo);
 	public FaqVO nextContent(int faqNo);
+	public List<FaqVO> selectAll();
 }

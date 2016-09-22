@@ -30,44 +30,38 @@
 	
 	<div class="speedEmp" summary="스페셜 공고 리스트">
 		<c:if test="${empty alist}">
-			<!-- <tr> -->
 				<div class="align_center">
 					공고가 없습니다</div>
-			<!-- </tr> -->
 		</c:if>
 		<c:if test="${empty alist}">
 		</c:if>
 		<!-- 반복 시작 -->
 		<c:forEach var="vo" items="${alist}">
-			<!-- <tr>
-				<td> -->
-				<div class="speedCon">
-				   <span><a href="<c:url value='/rec/updateCount.ag?recCode=${vo.recCode}'/>">
-	                  ${vo.compName }</a></span>
-	               <br>
-	               <a href="<c:url value='/rec/updateCount.ag?recCode=${vo.recCode}'/>">
-	                  ${vo.title}</a>
-	               <br>
-	               <c:set var="addr" value="${fn:split(vo.address,' ')}"/>
-	               <c:forEach var="i" begin="0" end="1">
-	                  ${addr[i] }
-	               </c:forEach>
-	               <br>
-	               <c:if test="${vo.payType=='시급' }">
-	                <span style="color:white;background-color:gray;padding:1px;border-radius:3px;font-weight:normal">시</span></c:if>
-	               <c:if test="${vo.payType=='일급' }">
-	                <span style="color:white;background-color:gray;padding:1px;border-radius:3px;font-weight:normal">일</span></c:if>
-	               <c:if test="${vo.payType=='주급' }">
-	                 <span style="color:white;background-color:gray;padding:1px;border-radius:3px;font-weight:normal">주</span></c:if>
-	               <c:if test="${vo.payType=='월급' }">
-	                 <span style="color:white;background-color:gray;padding:1px;border-radius:3px;font-weight:normal">월</span></c:if>
-	               <c:if test="${vo.payType=='연봉' }">
-	                 <span style="color:white;background-color:gray;padding:1px;border-radius:3px;font-weight:normal">연</span></c:if>
-	               <fmt:formatNumber pattern="#,###"
-	               value="${vo.pay }"/>원
-	            </div>
-	            <!-- </td>
-			</tr> -->
+			<div class="speedCon">
+			   <span><a href="<c:url value='/rec/updateCount.ag?recCode=${vo.recCode}'/>">
+                  ${vo.compName }</a></span>
+               <br>
+               <a href="<c:url value='/rec/updateCount.ag?recCode=${vo.recCode}'/>">
+                  ${vo.title}</a>
+               <br>
+               <c:set var="addr" value="${fn:split(vo.address,' ')}"/>
+               <c:forEach var="i" begin="0" end="1">
+                  ${addr[i] }
+               </c:forEach>
+               <br>
+               <c:if test="${vo.payType=='시급' }">
+                <span style="color:white;background-color:gray;padding:1px;border-radius:3px;font-weight:normal">시</span></c:if>
+               <c:if test="${vo.payType=='일급' }">
+                <span style="color:white;background-color:gray;padding:1px;border-radius:3px;font-weight:normal">일</span></c:if>
+               <c:if test="${vo.payType=='주급' }">
+                 <span style="color:white;background-color:gray;padding:1px;border-radius:3px;font-weight:normal">주</span></c:if>
+               <c:if test="${vo.payType=='월급' }">
+                 <span style="color:white;background-color:gray;padding:1px;border-radius:3px;font-weight:normal">월</span></c:if>
+               <c:if test="${vo.payType=='연봉' }">
+                 <span style="color:white;background-color:gray;padding:1px;border-radius:3px;font-weight:normal">연</span></c:if>
+               <fmt:formatNumber pattern="#,###"
+               value="${vo.pay }"/>원
+            </div>
 		</c:forEach>
 		<!-- 반복 끝 -->
 	</div>

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.algoo.app.common.SearchVO;
 import com.algoo.app.freeboard.model.FreeboardVO;
+import com.algoo.app.notice.model.NoticeVO;
 
 @Service
 public class FaqServiceImpl implements FaqService{
@@ -61,6 +62,29 @@ public class FaqServiceImpl implements FaqService{
 	@Override
 	public FaqVO nextContent(int faqNo) {
 		return faqDao.nextContent(faqNo);
+	}
+
+	@Override
+	public List<FaqVO> selectAll() {
+		return faqDao.selectAll();
+	}
+
+	@Override
+	public int selectDelete(List<FaqVO> faqList) {
+		int cnt=0;
+		try{
+			for(FaqVO vo : faqList){
+				int faqNo=vo.getFaqNo();
+				if(faqNo!=0){
+					cnt=faqDao.deleteFaq(faqNo);
+				}
+			}//for
+		}catch(RuntimeException e){
+			e.printStackTrace();
+			cnt=-1;
+		}
+		
+		return cnt;
 	}
 	
 }

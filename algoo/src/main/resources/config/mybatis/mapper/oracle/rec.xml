@@ -4,53 +4,99 @@
 
 <mapper namespace="com.mybatis.mapper.oracle.rec">
 	<sql id="searchWhere">
-		<where>
+		 <where> 
 			<if test="searchKeyword!=null and searchKeyword!=''">
 				${searchCondition}
 				like '%' || #{searchKeyword} || '%'
 			</if>
-			
+
 			<if test="area1!=null and area1!=''">
-            <if test="searchKeyword!=null and searchKeyword!=''">
-            or
-            </if>
-            ADDRESS
-            like '%' || #{area1} || '%'
-         </if>
+			   <if test="searchKeyword!=null and searchKeyword!=''">
+				OR	
+				</if>
+				ADDRESS
+				like '%' || #{area1} || '%'
+			</if>
+
+			<if test="area2!=null and area2!=''">
+				OR ADDRESS
+				like '%' || #{area2} || '%'
+			</if>
+
+			<if test="area3!=null and area3!=''">
+			   OR	ADDRESS
+				like '%' || #{area3} || '%'
+			</if>
+
+			<if test="area4!=null and area4!=''">
+				OR	ADDRESS
+				like '%' || #{area4} || '%'
+			</if>
+
+			<if test="area5!=null and area5!=''">
+            OR	ADDRESS
+				like '%' || #{area5} || '%'
+			</if>
+
+			<if test="job1!=null and job1!=''">
+			   
+            AND JOB_NAME2
+				like '%' || #{job1} || '%'
+			</if>
+
+			<if test="job2!=null and job2!=''">
+				OR	JOB_NAME2
+				like '%' || #{job2} || '%'
+			</if>
+
+			<if test="job3!=null and job3!=''">
+				OR	JOB_NAME2
+				like '%' || #{job3} || '%'
+			</if>
+
+			<if test="job4!=null and job4!=''">
+			   OR	JOB_NAME2
+				like '%' || #{job4} || '%'
+			</if>
+
+			<if test="job5!=null and job5!=''">
+            OR	JOB_NAME2
+				like '%' || #{job5} || '%'
+			</if>
+			
+			<if test="workTerm != null and workTerm!=''">
+				AND work_term IN
+				<foreach collection="workTerm" item="workTerm" index="index"
+					open="(" close=")" separator=",">
+					#{workTerm}
+				</foreach>
+			</if>
+
+			<if test="recruitType != null and recruitType!=''">
+				AND recruit_Type IN
+				<foreach collection="recruitType" item="recruitType" index="index"
+					open="(" close=")" separator=",">
+					#{recruitType}
+				</foreach>
+			</if>
+			
+			<if test="welfare != null and welfare !='' and welfare !=' '">
+				AND welfare IN
+				<foreach collection="welfare" item="welfare" index="index"
+					open="(" close=")" separator=",">
+					#{welfare}
+				</foreach>
+			</if>
          
-         <if test="area2!=null and area2!=''">
-   			<if test="area1!=null and area1!=''">
-            or
-            </if>
-            ADDRESS
-            like '%' || #{area2} || '%'
-         </if>
-         
-         <if test="area3!=null and area3!=''">
-            <if test="area2!=null and area2!=''">
-            or
-            </if>
-            ADDRESS
-            like '%' || #{area3} || '%'
-         </if>
-         
-         <if test="area4!=null and area4!=''">
-            <if test="area3!=null and area3!=''">
-            or
-            </if>
-            ADDRESS
-            like '%' || #{area4} || '%'
-         </if>
-         
-         <if test="area5!=null and area5!=''">
-            <if test="area4!=null and area4!=''">
-            or
-            </if>
-            ADDRESS
-            like '%' || #{area5} || '%'
-         </if>
-         
-		</where>
+			<if test="preference != null and preference!=''">
+				AND preference IN
+				<foreach collection="preference" item="preference" index="index"
+					open="(" close=")" separator=",">
+					#{preference}
+				</foreach>
+			</if>
+
+		 </where> 
 	</sql>
 
 	<select id="selectRecByCode" parameterType="String" resultType="RecVO">
@@ -85,7 +131,6 @@
 		where rec_code=#{recCode}
 	</update>
 
-
 	<insert id="insertRecSevice" parameterType="map">
 		insert into service
 		(SERVICE_CODE,grade,days,deadline)
@@ -108,8 +153,7 @@
 		work_Time,work_Time2,work_Time3,work_Time4,pay_type,pay,
 		recruit_Type,welfare,gender,age,educate_Lv,
 		career,preference,recruit_Member,recruit_Person,recruit_Method,
-		documents,detail_Recruit,comp_Code,service_Code,RECRUIT_DEADLINE,
-		
+		documents,detail_Recruit,comp_Code,service_Code,RECRUIT_DEADLINE
 		)
 		values(RECRUITMENT_seq.nextval, #{compName},#{title},#{jobName},#{jobName2},
 		#{zipcode},#{address},#{addressDetail},#{subRegion},
@@ -117,9 +161,7 @@
 		#{workTime},#{workTime2},#{workTime3},#{workTime4},#{payType},#{pay},
 		#{recruitType},#{welfare},#{gender},#{age},#{educateLv},
 		#{career},#{preference},#{recruitMember},#{recruitPerson},#{recruitMethod},
-		#{documents},#{detailRecruit},#{compCode},#{serviceCode},#{recruitDeadline},
-      
-
+		#{documents},#{detailRecruit},#{compCode},#{serviceCode},#{recruitDeadline}
 		)
 	</insert>
 
@@ -154,9 +196,6 @@
          + #{recordCountPerPage}  
        ]]>
 	</select>
-
-
-
 
 	<select id="selectJobName2" parameterType="String" resultType="hashmap">
 		select job_name2 from jobs

@@ -93,6 +93,13 @@ table.box, table.box2{
 }
 table.box2 th{
 	height:35px;
+	background-color: #ffeaea;
+	
+}
+table.box2 tr{
+	border: 1px solid #ffeaea;
+	border-left: none;
+	border-right: none;
 }
 table.box2 td{
 	text-decoration: none;
@@ -108,9 +115,6 @@ table.box2 td a{
 .divSearch, .divPage{
 	text-align: center;
 	padding-top: 20px;
-}
-.divSearch{
-	margin-left: 200px;
 }
 .divBtn{
 	float: right;
@@ -150,7 +154,7 @@ table.box2 td a{
 }
 /*faqDetail*/
 .firstDiv2{
-	background-color: #eee;
+	background-color: #ffeaea;
 	height: 30px;
 }
 .firstDiv2 .sp1{
@@ -161,7 +165,7 @@ table.box2 td a{
 	font-weight: bold;
 }
 .secondDiv{
-	border: 1px solid #eee;
+	border: 1px solid #ffeaea;
 	height:500px;
 }
 .firstDiv2 .sp2{
@@ -186,7 +190,7 @@ table.box2 td a{
 	height: 15px;
 }
 .cmtList{
-	background-color: #eee;
+	background-color: #ffeaea;
 }
 .contentBox a{
 	color:black;
@@ -197,4 +201,56 @@ table.box2 td a{
 }
 .contentBox{
 	margin-top: 20px;
+}
+/*게시글 수 바꾸기*/
+input[name="num"]{
+	width: 20px;
+	border: none;
+}
+.boardPrint{
+	text-align: right;
+}
+/*noticeUserList*/
+.noticeSearch{
+	margin: 30px 0 30px 0;
+	padding: 30px 0 30px 0;
+	border: 5px solid lightgray;
+}
+.noticeSearch span{
+	font-weight: bold; 
+	font-size: 1.2em;
+	margin-right: 10px;
+}
+.noticeSearch input[type="image"]{
+	height: 31px;
+	padding-bottom: 1px;
+}
+.noticeSearch input[type="text"]{
+	 width: 200px;
+	 height: 25px;
+}
+
+/* comment */
+.commentList{
+	padding:10px;
+}
+.commentList a{
+	margin-left:10px;
+	text-decoration:none;
+	color:black;
+	font-size:14px;
+}
+#cmtNick{
+	margin-left:10px;
+	font-weight:bold;
+	color:brown;
+}
+#cmtDate{
+	margin-left:10px;
+	font-size:14px;
+}
+#cmtCon{
+	margin-left:10px;
+	font-size:14px;
+	font-family:'궁서';
 }

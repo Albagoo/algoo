@@ -29,8 +29,13 @@
 		values(#{freeNo} ,#{title},#{content},#{freeNo},#{userid},#{nickName})
 	</insert>
 	
-	<select id="selectAllFreeboard" resultType="FreeboardVO" 
-		parameterType="SearchVO">
+	<select id="selectAll" resultType="FreeboardVO">
+		select free_no, title, content, read_count, group_no, sort_no, step, del_yn, regdate, nickname, 
+			userid, (select count(*) from comments where free_no = f.free_no) as count 
+		from free_board f order by free_no desc
+	</select>
+	
+	<select id="selectAllFreeboard" resultType="FreeboardVO" parameterType="SearchVO">
 		select *
 		from
 		(
@@ -98,7 +103,7 @@
 	<delete id="deleteFreeboard" parameterMap="delParamMap">
 		{call delete_freeboards(?,?,?)}
 	</delete>
-	
+
 	<update id="updateSortNo" parameterType="FreeboardVO">
 		update free_board
 			set sort_no=sort_no+1

@@ -10,9 +10,9 @@
 <script type="text/javascript" src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 <script type="text/javascript">	
 	$(document).ready(function(){
-		$(".divList .box2 tbody td:nth-of-type(2)")
+		$(".divList .box2 tbody td:nth-of-type(3)")
 		.hover(function(){
-			$(this).css("background","#eee").css("cursor","pointer");
+			$(this).css("background","#fff7f7").css("cursor","pointer");
 		}, function(){
 			$(this).css("background","");
 		});
@@ -21,6 +21,23 @@
 		$("#categoryInput").change(function(){
 			$("#categoryName2").val($("#categoryInput").val());
 			$("#frmPage").submit();
+		});
+		
+		$("input[name='chkAllFaq']").click(function(){
+			$(".faqBody input[type=checkbox]").prop("checked", this.checked);
+		});
+		
+		$("#btDel").click(function(){
+			var count
+			=$("tbody input[type=checkbox]:checked").length;
+			
+			if(count==0){
+				alert("삭제할 FAQ를 먼저 선택하세요");
+				return false;
+			}
+			
+			frmList.action="<c:url value='/faq/selectDelete.ag'/>";
+			frmList.submit();
 		});
 	});
 	
@@ -31,7 +48,6 @@
 </script>	
 
 <section>
-
 <form name="frmCategory" method="post"
  action="<c:url value='/faq/faqList.ag'/>"
  id="frmCategory">
@@ -44,12 +60,16 @@
 	action="<c:url value='/faq/faqList.ag'/>">
 <input type="hidden" name="currentPage" id="currentPage2" value="1">
 <input type="hidden" name="categoryName" id="categoryName2" value="${param.categoryName }">
-<input type="hidden" name="searchConditionz" value="${param.searchCondition }">
+<input type="hidden" name="searchCondition" value="${param.searchCondition }">
 <input type="hidden" name="searchKeyword" value="${searchVO.searchKeyword }">	
 </form>
 
+<form name="frmList" method="post"
+	action="<c:url value='/faq/faqList.ag'/>" >
 <div class="divList">
-<legend>FAQ 리스트</legend>
+<div id="Qmark">
+	<img src="<c:url value='/images/faqicon.png'/>" style="height: 50px;">
+</div>
 <div class="list">
 <c:if test="${!empty param.searchKeyword }">
 	<p>검색어 : ${param.searchKeyword }, ${pagingInfo.totalRecord }건 검색되었습니다.</p>
@@ -103,15 +123,25 @@
      	 	 <c:if test="${param.categoryName=='기타 문의' }">selected</c:if>>
      	 	 기타 문의</option>
      </select>
+     <span class="talkList" style="float: right;margin-bottom: 5px;padding-right: 3px;">
+		<a href="<c:url value='/admin/adminBoard.ag'/>" 
+			style="color: black;text-decoration: none;">
+		<img alt="손가락" src="<c:url value='/images/finger.png'/>" align=absmiddle
+			style="height: 15px;">
+			관리자 페이지로</a>
+</span>
+     
 </div>
 <table class="box2">
 	<colgroup>
+		<col style="width:5%;" />
 		<col style="width:10%;" />
-		<col style="width:75%;" />
+		<col style="width:70%;" />
 		<col style="width:15%;" />	
 	</colgroup>
 	<thead>
 	  <tr>
+	 	<th scope="col"><input type="checkbox" name="chkAllFaq"></th>
 	    <th scope="col">번호</th>
 	    <th scope="col">제목</th>
 	    <th scope="col">작성일</th>
@@ -120,27 +150,43 @@
 	<tbody>  
 	<c:if test="${empty alist}">
 		<tr>
-			<td colspan="3" class="align_center">
+			<td colspan="4" class="align_center">
 				검색된 질문이 없습니다
 			</td>
 		</tr>
 	</c:if>
 	<c:if test="${!empty alist}">
+		<c:set var="j" value="0" />
 		<c:forEach var="vo" items="${alist }">
 			<tr style="text-align: center">
+				<td class="faqBody">
+					<input type="checkbox" name="faqList[${j}].faqNo"
+						id="chk_${j }" value="${vo.faqNo}" >
+				</td>
 				<td>${vo.faqNo}</td>
 				<td style="text-align: left;">
 					<a href="<c:url value='/faq/faqDetail.ag?faqNo=${vo.faqNo}'/>">
-						&nbsp; [${vo.category }] ${vo.title}</a>
+						&nbsp; [${vo.category }] 
+						<c:if test="${fn:length(vo.title)>18}">
+							${fn:substring(vo.title, 0,18)}...
+						</c:if>
+						<c:if test="${fn:length(vo.title)<=18}">
+							${vo.title }
+						</c:if></a>
 				</td>
 				<td><fmt:formatDate value="${vo.regdate}" pattern="yyyy-MM-dd"/>
 				</td>
 			</tr>				
+			<c:set var="j" value="${j+1 }" />
 		</c:forEach>
 	</c:if>
 	</tbody>
-</table>	   
+</table>
+<div style="margin: 10px 0 0 3px;">
+	<input type="button" id="btFaqDel" value="선택한 FAQ 삭제" class="button white medium">   
 </div>
+</div>
+</form>
 <div class="divPage">
 	<c:if test="${onePage.firstPage>1 }">	
 		<c:if test="${pagingInfo.firstPage>1 }">	

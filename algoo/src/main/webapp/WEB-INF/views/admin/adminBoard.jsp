@@ -9,12 +9,61 @@
 <script type="text/javascript" src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
+		//게시글 출력개수		
 		$("#btNco").click(function(){
 			var ncount=$("input[name='num']").val();
 			$("input[name='nco']").val(ncount);
 			$("#frmCount").submit(); 
 		});
+		
+		//전체선택
+		$("input[name='chkAllNotice']").click(function(){
+			$(".noticeBody input[type=checkbox]").prop("checked", this.checked);
+		});
+
+		$("input[name='chkAllFaq']").click(function(){
+			$(".faqBody input[type=checkbox]").prop("checked", this.checked);
+		});
+		
+		$("input[name='chkAllFree']").click(function(){
+			$(".freeBody input[type=checkbox]").prop("checked", this.checked);
+		});
+		
+		//선택한 상품 삭제
+		$("#btDel").click(function(){
+			var count
+			=$("tbody input[type=checkbox]:checked").length;
+			
+			if(count==0){
+				alert("삭제할 상품을 먼저 체크하세요");
+				return false;
+			}
+			
+			frmList.action="<c:url value='/admin/product/productDeleteMulti.do'/>";
+			frmList.submit();
+		});
 	});
+	
+	function delFree(no){
+		if(confirm("게시물을 삭제하시겠습니까?")){
+			location.href
+		="<c:url value='/freeboard/delete.ag?freeNo="+"${tVo.freeNo}"+"'/>"
+		}
+	}
+	
+	function delFaq(no){
+		if(confirm("FAQ를 삭제하시겠습니까?")){
+			location.href
+		="<c:url value='/faq/faqDelete.ag?faqNo="+"${fVo.faqNo}"+"'/>"
+		}
+	}
+	
+	function delNotice(no){
+		if(confirm("공지사항을 삭제하시겠습니까?")){
+			location.href
+		="<c:url value='/notice/delete.ag?no="+"${nVo.mainNo}"+"'/>"
+		}
+	}
 </script>
 <style type="text/css">
 	.adminBoard{
@@ -50,6 +99,29 @@
 	.adminFree img{
 		height: 18px;
 		margin-bottom: 5px;
+	}
+	.adminFree span a{
+		text-decoration: none;
+		color: black;
+		font-size: 0.8em;
+		padding-right: 3px;
+	}
+	.adminFaq span a{
+		text-decoration: none;
+		color: black;
+		font-size: 0.8em;
+		padding-right: 3px;
+	}
+	.adminNotice span a{
+		text-decoration: none;
+		color: black;
+		font-size: 0.8em;
+	}
+	.talkList{
+		float: right;
+	}
+	.talkList img{
+		height: 15px;
 	}
 	.box1{
 		
@@ -106,6 +178,10 @@
 	}
 	.boardPrint{
 		text-align: right;
+		margin-bottom: 30px;
+	}
+	#frmCount span{
+		font-size: 0.9em;
 	}
 </style>
 <section>
@@ -123,14 +199,19 @@
 <div class="adminList">
 	<div class="boardPrint">
 		<form action="<c:url value='/admin/adminBoard.ag'/> " method="post" id="frmCount">	
-			게시글  
+			<span>게시글  
 			(<input type="text" id="num" name="num">)개 보기&nbsp;
 			<input type="button" value="확인" id="btNco" name="btNco" class="button white medium">
-			<input type="hidden" name="nco" value="${param.nco }">
+			<input type="hidden" name="nco" value="${param.nco }"></span>
 		</form>
 	</div>
 	<div class="adminNotice">
 	<span><img alt="공지사항" src="<c:url value='/images/notice11.png'/>"></span>
+	<span class="talkList">
+			<a href="<c:url value='/notice/list.ag'/>">
+			<img alt="손가락" src="<c:url value='/images/finger.png'/>" align=absmiddle>
+				공지사항 목록으로</a>
+	</span>
 		<div>
 			<table style="width: 100%;" class="box1">
 				<colgroup>
@@ -147,7 +228,7 @@
 					<th scope="col">수정</th>
 					<th scope="col">삭제</th>
 				</thead>
-				<tbody>
+				<tbody class="noticeBody">
 					<c:if test="${param.nco==null || param.nco==0 || empty param.nco}">
 						<c:set var="print" value="7" />
 					</c:if>
@@ -159,7 +240,7 @@
 						<tr>
 							<td>
 								<input type="checkbox" name="notice[${i}].mainNo"
-									id="chk1_${i }" value="${nVo.mainNo}" >
+									id="chkN_${i }" value="${nVo.mainNo}" >
 							</td>
 							<td style="text-align: left;padding-left: 10px;">
 								<a href="<c:url value='/notice/detail.ag?no=${nVo.mainNo}'/>">
@@ -175,12 +256,18 @@
 				</tbody>
 			</table>
 		</div>
-		<div>
-			<!-- 선택글 삭제, 전체선택 -->
+		<div style="margin-top: 4px;padding-left: 10px;">
+			<!-- 선택글 삭제-->
+
 		</div>
 	</div>
 	<div class="adminFaq">
 		<span><img alt="FAQ" src="<c:url value='/images/faq.png'/>"></span>
+		<span class="talkList">
+			<a href="<c:url value='/faq/faqList.ag'/>">
+			<img alt="손가락" src="<c:url value='/images/finger.png'/>" align=absmiddle>
+				FAQ 목록으로</a>
+		</span>
 		<div>
 			<table style="width: 100%;" class="box1">
 				<colgroup>
@@ -201,7 +288,7 @@
 					<c:set var="j" value="0" />
 					<c:forEach var="fVo" items="${flist }" end="${print-1}">
 						<tr>
-							<td>
+							<td class="faqBody">
 								<input type="checkbox" name="faq[${j}].faqNo"
 									id="chk2_${j }" value="${fVo.faqNo}" >
 							</td>
@@ -220,11 +307,17 @@
 			</table>
 		</div>
 		<div>
-			<!-- 선택글 삭제, 전체선택 -->
+			<!-- 선택글 삭제-->
+			
 		</div>
 	</div>
 	<div class="adminFree">
 		<span><img alt="알바톡톡" src="<c:url value='/images/talk.png'/>"></span>
+		<span class="talkList">
+			<a href="<c:url value='/freeboard/list.ag'/>">
+			<img alt="손가락" src="<c:url value='/images/finger.png'/>" align=absmiddle>
+				알바톡톡 목록으로</a>
+		</span>
 		<div>
 			<table style="width: 100%;" class="box2">
 				<colgroup>
@@ -249,7 +342,7 @@
 					<c:set var="k" value="0" />
 					<c:forEach var="tVo" items="${tlist }" end="${print-1}">
 						<tr>
-							<td>
+							<td class="freeBody">
 								<input type="checkbox" name="free[${k}].freeNo"
 									id="chk3_${k }" value="${tVo.freeNo}" >
 							</td>
@@ -274,7 +367,8 @@
 			</table>
 		</div>
 		<div>
-			<!-- 선택글 삭제, 전체선택 -->
+			<!-- 선택글 삭제 -->
+			
 		</div>
 	</div>
 </div>

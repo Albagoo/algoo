@@ -126,10 +126,10 @@ public class FreeboardController {
 		logger.info("freeboard 상세보기 결과 freeVo = {}", freeVo);
 		
 		FreeboardVO freePreVo=freeService.prevContent(freeNo);
-		logger.info("이전글 보기 결과 freeVo = {}", freeVo);
+		logger.info("이전글 보기 결과 freePreVo = {}", freePreVo);
 		
 		FreeboardVO freeNextVo=freeService.nextContent(freeNo);
-		logger.info("다음글 보기 결과 freeVo = {}", freeVo);
+		logger.info("다음글 보기 결과 freeNextVo = {}", freeNextVo);
 		
 		model.addAttribute("freeVo", freeVo);
 		model.addAttribute("preFreeVo", freePreVo);

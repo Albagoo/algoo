@@ -11,7 +11,7 @@
 	$(document).ready(function(){
 		$(".divList .box2 tbody td:nth-of-type(2)")
 		.hover(function(){
-			$(this).css("background","#eee").css("cursor","pointer");
+			$(this).css("background","#fff7f7").css("cursor","pointer");
 		}, function(){
 			$(this).css("background","");
 		});
@@ -42,6 +42,13 @@
 	<p>전체 조회 결과 - ${pagingInfo.totalRecord }건 조회되었습니다</p>
 </c:if>
 </div>
+<span class="talkList" style="float: right;margin-bottom: 20px;padding-right: 3px;">
+	<a href="<c:url value='/admin/adminBoard.ag'/>" 
+		style="font-size: 0.8em;color: black;text-decoration: none;">
+	<img alt="손가락" src="<c:url value='/images/finger.png'/>" align=absmiddle
+		style="height: 15px;">
+		관리자 페이지로</a>
+</span>
 <table class="box2">
 	<colgroup>
 		<col style="width:7%;" />

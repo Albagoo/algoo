@@ -9,8 +9,6 @@
 				$("#content").focus();
 				event.preventDefault();
 			}
-			
-			$('#content').val().replace(/\n/g, "<br>")
 		});
 		
 	});

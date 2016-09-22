@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../inc/simple_top.jsp" %>
 
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/noticeStyle.css" />
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/simpleButton.css" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/faq.css'/>" />
 
 <script src="<c:url value='/ckeditor/ckeditor.js'/>" 
 type="text/javascript"></script>
@@ -41,34 +41,36 @@ type="text/javascript"></script>
 </style>
 
 <section>
-<div class="divListAll" align="center">
-<form name="frmWrite" id="frmWrite" method="post"
-  enctype="multipart/form-data" 
-  action="<c:url value='/notice/write.ag'/>" >
- <p id="firstTitle">공지등록</p>
+<div class="divForm">
+<form name="frmWrite" id="frmWrite" method="post"  action="<c:url value='/notice/write.ag'/>" > 
+<fieldset>
+<div id="Qmark">
+		<img src="<c:url value='/images/notice.png'/>" style="height: 50px;">
+	</div>
  <div class="divForm">
-		<div class="editCgDiv">
-			<select name="category" class="button white small"
-        	 style="font-size: 0.85em;">
+		<div class="category">
+			<label for="category">카테고리 분류</label>
+			<select name="category" id="category" title="카테고리" class="textBox" style="font-size: 0.85em;">
 				<option value="공지">공지</option>
 				<option value="이벤트">이벤트</option>
 				<option value="서비스">서비스</option>
 			</select>
-            <input type="text" id="title" class="textBox"
-             name="title" size="80" placeholder="제목을 입력하세요" style="font-size: 0.85em;"/>
+		</div>
+        <div class="firstDiv">
+            <label for="title">제목</label>
+            <input type="text" id="title" name="title" style="width: 300px;font-size: 0.75em;text-align: left" 
+            	class="textBox" placeholder="제목을 입력하세요"/>
         </div>
         <div>	        
- 			<textarea id="content" name="content" rows="12" cols="40"></textarea>
+ 			<textarea id="content" name="content"></textarea>
         </div>
-        <div class="editEndDiv" style="text-align:center">
-            <input type = "submit" value="등록"
-             class="button white medium" />
-            <input type = "Button" value="목록"
-             class="button white medium"
-      			onclick
-	="location.href='<c:url value="/notice/list.ag"/>'"/>         
+        <div class="center">
+            <input class="button white medium" type = "submit" value="공지등록" style="margin-right: 10px"/>
+            <input class="button white medium" type = "button" value="목록" 
+      			onclick="location.href='<c:url value="/notice/list.ag"/>'"/>         
         </div>
     </div>
+</fieldset>
 </form>
 </div>
 </section>

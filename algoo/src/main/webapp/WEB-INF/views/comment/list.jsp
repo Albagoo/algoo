@@ -5,8 +5,6 @@
 <script type="text/javascript" 
 	src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 <script type="text/javascript">
-
-	
 	function reply(i) {
 		if($("#replyB"+i).val() == "N"){
 			$("#p"+i).append("<div id='p_"+i+"'><textarea id='content' name='content'style='width: 83%;height: 60px;vertical-align: middle;margin-right: 15px;'>"
@@ -33,6 +31,7 @@
 				<input type="hidden" name="freeNo" value="${cmtVo.freeNo }">
 				<input type="hidden" name="nickName" value="${sessionScope.nickName }">
 				<input type="hidden" name="userid" value="${sessionScope.userid }">
+				<input type="hidden" id=content value="${cmtVo.content }">
 				<input type="hidden" id="replyB${i }" value="N">
 				<c:if test="${cmtVo.step>0 }">
 						<c:forEach var="a" 
@@ -55,7 +54,7 @@
 							begin="1" end="${cmtVo.step}">
 							&nbsp;&nbsp;&nbsp;&nbsp;
 						</c:forEach>
-					</c:if>${cmtVo.content }</p>
+					</c:if><span id="cmtCon">${cmtVo.content }</span></p>
 				<c:set var="i" value="${i+1 }"></c:set>
 			</form>
 		</c:forEach>		

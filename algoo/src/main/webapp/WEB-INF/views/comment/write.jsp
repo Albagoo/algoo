@@ -21,9 +21,8 @@
 <input type="hidden" id="freeNo" name="freeNo" value="${param.freeNo }">
 	<div class="cmtWrite" style="padding-left:30px;">    
 		<div>
-			<textarea id="content" name="content"
-				style="width: 83%;height: 60px;margin-right: 15px;
-				vertical-align: middle;">
+			<textarea id="content" name="content" 
+				style="width: 83%;height: 60px;margin-right: 15px;vertical-align: middle;">
 			</textarea>
 			<span>
 			<input class="button white" type = "submit" value="등록" 

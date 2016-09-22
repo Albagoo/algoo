@@ -23,5 +23,15 @@ public class AdminMemberDAOMybatis extends SqlSessionDaoSupport implements Admin
 		return getSqlSession().selectOne(namespace+".selectMemberCount",searchVo);
 	}
 
+	@Override
+	public int deleteMem(String userid) {
+		return getSqlSession().update(namespace+".deleteMem",userid);
+	}
+
+	@Override
+	public int updateMem(MemberVO memberVo) {
+		return getSqlSession().update(namespace+".updateMem",memberVo);
+	}
+
 
 }

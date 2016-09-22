@@ -9,11 +9,15 @@
 <script type="text/javascript" src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 <script type="text/javascript">	
 	$(document).ready(function(){
-		$(".divList .box2 tbody td:nth-of-type(2)")
+		$(".divList .box2 tbody td:nth-of-type(3)")
 		.hover(function(){
 			$(this).css("background","#fff7f7").css("cursor","pointer");
 		}, function(){
 			$(this).css("background","");
+		});
+		
+		$("input[name='chkAllFree']").click(function(){
+			$(".freeBody input[type=checkbox]").prop("checked", this.checked);
 		});
 	});
 	
@@ -42,7 +46,7 @@
 	<p>전체 조회 결과 - ${pagingInfo.totalRecord }건 조회되었습니다</p>
 </c:if>
 </div>
-<span class="talkList" style="float: right;margin-bottom: 20px;padding-right: 3px;">
+<span class="talkList" style="float: right;margin-bottom: 10px;padding-right: 3px;">
 	<a href="<c:url value='/admin/adminBoard.ag'/>" 
 		style="font-size: 0.8em;color: black;text-decoration: none;">
 	<img alt="손가락" src="<c:url value='/images/finger.png'/>" align=absmiddle
@@ -51,14 +55,16 @@
 </span>
 <table class="box2">
 	<colgroup>
-		<col style="width:7%;" />
-		<col style="width:56%;" />
-		<col style="width:15%;" />
-		<col style="width:15%" />
+		<col stype="width:5%;" />
+		<col style="width:5%;" />
+		<col style="width:55%;" />
+		<col style="width:14%;" />
+		<col style="width:14%" />
 		<col style="width:7%" />
 	</colgroup>
 	<thead>
 	  <tr>
+	  	<th scope="col"><input type="checkbox" name="chkAllFree"></th>
 	    <th scope="col">번호</th>
 	    <th scope="col">제목</th>
 	    <th scope="col">작성자</th>
@@ -69,15 +75,20 @@
 	<tbody>  
 	<c:if test="${empty freeList}">
 		<tr>
-			<td colspan="5" class="align_center">
+			<td colspan="6" class="align_center">
 				검색된 질문이 없습니다
 			</td>
 		</tr>
 	</c:if>
 	<c:if test="${!empty freeList}">
 		<!--게시판 내용 반복문 시작  -->		
+		<c:set var="k" value="0" />
 		<c:forEach var="fList" items="${freeList }">
 			<tr style="text-align: center">
+				<td class="freeBody">
+					<input type="checkbox" name="free[${k}].freeNo"
+						id="chk3_${k }" value="${fList.freeNo}" >
+				</td>
 				<td>${fList.freeNo}</td>
 				<td style="text-align: left;">
 					<!-- 삭제된 글에 대한 처리 -->

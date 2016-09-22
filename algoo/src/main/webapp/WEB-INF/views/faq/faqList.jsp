@@ -10,7 +10,7 @@
 <script type="text/javascript" src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 <script type="text/javascript">	
 	$(document).ready(function(){
-		$(".divList .box2 tbody td:nth-of-type(2)")
+		$(".divList .box2 tbody td:nth-of-type(3)")
 		.hover(function(){
 			$(this).css("background","#fff7f7").css("cursor","pointer");
 		}, function(){
@@ -21,6 +21,10 @@
 		$("#categoryInput").change(function(){
 			$("#categoryName2").val($("#categoryInput").val());
 			$("#frmPage").submit();
+		});
+		
+		$("input[name='chkAllFaq']").click(function(){
+			$(".faqBody input[type=checkbox]").prop("checked", this.checked);
 		});
 	});
 	
@@ -115,12 +119,14 @@
 </div>
 <table class="box2">
 	<colgroup>
+		<col style="width:5%;" />
 		<col style="width:10%;" />
-		<col style="width:75%;" />
+		<col style="width:70%;" />
 		<col style="width:15%;" />	
 	</colgroup>
 	<thead>
 	  <tr>
+	 	<th scope="col"><input type="checkbox" name="chkAllFaq"></th>
 	    <th scope="col">번호</th>
 	    <th scope="col">제목</th>
 	    <th scope="col">작성일</th>
@@ -129,14 +135,19 @@
 	<tbody>  
 	<c:if test="${empty alist}">
 		<tr>
-			<td colspan="3" class="align_center">
+			<td colspan="4" class="align_center">
 				검색된 질문이 없습니다
 			</td>
 		</tr>
 	</c:if>
 	<c:if test="${!empty alist}">
+		<c:set var="j" value="0" />
 		<c:forEach var="vo" items="${alist }">
 			<tr style="text-align: center">
+				<td class="faqBody">
+					<input type="checkbox" name="faq[${j}].faqNo"
+						id="chk2_${j }" value="${vo.faqNo}" >
+				</td>
 				<td>${vo.faqNo}</td>
 				<td style="text-align: left;">
 					<a href="<c:url value='/faq/faqDetail.ag?faqNo=${vo.faqNo}'/>">

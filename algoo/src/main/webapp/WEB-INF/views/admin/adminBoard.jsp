@@ -29,6 +29,27 @@
 			$(".freeBody input[type=checkbox]").prop("checked", this.checked);
 		});
 		
+		$(".adminNotice .box1 tbody td:nth-of-type(2)")
+		.hover(function(){
+			$(this).css("background","#fff7f7").css("cursor","pointer");
+		}, function(){
+			$(this).css("background","");
+		});
+		
+		$(".adminFaq .box1 tbody td:nth-of-type(2)")
+		.hover(function(){
+			$(this).css("background","#fff7f7").css("cursor","pointer");
+		}, function(){
+			$(this).css("background","");
+		});
+		
+		$(".adminFree .box2 tbody td:nth-of-type(2)")
+		.hover(function(){
+			$(this).css("background","#fff7f7").css("cursor","pointer");
+		}, function(){
+			$(this).css("background","");
+		});
+		
 		//선택한 상품 삭제
 		$("#btDel").click(function(){
 			var count
@@ -44,24 +65,24 @@
 		});
 	});
 	
-	function delFree(no){
-		if(confirm("게시물을 삭제하시겠습니까?")){
-			location.href
-		="<c:url value='/freeboard/delete.ag?freeNo="+"${tVo.freeNo}"+"'/>"
-		}
-	}
-	
-	function delFaq(no){
-		if(confirm("FAQ를 삭제하시겠습니까?")){
-			location.href
-		="<c:url value='/faq/faqDelete.ag?faqNo="+"${fVo.faqNo}"+"'/>"
-		}
-	}
-	
-	function delNotice(no){
+	function delNotice(nNo){
 		if(confirm("공지사항을 삭제하시겠습니까?")){
 			location.href
-		="<c:url value='/notice/delete.ag?no="+"${nVo.mainNo}"+"'/>"
+		="<c:url value='/notice/noticeAdminDelete.ag?no="+nNo+"'/>"
+		}
+	}
+	
+	function delFaq(fNo){
+		if(confirm("FAQ를 삭제하시겠습니까?")){
+			location.href
+		="<c:url value='/faq/faqAdminDelete.ag?faqNo="+fNo+"'/>"
+		}
+	}
+	
+	function delFree(tNo){
+		if(confirm("게시글을 삭제하시겠습니까?")){
+			location.href
+		="<c:url value='/freeboard/freeAdminDelete.ag?freeNo="+tNo+"'/>"
 		}
 	}
 </script>

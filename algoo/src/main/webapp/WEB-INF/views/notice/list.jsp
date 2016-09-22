@@ -11,7 +11,7 @@
 	$(document).ready(function(){
 	
 		 //09-06
-		$(".divList .box2 tbody td:nth-of-type(2)")
+		$(".divList .box2 tbody td:nth-of-type(3)")
 		.hover(function(){
 			$(this).css("background","#fff7f7").css("cursor","pointer");
 		}, function(){
@@ -22,6 +22,10 @@
 		$("#categoryInput").change(function(){
 			$("#categoryName2").val($("#categoryInput").val());
 			$("#frmPage").submit();
+		});
+		
+		$("input[name='chkAllNotice']").click(function(){
+			$(".noticeBody input[type=checkbox]").prop("checked", this.checked);
 		});
 	});
 	
@@ -73,12 +77,14 @@ action="<c:url value='/notice/list.ag'/>">
 	</span>
 	<table class="box2">
 		<colgroup>
+			<col style="width:5%;" />
 			<col style="width:15%;" />
-			<col style="width:70%" />
+			<col style="width:65%" />
 			<col style="width:15%" />
 		</colgroup>
 		<thead>
 	  <tr>
+	  	<th scope="col"><input type="checkbox" name="chkAllNotice"></th>
 	    <th scope="col">
 	    	<select name="categoryInput" id="categoryInput"
 			class="button white small"
@@ -100,18 +106,23 @@ action="<c:url value='/notice/list.ag'/>">
 	    <th scope="col">작성일</th>
 	  </tr>
 	</thead> 
-		<tbody>
+		<tbody class="noticeBody">
 			<c:if test="${empty noticeList}">
 				<tr>
-					<td colspan="3" class="align_center">
+					<td colspan="4" class="align_center">
 						검색된 질문이 없습니다
 					</td>
 				</tr>
 			</c:if>
 			<c:if test="${!empty noticeList}">
+				<c:set var="i" value="0" />
 				<c:forEach var="vo" items="${noticeList }">
 		
 				<tr>
+					<td class="align_center">
+						<input type="checkbox" name="notice[${i}].mainNo"
+							id="chkN_${i }" value="${vo.mainNo}" >
+					</td>
 					<td  class="align_center">
 						${vo.category }
 					</td>

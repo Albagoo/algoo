@@ -213,6 +213,25 @@ public class NoticeController {
 		return "common/message";
 	}
 	
+	@RequestMapping("/noticeAdminDelete.ag")
+	public String noticeAdminDelete(@RequestParam(defaultValue="0") int no,	Model model){
+		logger.info("관리자 공지 삭제 파라미터 no={}", no);
+		
+		String msg="", url="";
+		int cnt = noticeService.deleteNotice(no);
+		if(cnt>0){
+			msg="공지 삭제 성공";
+			url="/admin/adminBoard.ag";
+		}else{
+			msg="공지 삭제 실패";
+		}
+		
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		
+		return "common/message";
+	}
+	
 	@RequestMapping("/noticeUserList.ag")
 	public String UserList(@ModelAttribute ListNoticeVO searchVo,
 			@RequestParam(required=false) String categoryName, Model model){

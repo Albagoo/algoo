@@ -102,8 +102,8 @@ href="<c:url value='/jquery/jquery-ui.css'/>"/>
             res += '<select class="button small white"  id="gradeSel">';
             res += '<option value="슈퍼">슈퍼</option>';
             res += '<option value="그랜드">그랜드</option>';
-            res += '<option value="프리미엄">프리미엄</option>';
-            res += '<option value="일반">일반</option></select>';
+            res += '<option value="스페셜">스페셜</option>';
+            res += '<option value="스피드">스피드</option></select>';
             res += '<select class="button small white"  id="daysSel">';
             res += '<option value="1">1일</option>';
             res += '<option value="7">7일</option>';

@@ -4,109 +4,75 @@
 
 <mapper namespace="com.mybatis.mapper.oracle.rec">
 	<sql id="searchWhere">
-		<where>
+		 <where> 
 			<if test="searchKeyword!=null and searchKeyword!=''">
 				${searchCondition}
 				like '%' || #{searchKeyword} || '%'
 			</if>
-			
+
 			<if test="area1!=null and area1!=''">
-            <if test="searchKeyword!=null and searchKeyword!=''">
-            or
-            </if>
-            ADDRESS
-            like '%' || #{area1} || '%'
-         </if>
-         
-         <if test="area2!=null and area2!=''">
-   			<if test="area1!=null and area1!=''">
-            or
-            </if>
-            ADDRESS
-            like '%' || #{area2} || '%'
-         </if>
-         
-         <if test="area3!=null and area3!=''">
-            <if test="area2!=null and area2!=''">
-            or
-            </if>
-            ADDRESS
-            like '%' || #{area3} || '%'
-         </if>
-         
-         <if test="area4!=null and area4!=''">
-            <if test="area3!=null and area3!=''">
-            or
-            </if>
-            ADDRESS
-            like '%' || #{area4} || '%'
-         </if>
-         
-         <if test="area5!=null and area5!=''">
-            <if test="area4!=null and area4!=''">
-            or
-            </if>
-            ADDRESS
-            like '%' || #{area5} || '%'
-         </if>
-         
-         <if test="job1!=null and job1!=''">
-            <if test="(searchKeyword!=null and searchKeyword!='')
-            or (area1!=null and area1!='')">
-            and
-            </if>
-            JOB_NAME2
-            like '%' || #{job1} || '%'
-         </if>
-         
-         <if test="job2!=null and job2!=''">
-            <if test="job1!=null and job1!=''">
-            or
-            </if>
-            JOB_NAME2
-            like '%' || #{job2} || '%'
-         </if>
-         
-         <if test="job3!=null and job3!=''">
-            <if test="job2!=null and job2!=''">
-            or
-            </if>
-            JOB_NAME2
-            like '%' || #{job3} || '%'
-         </if>
-         
-         <if test="job4!=null and job4!=''">
-            <if test="job3!=null and job3!=''">
-            or
-            </if>
-            JOB_NAME2
-            like '%' || #{job4} || '%'
-         </if>
-         
-         <if test="job5!=null and job5!=''">
-            <if test="job4!=null and job4!=''">
-             or
-            </if>
-            JOB_NAME2
-            like '%' || #{job5} || '%'
-         </if>
-	<if test="workTerm != null and workTerm!=''">
-	
-		<if
-			test="(searchKeyword!=null and searchKeyword!='') 
-         or (area1!=null and area1!='')
-         or (job1!=null and job1!='')">
-			and
-		</if>
-		work_term IN
-		<foreach collection="workTerm" item="workTerm" index="index"
-			open="(" close=")" separator=",">
-			#{workTerm}
-		</foreach>
-      </if>
-         
-         
-		</where>
+			   <if test="searchKeyword!=null and searchKeyword!=''">
+				OR	
+				</if>
+				ADDRESS
+				like '%' || #{area1} || '%'
+			</if>
+
+			<if test="area2!=null and area2!=''">
+				OR ADDRESS
+				like '%' || #{area2} || '%'
+			</if>
+
+			<if test="area3!=null and area3!=''">
+			   OR	ADDRESS
+				like '%' || #{area3} || '%'
+			</if>
+
+			<if test="area4!=null and area4!=''">
+				OR	ADDRESS
+				like '%' || #{area4} || '%'
+			</if>
+
+			<if test="area5!=null and area5!=''">
+            OR	ADDRESS
+				like '%' || #{area5} || '%'
+			</if>
+
+			<if test="job1!=null and job1!=''">
+			   
+            AND JOB_NAME2
+				like '%' || #{job1} || '%'
+			</if>
+
+			<if test="job2!=null and job2!=''">
+				OR	JOB_NAME2
+				like '%' || #{job2} || '%'
+			</if>
+
+			<if test="job3!=null and job3!=''">
+				OR	JOB_NAME2
+				like '%' || #{job3} || '%'
+			</if>
+
+			<if test="job4!=null and job4!=''">
+			   OR	JOB_NAME2
+				like '%' || #{job4} || '%'
+			</if>
+
+			<if test="job5!=null and job5!=''">
+            OR	JOB_NAME2
+				like '%' || #{job5} || '%'
+			</if>
+			
+			<if test="workTerm != null and workTerm!=''">
+				AND work_term IN
+				<foreach collection="workTerm" item="workTerm" index="index"
+					open="(" close=")" separator=",">
+					#{workTerm}
+				</foreach>
+			</if>
+
+		 </where> 
 	</sql>
 
 	<select id="selectRecByCode" parameterType="String" resultType="RecVO">
@@ -140,7 +106,6 @@
 		set readcount=readcount+1
 		where rec_code=#{recCode}
 	</update>
-
 
 	<insert id="insertRecSevice" parameterType="map">
 		insert into service
@@ -207,9 +172,6 @@
          + #{recordCountPerPage}  
        ]]>
 	</select>
-
-
-
 
 	<select id="selectJobName2" parameterType="String" resultType="hashmap">
 		select job_name2 from jobs

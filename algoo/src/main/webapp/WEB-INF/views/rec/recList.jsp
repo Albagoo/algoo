@@ -33,7 +33,9 @@ href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <script type="text/javascript">  
 $(document).ready(function(){
      //임시 
-	  /* runEffect("#effect"); */
+	   runEffect("#effect"); 
+	   runEffect("#effect2"); 
+	   runEffect("#effect3"); 
       
       // run the currently selected effect
        function runEffect(effect) {
@@ -492,52 +494,60 @@ class="ui-state-default ui-corner-all" value="직종별검색">
                </select> 
                <input type="text" class="txt_150" 
                name="pay" id="pay" value="0">
-               <span class="txt_30">원</span> 
+               <span class="txt_50">원 이상</span> 
               
                 <input id="minPay" value="최저임금  6030원"
                 class="white small"
                 type="button" onclick="minPaySet()"> 
             </dt>
             <dt >
-               <span class="titd">근무형태</span> <input type="checkbox"
-                  name="recruitType" value="알바" id="alba"> <label for="alba">알바</label>
-
-
-               <input type="checkbox" value="J" id="jung"> <label
-                  for="jung"> 정규직</label> <input type="checkbox" value="G" id="gye">
-               <label for="gye"> 계약직</label> <input type="checkbox" value="F"
-                  id="fageon"> <label for="fageon">파견직</label> <input
-                  type="checkbox" value="I" id="intern"> <label for="intern">인턴직</label>
-
-
-               <input type="checkbox" value="W" id="wechock"> <label
-                  for="wechock">위촉직</label>
+               <span class="titd">고용형태</span> 
+               <input type="checkbox" name="recruitType" 
+               value="알바" id="alba"> 
+               <label for="alba">알바</label>
+               <input type="checkbox" value="J" id="jung"
+               name="recruitType"> 
+               <label for="jung"> 정규직</label> 
+               <input type="checkbox" value="G" id="gye"
+               name="recruitType">
+               <label for="gye"> 계약직</label> 
+               <input type="checkbox" value="F" id="fageon"
+               name="recruitType"> 
+               <label for="fageon">파견직</label> 
+               <input type="checkbox" value="I" id="intern"
+               name="recruitType"> 
+               <label for="intern">인턴직</label>
+               <input type="checkbox" value="W" id="wechock"
+               name="recruitType"> 
+               <label for="wechock">위촉직</label>
 
             </dt>
             <dt>
-               <span class="titd">복리후생</span> <input type="text" class="txt"
+               <span class="titd">복리후생</span> 
+               <input type="text" class="txt"
                   name="welfare" id="welfare">
 
             </dt>
              <dt>
                <span class="titd">학력조건</span> 
-               <input type="radio" id="eduLv" name="educateLv" 
+               <input type="radio" id="eduLv" 
+               name="educateLv" 
                 checked="checked" value="학력무관"> 
                <label for="eduLv"> 학력무관</label> 
                <input type="radio" id="middle"
                 name="educateLv" value="중학교졸업"> 
                <label for="middle"> 중학교졸업 </label> 
-               <input type="radio" id="high" name="educateLv"
-                value="고등학교졸업"> 
+               <input type="radio" id="high" 
+               name="educateLv" value="고등학교졸업"> 
                <label for="high"> 고등학교졸업 </label> 
-               <input type="radio" id="univ23" name="educateLv" 
-                value="대학(2,3년제)졸업">
+               <input type="radio" id="univ23" 
+               name="educateLv" value="대학(2,3년제)졸업">
                <label for="univ23"> 대학(2,3년제)졸업 </label> 
-               <input type="radio" id="univ4" name="educateLv" 
-                value="대학(4년제)졸업"> 
+               <input type="radio" id="univ4" 
+               name="educateLv"  value="대학(4년제)졸업"> 
                <label for="univ4"> 대학(4년제)졸업 </label> 
-               <input type="radio" id="graduate" name="educateLv" 
-                value="대학원졸업~"> 
+               <input type="radio" id="graduate" 
+               name="educateLv" value="대학원졸업~"> 
                <label for="graduate"> 대학원졸업~ </label>
             </dt>
              <dt>

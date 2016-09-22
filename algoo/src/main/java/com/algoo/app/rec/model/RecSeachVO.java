@@ -8,23 +8,85 @@ import com.algoo.app.common.SearchVO;
 public class RecSeachVO extends SearchVO {
 
 	//지역명 검색에 사용
-	private String areas;
+	private String areas;//근무지역
 	private String area1;
 	private String area2;
 	private String area3;
 	private String area4;
 	private String area5;
 	
-	private String jobs;
+	private String jobs;//직종
 	private String job1;
 	private String job2;
 	private String job3;
 	private String job4;
 	private String job5;
 	
-	private String[] workTerm;
+	private String[] workTerm;//근무기간
+	private String workDays;//근무요일
+	private String payType;//급여방식
+	private int pay;//급여
+	private String[] recruitType;//고용형태 
+	private String[] welfare;//복지
+	private String educateLv;//학력
+	private String[] preference;//우대조건
 	
-	
+	public String getWorkDays() {
+		return workDays;
+	}
+
+	public void setWorkDays(String workDays) {
+		this.workDays = workDays;
+	}
+
+	public String getPayType() {
+		return payType;
+	}
+
+	public void setPayType(String payType) {
+		this.payType = payType;
+	}
+
+	public int getPay() {
+		return pay;
+	}
+
+	public void setPay(int pay) {
+		this.pay = pay;
+	}
+
+	public String[] getRecruitType() {
+		return recruitType;
+	}
+
+	public void setRecruitType(String[] recruitType) {
+		this.recruitType = recruitType;
+	}
+
+	public String[] getWelfare() {
+		return welfare;
+	}
+
+	public void setWelfare(String[] welfare) {
+		this.welfare = welfare;
+	}
+
+	public String getEducateLv() {
+		return educateLv;
+	}
+
+	public void setEducateLv(String educateLv) {
+		this.educateLv = educateLv;
+	}
+
+	public String[] getPreference() {
+		return preference;
+	}
+
+	public void setPreference(String[] preference) {
+		this.preference = preference;
+	}
+
 	private Map<String,Object> map;
 	
 	
@@ -145,8 +207,10 @@ public class RecSeachVO extends SearchVO {
 	public String toString() {
 		return "RecSeachVO [areas=" + areas + ", area1=" + area1 + ", area2=" + area2 + ", area3=" + area3 + ", area4="
 				+ area4 + ", area5=" + area5 + ", jobs=" + jobs + ", job1=" + job1 + ", job2=" + job2 + ", job3=" + job3
-				+ ", job4=" + job4 + ", job5=" + job5 + ", workTerm=" + Arrays.toString(workTerm) + ", map=" + map
-				+ ", toString()=" + super.toString() + "]";
+				+ ", job4=" + job4 + ", job5=" + job5 + ", workTerm=" + Arrays.toString(workTerm) + ", workDays="
+				+ workDays + ", payType=" + payType + ", pay=" + pay + ", recruitType=" + Arrays.toString(recruitType)
+				+ ", welfare=" + Arrays.toString(welfare) + ", educateLv=" + educateLv + ", preference="
+				+ Arrays.toString(preference) + ", map=" + map + ", toString()=" + super.toString() + "]";
 	}
 
 }

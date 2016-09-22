@@ -40,7 +40,7 @@ src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
 			<p class="content">${freeVo.content }</p>
 		</div>
 		<div class="comments">
-			<div class="cmtList">
+			<div class="cmtList" style="margin: 0 0 20px 0;">
 				<c:import url="/comment/list.ag">
 					<c:param name="freeNo" value="${param.freeNo }"></c:param>
 				</c:import>

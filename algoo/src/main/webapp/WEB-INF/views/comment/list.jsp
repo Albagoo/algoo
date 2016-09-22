@@ -48,8 +48,8 @@
 						<img src="<c:url value='/images/rere.png' />" alt="rere이미지"
 							 align="top" style="height: 9px;">
 				</c:if> 
-				<span style="font-weight: bold;">${cmtVo.nickName }</span>
-				<span><fmt:formatDate value="${cmtVo.regdate }" pattern="yyyy.MM.dd HH:mm"/> </span>
+				<span id="cmtNick">${cmtVo.nickName }</span>
+				<span id="cmtDate"><fmt:formatDate value="${cmtVo.regdate }" pattern="yyyy.MM.dd HH:mm"/> </span>
 				
 				<c:if test="${!empty sessionScope.userid}">
 					<img alt="답글이미지" src="../images/reply.png" style="height: 10px;">
@@ -61,7 +61,7 @@
 							begin="1" end="${cmtVo.step}">
 							&nbsp;&nbsp;&nbsp;&nbsp;
 						</c:forEach>
-					</c:if><span id="cmtCon">${cmtVo.content }</span></p>
+					</c:if><p id="cmtCon">${cmtVo.content }</p></p>
 				<c:set var="i" value="${i+1 }"></c:set>
 				<span style="text-align: right;">
 					<a href="#" onclick=del(${cmtVo.commentNo })>삭제</a>

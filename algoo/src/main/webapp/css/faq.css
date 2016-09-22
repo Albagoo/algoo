@@ -229,3 +229,28 @@ input[name="num"]{
 	 width: 200px;
 	 height: 25px;
 }
+
+/* comment */
+.commentList{
+	padding:10px;
+}
+.commentList a{
+	margin-left:10px;
+	text-decoration:none;
+	color:black;
+	font-size:14px;
+}
+#cmtNick{
+	margin-left:10px;
+	font-weight:bold;
+	color:brown;
+}
+#cmtDate{
+	margin-left:10px;
+	font-size:14px;
+}
+#cmtCon{
+	margin-left:10px;
+	font-size:14px;
+	font-family:'궁서';
+}

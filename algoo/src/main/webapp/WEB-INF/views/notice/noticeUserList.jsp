@@ -3,8 +3,8 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="../inc/simple_top.jsp" %>
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/noticeStyle.css" />
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/simpleButton.css" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/faq.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
 
 <script type="text/javascript">	
 	$(document).ready(function(){
@@ -12,7 +12,7 @@
 		 //09-06
 		$(".divList .box2 tbody td:nth-of-type(2)")
 		.hover(function(){
-			$(this).css("background","#eee").css("cursor","pointer");
+			$(this).css("background","#fff7f7").css("cursor","pointer");
 		}, function(){
 			$(this).css("background","");
 		});
@@ -56,8 +56,8 @@ action="<c:url value='/notice/noticeUserList.ag'/>">
 	<input type="image" src="<c:url value='/images/search.png'/>" value="검색" align=absmiddle>
 	</form>
 </div>
-<div class="category">
-   	<label for="categoryList">카테고리로 찾기</label>
+<div class="category" style="margin-bottom: 5px; text-align: left;">
+   	<label for="categoryList" >카테고리로 찾기</label>
 		<select name="categoryInput" id="categoryInput" title="카테고리"
      	 class="button white small">
      		<option value="">선택하세요</option>
@@ -75,9 +75,9 @@ action="<c:url value='/notice/noticeUserList.ag'/>">
 <div class="divList">
 	<table class="box2">
 		<colgroup>
-			<col style="width:5%;" />
+			<col style="width:8%;" />
 			<col style="width:10%;" />
-			<col style="width:70%" />
+			<col style="width:67%" />
 			<col style="width:15%" />
 		</colgroup>
 		<thead>
@@ -100,17 +100,17 @@ action="<c:url value='/notice/noticeUserList.ag'/>">
 				<c:forEach var="vo" items="${noticeList }">
 		
 				<tr>
-					<td>
+					<td  class="align_center">
 						${vo.mainNo }
 					</td>
-					<td style="font-weight: bold;color: #ff7373">
+					<td style="font-weight: bold;color: #ff7373"  class="align_center">
 						${vo.category }
 					</td>
 					<td id="align_left" style="padding-left:10px">
 						<a href="<c:url value='/notice/detail.ag?no=${vo.mainNo}'/>">
 						${vo.title } </a>
 					 </td>
-					<td>
+					<td  class="align_center">
 						<fmt:formatDate value="${vo.regdate }" pattern="yyyy-MM-dd" /> 
 					</td>
 				</tr>

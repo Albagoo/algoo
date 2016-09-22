@@ -10,7 +10,7 @@
 <script type="text/javascript" src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 <script type="text/javascript">	
 	$(document).ready(function(){
-		$(".divList .box2 tbody td:nth-of-type(2)")
+		$(".divList .box2 tbody td:nth-of-type(3)")
 		.hover(function(){
 			$(this).css("background","#fff7f7").css("cursor","pointer");
 		}, function(){
@@ -22,6 +22,10 @@
 			$("#categoryName2").val($("#categoryInput").val());
 			$("#frmPage").submit();
 		});
+		
+		$("input[name='chkAllFaq']").click(function(){
+			$(".faqBody input[type=checkbox]").prop("checked", this.checked);
+		});
 	});
 	
 	function pageProc(curPage){
@@ -31,7 +35,6 @@
 </script>	
 
 <section>
-
 <form name="frmCategory" method="post"
  action="<c:url value='/faq/faqList.ag'/>"
  id="frmCategory">
@@ -44,7 +47,7 @@
 	action="<c:url value='/faq/faqList.ag'/>">
 <input type="hidden" name="currentPage" id="currentPage2" value="1">
 <input type="hidden" name="categoryName" id="categoryName2" value="${param.categoryName }">
-<input type="hidden" name="searchConditionz" value="${param.searchCondition }">
+<input type="hidden" name="searchCondition" value="${param.searchCondition }">
 <input type="hidden" name="searchKeyword" value="${searchVO.searchKeyword }">	
 </form>
 
@@ -105,15 +108,25 @@
      	 	 <c:if test="${param.categoryName=='기타 문의' }">selected</c:if>>
      	 	 기타 문의</option>
      </select>
+     <span class="talkList" style="float: right;margin-bottom: 5px;padding-right: 3px;">
+		<a href="<c:url value='/admin/adminBoard.ag'/>" 
+			style="color: black;text-decoration: none;">
+		<img alt="손가락" src="<c:url value='/images/finger.png'/>" align=absmiddle
+			style="height: 15px;">
+			관리자 페이지로</a>
+</span>
+     
 </div>
 <table class="box2">
 	<colgroup>
+		<col style="width:5%;" />
 		<col style="width:10%;" />
-		<col style="width:75%;" />
+		<col style="width:70%;" />
 		<col style="width:15%;" />	
 	</colgroup>
 	<thead>
 	  <tr>
+	 	<th scope="col"><input type="checkbox" name="chkAllFaq"></th>
 	    <th scope="col">번호</th>
 	    <th scope="col">제목</th>
 	    <th scope="col">작성일</th>
@@ -122,14 +135,19 @@
 	<tbody>  
 	<c:if test="${empty alist}">
 		<tr>
-			<td colspan="3" class="align_center">
+			<td colspan="4" class="align_center">
 				검색된 질문이 없습니다
 			</td>
 		</tr>
 	</c:if>
 	<c:if test="${!empty alist}">
+		<c:set var="j" value="0" />
 		<c:forEach var="vo" items="${alist }">
 			<tr style="text-align: center">
+				<td class="faqBody">
+					<input type="checkbox" name="faq[${j}].faqNo"
+						id="chk2_${j }" value="${vo.faqNo}" >
+				</td>
 				<td>${vo.faqNo}</td>
 				<td style="text-align: left;">
 					<a href="<c:url value='/faq/faqDetail.ag?faqNo=${vo.faqNo}'/>">

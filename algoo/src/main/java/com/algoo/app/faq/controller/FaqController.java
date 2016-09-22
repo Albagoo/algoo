@@ -185,6 +185,25 @@ public class FaqController {
 		return "redirect:/faq/faqList.ag";
 	}
 	
+	@RequestMapping("/faqAdminDelete.ag")
+	public String faqAdminDelete(@RequestParam(defaultValue="0") int faqNo,	Model model){
+		logger.info("관리자 FAQ 삭제 파라미터 faqNo={}", faqNo);
+		
+		String msg="", url="";
+		int cnt = faqService.deleteFaq(faqNo);
+		if(cnt>0){
+			msg="FAQ 삭제 성공";
+			url="/admin/adminBoard.ag";
+		}else{
+			msg="FAQ 삭제 실패";
+		}
+		
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		
+		return "common/message";
+	}
+	
 	@RequestMapping(value="/faqUserList.ag")
 	public String userList(@ModelAttribute SearchVO searchVo, Model model){
 		logger.info("FAQ UserList 조회, 파라미터 searchVo = {}", searchVo);

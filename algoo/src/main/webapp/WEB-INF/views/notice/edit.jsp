@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../inc/simple_top.jsp" %>
 
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/noticeStyle.css" />
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/simpleButton.css" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/faq.css'/>" />
+<link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
 
 <script src="<c:url value='/ckeditor/ckeditor.js'/>" 
 type="text/javascript"></script>
@@ -41,17 +41,17 @@ type="text/javascript"></script>
 </style>
 
 <section>
-<div class="divForm" align="center">
-<form name="frmEdit" id="frmEdit" method="post"
-  enctype="multipart/form-data" 
-  action="<c:url value='/notice/edit.ag'/>" >
-  <input type="hidden" name="mainNo" value="${noticeVo.mainNo }">
-  
-<p id="firstTitle">공지 수정</p>
-	<div class="funcDiv">
-		<div class="firstDiv">
-			<select name="category" class="button white small"
-       		 style="font-size: 0.75em;">
+<div class="divForm">
+<form name="frmEdit" id="frmEdit" method="post" 
+	action="<c:url value='/notice/edit.ag'/>"> 
+<input type="hidden" name="mainNo" value="${noticeVo.mainNo}">
+<fieldset>
+	<div id="Qmark">
+		<img src="<c:url value='/images/notice.png'/>" style="height: 50px;">
+	</div>
+	<div class="category">
+        	<label for="category">카테고리 분류</label>
+			<select name="category" id="category" title="카테고리" class="textBox" style="font-size: 0.8em;">
 				<option value="공지"
 				 <c:if test="${noticeVo.category=='공지' }">
             		selected
@@ -65,23 +65,25 @@ type="text/javascript"></script>
             		selected
             	</c:if>>점검</option>
 			</select>
-	           <input type="text" id="title" name="title" 
-	           	style="width: 300px; font-size: 0.75em; text-align: left; padding-left: 5px;" 
-	           	class="textBox" value="${noticeVo.title }" />
-	        </div>
-        <div>	       
+	    </div>
+	    <div class="firstDiv">
+            <label for="title" style="width:12%;">제목</label>
+            <input type="text" id="title" name="title" 
+            	style="width: 300px;font-size: 0.75em;text-align: left" 
+            	class="textBox" value="${noticeVo.title }" />
+        </div>
+      	<div>	       
  			<textarea id="content" name="content">${noticeVo.content }</textarea>
         </div>
-        <div class="editEndDiv" style="text-align:center">
-            <input type = "submit" value="수정하기"
-             class="button white medium"/>
-            <input type = "Button" value="목록"
-             class="button white medium" onclick
-	="location.href='<c:url value="/notice/list.ag"/>'"/>         
+        <br>
+        <div class="center">
+            <input type = "submit" class="button white medium" value="수정하기"/>
+            <input type = "Button" class="button white medium" value="목록" 
+            onclick="location.href='<c:url value="/notice/list.ag"/>'" />     
         </div>
-	</div>
-</form>
+	</fieldset>
+</form>    
 </div>
 </section>
 
-<%@ include file="../inc/simple_bottom.jsp" %> 
+<%@ include file="../inc/simple_bottom.jsp" %>

@@ -126,10 +126,10 @@ public class FreeboardController {
 		logger.info("freeboard 상세보기 결과 freeVo = {}", freeVo);
 		
 		FreeboardVO freePreVo=freeService.prevContent(freeNo);
-		logger.info("이전글 보기 결과 freeVo = {}", freeVo);
+		logger.info("이전글 보기 결과 freePreVo = {}", freePreVo);
 		
 		FreeboardVO freeNextVo=freeService.nextContent(freeNo);
-		logger.info("다음글 보기 결과 freeVo = {}", freeVo);
+		logger.info("다음글 보기 결과 freeNextVo = {}", freeNextVo);
 		
 		model.addAttribute("freeVo", freeVo);
 		model.addAttribute("preFreeVo", freePreVo);
@@ -186,6 +186,23 @@ public class FreeboardController {
 		freeService.deleteFreeboard(map);
 			
 		return "redirect:/freeboard/list.ag";
+	}
+	
+	@RequestMapping("/freeAdminDelete.ag")
+	public String freeAdminDelete(@RequestParam(defaultValue="0") int freeNo, Model model){
+		logger.info("관리자 Freeboard 삭제 , 파라미터 freeNo = {}", freeNo);
+		
+		FreeboardVO freeVo=freeService.selectFreeboardByNo(freeNo);
+		
+		Map<String, String> map=new HashMap<String, String>();
+		map.put("freeNo", Integer.toString(freeNo));
+		map.put("groupNo", freeVo.getGroupNo()+"");
+		map.put("step", freeVo.getStep()+"");
+		logger.info("관리자 글삭제 파라미터 map = {}", map);
+					
+		freeService.deleteFreeboard(map);
+			
+		return "redirect:/admin/adminBoard.ag";
 	}
 	
 	@RequestMapping(value="/reply.ag", method=RequestMethod.GET)

@@ -148,7 +148,7 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
 	<div class="main_left detail_left">
 		<div class="logo bon">
 			<img alt="${compVo.compName }" 
-			src="${recVo.imgURL }">
+			src="<c:url value='/images/${compVo.imageURL1 }'/>">
 		</div>
 
 		<span class="titd">
@@ -242,14 +242,14 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
 
 	  </dl>
 	  <br class="br"><br class="br">
-	  <a href="#" class="detail_left"><img 
+	  <a href="#" class="detail_left"><img  
 	  src=""
-	  alt="온라인지원"></a>
+	  alt='온라인지원'></a>
 	  
-	  <a href="#" class="detail_left decoration_none">&nbsp;<img 
+	  <a href="#" class="detail_left decoration_none">&nbsp;<img  
      src=""
      alt="e-메일지원"></a>
-	  <br class="clear_both">
+	  <br class="clearBoth">
 	  <div class="font_10 bon bold">e-메일 지원 시 자사양식 다운로드후 지원해 주세요.
 	  <a href="#"><img
 	  src=""

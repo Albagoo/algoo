@@ -111,10 +111,10 @@
 	font-weight:bold;
 	color:#333;
 }
-#header_menu a:nth-of-type(7){
+#header_menu a:nth-of-type(6){
 	margin-right:70px;
 }
-#header_menu a:nth-of-type(8),#header_menu a:nth-of-type(9){
+#header_menu a:nth-of-type(7),#header_menu a:nth-of-type(8){
 	color:red;
 }
 /* 검색창디자인 */

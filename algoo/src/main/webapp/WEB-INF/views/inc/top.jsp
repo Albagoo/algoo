@@ -8,7 +8,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8" />
-<title>top - 한두번갖고놀던장난감</title>
+<title>알바의 새로운 패러다임 - 알구</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/clear.css" />
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/includeLayout.css" />
 <script type="text/javascript" 
@@ -120,15 +120,14 @@
 				</div>
 				
 				<div id="header_menu">
-					<a href="#">채용정보 </a>
-					<a href="#">브랜드알바 </a> 
-					<a href="#">굿잡 </a>
-					<a href="#">신입공채 </a>
-					<a href="#">알바토크 </a>
-					<a href="#">인재정보	</a>
+					<a href="<c:url value='/rec/recList.ag'/>">채용정보 </a>
+					<a href="<c:url value='/rec/recList.ag'/>">브랜드알바 </a> 
+					<a href="<c:url value='/rec/recList.ag'/>">굿잡 </a>
+					<a href="<c:url value='/freeboard/list.ag'/>">알바토크 </a>
+					<a href="<c:url value='/resume/list.ag'/>">인재정보	</a>
 					<a href="<c:url value='/login/mypageType.ag'/>">회원페이지 </a>
-					<a href="#">이력서등록 </a>
-					<a href="#">공고등록 </a>
+					<a href="<c:url value='/resume/write.ag'/>">이력서등록 </a>
+					<a href="<c:url value='/rec/recWrite.ag'/>">공고등록 </a>
 				</div>
 			</div><!-- header_div -->
 		</div><!-- header -->

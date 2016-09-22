@@ -5,7 +5,7 @@
 <html lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>simple Top - 넌 무얼 원하냐고 되물어봤어</title>
+<title>알바의 새로운 패러다임 - 알구</title>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/clear.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleInc.css'/>" />
 <script type="text/javascript" 
@@ -78,9 +78,9 @@
 				<span></span>
 				<ul>
 					<li><a href="<c:url value='/index.ag'/>">홈</a> |</li>
-					<li><a href="#">채용정보</a> |</li>
-					<li><a href="#">인재정보</a> |</li>
-					<li><a href="#">알바토크</a> |</li>
+					<li><a href="<c:url value='/rec/recList.ag'/>">채용정보</a> |</li>
+					<li><a href="<c:url value='/resume/list.ag'/>">인재정보</a> |</li>
+					<li><a href="<c:url value='/freeboard/list.ag'/>">알바토크</a> |</li>
 					<li><a href="<c:url value='/faq/faqList.ag'/>">FAQ</a> |</li>
 					<li><a href="#">캠페인</a></li>
 				</ul>

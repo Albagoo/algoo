@@ -10,4 +10,6 @@ import com.algoo.app.member.model.MemberVO;
 public interface AdminMemberService {
 	public List<MemberVO> selectMemberList(SearchVO searchVo);
 	public int selectMemberCount(SearchVO searchVo);
+	public int deleteMem(String userid);
+	public int updateMem(MemberVO memberVo);
 }

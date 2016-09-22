@@ -31,6 +31,18 @@ public class AdminMemberServiceImpl implements AdminMemberService{
 	public List<MemberVO> selectMemberList(SearchVO searchVo) {
 		return adminMemberDao.selectMemberList(searchVo);
 	}
+
+
+	@Override
+	public int deleteMem(String userid) {
+		return adminMemberDao.deleteMem(userid);
+	}
+
+
+	@Override
+	public int updateMem(MemberVO memberVo) {
+		return adminMemberDao.updateMem(memberVo);
+	}
 	
 	
 }

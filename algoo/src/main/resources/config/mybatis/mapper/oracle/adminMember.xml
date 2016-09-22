@@ -9,6 +9,7 @@
 				${searchCondition} 
 				like '%' || #{searchKeyword} || '%'
 			</if>
+			and out_date is null
 		</where>
 	</sql>
 
@@ -18,6 +19,7 @@
 		    select rownum as RNUM, LIST_ALL.* from
 		        (select member_code, userid, nickname, username, birth, gender,
 		            email1, email2, hp1, hp2, hp3, zipcode, address, address_detail
+		            ,out_date
 		        from member
 		        <include refid="searchWhere"></include>  
 		        ) List_ALL
@@ -25,7 +27,7 @@
 		)
 		<![CDATA[
 		where RNUM> #{firstRecordIndex} and RNUM<= #{firstRecordIndex}
-		+ #{recordCountPerPage}
+		+ #{recordCountPerPage} 
 		]]>
 	</select>
 	
@@ -34,5 +36,16 @@
 			<include refid="searchWhere"></include>
 	</select>
 
+	<update id="deleteMem" parameterType="string">
+		update member
+		set out_date=sysdate
+		where userid=#{userid}
+	</update>
 	
+	<update id="updateMem" parameterType="MemberVO" >
+		update member
+		set nickName=#{nickName}, userName=#{userName}, birth=#{birth},gender=#{gender}
+		,email1=#{email1},email2=#{email2},hp1=#{hp1},hp2=#{hp2},hp3=#{hp3}
+		where userid=#{userid}
+	</update>
 </mapper>

@@ -69,6 +69,7 @@ public class CommentController {
 		logger.info("댓글삭제 , 파라미터 commentNo = {}", commentNo);
 		
 		CommentVO commentVo=cmtService.selectCommentByNo(commentNo);
+		logger.info("받아온 commentVo = {}", commentVo);
 		
 		Map<String, String> map=new HashMap<String, String>();
 		map.put("commentNo", Integer.toString(commentNo));
@@ -77,6 +78,7 @@ public class CommentController {
 		logger.info("댓글삭제 파라미터 map = {}", map);
 					
 		cmtService.deleteComment(map);
+		
 			
 		return "redirect:/freeboard/detail.ag?freeNo="+commentVo.getFreeNo();
 	}

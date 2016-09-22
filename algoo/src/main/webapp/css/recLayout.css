@@ -116,15 +116,11 @@ body{
    float: left;
 }
 .rence label{
-   margin: 5px 0 0 0px;
+   margin: 5px 0 5px 0px;
    float: left;
-   width: 110px;
+   width: 115px;
 }
-.ren label{
-   margin: 5px 0 0 0px;
-   float: left;
-   width: 80px;
-}
+
 .txt{
    margin:10px;
    width: 580px;
@@ -653,23 +649,36 @@ display: inline-block;
     border: 1px solid #38f; */
   }
 /* 지역별검색, 직종별검색 버튼 CSS */   
-#button,#button2,#button3 {
+#button,#button2,#button3,
+#searchCondition,#searchKeyword
+,#searchBt {
     padding: .5em 1em;
     text-decoration: none;
+    
   }
 #button:hover,
 #button2:hover,
-#button3:hover{
+#button3:hover,
+#searchBt:hover,
+.recList tbody tr:hover
+{
 	color:#FFF;
    background: #007FFF;
    border-radius: 0.2em;
 }  
 #button:active,
 #button2:active,
-#button3:active{
+#button3:active,
+#searchCondition:active,
+#searchBt:active,
+#searchKeyword:active,
+.recList tbody tr td:active{
 	color:#FFF;
    background: #0033FF;
    border-radius: -1em;
+}
+.recList tbody tr{
+	
 }  
 /* 탭 내용 CSS */  
 #effect {

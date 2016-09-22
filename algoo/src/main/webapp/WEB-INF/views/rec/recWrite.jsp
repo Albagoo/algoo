@@ -302,19 +302,19 @@ href="<c:url value='/jquery/jquery-ui.css'/>"/>
       <div class="companyInfo bg">
          <dl class="clearBoth">
             <dt>
-               <span class="tit">회사/점포명</span> <input type="text" class="txt_150"
+               <span class="titd">회사/점포명</span> <input type="text" class="txt_150"
                   readonly="readonly" value="${compVo.compName }">
             </dt>
             <dt>
-               <span class="tit">대표자명(ceo)</span> <input type="text"
+               <span class="titd">대표자명(ceo)</span> <input type="text"
                   class="txt_150" readonly="readonly" value="${compVo.ceo }">
             </dt>
             <dt>
-               <span class="tit">사업자등록번호</span> <input type="text" class="txt_150"
+               <span class="titd">사업자<br>등록번호</span> <input type="text" class="txt_150"
                   readonly="readonly" value="${compVo.compNum }">
             </dt>
             <dt>
-               <span class="tit">회사/점포주소</span> <input type="text" class="txt"
+               <span class="titd">회사<br>점포주소</span> <input type="text" class="txt"
                   readonly="readonly"
                   value="${compVo.address } 
                          ${compVo.addressDetail}">
@@ -339,11 +339,11 @@ style="width: 150px;height: 100px;border: 1px solid gray">
       <div class="personInfo bg">
          <dl class="clearBoth">
             <dt>
-               <span class="tit">담당자명</span> <input type="text" class="txt_60"
+               <span class="titd">담당자명</span> <input type="text" class="txt_60"
                   placeholder="이름" name="detpName" value="${compVo.deptName }">
             </dt>
             <dt>
-               <span class="tit">전화번호</span> 
+               <span class="titd">전화번호</span> 
                <input type="text" class="phone1"
                  name="phone1" placeholder="02" maxlength="3"
                  value="${compVo.phone1 }"> 
@@ -355,7 +355,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                  value="${compVo.phone3 }">
             </dt>
             <dt class="clearBoth">
-               <span class="tit">휴대폰</span> <input type="text" class="phone1"
+               <span class="titd">휴대폰</span> <input type="text" class="phone1"
                   name="hp1" placeholder="010" maxlength="3" value="${compVo.hp1 }">
                <input type="text" class="phone2" name="hp2" placeholder="0000"
                   maxlength="4" value="${compVo.hp2 }"> <input type="text"
@@ -363,7 +363,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                   value="${compVo.hp3 }">
             </dt>
             <dt>
-               <span class="tit">팩스번호</span> <input type="text" class="phone1"
+               <span class="titd">팩스번호</span> <input type="text" class="phone1"
                   name="fax1" placeholder="010" maxlength="3"
                   value="${compVo.fax1 }"> <input type="text" class="phone2"
                   name="fax2" placeholder="0000" maxlength="4"
@@ -372,12 +372,12 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                   value="${compVo.fax3 }">
             </dt>
             <dt>
-               <span class="tit">e-mail</span> 
+               <span class="titd">e-mail</span> 
                <input type="text" class="email1"
                  placeholder="exam123" value="${compVo.email1 }"> 
                <span style="margin-top: 7px;float: left">
                @</span> 
-               <select class="floatLeft small button white" id=email2
+               <select class="floatLeft" id=email2
                style="margin-top: 10px">
                   <option value="naver">naver.com</option>
                   <option value="hanmail">hanmail.net</option>
@@ -397,41 +397,41 @@ style="width: 150px;height: 100px;border: 1px solid gray">
       <div class=" workInfo bg">
          <dl class="clearBoth">
             <dt>
-               <span class="tit">근무회사/점포명</span> <input type="text"
+               <span class="titd">근무회사<br>점포명</span> <input type="text"
                   class="txt_200" placeholder="회사명(지점명)" maxlength="30"
                   name="compName">
             </dt>
             <dt>
-               <span class="tit">채용제목</span> <input type="text" class="txt"
+               <span class="titd">채용제목</span> <input type="text" class="txt"
                   placeholder="성실하게 함께할 가족 구합니다" name="title" id="title"
                   maxlength="33">
             </dt>
             <dt>
-               <span class="tit">업직종</span>
-               <select class="white small button"  
+               <span class="titd">업직종</span>
+               <select   
                 name="jobName" id="jobName"> </select>
-                <select  class="white small button"
+                <select  
                 name="jobName2" id="jobName2">
                 <option value="null">직종선택</option>
                </select>
                
             </dt>
             <dt>
-               <span class="tit">근무지주소</span> <input type="text" class="txt_70"
+               <span class="titd">근무지주소</span> <input type="text" class="txt_70"
                   placeholder="우편번호" name="zipcode" id="zipcode" readonly="readonly">
                <input type="text" class="txt_500" placeholder="주소" name="address"
                   id="address" readonly="readonly">
             </dt>
             <dt>
-               <span class="tit">상세주소</span> <input type="text" class="txt_500"
+               <span class="titd">상세주소</span> <input type="text" class="txt_500"
                   placeholder="상세주소" name="addressDetail" id="addressDetail">
 
                <input type="button" class="white textBox" value="우편번호 찾기"
                   id="btnZipcode">
             </dt>
             <dt>
-               <span class="tit">인근지하철</span> <select
-                  class="txt_100 white small textBox" name="subRegion"
+               <span class="titd">인근지하철</span> <select
+                  class="txt_100 " name="subRegion"
                   id="subRegion">
                   <option value="null">지역</option>
                   <option value="서울">서울</option>
@@ -439,9 +439,9 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                   <option value="대전">대전</option>
                   <option value="광주">광주</option>
                   <option value="부산">부산</option>
-               </select> <select class="txt_150 white small textBox" name="subNum"
+               </select> <select class="txt_150 " name="subNum"
                   id="subNum">
-               </select> <select class="txt_150 white small textBox" name="subName"
+               </select> <select class="txt_150 " name="subName"
                   id="subName">
 
                </select> <input type="text" class="txt_200" name="subInfo" id="subInfo"
@@ -453,33 +453,32 @@ style="width: 150px;height: 100px;border: 1px solid gray">
       <h2>근무조건</h2>
       <div class="workCondition bg checks">
          <dl class="clearBoth">
-            <dt>
-               <span class="tit">근무기간</span> 
+            <dt class="recne">
+               <span class="titd">근무기간</span> 
                <input type="radio" id="one" name="workTerm" 
-               value="하루(1일)" checked="checked"> 
+                 value="하루(1일)" checked="checked"> 
                <label for="one"> 하루(1일)</label> 
                <input type="radio" id="week"
-                  name="workTerm" value="1주일이하"> 
+                 name="workTerm" value="1주일이하"> 
                <label for="week"> 1주일이하</label> 
                <input type="radio" id="month" name="workTerm"
-                  value="1주일~1개월"> 
+                 value="1주일~1개월"> 
                <label for="month"> 1주일~1개월</label> 
                <input type="radio" id="threeMonth" name="workTerm" 
-               value="1개월~3개월">
+                 value="1개월~3개월">
                <label for="threeMonth"> 1개월~3개월</label> 
                <input type="radio" id="sixMonth" name="workTerm" 
-               value="3개월~6개월"> 
+                 value="3개월~6개월"> 
                <label for="sixMonth"> 3개월~6개월 </label> 
                <input type="radio" id="year"  name="workTerm" 
-               value="6개월~1년"> 
+                 value="6개월~1년"> 
                <label for="year">  6개월~1년</label> 
                <input type="radio" id="consult" name="workTerm"
                  value="기간협의"> 
-                 <label for="consult"> 기간협의</label>
-
+               <label for="consult"> 기간협의</label>
             </dt>
-            <dt>
-               <span class="tit">근무요일</span> 
+            <dt class="rence">
+               <span class="titd">근무요일</span> 
                <input type="radio" id="MontoSun"
                   name="workDays" checked="checked" value="월~일"> 
                <label for="MontoSun"> 월~일</label> 
@@ -491,10 +490,11 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <label for="MontoFri"> 월~금</label> 
                <input type="radio" id="SatSun"
                   name="workDays" value="주말(토,일)"> 
-               <label for="SatSun"> 주말(토,일)</label> 
+               <label for="SatSun"> 주말(토,일)</label>
                <input type="radio" id="sixDay" name="workDays"
                   value="주 6일"> 
                <label for="sixDay"> 주 6일</label> 
+               <span class="clearBoth titd"> </span> 
                <input type="radio" id="fiveDay" name="workDays" 
                   value="주 5일"> 
                <label for="fiveDay"> 주 5일</label> 
@@ -514,8 +514,8 @@ style="width: 150px;height: 100px;border: 1px solid gray">
 
             </dt>
             <dt>
-               <span class="tit" style="height: 20px;">근무시간 </span><select
-                  class="txt_85 white textBox small" 
+               <span class="titd" style="height: 20px;">근무시간 </span><select
+                  class="txt_85 " 
                   name="workTime">
                   <c:forEach var="i" begin="0" end="24" step="1">
                      <c:if test="${i<10 }">
@@ -528,7 +528,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                         <option value="${i}">${i}시</option>
                      </c:if>
                   </c:forEach>
-               </select> <select class="txt_85 white textBox small" name="workTime2">
+               </select> <select class="txt_85 " name="workTime2">
                   <c:forEach var="i" begin="0" end="60" step="10">
                      <c:if test="${i<10 }">
                         <c:set var="j" value="0${i}" />
@@ -541,7 +541,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                      </c:if>
                   </c:forEach>
                </select> <span style="float: left;">~ </span><select
-                  class="txt_85 white textBox small" name="workTime3">
+                  class="txt_85 " name="workTime3">
                   <!-- <option value="null">종료</option> -->
                   <c:forEach var="i" begin="0" end="24" step="1">
                      <c:if test="${i<10 }">
@@ -553,7 +553,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                         <option value="${i}">${i}시</option>
                      </c:if>
                   </c:forEach>
-               </select> <select class="txt_85 white textBox small" name="workTime4">
+               </select> <select class="txt_85 " name="workTime4">
                   <!-- <option value="null">시간</option> -->
                   <c:forEach var="i" begin="0" end="60" step="10">
                      <c:if test="${i<10 }">
@@ -568,8 +568,8 @@ style="width: 150px;height: 100px;border: 1px solid gray">
 
             </dt>
             <dt>
-               <span class="tit" >급여선택</span> 
-               <select class="txt_85 white textBox small" 
+               <span class="titd" >급여선택</span> 
+               <select class="txt_85 " 
                   name="payType" style="margin-top: 10px">
                   <option value="시급">시급</option>
                   <option value="일급">일당</option>
@@ -582,37 +582,38 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <span class="txt_30">원</span> 
               
                 <input id="minPay" value="최저임금  6030원"
-                class="white small"
+                class="white small button"
                 type="button" onclick="minPaySet()"> 
             </dt>
-            <dt >
-               <span class="tit">고용형태</span> <input type="checkbox"
-                  name="recruitType" value="알바" id="alba"> <label for="alba">알바</label>
-
-
-               <input type="checkbox" value="J" id="jung"> <label
-                  for="jung"> 정규직</label> <input type="checkbox" value="G" id="gye">
-               <label for="gye"> 계약직</label> <input type="checkbox" value="F"
-                  id="fageon"> <label for="fageon">파견직</label> <input
-                  type="checkbox" value="I" id="intern"> <label for="intern">인턴직</label>
-
-
-               <input type="checkbox" value="W" id="wechock"> <label
-                  for="wechock">위촉직</label>
-
+            <dt class="rence">
+               <span class="titd">고용형태</span> 
+               <input type="checkbox"
+                name="recruitType" value="알바" id="alba"> 
+               <label for="alba">알바</label>
+               <input type="checkbox" value="J" id="jung"> 
+               <label for="jung"> 정규직</label> 
+               <input type="checkbox" value="G" id="gye">
+               <label for="gye"> 계약직</label> 
+               <span class="clearBoth titd"> </span>
+               <input type="checkbox" value="F"
+                  id="fageon"> 
+               <label for="fageon">파견직</label> 
+               <input type="checkbox" value="I" id="intern">
+               <label for="intern">인턴직</label>
+               <input type="checkbox" value="W" id="wechock"> 
+               <label for="wechock">위촉직</label>
             </dt>
             <dt>
-               <span class="tit">복리후생</span> <input type="text" class="txt"
+               <span class="titd">복리후생</span> <input type="text" class="txt"
                   name="welfare" id="welfare">
-
             </dt>
          </dl>
       </div>
       <h2>지원조건</h2>
       <div class="requestCondition bg checks">
          <dl class="clearBoth">
-            <dt>
-               <span class="titc">성별 </span> 
+            <dt class="rence">
+               <span class="titd">성별 </span> 
                <input type="radio" id="gender" name="gender" 
                 checked="checked" value="성별무관"> 
                <label for="gender">성별무관</label> 
@@ -624,8 +625,8 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <label for="female"> 여성</label>
 
             </dt>
-            <dt>
-               <span class="titc">연령</span> 
+            <dt class="rence">
+               <span class="titd">연령</span> 
                <input type="radio" id="donAge"
                 name="age" checked="checked" value="연령무관"> 
                <label for="donAge">연령무관</label> 
@@ -635,16 +636,16 @@ style="width: 150px;height: 100px;border: 1px solid gray">
 
                <input type="checkbox" id="oldAge" 
                 name="age" value="고연령자(65세이상)">
-               <label for=oldAge> 고연령자 가능(65세이상)</label> 
+               <label for=oldAge> 고연령자 가능<br>(65세이상)</label> 
                <input type="checkbox" id="youngAge" 
                 name="age" value="청소년(만 18세이상)"> 
-               <label for=youngAge> 청소년가능(만18세 이상)</label>
+               <label for=youngAge> 청소년가능<br>(만18세 이상)</label>
                <input type="checkbox" id="housewife" 
                 name="age" value="주부"> 
                <label for=housewife> 주부 가능</label> 
             </dt>
-            <dt>
-               <span class="titc">학력조건</span> 
+            <dt class="rence">
+               <span class="titd">학력조건</span> 
                <input type="radio" id="eduLv" name="educateLv" 
                 checked="checked" value="학력무관"> 
                <label for="eduLv"> 학력무관</label> 
@@ -654,6 +655,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <input type="radio" id="high" name="educateLv"
                 value="고등학교졸업"> 
                <label for="high"> 고등학교졸업 </label> 
+               <span class="clearBoth titd"> </span>
                <input type="radio" id="univ23" name="educateLv" 
                 value="대학(2,3년제)졸업">
                <label for="univ23"> 대학(2,3년제)졸업 </label> 
@@ -664,8 +666,8 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                 value="대학원졸업~"> 
                <label for="graduate"> 대학원졸업~ </label>
             </dt>
-            <dt>
-               <span class="titc">경력사항</span> 
+            <dt class="rence">
+               <span class="titd">경력사항</span> 
                <input type="radio" id="work" name="career" 
                 checked="checked"> 
                <label for="work"> 경력무관 </label> 
@@ -675,67 +677,67 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                 name="career"> 
                <label for="experience"> 경력 </label>
             </dt>
-            <dt>
+            <dt class="rence">
                <div style="height: 110px;">
-                 <span class="clearBoth titc">우대조건</span> 
+                 <span class="clearBoth titd">우대조건</span> 
                  <input type="checkbox" id="expPre" 
                   name="preference" value="동종업계 경력자"> 
-                 <label class="rence" for="expPre"> 
+                 <label  for="expPre"> 
                                         동종업계 경력자 </label> 
                  <input type="checkbox" id="licensePre" 
                   name="preference" value="관련자격증 소시자"> 
-                 <label class="rence" for="licensePre">
+                 <label  for="licensePre">
                                         관련자격증 소지자 </label> 
                  <input type="checkbox" id="pcPre" 
                   name="preference" value="컴퓨터활용 가능자"> 
-                 <label class="rence" for="pcPre">
+                 <label  for="pcPre">
                                         컴퓨터활용 가능자 </label> 
                  <input type="checkbox" id="longPre" 
                   name="preference" value="장기근무 가능자"> 
-                 <label class="rence" for="longPre">
+                 <label  for="longPre">
                                         장기근무 가능자 </label> 
-                 <span class="clearBoth titc"> </span> 
+                 <span class="clearBoth titd"> </span> 
                  <input type="checkbox" id="engPre" 
                   name="preference" value="영어 가능자">
-                 <label class="rence" for="engPre"> 
+                 <label  for="engPre"> 
                                         영어 가능자 </label> 
                  <input type="checkbox" id="jpPre" 
                   name="preference" value="일어 가능자">
-                 <label class="rence" for="jpPre"> 
+                 <label  for="jpPre"> 
                                          일어 가능자 </label> 
                  <input type="checkbox" id="cnPre" 
                   name="preference" value="중국어 가능자">
-                 <label class="rence" for="cnPre"> 
+                 <label  for="cnPre"> 
                                          중국어 가능자 </label> 
                  <input type="checkbox" id="insidePre" 
                   name="preference" value="인근 거주자">
-                 <label class="rence" for="insidePre"> 
+                 <label  for="insidePre"> 
                                          인근 거주자 </label> 
-                 <span class="clearBoth titc"> </span> 
+                 <span class="clearBoth titd"> </span> 
                  <input type="checkbox" id="drivePre" 
                   name="preference" value="운전면허 소지자"> 
-                 <label class="rence" for="drivePre"> 
+                 <label  for="drivePre"> 
                                         운전면허 소지자 </label> 
                  <input type="checkbox" id="byclePre" 
                   name="preference" value="원동기면허 소지자">
-                 <label class="rence" for="byclePre"> 
+                 <label  for="byclePre"> 
                                          원동기면허 소지자 </label> 
                  <input type="checkbox" id="carPre" 
                   name="preference" value="차량 소지자">
-                 <label class="rence" for="carPre"> 
+                 <label  for="carPre"> 
                                         차량 소지자 </label> 
                  <input type="checkbox" id="militaryPre" 
                   name="preference" value="군필자">
-                 <label class="rence" for="militaryPre"> 
+                 <label  for="militaryPre"> 
                                         군필자 </label> 
-                 <span class="clearBoth titc"> </span> 
+                 <span class="clearBoth titd"> </span> 
                  <input type="checkbox" id="femailPre" 
                   name="preference" value="여성"> 
-                 <label class="rence" for="femailPre"> 
+                 <label  for="femailPre"> 
                                           여성 </label> 
                  <input type="checkbox" id="mrsPre" 
                   name="preference" value="경력단절여성"> 
-                 <label class="rence" for="mrsPre"> 
+                 <label  for="mrsPre"> 
                                         경력단절여성 </label>
                </div>
             </dt>
@@ -744,8 +746,8 @@ style="width: 150px;height: 100px;border: 1px solid gray">
       <h2>모집내용</h2>
       <div class="recContent bg checks">
          <dl class="clearBoth">
-            <dt>
-               <span class="titc">모집인원 </span> 
+            <dt >
+               <span class="titd">모집인원 </span> 
                <input type="text" class="txt_50"
                 placeholder="00명" name="recruitMember"
                 id="writeMember" name="recruitMember"> 
@@ -756,28 +758,35 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                 name="recruitMember" value="00명" name="recruitMember"> 
                 <label id="tenxten" for="hundredPeople">00명 </label>
             </dt>
-            <dt>
-               <span class="titc">모집대상</span> 
+            <dt class="rence">
+               <span class="titd">모집대상</span> 
                <input type="checkbox" id="youth"
                   name="recruitPerson" value="청소년"> 
                <label for="youth">청소년</label>
 
 
-               <input type="checkbox" id="univSt" name="recruitPerson" value="대학생">
-               <label for="univSt">대학생</label> <input type="checkbox"
-                  id="homemaker" name="recruitPerson" value="주부"> <label
-                  for="homemaker">주부</label> <input type="checkbox" id="senior"
-                  name="recruitPerson" value="장년"> <label for="senior">장년</label>
-
-               <input type="checkbox" id="disabled" name="recruitPerson"
-                  value="장애인"> <label for="disabled">장애인</label> <input
-                  type="checkbox" id="novice" name="recruitPerson" value="초보자">
-               <label for="novice">초보자</label> <input type="checkbox"
-                  id="homeWork" name="recruitPerson" value="재택가능"> <label
-                  for="homeWork">재택가능</label>
+               <input type="checkbox" id="univSt" 
+               name="recruitPerson" value="대학생">
+               <label for="univSt">대학생</label> 
+               <input type="checkbox" id="homemaker" 
+               name="recruitPerson" value="주부"> 
+               <label for="homemaker">주부</label> 
+               <input type="checkbox" id="senior"
+               name="recruitPerson" value="장년"> 
+               <label for="senior">장년</label>
+               <span class="clearBoth titd"> </span>
+               <input type="checkbox" id="disabled" 
+               name="recruitPerson" value="장애인"> 
+               <label for="disabled">장애인</label> 
+               <input type="checkbox" id="novice" 
+               name="recruitPerson" value="초보자">
+               <label for="novice">초보자</label> 
+               <input type="checkbox" id="homeWork" 
+               name="recruitPerson" value="재택가능">
+               <label for="homeWork">재택가능</label>
             </dt>
             <dt>
-               <span class="titc">모집종료일</span>
+               <span class="titd">모집종료일</span>
                
                  <input type="hidden" id="calText2" size="10"
                  name="recruitDeadline" value="${serv }">
@@ -790,54 +799,62 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                  <input type="button" id="completeCal"
                    value="채용시까지" class="white small textBox">
             </dt>
-            <dt>
-               <span class="titc">접수방법</span> 
+            <dt class="rence">
+               <span class="titd">접수방법</span> 
                <input type="checkbox" id="onlineRec"
-                  name="recruitMethod" value="온라인지원"> <label class="rence"
-                  for="onlineRec"> 온라인지원 </label> <input type="checkbox"
-                  id="emailRec" name="recruitMethod" value="e-메일지원"> <label
-                  class="rence" for="emailRec"> e-메일지원 </label> <input
-                  type="checkbox" id="phoneRec" name="phoneRec" value="전화연락">
-               <label class="rence" for="phoneRec"> 전화연락 </label> <input
-                  type="checkbox" id="offlineRec" name="offlineRec" value="방문접수">
-               <label class="rence" for="offlineRec"> 방문접수 </label>
+                 name="recruitMethod" value="온라인지원"> 
+               <label  for="onlineRec"> 
+                                  온라인지원 </label> 
+               <input type="checkbox" id="emailRec" 
+               name="recruitMethod" value="e-메일지원"> 
+               <label  for="emailRec"> 
+               e-메일지원 </label> 
+               <input type="checkbox" id="phoneRec" 
+               name="phoneRec" value="전화연락">
+               <label  for="phoneRec"> 
+                                    전화연락 </label> 
+               <input  type="checkbox" id="offlineRec" 
+               name="offlineRec" value="방문접수">
+               <label  for="offlineRec"> 
+                                   방문접수 </label>
                
-               <p class="titc">　　</p>
-               <span class="clearBoth titc">　　</span>
                <input type="checkbox" id="postRec" 
                  value="우편">
-               <label class="rence" for="postRec"> 우편 </label> 
+               <label  for="postRec"> 우편 </label>
+               <span class="clearBoth titd">　　</span> 
                <input type="checkbox" id="faxRec" 
                  value="팩스"> 
-               <label class="rence" for="faxRec"> 팩스 </label> 
+               <label  for="faxRec"> 팩스 </label> 
                <input type="checkbox" id="homepageRec" 
                  value="홈페이지"> 
-               <label class="rence" for="homepageRec"> 홈페이지 </label> 
+               <label  for="homepageRec"> 홈페이지 </label> 
                <input type="checkbox" id="recForm" 
                  value="자사지원양식"> 
-                 
                <label for="recForm">자사지원양식</label> 
-               <span style="font-size: 8pt">
-                 ( <input type="radio"  
-                 name="recForm" id="FormF"> 
-                 <label for="FormF">필수 ,</label> 
-                 <input type="radio" name="recForm" id="FormS"> 
-                 <label for="FormS">선택</label> )
-               </span>
-
+               <div style="display: inline-block;float: left;">
+               <span style="float: left;">(</span>
+               <input type="radio"  
+               name="recForm" id="FormF"> 
+               <label for="FormF" style="width: 35px">필수 ,</label> 
+               <input type="radio" name="recForm" id="FormS"> 
+               <label for="FormS" style="width: 35px">선택</label>
+               <span style="float: left;">)</span>
+               </div>
             </dt>
-            <dt>
-               <span class="titc">제출서류</span> <input type="checkbox" id="expDoc"
-                  name="documents" value="이력서"> <label class="rence"
+               
+
+            <dt class="rence">
+               <span class="titd">제출서류</span> <input type="checkbox" id="expDoc"
+                  name="documents" value="이력서"> <label 
                   for="expDoc"> 이력서 </label> <input type="checkbox" id="juminDoc"
-                  name="documents" value="주민.등록등본"> <label class="rence"
+                  name="documents" value="주민.등록등본"> <label 
                   for="juminDoc"> 주민.등록등본 </label> <input type="checkbox"
                   id="mediDoc" name="documents" value="보건증"> <label
                   class="rence" for="mediDoc"> 보건증 </label> <input type="checkbox"
                   id="introDoc" name="documents" value="자기소개서"> <label
                   class="rence" for="introDoc"> 자기소개서 </label> <input
                   type="checkbox" id="parDoc" name="documents" value="부모님동의서">
-               <label class="rence" for="parDoc"> 부모님동의서 </label>
+               <label  for="parDoc"> 부모님동의서 </label>
 
             </dt>
          </dl>

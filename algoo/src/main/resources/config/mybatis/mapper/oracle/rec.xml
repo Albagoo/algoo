@@ -51,8 +51,9 @@
          </if>
          
          <if test="job1!=null and job1!=''">
-            <if test="searchKeyword!=null and searchKeyword!=''">
-            or
+            <if test="(searchKeyword!=null and searchKeyword!='')
+            or (area1!=null and area1!='')">
+            and
             </if>
             JOB_NAME2
             like '%' || #{job1} || '%'
@@ -89,12 +90,19 @@
             JOB_NAME2
             like '%' || #{job5} || '%'
          </if>
-         <if test="workTerm != null">
-         work_term IN 
-         <foreach collection="workTerm" item="workTerm" 
-            index="index" open="(" close=")" separator=",">
-            #{workTerm}
-         </foreach>
+	<if test="workTerm != null and workTerm!=''">
+	
+		<if
+			test="(searchKeyword!=null and searchKeyword!='') 
+         or (area1!=null and area1!='')
+         or (job1!=null and job1!='')">
+			and
+		</if>
+		work_term IN
+		<foreach collection="workTerm" item="workTerm" index="index"
+			open="(" close=")" separator=",">
+			#{workTerm}
+		</foreach>
       </if>
          
          

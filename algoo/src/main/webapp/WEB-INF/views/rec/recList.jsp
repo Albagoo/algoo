@@ -33,8 +33,8 @@ $(document).ready(function(){
      //임시 
      
 	   runEffect("#effect"); 
-	   runEffect("#effect2"); 
-	   /* runEffect("#effect3");  */
+	    runEffect("#effect2");  
+	    /* runEffect("#effect3");   */
       
       // run the currently selected effect
        function runEffect(effect) {
@@ -483,7 +483,7 @@ $(document).ready(function(){
 				    <dl class="clearBoth">
 						<dt>
 							<span class="titd">급여선택</span> <select
-								class="txt_85" name="payType"
+								class="txt_85" name="payTypes"
 								style="margin: 5px 0 5px 0;
 								height: 25px;">
 								<option value="시급">시급</option>
@@ -493,7 +493,7 @@ $(document).ready(function(){
 								<option value="연봉">연봉</option>
 							</select> 
 							<input type="text" class="txt_150" 
-							name="pay" id="pay"	value="0"> 
+							name="pays" id="pays"	value="0"> 
 							<span class="txt_50">원 이상</span> 
 							<input id="minPay" value="최저임금  6030원" 
 							class="white small"	type="button" 
@@ -524,62 +524,62 @@ $(document).ready(function(){
 						<dt class="rence">
 							<span class="titd">복리후생</span> 
 							<input type="checkbox" id="welfare_10" 
-							name="welfare" value="국민연금"> 
+							name="welfares" value="국민연금"> 
 	                   <label class="rence" for="welfare_10"> 
 	                                                     국민연금</label> 
 	                   <input type="checkbox" id="welfare_11"
-	                   name="welfare" value="고용보험"> 
+	                   name="welfares" value="고용보험"> 
 	                   <label class="rence" for="welfare_11"> 
 	                                                     고용보험</label> 
 	                   <input type="checkbox" id="welfare_12" 
-	                   name="welfare" value="산재보험"> 
+	                   name="welfares" value="산재보험"> 
 	                   <label class="rence" for="welfare_12">
 	                                                     산재보험 </label> 
 	                   <input type="checkbox" id="welfare_13"
-	                   name="welfare" value="건강보험"> 
+	                   name="welfares" value="건강보험"> 
 	                   <label class="rence" for="welfare_14"> 
 	                                                    건강보험</label> 
 	                   <input type="checkbox" id="welfare_20" 
-	                   name="welfare" value="연차"> 
+	                   name="welfares" value="연차"> 
 	                   <label class="rence" for="welfare_20"> 
 	                                                    연차</label>
 	                   <span class="clearBoth titd"> </span> 
 	                   <input type="checkbox" id="welfare_21" 
-	                   name="welfare" value="월차">
+	                   name="welfares" value="월차">
 	                   <label class="rence" for="welfare_21"> 
 	                                                    월차</label> 
 	                   <input type="checkbox" id="welfare_22" 
-	                   name="welfare" value="정기휴가">
+	                   name="welfares" value="정기휴가">
 	                   <label class="rence" for="welfare_22"> 
 	                                                    정기휴가</label> 
 	                   <input type="checkbox" id="welfare_23" 
-	                   name="welfare" value="인센티브제"> 
+	                   name="welfares" value="인센티브제"> 
 	                   <label class="rence" for="welfare_23">
 	                                                     인센티브제 </label> 
 	                   
 	                   <input type="checkbox" id="welfare_30" 
-	                   name="welfare"  value="운전면허 소지자"> 
+	                   name="welfares"  value="운전면허 소지자"> 
 	                   <label class="rence" for="welfare_30">
 	                                                     운전면허 소지자 </label> 
 	                   <input type="checkbox" id="welfare_31"
-	                   name="welfare" value="원동기면허 소지자"> 
+	                   name="welfares" value="원동기면허 소지자"> 
 	                   <label class="rence" for="welfare_31">
 	                                                      원동기면허 소지자 </label>
 	                   <span class="clearBoth titd"> </span> 
 	                   <input type="checkbox" id="welfare_32" 
-	                   name="welfare" value="차량 소지자">
+	                   name="welfares" value="차량 소지자">
 	                   <label class="rence" for="welfare_32"> 
 	                                                     차량 소지자 </label>
 	                   <input type="checkbox" id="welfare_33" 
-	                   name="welfare"   value="군필자"> 
+	                   name="welfares"   value="군필자"> 
 	                   <label class="rence" for="welfare_33">
 	                                                    군필자 </label> 
 	                   <input type="checkbox" id="welfare_34" 
-	                   name="welfare" value="여성">
+	                   name="welfares" value="여성">
 	                   <label class="rence" for="welfare_34">
 	                                                     여성 </label> 
 	                   <input type="checkbox" id="welfare_40" 
-	                   name="welfare" value="경력단절여성">
+	                   name="welfares" value="경력단절여성">
 	                   <label class="rence" for="welfare_40"> 
 	                                              경력단절여성 </label>
 						</dt>
@@ -608,61 +608,61 @@ $(document).ready(function(){
 						<dt class="rence" style="height: 110px;">
 							<span class="clearBoth titd">우대조건</span> 
 							<input type="checkbox" id="expPre" 
-                    name="welfare" value="동종업계 경력자"> 
+                    name="welfares" value="동종업계 경력자"> 
                     <label class="rence" for="expPre"> 
                                                       동종업계 경력자 </label> 
                     <input type="checkbox" id="licensePre"
-                    name="welfare" value="관련자격증 소시자"> 
+                    name="welfares" value="관련자격증 소시자"> 
                     <label class="rence" for="licensePre"> 
                                                       관련자격증 소지자 </label> 
                     <input type="checkbox" id="pcPre" 
-                    name="welfare" value="컴퓨터활용 가능자"> 
+                    name="welfares" value="컴퓨터활용 가능자"> 
                     <label class="rence" for="pcPre">
                                                       컴퓨터활용 가능자 </label> 
                     <input type="checkbox" id="longPre"
-                    name="welfare" value="장기근무 가능자"> 
+                    name="welfares" value="장기근무 가능자"> 
                     <label class="rence" for="longPre"> 
                                                      장기근무 가능자 </label> 
                     <input type="checkbox" id="engPre" 
-                    name="welfare" value="영어 가능자">
+                    name="welfares" value="영어 가능자">
                     <label class="rence" for="engPre"> 
                                                      영어 가능자 </label>
                     <span class="clearBoth titd"> </span>  
                     <input type="checkbox" id="jpPre" 
-                    name="welfare" value="일어 가능자">
+                    name="welfares" value="일어 가능자">
                     <label class="rence" for="jpPre"> 
                                                      일어 가능자 </label> 
                     <input type="checkbox" id="cnPre" 
-                    name="welfare" value="중국어 가능자">
+                    name="welfares" value="중국어 가능자">
                     <label class="rence" for="cnPre"> 
                                                      중국어 가능자 </label> 
                     <input type="checkbox" id="insidePre" 
-                    name="welfare" value="인근 거주자"> 
+                    name="welfares" value="인근 거주자"> 
                     <label class="rence" for="insidePre">
                                                       인근 거주자 </label> 
                     <input type="checkbox" id="drivePre" 
-                    name="welfare"  value="운전면허 소지자"> 
+                    name="welfares"  value="운전면허 소지자"> 
                     <label class="rence" for="drivePre">
                                                       운전면허 소지자 </label> 
                     <input type="checkbox" id="byclePre"
-                    name="welfare" value="원동기면허 소지자"> 
+                    name="welfares" value="원동기면허 소지자"> 
                     <label class="rence" for="byclePre">
                                                        원동기면허 소지자 </label>
                     <span class="clearBoth titd"> </span>
                     <input type="checkbox" id="carPre" 
-                    name="welfare" value="차량 소지자">
+                    name="welfares" value="차량 소지자">
                     <label class="rence" for="carPre"> 
                                                       차량 소지자 </label>
                     <input type="checkbox" id="militaryPre" 
-                    name="welfare"   value="군필자"> 
+                    name="welfares"   value="군필자"> 
                     <label class="rence" for="militaryPre">
                                                      군필자 </label> 
                     <input type="checkbox" id="femailPre" 
-                    name="welfare" value="여성">
+                    name="welfares" value="여성">
                     <label class="rence" for="femailPre">
                                                       여성 </label> 
                     <input type="checkbox" id="mrsPre" 
-                    name="welfare" value="경력단절여성">
+                    name="welfares" value="경력단절여성">
                     <label class="rence" for="mrsPre"> 
                                                      경력단절여성 </label>
 						</dt>

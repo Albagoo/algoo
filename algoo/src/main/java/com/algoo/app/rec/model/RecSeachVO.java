@@ -24,10 +24,10 @@ public class RecSeachVO extends SearchVO {
 	
 	private String[] workTerm;//근무기간
 	private String workDays;//근무요일
-	private String payType;//급여방식
-	private int pay;//급여
+	private String payTypes;//급여방식
+	private int pays;//급여
 	private String[] recruitType;//고용형태 
-	private String[] welfare;//복지
+	private String[] welfares;//복지
 	private String educateLv;//학력
 	private String[] preference;//우대조건
 	
@@ -40,19 +40,19 @@ public class RecSeachVO extends SearchVO {
 	}
 
 	public String getPayType() {
-		return payType;
+		return payTypes;
 	}
 
 	public void setPayType(String payType) {
-		this.payType = payType;
+		this.payTypes = payType;
 	}
 
 	public int getPay() {
-		return pay;
+		return pays;
 	}
 
 	public void setPay(int pay) {
-		this.pay = pay;
+		this.pays = pay;
 	}
 
 	public String[] getRecruitType() {
@@ -64,11 +64,11 @@ public class RecSeachVO extends SearchVO {
 	}
 
 	public String[] getWelfare() {
-		return welfare;
+		return welfares;
 	}
 
 	public void setWelfare(String[] welfare) {
-		this.welfare = welfare;
+		this.welfares = welfare;
 	}
 
 	public String getEducateLv() {
@@ -208,8 +208,8 @@ public class RecSeachVO extends SearchVO {
 		return "RecSeachVO [areas=" + areas + ", area1=" + area1 + ", area2=" + area2 + ", area3=" + area3 + ", area4="
 				+ area4 + ", area5=" + area5 + ", jobs=" + jobs + ", job1=" + job1 + ", job2=" + job2 + ", job3=" + job3
 				+ ", job4=" + job4 + ", job5=" + job5 + ", workTerm=" + Arrays.toString(workTerm) + ", workDays="
-				+ workDays + ", payType=" + payType + ", pay=" + pay + ", recruitType=" + Arrays.toString(recruitType)
-				+ ", welfare=" + Arrays.toString(welfare) + ", educateLv=" + educateLv + ", preference="
+				+ workDays + ", payTypes=" + payTypes + ", pays=" + pays + ", recruitType=" + Arrays.toString(recruitType)
+				+ ", welfares=" + Arrays.toString(welfares) + ", educateLv=" + educateLv + ", preference="
 				+ Arrays.toString(preference) + ", map=" + map + ", toString()=" + super.toString() + "]";
 	}
 

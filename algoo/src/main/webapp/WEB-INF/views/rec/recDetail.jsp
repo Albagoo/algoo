@@ -118,7 +118,7 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
 			style="color:#FFF;backgroun:#FFF;
 			width: 0.1px;height: 0.1px;margin: 0;padding: 0;
 			border: 0;"></span>
-			<input type="button" class="button white medium" 
+			<input type="button" class="button white small" 
 			value="URL주소복사"  id="btCopy" >
 		</div>
 		<p class="clear_both"></p>
@@ -127,24 +127,26 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
 		
       
       
-			<input type="button" class="button white small" value="스크랩">
+			<input type="button" class="button rosy small" value="스크랩">
 			
-			<input type="button" class="button white small" value="인쇄"
+			<input type="button" class="button rosy small" value="인쇄"
 			onclick="window.print()">
 			
-			<input type="button" class="button white small" value="신고">
-			<input type="button" class="button white small" value="E메일">
-			<input type="button" class="button white small" value="FaceBook">
-			<input type="button" class="button white small" value="Twiter">
+			<input type="button" class="button rosy small" value="신고">
+			<input type="button" class="button rosy small" value="E메일">
+			<input type="button" class="button rosy small" value="FaceBook">
+			<input type="button" class="button rosy small" value="Twiter">
 		<!-- </div> -->
 	</div>
-	<p class="clearboth" style="margin-bottom: 5px"><span style="text-align: left">등록일 :<fmt:formatDate value="${recVo.regdate }" 
+	<p class="clearboth" style="margin-bottom: 5px">
+	<span style="text-align: left;font-size: 9.3pt;"
+	 class="bon">등록일 :<fmt:formatDate value="${recVo.regdate }" 
       pattern="yyyy-MM-dd"/> </span></p>
 	 
 	<div class="title">
 	 ${recVo.title }</div>
 	<div class="main_left detail_left">
-		<div class="logo">
+		<div class="logo bon">
 			<img alt="${compVo.compName }" 
 			src="${recVo.imgURL }">
 		</div>
@@ -152,7 +154,7 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
 		<span class="titd">
 		기업정보
 		</span>
-		<input type="button" class="white button small" value="?">
+		<input type="button" class="rosy button small" value="?">
 		<a href="" class="detail_right font_11 ">자세히보기></a> <br class="br">
 		<div class="">
 			<dl style="display: block;" class="clearBoth">

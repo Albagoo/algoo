@@ -33,6 +33,11 @@ public class CompanyController {
 	@RequestMapping(value="/compRegister.ag", method=RequestMethod.GET)
 	public String companyRegister_get(HttpSession session,Model model){
 		
+		
+		if((String)session.getAttribute("userid")==null
+				||(String)session.getAttribute("userid")==""){
+			return "index.ag";
+		}
 		String userid=(String)session.getAttribute("userid");
 		
 		logger.info(""+companyService);

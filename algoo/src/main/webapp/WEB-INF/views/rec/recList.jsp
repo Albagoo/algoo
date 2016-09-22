@@ -311,9 +311,8 @@ $(document).ready(function(){
 			<form name="frmSearch" method="post"
 				action="<c:url value='/rec/recList.ag' />">
 				<input type="button" id="button"
-					class="ui-state-default ui-corner-all" value="지역별검색"> <input
-					type="button" id="button2" class="ui-state-default ui-corner-all"
-					value="직종별검색">
+					class="ui-state-default ui-corner-all" 
+					value="지역별검색"> 
 
 
 				<div class="toggler">
@@ -378,7 +377,9 @@ $(document).ready(function(){
 					<option value="size">Size</option>
 					<option value="slide">Slide</option>
 				</select>
-
+              <input type="button" id="button2" 
+              class="ui-state-default ui-corner-all"
+              value="직종별검색" style="float: left">
 				<div class="toggler">
 					<div id="effect2" class="ui-widget-content ui-corner-all">
 						<div style="display: inline-block;" id="test2">직종을 선택하세요(최대
@@ -409,6 +410,7 @@ $(document).ready(function(){
 							</c:forEach>
 
 							<!-- </p> -->
+					
 						</div>
 					</div>
 				</div>

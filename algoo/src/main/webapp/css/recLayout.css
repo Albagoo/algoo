@@ -387,12 +387,17 @@ floatLeft input[type="checkbox"],
 }
 
 .title {
-	padding: 2px 0 2px 250px;
    font-weight: bold;
-   background:#D50C0C;
-   border-top: 0.5px dotted #D50C0C; 
-   border-bottom: 2px solid #D50C0C; 
-  font-family:'bon godic';
+   background:#FF6600;
+   border-top: 0.5px dotted #FFaa00; 
+   border-bottom: 0.5px solid #FFaa00; 
+   font-family:'bon godic';
+   color: #FFF;
+   font-size:12.5pt;
+   text-align:center;
+   padding: .5em 1em;
+   text-decoration: none;
+    
 }
 
 .logo {

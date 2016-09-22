@@ -166,7 +166,13 @@
 				<td>${vo.faqNo}</td>
 				<td style="text-align: left;">
 					<a href="<c:url value='/faq/faqDetail.ag?faqNo=${vo.faqNo}'/>">
-						&nbsp; [${vo.category }] ${vo.title}</a>
+						&nbsp; [${vo.category }] 
+						<c:if test="${fn:length(vo.title)>18}">
+							${fn:substring(vo.title, 0,18)}...
+						</c:if>
+						<c:if test="${fn:length(vo.title)<=18}">
+							${vo.title }
+						</c:if></a>
 				</td>
 				<td><fmt:formatDate value="${vo.regdate}" pattern="yyyy-MM-dd"/>
 				</td>

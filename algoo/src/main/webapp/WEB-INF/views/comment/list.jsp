@@ -15,7 +15,15 @@
 			$("#p_"+i).remove();
 			$("#replyB"+i).val("N");
 		}
+		
 	};
+	
+		function del(no){
+			if(confirm("댓글을 삭제하시겠습니까?")){
+				location.href
+			="<c:url value='/comment/delete.ag?commentNo="+no+"'/>";
+			}
+		}
 </script>
 <div>
 	<c:if test="${empty clist }">
@@ -29,9 +37,9 @@
 				<input type="hidden" name="step" value="${cmtVo.step }">
 				<input type="hidden" name="sortNo" value="${cmtVo.sortNo }">
 				<input type="hidden" name="freeNo" value="${cmtVo.freeNo }">
+				<input type="hidden" name="commentNo" value="${cmtVo.commentNo }">
 				<input type="hidden" name="nickName" value="${sessionScope.nickName }">
 				<input type="hidden" name="userid" value="${sessionScope.userid }">
-				<input type="hidden" id=content value="${cmtVo.content }">
 				<input type="hidden" id="replyB${i }" value="N">
 				<c:if test="${cmtVo.step>0 }">
 						<c:forEach var="a" 
@@ -56,6 +64,9 @@
 						</c:forEach>
 					</c:if><span id="cmtCon">${cmtVo.content }</span></p>
 				<c:set var="i" value="${i+1 }"></c:set>
+				<span style="text-align: right;">
+					<a href="#" onclick=del(${cmtVo.commentNo})>삭제</a>
+				</span>
 			</form>
 		</c:forEach>		
 	</c:if>

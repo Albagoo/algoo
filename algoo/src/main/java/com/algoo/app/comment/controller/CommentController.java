@@ -30,6 +30,10 @@ public class CommentController {
 	public String writeComment(@ModelAttribute CommentVO cmtVo){
 		logger.info("댓글 쓰기, 파라미터 cmtVo = {}", cmtVo);
 		
+		String content=cmtVo.getContent();
+		content=content.replace("\r\n", "<br>");
+		cmtVo.setContent(content);
+		
 		int cnt=cmtService.insertComment(cmtVo);
 		logger.info("댓글 쓰기 결과 cnt = {}", cnt);
 		
@@ -62,18 +66,18 @@ public class CommentController {
 	
 	@RequestMapping("/comment/delete.ag")
 	public String delete(@RequestParam(defaultValue="0") int commentNo, Model model){
-		logger.info("댓글삭제 , 파라미터 cmtNo = {}", commentNo);
+		logger.info("댓글삭제 , 파라미터 commentNo = {}", commentNo);
 		
-		CommentVO cmtVo=cmtService.selectCommentByNo(commentNo);
+		CommentVO commentVo=cmtService.selectCommentByNo(commentNo);
 		
 		Map<String, String> map=new HashMap<String, String>();
-		map.put("cmtNo", Integer.toString(commentNo));
-		map.put("groupNo", cmtVo.getGroupNo()+"");
-		map.put("step", cmtVo.getStep()+"");
+		map.put("commentNo", Integer.toString(commentNo));
+		map.put("groupNo", commentVo.getGroupNo()+"");
+		map.put("step", commentVo.getStep()+"");
 		logger.info("댓글삭제 파라미터 map = {}", map);
 					
 		cmtService.deleteComment(map);
 			
-		return "redirect:/freeboard/detail.ag?freeNo="+cmtVo.getFreeNo();
+		return "redirect:/freeboard/detail.ag?freeNo="+commentVo.getFreeNo();
 	}
 }

@@ -101,7 +101,7 @@
 	<delete id="deleteFreeboard" parameterMap="delParamMap">
 		{call delete_freeboards(?,?,?)}
 	</delete>
-	
+
 	<update id="updateSortNo" parameterType="FreeboardVO">
 		update free_board
 			set sort_no=sort_no+1

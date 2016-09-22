@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.algoo.app.common.SearchVO;
+import com.algoo.app.notice.model.NoticeVO;
 
 @Service
 public class FreeboardServiceImpl implements FreeboardService{
@@ -80,22 +81,4 @@ public class FreeboardServiceImpl implements FreeboardService{
 	public List<FreeboardVO> selectAll() {
 		return freeDao.selectAll();
 	}
-
-	/*@Override
-	public int selectDelete(List<FreeboardVO> fList) {
-		int cnt=0;
-		try{
-			for(FreeboardVO vo : fList){
-				int no=vo.getMainNo();
-				if(no!=0){
-					cnt=freeDao.deleteFreeboard(map);
-				}
-			}//for
-		}catch(RuntimeException e){
-			e.printStackTrace();
-			cnt=-1;
-		}
-		
-		return cnt;
-	}*/
 }

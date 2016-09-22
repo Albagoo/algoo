@@ -176,7 +176,9 @@
 	</c:if>
 	</tbody>
 </table>
-<input type="button" id="btDel" value="선택한 FAQ 삭제">   
+<div style="margin: 10px 0 0 3px;">
+	<input type="button" id="btFaqDel" value="선택한 FAQ 삭제" class="button white medium">   
+</div>
 </div>
 </form>
 <div class="divPage">

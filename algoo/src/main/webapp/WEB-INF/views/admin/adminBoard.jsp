@@ -50,19 +50,45 @@
 			$(this).css("background","");
 		});
 		
-		//선택한 상품 삭제
-		$("#btDel").click(function(){
+		//선택한 글 삭제
+		$("#btNoticeDel").click(function(){
 			var count
-			=$("tbody input[type=checkbox]:checked").length;
+			=$(".noticeBody input[type=checkbox]:checked").length;
 			
 			if(count==0){
-				alert("삭제할 상품을 먼저 체크하세요");
+				alert("삭제할 공지사항을 먼저 선택하세요");
 				return false;
 			}
 			
-			frmList.action="<c:url value='/admin/product/productDeleteMulti.do'/>";
+			frmList.action="<c:url value='/admin/selectNoticeDelete.ag'/>";
 			frmList.submit();
 		});
+		
+		$("#btFaqDel").click(function(){
+			var count
+			=$(".faqBody input[type=checkbox]:checked").length;
+			
+			if(count==0){
+				alert("삭제할 FAQ를 먼저 선택하세요");
+				return false;
+			}
+			
+			frmList.action="<c:url value='/admin/selectFaqDelete.ag'/>";
+			frmList.submit();
+		});
+		
+	/* 	$("#btFreeDel").click(function(){
+			var count
+			=$(".freeBody input[type=checkbox]:checked").length;
+			
+			if(count==0){
+				alert("삭제할 게시글을 먼저 선택하세요");
+				return false;
+			}
+			
+			frmList.action="<c:url value='/admin/selectFreeDelete.ag'/>";
+			frmList.submit();
+		}); */
 	});
 	
 	function delNotice(nNo){
@@ -273,15 +299,17 @@
 							<td><a href="<c:url value='/notice/edit.ag?no=${nVo.mainNo}'/>" >수정</a></td>
 							<td><a href="#" onclick="delNotice(${nVo.mainNo})">삭제</a></td>
 						</tr>
+					<c:set var="i" value="${i+1 }" />
 				</c:forEach>
 				</tbody>
 			</table>
 		</div>
-		<div style="margin-top: 4px;padding-left: 10px;">
-			<!-- 선택글 삭제-->
-
+		<div style="margin: 10px 0 0 3px;text-align: right;">
+			<input type="button" id="btNoticeDel" value="선택한 공지사항 삭제" class="button white medium">   
 		</div>
 	</div>
+	
+	<form name="frmList" method="post" action="<c:url value='/admin/adminBoard.ag'/>" >
 	<div class="adminFaq">
 		<span><img alt="FAQ" src="<c:url value='/images/faq.png'/>"></span>
 		<span class="talkList">
@@ -305,12 +333,12 @@
 					<th scope="col">수정</th>
 					<th scope="col">삭제</th>
 				</thead>
-				<tbody>
+				<tbody class="faqBody">
 					<c:set var="j" value="0" />
 					<c:forEach var="fVo" items="${flist }" end="${print-1}">
 						<tr>
-							<td class="faqBody">
-								<input type="checkbox" name="faq[${j}].faqNo"
+							<td>
+								<input type="checkbox" name="faqList[${j}].faqNo"
 									id="chk2_${j }" value="${fVo.faqNo}" >
 							</td>
 							<td style="text-align: left;padding-left: 10px;">
@@ -323,15 +351,18 @@
 							<td><a href="<c:url value='/faq/faqEdit.ag?faqNo=${fVo.faqNo}'/>" >수정</a></td>
 							<td><a href="#" onclick="delFaq(${fVo.faqNo})">삭제</a></td>
 						</tr>
+					<c:set var="j" value="${j+1}" />
 				</c:forEach>
 				</tbody>
 			</table>
 		</div>
-		<div>
+		<div style="margin: 10px 3px 0 0; text-align: right;">
 			<!-- 선택글 삭제-->
-			
+			<input type="button" id="btFaqDel" value="선택한 FAQ 삭제" class="button white medium">  
 		</div>
 	</div>
+	</form>
+	
 	<div class="adminFree">
 		<span><img alt="알바톡톡" src="<c:url value='/images/talk.png'/>"></span>
 		<span class="talkList">
@@ -387,9 +418,8 @@
 				</tbody>
 			</table>
 		</div>
-		<div>
-			<!-- 선택글 삭제 -->
-			
+		<div style="margin: 10px 0 20px 3px;text-align: right;">
+			<!-- <input type="button" id="btFreeDel" value="선택한 게시글 삭제" class="button white medium">  -->  
 		</div>
 	</div>
 </div>

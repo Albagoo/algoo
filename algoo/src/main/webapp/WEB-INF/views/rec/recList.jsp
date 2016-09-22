@@ -658,7 +658,7 @@ class="ui-state-default ui-corner-all" value="상세검색">
    ${recSeachVO.area5 }
    
    <c:if test="${!empty recSeachVO.job1 }">
-       검색직종 - 
+       <br>검색직종 - 
    </c:if>
    ${recSeachVO.job1 }
    ${recSeachVO.job2 }

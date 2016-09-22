@@ -77,10 +77,10 @@
 						}
 						document.write('<center>'); 
 						document.write('<a href="' + url + '" target="_top">'); 
-						document.write('<img src="' + banner + '" width=') 
-						document.write(width + ' height=' + height + ' '); 
-						document.write('alt="' + alt + '" border=0><br>'); 
-						document.write('<small>' + txt + '</small></a>'); 
+						document.write('<img src="' + banner + '"'); 
+						document.write(' height=' + height + ' '); 
+						document.write(' border=0><br>'); 
+						document.write('</a>'); 
 						document.write('</center>'); 
 					</script>
 					<%-- <img src="<c:url value='/images/banner1.jpg'/>"
@@ -104,10 +104,10 @@
 						}
 						document.write('<center>'); 
 						document.write('<a href="' + url + '" target="_top">'); 
-						document.write('<img src="' + banner + '" width=') 
-						document.write(width + ' height=' + height + ' '); 
-						document.write('alt="' + alt + '" border=0><br>'); 
-						document.write('<small>' + txt + '</small></a>'); 
+						document.write('<img src="' + banner + '"'); 
+						document.write(' height=' + height + ' '); 
+						document.write(' border=0><br>'); 
+						document.write('</a>'); 
 						document.write('</center>'); 
 					</script>
 					<%-- <img src="<c:url value='/images/banner2.jpg'/>"
@@ -246,41 +246,36 @@
 					<div class="divCommercial2">
 						<!-- 다른 사이즈의 광고 -->
 						<script type="text/javascript">
-							var how_many_ads = 4; 
+							var how_many_ads = 3; 
 							var now = new Date() 
 							var sec = now.getSeconds() 
 							var ad = sec % how_many_ads; 
-							ad +=1; 
+							ad +=1;
 							if (ad==1) { 
 								url="#"; 
-								banner="<c:url value='/images/banner/banner3.jpg'/>"; 
-								width="220px"; 
-							} 
+								banner="<c:url value='/images/banner/banner3_2.jpg'/>"; 
+								height="111px"; 
+							}
 							if (ad==2) { 
 								url="#"; 
-								banner="<c:url value='/images/banner/banner3_2.jpg'/>"; 
-								width="220px"; 
+								banner="<c:url value='/images/banner/banner3_3.jpg'/>"; 
+								height="111px"; 
 							}
 							if (ad==3) { 
 								url="#"; 
-								banner="<c:url value='/images/banner/banner3_3.jpg'/>"; 
-								width="220px"; 
-							}
-							if (ad==4) { 
-								url="#"; 
 								banner="<c:url value='/images/banner/banner3_4.jpg'/>"; 
-								width="220px"; 
+								height="111px"; 
 							}
 							document.write('<center>'); 
 							document.write('<a href="' + url + '" target="_top">'); 
-							document.write('<img src="' + banner + '" width=') 
-							document.write(width + ' height=' + height + ' '); 
-							document.write('alt="' + alt + '" border=0><br>'); 
-							document.write('<small>' + txt + '</small></a>'); 
+							document.write('<img src="' + banner + '"'); 
+							document.write(' height=' + height + ' '); 
+							document.write(' border=0><br>'); 
+							document.write('</a>'); 
 							document.write('</center>'); 
 						</script>
-						<img src="<c:url value='/images/banner/banner3.jpg'/>"
-						 width="220px" height="65px">
+						<%-- <img src="<c:url value='/images/banner/banner3.jpg'/>"
+						 width="220px" height="65px"> --%>
 						<img src="<c:url value='/images/banner/banner5.jpg'/>"
 						 width="220px" height="65px">
 					</div>

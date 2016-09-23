@@ -46,13 +46,16 @@
 	<p>전체 조회 결과 - ${pagingInfo.totalRecord }건 조회되었습니다</p>
 </c:if>
 </div>
-<span class="talkList" style="float: right;margin-bottom: 10px;padding-right: 3px;">
-	<a href="<c:url value='/admin/adminBoard.ag'/>" 
-		style="font-size: 0.8em;color: black;text-decoration: none;">
-	<img alt="손가락" src="<c:url value='/images/finger.png'/>" align=absmiddle
-		style="height: 15px;">
-		관리자 페이지로</a>
-</span>
+${ fn:substring(sessionScope.member_code, 0, 3) }
+<c:if test="${ fn:substring(sessionScope.member_code, 0, 3) == 'ADM' }">
+	<span class="talkList" style="float: right;margin-bottom: 10px;padding-right: 3px;">
+		<a href="<c:url value='/admin/adminBoard.ag'/>" 
+			style="font-size: 0.8em;color: black;text-decoration: none;">
+		<img alt="손가락" src="<c:url value='/images/finger.png'/>" align=absmiddle
+			style="height: 15px;">
+			관리자 페이지로</a>
+	</span>
+</c:if>
 <table class="box2">
 	<colgroup>
 		<col stype="width:5%;" />

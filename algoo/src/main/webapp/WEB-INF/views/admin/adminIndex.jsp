@@ -40,4 +40,3 @@
 		</section>
 	</div>
 </div>
-<%@ include file="../inc/simple_bottom.jsp" %>

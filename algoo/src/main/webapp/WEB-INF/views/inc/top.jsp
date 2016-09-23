@@ -89,7 +89,7 @@
 					<c:if test="${!empty sessionScope.userid }">
 						<span style="font-size:1em">${sessionScope.userName}님</span>
 						<a href="<c:url value='/member/logout.ag' />">로그아웃</a>
-						<a href="<c:url value='/login/mypageType.ag'/>">마이페이지</a>
+						<a href="<c:url value='/login/mypageType.ag'/>">마이페이지</a> |
 					</c:if>
 						<a href="#">고객센터</a> |
 						<a href="#">이벤트</a>
@@ -133,8 +133,6 @@
 		</div><!-- header -->
 		<!-- header끝 -->
 		
-		<!-- container시작 -->
-		<div id="container">
 			<!-- 최상단으로 이동버튼 -->
 			<div class="upMark">
 			<a href="#">
@@ -167,9 +165,11 @@
 					document.write('</a>'); 
 					document.write('</center>'); 
 				</script>
-				<img src="<c:url value='/images/banner/banner4_2.jpg'/>">
+				<%-- <img src="<c:url value='/images/banner/banner4_2.jpg'/>"> --%>
 			</div>
 			
+		<!-- container시작 -->
+		<div id="container">
 			<!-- 우측 메뉴(고정) -->
 			<div id="rightMenu">
 				<div id="mJoin">

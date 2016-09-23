@@ -126,7 +126,7 @@
 						<p class="areaP">
 						 <a href="<c:url value='http://localhost:9090/algoo/rec/recList.ag?areas=%EA%B2%BD%EA%B8%B0%EB%8F%84'/>" class="kyunggi">경기</a>
 						 <a href="<c:url value='http://localhost:9090/algoo/rec/recList.ag?areas=%EA%B0%95%EC%9B%90%EB%8F%84'/>" class="kangwon">강원</a>
-						 <a href="<c:url value='http://localhost:9090/algoo/rec/recList.ag?areas=%EC%9D%B8%EC%B2%9C'/>" class="incheon" id="spCity">인천</a>
+						 <a href="<c:url value='http://localhost:9090/algoo/rec/recList.ag?areas=%EC%9D%B8%EC%B2%9C%EA%B4%91%EC%97%AD%EC%8B%9C'/>" class="incheon" id="spCity">인천</a>
 						 <a href="<c:url value='http://localhost:9090/algoo/rec/recList.ag?areas=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C'/>" class="seoul" id="spCity">서울</a>
 						 <a href="<c:url value='http://localhost:9090/algoo/rec/recList.ag?areas=%EC%B6%A9%EC%B2%AD%EB%82%A8%EB%8F%84'/>" class="chungnam">충남</a>
 						 <a href="<c:url value='http://localhost:9090/algoo/rec/recList.ag?areas=%EC%B6%A9%EC%B2%AD%EB%B6%81%EB%8F%84'/>" class="chungbuk">충북</a>
@@ -148,26 +148,44 @@
 						<hr width="90px">
 						<table>
 							<tr>
-								<td><a href="#">
+								<td><a href="<c:url value='/rec/recList.ag?jobs=%EC%99%B8%EC%8B%9D%C2%B7%EC%9D%8C%EB%A3%8C'/>">
 								<img src="<c:url value='/images/JobIcon/food.png'/>">
-									<br>식당</a></td>
-								<td><a href="#">
+									<br>외식<br>음료</a></td>
+								<td><a href="<c:url value='/rec/recList.ag?jobs=%EC%9C%A0%ED%86%B5%C2%B7%ED%8C%90%EB%A7%A4'/>">
 								<img src="<c:url value='/images/JobIcon/shop.png'/>">
-									<br>상점</a></td>
-								<td><a href="#">
-								<img src="<c:url value='/images/JobIcon/dress.png'/>">
-									<br>의류</a></td>
+									<br>유통<br>판매</a></td>
+								<td><a href="<c:url value='/rec/recList.ag?jobs=%EB%AC%B8%ED%99%94%C2%B7%EC%97%AC%EA%B0%80%EC%83%9D%ED%99%9C'/>">
+								<img src="<c:url value='/images/JobIcon/game.png'/>">
+									<br>문화<br>여가생활</a></td>
+								<td><a href="<c:url value='/rec/recList.ag?jobs=%EC%84%9C%EB%B9%84%EC%8A%A4'/>">
+								<img src="<c:url value='/images/JobIcon/service.png'/>">
+									<br>서비스<br><br></a></td>
 							</tr>
 							<tr>
-								<td><a href="#">
+								<td><a href="<c:url value='/rec/recList.ag?jobs=%EC%82%AC%EB%AC%B4%EC%A7%81'/>">
 								<img src="<c:url value='/images/JobIcon/company.png'/>">
-									<br>사무보조</a></td>
-								<td><a href="#">
-								<img src="<c:url value='/images/JobIcon/study.png'/>">
-									<br>학원</a></td>
-								<td><a href="#">
+									<br>사무직<br><br></a></td>
+								<td><a href="<c:url value='/rec/recList.ag?jobs=%EA%B3%A0%EA%B0%9D%EC%83%81%EB%8B%B4%C2%B7%EB%A6%AC%EC%84%9C%EC%B9%98%C2%B7%EC%98%81%EC%97%85'/>">
+								<img src="<c:url value='/images/JobIcon/advice.png'/>">
+									<br>고객상담<br>영업</a></td>
+								<td><a href="<c:url value='/rec/recList.ag?jobs=%EC%83%9D%EC%82%B0%C2%B7%EA%B1%B4%EC%84%A4%C2%B7%EC%9A%B4%EC%86%A1'/>">
 								<img src="<c:url value='/images/JobIcon/build.png'/>">
-									<br>건축</a></td>
+									<br>생산·건<br>설·운송</a></td>
+								<td><a href="<c:url value='/rec/recList.ag?jobs=IT%C2%B7%EC%BB%B4%ED%93%A8%ED%84%B0'/>">
+								<img src="<c:url value='/images/JobIcon/computer.png'/>">
+									<br>IT·컴퓨터<br><br></a></td>
+							</tr>
+							<tr>
+								<td><a href="<c:url value='/rec/recList.ag?jobs=%EA%B5%90%EC%9C%A1%C2%B7%EA%B0%95%EC%82%AC'/>">
+								<img src="<c:url value='/images/JobIcon/study.png'/>">
+									<br>교육<br>강사</a></td>
+								<td><a href="<c:url value='/rec/recList.ag?jobs=%EB%94%94%EC%9E%90%EC%9D%B8'/>">
+								<img src="<c:url value='/images/JobIcon/design.png'/>">
+									<br>디자인<br><br></a></td>
+								<td><a href="<c:url value='/rec/recList.ag?jobs=%EB%AF%B8%EB%94%94%EC%96%B4'/>">
+								<img src="<c:url value='/images/JobIcon/media.png'/>">
+									<br>미디어<br><br></a></td>
+								<td></td>
 							</tr>
 						</table>
 					</div>
@@ -177,16 +195,20 @@
 						<hr width="90px">
 						<table>
 							<tr>
-								<td><img src="<c:url value='/images/JobIcon/part.png'/>">
-									<br>단기알바</td>
-								<td><img src="<c:url value='/images/JobIcon/today.png'/>">
-									<br>당일지급</td>
+								<td><a href="<c:url value='/rec/recList.ag?workTerm=1%EC%A3%BC%EC%9D%BC~1%EA%B0%9C%EC%9B%94'/>">
+								<img src="<c:url value='/images/JobIcon/part.png'/>">
+									<br>단기알바</a></td>
+								<td><a href="<c:url value=''/>">
+								<img src="<c:url value='/images/JobIcon/today.png'/>">
+									<br>당일지급</a></td>
 							</tr>
 							<tr>
-								<td><img src="<c:url value='/images/JobIcon/quick.png'/>">
-									<br>급구알바</td>
-								<td><img src="<c:url value='/images/JobIcon/good.png'/>">
-									<br>안심계약</td>
+								<td><a href="<c:url value='#'/>">
+								<img src="<c:url value='/images/JobIcon/quick.png'/>">
+									<br>급구알바</a></td>
+								<td><a href="<c:url value='#'/>">
+								<img src="<c:url value='/images/JobIcon/good.png'/>">
+									<br>안심계약</a></td>
 							</tr>
 						</table>
 					</div>

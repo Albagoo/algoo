@@ -178,12 +178,20 @@
 	font-size:0.8em;
 	font-weight:normal;
 }
-.divJob2 td,.divJob3 td{
+.divJob2 td{
+	
+}
+
+.divJob3 td{
 	margin-bottom:10px;
 	padding-top:10px; 
 	padding-bottom:10px;
 }
-.divJob2 table img,.divJob3 table img{
+.divJob2 table img{
+	width: 30px;
+}
+
+.divJob3 table img{
 	width: 60px;
 }
 .divJob1 a,.divJob2 a,.divJob3 a{

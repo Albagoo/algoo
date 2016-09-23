@@ -23,7 +23,7 @@
 	
 	<div class="provCon">
 		<iframe src="<c:url value='/inc/lprovision.html'/>"
-		 frameborder="0" scrolling=no width="880" height="4100">
+		 frameborder="0" scrolling=no width="880" height="2600">
 	</div>
 </div>
 	

@@ -86,7 +86,7 @@ footer img{
 
 /* 좌측 고정배너 */
 #leftBanner{
-	position:fixed;
+	position:absolute;
 	top:225px/* 25% */;
 	left:435px/* 23% */;
 	width:70px;

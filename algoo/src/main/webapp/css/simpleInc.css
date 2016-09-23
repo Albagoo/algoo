@@ -5,18 +5,20 @@
 }
 /* 심플한 include-top */
 #simple_wrap{
-	width:1900px;
+	width:900px;
 	font-family:'bon godic';
+	overflow-x:hidden;
+	margin:auto;
 }
 header{
-	width:1900px;
+	width:900px;
 	height:85px;
 	border-bottom:5px solid #E70400;
 	margin-bottom:20px;
 }
 #simple_top{
 	margin:0 auto;
-	width:1050px;
+	width:900px;
 	height:100%;
 }
 #simple_top img{

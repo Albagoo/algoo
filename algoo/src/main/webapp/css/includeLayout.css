@@ -4,20 +4,22 @@
    src:url('../font/NotoSans-Regular.ttf') format('truetype');
 }
 #wrap{
-	width:1900px;
+	width:900px;
+	overflow-x:hidden;
+	margin:auto;
 }
 
 /* header css */
 #header{
-	width:1900px;
+	width:900px;
 }
 #header_div{
-	width:1900px;
+	width:900px;
 	text-align: center;
 	margin:0 auto;
 }
 #header_top{
-	width:1900px;
+	width:900px;
 	height:25px;
 	border-bottom:1px solid #ccc;
 	

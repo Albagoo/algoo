@@ -332,3 +332,34 @@
 	width:15px;
 	vertical-align:middle;
 }
+
+/* 좌측 메뉴 */
+.leftSideBt{
+	padding:10px 0px 10px 0px;
+	margin-bottom:5px;
+	background-color:tomato;
+	width:165px;
+	text-align:center;
+	color:white;
+	font-size:20px;
+}
+
+.leftSideTb{
+	border-collapse:collapse;
+	border:solid 1px silver;
+	width:165px;
+}
+.leftSideTb td{
+	border-bottom:solid 1px silver;
+}
+.leftSideTb td:nth-child(n){
+	color: gray;
+	font-size:14px;
+	font-weight:bold;
+	padding:10px;
+}
+.leftSideTb td:nth-child(2n){
+	font-size:14px;
+	font-weight:bold;
+	padding:10px;
+}

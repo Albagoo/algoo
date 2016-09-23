@@ -1,6 +1,7 @@
 package com.algoo.app.resume.controller;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -154,6 +155,18 @@ public class ResumeController {
 	public String list(@ModelAttribute ResumeSearchVO resumeSearchVo,
 			Model model){
 		
+		String[] category=resumeSearchVo.getCategorys();
+		
+		if(category!=null){
+			Map<String, Object> map= new HashMap<String, Object>();
+			
+			map.put("categorys", category);
+			
+			resumeSearchVo.setMap(map);
+		}
+ 		
+		
+		logger.info("resumeSearchVo={}",resumeSearchVo);
 		PaginationInfo pagingInfo = new PaginationInfo();
 		pagingInfo.setBlockSize(10);
 		pagingInfo.setCurrentPage(resumeSearchVo.getCurrentPage());

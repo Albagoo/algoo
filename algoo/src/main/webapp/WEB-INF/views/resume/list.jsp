@@ -1193,27 +1193,27 @@
             <label id="a">*</label>&nbsp;업직종
          </td>
          <td id="td2">
-            <input type="checkbox" name="category1" id="category1" value="외식/음료">
+            <input type="checkbox" name="categorys" id="category1" value="외식/음료">
             <label for="category1">외식/음료</label>
-            <input type="checkbox" name="category2" id="category2" value="유통/판매">
+            <input type="checkbox" name="categorys" id="category2" value="유통/판매">
             <label for="category2">유통/판매</label>
-            <input type="checkbox" name="category3" id="category3" value="외식/음료">
+            <input type="checkbox" name="categorys" id="category3" value="외식/음료">
             <label for="category3">문화/여가/생활</label>
-            <input type="checkbox" name="category4" id="category4" value="서비스">
+            <input type="checkbox" name="categorys" id="category4" value="서비스">
             <label for="category4">서비스</label>
-            <input type="checkbox" name="category5" id="category5" value="사무직">
+            <input type="checkbox" name="categorys" id="category5" value="사무직">
             <label for="category5">사무직</label>
-            <input type="checkbox" name="category6" id="category6" value="고객상담/리서치/영업">
+            <input type="checkbox" name="categorys" id="category6" value="고객상담/리서치/영업">
             <label for="category6">고객상담/리서치/영업</label>
-            <input type="checkbox" name="category7" id="category7" value="생산/건설/운송">
+            <input type="checkbox" name="categorys" id="category7" value="생산/건설/운송">
             <label for="category7">생산/건설/운송</label>
-            <input type="checkbox" name="category8" id="category8" value="IT/컴퓨터">
+            <input type="checkbox" name="categorys" id="category8" value="IT/컴퓨터">
             <label for="category8">IT/컴퓨터</label>
-            <input type="checkbox" name="category9" id="category9" value="교육/강사">
+            <input type="checkbox" name="categorys" id="category9" value="교육/강사">
             <label for="category9">교육/강사</label>
-            <input type="checkbox" name="category10" id="category10" value="디자인">
+            <input type="checkbox" name="categorys" id="category10" value="디자인">
             <label for="category10">디자인</label>
-            <input type="checkbox" name="category11" id="category11" value="미디어">
+            <input type="checkbox" name="categorys" id="category11" value="미디어">
             <label for="category11">미디어</label>
          </td>
       </tr>
@@ -1239,11 +1239,16 @@
             <label id="a">*</label>&nbsp;성별
          </td>
          <td id="td2">
-             <input checked="checked" id="noneGender" name="gender" type="radio">
+             <input  id="noneGender" 
+             name="gender" type="radio" value="">
              <label for="noneGender">성별무관</label>
-             <input id="man" name="gender" type="radio" value="남자 ">
+             
+             <input id="man" name="gender" 
+             type="radio" value="남자 "/>
              <label for="man">남자</label>
-             <input id="woman" name="gender" type="radio" value="여자" />
+             
+             <input id="woman" name="gender" 
+             type="radio" value="여자" />
              <label for="woman">여자</label>
          </td>     
        </tr>     

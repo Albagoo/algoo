@@ -5,11 +5,38 @@
 <mapper namespace="com.mybatis.mapper.oracle.resume">
 	<sql id="searchWhere">
        <where> 
-	        <if test="searchKeyword!=null and searchKeyword!=''">
+         <if test="searchKeyword!=null and searchKeyword!=''">
             ${searchCondition}
             like '%' || #{searchKeyword} || '%'
          </if>
-	
+			<if test="area1!=null and area1!=''">
+           <if test="searchKeyword!=null and searchKeyword!=''">
+               OR 
+           </if>
+              area
+		        like '%' || #{area1} || '%'
+           </if>
+		
+	      <if test="area2!=null and area2!=''">
+	            AND area
+	            like '%' || #{area2} || '%'
+	      </if>
+	      
+	      <if test="gender!=null and gender!=''">
+	            OR gender
+	            like '%' || #{gender} || '%'
+	      </if>
+	      
+	      
+	         
+	      <if test="categorys != null ">
+            AND category IN
+            <foreach collection="categorys" item="category" 
+              index="index" open="(" close=")" separator=",">
+               #{category}
+            </foreach>
+         </if>
+      
 	   </where> 
    </sql>
 	

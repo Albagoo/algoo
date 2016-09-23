@@ -282,9 +282,9 @@ href="<c:url value='/jquery/jquery-ui.css'/>"/>
       <div id="serviceInfo">
 
          <span class="txt_85">서비스등급</span> 
-         <input class="txth_35" type="text" size="30"
+         <input class="txth_50" type="text" size="30"
           id="grade" name="grade" readonly="readonly"
-          > 
+          value="스페셜"> 
         <span class="txt_85">서비스기간</span> 
         <input class="txt_35" type="text" id="days" 
           name="days" readonly="readonly" value="1">

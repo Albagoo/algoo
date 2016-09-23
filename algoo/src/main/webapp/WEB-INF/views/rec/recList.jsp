@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ include file="../inc/simple_top.jsp"%>
+<%@ include file="../inc/top.jsp"%>
 <script type="text/javascript"
 	src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 
@@ -30,11 +30,28 @@
 
 <script type="text/javascript">  
 $(document).ready(function(){
-     //임시 
+	/* searchBt */
+	/* frmSearch */
+	$("#frmSearch").submit(function() {
+		  var insertAera="";
+		  var insertJob="";
+		$("#test label").each(function(){
+		    var Ar=$(this).text()+",";
+		    insertAera+=Ar;
+		});
+		$("#test2 label").each(function(){
+		    insertJob+=$(this).text()+",";
+		});
+		
+		   $("#areas").val(insertAera); 
+		   $("#jobs").val(insertJob);    
+	});
+	
+	//임시 
      
 	   runEffect("#effect"); 
-	    runEffect("#effect2");  
-	    /* runEffect("#effect3");   */
+	    /* runEffect("#effect2");  */ 
+	     runEffect("#effect3");   
       
       // run the currently selected effect
        function runEffect(effect) {
@@ -107,7 +124,7 @@ $(document).ready(function(){
 	        $.each(res.DATA,function() {
 	              if(this.JOB_CODE==code){
 	                 firsts=this.JOB_FIRST;
-	                 resultJob+="<div> <a href='#'"+
+	                 resultJob+="<div >  <a href='#'"+
 	                 "onclick='asdf(this)' title="+
 	                 this.JOB_SECOND+">"+ 
 	                 this.JOB_SECOND.replace("전체",firsts+" 전체")
@@ -168,8 +185,8 @@ $(document).ready(function(){
      //사용자에게 보여지는 값
      $("#test2").html(selectJob);
      //실제 들어가는 값
-      selectJob2=$("input[name=jobs]").val()+JobName2+",";
-     $("input[name=jobs]").val(selectJob2);
+      /* selectJob2=$("input[name=jobs]").val()+JobName2+",";
+     $("input[name=jobs]").val(selectJob2); */
      /* alert(selectJob2); */
      maxjobLimit+=1;
    }else{
@@ -258,8 +275,8 @@ $(document).ready(function(){
       selectArea=selectArea.replace("지역을 선택하세요 (최대 5개 지역 선택가능)","　");
       $("#test").html(selectArea);
       //실제 들어가는 값
-      selectArea2=$("input[name=areas]").val()+areaName+",";
-      $("input[name=areas]").val(selectArea2);
+      /* selectArea2=$("input[name=areas]").val()+areaName+",";
+      $("input[name=areas]").val(selectArea2); */
       maxLimit+=1;
     }else{
        alert("5개 까지만 선택가능합니다");
@@ -298,17 +315,18 @@ $(document).ready(function(){
 <section>
 	<form name="frmPage" method="post"
 		action="<c:url value='/rec/recList.ag'/>">
-		<input type="hidden" name="currentPage"> <input type="hidden"
-			name="searchConditionz" value="${param.searchCondition }"> <input
+		<input type="hidden" name="currentPage"> 
+		<input type="hidden"
+			name="searchConditionz" value="${param.searchCondition }"> 
+		<input
 			type="hidden" name="searchKeyword" value="${searchVO.searchKeyword }">
 	</form>
 
 	<div class="divList">
 		<h2>채용정보 리스트</h2>
 
-		<div class="divSearch"
-			style="border: 1.5px solid #38F; margin: 2px; text-align: left;">
-			<form name="frmSearch" method="post"
+		<div class="divSearch">
+			<form name="frmSearch" method="post" id="frmSearch"
 				action="<c:url value='/rec/recList.ag' />">
 				<input type="button" id="button"
 					class="ui-state-default ui-corner-all" 
@@ -675,9 +693,11 @@ $(document).ready(function(){
 
 
 				<!-- 선택한 지역 Controller로 보낼 값 저장 -->
-				<input type="hidden" size="200" name="areas" value="">
+				<input type="hidden" size="200" id="areas"
+				 name="areas" value="">
 				<!-- 선택한 직종 Controller로 보낼 값 저장 -->
-				<input type="hidden" size="200" name="jobs" value="">
+				<input type="hidden" size="200" id="jobs"
+				name="jobs" value="">
 
 				<p style="text-align: center;">
 					<select id="searchCondition" name="searchCondition"
@@ -829,4 +849,4 @@ $(document).ready(function(){
 			onclick="location.href='<c:url value="/rec/recWrite.ag"/>';" />
 	</div>
 </section>
-<%@ include file="../inc/simple_bottom.jsp"%>
+<%@ include file="../inc/bottom.jsp"%>

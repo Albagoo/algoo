@@ -24,7 +24,6 @@ a:hover {
 }
 /* div {
    padding: 20px 0;
-   border-bottom: solid 1px #ccc;
 }
  */
 /* button 
@@ -34,16 +33,16 @@ body{
    
 }
 .recWrite *{
-
+  font-family:'bon godic';
 }
 .recWrite {
-   width: 900px;
+   width: 880px;
     background: #FFF; 
-   border-left:1px solid #eee;
-   border-right:1px solid #eee;
+   border:1px solid #F90;
    
-   margin: 0 auto;
-   border-radius: 1%;
+   margin: 3px auto;
+   padding:3px;
+   border-radius: 0.3em;
     
 }
 #serviceInfo,#divService{
@@ -57,19 +56,14 @@ body{
 	/* background: #fffcfc; */
 }
 
-.companyInfo,.personInfo,.workInfo,.workCondition,.requestCondition,.recContent,.detailContent {
+.companyInfo,.personInfo,.workInfo,.requestCondition,.recContent,.detailContent {
    width: 880px;
    padding: 20px 0;
-   
+   /* border: 1px solid #f90; */
 }
 
 .detailContent textarea{
    margin: 30px;
-}
-
-.bg {
-   /* background: #FFF; */
-   /* border: 1px solid gray; */
 }
 
  
@@ -255,6 +249,8 @@ margin:10px;
 .recWrite h2{
 	width: 150px;
 	margin-top: 30px;
+	border-bottom: 2px solid #F90;
+	
 }
 legend{
 	width: 250px;
@@ -268,7 +264,7 @@ legend{
    font-weight: bold;
    font-size: 11.5pt; 
    
-   /* display: inline-block; */
+    display: inline-block; 
       zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
       display: inline;
       vertical-align: baseline;
@@ -298,6 +294,14 @@ legend{
  background: #F7F7F7
 }
 
+.divSearch,
+.list{
+	border: 1px solid #FFaa00;
+	margin: 2px; 
+	text-align: left;
+	padding: 2px; 
+	
+}
 
 input[type="text"], input[type="radio"],input[type="checkbox"]{
    border: none;
@@ -338,7 +342,7 @@ input[type="text"], input[type="radio"],input[type="checkbox"]{
 dt label{
 	font-family:'bon godic';
    font-size: 9.5pt;
-   color: #511;
+   color: #650; 
 }
 dt input[type="radio"],dt input[type="checkbox"]{
 	margin:7px 0;
@@ -401,7 +405,6 @@ floatLeft input[type="checkbox"],
 }
 
 .logo {
-/* border: 1px solid black; */
    width: 272px;
    height: 172px;
    padding: 30px 0 30px 0;
@@ -417,16 +420,15 @@ floatLeft input[type="checkbox"],
    width: 260px;
    height: 530px;
    padding:15px;
-    border: 1px solid #eee; 
+    border: 1px solid #f90; 
 }
 
 .main_right {
-   /* border: 1pt solid Gray; */
    width: 470px;
    height: 530px;
    margin: 0;
    padding:15px;
-    border: 1px solid #eee;
+    border: 1px solid #F90;
 }
 
 
@@ -469,7 +471,7 @@ floatLeft input[type="checkbox"],
    text-decoration: none;
 }
 .right_title{
-   border-bottom: 1px solid #AAA;
+   border-bottom: 2px solid #FFaa00;
    padding-bottom: 5px;
 }
 .font_9{
@@ -511,7 +513,7 @@ floatLeft input[type="checkbox"],
 }
 .border_bottom{
    /* margin-top:30px; */
-   border-bottom: 2px solid skyblue;
+   border-bottom: 2px solid #FFaa00;
    padding-bottom: 5px;
 }
 .bold{
@@ -527,9 +529,13 @@ floatLeft input[type="checkbox"],
    text-align: left;
 }
 .bg{
-   /* border: 1px solid black; */
-   padding: 20px;
+   padding: 20px 0;
+   border: 1px solid #EEE
 }
+.workCondition{
+	widows: 865px;
+}
+
 .red{
    color: red;
 }
@@ -551,7 +557,7 @@ floatLeft input[type="checkbox"],
 
 .recListArea div>p:first-child{
 
- border-bottom: 1px solid #007FFF; 
+ border-bottom: 1px solid #FF8800; 
 /* background:#fdfdfd; */
 text-align: left;
 	
@@ -559,8 +565,6 @@ text-align: left;
 .recListArea>div{
 text-align: left;
 
-/* background: #fdfdfd; */
-/* border-bottom: 1px solid #68F; */
 display: inline-block;
 
 }
@@ -573,13 +577,18 @@ display: inline-block;
    display: inline-block;
    padding: 3px;
    margin: 0;
+   text-align:center;
 }
 /* 지역별 시구군 A태그 폰트CSS */
 .recListArea div div a,
-#jobTabs div p div>a{
-	/* padding: 5px; */
+#jobTabs>div>p>div>a{
+   display:inline-block;
+   width:142px;
+   height:20px;
    font-family:'bon godic';
-   font-size: 9pt; 
+   font-size: 9pt;
+   text-decoration: none; 
+   /* padding: 0 20px; */
 }
 .toggler div a:hover,
 .toggler p>div:hover{
@@ -634,6 +643,9 @@ display: inline-block;
    font-weight: bold;
    font-size: 9pt;
    text-align: center;
+}
+#jobTabs>ul li a{
+	width: 184px;
 }	
 /* 지역 탭부분 CSS */
 #tabs>ul>li{
@@ -651,7 +663,6 @@ display: inline-block;
     height: 400px;
     padding: 0.4em;
     margin:0 auto;
-    border: 1px solid #38f; */
   }
 /* 지역별검색, 직종별검색 버튼 CSS */   
 #button,#button2,#button3,
@@ -692,7 +703,6 @@ display: inline-block;
 /*     height: 460px; */
     padding: 0.1em;
     margin:0 auto;
-    /* border: 1px solid #15f; */
   }
 /* 탭 제목 CSS */  
 #effect h3 {

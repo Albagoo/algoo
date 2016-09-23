@@ -23,10 +23,12 @@
 	      </if>
 	      
 	      <if test="gender!=null and gender!=''">
-	            OR gender
+	        
+               AND 
+           
+	            gender
 	            like '%' || #{gender} || '%'
 	      </if>
-	      
 	      
 	         
 	      <if test="categorys != null ">

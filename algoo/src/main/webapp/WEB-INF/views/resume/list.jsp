@@ -1239,8 +1239,8 @@
             <label id="a">*</label>&nbsp;성별
          </td>
          <td id="td2">
-             <input  id="noneGender" 
-             name="gender" type="radio" value="">
+             <input id="noneGender" name="gender" 
+             type="radio" value="">
              <label for="noneGender">성별무관</label>
              
              <input id="man" name="gender" 

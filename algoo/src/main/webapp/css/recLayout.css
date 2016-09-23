@@ -392,7 +392,8 @@ floatLeft input[type="checkbox"],
 
 .title {
    font-weight: bold;
-   background:#FF6600;
+   background-color: #FFAA00;
+   opacity:0.85;
    border-top: 0.5px dotted #FFaa00; 
    border-bottom: 0.5px solid #FFaa00; 
    font-family:'bon godic';
@@ -431,6 +432,11 @@ floatLeft input[type="checkbox"],
     border: 1px solid #F90;
 }
 
+a#downBt img:hover{
+	width:40px;
+	height: 40px;
+	
+}
 
 
 .txt_180 {

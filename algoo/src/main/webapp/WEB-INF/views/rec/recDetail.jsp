@@ -145,6 +145,8 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
       pattern="yyyy-MM-dd"/> </span></p>
 	 
 	<div class="title">
+	<img alt="title" src="http://www.titlecheck.us/img/title-icon-150.png"
+	style="background: #Faa000";width="24px";height="24px">
 	 ${recVo.title }</div>
 	<div class="main_left detail_left">
 		<div class="logo bon">
@@ -245,16 +247,15 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
 	  </dl>
 	  <br class="br"><br class="br">
 	  <a href="#" class="detail_left"><img  
-	  src=""
+	  src="http://i.imgur.com/tu0kFGD.png" style="width: 100px;height: 30px"
 	  alt='온라인지원'></a>
-	  
 	  <a href="#" class="detail_left decoration_none">&nbsp;<img  
-     src=""
+     src="http://i.imgur.com/7p0pSoh.png" style="width: 100px;height: 30px"
      alt="e-메일지원"></a>
 	  <br class="clearBoth">
 	  <div class="font_10 bon bold">e-메일 지원 시 자사양식 다운로드후 지원해 주세요.
-	  <a href="#"><img
-	  src=""
+	  <a href="#" id="downBt"><img style="width: 20px;height: 20px"
+	  src="http://icons.iconarchive.com/icons/graphicloads/100-flat-2/256/arrow-download-icon.png"
 	  alt="양식다운로드"
 	  ></a>
 	  </div>

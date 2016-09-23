@@ -49,6 +49,7 @@
 			event.preventDefault();
 		});
 	});
+	
 	function process_Login(){
 		$.ajax({
 			url:"<c:url value='/login/ajax/login.ag'/>"
@@ -69,6 +70,11 @@
 				alert("에러 : "+status + " : " + error);	// AJAX 호출 에러
 			}
 		});
+	}
+	
+	function pageAgreement(){
+		opener.location.href = "/algoo/jj/join.ag";
+		self.close();
 	}
 </script>
 <style>
@@ -217,7 +223,7 @@
 		</form>
 		<a href="#">아이디 찾기</a> |
 		<a href="#">비밀번호 찾기</a> |
-		<a href="#">회원가입</a>
+		<a href="#" onclick="pageAgreement()">회원가입</a>
 	</div>
 	<div id="join_google" style="display:inline-block;">
 		<img alt="구글로고" src="<c:url value='/images/icon_google.png'/>"/>

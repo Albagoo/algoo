@@ -94,7 +94,7 @@ public class RecController {
 		//채용공고 입력처리하기
 		//1
 		logger.info("채용공고 처리하기,파라미터"
-				+ "recVo={}", recVo);
+				+ "recVo={}	", recVo);
 		logger.info("서비스내용,파라미터"
 				+ "days={},grade={}" 
 				,days,grade);

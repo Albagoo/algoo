@@ -30,12 +30,12 @@
 
 <script type="text/javascript">  
 $(document).ready(function(){
-
-	
+	/* frmSearch */
 	//검색
-	$("#frmSearch").submit(function() {
+	$("#searchBt").click(function() {
 		  var insertAera="";
 		  var insertJob="";
+		  /* alert(''); */
 		$("#test label").each(function(){
 		    var Ar=$(this).text()+",";
 		    insertAera+=Ar;
@@ -43,9 +43,10 @@ $(document).ready(function(){
 		$("#test2 label").each(function(){
 		    insertJob+=$(this).text()+",";
 		});
-		
+	
 		   $("#areas").val(insertAera); 
-		   $("#jobs").val(insertJob);    
+		   $("#jobs").val(insertJob);
+		   $("#frmSearch").submit();
 	});
 	
 	
@@ -175,7 +176,7 @@ $(document).ready(function(){
      var JobName2=JobName.replace(" 전체","");
      /* alert(JobName2); */
      selectJob=$("#test2").html()+
-     "<label name='jobs'"+" onclick='removeJobs(this)' for="+
+     "<label name='jobsed'"+" onclick='removeJobs(this)' for="+
      JobName+">"+JobName+
      "<input type='button' title='"+JobName+
      " 제거 'id='"+ JobName2 +"'value='x'>"+"</label>";
@@ -269,7 +270,7 @@ $(document).ready(function(){
     	}
     	//사용자에게 보여지는 값
     	aeraTemp=$(aa).text();
-      selectArea=$("#test").html()+"  <label name='areas'"+"style='color=#D50C0C'"+
+      selectArea=$("#test").html()+"  <label name='areased'"+"style='color=#D50C0C'"+
       " onclick='removeArea(this)' for="+areaName+
       ">"+areaName+"<input type='button' title='"+areaName+
       " 제거' id='"+areaName+"' value='x'>"+"</label>";
@@ -694,10 +695,10 @@ $(document).ready(function(){
 
 
 				<!-- 선택한 지역 Controller로 보낼 값 저장 -->
-				<input type="hidden" size="200" id="areas"
+				<input type="text" size="200" id="areas"
 				 name="areas" value="">
 				<!-- 선택한 직종 Controller로 보낼 값 저장 -->
-				<input type="hidden" size="200" id="jobs"
+				<input type="text" size="200" id="jobs"
 				name="jobs" value="">
 
 				<p style="text-align: center;">

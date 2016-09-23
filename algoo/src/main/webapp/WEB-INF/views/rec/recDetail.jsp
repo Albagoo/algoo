@@ -275,10 +275,14 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
          <dt>
             <span class="titc">업직종</span> 
             <span class="txt_150 decoration_none">
+              <c:set var="jobName2"  value="${recVo.jobName2 }"/>
+              <c:set var="jobName2"  value="${fn:split(jobName2,',')}"/>
               
+              <c:forEach var="jobN2" items="${jobName2 }">
                <a href
-               ="<c:url value='/rec/recList.ag?jobs=${compVo.compSort }'/>">
-               ${compVo.compSort }</a>,
+               ="<c:url value='/rec/recList.ag?jobs=${jobN2 }'/>">
+               ${jobN2 }</a>,
+              </c:forEach>
              
             </span>
          </dt>

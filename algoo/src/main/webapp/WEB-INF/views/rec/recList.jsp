@@ -28,7 +28,7 @@
 </style>
 
 <script type="text/javascript">  
-
+//검색조건 정보
 function k(wel,index,item,ids,names) {
       
       wel+='<input type="checkbox" id="'+ids;
@@ -44,15 +44,7 @@ function k(wel,index,item,ids,names) {
 
 $(document).ready(function(){
    
-	$("#button3").on({ 
-	    "click": function() { 
-	         var src = ($(this).attr("src") === "<c:url value='/images/searchDetailOBt.png'/>") 
-	            ? "<c:url value='/images/searchDetailCBt.png'/>" 
-	            : "<c:url value='/images/searchDetailOBt.png'/>"; 
-	         $(this).attr("src", src); 
-	    } 
-	});
-	
+
 	
    var welfareArr=[{name:'보험',values:'국민연금'},{name:'보험',values:'고용보험'},
                    {name:'보험',values:'산재보험'},{name:'보험',values:'건강보험'},
@@ -146,6 +138,17 @@ $(document).ready(function(){
        });
       
       
+       /* 상세검색 펼치기-접기 */
+       $("#button3").on({ 
+           "click": function() { 
+                var src = ($(this).attr("src") === "<c:url value='/images/searchDetailOBt.png'/>") 
+                   ? "<c:url value='/images/searchDetailCBt.png'/>" 
+                   : "<c:url value='/images/searchDetailOBt.png'/>"; 
+                $(this).attr("src", src); 
+           } 
+       });
+       
+       
       $(".divList .box2 tbody tr")
       .hover(function(){
          $(this).css("background","eee").css("cursor","pointer");
@@ -248,17 +251,11 @@ $(document).ready(function(){
      
      //사용자에게 보여지는 값
      $("#test2").html(selectJob);
-     //실제 들어가는 값
-      /* selectJob2=$("input[name=jobs]").val()+JobName2+",";
-     $("input[name=jobs]").val(selectJob2); */
-     /* alert(selectJob2); */
      maxjobLimit+=1;
    }else{
       alert("5개 까지만 선택가능합니다");
    }
   }
-   
-   
    
  //탭에 시도에 해당하는 구군 뿌려주기(서울-광진구, 강동구...) -2
    function areaSet(res,areaCode,gutab) {
@@ -328,9 +325,7 @@ $(document).ready(function(){
    function dong(aa) {
     if(maxLimit<5){
       var areaName =$(aa).text();
-    /*   alert("areaName="+areaName+",aeraTemp="+aeraTemp); */
       if(aeraTemp==areaName){
-         /* alert("a"); */
          return;
       }
       //사용자에게 보여지는 값
@@ -372,7 +367,6 @@ $(document).ready(function(){
    var bcd="외식·음료";
    function jobSet(job) {
    bcd=$(job).text();
-    /* $("#jobTabs div p+p").text(""); */ 
    }
    
    function pageProc(curPage){

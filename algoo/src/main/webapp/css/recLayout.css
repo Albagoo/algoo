@@ -17,7 +17,8 @@ h1 {
 }
 a {
    color: #339;
-   text-decoration: none;
+   /* text-decoration: none; */
+   text-decoration-color: currentColor;
 }
 a:hover {
    text-decoration: underline;
@@ -294,7 +295,13 @@ legend{
  background: #F7F7F7
 }
 
-.divSearch,
+.divSearch{
+	border: 1px solid #687EA7;
+   margin: 2px; 
+   text-align: left;
+   padding: 2px; 
+   
+}
 .list{
 	border: 1px solid #FFaa00;
 	margin: 2px; 
@@ -475,6 +482,7 @@ a#downBt img:hover{
 }
 .decoration_none,.decoration_none a{
    text-decoration: none;
+   
 }
 .right_title{
    border-bottom: 2px solid #FFaa00;
@@ -563,8 +571,7 @@ a#downBt img:hover{
 
 .recListArea div>p:first-child{
 
- border-bottom: 1px solid #FF8800; 
-/* background:#fdfdfd; */
+ border-bottom: 1px solid #687EA7; 
 text-align: left;
 	
 }
@@ -596,13 +603,13 @@ display: inline-block;
    text-decoration: none; 
    /* padding: 0 20px; */
 }
-.toggler div a:hover,
+.toggler div>a:hover,
 .toggler p>div:hover{
 	color:#FFF;
 	background: #007FFF;
 	border-radius: 0.2em;
 }
-.toggler div a:active,
+.toggler div>a:active,
 .toggler p>div:active{
 	color:#FFF;
 	background: #0033FF;
@@ -664,21 +671,21 @@ display: inline-block;
 }	
 /* 탭 화면 고정크기 */	
 .toggler {
-	 /* position: relative;
+	  /* position: relative;
     width: 920px;
     height: 400px;
     padding: 0.4em;
-    margin:0 auto;
+    margin:0 auto; */
   }
-/* 지역별검색, 직종별검색 버튼 CSS */   
+/* 지역별검색, 직종별검색 버튼 CSS */
+    
 #button,#button2,#button3,
-#searchCondition,#searchKeyword
-,#searchBt {
+#searchCondition,#searchKeyword,
+#searchBt {
     padding: .5em 1em;
     text-decoration: none;
-    
   }
-#button:hover,
+/* #button:hover, */
 #button2:hover,
 #button3:hover,
 #searchBt:hover,
@@ -688,7 +695,7 @@ display: inline-block;
    background: #007FFF;
    border-radius: 0.2em;
 }  
-#button:active,
+/* #button:active, */
 #button2:active,
 #button3:active,
 #searchCondition:active,
@@ -716,3 +723,32 @@ display: inline-block;
     padding: 0.4em;
     text-align: center;
   }	
+
+.searchBt{
+	display: inline-block;
+   zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
+   *display: inline;
+   vertical-align: baseline;
+   margin: 0 2px;
+   outline: none;
+   cursor: pointer;
+   text-align: center;
+   text-decoration: none;
+   font: 14px/100% Arial, Helvetica, sans-serif;
+   padding: .5em 2em .55em;
+   text-shadow: 0 1px 1px rgba(0,0,0,.3);
+   -webkit-border-radius: .5em; 
+   -moz-border-radius: .5em;
+   border-radius: .5em;
+   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+   box-shadow: 0 1px 2px rgba(0,0,0,.2);
+   
+   color: #000;
+/*    border: solid 1px #F90; */
+   background: #F90;
+   background: -webkit-gradient(linear, left top, left bottom, from(#E9E9E9), to(#CCC));
+   background: -moz-linear-gradient(top,  #666,  #000);
+   filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#666666', endColorstr='#000000'); 
+	
+} 

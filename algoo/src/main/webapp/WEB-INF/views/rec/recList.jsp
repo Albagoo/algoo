@@ -220,7 +220,10 @@ $(document).ready(function(){
     function GU(guAtag){
       guName =$(guAtag).text();
       $(function() {
+         $("#recListArea p>div>a").css("background-color","#rgba(255, 255, 255, 0.0)").css("color","#000");
+         $(guAtag).css("background-color","#687EA7").css("color","#FFF");
          test(guName);
+        	 /* obj.css("background-color","색상"); */
       });
     }
     
@@ -276,6 +279,9 @@ $(document).ready(function(){
       " 제거' id='"+areaName+"' value='x'>"+"</label>";
       selectArea=selectArea.replace("지역을 선택하세요 (최대 5개 지역 선택가능)","　");
       $("#test").html(selectArea);
+      
+      $("#recListArea p>div>a").css("background-color","#rgba(255, 255, 255, 0.0)").css("color","#000");
+      $(aa).css("background-color","#687EA7").css("color","#FFF");
       //실제 들어가는 값
       /* selectArea2=$("input[name=areas]").val()+areaName+",";
       $("input[name=areas]").val(selectArea2); */
@@ -331,12 +337,11 @@ $(document).ready(function(){
 			<form name="frmSearch" method="post" id="frmSearch"
 				action="<c:url value='/rec/recList.ag' />">
 				<input type="button" id="button"
-					class="ui-state-default ui-corner-all" 
-					value="지역별검색"> 
+					class="searchBt" value="지역별검색"> 
 
 
 				<div class="toggler">
-					<div id="effect" class="ui-widget-content ui-corner-all">
+					<div id="effeSct" class="ui-widget-content ui-corner-all">
 
 						<div style="display: inline-block" id="test">지역을 선택하세요 (최대
 							5개 지역 선택가능)</div>
@@ -695,10 +700,10 @@ $(document).ready(function(){
 
 
 				<!-- 선택한 지역 Controller로 보낼 값 저장 -->
-				<input type="text" size="200" id="areas"
+				<input type="hidden" size="200" id="areas"
 				 name="areas" value="">
 				<!-- 선택한 직종 Controller로 보낼 값 저장 -->
-				<input type="text" size="200" id="jobs"
+				<input type="hidden" size="200" id="jobs"
 				name="jobs" value="">
 
 				<p style="text-align: center;">
@@ -774,7 +779,7 @@ $(document).ready(function(){
 				</c:if>
 				<c:if test="${!empty alist}">
 					<c:forEach var="vo" items="${alist}">
-						<tr style="text-align: center">
+						<tr style="text-align: center;">
 							<!-- 근무지 -->
 							<td><c:set var="addr" value="${fn:split(vo.address,' ')}" />
 								<c:forEach var="j" begin="0" end="1">
@@ -847,8 +852,10 @@ $(document).ready(function(){
 
 	<br>
 	<div class="divBtn">
+	<c:if test="${sessionScope.authCode==2 }">
 		<input type="Button" class="button white medium" value="채용공고 등록"
 			onclick="location.href='<c:url value="/rec/recWrite.ag"/>';" />
+	</c:if>
 	</div>
 </section>
 <%@ include file="../inc/bottom.jsp"%>

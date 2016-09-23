@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
-<%@ include file="../inc/simple_top.jsp"%>
+<%@ include file="../inc/top.jsp"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script type="text/javascript"
    src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
@@ -280,6 +280,23 @@ href="<c:url value='/jquery/jquery-ui.css'/>"/>
    
    <div class="recWrite">
       <div id="serviceInfo">
+
+ <form method="post" name="frmService" id="frmService"
+            action="<c:url value='/service/serviceWrite.ag'/>" style="display:inline" >
+            <select class="button small white"  id="gradeSel">
+            <option value="슈퍼">슈퍼</option>
+            <option value="그랜드">그랜드</option>
+            <option value="스페셜">스페셜</option>
+            <option value="스피드">스피드</option></select>
+            <select class="button small white"  id="daysSel">
+            <option value="1">1일</option>
+            <option value="7">7일</option>
+            <option value="30">30일</option>
+            <option value="90">90일</option>
+            <option value="180">180일</option></select>
+            </form>';
+
+
 
          <span class="txt_85">서비스등급</span> 
          <input class="txth_50" type="text" size="30"
@@ -875,4 +892,4 @@ style="width: 150px;height: 100px;border: 1px solid gray">
 </form>
 <form name="frmList" method="post"></form>
 
-<%@ include file="../inc/simple_bottom.jsp"%>
+<%@ include file="../inc/bottom.jsp"%>

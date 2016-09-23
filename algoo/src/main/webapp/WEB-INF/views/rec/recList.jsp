@@ -44,7 +44,16 @@ function k(wel,index,item,ids,names) {
 
 $(document).ready(function(){
    
-   
+	$("#button3").on({ 
+	    "click": function() { 
+	         var src = ($(this).attr("src") === "<c:url value='/images/searchDetailOBt.png'/>") 
+	            ? "<c:url value='/images/searchDetailCBt.png'/>" 
+	            : "<c:url value='/images/searchDetailOBt.png'/>"; 
+	         $(this).attr("src", src); 
+	    } 
+	});
+	
+	
    var welfareArr=[{name:'보험',values:'국민연금'},{name:'보험',values:'고용보험'},
                    {name:'보험',values:'산재보험'},{name:'보험',values:'건강보험'},
                    {name:'휴가/휴무',values:'연차'},{name:'휴가/휴무',values:'월차'},
@@ -346,7 +355,7 @@ $(document).ready(function(){
    function removeArea(as) {
     
       var a=as;  
-      alert(a);
+      /* alert(a); */
     as.remove(a);
     maxLimit-=1;
    }
@@ -496,7 +505,7 @@ $(document).ready(function(){
                   </div>
                </div>
             </div>
-            <div class="workCondition bg checks">
+            <div class="workCondition bg checks" >
                <dl class="clearBoth borderBlue">
                   <dt class="rence" style="height: 65px;margin-bottom: 0px;border-bottom: 0px">
                      <span class="titd">근무기간</span>
@@ -724,14 +733,15 @@ $(document).ready(function(){
                value="${param.searchKeyword}">
                
                <!-- 일반검색버튼 -->
-               <input type="button" id="searchBt" style="width: 100px;height: 31px;
+               <input type="submit" id="searchBt" style="width: 100px;height: 31px;
                border:none; padding: 2px;background: #E70400;color: #FFF;font-weight: bold;" value="검색" > 
                         
                <!-- 상세검색버튼 -->
+               
                <img id="button3" style="width: 100px;height: 25px;
                border: 2px solid #CCC;padding: 2px; float: right; " 
                src="<c:url value='/images/searchDetailOBt.png'/>" > 
-                  
+               
             </p>
 
          </form>

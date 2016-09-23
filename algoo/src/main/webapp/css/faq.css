@@ -231,17 +231,21 @@ input[name="num"]{
 }
 
 /* comment */
+#cmtWrite{
+	padding: 20px 0 20px 0;
+}
 .commentList{
-	padding:10px;
+	border-bottom: 1px solid #fff7f7;
+	width: 85%;
+	margin: auto;
 }
 .commentList a{
-	margin-left:10px;
 	text-decoration:none;
 	color:black;
 	font-size:14px;
 }
 #cmtNick{
-	margin-left:10px;
+
 	font-weight:bold;
 	color:brown;
 }
@@ -250,7 +254,13 @@ input[name="num"]{
 	font-size:14px;
 }
 #cmtCon{
-	margin-left:10px;
+
 	font-size:14px;
-	font-family:'궁서';
+}
+#conDel{
+	float: right;
+}
+.cmtP{
+	margin: 0;
+	padding: 15px 0 15px 0;	
 }

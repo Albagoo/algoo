@@ -55,17 +55,18 @@
 					<img alt="답글이미지" src="../images/reply.png" style="height: 10px;">
 					<span onclick="reply(${i})">답글</span>
 				</c:if>
-				<p id="p${i}">
+				<p id="p${i}" class="cmtP">
 					 <c:if test="${cmtVo.step>0 }">
 						<c:forEach var="b" 
 							begin="1" end="${cmtVo.step}">
 							&nbsp;&nbsp;&nbsp;&nbsp;
 						</c:forEach>
-					</c:if><p id="cmtCon">${cmtVo.content }</p></p>
-				<c:set var="i" value="${i+1 }"></c:set>
-				<span style="text-align: right;">
-					<a href="#" onclick=del(${cmtVo.commentNo })>삭제</a>
-				</span>
+					</c:if><span id="cmtCon">${cmtVo.content }</span>
+					<c:set var="i" value="${i+1 }"></c:set>
+					<span id="conDel">
+						<a href="#" onclick=del(${cmtVo.commentNo })>삭제</a>
+					</span>
+				</p>
 			</form>
 		</c:forEach>		
 	</c:if>

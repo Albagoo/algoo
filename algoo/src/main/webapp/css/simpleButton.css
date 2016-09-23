@@ -316,7 +316,7 @@ a:hover {
 .checks input[type="checkbox"] + label {
   display: inline-block;
   position: relative;
-  padding-left: 30px;  /* 글자와 체크박스 사이의 간격을 변경 */
+  padding-left: 20px;  /* 글자와 체크박스 사이의 간격을 변경 */
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -327,9 +327,9 @@ a:hover {
   position: absolute;
   left: 0;
   top: -0px;  /* 이 값을 변경해서 글자와의 정렬 */
-  width: 21px;  /* 체크박스의 너비를 지정 */
-  height: 21px;  /* 체크박스의 높이를 지정 */
-  line-height: 21px; /* 세로정렬을 위해 높이값과 일치 */
+  width: 14px;  /* 체크박스의 너비를 지정 */
+  height: 14px;  /* 체크박스의 높이를 지정 */
+  line-height: 14px; /* 세로정렬을 위해 높이값과 일치 */
   text-align: center;  
   background: #fafafa;
   border: 1px solid #cacece;
@@ -371,7 +371,7 @@ a:hover {
 .checks input[type="radio"] + label {
   display: inline-block;
   position: relative;
-  padding-left: 25px; /* 글자와 체크박스 사이의 간격을 변경 */
+  padding-left: 20px; /* 글자와 체크박스 사이의 간격을 변경 */
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -395,16 +395,15 @@ a:hover {
   box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
 }
 .checks input[type="radio"]:checked + label:before {
-  background: #E9ECEE;
+  background: #777;
   border-color: #adb8c0;
 }
 .checks input[type="radio"]:checked + label:after {
-  content: '';  
   position: absolute;
-  top:  4.5px;
-  left: 2.5px;  
-  width: 11px; /*  체크시 라디오버튼의 너비를 지정 */
-  height: 11px;
+  top:  2.4px;
+  left: 0.9px;  
+  width: 14px; /*  체크시 라디오버튼의 너비를 지정 */
+  height: 14px;
   background: #777;
   border-radius: 100%;
   box-shadow: inset 0px 0px 10px rgba(0,0,0,0.3);

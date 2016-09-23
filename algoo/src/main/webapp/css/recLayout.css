@@ -170,8 +170,6 @@ body{
    float: left;
    
 }
-
-
 .radio{
    margin:7px 0;
    height:
@@ -183,11 +181,12 @@ body{
    float: left;
 }
 .rence label{
-   margin: 5px 0 5px 0px;
+   margin: 10px 0 5px 0px;
    float: left;
    width: 115px;
+   font-family:'bon godic';
+   font-size: 8pt;
 }
-
 .txt{
    margin:10px;
    width: 580px;
@@ -375,14 +374,22 @@ legend{
    
 }
 .list{
-	border: 1px solid #FFaa00;
+	border: 1px solid #687EA7;;
 	margin: 2px; 
 	text-align: left;
 	padding: 2px; 
 	
 }
+dl.borderBlue dt{
+	border: 1px solid #687EA7;
+	border-bottom: 0px;
+}
+.borderBlueLast{
+	border-bottom: 1px solid #687EA7;
+}
 
-input[type="text"], input[type="radio"],input[type="checkbox"]{
+/* input[type="text"], */
+ input[type="radio"],input[type="checkbox"]{
    border: none;
    zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
    *display: inline;
@@ -391,7 +398,7 @@ input[type="text"], input[type="radio"],input[type="checkbox"]{
    outline: none;
    cursor: Auto;
    text-decoration: none;
-   font: 14px/100% Arial, Helvetica, sans-serif;
+   /* font: 14px/100% Arial, Helvetica, sans-serif; */
    padding: .2em;
    text-shadow: 0 1px 1px rgba(0,0,0,.3);
    -webkit-border-radius: .4em; 
@@ -758,10 +765,8 @@ display: inline-block;
     padding: .5em 1em;
     text-decoration: none;
   }
-/* #button:hover, */
-/* #button2:hover, */
-/* #button3:hover, */
-/* #searchBt:hover, */
+
+ 
 .recList tbody tr:hover,
 .recList tbody tr a:hover
 {
@@ -769,25 +774,44 @@ display: inline-block;
    background: #007FFF;
    border-radius: 0.2em;
 }
-.recList tbody tr a{
-	display: inline-block;
-	width: 375px;
-}
-.recList tbody tr{
-	font-weight: normal;
-	font: normal;
-}  
-/* #button:active, */
-/* #button2:active, */
-#button3:active, 
-#searchCondition:active,
-#searchBt:active,
-#searchKeyword:active,
+
+
+
 .recList tbody tr td:active{
 	color:#FFF;
    background: #0033FF;
    border-radius: -1em;
 }
+#searchBt:hover, 
+ #button:hover, 
+ #button2:hover, 
+ #button3:hover{
+   background: #FFC700;
+   border-radius: 0.2em;
+ 
+ }
+ #searchCondition:active,
+#searchBt:active,
+#searchKeyword:active,
+#button:active, 
+ #button2:active, 
+#button3:active {
+	background: #f90;
+   border-radius: -1em;
+}
+
+
+
+
+
+.recList tbody tr a{
+   display: inline-block;
+   width: 375px;
+}
+.recList tbody tr{
+   font-weight: normal;
+   font: normal;
+}  
 .recList tbody tr{
 	
 }  

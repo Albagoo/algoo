@@ -37,7 +37,7 @@
 					 if(str==1){
 					 	alert("사진 등록 되었습니다!!");
 						self.close();
-						opener.location.href="<c:url value='/resume/write.ag'/>";
+						opener.location.reload();
 					}else{
 						alert("사진 등록 실패!!");
 					}

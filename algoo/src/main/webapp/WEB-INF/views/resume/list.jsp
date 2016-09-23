@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ include file="../inc/simple_top.jsp"%>
+<%@ include file="../inc/top.jsp"%>
 <script type="text/javascript" 
 	src="<c:url value='/naver/naverLogin_implicit-1.0.2.js'/>" charset="utf-8"></script>
 <script type="text/javascript">
@@ -12,25 +12,19 @@
 		document.frmPage.submit();
 	}
 	
-	function getPeriod(){
-		var period="";
-		if($(vo.period).indexOf('일')!=-1){
-			/*1개월 미만*/
-			$("#period").val("1개월 미만");
-		}else{
-			if($(vo.period).indexOf('부터')!=-1){
-				/* 재직중 */
-				var date=$(vo.period).substr(0,8); /* [2012년 8월] */
-				var startDate=new Date();
-			}else{
-				/*1개월 이상*/
-				var date1=$(vo.period).substr(20, 6); /*2012년 8월 ~ 2013년 8월*/
-				var date2=date1.split(' ~ '); /*[2012년 8월][2013년 8월]*/
-			}
-		}
+	$.getPeriod = function(period_1, period_2){
+		var period1 = period_1.split("년");
+		var period2 = period_2.split("년");
+		
+		var period_b = new Date(period1[0], period1[1]-1, 1);
+		var period_a = new Date(period2[0], period2[1]-1, 1);
+		
+		var period_c = (period_a.getTime()-period_b.getTime())/1000/60/60/24/30;
+		
+		var period = Math.floor(period_c);
+		
+		return period;
 	}
-	
-	
 </script>
 <style type="text/css">
 	#tr{
@@ -136,6 +130,7 @@
 			</tr>
 		</c:if>
 		<c:if test="${!empty alist }">
+			<c:set var="i" value="1"/>
 			<c:forEach var="vo" items="${alist }">
 				<tr id="tr" class="align_center">
 					<td scope="row">
@@ -177,13 +172,23 @@
 								<span class="align_right">
 									경력 : 
 								</span>
-								<span class="align_left" style="color: #5b75ff">
+								<span class="align_left" style="color: #5b75ff" id="period${i}">
 									<c:if test="${empty vo.period }">
 										신입
 									</c:if>
 									<c:if test="${!empty vo.period }">
-										<c:if test="${vo.period.indexOf('일') != -1 }">
-											1개월 미만
+										<c:if test="${vo.period.indexOf('부터') == -1 }">
+											<c:if test="${vo.period.indexOf('일') != -1 }">
+												1개월 미만
+											</c:if>
+											<c:if test="${vo.period.indexOf('일') == -1 }">
+												<script type="text/javascript">
+													$("#period"+${i}).html($.getPeriod("${fn:substringBefore(vo.period,'월')}","${fn:substringBefore(fn:substringAfter(vo.period ,'~'),'월')}")+"개월");
+												</script>
+											</c:if>
+										</c:if>
+										<c:if test="${vo.period.indexOf('부터') != -1 }">
+											재직중
 										</c:if>
 									</c:if>
 								</span>
@@ -211,6 +216,7 @@
 						<fmt:formatDate value="${vo.regdate }" pattern="MM/dd"/>
 					</td>
 				</tr>
+				<c:set var="i" value="${i+1}"></c:set>
 			</c:forEach>
 		</c:if>
 	</tbody>

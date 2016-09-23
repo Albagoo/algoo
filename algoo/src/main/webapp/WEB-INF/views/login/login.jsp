@@ -58,7 +58,7 @@
 			,success:function(str){
 				if(str==1){
 					self.close();
-					opener.location.href="<c:url value='/index.ag'/>"
+					opener.location.reload();
 				}else if(str==2){
 					alert("존재하지 않는 아이디입니다");
 				}else if(str==3){

@@ -11,6 +11,12 @@
 			getZipcode();
 		});
 		
+		$("#bt_picture").click(function(){
+    		window.open("<c:url value='/resume/imageUp.ag?memberCode="+
+    				$("#memberCode").val()+"&photo="+$("#photo").val()+"'/>",
+    				"imageUp",
+    			"width=550,height=400,left=10, top=50,resizable=yes,location=yes");	
+    	});
 		
 		if(${sessionScope.authCode==1}){
 			$("#phone_div").css("display","none");
@@ -75,14 +81,24 @@
 	</nav>
 </div>
 <div id="memInfo">
+	<input type="hidden" id="memberCode" name="memberCode" value="${memberVo.memberCode }">
+	<input type="hidden" id="photo" name="photo" value="${memberVo.photo }">
 	<section>
 		<div id="photo_div">
 			<label for="photo">사진</label>
 			<p id="photo_img">
-				<img alt="" src="">
+				<c:if test="${empty memberVo.photo }">
+					<img alt="사람이미지" src="<c:url value='/images/saram.PNG'/>"
+						width="100%" height="100%">
+				</c:if>
+				<c:if test="${!empty memberVo.photo }">
+					<img alt="회원이미지" src="/algoo/algoo_images/${memberVo.photo }"
+					 width="100%" height="100%">
+				</c:if>
 			</p>
 			<div>
-				<input type="button" class="white" value="사진등록">
+				<input type="button" class="white" 
+					id="bt_picture" value="사진등록">
 			</div>
 		</div>
 		

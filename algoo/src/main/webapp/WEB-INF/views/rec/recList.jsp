@@ -13,8 +13,8 @@
 	href="<c:url value='/css/simpleButton.css'/>" />
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/clear.css'/>" />
-<link rel="stylesheet" type="text/css"
-	href="<c:url value='/css/faq.css'/>" />
+<%-- <link rel="stylesheet" type="text/css"
+	href="<c:url value='/css/faq.css'/>" /> --%>
 <link rel="stylesheet" type="text/css"
 	href="<c:url value='/css/recLayout.css'/>" />
 <link rel="stylesheet" type="text/css"
@@ -29,7 +29,62 @@
 </style>
 
 <script type="text/javascript">  
+
+function k(wel,index,item) {
+		
+		wel+='<input type="checkbox"'+' id="welfare_'+index+'"';
+		wel+='name="welfares"'+' value="'+item.values+'">';
+		wel+='<label for="welfare_'+index+'">'+item.values+'</label>';
+		return wel;
+}
+	
+
+
 $(document).ready(function(){
+	
+	
+	var welfareArr=[{name:'보험',values:'국민연금'},{name:'보험',values:'고용보험'},
+	                {name:'보험',values:'산재보험'},{name:'보험',values:'건강보험'},
+	                {name:'휴가/휴무',values:'연차'},{name:'휴가/휴무',values:'월차'},
+	                {name:'휴가/휴무',values:'정기휴가'},{name:'보상제도',values:'인센티브제'},
+	                {name:'보상제도',values:'정기보너스'},{name:'보상제도',values:'퇴직금'},
+	                {name:'보상제도',values:'장기근속자 포상'},{name:'보상제도',values:'우수사원 표창/포상'},
+	                {name:'수당제도',values:'야간근로수당'},{name:'수당제도',values:'휴일근로수당'},
+	                {name:'수당제도',values:'연월차수당'},{name:'수당제도',values:'장기근속수당'},
+	                {name:'수당제도',values:'위험수당'},{name:'수당제도',values:'연장근로수당'},
+	                {name:'수당제도',values:'주휴수당'},{name:'생활안정 지원',values:'기숙사운영'},
+	                {name:'생활안정 지원',values:'명절 귀향비 지급'},{name:'생활편의 지원',values:'조식제공'},
+	                {name:'생활편의 지원',values:'중식제공'},{name:'생활편의 지원',values:'석식제공'},
+	                {name:'생활편의 지원',values:'근무복 제공'},{name:'생활편의 지원',values:'통근버스 운행'},
+	                {name:'생활편의 지원',values:'야간교통비 지급'},{name:'생활편의 지원',values:'차량유류보조금'},
+	                {name:'생활편의 지원',values:'주차비지원(주차가능)'},{name:'경조사 지원',values:'각종 경조금'},
+	                {name:'경조사 지원',values:'경조 휴가제'}];
+	
+		/* var cnt=0; */
+		var wel='<span class="titd">복리후생</span>';
+		var welTemp="보험";
+		var welCnt=0;
+	$.each(welfareArr,function(index,item){
+		welCnt+=1;
+		if(item.name!=welTemp || welCnt>4){
+			wel+='<span class="clearBoth titd">　</span>';
+			welCnt=0;
+		}
+		
+		wel=k(wel,index,item);
+		welTemp=item.name;
+		
+		
+	});
+	$("#welf").html(wel);
+	/* <input type="checkbox" id="welfares_10" 
+        name="welfares" value="국민연금"> 
+         <label for="welfares_10"> 국민연금</label>  */
+	
+	
+	
+	
+	
 	/* frmSearch */
 	//검색
 	$("#searchBt").click(function() {
@@ -403,8 +458,9 @@ $(document).ready(function(){
 					<option value="slide">Slide</option>
 				</select>
               <input type="button" id="button2" 
-              class="ui-state-default ui-corner-all"
-              value="직종별검색" style="float: left">
+              class="searchBt"
+              value="직종별검색" style="float: left;">
+              <p class="clearBoth"></p>              
 				<div class="toggler">
 					<div id="effect2" class="ui-widget-content ui-corner-all">
 						<div style="display: inline-block;" id="test2">직종을 선택하세요(최대
@@ -444,27 +500,27 @@ $(document).ready(function(){
 						<dt class="rence">
 							<span class="titd">근무기간</span>
 							<input type="checkbox" id="one"
-							name="workTerm" value="하루(1일)"> 
+							name="workTerms" value="하루(1일)"> 
 							<label for="one">	하루(1일)</label> 
 							<input type="checkbox" id="week" 
-							name="workTerm"value="1주일이하">
+							name="workTerms"value="1주일이하">
 							<label for="week"> 1주일이하</label>
 							<input type="checkbox" id="month" 
-							name="workTerm" value="1주일~1개월">
+							name="workTerms" value="1주일~1개월">
 						   <label for="month"> 1주일~1개월</label>
 						   <input type="checkbox"	id="threeMonth" 
-						   name="workTerm" value="1개월~3개월"> 
+						   name="workTerms" value="1개월~3개월"> 
 						   <label for="threeMonth"> 1개월~3개월</label>
 						    
 						   <input type="checkbox"	id="sixMonth" 
-						   name="workTerm" value="3개월~6개월"> 
+						   name="workTerms" value="3개월~6개월"> 
 						   <label for="sixMonth"> 3개월~6개월 </label>
 						   <span class="clearBoth titd"> </span>  
 						   <input type="checkbox"	id="year" 
-						   name="workTerm" value="6개월~1년"> 
+						   name="workTerms" value="6개월~1년"> 
 						   <label	for="year"> 6개월~1년</label> 
 						   <input type="checkbox" id="consult"
-							name="workTerm" value="기간협의">
+							name="workTerms" value="기간협의">
 							<label for="consult"> 기간협의</label>
 						</dt>
 						<dt class="rence" style="height: 65px">
@@ -528,87 +584,87 @@ $(document).ready(function(){
 						</dt>
 						<dt class="rence">
 							<span class="titd">고용형태</span> 
-							<input type="checkbox"	name="recruitType" 
+							<input type="checkbox"	name="recruitTypes" 
 							value="알바" id="alba">
 							<label for="alba">알바</label> 
-							<input type="checkbox" value="J"
-						   id="jung" name="recruitType">
+							<input type="checkbox" value="정규직"
+						   id="jung" name="recruitTypes">
 							<label for="jung">정규직</label> 
-							<input type="checkbox" value="G"
-							id="gye"	name="recruitType"> 
+							<input type="checkbox" value="계약직"
+							id="gye"	name="recruitTypes"> 
 							<label for="gye"> 계약직</label> 
-							<input type="checkbox" value="F" 
-							id="fageon" name="recruitType">
+							<input type="checkbox" value="파견직" 
+							id="fageon" name="recruitTypes">
 							<label for="fageon">파견직</label> 
-							<input type="checkbox"	value="I" 
-							id="intern" name="recruitType"> 
+							<input type="checkbox"	value="인턴직" 
+							id="intern" name="recruitTypes"> 
 							<label for="intern">인턴직</label>
 							<span class="clearBoth titd"> </span> 
-							<input type="checkbox" value="W"
-						   id="wechock" name="recruitType"> 
+							<input type="checkbox" value="위촉직"
+						   id="wechock" name="recruitTypes"> 
 						   <label for="wechock">위촉직</label>
 						</dt>
-						<dt class="rence">
+						<dt class="rence" id="welf">
 							<span class="titd">복리후생</span> 
-							<input type="checkbox" id="welfare_10" 
+							<!-- <input type="checkbox" id="welfares_10" 
 							name="welfares" value="국민연금"> 
-	                   <label class="rence" for="welfare_10"> 
+	                   <label for="welfares_10"> 
 	                                                     국민연금</label> 
-	                   <input type="checkbox" id="welfare_11"
+	                   <input type="checkbox" id="welfares_11"
 	                   name="welfares" value="고용보험"> 
-	                   <label class="rence" for="welfare_11"> 
+	                   <label for="welfares_11"> 
 	                                                     고용보험</label> 
-	                   <input type="checkbox" id="welfare_12" 
+	                   <input type="checkbox" id="welfares_12" 
 	                   name="welfares" value="산재보험"> 
-	                   <label class="rence" for="welfare_12">
+	                   <label for="welfares_12">
 	                                                     산재보험 </label> 
-	                   <input type="checkbox" id="welfare_13"
+	                   <input type="checkbox" id="welfares_13"
 	                   name="welfares" value="건강보험"> 
-	                   <label class="rence" for="welfare_14"> 
+	                   <label for="welfares_14"> 
 	                                                    건강보험</label> 
-	                   <input type="checkbox" id="welfare_20" 
+	                   <input type="checkbox" id="welfares_20" 
 	                   name="welfares" value="연차"> 
-	                   <label class="rence" for="welfare_20"> 
+	                   <label for="welfares_20"> 
 	                                                    연차</label>
 	                   <span class="clearBoth titd"> </span> 
-	                   <input type="checkbox" id="welfare_21" 
+	                   <input type="checkbox" id="welfares_21" 
 	                   name="welfares" value="월차">
-	                   <label class="rence" for="welfare_21"> 
+	                   <label for="welfares_21"> 
 	                                                    월차</label> 
-	                   <input type="checkbox" id="welfare_22" 
+	                   <input type="checkbox" id="welfares_22" 
 	                   name="welfares" value="정기휴가">
-	                   <label class="rence" for="welfare_22"> 
+	                   <label for="welfares_22"> 
 	                                                    정기휴가</label> 
-	                   <input type="checkbox" id="welfare_23" 
+	                   <input type="checkbox" id="welfares_23" 
 	                   name="welfares" value="인센티브제"> 
-	                   <label class="rence" for="welfare_23">
+	                   <label for="welfares_23">
 	                                                     인센티브제 </label> 
 	                   
-	                   <input type="checkbox" id="welfare_30" 
-	                   name="welfares"  value="운전면허 소지자"> 
-	                   <label class="rence" for="welfare_30">
+	                   <input type="checkbox" id="welfares_30" 
+	                   name="welfares"  value="정기보너스"> 
+	                   <label for="welfares_30">
 	                                                     운전면허 소지자 </label> 
-	                   <input type="checkbox" id="welfare_31"
-	                   name="welfares" value="원동기면허 소지자"> 
-	                   <label class="rence" for="welfare_31">
+	                   <input type="checkbox" id="welfares_31"
+	                   name="welfares" value="퇴직금"> 
+	                   <label for="welfares_31">
 	                                                      원동기면허 소지자 </label>
 	                   <span class="clearBoth titd"> </span> 
-	                   <input type="checkbox" id="welfare_32" 
-	                   name="welfares" value="차량 소지자">
-	                   <label class="rence" for="welfare_32"> 
+	                   <input type="checkbox" id="welfares_32" 
+	                   name="welfares" value="장기근속자 포상">
+	                   <label for="welfares_32"> 
 	                                                     차량 소지자 </label>
-	                   <input type="checkbox" id="welfare_33" 
-	                   name="welfares"   value="군필자"> 
-	                   <label class="rence" for="welfare_33">
+	                   <input type="checkbox" id="welfares_33" 
+	                   name="welfares"   value="우수사원 표창/포상"> 
+	                   <label for="welfares_33">
 	                                                    군필자 </label> 
-	                   <input type="checkbox" id="welfare_34" 
-	                   name="welfares" value="여성">
-	                   <label class="rence" for="welfare_34">
+	                   <input type="checkbox" id="welfares_34" 
+	                   name="welfares" value="야간근로수당">
+	                   <label for="welfares_34">
 	                                                     여성 </label> 
-	                   <input type="checkbox" id="welfare_40" 
-	                   name="welfares" value="경력단절여성">
-	                   <label class="rence" for="welfare_40"> 
-	                                              경력단절여성 </label>
+	                   <input type="checkbox" id="welfares_40" 
+	                   name="welfares" value="휴일근로수당">
+	                   <label for="welfares_40"> 
+	                                              경력단절여성 </label> -->
 						</dt>
 						<dt class="rence">
 							<span class="titd">학력조건</span> 
@@ -635,62 +691,62 @@ $(document).ready(function(){
 						<dt class="rence" style="height: 110px;">
 							<span class="clearBoth titd">우대조건</span> 
 							<input type="checkbox" id="expPre" 
-                    name="welfares" value="동종업계 경력자"> 
-                    <label class="rence" for="expPre"> 
+                    name="preferences" value="동종업계 경력자"> 
+                    <label for="expPre"> 
                                                       동종업계 경력자 </label> 
                     <input type="checkbox" id="licensePre"
-                    name="welfares" value="관련자격증 소시자"> 
-                    <label class="rence" for="licensePre"> 
+                    name="preferences" value="관련자격증 소시자"> 
+                    <label for="licensePre"> 
                                                       관련자격증 소지자 </label> 
                     <input type="checkbox" id="pcPre" 
-                    name="welfares" value="컴퓨터활용 가능자"> 
-                    <label class="rence" for="pcPre">
+                    name="preferences" value="컴퓨터활용 가능자"> 
+                    <label for="pcPre">
                                                       컴퓨터활용 가능자 </label> 
                     <input type="checkbox" id="longPre"
-                    name="welfares" value="장기근무 가능자"> 
-                    <label class="rence" for="longPre"> 
+                    name="preferences" value="장기근무 가능자"> 
+                    <label for="longPre"> 
                                                      장기근무 가능자 </label> 
                     <input type="checkbox" id="engPre" 
-                    name="welfares" value="영어 가능자">
-                    <label class="rence" for="engPre"> 
+                    name="preferences" value="영어 가능자">
+                    <label for="engPre"> 
                                                      영어 가능자 </label>
                     <span class="clearBoth titd"> </span>  
                     <input type="checkbox" id="jpPre" 
-                    name="welfares" value="일어 가능자">
-                    <label class="rence" for="jpPre"> 
+                    name="preferences" value="일어 가능자">
+                    <label for="jpPre"> 
                                                      일어 가능자 </label> 
                     <input type="checkbox" id="cnPre" 
-                    name="welfares" value="중국어 가능자">
-                    <label class="rence" for="cnPre"> 
+                    name="preferences" value="중국어 가능자">
+                    <label for="cnPre"> 
                                                      중국어 가능자 </label> 
                     <input type="checkbox" id="insidePre" 
-                    name="welfares" value="인근 거주자"> 
-                    <label class="rence" for="insidePre">
+                    name="preferences" value="인근 거주자"> 
+                    <label for="insidePre">
                                                       인근 거주자 </label> 
                     <input type="checkbox" id="drivePre" 
-                    name="welfares"  value="운전면허 소지자"> 
-                    <label class="rence" for="drivePre">
+                    name="preferences"  value="운전면허 소지자"> 
+                    <label for="drivePre">
                                                       운전면허 소지자 </label> 
                     <input type="checkbox" id="byclePre"
-                    name="welfares" value="원동기면허 소지자"> 
-                    <label class="rence" for="byclePre">
+                    name="preferences" value="원동기면허 소지자"> 
+                    <label for="byclePre">
                                                        원동기면허 소지자 </label>
                     <span class="clearBoth titd"> </span>
                     <input type="checkbox" id="carPre" 
-                    name="welfares" value="차량 소지자">
-                    <label class="rence" for="carPre"> 
+                    name="preferences" value="차량 소지자">
+                    <label for="carPre"> 
                                                       차량 소지자 </label>
                     <input type="checkbox" id="militaryPre" 
-                    name="welfares"   value="군필자"> 
-                    <label class="rence" for="militaryPre">
+                    name="preferences"   value="군필자"> 
+                    <label for="militaryPre">
                                                      군필자 </label> 
                     <input type="checkbox" id="femailPre" 
-                    name="welfares" value="여성">
-                    <label class="rence" for="femailPre">
+                    name="preferences" value="여성">
+                    <label for="femailPre">
                                                       여성 </label> 
                     <input type="checkbox" id="mrsPre" 
-                    name="welfares" value="경력단절여성">
-                    <label class="rence" for="mrsPre"> 
+                    name="preferences" value="경력단절여성">
+                    <label for="mrsPre"> 
                                                      경력단절여성 </label>
 						</dt>
 					 </dl>
@@ -739,16 +795,45 @@ $(document).ready(function(){
 				<p>전체 조회 결과 - ${pagingInfo.totalRecord }건 조회되었습니다</p>
 				<p>
 					<c:if test="${!empty recSeachVO.area1 }">
-       검색지역 - 
-   </c:if>
+			      [검색]지역 - 
+			      </c:if>
 					${recSeachVO.area1 } ${recSeachVO.area2 } ${recSeachVO.area3 }
 					${recSeachVO.area4 } ${recSeachVO.area5 }
 
 					<c:if test="${!empty recSeachVO.job1 }">
-						<br>검색직종 - 
-   </c:if>
+						<br>[검색]직종 - 
 					${recSeachVO.job1 } ${recSeachVO.job2 } ${recSeachVO.job3 }
 					${recSeachVO.job4 } ${recSeachVO.job5 }
+               
+               </c:if>
+               <c:if test="${!empty recSeachVO.workTerms }">
+                  <br>[검색]근무기간-
+                  <c:forEach var="WTSearch" items="${recSeachVO.workTerms }">
+                    ${WTSearch}    
+                  </c:forEach>
+               </c:if>
+             
+               <c:if test="${!empty recSeachVO.recruitTypes }">
+                  <br>[검색]고용형태-
+                  <c:forEach var="RTSearch" items="${recSeachVO.recruitTypes }">
+                    ${RTSearch}    
+                  </c:forEach>
+               </c:if>
+               
+               <c:if test="${!empty recSeachVO.welfares }">
+                  <br>[검색]복리후생-
+                  <c:forEach var="WFSearch" items="${recSeachVO.welfares }">
+                    ${WFSearch}    
+                  </c:forEach>
+               </c:if>
+    
+               <c:if test="${!empty recSeachVO.preferences }">
+                  <br>[검색]우대조건-
+                  <c:forEach var="PFSearch" items="${recSeachVO.preferences }">
+                    ${PFSearch}    
+                  </c:forEach>
+               </c:if>
+               
 				</p>
 			</c:if>
 		</div>
@@ -781,7 +866,8 @@ $(document).ready(function(){
 					<c:forEach var="vo" items="${alist}">
 						<tr style="text-align: center;">
 							<!-- 근무지 -->
-							<td><c:set var="addr" value="${fn:split(vo.address,' ')}" />
+							<td style="text-align: left">
+							<c:set var="addr" value="${fn:split(vo.address,' ')}" />
 								<c:forEach var="j" begin="0" end="1">
                   ${addr[j] }<br>
 								</c:forEach></td>

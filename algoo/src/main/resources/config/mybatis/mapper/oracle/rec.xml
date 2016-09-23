@@ -64,34 +64,34 @@
 				like '%' || #{job5} || '%'
 			</if>
 			
-			<if test="workTerm != null and workTerm!=''">
+			<if test="workTerms != null ">
 				AND work_term IN
-				<foreach collection="workTerm" item="workTerm" index="index"
-					open="(" close=")" separator=",">
+				<foreach collection="workTerms" item="workTerm" 
+				index="index" open="(" close=")" separator=",">
 					#{workTerm}
 				</foreach>
 			</if>
 
-			<if test="recruitType != null and recruitType!=''">
-				AND recruit_Type IN
-				<foreach collection="recruitType" item="recruitType" index="index"
-					open="(" close=")" separator=",">
+			<if test="recruitTypes != null ">
+				AND recruit_type IN
+				<foreach collection="recruitTypes" item="recruitType" 
+				index="index" open="(" close=")" separator=",">
 					#{recruitType}
 				</foreach>
 			</if>
 			
-			<if test="welfare != null and welfare !='' and welfare !=' '">
+			<if test="welfares != null ">
 				AND welfare IN
-				<foreach collection="welfare" item="welfare" index="index"
-					open="(" close=")" separator=",">
+				<foreach collection="welfares" item="welfare" 
+				index="index" open="(" close=")" separator=",">
 					#{welfare}
 				</foreach>
 			</if>
          
-			<if test="preference != null and preference!=''">
+			<if test="preferences != null ">
 				AND preference IN
-				<foreach collection="preference" item="preference" index="index"
-					open="(" close=")" separator=",">
+				<foreach collection="preferences" item="preference" 
+				index="index" open="(" close=")" separator=",">
 					#{preference}
 				</foreach>
 			</if>

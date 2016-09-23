@@ -22,89 +22,63 @@ public class RecSeachVO extends SearchVO {
 	private String job4;
 	private String job5;
 	
-	private String[] workTerm;//근무기간
+	private String[] workTerms;//근무기간
 	private String workDays;//근무요일
 	private String payTypes;//급여방식
 	private int pays;//급여
-	private String[] recruitType;//고용형태 
+	private String[] recruitTypes;//고용형태 
 	private String[] welfares;//복지
-	private String educateLv;//학력
-	private String[] preference;//우대조건
+	private String educateLvs;//학력
+	private String[] preferences;//우대조건
 	
-	public String getWorkDays() {
-		return workDays;
-	}
-
-	public void setWorkDays(String workDays) {
-		this.workDays = workDays;
-	}
-
-	public String getPayType() {
-		return payTypes;
-	}
-
-	public void setPayType(String payType) {
-		this.payTypes = payType;
-	}
-
-	public int getPay() {
-		return pays;
-	}
-
-	public void setPay(int pay) {
-		this.pays = pay;
-	}
-
-	public String[] getRecruitType() {
-		return recruitType;
-	}
-
-	public void setRecruitType(String[] recruitType) {
-		this.recruitType = recruitType;
-	}
-
-	public String[] getWelfare() {
-		return welfares;
-	}
-
-	public void setWelfare(String[] welfare) {
-		this.welfares = welfare;
-	}
-
-	public String getEducateLv() {
-		return educateLv;
-	}
-
-	public void setEducateLv(String educateLv) {
-		this.educateLv = educateLv;
-	}
-
-	public String[] getPreference() {
-		return preference;
-	}
-
-	public void setPreference(String[] preference) {
-		this.preference = preference;
-	}
-
 	private Map<String,Object> map;
-	
-	
-	
-	public Map<String, Object> getMap() {
-		return map;
+
+	public String getAreas() {
+		return areas;
 	}
 
-	public void setMap(Map<String, Object> map) {
-		this.map = map;
+	public void setAreas(String areas) {
+		this.areas = areas;
 	}
 
-	public String[] getWorkTerm() {
-		return workTerm;
+	public String getArea1() {
+		return area1;
 	}
 
-	public void setWorkTerm(String[] workTerm) {
-		this.workTerm = workTerm;
+	public void setArea1(String area1) {
+		this.area1 = area1;
+	}
+
+	public String getArea2() {
+		return area2;
+	}
+
+	public void setArea2(String area2) {
+		this.area2 = area2;
+	}
+
+	public String getArea3() {
+		return area3;
+	}
+
+	public void setArea3(String area3) {
+		this.area3 = area3;
+	}
+
+	public String getArea4() {
+		return area4;
+	}
+
+	public void setArea4(String area4) {
+		this.area4 = area4;
+	}
+
+	public String getArea5() {
+		return area5;
+	}
+
+	public void setArea5(String area5) {
+		this.area5 = area5;
 	}
 
 	public String getJobs() {
@@ -155,62 +129,88 @@ public class RecSeachVO extends SearchVO {
 		this.job5 = job5;
 	}
 
-	public String getAreas() {
-		return areas;
+	public String[] getWorkTerms() {
+		return workTerms;
 	}
 
-	public void setAreas(String areas) {
-		this.areas = areas;
+	public void setWorkTerms(String[] workTerms) {
+		this.workTerms = workTerms;
 	}
 
-	public String getArea1() {
-		return area1;
+	public String getWorkDays() {
+		return workDays;
 	}
 
-	public void setArea1(String area1) {
-		this.area1 = area1;
+	public void setWorkDays(String workDays) {
+		this.workDays = workDays;
 	}
 
-	public String getArea2() {
-		return area2;
+	public String getPayTypes() {
+		return payTypes;
 	}
 
-	public void setArea2(String area2) {
-		this.area2 = area2;
+	public void setPayTypes(String payTypes) {
+		this.payTypes = payTypes;
 	}
 
-	public String getArea3() {
-		return area3;
+	public int getPays() {
+		return pays;
 	}
 
-	public void setArea3(String area3) {
-		this.area3 = area3;
+	public void setPays(int pays) {
+		this.pays = pays;
 	}
 
-	public String getArea4() {
-		return area4;
+	public String[] getRecruitTypes() {
+		return recruitTypes;
 	}
 
-	public void setArea4(String area4) {
-		this.area4 = area4;
+	public void setRecruitTypes(String[] recruitTypes) {
+		this.recruitTypes = recruitTypes;
 	}
 
-	public String getArea5() {
-		return area5;
+	public String[] getWelfares() {
+		return welfares;
 	}
 
-	public void setArea5(String area5) {
-		this.area5 = area5;
+	public void setWelfares(String[] welfares) {
+		this.welfares = welfares;
+	}
+
+	public String getEducateLvs() {
+		return educateLvs;
+	}
+
+	public void setEducateLvs(String educateLvs) {
+		this.educateLvs = educateLvs;
+	}
+
+	public String[] getPreferences() {
+		return preferences;
+	}
+
+	public void setPreferences(String[] preferences) {
+		this.preferences = preferences;
+	}
+
+	public Map<String, Object> getMap() {
+		return map;
+	}
+
+	public void setMap(Map<String, Object> map) {
+		this.map = map;
 	}
 
 	@Override
 	public String toString() {
 		return "RecSeachVO [areas=" + areas + ", area1=" + area1 + ", area2=" + area2 + ", area3=" + area3 + ", area4="
 				+ area4 + ", area5=" + area5 + ", jobs=" + jobs + ", job1=" + job1 + ", job2=" + job2 + ", job3=" + job3
-				+ ", job4=" + job4 + ", job5=" + job5 + ", workTerm=" + Arrays.toString(workTerm) + ", workDays="
-				+ workDays + ", payTypes=" + payTypes + ", pays=" + pays + ", recruitType=" + Arrays.toString(recruitType)
-				+ ", welfares=" + Arrays.toString(welfares) + ", educateLv=" + educateLv + ", preference="
-				+ Arrays.toString(preference) + ", map=" + map + ", toString()=" + super.toString() + "]";
+				+ ", job4=" + job4 + ", job5=" + job5 + ", workTerms=" + Arrays.toString(workTerms) + ", workDays="
+				+ workDays + ", payTypes=" + payTypes + ", pays=" + pays + ", recruitTypes="
+				+ Arrays.toString(recruitTypes) + ", welfares=" + Arrays.toString(welfares) + ", educateLvs="
+				+ educateLvs + ", preferences=" + Arrays.toString(preferences) + ", map=" + map + "]";
 	}
-
+	
+	
+	
 }

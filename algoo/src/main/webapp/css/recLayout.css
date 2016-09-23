@@ -29,6 +29,78 @@ a:hover {
  */
 /* button 
 ---------------------------------------------- */
+/*table*/
+table{
+   margin: 0;
+   padding: 0;
+   border-collapse: collapse;
+   width: 100%;
+   font-size: 0.9em;
+}
+table.box, table.box2{
+   margin: 0;
+   padding: 0;
+   border-collapse: collapse;
+}
+table.box2 th{
+   height:35px;
+   background-color: #ffeaea;
+   
+}
+table.box2 tr{
+   border: 1px solid #ffeaea;
+   border-left: none;
+   border-right: none;
+}
+table.box2 td{
+   text-decoration: none;
+   height:30px;
+}
+table.box2 td a{
+   color: black;
+   text-decoration:none;
+}
+.list p{
+   font-size: 0.8em;
+}
+.divSearch, .divPage{
+   text-align: center;
+   padding-top: 20px;
+}
+.divBtn{
+   float: right;
+}
+.clearboth{
+   clear: both;   
+}
+.align_center{
+   text-align: center;
+}
+.divPage span{
+   color:#5b75ff;
+   /* font-weight: bold; */
+   font-size: 0.9em;
+   border: 1px solid #eee;
+   padding: 0 9px 0 9px;
+   margin: 0 1px 0 1px;"
+}
+.divPage a{
+   font-size: 0.9em;
+   color: black;
+   padding: 0 10px 0 10px;
+}
+.divPage a:hover{
+   text-decoration: none;
+}
+.divPage img{
+   height: 16px;
+}
+.category{
+   font-size: 0.8em;
+   margin-bottom: 3px;
+}
+
+/* ---------------------------------------------- */
 body{
    /* background: #F7F7F7; */
    
@@ -343,7 +415,7 @@ input[type="text"], input[type="radio"],input[type="checkbox"]{
    margin: 20px 10px;
  font-family:'bon godic';
    font-variant:small-caps;
-   font-weight: bold;
+   /* font-weight: bold; */
    font-size: 9pt; 
 }
 dt label{
@@ -543,7 +615,7 @@ a#downBt img:hover{
    text-align: left;
 }
 .bg{
-   padding: 20px 0;
+   padding: 30px 0 0 0;
    border: 1px solid #EEE
 }
 .workCondition{
@@ -679,25 +751,35 @@ display: inline-block;
   }
 /* 지역별검색, 직종별검색 버튼 CSS */
     
-#button,#button2,#button3,
+/* #button,#button2, */
+#button3, 
 #searchCondition,#searchKeyword,
 #searchBt {
     padding: .5em 1em;
     text-decoration: none;
   }
 /* #button:hover, */
-#button2:hover,
-#button3:hover,
-#searchBt:hover,
-.recList tbody tr:hover
+/* #button2:hover, */
+/* #button3:hover, */
+/* #searchBt:hover, */
+.recList tbody tr:hover,
+.recList tbody tr a:hover
 {
 	color:#FFF;
    background: #007FFF;
    border-radius: 0.2em;
+}
+.recList tbody tr a{
+	display: inline-block;
+	width: 375px;
+}
+.recList tbody tr{
+	font-weight: normal;
+	font: normal;
 }  
 /* #button:active, */
-#button2:active,
-#button3:active,
+/* #button2:active, */
+#button3:active, 
 #searchCondition:active,
 #searchBt:active,
 #searchKeyword:active,

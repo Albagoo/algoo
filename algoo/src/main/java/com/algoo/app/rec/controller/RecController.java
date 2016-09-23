@@ -157,30 +157,33 @@ public class RecController {
 			logger.info("searchVo={}",searchVo);
 		}
 		//근무기간
-		String[] workTerms=searchVo.getWorkTerm();
+		String[] workTerm=searchVo.getWorkTerms();
 		//근무요일
 		//급여
 		//고용형태
-		String[] recruitTypes=searchVo.getRecruitType();
+		String[] recruitType=searchVo.getRecruitTypes();
 		//복리후생
-		String[] welfares=searchVo.getWelfare();
+		String[] welfare=searchVo.getWelfares();
 		//학력조건
 		//우대조건
-		String[] preferences=searchVo.getPreference();
+		String[] preference=searchVo.getPreferences();
 		//2
 
 		/*List<RecSeachVO> recList=new ArrayList<RecSeachVO>();*/
 		
-		if(workTerms!=null){
+		if(workTerm!=null ||recruitType!=null||welfare!=null||preference!=null){
 			Map<String,Object> map = new HashMap<String, Object>();
-			map.put("workTerm", workTerms);
-			map.put("recruitType", recruitTypes);
-			map.put("welfare", welfares);
-			map.put("preference", preferences);
+			
+			map.put("workTerms", workTerm);
+			map.put("recruitTypes", recruitType);
+			map.put("welfares", welfare);
+			map.put("preferences", preference);
+
 			searchVo.setMap(map);
 		}
 		
 		
+		logger.info("searchVo={}",searchVo);
 		//페이징 처리
 		PaginationInfo pagingInfo = new PaginationInfo();
 		pagingInfo.setBlockSize(10);

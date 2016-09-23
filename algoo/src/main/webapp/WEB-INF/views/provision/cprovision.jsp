@@ -9,8 +9,8 @@
 
 <div class="provision">	
 	<div class="provTitle">
-		<a href="">개인회원</a>
-		<span><a href="">기업회원</a></span>
+		<a href="<c:url value='/provision/pProvision.ag'/>">개인회원</a>
+		<span><a href="<c:url value='/provision/cProvision.ag'/>">기업회원</a></span>
 		<a href="">위치기반서비스</a>
 		<br>
 	</div><br><br>
@@ -18,12 +18,12 @@
 	<h2>기업회원 이용약관</h2>
 	<hr>
 	<div class="provDay">
-		<span id="provDay">개정일자</span> : 2016년 3월 21일
+		<span id="provDay">개정일자</span> : 2015년 7월 31일
 	</div>
 	
 	<div class="provCon">
 		<iframe src="<c:url value='/inc/cprovision.html'/>"
-		 frameborder="0" scrolling=no width="880" height="4000">
+		 frameborder="0" scrolling=no width="880" height="5000">
 	</div>
 </div>
 	

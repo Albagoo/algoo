@@ -22,7 +22,7 @@
 		            ,out_date
 		        from member
 		        <include refid="searchWhere"></include>  
-		        ) List_ALL
+		       order by member_code desc ) List_ALL
 		
 		)
 		<![CDATA[

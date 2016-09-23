@@ -123,7 +123,7 @@
 					document.write('</a>'); 
 					document.write('</center>'); 
 				</script>
-				<%-- <img src="<c:url value='/images/banner/banner4_2.jpg'/>"> --%>
+				<img src="<c:url value='/images/banner/banner4_2.jpg'/>">
 			</div>
 			
 			<!-- 우측 메뉴(고정) -->

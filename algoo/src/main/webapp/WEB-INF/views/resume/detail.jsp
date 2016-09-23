@@ -129,14 +129,20 @@
 		
 		for(var d in detail){
 			var year = detail[d].split("-");
+			
 			$("#detail_"+d).html(year[0]);
-			$("#detail"+d).html(year[1]);
+			
+			if($("#authCode").val() == "2"){
+				$("#detail"+d).html(year[1]);
+			}else{
+				$("#detail"+d).html("OOOO");
+			}
 		}
-		
 	});
 </script>
 	<div style="width: 700px; height: 70px; border: 3px solid #444;
 		text-align: center;" >
+		<input type="hidden" id="authCode" value="${sessionScope.authCode }">
 		<h2 style="margin-top: 10px; font-weight: bold; font-size: 2em">
 			<c:if test="${fn:length(resumeVo.title)>20}">
 				${fn:substring(resumeVo.title, 0,20)}...
@@ -176,8 +182,8 @@
 							<tr>
 								<td id="td1" style="width: 20%; padding-left: 0;font-weight: bold;">휴대폰</td>
 								<td id="td2" style="padding: 5px">
-								<input type="text" 
-								value="${memberVo.hp1 }-${memberVo.hp2 }-${memberVo.hp3 }" readonly></td>
+								<input type="text" value="${memberVo.hp1 } - ${memberVo.hp2 } - ${memberVo.hp3 }" readonly>
+								</td>
 							</tr>
 							<tr>
 								<td id="td1" style="width: 20%; padding-left: 0;font-weight: bold;">e-메일</td>
@@ -189,7 +195,7 @@
 								<td id="td1" style="width: 20%; padding-left: 0;font-weight: bold;">주소</td>
 								<td id="td2" style="padding: 5px">
 								<input type="text" style="width: 180%" 
-								value="${memberVo.address }${memberVo.addressDetail}" readonly></td>
+								value="${memberVo.address }" readonly></td>
 								</tr>
 						</table>
 					</td>
@@ -264,7 +270,14 @@
 							    padding: 0 0 5px;
 							    font-size: 24px;
 							    font-weight: normal;
-							    letter-spacing: -0.1em;">${careerVo.company }</dt>
+							    letter-spacing: -0.1em;">
+							    <c:if test="${sessionScope.authCode == '2'}">
+							    	${careerVo.company }
+							    </c:if>
+							    <c:if test="${sessionScope.authCode != '2'}">
+							    	OOOO
+							    </c:if>
+							    </dt>
 					<dd style="position: relative;
 							    display: inline-block;
 							    padding: 0 12px 0 0;
@@ -491,19 +504,40 @@
 				<ul class="personal_ul">
 					<li style="border-top: 0 none;">
 						장애여부 - <strong style="font-weight: bold;
-													color: #444">${personalInfoVo.obstacle }</strong>
+													color: #444">
+													<c:if test="${sessionScope.authCode == '2'}">
+												    	${personalInfoVo.obstacle }
+												    </c:if>
+												    <c:if test="${sessionScope.authCode != '2'}">
+												    	OOOO
+												    </c:if></strong>
 					</li>
 					<li>
 						국가보훈 - <strong style="font-weight: bold;
-													color: #444">${personalInfoVo.veterans }</strong>
+													color: #444"><c:if test="${sessionScope.authCode == '2'}">
+															    	${personalInfoVo.veterans }
+															    </c:if>
+															    <c:if test="${sessionScope.authCode != '2'}">
+															    	OOOO
+															    </c:if></strong>
 					</li>
 					<li>
 						병역사항 - <strong style="font-weight: bold;
-													color: #444">${personalInfoVo.military }</strong>
+													color: #444"><c:if test="${sessionScope.authCode == '2'}">
+															    	${personalInfoVo.military }
+															    </c:if>
+															    <c:if test="${sessionScope.authCode != '2'}">
+															    	OOOO
+															    </c:if></strong>
 					</li>
 					<li>
 						고용지원금 - <strong style="font-weight: bold;
-													color: #444">${personalInfoVo.employment }</strong>
+													color: #444"><c:if test="${sessionScope.authCode == '2'}">
+															    	${personalInfoVo.employment }
+															    </c:if>
+															    <c:if test="${sessionScope.authCode != '2'}">
+															    	OOOO
+															    </c:if></strong>
 					</li>
 				</ul>
 			</div>
@@ -517,9 +551,9 @@
 				border="0" usemap="#MapContents" />
 				<map name="MapContents" id="MapContents">
 					<area shape="rect" coords="116,80,240,109" alt="기업회원 로그인" 
-						href="#" />
+						href="#" onclick="window.open('/algoo/login/login.ag?type=Company', 'login','width=390,height=480,left=700,top=200,resizable=yes,location=yes')"/>
 					<area shape="rect" coords="254,80,378,109" alt="기업회원 가입" 
-						href="#" />
+						href="#" onclick="location.href='/algoo/jj/join.ag'"/>
 				</map>
 			</td>
 		</tr>

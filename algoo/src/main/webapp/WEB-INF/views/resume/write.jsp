@@ -710,7 +710,7 @@
     		/* 급여 */
     		var pay = "";
     		
-    		if($("#pay1 option:selected").val() != ""){
+    		if($("#pay2").val() != ""){
     			pay = $("#pay1 option:selected").val() + " " + $("#pay2").val() + "원";
     		}
     		

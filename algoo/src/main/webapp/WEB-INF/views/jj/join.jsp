@@ -13,15 +13,19 @@
 		$("#bt_personal").click(function(){
 			location.href="<c:url value='/member/agreement.ag'/>";
 		});
+		
+		$("#bt_business").click(function(){
+			location.href="<c:url value='/member_comp/register.ag'/>";
+		});
 	});
 </script>
 <section>
-	<div id="join_div">
+	<div id="join_div" style="margin-right: 80px;">
 		<div id="joinMessage">
 			<h1>개인/기업 회원가입</h1>
 			<p>개인/기업회원 가입을 환영합니다 다양한 가입을 통해서 다양한 서비스를 누리세요</p>
 		</div>
-		<div id="joinType">
+		<div id="joinType" style="padding-right: 80px;">
 			<div id="join_personal">
 				<h2><span class="point_p">개인&nbsp;</span>회원가입</h2>
 				<p>원하는 기업을 쏙쏙</p>
@@ -49,7 +53,7 @@
 					<input type="button" id="bt_facebook" value="페이스북 로그인">
 				</div>
 			</div>
-			<div id="join_business">
+			<div id="join_business" style="margin-right: 16px;">
 				<h2><span class="point_b">기업&nbsp;</span>회원가입</h2>
 				<p>원하는 인재를 쏙쏙</p>
 				<img alt="기업이미지" src="<c:url value='/images/briefcase.png'/>"><br>

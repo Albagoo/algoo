@@ -19,10 +19,7 @@
 				alert("사진 파일은 jpg, png, gif, jpeg 파일만 가능합니다!!!");
 				return false;
 			}
-			
 		});
-		
-		
 		
 		$("#imageUp").click(function(){
 			var formData = new FormData($('#frmImage')[0]);

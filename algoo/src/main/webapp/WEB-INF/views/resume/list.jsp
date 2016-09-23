@@ -136,11 +136,11 @@
 					<td scope="row">
 						<c:if test="${empty vo.photo }">
 							<img alt="사람이미지" src="<c:url value='/images/saram.PNG'/>"
-								height="60px" align="absmiddle">
+								height="60px" align="absmiddle" width="30px">
 						</c:if>
 						<c:if test="${!empty vo.photo }">
 							<img alt="회원이미지" src="/algoo/algoo_images/${vo.photo }"
-								height="60px" align="absmiddle">
+								height="60px" align="absmiddle" width="50px">
 						</c:if>
 					</td>
 					<td scope="row">

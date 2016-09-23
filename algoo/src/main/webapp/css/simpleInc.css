@@ -55,6 +55,7 @@ header{
 
 /* 심플한 include-bottom */
 footer{
+	margin:0 auto;
 	width: 880px;
 	margin:0 auto;
 	text-align:center;

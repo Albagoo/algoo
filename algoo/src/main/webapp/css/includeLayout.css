@@ -157,17 +157,18 @@
 
 /* footer css */
 #footer{
-	width:100%;
+	width:900px;
 	clear:both;
-	
+	margin:0 auto;
+	text-align: center;
 }
 #footer_div{
-	width:60%;
+	width:880px;
 	text-align:center;
 	margin:0 auto;
 }
 #footer_menu{
-	width:960px;
+	width:880px;
 	margin:0 auto;
 	height:30px;
 	border-top:1px solid #ccc;
@@ -182,10 +183,10 @@
 	font-weight:bold;
 	color:#333;
 }
-#footer{
-	width:1900px;
+/* #footer{
+	width:900px;
 	text-align: center;
-}
+} */
 #footer_main{
 	width:880px;
 	height:200px;

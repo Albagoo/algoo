@@ -144,10 +144,9 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
 	 class="bon">등록일 :<fmt:formatDate value="${recVo.regdate }" 
       pattern="yyyy-MM-dd"/> </span></p>
 	 
-	<div class="title">
-	<img alt="title" src="http://www.titlecheck.us/img/title-icon-150.png"
-	style="background: #Faa000";width="24px";height="24px">
-	 ${recVo.title }</div>
+	<div class="title" style="padding-top:0" align="absmiddle" >
+	<img alt="title" src="http://i.imgur.com/y7wOSNl.png"
+	style="width:20px;height:20px;padding-top: 10px">${recVo.title }</div>
 	<div class="main_left detail_left">
 		<div class="logo bon">
 			 <img alt="${compVo.compName }" 

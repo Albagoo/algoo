@@ -30,8 +30,9 @@
 
 <script type="text/javascript">  
 $(document).ready(function(){
-	/* searchBt */
-	/* frmSearch */
+
+	
+	//검색
 	$("#frmSearch").submit(function() {
 		  var insertAera="";
 		  var insertJob="";
@@ -47,11 +48,11 @@ $(document).ready(function(){
 		   $("#jobs").val(insertJob);    
 	});
 	
-	//임시 
-     
-	   runEffect("#effect"); 
-	    /* runEffect("#effect2");  */ 
-	     runEffect("#effect3");   
+	
+	//임시 검색 추가조건 가리기 
+   runEffect("#effect"); 
+    runEffect("#effect2");  
+     runEffect("#effect3");   
       
       // run the currently selected effect
        function runEffect(effect) {

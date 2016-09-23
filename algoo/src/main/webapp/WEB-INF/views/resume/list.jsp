@@ -2,16 +2,18 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ include file="../inc/simple_top.jsp"%>
 <script type="text/javascript" 
 	src="<c:url value='/naver/naverLogin_implicit-1.0.2.js'/>" charset="utf-8"></script>
 <script type="text/javascript">
-function pageProc(curPos){
-	document.frmPage.currentPage.value = curPos;
-	document.frmPage.submit();
-}
+	function pageProc(curPos){
+		document.frmPage.currentPage.value = curPos;
+		document.frmPage.submit();
+	}
+	
 	function getPeriod(){
-	var period="";
+		var period="";
 		if($(vo.period).indexOf('일')!=-1){
 			/*1개월 미만*/
 			$("#period").val("1개월 미만");
@@ -27,6 +29,8 @@ function pageProc(curPos){
 			}
 		}
 	}
+	
+	
 </script>
 <style type="text/css">
 	#tr{
@@ -145,16 +149,15 @@ function pageProc(curPos){
 						</c:if>
 					</td>
 					<td scope="row">
-						<span>
 							<p id="tdName">${vo.username }</p>
 							<p id="tdGender">
-							<c:if test="${vo.gender=='남자' }">
-									<font style="color:#5b75ff">(${vo.gender}</font>/${vo.birth }세)</span>
+								<c:if test="${vo.gender=='남자' }">
+									<font style="color:#5b75ff">(${vo.gender}</font>/${vo.birth }세)
 								</c:if>
 								<c:if test="${vo.gender=='여자' }">
-									<font style="color:#ff7373">(${vo.gender}</font>/${vo.birth }세)</span>
-								</c:if></p>
-						</span>
+									<font style="color:#ff7373">(${vo.gender}</font>/${vo.birth }세)
+								</c:if>
+							</p>
 					</td>
 					<td class="align_left">
 						<a href="<c:url value='/resume/detail.ag?hisCode=${vo.hisCode }'/>">
@@ -179,7 +182,9 @@ function pageProc(curPos){
 										신입
 									</c:if>
 									<c:if test="${!empty vo.period }">
-										
+										<c:if test="${vo.period.indexOf('일') != -1 }">
+											1개월 미만
+										</c:if>
 									</c:if>
 								</span>
 							</span>

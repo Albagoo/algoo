@@ -13,7 +13,7 @@
 		$("#btNco").click(function(){
 			var ncount=$("input[name='num']").val();
 			$("input[name='nco']").val(ncount);
-			$("#frmCount").submit(); 
+			$("#frmCount").submit();
 		});
 		
 		//전체선택
@@ -60,8 +60,8 @@
 				return false;
 			}
 			
-			frmList.action="<c:url value='/admin/selectNoticeDelete.ag'/>";
-			frmList.submit();
+			frmNList.action="<c:url value='/admin/selectNoticeDelete.ag'/>";
+			frmNList.submit();
 		});
 		
 		$("#btFaqDel").click(function(){
@@ -73,8 +73,8 @@
 				return false;
 			}
 			
-			frmList.action="<c:url value='/admin/selectFaqDelete.ag'/>";
-			frmList.submit();
+			frmFList.action="<c:url value='/admin/selectFaqDelete.ag'/>";
+			frmFList.submit();
 		});
 		
 	/* 	$("#btFreeDel").click(function(){
@@ -219,6 +219,7 @@
 	input[name="num"]{
 		width: 20px;
 		border: none;
+		text-align: center;
 	}
 	input[name="btNco"]{
 		vertical-align: middle;
@@ -247,11 +248,13 @@
 	<div class="boardPrint">
 		<form action="<c:url value='/admin/adminBoard.ag'/> " method="post" id="frmCount">	
 			<span>게시글  
-			(<input type="text" id="num" name="num">)개 보기&nbsp;
+			(<input type="text" id="num" name="num" value="${param.nco}">)개 보기&nbsp;
 			<input type="button" value="확인" id="btNco" name="btNco" class="button white medium">
 			<input type="hidden" name="nco" value="${param.nco }"></span>
 		</form>
 	</div>
+	
+	<form name="frmNList" method="post" action="<c:url value='/admin/adminBoard.ag'/>" >
 	<div class="adminNotice">
 	<span><img alt="공지사항" src="<c:url value='/images/notice11.png'/>"></span>
 	<span class="talkList">
@@ -286,16 +289,16 @@
 					<c:forEach var="nVo" items="${nlist }" end="${print-1}">
 						<tr>
 							<td>
-								<input type="checkbox" name="notice[${i}].mainNo"
-									id="chkN_${i }" value="${nVo.mainNo}" >
+								<input type="checkbox" name="noticeList[${i}].mainNo"
+							id="chk_${i }" value="${nVo.mainNo}" >
 							</td>
 							<td style="text-align: left;padding-left: 10px;">
 								<a href="<c:url value='/notice/detail.ag?no=${nVo.mainNo}'/>">
 								[${nVo.category }] 
-								<c:if test="${fn:length(nVo.title)>18}">
-									${fn:substring(nVo.title, 0,18)}...
+								<c:if test="${fn:length(nVo.title)>30}">
+									${fn:substring(nVo.title, 0,30)}...
 								</c:if>
-								<c:if test="${fn:length(nVo.title)<=18}">
+								<c:if test="${fn:length(nVo.title)<=30}">
 									${nVo.title }
 								</c:if> </a>
 							 </td>
@@ -314,8 +317,9 @@
 			<input type="button" id="btNoticeDel" value="선택한 공지사항 삭제" class="button white medium">   
 		</div>
 	</div>
+	</form>
 	
-	<form name="frmList" method="post" action="<c:url value='/admin/adminBoard.ag'/>" >
+	<form name="frmFList" method="post" action="<c:url value='/admin/adminBoard.ag'/>" >
 	<div class="adminFaq">
 		<span><img alt="FAQ" src="<c:url value='/images/faq.png'/>"></span>
 		<span class="talkList">

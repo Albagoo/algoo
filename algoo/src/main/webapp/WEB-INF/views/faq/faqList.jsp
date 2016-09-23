@@ -27,7 +27,7 @@
 			$(".faqBody input[type=checkbox]").prop("checked", this.checked);
 		});
 		
-		$("#btDel").click(function(){
+		$("#btFaqDel").click(function(){
 			var count
 			=$("tbody input[type=checkbox]:checked").length;
 			
@@ -36,8 +36,8 @@
 				return false;
 			}
 			
-			frmList.action="<c:url value='/faq/selectDelete.ag'/>";
-			frmList.submit();
+			frmFList.action="<c:url value='/faq/selectDelete.ag'/>";
+			frmFList.submit();
 		});
 	});
 	
@@ -48,8 +48,7 @@
 </script>	
 
 <section>
-<form name="frmCategory" method="post"
- action="<c:url value='/faq/faqList.ag'/>"
+<form name="frmCategory" method="post" action="<c:url value='/faq/faqList.ag'/>"
  id="frmCategory">
  	<!-- 09-12 카테고리 검색 -->
 	<input type="hidden" name="categoryName" id="categoryName" value="${param.categoryName }">
@@ -64,7 +63,7 @@
 <input type="hidden" name="searchKeyword" value="${searchVO.searchKeyword }">	
 </form>
 
-<form name="frmList" method="post"
+<form name="frmFList" method="post"
 	action="<c:url value='/faq/faqList.ag'/>" >
 <div class="divList">
 <div id="Qmark">

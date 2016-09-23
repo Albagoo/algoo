@@ -58,20 +58,20 @@ action="<c:url value='/faq/faqUserList.ag'/>">
 		<nav>
 			<dl id="leftNavi">
 				<dt><a href="<c:url value='/faq/faqUserList.ag?searchCondition=category&searchKeyword=개인회원'/>">개인회원</a></dt>
-				<dd><a href="<c:url value='/faq/faqUserList.ag?searchCondition=category&searchKeyword=개인회원 가입 및 탈퇴'/>">개인회원 가입 및 탈퇴</a></dd>
+				<dd><a href="<c:url value='/faq/faqUserList.ag?searchCondition=category&searchKeyword=개인회원 가입 및 탈퇴'/>">개인회원<br> 가입 및 탈퇴</a></dd>
 				<dd><a href="<c:url value='/faq/faqUserList.ag?searchCondition=category&searchKeyword=회원정보관리'/>">회원정보관리</a></dd>
 				<dd><a href="<c:url value='/faq/faqUserList.ag?searchCondition=category&searchKeyword=이력서 관리 및 활용'/>">이력서 관리 및 활용</a></dd>
-				<dd><a href="<c:url value='/faq/faqUserList.ag?searchCondition=category&searchKeyword=알바정보 검색 및 열람'/>">알바정보 검색 및 열람</a></dd>
+				<dd><a href="<c:url value='/faq/faqUserList.ag?searchCondition=category&searchKeyword=알바정보 검색 및 열람'/>">알바정보<br> 검색 및 열람</a></dd>
 				<dd><a href="<c:url value='/faq/faqUserList.ag?searchCondition=category&searchKeyword=온라인지원'/>">온라인지원</a></dd>
 				<dd><a href="<c:url value='/faq/faqUserList.ag?searchCondition=category&searchKeyword=알바토크'/>">알바토크</a></dd>
 				<dd><a href="<c:url value='/faq/faqUserList.ag?searchCondition=category&searchKeyword=기타 문의'/>">기타 문의</a></dd>
 				<br><br>
 				<dt><a href="<c:url value='/faq/faqUserList.ag?searchCondition=category&searchKeyword=기업회원'/>">기업회원</a></dt>
-				<dd><a href="<c:url value='/faq/faqUserList.ag?searchCondition=category&searchKeyword=기업회원 가입 및 탈퇴'/>">기업회원 가입 및 탈퇴</a></dd>
+				<dd><a href="<c:url value='/faq/faqUserList.ag?searchCondition=category&searchKeyword=기업회원 가입 및 탈퇴'/>">기업회원<br> 가입 및 탈퇴</a></dd>
 				<dd><a href="<c:url value='/faq/faqUserList.ag?searchCondition=category&searchKeyword=기업정보관리'/>">기업정보관리</a></dd>
 				<dd><a href="<c:url value='/faq/faqUserList.ag?searchCondition=category&searchKeyword=이력서 검색 및 열람'/>">이력서 검색 및 열람</a></dd>
 				<dd><a href="<c:url value='/faq/faqUserList.ag?searchCondition=category&searchKeyword=지원자관리'/>">지원자관리</a></dd>
-				<dd><a href="<c:url value='/faq/faqUserList.ag?searchCondition=category&searchKeyword=유료서비스/결제오류'/>">유료서비스/결제오류</a></dd>
+				<dd><a href="<c:url value='/faq/faqUserList.ag?searchCondition=category&searchKeyword=유료서비스/결제오류'/>">유료서비스<br>/결제오류</a></dd>
 				<dd><a href="<c:url value='/faq/faqUserList.ag?searchCondition=category&searchKeyword=세금계산서'/>">세금계산서</a></dd>
 				<dd><a href="<c:url value='/faq/faqUserList.ag?searchCondition=category&searchKeyword=기타 문의'/>">기타 문의</a></dd>
 			</dl>
@@ -157,7 +157,7 @@ action="<c:url value='/faq/faqUserList.ag'/>">
             >답변</option>
         </select>   
         <input type="text" name="searchKeyword" style="font-size: 0.8em;"
-        	title="검색어 입력" placeholder="검색어를 입력하세요" class="textBox" >   
+        	title="검색어 입력" placeholder="검색어를 입력하세요" class="textBox" value="${param.searchKeyword }">   
 		<input type="submit" class="button white medium" value="검색">
     </form>
 </div>

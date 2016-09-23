@@ -4,7 +4,7 @@
 
 <mapper namespace="com.mybatis.mapper.oracle.comment">
 	<parameterMap type="map" id="delParamMap">
-		<parameter property="commnetNo" javaType="string"
+		<parameter property="commentNo" javaType="string"
 			jdbcType="VARCHAR" mode="IN"/>
 		<parameter property="groupNo" javaType="string"
 			jdbcType="VARCHAR" mode="IN"/>

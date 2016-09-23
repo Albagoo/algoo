@@ -213,7 +213,7 @@ public class FaqController {
 		
 		PaginationInfo pagingInfo = new PaginationInfo();
 		pagingInfo.setBlockSize(10);
-		pagingInfo.setRecordCountPerPage(20);
+		pagingInfo.setRecordCountPerPage(12);
 		pagingInfo.setCurrentPage(searchVo.getCurrentPage());
 		
 		searchVo.setBlockSize(pagingInfo.getBlockSize());
@@ -222,7 +222,7 @@ public class FaqController {
 		
 		PaginationInfo onePage = new PaginationInfo();
 		onePage.setBlockSize(1);
-		onePage.setRecordCountPerPage(20);
+		onePage.setRecordCountPerPage(12);
 		onePage.setCurrentPage(searchVo.getCurrentPage());
 		
 		searchVo.setBlockSize(onePage.getBlockSize());

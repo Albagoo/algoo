@@ -146,10 +146,10 @@ action="<c:url value='/notice/list.ag'/>">
 					</td>
 					<td class="align_left" style="padding-left:10px">
 						<a href="<c:url value='/notice/detail.ag?no=${vo.mainNo}'/>">
-						<c:if test="${fn:length(vo.title)>18}">
-							${fn:substring(vo.title, 0,18)}...
+						<c:if test="${fn:length(vo.title)>30}">
+							${fn:substring(vo.title, 0,30)}...
 						</c:if>
-						<c:if test="${fn:length(vo.title)<=18}">
+						<c:if test="${fn:length(vo.title)<=30}">
 							${vo.title }
 						</c:if> </a>
 					 </td>
@@ -210,7 +210,7 @@ action="<c:url value='/notice/list.ag'/>">
 <br>
 <div class="divSearch">
    	<form name="frmSearch" method="post" 
-   	action="<c:url value='/faq/faqList.ag' />" >
+   	action="<c:url value='/notice/list.ag' />" >
         <select name="searchCondition" class="button white small"
         	style="font-size: 0.75em;">
             <option value="title"

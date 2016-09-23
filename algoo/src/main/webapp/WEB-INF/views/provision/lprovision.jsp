@@ -9,20 +9,20 @@
 
 <div class="provision">	
 	<div class="provTitle">
-		<span><a href="<c:url value='/provision/pProvision.ag'/>">개인회원</a></span>
+		<a href="<c:url value='/provision/pProvision.ag'/>">개인회원</a>
 		<a href="<c:url value='/provision/cProvision.ag'/>">기업회원</a>
-		<a href="<c:url value='/provision/lProvision.ag'/>">위치기반서비스</a>
+		<span><a href="<c:url value='/provision/lProvision.ag'/>">위치기반서비스</a></span>
 		<br>
 	</div><br><br>
 	
-	<h2>개인회원 이용약관</h2>
+	<h2>위치기반서비스</h2>
 	<hr>
 	<div class="provDay">
-		<span id="provDay">개정일자</span> : 2016년 3월 21일
+		<span id="provDay">개정일자</span> : 2014년 10월 7일
 	</div>
 	
 	<div class="provCon">
-		<iframe src="<c:url value='/inc/pprovision.html'/>"
+		<iframe src="<c:url value='/inc/lprovision.html'/>"
 		 frameborder="0" scrolling=no width="880" height="4100">
 	</div>
 </div>

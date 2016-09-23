@@ -11,7 +11,7 @@
 	<div class="provTitle">
 		<a href="<c:url value='/provision/pProvision.ag'/>">개인회원</a>
 		<span><a href="<c:url value='/provision/cProvision.ag'/>">기업회원</a></span>
-		<a href="">위치기반서비스</a>
+		<a href="<c:url value='/provision/lProvision.ag'/>">위치기반서비스</a>
 		<br>
 	</div><br><br>
 	

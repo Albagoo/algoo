@@ -27,4 +27,12 @@ public class ProvisionController {
 		
 		return "provision/cprovision";
 	}
+	
+	@RequestMapping("/lProvision.ag")
+	public String LProv(){
+		//1.
+		logger.info("기업회원약관 보여주기");
+		
+		return "provision/lprovision";
+	}
 }

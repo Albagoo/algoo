@@ -29,7 +29,16 @@
    <interceptors>
 		<interceptor>
 			<mapping path="/resume/write.ag" />
+			<mapping path="/freeboard/write.ag" />
+			<mapping path="/comment/write.ag" />
 			<beans:ref bean ="loginInterceptor" />
+		</interceptor>
+	</interceptors>
+	
+   <interceptors>
+		<interceptor>
+			<mapping path="/rec/recWrite.ag" />
+			<beans:ref bean ="companyLoginInterceptor" />
 		</interceptor>
 	</interceptors>
    

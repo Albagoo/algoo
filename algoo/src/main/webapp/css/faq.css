@@ -54,7 +54,7 @@
 .divForm div{
 	clear: both;
 	padding: 5px 0;
-	margin: 0;
+	/* margin: 0; */
 	overflow: auto;
 }
 .divForm legend{
@@ -235,8 +235,7 @@ input[name="num"]{
 	padding: 20px 0 20px 0;
 }
 .commentList{
-	border-bottom: 1px solid #fff7f7;
-	width: 85%;
+	width: 93%;
 	margin: auto;
 }
 .commentList a{
@@ -245,22 +244,32 @@ input[name="num"]{
 	font-size:14px;
 }
 #cmtNick{
-
 	font-weight:bold;
-	color:brown;
+	color:#0093f0;
+	font-size: 0.95em;
 }
 #cmtDate{
 	margin-left:10px;
-	font-size:14px;
+	font-size:11.5px;
 }
 #cmtCon{
-
 	font-size:14px;
 }
 #conDel{
 	float: right;
 }
+#conDel a{
+	text-decoration: none;
+}
+#conDel a img{
+	height: 13px;
+	padding-right: 2px;
+}
 .cmtP{
 	margin: 0;
-	padding: 15px 0 15px 0;	
+	padding: 10px 0 10px 0;	
+}
+.cmtInside{
+	margin: 0 auto;
+	margin-top: 10px;
 }

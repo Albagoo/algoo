@@ -10,7 +10,8 @@ import com.algoo.app.member.model.MemberVO;
 
 
 @Repository
-public class AdminMemberDAOMybatis extends SqlSessionDaoSupport implements AdminMemberDAO{
+public class AdminMemberDAOMybatis extends SqlSessionDaoSupport 
+	implements AdminMemberDAO{
 	private String namespace="com.mybatis.mapper.oracle.adminMember";
 	
 	@Override
@@ -31,6 +32,21 @@ public class AdminMemberDAOMybatis extends SqlSessionDaoSupport implements Admin
 	@Override
 	public int updateMem(MemberVO memberVo) {
 		return getSqlSession().update(namespace+".updateMem",memberVo);
+	}
+
+	@Override
+	public int checkUserid(String userid) {
+		return getSqlSession().selectOne(namespace+".selectAdminCount", userid);
+	}
+
+	@Override
+	public String loginCheck(AdminMemberVO adminMemberVo) {
+		return getSqlSession().selectOne(namespace+".selectPwd", adminMemberVo);
+	}
+
+	@Override
+	public AdminMemberVO selectAdminByUserid(String userid) {
+		return getSqlSession().selectOne(namespace+".selectAdminByUserid",userid);
 	}
 
 

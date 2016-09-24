@@ -57,4 +57,9 @@
 		select * from member
 		where member_code = #{memberCode}
 	</select>
+	
+	<select id="selectId" parameterType="MemberVo" resultType="String">
+		select userid from member
+		where userName = #{userName} and hp1 = #{hp1} and hp2 = #{hp2} and hp3 = #{hp3}
+	</select>
 </mapper>

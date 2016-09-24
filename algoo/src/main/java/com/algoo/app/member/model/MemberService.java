@@ -26,4 +26,5 @@ public interface MemberService {
 	public int withdrawMember(String userid);
 	public int updatePhoto(MemberVO memberVo);
 	public MemberVO selectMemberByCode(String memberCode);
+	public String selectId(MemberVO memberVo);
 }

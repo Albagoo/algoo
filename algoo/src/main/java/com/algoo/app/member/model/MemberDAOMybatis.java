@@ -54,4 +54,9 @@ public class MemberDAOMybatis extends SqlSessionDaoSupport implements MemberDAO{
 				memberCode);
 	}
 
+	@Override
+	public String selectId(MemberVO memberVo) {
+		return getSqlSession().selectOne(namespace+".selectId", memberVo);
+	}
+
 }

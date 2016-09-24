@@ -15,9 +15,10 @@ public interface ResumeService {
 			, LanguageVO languageVo, LicenseVO licenseVo, ComputerAbilityVO computerAbilityVo
 			, PersonalInfoVO personalInfoVo);	
 	
-	public List<ResumeVO> selectResume(ResumeSearchVO resumeSearchVo);
+/*	public List<ResumeVO> selectResume(ResumeSearchVO resumeSearchVo);*/
+	public List<ResumeListVO> selectResume(ResumeSearchVO resumeSearchVo);
 	
 	public Map<String, Object> selectResumeByCode(int hisCode);
 	
-	public int selectResumeCount();
+	public List<ResumeListVO> selectResumeCount(ResumeSearchVO resumeSearchVo);
 }

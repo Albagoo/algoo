@@ -2,6 +2,8 @@ package com.algoo.app.admin.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +11,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.algoo.app.admin.model.AdminMemberService;
+import com.algoo.app.admin.model.AdminMemberVO;
 import com.algoo.app.faq.model.FaqListVO;
 import com.algoo.app.faq.model.FaqService;
 import com.algoo.app.faq.model.FaqVO;
@@ -36,12 +41,98 @@ public class AdminController {
 	@Autowired
 	private FreeboardService freeService;
 	
+	@Autowired
+	private AdminMemberService adminMemberService;
+	
 	@RequestMapping("/adminIndex.ag")
 	public String adminIndex(){
 		logger.info("관리자 홈페이지 보여주기");
 		
 		return "admin/adminIndex";
 	}
+	/*로그인,로그아웃*/
+	@RequestMapping(value="/login/adminLogin.ag", method=RequestMethod.GET)
+	public String adminLogin_get(){
+		logger.info("관리자 로그인 페이지 보여주기");
+		
+		return "admin/login/adminLogin";
+	}
+	@RequestMapping(value="/login/adminLogin.ag", method=RequestMethod.POST)
+	public String adminLogin_post(@RequestParam(required=false) String userid,
+			@RequestParam(required=false) String password,
+			HttpSession session,
+			Model model){
+		
+		logger.info("로그인 처리 파라미터, userid={}, password={}",userid,password);
+		AdminMemberVO adminMemberVo = new AdminMemberVO();
+		adminMemberVo.setUserid(userid);
+		adminMemberVo.setPassword(password);
+		logger.info("로그인 정보 adminMemberVo={}",adminMemberVo);
+		int result
+			= adminMemberService.loginCheck(adminMemberVo);
+		
+		String msg="", url="";
+		if(result==adminMemberService.LOGIN_OK){
+			adminMemberVo = adminMemberService.selectAdminByUserid(userid);
+			session.setAttribute("userid", userid);
+			session.setAttribute("userName", adminMemberVo.getName());
+			session.setAttribute("nickName", adminMemberVo.getNickName());
+			session.setAttribute("authCode", "3"); //3 관리자
+			
+			msg = adminMemberVo.getName()+"님 관리자로 로그인되었습니다";
+			url = "/admin/adminIndex.ag";
+		}else{
+			if(result==adminMemberService.ID_NONE){
+				msg = "존재하지 않는 아이디입니다";
+				url = "/admin/login/adminLogin.ag";
+			}else if(result==adminMemberService.PWD_DISAGREE){
+				msg = "비밀번호가 일치하지 않습니다";
+				url = "/admin/login/adminLogin.ag";
+			}
+		}
+		
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		
+		return "common/message";
+	}
+	@RequestMapping("/login/adminLogout.ag")
+	public String adminLogout(HttpSession session, Model model){
+		logger.info("로그아웃 처리");
+		session.removeAttribute("userid");
+		session.removeAttribute("userName");
+		session.removeAttribute("authCode");
+		//3.
+		model.addAttribute("msg", "로그아웃되었습니다");
+		model.addAttribute("url", "/admin/adminIndex.ag");
+		
+		return "common/message";
+	}
+	@RequestMapping("/menu/memberManagement.ag")
+	public String memberManagement(){
+		logger.info("관리자 회원관리 페이지 보여주기");
+		
+		return "admin/menu/memberManagement";
+	}
+	@RequestMapping("/menu/recManagement.ag")
+	public String recManagement(){
+		logger.info("관리자 채용공고관리 페이지 보여주기");
+		
+		return "admin/menu/recManagement";
+	}
+	@RequestMapping("/menu/resumeManagement.ag")
+	public String resumeManagement(){
+		logger.info("관리자 인재정보관리 페이지 보여주기");
+		
+		return "admin/menu/resumeManagement";
+	}
+	@RequestMapping("/menu/boardManagement.ag")
+	public String boardManagement(){
+		logger.info("관리자 게시판관리 페이지 보여주기");
+		
+		return "admin/menu/boardManagement";
+	}
+	
 	
 	@RequestMapping("/adminBoard.ag")
 	public String adminBoardList(Model model, @RequestParam(defaultValue="0") String nco){

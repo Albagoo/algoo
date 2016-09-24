@@ -43,6 +43,7 @@ $(document).ready(function(){
 		$("#pwd").keyup(function(){
 			if($("#pwd").val().length<4 || $("#pwd").val().length>16){
 				$("#message2").html("비밀번호는 4~16자리로 입력하세요");
+				return false;
 			}else{
 				if(validate_userid($("#pwd").val()) && 
 						$("#pwd").val().length>=0){

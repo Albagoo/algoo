@@ -11,5 +11,7 @@ public interface AdminMemberDAO {
 	public int selectMemberCount(SearchVO searchVo);
 	public int deleteMem(String userid);
 	public int updateMem(MemberVO memberVo);
-	
+	public int checkUserid(String userid);
+	public String loginCheck(AdminMemberVO adminMemberVo);
+	public AdminMemberVO selectAdminByUserid(String userid);
 }

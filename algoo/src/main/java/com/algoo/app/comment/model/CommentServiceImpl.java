@@ -42,4 +42,9 @@ public class CommentServiceImpl implements CommentService{
 	public CommentVO selectCommentByNo(int cmtNo) {
 		return cmtDao.selectCommentByNo(cmtNo);
 	}
+
+	@Override
+	public int commentCount(int freeNo) {
+		return cmtDao.commentCount(freeNo);
+	}
 }

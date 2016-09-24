@@ -22,9 +22,65 @@ public class ResumeSearchVO extends SearchVO {
 	private int hisCode;
 	private Map<String, Object> map;
 	
+	//근무조건
+	private String types;
+	private String type1;
+	private String type2;
+	private String type3;
+	private String type4;
+	private String type5;
+	
 
 	
 	
+	public String getTypes() {
+		return types;
+	}
+
+	public void setTypes(String types) {
+		this.types = types;
+	}
+
+	public String getType1() {
+		return type1;
+	}
+
+	public void setType1(String type1) {
+		this.type1 = type1;
+	}
+
+	public String getType2() {
+		return type2;
+	}
+
+	public void setType2(String type2) {
+		this.type2 = type2;
+	}
+
+	public String getType3() {
+		return type3;
+	}
+
+	public void setType3(String type3) {
+		this.type3 = type3;
+	}
+
+	public String getType4() {
+		return type4;
+	}
+
+	public void setType4(String type4) {
+		this.type4 = type4;
+	}
+
+	public String getType5() {
+		return type5;
+	}
+
+	public void setType5(String type5) {
+		this.type5 = type5;
+	}
+
 	public Map<String, Object> getMap() {
 		return map;
 	}
@@ -134,7 +190,9 @@ public class ResumeSearchVO extends SearchVO {
 		return "ResumeSearchVO [gender=" + gender + ", username=" + username + ", photo=" + photo + ", birth=" + birth
 				+ ", title=" + title + ", period=" + period + ", categorys=" + Arrays.toString(categorys)
 				+ ", licenseName=" + licenseName + ", area1=" + area1 + ", area2=" + area2 + ", regdate=" + regdate
-				+ ", hisCode=" + hisCode + ", map=" + map + ", toString()=" + super.toString() + "]";
+				+ ", hisCode=" + hisCode + ", map=" + map + ", types=" + types + ", type1=" + type1 + ", type2=" + type2
+				+ ", type3=" + type3 + ", type4=" + type4 + ", type5=" + type5 + ", toString()=" + super.toString()
+				+ "]";
 	}
 
 }

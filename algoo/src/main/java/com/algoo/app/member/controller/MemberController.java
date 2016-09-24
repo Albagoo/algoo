@@ -238,5 +238,8 @@ public class MemberController {
 		return "member_comp/memberInfo";
 	}
 
-	
+	@RequestMapping("/findMember.ag")
+	public void findMember(){
+		
+	}
 }

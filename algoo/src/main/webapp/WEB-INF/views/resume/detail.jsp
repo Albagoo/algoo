@@ -131,18 +131,12 @@
 			var year = detail[d].split("-");
 			
 			$("#detail_"+d).html(year[0]);
-			
-			if($("#authCode").val() == "2"){
-				$("#detail"+d).html(year[1]);
-			}else{
-				$("#detail"+d).html("OOOO");
-			}
+			$("#detail"+d).html(year[1]);
 		}
 	});
 </script>
 	<div style="width: 700px; height: 70px; border: 3px solid #444;
 		text-align: center;" >
-		<input type="hidden" id="authCode" value="${sessionScope.authCode }">
 		<h2 style="margin-top: 10px; font-weight: bold; font-size: 2em">
 			<c:if test="${fn:length(resumeVo.title)>20}">
 				${fn:substring(resumeVo.title, 0,20)}...
@@ -271,13 +265,7 @@
 							    font-size: 24px;
 							    font-weight: normal;
 							    letter-spacing: -0.1em;">
-							    <c:if test="${sessionScope.authCode == '2'}">
-							    	${careerVo.company }
-							    </c:if>
-							    <c:if test="${sessionScope.authCode != '2'}">
-							    	OOOO
-							    </c:if>
-							    </dt>
+							    	${careerVo.company }</dt>
 					<dd style="position: relative;
 							    display: inline-block;
 							    padding: 0 12px 0 0;
@@ -504,60 +492,27 @@
 				<ul class="personal_ul">
 					<li style="border-top: 0 none;">
 						장애여부 - <strong style="font-weight: bold;
-													color: #444">
-													<c:if test="${sessionScope.authCode == '2'}">
-												    	${personalInfoVo.obstacle }
-												    </c:if>
-												    <c:if test="${sessionScope.authCode != '2'}">
-												    	OOOO
-												    </c:if></strong>
+													color: #444">${personalInfoVo.obstacle }</strong>
 					</li>
 					<li>
 						국가보훈 - <strong style="font-weight: bold;
-													color: #444"><c:if test="${sessionScope.authCode == '2'}">
-															    	${personalInfoVo.veterans }
-															    </c:if>
-															    <c:if test="${sessionScope.authCode != '2'}">
-															    	OOOO
-															    </c:if></strong>
+													color: #444">${personalInfoVo.veterans }</strong>
 					</li>
 					<li>
 						병역사항 - <strong style="font-weight: bold;
-													color: #444"><c:if test="${sessionScope.authCode == '2'}">
-															    	${personalInfoVo.military }
-															    </c:if>
-															    <c:if test="${sessionScope.authCode != '2'}">
-															    	OOOO
-															    </c:if></strong>
+													color: #444">${personalInfoVo.military }</strong>
 					</li>
 					<li>
 						고용지원금 - <strong style="font-weight: bold;
-													color: #444"><c:if test="${sessionScope.authCode == '2'}">
-															    	${personalInfoVo.employment }
-															    </c:if>
-															    <c:if test="${sessionScope.authCode != '2'}">
-															    	OOOO
-															    </c:if></strong>
+													color: #444">${personalInfoVo.employment }</strong>
 					</li>
 				</ul>
 			</div>
 		</c:if>
 		
 		<span class="title">자기소개서</span>
-		<div style="margin-top: 10px; border-top: 2px solid #444">
-		<table>	
-			<tr><td>
-			<img src="<c:url value='/images/resume_content.PNG'/>" alt="기업회원으로 로그인 하시면 열람하실 수 있습니다! 개인회원의 개인정보보호를 위하여 사진, 학교 및 경력사항, 자기소개서등의 정보는 기업회원으로 로그인 후 열람하실 수 있습니다." 
-				border="0" usemap="#MapContents" />
-				<map name="MapContents" id="MapContents">
-					<area shape="rect" coords="116,80,240,109" alt="기업회원 로그인" 
-						href="#" onclick="window.open('/algoo/login/login.ag?type=Company', 'login','width=390,height=480,left=700,top=200,resizable=yes,location=yes')"/>
-					<area shape="rect" coords="254,80,378,109" alt="기업회원 가입" 
-						href="#" onclick="location.href='/algoo/jj/join.ag'"/>
-				</map>
-			</td>
-		</tr>
-		</table>		
+		<div style="margin-top: 10px; border-top: 2px solid #444;padding: 10px;">
+			${resumeVo.content }
 		</div>
 		<div class="resumeComfirm" 
 			style="margin-top: 10px; border-top: 1px solid #e6e6e6">

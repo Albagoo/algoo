@@ -35,6 +35,32 @@
                category,#{category}
             </foreach>
          </if>
+
+	      <if test="type1!=null and type1!=''">
+            AND type
+            like '%' || #{type1} || '%'
+         </if>
+
+         <if test="type2!=null and type2!=''">
+            OR type
+            like '%' || #{type2} || '%'
+         </if>
+
+         <if test="type3!=null and type3!=''">
+            OR type
+            like '%' || #{type3} || '%'
+         </if>
+
+         <if test="type4!=null and type4!=''">
+            OR type
+            like '%' || #{type4} || '%'
+         </if>
+
+         <if test="type5!=null and type5!=''">
+            OR type
+            like '%' || #{type5} || '%'
+         </if>
+         
          
 	   </where> 
    </sql>
@@ -64,13 +90,13 @@
 		]]>
 	</select> 
 	
-	<select id="selectResumeCount" resultType="int" 
+	 <select id="selectResumeCount" resultType="ResumeListVO" 
 	parameterType="ResumeSearchVO">
-		select count(*) from listView
+		select period from listView
 		<include refid="searchWhere"></include>
 		order by regdate desc
-	</select>
-	
+	</select> 
+	 
 	<select id="selectResumeByCode" parameterType="int" 
 	resultType="ResumeVO">
 		select * from history

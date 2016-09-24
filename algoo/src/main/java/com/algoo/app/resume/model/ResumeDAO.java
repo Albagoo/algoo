@@ -7,5 +7,5 @@ public interface ResumeDAO {
 /*	public List<ResumeVO> selectResume(ResumeSearchVO resumeSearchVo);*/
 	public List<ResumeListVO> selectResume(ResumeSearchVO resumeSearchVo);
 	public ResumeVO selectResumeByCode(int hisCode);
-	public int selectResumeCount(ResumeSearchVO resumeSearchVo);
+	public List<ResumeListVO> selectResumeCount(ResumeSearchVO resumeSearchVo);
 }

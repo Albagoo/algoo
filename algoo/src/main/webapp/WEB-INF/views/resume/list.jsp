@@ -1185,9 +1185,18 @@ dt label{
                 </td>
                 <td id="td2">
            
+                 <input id="period_check0" name="period_checks" 
+                  type="radio" value="" 
+                  <c:if test="${perioded=='' }">
+                  checked="checked"
+                  </c:if>
+                  />
+                 <label for="period_check0"
+                 style="width: 70px;">경력무관</label> 
+           
                  <input id="period_check2" name="period_checks" 
                   type="radio" value="일" 
-                  <c:if test="${param.period_checks=='일' }">
+                  <c:if test="${perioded=='일' }">
                   checked="checked"
                   </c:if>
                   />
@@ -1196,7 +1205,7 @@ dt label{
                    
                  <input id="period_check" name="period_checks" 
                   type="radio" value="~" 
-                  <c:if test="${param.period_checks=='~' }">
+                  <c:if test="${perioded=='~' }">
                   checked="checked"
                   </c:if>
                   />
@@ -1206,7 +1215,7 @@ dt label{
             
             <input id="period_check3" name="period_checks" 
                type="radio" value="부터" 
-               <c:if test="${param.period_checks=='부터' }">
+               <c:if test="${perioded=='부터' }">
                checked="checked"
                </c:if>
                />
@@ -1282,15 +1291,15 @@ dt label{
             <label id="a">*</label>&nbsp;근무조건
          </td>
          <td id="td2">
-            <input type="checkbox" name="type1" id="type1" value="알바">
+            <input type="checkbox" name="types" id="type1" value="알바">
             <label for="type1">알바</label>
-            <input type="checkbox" name="type2" id="type2" value="정규직">
+            <input type="checkbox" name="types" id="type2" value="정규직">
             <label for="type2">정규직</label>
-            <input type="checkbox" name="type3" id="type3" value="계약직">
+            <input type="checkbox" name="types" id="type3" value="계약직">
             <label for="type3">계약직</label>
-            <input type="checkbox" name="type4" id="type4" value="파견직">
+            <input type="checkbox" name="types" id="type4" value="파견직">
             <label for="type4">파견직</label>
-            <input type="checkbox" name="type5" id="type5" value="인턴">
+            <input type="checkbox" name="types" id="type5" value="인턴">
             <label for="type5">인턴</label>
          </td>
       </tr>
@@ -1299,17 +1308,29 @@ dt label{
             <label id="a">*</label>&nbsp;성별
          </td>
          <td id="td2">
-           
+             
              <input id="noneGender" name="gender" 
-             type="radio" value="" checked="checked">
+             type="radio" value="" 
+             <c:if test="${empty resumeSearchVO.gender }"> 
+             checked="checked"
+             </c:if>
+             >
              <label for="noneGender">성별무관</label>
             
              <input id="namja" name="gender" 
-             type="radio" value="남자" />
+             type="radio" value="남자" 
+             <c:if test="${resumeSearchVO.gender=='남자' }"> 
+             checked="checked"
+             </c:if>
+             />
              <label for="namja">남자</label>
 
              <input id="yeoja" name="gender" 
-             type="radio" value="여자">
+             type="radio" value="여자"
+             <c:if test="${resumeSearchVO.gender=='여자' }"> 
+             checked="checked"
+             </c:if>
+             >
              <label for="yeoja">여자</label>
              
          </td>     
@@ -1382,7 +1403,7 @@ dt label{
 			<c:set var="i" value="1"/>
 			<c:forEach var="vo" items="${alist }">
 			
-			<c:set var="testResume" value="${param.period_checks}"/>
+			<c:set var="testResume" value="${perioded}"/>
 			<!-- 신입이면 -->
 			<%-- <c:if test="${vo.period.indexOf('일')!=-1 }"> --%>
 			

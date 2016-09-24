@@ -154,9 +154,27 @@ public class ResumeController {
 	
 	@RequestMapping("/list.ag")
 	public String list(
-			@RequestParam(value="period_checks", defaultValue="~") String period_checks,
+			@RequestParam(value="period_checks", defaultValue="") String period_checks,
 			@ModelAttribute ResumeSearchVO resumeSearchVo,
 			Model model){
+		//경력기간 초기화실패 대비용
+		if(period_checks==null){
+			period_checks="";
+		}
+		
+		//직종
+		if(resumeSearchVo.getTypes()!=null && !resumeSearchVo.getTypes().isEmpty()){
+			String[] TypeArr=(resumeSearchVo.getTypes()).split(",");
+			int cnt=TypeArr.length;
+			resumeSearchVo.setType1(TypeArr[0]);
+			if(cnt>=2)resumeSearchVo.setType2(TypeArr[1]);
+			if(cnt>=3)resumeSearchVo.setType3(TypeArr[2]);
+			if(cnt>=4)resumeSearchVo.setType4(TypeArr[3]);
+			if(cnt>=5)resumeSearchVo.setType5(TypeArr[4]);
+			logger.info("직종={},갯수={}",resumeSearchVo.getTypes(),cnt);
+			logger.info("resumeSearchVo={}",resumeSearchVo);
+		}
+		
 		
 		String[] category=resumeSearchVo.getCategorys();
 		
@@ -164,7 +182,6 @@ public class ResumeController {
 			Map<String, Object> map= new HashMap<String, Object>();
 			
 			map.put("categorys", category);
-			
 			resumeSearchVo.setMap(map);
 		}
  		
@@ -184,22 +201,22 @@ public class ResumeController {
 		
 /*		List<ResumeVO> alist = resumeService.selectResume(resumeSearchVo);*/
 		List<ResumeListVO> alist = resumeService.selectResume(resumeSearchVo);
+		List<ResumeListVO> tlist = resumeService.selectResumeCount(resumeSearchVo);
 		int cnt=0;
-		for(int i=0;i<alist.size();i++){
-			String peri=alist.get(i).getPeriod();
+		for(int i=0;i<tlist.size();i++){
+			String peri=tlist.get(i).getPeriod();
 			if(peri.indexOf(period_checks)!=-1){
 				cnt++;
 			};
 		}
-		logger.info("궁금해서찍어봄={},cnt={}",alist.size(),cnt);
-/*		int totalRecord = resumeService.selectResumeCount(resumeSearchVo);*/
+		logger.info("궁금해서찍어봄={},cnt={}",tlist.size(),cnt);
 		int totalRecord = cnt;
 		
 		pagingInfo.setTotalRecord(totalRecord);
 		logger.info("totalRecord={}",totalRecord);
 		model.addAttribute("pagingInfo", pagingInfo);
 		model.addAttribute("alist", alist);
-		
+		model.addAttribute("perioded", period_checks);
 		return "resume/list";
 	}
 	

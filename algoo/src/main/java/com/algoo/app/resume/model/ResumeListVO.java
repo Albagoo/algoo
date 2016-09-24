@@ -14,7 +14,14 @@ public class ResumeListVO {
 	private String area;
 	private Timestamp regdate;
 	private int hisCode;
+	private String type;
 	
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
 	public int getHisCode() {
 		return hisCode;
 	}
@@ -86,6 +93,6 @@ public class ResumeListVO {
 	public String toString() {
 		return "ResumeListVO [gender=" + gender + ", username=" + username + ", photo=" + photo + ", birth=" + birth
 				+ ", title=" + title + ", period=" + period + ", category=" + category + ", licenseName=" + licenseName
-				+ ", area=" + area + ", regdate=" + regdate + ", hisCode=" + hisCode + "]";
+				+ ", area=" + area + ", regdate=" + regdate + ", hisCode=" + hisCode + ", type=" + type + "]";
 	}
 }

@@ -242,4 +242,22 @@ public class MemberController {
 	public void findMember(){
 		
 	}
+	
+	@RequestMapping("findId.ag")
+	public void findId(){
+		
+	}
+	
+	@RequestMapping("/findIdDb.ag")
+	@ResponseBody
+	public String findMember_id(
+			@ModelAttribute MemberVO memberVo){
+		logger.info("아이디 찾기 파라미터 memberVo = {}", memberVo);
+		
+		String userid = memberService.selectId(memberVo);
+		
+		logger.info("userid = {}", userid);
+		
+		return userid;
+	}
 }

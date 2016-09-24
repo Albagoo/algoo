@@ -29,6 +29,7 @@ import com.algoo.app.license.model.LicenseVO;
 import com.algoo.app.member.model.MemberService;
 import com.algoo.app.member.model.MemberVO;
 import com.algoo.app.personalInfo.model.PersonalInfoVO;
+import com.algoo.app.resume.model.ResumeListVO;
 import com.algoo.app.resume.model.ResumeSearchVO;
 import com.algoo.app.resume.model.ResumeService;
 import com.algoo.app.resume.model.ResumeVO;
@@ -153,6 +154,7 @@ public class ResumeController {
 	
 	@RequestMapping("/list.ag")
 	public String list(
+			@RequestParam(value="period_checks", defaultValue="~") String period_checks,
 			@ModelAttribute ResumeSearchVO resumeSearchVo,
 			Model model){
 		
@@ -168,6 +170,8 @@ public class ResumeController {
  		
 		
 		logger.info("resumeSearchVo={}",resumeSearchVo);
+		logger.info("period_checks={}",period_checks);
+		
 		PaginationInfo pagingInfo = new PaginationInfo();
 		pagingInfo.setBlockSize(10);
 		pagingInfo.setCurrentPage(resumeSearchVo.getCurrentPage());
@@ -178,9 +182,18 @@ public class ResumeController {
 		/*resumeSearchVo.setBlockSize(pagingInfo.getBlockSize());
 		resumeSearchVo.setCurrentPage(pagingInfo.getCurrentPage());*/
 		
-		List<ResumeVO> alist = resumeService.selectResume(resumeSearchVo);
-		
-		int totalRecord = resumeService.selectResumeCount(resumeSearchVo);
+/*		List<ResumeVO> alist = resumeService.selectResume(resumeSearchVo);*/
+		List<ResumeListVO> alist = resumeService.selectResume(resumeSearchVo);
+		int cnt=0;
+		for(int i=0;i<alist.size();i++){
+			String peri=alist.get(i).getPeriod();
+			if(peri.indexOf(period_checks)!=-1){
+				cnt++;
+			};
+		}
+		logger.info("궁금해서찍어봄={},cnt={}",alist.size(),cnt);
+/*		int totalRecord = resumeService.selectResumeCount(resumeSearchVo);*/
+		int totalRecord = cnt;
 		
 		pagingInfo.setTotalRecord(totalRecord);
 		logger.info("totalRecord={}",totalRecord);

@@ -11,25 +11,25 @@
          </if>
 			<if test="area1!=null and area1!=''">
            <if test="searchKeyword!=null and searchKeyword!=''">
-               or
+               OR
            </if>
               area
 		        like '%' || #{area1} || '%'
            </if>
 		
 	      <if test="area2!=null and area2!=''">
-	            OR area
+	            AND area
 	            like '%' || #{area2} || '%'
 	      </if>
 	      
 	      <if test="gender!=null">
-               OR 
+               AND 
                gender
 	            like '%' || #{gender} || '%'
 	      </if>
 	         
 	      <if test="categorys != null ">
-            OR  regexp_like
+            and  regexp_like
             <foreach collection="categorys" item="category" 
               index="index" open="(" close=")" separator=",">
                category,#{category}
@@ -73,7 +73,7 @@
 	
 	<select id="selectResumeByCode" parameterType="int" 
 	resultType="ResumeVO">
-		select * from listView
+		select * from history
 		where his_code = #{hisCode}
 	</select>
 	

@@ -9,8 +9,8 @@
    href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="<c:url value='/jquery/jquery-ui.css'/>"
    type="text/css">
-<link rel="stylesheet" type="text/css"
-   href="<c:url value='/css/recLayout.css'/>" />
+<%-- <link rel="stylesheet" type="text/css"
+   href="<c:url value='/css/recLayout.css'/>" /> --%>
 <link rel="stylesheet" type="text/css"
    href="<c:url value='/css/simpleButton.css'/>" />   
 <script src="<c:url value='/jquery/jquery-ui.js'/>"
@@ -1042,7 +1042,7 @@
 	#h2{
 		font-size: 1.2em;
 		font-weight: bold;
-		border-bottom: 5px solid black;
+		border-bottom: 5px solid #33336C;
 		padding-bottom: 20px;
 		width: 880px;
 	}
@@ -1097,8 +1097,58 @@
 	
 	}
 	
+	#searchBt2
+	{
+	width: 100px; 
+	height: 31px;
+	border:none; 
+	padding: 2px;
+	background: #5995F4;
+	color: #fdfdff;
+	font-weight: bold;
+	}
+	#searchKeyword,
+	#searchCondition{
+	height: 29px;
+   padding: 2px;
+   border: 1px solid #5995F4;
+   color: #0A34B4;
+   font-weight: bold;
+	}
 	
-
+	#searchBt2:hover
+	{
+	background: #1666F0;  
+	}
+	#searchKeyword:hover,
+   #searchCondition:hover{
+   border: 1.5px solid #1666F0;
+   }
+   
+   #searchBt2:ACTIVE
+   {
+   background: #0A34B4;
+   }
+   #searchKeyword:ACTIVE,
+   #searchCondition:ACTIVE{
+   border: 2.5px solid #0A34B4;
+   }
+ /*   .rence label{
+   margin: 10px 0 5px 0px;
+   float: left;
+   width: 115px;
+   font-family:'bon godic';
+   font-size: 8pt;
+} */
+dt label{
+   font-family:'bon godic';
+   font-size: 9.5pt;
+   color: #650; 
+}
+#frmSearch label:HOVER {
+	font-size: 80%;
+	color: #0A34B4;
+}
 </style>
 
 
@@ -1135,48 +1185,33 @@
                 </td>
                 <td id="td2">
            
-                 <input id="period_check2" name="period_check" 
-                  type="radio" value="1" checked="checked"/>
+                 <input id="period_check2" name="period_checks" 
+                  type="radio" value="일" 
+                  <c:if test="${param.period_checks=='일' }">
+                  checked="checked"
+                  </c:if>
+                  />
                  <label for="period_check2"
-                 style="width: 30px;"> 신입</label>
+                 style="width: 50px;"> 신입</label>
                    
-                 <input id="period_check" name="period_check" 
-                  type="radio" value="1" checked="checked"/>
+                 <input id="period_check" name="period_checks" 
+                  type="radio" value="~" 
+                  <c:if test="${param.period_checks=='~' }">
+                  checked="checked"
+                  </c:if>
+                  />
                  <label for="period_check"
-                 style="width: 30px;"> 경력</label>
-                  <input type="text" name="period_year" id="period_year"
-                  size="5" maxlength="5">
-                   <label for="period_year" >년</label>
-                  <input type="text" name="period_month" id="period_month"
-                  size="5" maxlength="5">
-                   <label for="period_month" >개월</label>
+                 style="width: 50px;"> 경력</label>
                   
-                 <%-- 
-                 <select name="period_month"
-                  id="period_month">
-                   <option value="">월</option>
-                  <c:forEach var="i" begin="1" end="12">
-                   <option value="${i}">${i}</option>
-                  </c:forEach>
-                 </select>
-                  ~
-                <select name="period_year_2"
-                  id="period_year_2">
-                   <option value="">년도</option>
-                 <c:forEach var="i" begin="1989" end="2016">
-                   <option value="${i}">${i}</option>
-                 </c:forEach>
-                </select>
-                <select name="period_month_2"
-               id="period_month_2">
-               <option value="">월</option>
-               <c:forEach var="i" begin="1" end="12">
-               <option value="${i}">${i}</option>
-            </c:forEach>
-            </select> --%>
-            <input id="period_c" name="period_c" 
-               type="checkbox" value="true" />
-            <label for="period_c">재직중</label><br><br>
+            
+            <input id="period_check3" name="period_checks" 
+               type="radio" value="부터" 
+               <c:if test="${param.period_checks=='부터' }">
+               checked="checked"
+               </c:if>
+               />
+            <label for="period_check3">재직중</label><br><br>
+            
             </tr>
             
             <!-- <h2>희망근무조건</h2> -->
@@ -1265,17 +1300,17 @@
          </td>
          <td id="td2">
            
-           <!--   <input id="noneGender" name="gender" 
+             <input id="noneGender" name="gender" 
              type="radio" value="" checked="checked">
              <label for="noneGender">성별무관</label>
-            -->  
-             <input id="woman" name="gender" 
+            
+             <input id="namja" name="gender" 
              type="radio" value="남자" />
-             <label for="woman">남자</label>
-             
-             <input id="aman" name="gender" 
-             type="radio" value="여자 "/>
-             <label for="aman">여자</label>
+             <label for="namja">남자</label>
+
+             <input id="yeoja" name="gender" 
+             type="radio" value="여자">
+             <label for="yeoja">여자</label>
              
          </td>     
        </tr>     
@@ -1284,9 +1319,7 @@
    
               </table><br><br>
             <p style="text-align: center; clear: both;">
-               <select id="searchCondition" name="searchCondition"
-                   style="font-size: 0.75em; border: 3px solid #E70400;
-                   padding: 5px; ">
+               <select id="searchCondition" name="searchCondition">
                   <option value="username"
                      <c:if test="${param.searchCondition=='username'}">
                   selected
@@ -1295,15 +1328,15 @@
                      <c:if test="${param.searchCondition=='title'}">
                   selected
                </c:if>>이력서제목</option>
-               </select> <input type="text" id="searchKeyword" 
+               </select> 
+               
+               <input type="text" id="searchKeyword" 
                name="searchKeyword" title="검색어 입력" size="40"
-               style="border: 3px solid #E70400;padding: 5px;"
                
                value="${param.searchKeyword}">
                
                <!-- 일반검색버튼 -->
-               <input type="submit" id="searchBt" style="width: 100px;height: 31px;
-               border:none; padding: 2px;background: #E70400;color: #FFF;font-weight: bold;" value="검색" > 
+               <input type="submit" id="searchBt2"  value="검색" > 
                         
                
                
@@ -1326,7 +1359,9 @@
 		<col width="10%">
 	</colgroup>
 	<thead>
-		<tr id="tr" style="background: silver">
+		<tr id="tr" style="background: #0A34B4;
+		color: #CED8F0;font-family:sans-serif ;
+		font-size: 13px; ">
 			<th class="photo">이름</th>
 			<th class="name"></th>
 			<th>이력서 제목</th>
@@ -1347,8 +1382,17 @@
 			<c:set var="i" value="1"/>
 			<c:forEach var="vo" items="${alist }">
 			
+			<c:set var="testResume" value="${param.period_checks}"/>
+			<!-- 신입이면 -->
+			<%-- <c:if test="${vo.period.indexOf('일')!=-1 }"> --%>
 			
+			<!-- 경력직이면 -->
+			<%-- <c:if test="${vo.period.indexOf('~')!=-1 }"> --%>
+         
+			<!-- 재직중이면 -->
+			<%-- <c:if test="${vo.period.indexOf('부터')!=-1 }"> --%>
 			
+ <c:if test="${vo.period.indexOf(testResume)!=-1 }"> 
 			
 				<tr id="tr" class="align_center">
 					<td scope="row">
@@ -1435,6 +1479,7 @@
 					</td>
 				</tr>
 				<c:set var="i" value="${i+1}"></c:set>
+			</c:if>     	
 			</c:forEach>
 		</c:if>
 	</tbody>
@@ -1461,6 +1506,7 @@
 				<a href="#" onclick="pageProc(${i})">
 				[${i}]</a>
 		</c:if>
+ 
 	</c:forEach>	
 	<!--  페이지 번호 끝 -->
 	

@@ -98,8 +98,12 @@ public class ResumeServiceImpl implements ResumeService{
 		return resumeDao.insertResume(resumeVo);
 	}
 
-	@Override
+	/*@Override
 	public List<ResumeVO> selectResume(ResumeSearchVO resumeSearchVo) {
+		return resumeDao.selectResume(resumeSearchVo);
+	}*/
+	@Override
+	public List<ResumeListVO> selectResume(ResumeSearchVO resumeSearchVo) {
 		return resumeDao.selectResume(resumeSearchVo);
 	}
 

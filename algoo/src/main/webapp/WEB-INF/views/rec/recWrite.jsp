@@ -9,8 +9,7 @@
    href="<c:url value='/css/clear.css'/>" />
 <link rel="stylesheet" type="text/css"
    href="<c:url value='/css/recLayout.css'/>" />
-<link rel="stylesheet" type="text/css"
-   href="<c:url value='/css/simpleButton.css'/>" />
+
 <link rel="stylesheet" type="text/css" 
 href="<c:url value='/jquery/jquery-ui.css'/>"/>
    
@@ -270,44 +269,214 @@ href="<c:url value='/jquery/jquery-ui.css'/>"/>
 	
 </script>
 
+<style type="text/css">
+
+
+/* 체크박스디자인 */
+
+
+/* <div class="checks">
+  <input type="checkbox" id="ex_chk">
+  <label for="ex_chk">체크박스</label>
+</div> 
+ */
+.checks {position: relative;}
+
+
+
+.checks input[type="checkbox"] {  /* 실제 체크박스는 화면에서 숨김 */
+  position: absolute;
+   width: 1px;
+   height: 1px;
+   padding: 0;
+   margin: -1px;
+   overflow: hidden;
+   clip:rect(0,0,0,0);
+   border: 0
+}
+.checks input[type="checkbox"] + label {
+  display: inline-block;
+  position: relative;
+  padding-left: 40px;  /* 글자와 체크박스 사이의 간격을 변경 */
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.checks input[type="checkbox"] + label:before {  /* 가짜 체크박스 */
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -0px;  /* 이 값을 변경해서 글자와의 정렬 */
+  width: 14px;  /* 체크박스의 너비를 지정 */
+  height: 14px;  /* 체크박스의 높이를 지정 */
+  line-height: 14px; /* 세로정렬을 위해 높이값과 일치 */
+  text-align: center;  
+  background: #fafafa;
+  border: 1px solid #cacece;
+  border-radius : 3px;
+  box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+}
+.checks input[type="checkbox"] + label:active:before,
+.checks input[type="checkbox"]:checked + label:active:before {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+.checks input[type="checkbox"]:checked + label:before {  /* 체크박스를 체크했을때 */ 
+  content: '\2714';  /* 체크표시 유니코드 사용 */
+  color: #99a1a7;
+  text-shadow: 1px 1px #fff;
+  background: #e9ecee;
+  border-color: #adb8c0;
+  box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+}
+
+/* 라디오버튼 디자인 */
+
+/* <div class="checks">
+  <input type="radio" id="ex_rd2"> 
+  <label for="ex_rd2">체크박스</label> 
+</div> */
+
+.checks {position: relative;}
+.checks input[type="radio"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip:rect(0,0,0,0);
+  border: 0;
+}
+.checks input[type="radio"] + label {
+  display: inline-block;
+  position: relative;
+  padding-left: 40px; /* 글자와 체크박스 사이의 간격을 변경 */
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.checks input[type="radio"] + label:before {
+  content: '';  /* 체크표시 유니코드 사용 */
+  position: absolute;
+  left: 0;
+  top: 0px; /* 이 값을 변경해서 글자와의 정렬 */
+  width: 14px; /* 라디오버튼의 너비를 지정 */
+  height: 14px; /* 라디오버튼의 높이를 지정 */
+  text-align: center; /* 세로정렬을 위해 높이값과 일치 */
+  background: #fafafa;
+  border: 1px solid #cacece;
+  border-radius: 100%;
+  box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+}
+.checks input[type="radio"] + label:active:before,
+.checks input[type="radio"]:checked + label:active:before  {
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+.checks input[type="radio"]:checked + label:before {
+  background: #777;
+  border-color: #adb8c0;
+}
+.checks input[type="radio"]:checked + label:after {
+  position: absolute;
+  top:  0px;
+  left: 0.9px;  
+  width: 14px; /*  체크시 라디오버튼의 너비를 지정 */
+  height: 14px;
+  background: #777;
+  border-radius: 100%;
+  box-shadow: inset 0px 0px 10px rgba(0,0,0,0.3);
+  
+  .button {
+   display: inline-block;
+   zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
+   *display: inline;
+   vertical-align: baseline;
+   margin: 0 2px;
+   outline: none;
+   cursor: pointer;
+   text-align: center;
+   text-decoration: none;
+   font: 14px/100% Arial, Helvetica, sans-serif;
+   padding: .5em 2em .55em;
+   text-shadow: 0 1px 1px rgba(0,0,0,.3);
+   -webkit-border-radius: .5em; 
+   -moz-border-radius: .5em;
+   border-radius: .5em;
+   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+   box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+.button:hover {
+   text-decoration: none;
+}
+.button:active {
+   position: relative;
+   top: 1px;
+}
+
+.bigrounded {
+   -webkit-border-radius: 2em;
+   -moz-border-radius: 2em;
+   border-radius: 2em;
+}
+.medium {
+   font-size: 12px;
+   padding: .4em 1.5em .42em;
+}
+.small {
+   font-size: 10.5px;
+   padding: .2em 1em .275em;
+}
+  
+}
+
+/* white */
+.white {
+   color: #606060;
+   border: solid 1px #b7b7b7;
+   background: #fff;
+   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ededed));
+   background: -moz-linear-gradient(top,  #fff,  #ededed);
+   filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ededed');
+}
+.white:hover {
+   background: #ededed;
+   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#dcdcdc));
+   background: -moz-linear-gradient(top,  #fff,  #dcdcdc);
+   filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dcdcdc');
+}
+.white:active {
+   color: #999;
+   background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#fff));
+   background: -moz-linear-gradient(top,  #ededed,  #fff);
+   filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#ffffff');
+}
+
+</style>
 
 <form name="frm1" method="post"
    action="<c:url value='/rec/recWrite.ag'/>">
-   <div id="divService" style="margin-left: 50px;"></div> 
-       <input class="button small white" type="button" id="submitBt" 
-        value="서비스 설정" >  
-        
-   
-   <div class="recWrite">
-      <div id="serviceInfo">
 
- <form method="post" name="frmService" id="frmService"
-            action="<c:url value='/service/serviceWrite.ag'/>" style="display:inline" >
-            <select class="button small white"  id="gradeSel">
+   <div class="recWrite">
+         <span class="titd">서비스등급</span> 
+           <select style="float: left;" 
+           name="grade" id="grade">
             <option value="슈퍼">슈퍼</option>
             <option value="그랜드">그랜드</option>
             <option value="스페셜">스페셜</option>
             <option value="스피드">스피드</option></select>
-            <select class="button small white"  id="daysSel">
+        <span class="titd">서비스기간</span> 
+         <select style="float:left; " 
+         name="days" id="days">
             <option value="1">1일</option>
             <option value="7">7일</option>
             <option value="30">30일</option>
             <option value="90">90일</option>
             <option value="180">180일</option></select>
-            </form>';
-
-
-
-         <span class="txt_85">서비스등급</span> 
-         <input class="txth_50" type="text" size="30"
-          id="grade" name="grade" readonly="readonly"
-          value="스페셜"> 
-        <span class="txt_85">서비스기간</span> 
-        <input class="txt_35" type="text" id="days" 
-          name="days" readonly="readonly" value="1">
-        </div>
-      <input type="button" value="서비스 선택" id="serviceBt" 
-        title="보여주기" class="white small button "> 
+      
     
 
       <input type="hidden" value="${compVo.compCode }" 
@@ -317,7 +486,7 @@ href="<c:url value='/jquery/jquery-ui.css'/>"/>
       <div id="div1"></div>
       <h2>기업 정보</h2>
       <div class="companyInfo bg">
-         <dl class="clearBoth">
+         <dl class="clearBoth renceWrite">
             <dt>
                <span class="titd">회사/점포명</span> <input type="text" class="txt_150"
                   readonly="readonly" value="${compVo.compName }">
@@ -354,65 +523,58 @@ style="width: 150px;height: 100px;border: 1px solid gray">
       <!-- 담당자 정보 -->
       <h2 class="clearBoth">담당자 정보</h2>
       <div class="personInfo bg">
-         <dl class="clearBoth">
-            <dt>
-               <span class="titd">담당자명</span> <input type="text" class="txt_60"
-                  placeholder="이름" name="detpName" value="${compVo.deptName }">
-            </dt>
-            <dt>
-               <span class="titd">전화번호</span> 
-               <input type="text" class="phone1"
-                 name="phone1" placeholder="02" maxlength="3"
-                 value="${compVo.phone1 }"> 
-               <input type="text" class="phone2" name="phone2" 
-                 placeholder="0000" maxlength="4"
-                 value="${compVo.phone2 }"> 
-               <input type="text" class="phone3" name="phone3" 
-                 placeholder="0000" maxlength="4"
-                 value="${compVo.phone3 }">
-            </dt>
-            <dt class="clearBoth">
-               <span class="titd">휴대폰</span> <input type="text" class="phone1"
-                  name="hp1" placeholder="010" maxlength="3" value="${compVo.hp1 }">
-               <input type="text" class="phone2" name="hp2" placeholder="0000"
-                  maxlength="4" value="${compVo.hp2 }"> <input type="text"
-                  class="phone3" name="hp3" placeholder="0000" maxlength="4"
-                  value="${compVo.hp3 }">
-            </dt>
-            <dt>
-               <span class="titd">팩스번호</span> <input type="text" class="phone1"
-                  name="fax1" placeholder="010" maxlength="3"
-                  value="${compVo.fax1 }"> <input type="text" class="phone2"
-                  name="fax2" placeholder="0000" maxlength="4"
-                  value="${compVo.fax2 }"> <input type="text"
-                  class="phone3" name="fax3" placeholder="0000" maxlength="4"
-                  value="${compVo.fax3 }">
-            </dt>
-            <dt>
-               <span class="titd">e-mail</span> 
-               <input type="text" class="email1"
-                 placeholder="exam123" value="${compVo.email1 }"> 
-               <span style="margin-top: 7px;float: left">
-               @</span> 
-               <select class="floatLeft" id=email2
-               style="margin-top: 10px">
-                  <option value="naver">naver.com</option>
-                  <option value="hanmail">hanmail.net</option>
-                  <option value="google">google.com</option>
-                  <option value="nate">nate.com</option>
-                  <option value="etc">직접입력</option>
-               </select>
-               <input type="text" class="email3" placeholder=naver.com
-                 id="email3" value="${compVo.email2 }">
-               
-               
-            </dt>
-         </dl>
-      </div>
+			<dl class="clearBoth renceWrite">
+				<dt>
+					<span class="titd">담당자명</span> <input type="text" class="txt_60"
+						placeholder="이름" name="detpName" value="${compVo.deptName }">
+				</dt>
+				<dt>
+					<span class="titd">전화번호</span> <input type="text" class="phone1"
+						name="phone1" placeholder="02" maxlength="3"
+						value="${compVo.phone1 }"> <input type="text"
+						class="phone2" name="phone2" placeholder="0000" maxlength="4"
+						value="${compVo.phone2 }"> <input type="text"
+						class="phone3" name="phone3" placeholder="0000" maxlength="4"
+						value="${compVo.phone3 }">
+				</dt>
+				<dt class="clearBoth">
+					<span class="titd">휴대폰</span> <input type="text" class="phone1"
+						name="hp1" placeholder="010" maxlength="3" value="${compVo.hp1 }">
+					<input type="text" class="phone2" name="hp2" placeholder="0000"
+						maxlength="4" value="${compVo.hp2 }"> <input type="text"
+						class="phone3" name="hp3" placeholder="0000" maxlength="4"
+						value="${compVo.hp3 }">
+				</dt>
+				<dt>
+					<span class="titd">팩스번호</span> <input type="text" class="phone1"
+						name="fax1" placeholder="010" maxlength="3"
+						value="${compVo.fax1 }"> <input type="text" class="phone2"
+						name="fax2" placeholder="0000" maxlength="4"
+						value="${compVo.fax2 }"> <input type="text" class="phone3"
+						name="fax3" placeholder="0000" maxlength="4"
+						value="${compVo.fax3 }">
+				</dt>
+				<dt>
+					<span class="titd">e-mail</span> <input type="text" class="email1"
+						placeholder="exam123" value="${compVo.email1 }"> <span
+						style="margin-top: 7px; float: left"> @</span> <select
+						class="floatLeft" id=email2>
+						<option value="naver">naver.com</option>
+						<option value="hanmail">hanmail.net</option>
+						<option value="google">google.com</option>
+						<option value="nate">nate.com</option>
+						<option value="etc">직접입력</option>
+					</select> <input type="text" class="email3" placeholder=naver.com
+						id="email3" value="${compVo.email2 }">
+
+
+				</dt>
+			</dl>
+		</div>
       <!-- 근무지 정보 -->
       <h2>근무지정보</h2>
       <div class=" workInfo bg">
-         <dl class="clearBoth">
+         <dl class="clearBoth rence">
             <dt>
                <span class="titd">근무회사<br>점포명</span> <input type="text"
                   class="txt_200" placeholder="회사명(지점명)" maxlength="30"
@@ -423,9 +585,9 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                   placeholder="성실하게 함께할 가족 구합니다" name="title" id="title"
                   maxlength="33">
             </dt>
-            <dt>
+            <dt >
                <span class="titd">업직종</span>
-               <select   
+               <select style="margin-left: 10px"   
                 name="jobName" id="jobName"> </select>
                 <select  
                 name="jobName2" id="jobName2">
@@ -443,7 +605,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <span class="titd">상세주소</span> <input type="text" class="txt_500"
                   placeholder="상세주소" name="addressDetail" id="addressDetail">
 
-               <input type="button" class="white textBox" value="우편번호 찾기"
+               <input type="button" class="white" value="우편번호 찾기"
                   id="btnZipcode">
             </dt>
             <dt>
@@ -469,8 +631,8 @@ style="width: 150px;height: 100px;border: 1px solid gray">
       <!-- 근무조건 -->
       <h2>근무조건</h2>
       <div class="workCondition bg checks">
-         <dl class="clearBoth">
-            <dt class="recne">
+         <dl class="clearBoth renceWrite">
+            <dt >
                <span class="titd">근무기간</span> 
                <input type="radio" id="one" name="workTerm" 
                  value="하루(1일)" checked="checked"> 
@@ -486,7 +648,8 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <label for="threeMonth"> 1개월~3개월</label> 
                <input type="radio" id="sixMonth" name="workTerm" 
                  value="3개월~6개월"> 
-               <label for="sixMonth"> 3개월~6개월 </label> 
+               <label for="sixMonth"> 3개월~6개월 </label>
+               <span class="clearBoth titd">　</span>  
                <input type="radio" id="year"  name="workTerm" 
                  value="6개월~1년"> 
                <label for="year">  6개월~1년</label> 
@@ -494,7 +657,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                  value="기간협의"> 
                <label for="consult"> 기간협의</label>
             </dt>
-            <dt class="rence">
+            <dt >
                <span class="titd">근무요일</span> 
                <input type="radio" id="MontoSun"
                   name="workDays" checked="checked" value="월~일"> 
@@ -587,7 +750,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
             <dt>
                <span class="titd" >급여선택</span> 
                <select class="txt_85 " 
-                  name="payType" style="margin-top: 10px">
+                  name="payType" >
                   <option value="시급">시급</option>
                   <option value="일급">일당</option>
                   <option value="주급">주급</option>
@@ -602,7 +765,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                 class="white small button"
                 type="button" onclick="minPaySet()"> 
             </dt>
-            <dt class="rence">
+            <dt >
                <span class="titd">고용형태</span> 
                <input type="checkbox"
                 name="recruitType" value="알바" id="alba"> 
@@ -628,8 +791,8 @@ style="width: 150px;height: 100px;border: 1px solid gray">
       </div>
       <h2>지원조건</h2>
       <div class="requestCondition bg checks">
-         <dl class="clearBoth">
-            <dt class="rence">
+         <dl class="clearBoth renceWrite">
+            <dt >
                <span class="titd">성별 </span> 
                <input type="radio" id="gender" name="gender" 
                 checked="checked" value="성별무관"> 
@@ -642,7 +805,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <label for="female"> 여성</label>
 
             </dt>
-            <dt class="rence">
+            <dt >
                <span class="titd">연령</span> 
                <input type="radio" id="donAge"
                 name="age" checked="checked" value="연령무관"> 
@@ -661,7 +824,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                 name="age" value="주부"> 
                <label for=housewife> 주부 가능</label> 
             </dt>
-            <dt class="rence">
+            <dt >
                <span class="titd">학력조건</span> 
                <input type="radio" id="eduLv" name="educateLv" 
                 checked="checked" value="학력무관"> 
@@ -683,7 +846,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                 value="대학원졸업~"> 
                <label for="graduate"> 대학원졸업~ </label>
             </dt>
-            <dt class="rence">
+            <dt >
                <span class="titd">경력사항</span> 
                <input type="radio" id="work" name="career" 
                 checked="checked"> 
@@ -694,7 +857,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                 name="career"> 
                <label for="experience"> 경력 </label>
             </dt>
-            <dt class="rence">
+            <dt >
                <div style="height: 110px;">
                  <span class="clearBoth titd">우대조건</span> 
                  <input type="checkbox" id="expPre" 
@@ -762,7 +925,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
       </div>
       <h2>모집내용</h2>
       <div class="recContent bg checks">
-         <dl class="clearBoth">
+         <dl class="clearBoth renceWrite">
             <dt >
                <span class="titd">모집인원 </span> 
                <input type="text" class="txt_50"
@@ -775,7 +938,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                 name="recruitMember" value="00명" name="recruitMember"> 
                 <label id="tenxten" for="hundredPeople">00명 </label>
             </dt>
-            <dt class="rence">
+            <dt >
                <span class="titd">모집대상</span> 
                <input type="checkbox" id="youth"
                   name="recruitPerson" value="청소년"> 
@@ -808,6 +971,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                  <input type="hidden" id="calText2" size="10"
                  name="recruitDeadline" value="${serv }">
                  <input type="text" id="calText" size="10"
+                 style="margin: 5px 0 0 10px;"
                  name="recruitDeadlineView" maxlength="10">
                  <input type="button" id="weekCal"
                    value="일주일동안" class="white small textBox"> 
@@ -816,7 +980,7 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                  <input type="button" id="completeCal"
                    value="채용시까지" class="white small textBox">
             </dt>
-            <dt class="rence">
+            <dt >
                <span class="titd">접수방법</span> 
                <input type="checkbox" id="onlineRec"
                  name="recruitMethod" value="온라인지원"> 
@@ -860,16 +1024,16 @@ style="width: 150px;height: 100px;border: 1px solid gray">
             </dt>
                
 
-            <dt class="rence">
+            <dt >
                <span class="titd">제출서류</span> <input type="checkbox" id="expDoc"
                   name="documents" value="이력서"> <label 
                   for="expDoc"> 이력서 </label> <input type="checkbox" id="juminDoc"
                   name="documents" value="주민.등록등본"> <label 
                   for="juminDoc"> 주민.등록등본 </label> <input type="checkbox"
                   id="mediDoc" name="documents" value="보건증"> <label
-                  class="rence" for="mediDoc"> 보건증 </label> <input type="checkbox"
+                   for="mediDoc"> 보건증 </label> <input type="checkbox"
                   id="introDoc" name="documents" value="자기소개서"> <label
-                  class="rence" for="introDoc"> 자기소개서 </label> <input
+                   for="introDoc"> 자기소개서 </label> <input
                   type="checkbox" id="parDoc" name="documents" value="부모님동의서">
                <label  for="parDoc"> 부모님동의서 </label>
 

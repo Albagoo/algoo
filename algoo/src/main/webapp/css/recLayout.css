@@ -109,12 +109,12 @@ body{
   font-family:'bon godic';
 }
 .recWrite {
-   width: 880px;
+   width: 850px;
     background: #FFF; 
    border:1px solid #F90;
    
    margin: 3px auto;
-   padding:3px;
+   padding:3px 3px 3px 7px;
    border-radius: 0.3em;
     
 }
@@ -127,12 +127,61 @@ body{
 }
 .recWrite dl{
 	/* background: #fffcfc; */
+	
+}
+.recWrite input[type='text']:HOVER,
+.recWrite select:HOVER,
+.recWrite input[type='button']:HOVER
+{
+	border: 1px solid #f90;
+}
+.recWrite dt label:hover{
+	font-size: 60%;
+	
+}
+.recWrite dt label:ACTIVE{
+	font-weight: bold;
+	
+}
+.recWrite input[type='text']:ACTIVE,
+.recWrite select:ACTIVE,
+.recWrite input[type='button']:ACTIVE
+{
+	border: 2.5px solid #f90;
+}
+
+.recWrite input[type='text'],
+.recWrite select,
+.recWrite input[type='button']{
+	border: 1px solid #BEBEBE;
+	padding: 5px;
+	margin-top: 2px;
 }
 
 .companyInfo,.personInfo,.workInfo,.requestCondition,.recContent,.detailContent {
-   width: 880px;
+   width: 850px;
    padding: 20px 0;
    /* border: 1px solid #f90; */
+}
+/* 회사정보 */
+.companyInfo{
+	height: 165px;
+}
+/* 담당자정보 */
+.personInfo{
+	height:210px; 
+}
+/* 근무지정보 */
+.workInfo{
+	height:260px; 
+	
+}
+/* 근무조건 */
+.workCondition{
+	height: 310px;
+}
+.recContent{
+	height: 250px;
 }
 
 .detailContent textarea{
@@ -186,6 +235,16 @@ body{
    width: 115px;
    font-family:'bon godic';
    font-size: 8pt;
+}
+.renceWrite label{
+   margin: 10px 0 5px 0;
+   float: left;
+   width: 90px;
+   font-family:'bon godic';
+   font-size: 8pt;
+}
+.renceWrite label::BEFORE{
+	margin: 0 0 0 10px;
 }
 .txt{
    margin:10px;
@@ -858,3 +917,40 @@ display: inline-block;
    filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#666666', endColorstr='#000000'); 
 	
 } 
+
+div#select_box {
+    position: relative;  
+    float:left;
+    width: 180px;
+    height: 40px;
+    background: url(select_arrow.png) 180px center no-repeat; /* 화살표 이미지 */
+    border: 1px solid #E9DDDD;
+}
+div#select_box label {
+     position: absolute; 
+    float:left;
+    font-size: 14px;
+    color: #ff80c0;
+    top: 13px;
+    left: 12px;
+    letter-spacing: 1px;
+}
+div#select_box select#jobName {
+    width: 100%;
+    height: 40px;
+    min-height: 40px;
+    line-height: 40px;
+    padding: 0 10px;
+    opacity: 0;
+    filter: alpha(opacity=0); /* IE 8 */
+}
+div#select_box select#jobName2 {
+    width: 100%;
+    height: 40px;
+    min-height: 40px;
+    line-height: 40px;
+    padding: 0 10px;
+    opacity: 0;
+    filter: alpha(opacity=0); /* IE 8 */
+}
+

@@ -15,11 +15,10 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("th").hover(function(){
-			$(this).css("background","#E70400").css("cursor","pointer")
-			.css("color","white");
+			$(this).css("background","#E70400").css("cursor","pointer");
 		
 		},function(){
-			$(this).css("background","").css("color","black");
+			$(this).css("background","");
 		});
 	});
 </script>
@@ -36,6 +35,7 @@
 		
 	}
 	.menu{
+		width:100%;
 		display: inline-block;
 	}
 	.menu a{
@@ -43,6 +43,9 @@
 	}
 	.menu .hide{
 		display:none;
+	}
+	.menuStyle a{
+		color:black;
 	}
 </style>
 <!--[if lt IE 9]>
@@ -57,10 +60,21 @@
 				<a href="<c:url value='/admin/adminIndex.ag'/>"><img alt="로고" src="<c:url value='/images/simple_Logo.png'/> ">
 				</a>
 				<span>관리자</span>
-				<ul>
-					<li><a href="<c:url value='/admin/adminIndex.ag'/>">관리자홈</a> |</li>
-					<li><a href="<c:url value='/admin/adminIndex.ag'/>">로그인</a></li>
-				</ul>
+				<c:if test="${empty sessionScope.userid }">
+					<ul>
+						<li><a href="<c:url value='/admin/adminIndex.ag'/>">홈</a> |</li>
+						<li><a href="<c:url value='/admin/login/adminLogin.ag'/>">로그인</a></li>
+					</ul>
+				</c:if>
+				<c:if test="${!empty sessionScope.userid }">
+					<ul>
+						<li><span style="font-size:1.0em;color:black;font-weight:bold;margin-right: 10px;"> ${sessionScope.userName}님</span></li>
+						<li><a href="<c:url value='/admin/adminIndex.ag'/>">홈</a> |</li>
+						<li><a href="<c:url value='/admin/login/adminLogout.ag'/>">로그아웃</a> |</li>
+						<li><a href="<c:url value='/admin/menu/memberManagement.ag'/>">관리자메뉴</a></li>
+					</ul>
+				</c:if>
+				
 			</div>
 		</header>
 		<!-- /헤더영역 -->

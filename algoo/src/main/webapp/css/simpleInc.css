@@ -26,6 +26,9 @@ header{
 	margin:50px 6px 0 0 ;
 	
 }
+#simple_top a{
+	text-decoration: none;
+}
 #simple_top span{
 	color: #E70400;
 	font-size:2em;

@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <style type="text/css">
-	th:nth-of-type(1){
+	th:nth-of-type(2){
 		background:#E70400;
 	}
-	th:nth-of-type(1) a{
+	th:nth-of-type(2) a{
 		color:white;
 	}
 </style>

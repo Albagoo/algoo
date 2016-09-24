@@ -96,6 +96,42 @@ public class AdminController {
 		
 		return "common/message";
 	}
+	@RequestMapping("/login/adminLogout.ag")
+	public String adminLogout(HttpSession session, Model model){
+		logger.info("로그아웃 처리");
+		session.removeAttribute("userid");
+		session.removeAttribute("userName");
+		session.removeAttribute("authCode");
+		//3.
+		model.addAttribute("msg", "로그아웃되었습니다");
+		model.addAttribute("url", "/admin/adminIndex.ag");
+		
+		return "common/message";
+	}
+	@RequestMapping("/menu/memberManagement.ag")
+	public String memberManagement(){
+		logger.info("관리자 회원관리 페이지 보여주기");
+		
+		return "admin/menu/memberManagement";
+	}
+	@RequestMapping("/menu/recManagement.ag")
+	public String recManagement(){
+		logger.info("관리자 채용공고관리 페이지 보여주기");
+		
+		return "admin/menu/recManagement";
+	}
+	@RequestMapping("/menu/resumeManagement.ag")
+	public String resumeManagement(){
+		logger.info("관리자 인재정보관리 페이지 보여주기");
+		
+		return "admin/menu/resumeManagement";
+	}
+	@RequestMapping("/menu/boardManagement.ag")
+	public String boardManagement(){
+		logger.info("관리자 게시판관리 페이지 보여주기");
+		
+		return "admin/menu/boardManagement";
+	}
 	
 	
 	@RequestMapping("/adminBoard.ag")

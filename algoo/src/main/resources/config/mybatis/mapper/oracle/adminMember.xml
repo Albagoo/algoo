@@ -35,7 +35,25 @@
 		select count(*) from member
 			<include refid="searchWhere"></include>
 	</select>
-
+	
+	<select id="selectAdminCount" parameterType="string" 
+		resultType="int">
+		select count(*) from admin_member
+		where userid=#{userid}	
+	</select>
+	
+	<select id="selectPwd" parameterType="AdminMemberVO"
+		resultType="string">
+		select password from admin_member
+		where userid=#{userid} and out_date is null
+	</select>
+	
+	<select id="selectAdminByUserid" parameterType="string" 
+		resultType="AdminMemberVO">
+		select * from admin_member
+		where userid=#{userid} and out_date is null
+	</select>
+	
 	<update id="deleteMem" parameterType="string">
 		update member
 		set out_date=sysdate

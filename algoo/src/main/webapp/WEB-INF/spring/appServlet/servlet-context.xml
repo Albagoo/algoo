@@ -38,6 +38,7 @@
    <interceptors>
 		<interceptor>
 			<mapping path="/rec/recWrite.ag" />
+			<mapping path="/resume/list.ag" />
 			<beans:ref bean ="companyLoginInterceptor" />
 		</interceptor>
 	</interceptors>

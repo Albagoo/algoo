@@ -86,8 +86,8 @@
 				return false;
 			}
 			
-			frmList.action="<c:url value='/admin/selectFreeDelete.ag'/>";
-			frmList.submit();
+			frmTList.action="<c:url value='/admin/selectFreeDelete.ag'/>";
+			frmTList.submit();
 		}); */
 	});
 	
@@ -379,6 +379,7 @@
 	</div>
 	</form>
 	
+	<form name="frmTList" method="post" action="<c:url value='/admin/adminBoard.ag'/>" >
 	<div class="adminFree">
 		<span><img alt="알바톡톡" src="<c:url value='/images/talk.png'/>"></span>
 		<span class="talkList">
@@ -411,7 +412,7 @@
 					<c:forEach var="tVo" items="${tlist }" end="${print-1}">
 						<tr>
 							<td class="freeBody">
-								<input type="checkbox" name="free[${k}].freeNo"
+								<input type="checkbox" name="freeList[${k}].freeNo"
 									id="chk3_${k }" value="${tVo.freeNo}" >
 							</td>
 							
@@ -475,6 +476,7 @@
 			<!-- <input type="button" id="btFreeDel" value="선택한 게시글 삭제" class="button white medium">  -->  
 		</div>
 	</div>
+	</form>
 </div>
 </div>
 

@@ -51,4 +51,8 @@
 	<delete id="deleteComment" parameterMap="delParamMap">
 		{call delete_comments(?,?,?)}
 	</delete>
+	
+	<select id="commentCount" parameterType="int" resultType="int">
+		select count(*) from comments where free_no=#{freeNo} and del_yn!='Y'
+	</select>
 </mapper>

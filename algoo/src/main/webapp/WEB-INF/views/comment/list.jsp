@@ -26,6 +26,9 @@
 			}
 		}
 </script>
+<div class="cmtCount">
+	<span>댓글 ${cnt }개</span>
+</div>
 <div class="commentList">
 	<c:if test="${empty clist }">
 		<span style="display: none;"></span>

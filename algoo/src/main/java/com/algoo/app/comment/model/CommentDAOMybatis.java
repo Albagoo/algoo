@@ -43,4 +43,9 @@ public class CommentDAOMybatis extends SqlSessionDaoSupport implements CommentDA
 	public CommentVO selectCommentByNo(int cmtNo) {
 		return getSqlSession().selectOne(namespace+".selectCommentByNo", cmtNo);
 	}
+
+	@Override
+	public int commentCount(int freeNo) {
+		return getSqlSession().selectOne(namespace+".commentCount", freeNo);
+	}
 }

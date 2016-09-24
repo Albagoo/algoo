@@ -46,7 +46,7 @@
 	<p>전체 조회 결과 - ${pagingInfo.totalRecord }건 조회되었습니다</p>
 </c:if>
 </div>
-${ fn:substring(sessionScope.member_code, 0, 3) }
+${sessionScope.auth==3) }
 <c:if test="${ fn:substring(sessionScope.member_code, 0, 3) == 'ADM' }">
 	<span class="talkList" style="float: right;margin-bottom: 10px;padding-right: 3px;">
 		<a href="<c:url value='/admin/adminBoard.ag'/>" 

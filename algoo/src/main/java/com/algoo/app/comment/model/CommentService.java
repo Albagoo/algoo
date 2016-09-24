@@ -9,4 +9,5 @@ public interface CommentService {
 	public int insertReply(CommentVO vo);
 	public void deleteComment(Map<String, String> map);
 	public CommentVO selectCommentByNo(int cmtNo);
+	public int commentCount(int freeNo);
 }

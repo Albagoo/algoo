@@ -47,7 +47,11 @@ public class CommentController {
 		List<CommentVO> clist=cmtService.selectComment(freeNo);
 		logger.info("댓글 리스트 조회 결과 clist.size() = {}", clist.size());
 		
+		int cnt=cmtService.commentCount(freeNo);
+		logger.info("댓글 개수 cnt = {}", cnt);
+		
 		model.addAttribute("clist", clist);
+		model.addAttribute("cnt", cnt);
 		
 		return "comment/list";
 	}

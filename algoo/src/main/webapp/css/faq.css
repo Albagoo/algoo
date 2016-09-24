@@ -190,7 +190,7 @@ table.box2 td a{
 	height: 15px;
 }
 .cmtList{
-	background-color: #ffeaea;
+	border: #ffeaea;
 }
 .contentBox a{
 	color:black;
@@ -272,4 +272,10 @@ input[name="num"]{
 .cmtInside{
 	margin: 0 auto;
 	margin-top: 10px;
+}
+.cmtCount{
+	border: 1px solid #ffeaea;
+}
+.cmtCount span{
+	font-size: 0.95em;
 }

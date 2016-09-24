@@ -174,13 +174,15 @@ public class ResumeController {
 		
 		resumeSearchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
 		resumeSearchVo.setRecordCountPerPage(10);
+		resumeSearchVo.setBlockSize(pagingInfo.getBlockSize());
+		resumeSearchVo.setCurrentPage(pagingInfo.getCurrentPage());
 		
 		List<ResumeVO> alist = resumeService.selectResume(resumeSearchVo);
 		
 		int totalRecord = resumeService.selectResumeCount();
 		
 		pagingInfo.setTotalRecord(totalRecord);
-		
+		logger.info("totalRecord={}",totalRecord);
 		model.addAttribute("pagingInfo", pagingInfo);
 		model.addAttribute("alist", alist);
 		

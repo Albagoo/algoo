@@ -42,11 +42,28 @@
 	}
 	
 	
+	
+	
+	function validate_num(num) {
+	      var pattern = new RegExp(/^[0-9]*$/g);
+	      return pattern.test(num);
+	}
 	$(function() {
+		
+		$("#frmSearch").submit(function() {
+			
+		  if (!validate_num($("#period_year").val()) ||
+	                  !validate_num($("#period_month").val())){
+	          alert("경력은 숫자여야 합니다");
+	          $("#period_year").focus();
+	          return false;
+	       }
+		});
+	   
+		
 		
 		//상세검색 탭형식으로 보여주기
 	      $( "#detailTabs" ).tabs({});
-		
 		
 	      //임시 검색 추가조건 가리기 
 	     
@@ -1117,16 +1134,24 @@
                  <label id="a">*</label>&nbsp;경력기간
                 </td>
                 <td id="td2">
-                 <!-- <input id="period_check" name="period_check" 
+           
+                 <input id="period_check2" name="period_check" 
                   type="radio" value="1" checked="checked"/>
-                 <label for="period_check"> 1개월 이상 근무</label> -->
-                 <select name="period_year"
-                  id="period_year">
-                   <option value="">년도</option>
-                  <c:forEach var="i" begin="1989" end="2016">
-                   <option value="${i}">${i}</option>
-                  </c:forEach>
-                 </select>
+                 <label for="period_check2"
+                 style="width: 30px;"> 신입</label>
+                   
+                 <input id="period_check" name="period_check" 
+                  type="radio" value="1" checked="checked"/>
+                 <label for="period_check"
+                 style="width: 30px;"> 경력</label>
+                  <input type="text" name="period_year" id="period_year"
+                  size="5" maxlength="5">
+                   <label for="period_year" >년</label>
+                  <input type="text" name="period_month" id="period_month"
+                  size="5" maxlength="5">
+                   <label for="period_month" >개월</label>
+                  
+                 <%-- 
                  <select name="period_month"
                   id="period_month">
                    <option value="">월</option>
@@ -1148,7 +1173,7 @@
                <c:forEach var="i" begin="1" end="12">
                <option value="${i}">${i}</option>
             </c:forEach>
-            </select>
+            </select> --%>
             <input id="period_c" name="period_c" 
                type="checkbox" value="true" />
             <label for="period_c">재직중</label><br><br>
@@ -1239,17 +1264,19 @@
             <label id="a">*</label>&nbsp;성별
          </td>
          <td id="td2">
-             <input id="noneGender" name="gender" 
-             type="radio" value="">
+           
+           <!--   <input id="noneGender" name="gender" 
+             type="radio" value="" checked="checked">
              <label for="noneGender">성별무관</label>
-             
-             <input id="man" name="gender" 
-             type="radio" value="남자 "/>
-             <label for="man">남자</label>
-             
+            -->  
              <input id="woman" name="gender" 
-             type="radio" value="여자" />
-             <label for="woman">여자</label>
+             type="radio" value="남자" />
+             <label for="woman">남자</label>
+             
+             <input id="aman" name="gender" 
+             type="radio" value="여자 "/>
+             <label for="aman">여자</label>
+             
          </td>     
        </tr>     
             
@@ -1319,6 +1346,10 @@
 		<c:if test="${!empty alist }">
 			<c:set var="i" value="1"/>
 			<c:forEach var="vo" items="${alist }">
+			
+			
+			
+			
 				<tr id="tr" class="align_center">
 					<td scope="row">
 						<c:if test="${empty vo.photo }">
@@ -1442,6 +1473,7 @@
 		</a>
 	</c:if>
 </div>
+
 <div id="naver_id_login"></div>
 
 

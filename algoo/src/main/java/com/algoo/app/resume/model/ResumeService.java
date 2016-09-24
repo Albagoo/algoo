@@ -19,5 +19,5 @@ public interface ResumeService {
 	
 	public Map<String, Object> selectResumeByCode(int hisCode);
 	
-	public int selectResumeCount();
+	public int selectResumeCount(ResumeSearchVO resumeSearchVo);
 }

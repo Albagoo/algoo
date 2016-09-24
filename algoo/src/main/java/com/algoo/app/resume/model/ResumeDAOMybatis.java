@@ -26,8 +26,8 @@ public class ResumeDAOMybatis extends SqlSessionDaoSupport
 	}
 
 	@Override
-	public int selectResumeCount() {
-		return getSqlSession().selectOne(namespace+".selectResumeCount");
+	public int selectResumeCount(ResumeSearchVO resumeSearchVo) {
+		return getSqlSession().selectOne(namespace+".selectResumeCount",resumeSearchVo);
 	}
 
 }

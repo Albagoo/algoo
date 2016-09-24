@@ -145,8 +145,8 @@ public class ResumeServiceImpl implements ResumeService{
 	}
 
 	@Override
-	public int selectResumeCount() {
-		return resumeDao.selectResumeCount();
+	public int selectResumeCount(ResumeSearchVO resumeSearchVo) {
+		return resumeDao.selectResumeCount(resumeSearchVo);
 	}
 
 }

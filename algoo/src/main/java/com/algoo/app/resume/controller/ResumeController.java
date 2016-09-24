@@ -152,7 +152,8 @@ public class ResumeController {
 	}
 	
 	@RequestMapping("/list.ag")
-	public String list(@ModelAttribute ResumeSearchVO resumeSearchVo,
+	public String list(
+			@ModelAttribute ResumeSearchVO resumeSearchVo,
 			Model model){
 		
 		String[] category=resumeSearchVo.getCategorys();
@@ -174,12 +175,12 @@ public class ResumeController {
 		
 		resumeSearchVo.setFirstRecordIndex(pagingInfo.getFirstRecordIndex());
 		resumeSearchVo.setRecordCountPerPage(10);
-		resumeSearchVo.setBlockSize(pagingInfo.getBlockSize());
-		resumeSearchVo.setCurrentPage(pagingInfo.getCurrentPage());
+		/*resumeSearchVo.setBlockSize(pagingInfo.getBlockSize());
+		resumeSearchVo.setCurrentPage(pagingInfo.getCurrentPage());*/
 		
 		List<ResumeVO> alist = resumeService.selectResume(resumeSearchVo);
 		
-		int totalRecord = resumeService.selectResumeCount();
+		int totalRecord = resumeService.selectResumeCount(resumeSearchVo);
 		
 		pagingInfo.setTotalRecord(totalRecord);
 		logger.info("totalRecord={}",totalRecord);

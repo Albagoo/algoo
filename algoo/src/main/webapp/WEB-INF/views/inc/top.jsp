@@ -8,7 +8,7 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8" />
-<title>알바의 새로운 패러다임 - 알구</title>
+<title>알바의 새로운 패러다임! - 알구</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/clear.css" />
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/includeLayout.css" />
 <script type="text/javascript" 

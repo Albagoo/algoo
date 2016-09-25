@@ -23,7 +23,7 @@
 						<a href="#"><img alt="광고2" src="<%=request.getContextPath()%>/images/saraminLogo.png"></a>
 					</div>
 					<div id="footer_comintro">
-						<address>서울시 강남구 역삼동 707-24번지 한신인터밸리24 동관 20층 (주)미디어윌 네트웍스 <br>
+						<address>서울특별시 강남구 역삼동 707-24번지 한신인터밸리24 동관 20층 (주)미디어윌 네트웍스 <br>
 								 대표이사: 김정섭 사업자등록번호 617-81-48252 | 통신판매업신고번호 : 제2011-서울강남-03265호 <br>
 								 제공사업 신고번호: 서울강남 제2008-30호 | 개인정보보호 책임자: 박기란 Life2@alba.co.kr
 						</address>

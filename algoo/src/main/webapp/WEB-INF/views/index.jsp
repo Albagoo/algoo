@@ -571,13 +571,13 @@
 				</article>
 			</div>
 			<div class="divSpecial">
-				<!-- 스페셜 공고 리스트(게시판형) -->
+				<!-- 스페셜 공고 리스트 -->
 				<article id="divSpecial">
 				<c:import url="/specialList.ag"></c:import>
 				</article>
 			</div>
 			<div class="divSpeed">
-				<!-- 스피드 공고 리스트(게시판형) -->
+				<!-- 스피드 공고 리스트 -->
 				<article id="divSpeed">
 				<c:import url="/speedList.ag"></c:import>
 				</article>

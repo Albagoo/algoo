@@ -396,3 +396,7 @@
 #ani{
 	margin-top:5px;
 }
+#areaLink a{
+	text-decoration:none;
+	color:gray;
+}

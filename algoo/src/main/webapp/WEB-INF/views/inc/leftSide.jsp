@@ -6,7 +6,7 @@
 
 <section>
 
-	<a href="#">
+	<a href="<c:url value='/rec/recList.ag'/>">
 	<div class="leftSideBt">
 		채용정보
 	</div></a>
@@ -25,11 +25,24 @@
 		<tr><td id="sideContent">
 			<p id="subTit">
 			<a href="#">우리동네 알바</a></p>
-			<p style="color:gray">서울 | 경기 | 인천 | 강원<br>
-			대전 | 충남 | 충북 | 부산<br>
-			울산 | 경남 | 경북 | 대구<br>
-			광주 | 전남 | 전북 | 제주<br>
-			전국</p><br>
+			<p id="areaLink">
+			<a href="<c:url value='/rec/recList.ag?areas=%EC%84%9C%EC%9A%B8%ED%8A%B9%EB%B3%84%EC%8B%9C'/>" >서울 | 
+			<a href="<c:url value='/rec/recList.ag?areas=%EA%B2%BD%EA%B8%B0%EB%8F%84'/>">경기</a> | 
+			<a href="<c:url value='/rec/recList.ag?areas=%EC%9D%B8%EC%B2%9C%EA%B4%91%EC%97%AD%EC%8B%9C'/>">인천</a> | 
+			<a href="<c:url value='/rec/recList.ag?areas=%EA%B0%95%EC%9B%90%EB%8F%84'/>">강원</a><br>
+			<a href="<c:url value='/rec/recList.ag?areas=%EB%8C%80%EC%A0%84%EA%B4%91%EC%97%AD%EC%8B%9C'/>">대전</a> | 
+			<a href="<c:url value='/rec/recList.ag?areas=%EC%B6%A9%EC%B2%AD%EB%82%A8%EB%8F%84'/>">충남</a> | 
+			<a href="<c:url value='/rec/recList.ag?areas=%EC%B6%A9%EC%B2%AD%EB%B6%81%EB%8F%84'/>">충북</a> | 
+			<a href="<c:url value='/rec/recList.ag?areas=%EB%B6%80%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C'/>">부산</a><br>
+			<a href="<c:url value='/rec/recList.ag?areas=%EC%9A%B8%EC%82%B0%EA%B4%91%EC%97%AD%EC%8B%9C'/>">울산</a> | 
+			<a href="<c:url value='/rec/recList.ag?areas=%EA%B2%BD%EC%83%81%EB%82%A8%EB%8F%84'/>">경남</a> | 
+			<a href="<c:url value='/rec/recList.ag?areas=%EA%B2%BD%EC%83%81%EB%B6%81%EB%8F%84'/>">경북</a> | 
+			<a href="<c:url value='/rec/recList.ag?areas=%EB%8C%80%EA%B5%AC%EA%B4%91%EC%97%AD%EC%8B%9C'/>">대구</a><br>
+			<a href="<c:url value='/rec/recList.ag?areas=%EA%B4%91%EC%A3%BC%EA%B4%91%EC%97%AD%EC%8B%9C'/>">광주</a> | 
+			<a href="<c:url value='/rec/recList.ag?areas=%EC%A0%84%EB%9D%BC%EB%82%A8%EB%8F%84'/>">전남</a> | 
+			<a href="<c:url value='/rec/recList.ag?areas=%EC%A0%84%EB%9D%BC%EB%B6%81%EB%8F%84'/>">전북</a> | 
+			<a href="<c:url value='/rec/recList.ag?areas=%EC%A0%9C%EC%A3%BC%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84'/>">제주</a><br>
+			<a href="<c:url value='/rec/recList.ag'/>">전국</a></p><br>
 			<a href="#">지도로 찾는 알바</a><br>
 			<a href="#">역세권 알바</a><br>
 			<a href="#">대학가 알바</a>

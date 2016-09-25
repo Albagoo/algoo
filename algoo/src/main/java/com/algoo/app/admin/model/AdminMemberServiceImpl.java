@@ -218,18 +218,18 @@ public class AdminMemberServiceImpl implements AdminMemberService{
 									case 13: // 이메일
 										vo.setAddress(value);
 										break;
-									/*case 14: // 이메일
+									case 14: // 이메일
 										vo.setAddressDetail(value);
-										break;*/
-									/*case 15: // 이메일
+										break;
+									case 15: // 이메일
 										vo.setPhoto(value);
-										break;*/
-									/*case 16: // 이메일
+										break;
+									case 16: // 이메일
 										vo.setJoinDate(value);
 										break;
 									case 17: // 이메일
 										vo.setOutDate(value);
-										break;*/
+										break;
 									default:
 										break;
 									}

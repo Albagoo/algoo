@@ -144,9 +144,9 @@ public class AdminMemberController {
 		return "excelView";
 	}
 	
-	@RequestMapping(value = "/compExcelUpload.ag", method=RequestMethod.POST)
-	public ModelAndView excelUpload(MultipartHttpServletRequest req){
-		ModelAndView mav = new ModelAndView("admin/accountsMng/excelUploadPage");
+	@RequestMapping(value = "/compExcelUpload.ag")
+	public String excelUpload(MultipartHttpServletRequest req){
+		ModelAndView mav = new ModelAndView();
 		List<MemberVO> list = new ArrayList<MemberVO>();
 		
 		//엑셀 파일이 xls일때와 xlsx일때 서비스 라우팅
@@ -158,8 +158,7 @@ public class AdminMemberController {
 			list = amService.xlsExcelReader(req);
 		}
 		
-		mav.addObject("list", list);
-		return mav;
+		return "admin/adminMember";
 	}
 	
 

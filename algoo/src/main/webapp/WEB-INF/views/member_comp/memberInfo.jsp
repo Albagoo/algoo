@@ -38,7 +38,23 @@
 			}
 		});
 		
+		/* 버튼 클릭시 */
 		$("#btEdit").click(function(event){
+			if($("#pwd").val().length<1){
+				alert("비밀번호는 필수입력사항입니다");
+				$("#pwd").focus();
+				return false;
+			}
+			if($("#pwd2").val().length<1){
+				alert("비밀번호 확인은 필수입력사항입니다");
+				$("#pwd2").focus();
+				return false;
+			}
+			if($("#pwd").val()!=$("#pwd2").val()){
+				alert("새 비밀번호가 일치하지 않습니다");
+				$("#pwd2").focus();
+				return false;
+			}
 			if($("#hp1").val().length<1 || $("#hp1").val()==" " ||
 				$("#hp2").val().length<1 || $("#hp2").val()==" " ||
 				$("#hp3").val().length<1 || $("#hp3").val()==" " ){
@@ -118,14 +134,14 @@
 	        <input type="text" class="textBox" name="nickName" id="nickName"
 	        value="<c:if test='${sessionScope.authCode==1}'>${memberVo.nickName } </c:if><c:if test='${sessionScope.authCode==2}'>${commemVo.nickName }</c:if>">
 	    </div>
-	   <!--  <div id="pwd_div">
+	   <div id="pwd_div">
 	        <label for="pwd">비밀번호</label>
 	        <input type="password" class="textBox" name="pwd" id="pwd">
 	    </div>
 	    <div id="pwd_div">
 	        <label for="pwd2">비밀번호 확인</label>
 	        <input type="password" class="textBox" name="pwd2" id="pwd2">
-	    </div> -->
+	    </div>
 	    <div id="email_div">
 	    	<c:set var="etcYn" value=""/>
 	    	<c:if test="${sessionScope.authCode==1}">

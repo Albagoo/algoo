@@ -26,8 +26,60 @@ href="<c:url value='/jquery/jquery-ui.css'/>"/>
    type="text/javascript"></script>
 
 <script type="text/javascript">
+//검색조건 정보
+function k(wel,index,item,ids,names) {
+      
+      wel+='<input type="checkbox" id="'+ids;
+      wel+=index+'"';
+      wel+='name="'+names+'"';
+      wel+=' value="'+item.values+'"> <label for="';
+      wel+=ids+index;
+      wel+='">'+item.values+'</label>';
+      return wel;
+}
+ 
  
    $(document).ready(function() {
+	   
+	   
+	   var welfareArr=[{name:'보험',values:'국민연금'},{name:'보험',values:'고용보험'},
+	                   {name:'보험',values:'산재보험'},{name:'보험',values:'건강보험'},
+	                   {name:'휴가/휴무',values:'연차'},{name:'휴가/휴무',values:'월차'},
+	                   {name:'휴가/휴무',values:'정기휴가'},{name:'보상제도',values:'인센티브제'},
+	                   {name:'보상제도',values:'정기보너스'},{name:'보상제도',values:'퇴직금'},
+	                   {name:'보상제도',values:'장기근속자 포상'},{name:'보상제도',values:'우수사원 표창/포상'},
+	                   {name:'수당제도',values:'야간근로수당'},{name:'수당제도',values:'휴일근로수당'},
+	                   {name:'수당제도',values:'연월차수당'},{name:'수당제도',values:'장기근속수당'},
+	                   {name:'수당제도',values:'위험수당'},{name:'수당제도',values:'연장근로수당'},
+	                   {name:'수당제도',values:'주휴수당'},{name:'생활안정 지원',values:'기숙사운영'},
+	                   {name:'생활안정 지원',values:'명절 귀향비 지급'},{name:'생활편의 지원',values:'조식제공'},
+	                   {name:'생활편의 지원',values:'중식제공'},{name:'생활편의 지원',values:'석식제공'},
+	                   {name:'생활편의 지원',values:'근무복 제공'},{name:'생활편의 지원',values:'통근버스 운행'},
+	                   {name:'생활편의 지원',values:'야간교통비 지급'},{name:'생활편의 지원',values:'차량유류보조금'},
+	                   {name:'생활편의 지원',values:'주차비지원(주차가능)'},{name:'경조사 지원',values:'각종 경조금'},
+	                   {name:'경조사 지원',values:'경조 휴가제'}];
+	   
+	      /* var cnt=0; */
+	      var wel='<span class="titd">복리후생</span>';
+	      var welTemp="보험";
+	      var welCnt=0;
+	   $.each(welfareArr,function(index,item){
+	      welCnt+=1;
+	      if(item.name!=welTemp || welCnt>4){
+	         wel+='<span class="clearBoth titd">　</span>';
+	         welCnt=0;
+	      }
+	      
+	      wel=k(wel,index,item,"welfare_","welfares");
+	      welTemp=item.name;
+	      
+	      
+	   });
+	   $("#welf").html(wel);
+	   
+	   
+	   
+	   
 	   
 	   //모집종료일 달력기능
 	   $("#calText").datepicker({
@@ -297,7 +349,7 @@ href="<c:url value='/jquery/jquery-ui.css'/>"/>
 .checks input[type="checkbox"] + label {
   display: inline-block;
   position: relative;
-  padding-left: 40px;  /* 글자와 체크박스 사이의 간격을 변경 */
+  padding-left: 30px;  /* 글자와 체크박스 사이의 간격을 변경 */
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -352,7 +404,7 @@ href="<c:url value='/jquery/jquery-ui.css'/>"/>
 .checks input[type="radio"] + label {
   display: inline-block;
   position: relative;
-  padding-left: 40px; /* 글자와 체크박스 사이의 간격을 변경 */
+  padding-left: 30px; /* 글자와 체크박스 사이의 간격을 변경 */
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -783,9 +835,9 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                <input type="checkbox" value="W" id="wechock"> 
                <label for="wechock">위촉직</label>
             </dt>
-            <dt>
-               <span class="titd">복리후생</span> <input type="text" class="txt"
-                  name="welfare" id="welfare">
+            <dt class="rence" id="welf" style="height: 280px;">
+               <!-- <span class="titd">복리후생</span> <input type="text" class="txt"
+                  name="welfare" id="welfare"> -->
             </dt>
          </dl>
       </div>

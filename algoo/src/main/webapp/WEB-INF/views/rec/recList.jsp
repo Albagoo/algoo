@@ -43,7 +43,14 @@ function k(wel,index,item,ids,names) {
 
 
 $(document).ready(function(){
-   
+	
+	$("#tabs a").click(function() {
+		var SIDO= $(this).text();
+		$("#areaSido").val(SIDO);
+	
+	
+	});
+	
 
 	
    var welfareArr=[{name:'보험',values:'국민연금'},{name:'보험',values:'고용보험'},
@@ -89,7 +96,7 @@ $(document).ready(function(){
    $("#searchBt").click(function() {
         var insertAera="";
         var insertJob="";
-        /* alert(''); */
+        
       $("#test label").each(function(){
           var Ar=$(this).text()+",";
           insertAera+=Ar;
@@ -207,7 +214,7 @@ $(document).ready(function(){
       $( "#tabs" ).tabs();
 //지역구 셋팅  지역(서울,인천,경기..)
       $.ajax({
-          url:"<c:url value='/json/areas.json'/>",
+          url:"<c:url value='/json/areas2.json'/>",
           data:"GET",
           dataType:"json",
           success : function(res) {
@@ -232,18 +239,16 @@ $(document).ready(function(){
    if(maxjobLimit<5){
       
      var JobName =$(aa).text();
-     /* alert(JobName); */
      if(jobTemp==JobName){
          return;
       }
      jobTemp=$(aa).text();
      //상세카테고리가 전체인경우 카테코리명도 포함
      var JobName2=JobName.replace(" 전체","");
-     /* alert(JobName2); */
      selectJob=$("#test2").html()+
      "<label name='jobsed'"+" onclick='removeJobs(this)' for="+
      JobName+">"+JobName+
-     "<input type='button' title='"+JobName+
+     "<input type='button' class='white' title='"+JobName+
      " 제거 'id='"+ JobName2 +"'value='x'>"+"</label>";
      
      selectJob
@@ -271,13 +276,18 @@ $(document).ready(function(){
               //중복제거용
               guTemp=this.GU;
          });//for
-           $(gutab).html(guRes);
+         /* guTemp=$("#areaSido").val(); */
+         guTemp="<div><a href='#' onclick='dong(this)'>"+
+         "전체"
+         +"</a></div>";
+         guTemp+=guRes;
+           $(gutab).html(guTemp);
     }//func
     
   //선택한 구이름 가져오기 -3    
    var guName=""; 
     function GU(guAtag){
-      guName =$(guAtag).text();
+       guName =$(guAtag).text();
       $(function() {
          $("#recListArea p>div>a").css("background-color","#rgba(255, 255, 255, 0.0)").css("color","#000");
          $(guAtag).css("background-color","#687EA7").css("color","#FFF");
@@ -290,7 +300,7 @@ $(document).ready(function(){
     function test(guName) {
       //선택한 지역 표시
         $.ajax({
-           url:"<c:url value='/json/areas.json'/>",
+           url:"<c:url value='/json/areas2.json'/>",
               data:"GET",
               dataType:"json",
               success : function(res) {
@@ -325,23 +335,39 @@ $(document).ready(function(){
    function dong(aa) {
     if(maxLimit<5){
       var areaName =$(aa).text();
-      if(aeraTemp==areaName){
+      if(aeraTemp==areaName 
+    		  && areaName!="전체"){
          return;
       }
+      var areaToSido=$("#areaSido").val();
       //사용자에게 보여지는 값
       aeraTemp=$(aa).text();
-      selectArea=$("#test").html()+"  <label name='areased'"+"style='color=#D50C0C'"+
-      " onclick='removeArea(this)' for="+areaName+
-      ">"+areaName+"<input type='button' title='"+areaName+
+      if(areaName!='전체'){
+      
+      selectArea=$("#test").html()+"<label name='areased'"+"style='color=#D50C0C'"+
+      " onclick='removeArea(this)'  for="+areaName+
+      ">"+"<input type='button' class='white2' title='"+areaToSido+
+      "' value='"+areaToSido+"'>"+areaName+
+      "<input type='button' class='white' title='"+areaName+
       " 제거' id='"+areaName+"' value='x'>"+"</label>";
       selectArea=selectArea.replace("지역을 선택하세요 (최대 5개 지역 선택가능)","　");
       $("#test").html(selectArea);
       
       $("#recListArea p>div>a").css("background-color","#rgba(255, 255, 255, 0.0)").css("color","#000");
       $(aa).css("background-color","#687EA7").css("color","#FFF");
-      //실제 들어가는 값
-      /* selectArea2=$("input[name=areas]").val()+areaName+",";
-      $("input[name=areas]").val(selectArea2); */
+      }else{
+    	  selectArea=$("#test").html()+"<label name='areased'"+"style='color=#D50C0C'"+
+          " onclick='removeArea(this)'  for="+areaToSido+
+          ">"+areaToSido+"<input type='button' class='white2' title='"+       
+          areaName+"' value='"+areaName+
+          "'>"+"<input type='button' class='white' title='"+areaToSido+
+          " 제거' id='"+areaToSido+"' value='x'>"+"</label>";
+          selectArea=selectArea.replace("지역을 선택하세요 (최대 5개 지역 선택가능)","　");
+          $("#test").html(selectArea);
+          
+          $("#recListArea p>div>a").css("background-color","#rgba(255, 255, 255, 0.0)").css("color","#000");
+          $(aa).css("background-color","#687EA7").css("color","#FFF");
+      }
       maxLimit+=1;
     }else{
        alert("5개 까지만 선택가능합니다");
@@ -350,7 +376,6 @@ $(document).ready(function(){
    function removeArea(as) {
     
       var a=as;  
-      /* alert(a); */
     as.remove(a);
     maxLimit-=1;
    }
@@ -394,15 +419,15 @@ $(document).ready(function(){
             action="<c:url value='/rec/recList.ag' />">
             <!-- 지역별검색버튼 -->
             <img id="button" style="width: 140px;height: 45px;
-            border: 2px solid #CCC;" 
+            border: 2px solid #CCC;float: left;" 
             src="<c:url value='/images/searchAreaBt.png'/>" > 
-
+            <div style="display: inline-block;width: 670px;height: 50px;float: left;" 
+            id="test">지역을 선택하세요 (최대 5개 지역 선택가능)</div>
+                     <p class="clearBoth"></p>
 
             <div class="toggler">
                <div id="effect" class="ui-widget-content ui-corner-all">
 
-                  <div style="display: inline-block" id="test">지역을 선택하세요 (최대
-                     5개 지역 선택가능)</div>
 
                   <div id="tabs" style="padding: 10px;">
                      <ul class="li_font">
@@ -444,7 +469,7 @@ $(document).ready(function(){
                </div>
             </div>
 
-            <select name="effects" id="effectTypes" style="visibility: hidden;">
+            <select name="effects" id="effectTypes" style="visibility: hidden;height: 0px;">
                <option value="blind">Blind</option>
                <option value="bounce">Bounce</option>
                <option value="clip">Clip</option>
@@ -461,14 +486,17 @@ $(document).ready(function(){
                <option value="slide">Slide</option>
             </select>
               <!-- 직종별검색버튼 -->
+              <p class="clearBoth"></p>
               <img id="button2" style="width: 140px;height: 45px;float:left;
-            border: 2px solid #CCC;" 
+            border: 2px solid #CCC;float: left;" 
             src="<c:url value='/images/searchJobBt.png'/>" >
-              <p class="clearBoth"></p>              
+              <div style="display: inline-block;width: 670px;height: 50px;float: left;" 
+              id="test2">직종을 선택하세요(최대 5개 직종 선택가능)</div> 
+              <p class="clearBoth"></p>
             <div class="toggler">
                <div id="effect2" class="ui-widget-content ui-corner-all">
-                  <div style="display: inline-block;" id="test2">직종을 선택하세요(최대
-                     5개 직종 선택가능)</div>
+                  <!-- <div style="display: inline-block;" id="test2">직종을 선택하세요(최대
+                     5개 직종 선택가능)<br></div> -->
                   <!-- <p> -->
                   <div id="jobTabs">
                      <ul id="jtab">
@@ -499,7 +527,7 @@ $(document).ready(function(){
                   </div>
                </div>
             </div>
-            <div class="workCondition bg checks" >
+            <div class="workConditions bg checks" >
                <dl class="clearBoth borderBlue">
                   <dt class="rence" style="height: 65px;margin-bottom: 0px;border-bottom: 0px">
                      <span class="titd">근무기간</span>
@@ -566,7 +594,7 @@ $(document).ready(function(){
             </div>
             <div class="toggler">
              <div id="effect3" class="ui-widget-content ui-corner-all">
-               <div class="workCondition bg checks ">
+               <div class="workConditions bg checks ">
                 <dl class="clearBoth borderBlue">
                   <dt style="height: 35px">
                      <span class="titd">급여선택</span> <select
@@ -700,7 +728,9 @@ $(document).ready(function(){
          </div>
          </div>
 
-
+            <!-- 선택한 지역 정보(서울, 인천, 경기 등..) -->
+            <input type="text" size="200" id="areaSido"
+             name="areaSido" value="서울">
             <!-- 선택한 지역 Controller로 보낼 값 저장 -->
             <input type="hidden" size="200" id="areas"
              name="areas" value="">

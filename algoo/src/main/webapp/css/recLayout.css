@@ -28,6 +28,54 @@ a:hover {
 }
  */
 /* button 
+/* white */
+.white2 {
+    font-weight:bold;
+   text-decoration:none;
+   box-shadow:inset #ffffff 0px 5px 8px -1px,#fafafa 1px 3px 2px;
+   o-box-shadow:inset #ffffff 0px 5px 8px -1px,#fafafa 1px 3px 2px;
+   -moz-box-shadow:inset #ffffff 0px 5px 8px -1px,#fafafa 1px 3px 2px;
+   -webkit-box-shadow:inset #ffffff 0px 5px 8px -1px,#fafafa 1px 3px 2px;
+   background:#ffffff;
+   background:-o-linear-gradient(90deg, #ffffff, #ffffff);
+   background:-moz-linear-gradient( center top, #ffffff 5%, #ffffff 100% );
+   background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #ffffff) );
+   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff');
+   background:-webkit-linear-gradient(#ffffff, #ffffff);
+   background:-ms-linear-gradient(#ffffff, #ffffff);
+   background:linear-gradient(#ffffff, #ffffff);
+   text-indent:0px;
+/*    line-height:30px; */
+   -moz-border-radius:25px;
+   -webkit-border-radius:25px;
+   border-radius:25px;
+   text-align:center;
+   vertical-align:middle;
+   display:inline-block;
+   font-size:11px;
+   color:#d50c0c;
+   width:35px;
+   /* height:30px; */
+    padding:2px;
+   border-color:#ffffff;
+   border-width:2px;
+   border-style:solid;
+}
+.white2:hover {
+   background: #ededed;
+   background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#dcdcdc));
+   background: -moz-linear-gradient(top,  #fff,  #dcdcdc);
+   filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#dcdcdc');
+}
+.white2:active {
+   color: #999;
+   background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#fff));
+   background: -moz-linear-gradient(top,  #ededed,  #fff);
+   filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed', endColorstr='#ffffff');
+}
+
+
+ */
 ---------------------------------------------- */
 /*table*/
 table{
@@ -178,7 +226,13 @@ body{
 }
 /* 근무조건 */
 .workCondition{
-	height: 310px;
+	height: 600px;
+}
+.workConditions{
+   
+}
+#tabs input[type='button']{
+	/* 확인 */
 }
 .recContent{
 	height: 250px;
@@ -239,7 +293,7 @@ body{
 .renceWrite label{
    margin: 10px 0 5px 0;
    float: left;
-   width: 90px;
+   width: 105px;
    font-family:'bon godic';
    font-size: 8pt;
 }
@@ -684,9 +738,9 @@ a#downBt img:hover{
    padding: 0;
    border: 1px solid #EEE
 }
-.workCondition{
-	widows: 865px;
-}
+/* .workCondition{
+	width: 865px;
+}  */
 
 .red{
    color: red;
@@ -773,7 +827,7 @@ display: inline-block;
    padding-left: 30px;
    margin: 0;
    text-align: left;
-   background: #fafafa;
+   background: #fefefe;
 }
 #test label,#test2 label{
 	color:#D50C0C;

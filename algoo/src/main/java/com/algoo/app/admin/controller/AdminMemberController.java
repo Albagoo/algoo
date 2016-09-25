@@ -146,16 +146,14 @@ public class AdminMemberController {
 	
 	@RequestMapping(value = "/compExcelUpload.ag")
 	public String excelUpload(MultipartHttpServletRequest req){
-		ModelAndView mav = new ModelAndView();
-		List<MemberVO> list = new ArrayList<MemberVO>();
 		
 		//엑셀 파일이 xls일때와 xlsx일때 서비스 라우팅
 		String excelType = req.getParameter("excelType");
 		
 		if(excelType.equals("xlsx")){
-			list = amService.xlsxExcelReader(req);
+			amService.xlsxExcelReader(req);
 		}else if(excelType.equals("xls")){
-			list = amService.xlsExcelReader(req);
+			amService.xlsExcelReader(req);
 		}
 		
 		return "admin/adminMember";

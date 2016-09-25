@@ -233,8 +233,8 @@
 							<a href="<c:url value='/jj/join.ag'/>">
 							<span style="font-weight:bold">
 								회원가입</span></a> |
-							아이디 찾기 |
-							비밀번호 찾기
+							<a href="<c:url value='/member/findMember.ag' /> ">아이디 찾기</a> |
+							<a href="<c:url value='/member/findMember.ag' /> ">비밀번호 찾기</a>
 						</div>
 					</div>
 					</c:if>

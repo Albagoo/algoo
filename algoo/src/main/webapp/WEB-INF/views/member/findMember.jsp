@@ -38,12 +38,13 @@
 	});
 </script>
 <span style="margin: 0 0 0 15px;
-		    font-size: 40px;
+		    font-size: 30px;
 		    font-family:  '맑은고딕', 'Malgun Gothic',Dotum, 돋움, sans-serif;
 		    color: #494949;
 		    letter-spacing: -2px;
 		    vertical-align: bottom;
-		    font-weight: bold">아이디 / 비밀번호 찾기</span>
+		    font-weight: 300;
+		    display: inline-block;">아이디 / 비밀번호 찾기</span>
 <div style="overflow: hidden; margin-bottom: 50px;">
 	<div style="overflow: hidden; margin-top: 30px">
 		<div style="padding: 20px;
@@ -60,27 +61,27 @@
 							    font-weight: bold;
 							    padding-bottom: 20px;">아이디 찾기</h2>
 					<p style="color: #787878;
-   								 height: 30px;">회원가입시 등록한 휴대폰 번호와 이름을 입력해 주세요</p>
+   								 height: 30px; font-size: 0.9em">회원가입시 등록한 이름과<br>휴대폰 번호를 입력해 주세요</p>
    					<table>
    						<tr>
    							<td style="padding: 10px"><label for="userName">이름</label></td>
    							<td style="padding: 10px"><input type="text" id="userName" name="userName"
-   							maxlength="15"></td>
+   							maxlength="15" style="width: 200px"></td>
    						</tr>
    						<tr>
    							<td style="padding: 10px"><label for="hp">휴대폰 번호</label></td>
    							<td style="padding: 10px"><input type="text" id="hp1" name="hp1" style="width: 50px"
    							maxlength="3">
-		   					<input type="text" id="hp2" name="hp2" style="width: 50px"
+		   					<input type="text" id="hp2" name="hp2" style="width: 60px"
 		   					maxlength="4">
-		   					<input type="text" id="hp3" name="hp3" style="width: 50px"
+		   					<input type="text" id="hp3" name="hp3" style="width: 60px"
 		   					maxlength="4"></td>
    						</tr>
    					</table>
    					<p id="result_id" style="padding: 5px; margin-top: 15px">
    					
    					</p>
-   					<p style="text-align: center; margin: 0 0 10px 0; padding: 30px 0 50px 0;">
+   					<p style="text-align: center; margin:50px 0 0 140px;display:inline-block;">
    					<input type="button" value="아이디 찾기" id="bt_id"
    						style="width: 100px; height: 40px; background: #494949;
    							color: white" class="textBox">
@@ -99,8 +100,8 @@
 							    font-weight: bold;
 							    padding-bottom: 20px;">비밀번호 찾기</h2>
 					<p style="color: #787878;
-   								 height: 30px;">회원정보에 등록된 e-메일, 이름으로
-							아이디를 찾을 수 있습니다.</p>
+   								 height: 30px; font-size:0.9em;">회원가입시 등록한 아이디, 이름, E-mail을 통해<br>
+   								 비밀번호를 찾을 수 있습니다</p>
 					<table>
    						<tr>
    							<td style="padding: 10px; width: 70px;"><label for="userName">아이디</label></td>
@@ -113,8 +114,8 @@
    							maxlength="15"></td>
    						</tr>
    						<tr>
-   							<td style="padding: 10px"><label for="hp">이메일</label></td>
-   							<td style="padding: 10px">
+   							<td style="padding: 0 10px 10px 10px"><label for="hp">이메일</label></td>
+   							<td style="padding: 10px 10px 0 10px">
    							<input type="text" id="email1" name="email1" style="width: 100px"
    								>@
 		   					<select name="email2" id="email2"  title="이메일주소 뒷자리"
@@ -129,7 +130,7 @@
         						style="visibility:hidden"></td>
    						</tr>
    					</table>
-   					<p style="text-align: center; margin: 0 0 10px 0; padding: 30px 0 50px 0;">
+   					<p style="text-align: center; margin:40px 0 0 140px;display: inline-block;">
    					<input type="submit" value="비밀번호 찾기" class="textBox"
    						style="width: 100px; height: 40px; background: #494949;
    							color: white">

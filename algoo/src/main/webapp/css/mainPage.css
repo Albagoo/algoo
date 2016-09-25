@@ -29,116 +29,118 @@
 	margin:5px;
 }
 .divDivision span{
-	font-size:15px;
+	margin-top:3px;
+	display:inline-block;
+	font-size:14px;
 }
 
 .areaP{
 	padding-top:10px;
 	clear:none;
-	font-size:10px;
+	font-size:12px;
 	font-weight:normal;
 	text-align:left;
 }
 .areaP a{
 	color:black;
+	font-size:11px;
+	font-weight:300;
 }
 #spCity{
-	font-weight:bold;
 	
 }
 .divMap{
 	position:relative;
-	background-image:url("../images/map.png");
+	background-image:url("../images/map2.png");
 	background-size:230px 200px;
 	width:210px;
 	height:200px;
 }
 	.kyunggi{
 		position:absolute;
-		top:14px;
-		left:60px;
+		top:25px;
+		left:80px;
 	}
 	.kangwon{
 		position:absolute;
-		top:18px;
-		left:125px;
+		top:31px;
+		left:135px;
 	}
 	.incheon{
 		position:absolute;
-		top:22px;
-		left:30px;
+		top:35px;
+		left:40px;
 	}
 	.seoul{
 		position:absolute;
-		top:28px;
-		left:60px;
+		top:39px;
+		left:70px;
 	}
 	.chungnam{
 		position:absolute;
-		top:58px;
-		left:55px;
+		top:75px;
+		left:63px;
 	}
 	.chungbuk{
 		position:absolute;
-		top:50px;
-		left:100px;
+		top:62px;
+		left:110px;
 	}
 	.daejeon{
 		position:absolute;
-		top:74px;
-		left:85px;
+		top:79px;
+		left:89px;
 	}
 	.kyungbuk{
 		position:absolute;
-		top:65px;
+		top:80px;
 		left:150px;
 	}
 	.jeonbuk{
 		position:absolute;
-		top:95px;
-		left:70px;
+		top:105px;
+		left:78px;
 	}
 	.daegu{
 		position:absolute;
-		top:92px;
-		left:148px;
+		top:100px;
+		left:146px;
 	}
 	.kyungnam{
 		position:absolute;
-		top:115px;
-		left:135px;
+		top:121px;
+		left:130px;
 	}
 	.ulsan{
 		position:absolute;
-		top:100px;
+		top:115px;
 		left:180px;
 	}
 	.kwangju{
 		position:absolute;
-		top:115px;
-		left:55px;
+		top:126px;
+		left:64px;
 	}
 	.busan{
 		position:absolute;
-		top:115px;
-		left:180px;
+		top:130px;
+		left:168px;
 	}
 	.jeonnam{
 		position:absolute;
-		top:135px;
-		left:45px;
+		top:143px;
+		left:60px;
 	}
 	.jeju{
 		position:absolute;
-		top:175px;
-		left:35px;
+		top:176px;
+		left:54px;
 	}
 	
 .divJob1{
 	width: 230px;
 	height:250px;
-	border:solid 1px LightGray;
-	border-top:solid 2px LightGray;
+	border:solid 1px #ddd;
 	float: left;
 	
 	text-align:center;
@@ -147,8 +149,8 @@
 .divJob2{
 	width: 230px;
 	height:250px;
-	border:solid 1px LightGray;
-	border-top:solid 2px LightGray;
+	border-top:solid 1px #ddd;
+	border-bottom:solid 1px #ddd;
 	float: left;
 	
 	text-align:center;
@@ -157,8 +159,7 @@
 .divJob3{
 	width: 175px;
 	height:250px;
-	border:solid 1px LightGray;
-	border-top:solid 2px LightGray;
+	border:solid 1px #ddd;
 	float: left;
 	
 	text-align:center;
@@ -304,8 +305,11 @@
 .divBrand{
 	width: 880px;
 	height: 80px;
-	background-color:LightGray;
+	background-color:white;
 	float: left;
+	margin-top:10px;
+	border-top:1px dotted #eee;
+	border-bottom:1px dotted #eee;
 }
 
 #divRoll{
@@ -323,7 +327,7 @@
 
 /* 공고 리스트의 폰트 */
 	#pay{
-		margin-top:12px;
+		margin-top:10px;
 		font-size:12px;
 	}
 	#pay #time{
@@ -349,11 +353,17 @@
 .divSuper .SpBox{
 	margin:0 auto;
 	width: 210px;
-	height: 160px;
-	border:solid 1px LightGray;
+	height: 158px;
+	border:1px solid #eee;
 	text-align: center;
 	float:left;
 	margin: 5px;
+	border-top:1.5px solid #E70400;
+}
+.divSuper .SpBox img{
+	display: inline-block;
+	margin-top:12px;
+	margin-bottom:5px;
 }
 .divSuper a{
 	text-decoration:none;
@@ -361,9 +371,11 @@
 }
 .divSuper #title{
 	font-weight:bold;
+	font-size: 0.8em;
 }
 .divSuper #content{
 	text-align:left;
+	font-size: 0.7em;
 }
 
 /* 그랜드 공고 */
@@ -379,10 +391,11 @@
 .divGrand .GrBox{
 	width: 283px;
 	height: 140px;
-	border:solid 1px LightGray;
+	border:1px solid #eee;
 	text-align: center;
 	float:left;
 	margin: 5px;
+	border-top:1px solid #E70400;
 }
 .divGrand a{
 	text-decoration:none;

@@ -262,8 +262,8 @@
 					</c:if>
 					
 					<div class="">
-						<img src="<c:url value='/images/spam.jpg'/>"
-						 width="220px">
+						<a href="http://www.mova.co.kr/ "><img src="<c:url value='/images/spam.jpg'/>"
+						 width="220px"></a>
 					</div>
 					<div class="divCommercial2">
 						<!-- 다른 사이즈의 광고 -->
@@ -274,17 +274,17 @@
 							var ad = sec % how_many_ads; 
 							ad +=1;
 							if (ad==1) { 
-								url="#"; 
+								url="http://mcdonalds.co.kr/ "; 
 								banner="<c:url value='/images/banner/banner3_2.jpg'/>"; 
 								height="111px"; 
 							}
 							if (ad==2) { 
-								url="#"; 
+								url="http://cowaykk.com/ "; 
 								banner="<c:url value='/images/banner/banner3_3.jpg'/>"; 
 								height="111px"; 
 							}
 							if (ad==3) { 
-								url="#"; 
+								url="http://www.ksdb.co.kr/main.asp"; 
 								banner="<c:url value='/images/banner/banner3_4.jpg'/>"; 
 								height="111px"; 
 							}
@@ -298,8 +298,8 @@
 						</script>
 						<%-- <img src="<c:url value='/images/banner/banner3.jpg'/>"
 						 width="220px" height="65px"> --%>
-						<img src="<c:url value='/images/banner/banner5.jpg'/>"
-						 width="220px" height="65px">
+						<a href="http://bossam.co.kr/ "><img src="<c:url value='/images/banner/banner5.jpg'/>"
+						 width="220px" height="65px"></a>
 					</div>
 				</div><!-- divFunction -->
 				<div class="divBrand">

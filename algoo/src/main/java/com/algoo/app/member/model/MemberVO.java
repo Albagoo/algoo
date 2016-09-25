@@ -20,8 +20,21 @@ public class MemberVO {
 	private String address;
 	private String addressDetail;
 	private String photo;
-	private Timestamp outDate;
+	private String joinDate;
+	private String outDate;
 	
+	public String getJoinDate() {
+		return joinDate;
+	}
+	public void setJoinDate(String joinDate) {
+		this.joinDate = joinDate;
+	}
+	public String getOutDate() {
+		return outDate;
+	}
+	public void setOutDate(String outDate) {
+		this.outDate = outDate;
+	}
 	public String getMemberCode() {
 		return memberCode;
 	}
@@ -118,20 +131,14 @@ public class MemberVO {
 	public void setPhoto(String photo) {
 		this.photo = photo;
 	}
-	public Timestamp getOutDate() {
-		return outDate;
-	}
-	public void setOutDate(Timestamp outDate) {
-		this.outDate = outDate;
-	}
 	
 	@Override
 	public String toString() {
 		return "MemberVO [memberCode=" + memberCode + ", userid=" + userid + ", password=" + password + ", nickName="
 				+ nickName + ", userName=" + userName + ", birth=" + birth + ", gender=" + gender + ", email1=" + email1
 				+ ", email2=" + email2 + ", hp1=" + hp1 + ", hp2=" + hp2 + ", hp3=" + hp3 + ", zipcode=" + zipcode
-				+ ", address=" + address + ", addressDetail=" + addressDetail + ", photo=" + photo + ", outDate="
-				+ outDate + "]";
+				+ ", address=" + address + ", addressDetail=" + addressDetail + ", photo=" + photo + ", joinDate="
+				+ joinDate + ", outDate=" + outDate + "]";
 	}
 	
 	

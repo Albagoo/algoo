@@ -13,6 +13,11 @@
 		</where>
 	</sql>
 
+	<select id="selectAll" resultType="MemberVO">
+		select * from member
+		order by member_code desc
+	</select>
+
 	<select id="selectMemberList" parameterType="SearchVO" resultType="MemberVO">
 		select * from 
 		(

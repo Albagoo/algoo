@@ -14,4 +14,5 @@ public interface AdminMemberDAO {
 	public int checkUserid(String userid);
 	public String loginCheck(AdminMemberVO adminMemberVo);
 	public AdminMemberVO selectAdminByUserid(String userid);
+	public List<MemberVO> selectAll();
 }

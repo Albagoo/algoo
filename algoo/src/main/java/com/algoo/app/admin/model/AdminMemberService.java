@@ -3,6 +3,8 @@ package com.algoo.app.admin.model;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+
 import com.algoo.app.common.SearchVO;
 import com.algoo.app.member.model.MemberVO;
 
@@ -22,4 +24,7 @@ public interface AdminMemberService {
 	public int checkUserid(String userid);
 	public int loginCheck(AdminMemberVO adminMemberVo);
 	public AdminMemberVO selectAdminByUserid(String userid);
+	public List<MemberVO> selectAll();
+	public List<MemberVO> xlsExcelReader(MultipartHttpServletRequest req);
+	public List<MemberVO> xlsxExcelReader(MultipartHttpServletRequest req);
 }

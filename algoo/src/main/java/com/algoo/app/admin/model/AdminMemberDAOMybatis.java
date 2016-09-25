@@ -49,5 +49,10 @@ public class AdminMemberDAOMybatis extends SqlSessionDaoSupport
 		return getSqlSession().selectOne(namespace+".selectAdminByUserid",userid);
 	}
 
+	@Override
+	public List<MemberVO> selectAll() {
+		return getSqlSession().selectList(namespace+".selectAll");
+	}
+
 
 }

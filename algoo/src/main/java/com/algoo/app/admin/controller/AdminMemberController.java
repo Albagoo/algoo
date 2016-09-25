@@ -2,6 +2,7 @@ package com.algoo.app.admin.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,7 +11,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.algoo.app.admin.model.AdminMemberService;
 import com.algoo.app.admin.model.Utility;
@@ -130,4 +134,34 @@ public class AdminMemberController {
 		
 		return "common/message";
 	}
+	
+	@RequestMapping(value = "/memberExcel.ag")
+	public String excelTransform(Map<String, Object> ModelMap) throws Exception {
+		List<MemberVO> excelList = amService.selectAll();
+		
+		ModelMap.put("excelList", excelList);
+		
+		return "excelView";
+	}
+	
+	@RequestMapping(value = "/compExcelUpload.ag", method=RequestMethod.POST)
+	public ModelAndView excelUpload(MultipartHttpServletRequest req){
+		ModelAndView mav = new ModelAndView("admin/accountsMng/excelUploadPage");
+		List<MemberVO> list = new ArrayList<MemberVO>();
+		
+		//엑셀 파일이 xls일때와 xlsx일때 서비스 라우팅
+		String excelType = req.getParameter("excelType");
+		
+		if(excelType.equals("xlsx")){
+			list = amService.xlsxExcelReader(req);
+		}else if(excelType.equals("xls")){
+			list = amService.xlsExcelReader(req);
+		}
+		
+		mav.addObject("list", list);
+		return mav;
+	}
+	
+
+
 }

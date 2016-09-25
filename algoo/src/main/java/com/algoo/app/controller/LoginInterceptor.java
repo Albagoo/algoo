@@ -42,6 +42,7 @@ public class LoginInterceptor
 			out.println("<html><head><script type='text/javascript'>"
 					+ "alert('로그인 하셔야 이용 가능한 서비스 입니다!!');window.open('/algoo/login/login.ag?type=Personal', 'login',"
 					+ "'width=390,height=480,left=700,top=200,resizable=yes,location=yes');"
+					+ "history.back();"
 					+ "</script></head><body></body></html>");
 			
 			return false; 

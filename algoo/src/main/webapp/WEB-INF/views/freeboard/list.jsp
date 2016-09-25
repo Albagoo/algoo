@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ include file="../inc/simple_top.jsp" %>
+<%@ include file="../inc/top.jsp" %>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/faq.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
 <script type="text/javascript" src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
@@ -52,7 +52,7 @@
 <div class="divList">
 <div class="list">
 <legend>
-	<img src="<c:url value='/images/albatalk.png'/>" style="height: 48px;" align=absmiddle>
+	<img src="<c:url value='/images/albatalk.png'/>" style="height: 25px;" align=absmiddle>
 </legend>
 <c:if test="${!empty param.searchKeyword }">
 	<p>검색어 : ${param.searchKeyword }, ${pagingInfo.totalRecord }건 검색되었습니다.</p>
@@ -156,7 +156,11 @@
 </table>	   
 </div>
 <div style="margin: 10px 0 0 3px;">
-	<input type="button" id="btFreeDel" value="선택한 게시글 삭제" class="button white medium">   
+	<input type="button" id="btFreeDel" value="선택한 게시글 삭제" class="button white medium">
+	<div class="divBtn">
+    <input type = "Button" class="button white medium" value="글쓰기" 
+      	onclick="location.href='<c:url value="/freeboard/write.ag"/>';" />
+	</div> 
 </div>
 </form>
 <div class="divPage">
@@ -224,12 +228,7 @@
 		<input type="submit" class="button white medium" value="검색">
     </form>
 </div>
-<br>
-<div class="divBtn">
-    <input type = "Button" class="button white medium" value="글쓰기" 
-      	onclick="location.href='<c:url value="/freeboard/write.ag"/>';" />
-</div>
 <p class="clearboth"></p> 
 </section>
 
-<%@ include file="../inc/simple_bottom.jsp" %>
+<%@ include file="../inc/bottom.jsp" %>

@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ include file="../inc/simple_top.jsp" %>
+<%@ include file="../inc/top.jsp" %>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/faq.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
 <script type="text/javascript" 
@@ -20,7 +20,7 @@ src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
 <section>
 <div class="divForm">
 	<legend> 
-		<img src="<c:url value='/images/albatalk.png'/>" style="height: 48px;" align=absmiddle>
+		<img src="<c:url value='/images/albatalk.png'/>" style="height: 25px;" align=absmiddle>
 	</legend>
 		<div class="firstDiv2">
 			<span class="sp1">${freeVo.title }</span>
@@ -122,4 +122,4 @@ src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
 	</div>
 </section>
 
-<%@ include file="../inc/simple_bottom.jsp" %>
+<%@ include file="../inc/bottom.jsp" %>

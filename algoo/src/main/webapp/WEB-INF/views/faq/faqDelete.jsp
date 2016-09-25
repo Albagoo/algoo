@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
-<%@ include file="../inc/simple_top.jsp" %>
+<%@ include file="../inc/admin_top.jsp" %>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/faq.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
 
@@ -30,4 +30,4 @@ action="<c:url value='/faq/faqDelete.ag'/>">
     </form>
 </div>
 </section>
-<%@ include file="../inc/simple_bottom.jsp" %>
+<%@ include file="../inc/admin_bottom.jsp" %>

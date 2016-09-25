@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ include file="../inc/simple_top.jsp" %>
+<%@ include file="../inc/top.jsp" %>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/faq.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/leftNavi.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
@@ -52,9 +52,6 @@ action="<c:url value='/faq/faqUserList.ag'/>">
 	<input type="hidden" name="searchKeyword" id="currentPage2" value="${listFaqVO.searchKeyword}" >	
 </form>
 <div id="userList">
-	<div id="Qmark">
-		<a href="<c:url value='/faq/faqUserList.ag'/>"><img src="<c:url value='/images/faqicon.png'/>" style="height: 50px;"></a>
-	</div>
 	<div id="naviDiv">
 		<nav>
 			<dl id="leftNavi">
@@ -141,7 +138,7 @@ action="<c:url value='/faq/faqUserList.ag'/>">
 			</c:if>
 		</c:if>
 	</div>
-	<div class="divSearch">
+	<div class="divFSearch">
    	<form name="frmSearch" method="post" 
    	action="<c:url value='/faq/faqUserList.ag' />" >
         <select name="searchCondition" class="button white small"
@@ -161,8 +158,8 @@ action="<c:url value='/faq/faqUserList.ag'/>">
         	title="검색어 입력" placeholder="검색어를 입력하세요" class="textBox">   
 		<input type="submit" class="button white medium" value="검색">
     </form>
-</div>
+	</div>
 </div>
 </section> 
         
-<%@ include file="../inc/simple_bottom.jsp" %>
+<%@ include file="../inc/bottom.jsp" %>

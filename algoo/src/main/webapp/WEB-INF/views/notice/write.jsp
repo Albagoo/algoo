@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../inc/simple_top.jsp" %>
+<%@ include file="../inc/admin_top.jsp" %>
 
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/simpleButton.css" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/faq.css'/>" />
@@ -75,4 +75,4 @@ type="text/javascript"></script>
 </div>
 </section>
 
-<%@ include file="../inc/simple_bottom.jsp" %> 
+<%@ include file="../inc/admin_bottom.jsp" %> 

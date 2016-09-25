@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ include file="../inc/simple_top.jsp" %>
+<%@ include file="../inc/admin_top.jsp" %>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/faq.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
 
@@ -254,4 +254,4 @@
 <p class="clearboth"></p> 
 </section>
 
-<%@ include file="../inc/simple_bottom.jsp" %>
+<%@ include file="../inc/admin_bottom.jsp" %>

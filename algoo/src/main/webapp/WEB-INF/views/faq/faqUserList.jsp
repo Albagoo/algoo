@@ -49,10 +49,11 @@
 action="<c:url value='/faq/faqUserList.ag'/>">
 	<input type="hidden" name="categoryName" id="categoryName2" value="${param.categoryName }">
 	<input type="hidden" name="currentPage" id="currentPage2" value="1" >	
+	<input type="hidden" name="searchKeyword" id="currentPage2" value="${listFaqVO.searchKeyword}" >	
 </form>
 <div id="userList">
 	<div id="Qmark">
-		<img src="<c:url value='/images/faqicon.png'/>" style="height: 50px;">
+		<a href="<c:url value='/faq/faqUserList.ag'/>"><img src="<c:url value='/images/faqicon.png'/>" style="height: 50px;"></a>
 	</div>
 	<div id="naviDiv">
 		<nav>
@@ -157,7 +158,7 @@ action="<c:url value='/faq/faqUserList.ag'/>">
             >답변</option>
         </select>   
         <input type="text" name="searchKeyword" style="font-size: 0.8em;"
-        	title="검색어 입력" placeholder="검색어를 입력하세요" class="textBox" value="${param.searchKeyword }">   
+        	title="검색어 입력" placeholder="검색어를 입력하세요" class="textBox">   
 		<input type="submit" class="button white medium" value="검색">
     </form>
 </div>

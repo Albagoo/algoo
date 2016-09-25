@@ -9,7 +9,7 @@
 				${searchCondition} 
 				like '%' || #{searchKeyword} || '%'
 			</if>
-			<if test="searchCondition==null and searchCondition==''">
+			<if test="searchCondition==null or searchCondition==''">
 				title 
 				like '%' || #{searchKeyword} || '%'
 				and content
@@ -39,7 +39,7 @@
 		select * from faq order by faq_no desc
 	</select>
 	
-	<select id="selectAllFaq" resultType="FaqVO" parameterType="SearchVO">
+	<select id="selectAllFaq" resultType="FaqVO" parameterType="ListFaqVO">
 		select *
 		from
 		(

@@ -207,9 +207,12 @@ public class FaqController {
 		return "common/message";
 	}
 	
-	@RequestMapping(value="/faqUserList.ag")
-	public String userList(@ModelAttribute SearchVO searchVo, Model model){
-		logger.info("FAQ UserList 조회, 파라미터 searchVo = {}", searchVo);
+	@RequestMapping("/faqUserList.ag")
+	public String UserlistFaq(@ModelAttribute ListFaqVO searchVo,
+			@RequestParam(required=false) String categoryName,
+			Model model){
+		logger.info("FAQ User 목록 조회, 파라미터 searchVo = {}", searchVo);
+		logger.info("카테고리 ={}",categoryName);
 		
 		PaginationInfo pagingInfo = new PaginationInfo();
 		pagingInfo.setBlockSize(10);
@@ -228,14 +231,22 @@ public class FaqController {
 		searchVo.setBlockSize(onePage.getBlockSize());
 		searchVo.setRecordCountPerPage(onePage.getRecordCountPerPage());
 		searchVo.setFirstRecordIndex(onePage.getFirstRecordIndex());
+				
+		List<FaqVO> ulist = new ArrayList<FaqVO>();
 		
-		List<FaqVO> ulist = faqService.selectUserFaq(searchVo);
-		logger.info("FAQ UserList 조회 결과 ulist.size()={}", ulist.size());
+		searchVo.setCategory(categoryName); //카테고리 검색용
+		
+		if(categoryName!=null && !categoryName.isEmpty()){
+			ulist = faqService.searchCategory(searchVo);
+			logger.info("FAQ User 목록 조회 결과 ulist.size()={}", ulist.size());
+		}else{
+			ulist = faqService.selectAllFaq(searchVo);
+		}
 		
 		int totalRecord=faqService.selectTotalCount(searchVo);
 		pagingInfo.setTotalRecord(totalRecord);
 		onePage.setTotalRecord(totalRecord);
-		
+				
 		model.addAttribute("ulist", ulist);
 		model.addAttribute("pagingInfo", pagingInfo);
 		model.addAttribute("onePage", onePage);

@@ -77,7 +77,7 @@
 			frmFList.submit();
 		});
 		
-	/* 	$("#btFreeDel").click(function(){
+		$("#btFreeDel").click(function(){
 			var count
 			=$(".freeBody input[type=checkbox]:checked").length;
 			
@@ -88,7 +88,7 @@
 			
 			frmTList.action="<c:url value='/admin/selectFreeDelete.ag'/>";
 			frmTList.submit();
-		}); */
+		}); 
 	});
 	
 	function delNotice(nNo){
@@ -407,11 +407,11 @@
 					<th scope="col">수정</th>
 					<th scope="col">삭제</th>
 				</thead>
-				<tbody>
+				<tbody class="freeBody">
 					<c:set var="k" value="0" />
 					<c:forEach var="tVo" items="${tlist }" end="${print-1}">
 						<tr>
-							<td class="freeBody">
+							<td>
 								<input type="checkbox" name="freeList[${k}].freeNo"
 									id="chk3_${k }" value="${tVo.freeNo}" >
 							</td>
@@ -468,12 +468,13 @@
 								<a href="#" onclick="delFree(${tVo.freeNo})">삭제</a>
 							</td>
 						</tr>
+						<c:set var="k" value="${k+1 }" />
 				</c:forEach>
 				</tbody>
 			</table>
 		</div>
 		<div style="margin: 10px 0 20px 3px;text-align: right;">
-			<!-- <input type="button" id="btFreeDel" value="선택한 게시글 삭제" class="button white medium">  -->  
+			<input type="button" id="btFreeDel" value="선택한 게시글 삭제" class="button white medium">  
 		</div>
 	</div>
 	</form>

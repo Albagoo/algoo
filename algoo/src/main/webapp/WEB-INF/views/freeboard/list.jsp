@@ -19,6 +19,19 @@
 		$("input[name='chkAllFree']").click(function(){
 			$(".freeBody input[type=checkbox]").prop("checked", this.checked);
 		});
+		
+		$("#btFreeDel").click(function(){
+			var count
+			=$("tbody input[type=checkbox]:checked").length;
+			
+			if(count==0){
+				alert("삭제할 게시글을 먼저 선택하세요");
+				return false;
+			}
+			
+			frmTList.action="<c:url value='/freeboard/selectDelete.ag'/>";
+			frmTList.submit();
+		});
 	});
 	
 	function pageProc(curPage){
@@ -34,6 +47,8 @@
 <input type="hidden" name="searchKeyword" value="${searchVO.searchKeyword }">	
 </form>
 
+<form name="frmTList" method="post"
+	action="<c:url value='/freeboard/list.ag'/>" >
 <div class="divList">
 <div class="list">
 <legend>
@@ -78,7 +93,7 @@
 	<c:if test="${empty freeList}">
 		<tr>
 			<td colspan="6" class="align_center">
-				검색된 질문이 없습니다
+				검색된 글이 없습니다
 			</td>
 		</tr>
 	</c:if>
@@ -88,7 +103,7 @@
 		<c:forEach var="fList" items="${freeList }">
 			<tr style="text-align: center">
 				<td class="freeBody">
-					<input type="checkbox" name="free[${k}].freeNo"
+					<input type="checkbox" name="freeList[${k}].freeNo"
 						id="chk3_${k }" value="${fList.freeNo}" >
 				</td>
 				<td>${fList.freeNo}</td>
@@ -132,13 +147,18 @@
 				<td><fmt:formatDate value="${fList.regdate}" pattern="yyyy-MM-dd"/>
 				</td>
 				<td>${fList.readCount}</td>
-			</tr>				
+			</tr>
+			<c:set var="k" value="${k+1 }" />				
 		</c:forEach>
 		<!--반복처리 끝  -->
 	</c:if>
 	</tbody>
 </table>	   
 </div>
+<div style="margin: 10px 0 0 3px;">
+	<input type="button" id="btFreeDel" value="선택한 게시글 삭제" class="button white medium">   
+</div>
+</form>
 <div class="divPage">
 	<c:if test="${onePage.firstPage>1 }">	
 		<c:if test="${pagingInfo.firstPage>1 }">	

@@ -232,7 +232,7 @@
 	<div id="naver_id_login"></div>
 		
 	<script type="text/javascript">
-		var naver_id_login = new naver_id_login("auJlpwcbWWsD_1mAuGmP", "http://localhost:9090/algoo/resume/list.ag");
+		var naver_id_login = new naver_id_login("auJlpwcbWWsD_1mAuGmP", "http://localhost:9090/algoo/index.ag");
 		var state = naver_id_login.getUniqState();
 		naver_id_login.setButton("white", 2,40);
 		naver_id_login.setDomain(".service.com");

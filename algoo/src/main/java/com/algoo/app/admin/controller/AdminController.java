@@ -19,6 +19,7 @@ import com.algoo.app.admin.model.AdminMemberVO;
 import com.algoo.app.faq.model.FaqListVO;
 import com.algoo.app.faq.model.FaqService;
 import com.algoo.app.faq.model.FaqVO;
+import com.algoo.app.freeboard.model.FreeboardListVO;
 import com.algoo.app.freeboard.model.FreeboardService;
 import com.algoo.app.freeboard.model.FreeboardVO;
 import com.algoo.app.notice.model.NoticeListVO;
@@ -216,6 +217,40 @@ public class AdminController {
 			msg="선택한 공지사항 삭제 성공";
 		}else{
 			msg="선택한 공지사항 삭제 실패";
+		}//if
+		
+		//3.
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		
+		return "common/message";
+	}
+	
+	@RequestMapping("/selectFreeDelete.ag")
+	public String selectFreeDelete(@ModelAttribute FreeboardListVO tListVo, Model model){
+		//1.
+		logger.info("관리자 선택한 Freeboard 삭제, 파라미터 tListVo = {}", tListVo);
+		List<FreeboardVO> tList = tListVo.getFreeList();
+		
+		logger.info("tList.size() = {}", tList.size());
+		
+		//2.
+		int cnt=freeService.selectDelete(tList);
+		logger.info("선택한 Freeboard 삭제 처리 결과, cnt = {}", cnt);
+		
+		String msg="", url="/admin/adminBoard.ag";
+		
+		if(cnt>0){
+			for(int i=0;i<tList.size();i++){
+				FreeboardVO freeVo=tList.get(i);
+				
+				int freeNo=freeVo.getFreeNo();
+
+				logger.info("i = {}, freeNo = {}", i, freeNo);
+			}//for
+			msg="선택한 Freeboard 삭제 성공";
+		}else{
+			msg="선택한 Freeboard 삭제 실패";
 		}//if
 		
 		//3.

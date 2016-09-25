@@ -1,5 +1,6 @@
 package com.algoo.app.freeboard.model;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.algoo.app.common.SearchVO;
+import com.algoo.app.faq.model.FaqVO;
 
 @Service
 public class FreeboardServiceImpl implements FreeboardService{
@@ -81,16 +83,22 @@ public class FreeboardServiceImpl implements FreeboardService{
 		return freeDao.selectAll();
 	}
 
-/*	@Override
-	public List<Map<String, String>> selectDelete(List<FreeboardVO> fList) {
-		List<Map<String, String>> list=null;
+	@Override
+	public int selectDelete(List<FreeboardVO> fList) {
+		int cnt=0;
 		try{
 			for(FreeboardVO vo : fList){
-				int no=vo.getFreeNo();
-				
-				cnt=1;
-				if(no!=0){
+				int freeNo=vo.getFreeNo();
+				if(freeNo!=0){  
+					Map<String, String> map = new HashMap<String, String>();
+					map.put("freeNo", Integer.toString(freeNo));
+					map.put("groupNo", vo.getGroupNo()+"");
+					map.put("step", vo.getStep()+"");
+					
 					freeDao.deleteFreeboard(map);
+					
+					cnt=1;
+					
 				}
 			}//for
 		}catch(RuntimeException e){
@@ -99,5 +107,6 @@ public class FreeboardServiceImpl implements FreeboardService{
 		}
 		
 		return cnt;
-	}*/
+		
+	}
 }

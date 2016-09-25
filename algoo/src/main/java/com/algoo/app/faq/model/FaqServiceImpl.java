@@ -75,7 +75,7 @@ public class FaqServiceImpl implements FaqService{
 		try{
 			for(FaqVO vo : faqList){
 				int faqNo=vo.getFaqNo();
-				if(faqNo!=0){
+				if(faqNo!=0){  
 					cnt=faqDao.deleteFaq(faqNo);
 				}
 			}//for

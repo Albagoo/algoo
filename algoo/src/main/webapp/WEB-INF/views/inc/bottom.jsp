@@ -8,12 +8,12 @@
 		<div id="footer">
 			<div id="footer_div">
 				<div id="footer_menu">
-					<a href="#">회사소개</a>
+					<a href="<c:url value='/provision/compinfo.ag'/>">회사소개</a>
 					<a href="#">알구안내</a>
 					<a href="#">제휴문의</a>
 					<a href="#">배너광고안내</a>
 					<a href="<c:url value='/provision/pProvision.ag'/>">이용약관</a>
-					<a href="#">개인정보취급방침</a>
+					<a href="<c:url value='provision/privacy.ag'/>">개인정보취급방침</a>
 					<a href="#">고객센터</a>
 					<a href="#">사이트맵</a>
 				</div>

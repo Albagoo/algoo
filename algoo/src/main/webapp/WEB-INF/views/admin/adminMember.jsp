@@ -11,16 +11,81 @@
 
 <title>Insert title here</title>
 <style type="text/css">
-input[type=text]{
+input[type="text"]{
 	width: 50px;
 }	
-input[type=text], td{
+input[type="text"], td{
 	font-size:0.75em;
+}
+input[name="outToExcel"]{
+	float: left;
+}
+.divPage{
+	margin: 10px 0 20px 0;
+}
+.divOut{
+	margin-top: 10px;
+}
+.divListAll{
+	margin-bottom: 10px;
+}
+.upload span{
+	font-size: 0.75em;
+}
+.upload label{
+	font-size: 0.9em;
 }
 </style>
 <script type="text/javascript" 
    src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
+<script type="text/javascript" src="<c:url value='/js/jquery_form.js' />"></script>
+
 <script type="text/javascript">
+	$(document).ready(function() {
+	
+	});
+		
+	function checkFileType(filePath){
+		var fileFormat = filePath.split(".");
+		
+		if(fileFormat.indexOf("xls") > -1){
+			return true;
+		}else if(fileFormat.indexOf("xlsx") > -1){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	function check(){
+		var file = $("#excel").val();
+		
+		if(file == "" || file == null){
+			alert("파일을 선택");
+			return false;
+		}else if(!checkFileType(file)){
+			alert("엑셀 파일만 업로드");
+			return false;
+		}
+		
+		var fileFormat = file.split(".");
+		var fileType = fileFormat[1];
+		
+		if(confirm("업로드 하시겠습니까?")){
+			
+			var options = {
+				type: "post",
+				data : {"excelType" : fileType},
+				success:function(data){
+					alert("업로드 완료");
+				}
+			};
+			
+			$("#excelUpForm").ajaxSubmit(options);
+		}
+	}
+
+
    
    $(function() {
 	   $("#RecordCountPerPage").change(function () {
@@ -65,6 +130,19 @@ input[type=text], td{
       value="${param.searchCondition }">
    <input type="hidden" name="searchKeyword" 
       value="${searchVO.searchKeyword }"> 
+<div>
+	<form id="excelUpForm" method="post" action="<c:url value='/admin/compExcelUpload.ag'/>" 
+		enctype="multipart/form-data">
+		<div class="upload">
+			<label>엑셀업로드</label> 
+				<span>(업로드하고 DB에 INSERT)</span>
+			<p>
+			<input id="excel" name="excel" class="file" type="file">
+			<button type="button" id="excelUp" onclick="check()"
+			class="button white medium">등록</button>
+		</div>
+	</form>
+</div>
 <div class="divListAll" align="right">
    <select name="RecordCountPerPage" id="RecordCountPerPage"
    	class="button white small">
@@ -83,7 +161,9 @@ input[type=text], td{
    </select>
 </div>
 </form><!-- frmPage  -->
+
 <div class="divList">
+<form action="<c:url value='/admin/adminMemEdit.ag'/>" method="post">
 	<table>
 		<thead>
 			<tr>
@@ -105,7 +185,6 @@ input[type=text], td{
 					<td>회원 내역이 없습니다</td>
 				</tr>
 			</c:if>
-			<form action="<c:url value='/admin/adminMemEdit.ag'/>">
 			<c:if test="${!empty alist}">
 				<c:forEach var="vo" items="${alist }">
 					<tr>
@@ -153,15 +232,21 @@ input[type=text], td{
 					</tr>
 				</c:forEach>
 			</c:if>
-				</form>
 		</tbody>
 	</table>
+	<div class="divOut">
+	<form action="<c:url value='/admin/memberExcel.ag'/>" method="post">
+		<input type="submit" name="outToExcel" value="엑셀파일로 보내기">
+	</form>
+	</div>
+</form>
 
 	<div class="divPage">
 		<!-- 이전 블럭으로 이동 -->
 		<c:if test="${pagingInfo.firstPage>1}">
 			<a href="#" onclick="pageProc(${pagingInfo.firstPage-1})"> 
-			<img src="<c:url value='/images/past.png'/>" alt="이전블럭으로"></a>
+			<img src="<c:url value='/images/pastone.png'/>" alt="이전블럭으로"
+				align=absmiddle></a>
 		</c:if>
 
 		<!-- 페이지 번호 추가 -->
@@ -169,10 +254,10 @@ input[type=text], td{
 		<c:forEach var="i" begin="${pagingInfo.firstPage}"
 			end="${pagingInfo.lastPage }">
 			<c:if test="${i==pagingInfo.currentPage }">
-				<span style="color: blue; font-weight: bold"> ${i}</span>
+				<span style="color: #5b75ff; font-weight: bold"> ${i}</span>
 			</c:if>
 			<c:if test="${i!=pagingInfo.currentPage }">
-				<a href="#" onclick="pageProc(${i})"> [${i}]</a>
+				<a href="#" onclick="pageProc(${i})"> ${i}</a>
 			</c:if>
 		</c:forEach>
 		<!--  페이지 번호 끝 -->
@@ -181,14 +266,18 @@ input[type=text], td{
 		<c:if test="${pagingInfo.lastPage<pagingInfo.totalPage }">
 			<a href="#" onclick="pageProc(${pagingInfo.lastPage+1})"> 
 			<img src
-			="<c:url value='/images/next.png'/>" alt="다음블럭으로">
+			="<c:url value='/images/nextone.png'/>" alt="다음블럭으로"
+				align=absmiddle>
 			</a>
 		</c:if>
 	</div>
-	<div class="divSearch">
+	
+	
+		<div class="divSearch">
       <form name="frmSearch" method="post" 
       action="<c:url value='/admin/adminMember.ag' />" >
-        <select name="searchCondition" 	class="button white small">
+        <select name="searchCondition" 	class="button white small" 
+        	>
             <option value="userid"
                <c:if test="${param.searchCondition=='userid' }">
                   selected
@@ -205,9 +294,9 @@ input[type=text], td{
                </c:if>
             >닉네임</option>
         </select>   
-        <input type="text" name="searchKeyword" 
-         title="검색어 입력" value="${param.searchKeyword }"  style="width:200px">   
-      <input type="submit" value="검색" 	class="button white small" >
+        <input type="text" name="searchKeyword" class="textBox"
+         title="검색어 입력" value="${param.searchKeyword }"  style="width:200px;">   
+      <input type="submit" value="검색" 	class="button white medium" >
    	 </form><!--search  -->
 </div>
 </div>

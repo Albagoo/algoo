@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mybatis.mapper.oracle.recScrape">
+   <sql id="searchWhere">
+       <where> 
+         userid = #{userid}
+      </where> 
+   </sql>
+
+      <select id="selectRecScrape" resultType="RecScrapeVO"
+      parameterType="RecScrapeSearchVO">
+      select * from
+      (select l.*, rownum as RNUM from listView l
+      <include refid="searchWhere"></include>
+      order by regdate desc)
+      <![CDATA[
+      where RNUM > #{firstRecordIndex}
+      and RNUM <= #{firstRecordIndex} + #{recordCountPerPage}
+      ]]>
+   </select> 
+
+    <select id="selectRecScrapeCount" resultType="RecScrapeVO" 
+      parameterType="RecScrapeSearchVO">
+      select period from listView
+      <include refid="searchWhere"></include>
+      order by regdate desc
+   </select> 
+
+</mapper>

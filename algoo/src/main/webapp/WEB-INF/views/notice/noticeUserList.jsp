@@ -42,10 +42,11 @@
 action="<c:url value='/notice/noticeUserList.ag'/>">
 	<input type="hidden" name="categoryName" id="categoryName2" value="${param.categoryName }">
 	<input type="hidden" name="currentPage" id="currentPage2" value="1" >	
+	<input type="hidden" name="searchKeyword" id="searchKeyword" value="${listNoticeVO.searchKeyword }" >
 </form>
 <div class="title">
 	<legend>
-		<img src="<c:url value='/images/notice.png'/>" style="height: 48px;" align=absmiddle>
+		<a href="<c:url value='/notice/noticeUserList.ag'/>"><img src="<c:url value='/images/notice.png'/>" style="height: 48px;" align=absmiddle></a>
 	</legend>
 </div>
 <div class="divListAll" align="center">

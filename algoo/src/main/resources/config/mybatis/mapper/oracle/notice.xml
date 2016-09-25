@@ -10,7 +10,7 @@
 				${searchCondition} 
 				like '%' || #{searchKeyword} || '%'
 			</if>
-			<if test="searchCondition==null and searchCondition==''">
+			<if test="searchCondition==null or searchCondition==''">
 				title 
 				like '%' || #{searchKeyword} || '%'
 				and content

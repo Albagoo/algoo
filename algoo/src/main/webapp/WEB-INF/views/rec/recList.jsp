@@ -39,7 +39,13 @@ function k(wel,index,item,ids,names) {
       wel+='">'+item.values+'</label>';
       return wel;
 }
-   
+
+//최저임금셋팅
+var minPay=6030;
+ function minPaySet(){
+   $("#pays").val(minPay);
+}
+
 
 
 $(document).ready(function(){
@@ -825,12 +831,12 @@ $(document).ready(function(){
       </div>
       <table class="box2 recList" style="border: 1px solid #EEE">
          <colgroup>
-            <col style="width: 10%;" />
-            <col style="width: 43%;" />
-            <col style="width: 13%;" />
-            <col style="width: 12%;" />
-            <col style="width: 9%;" />
-            <col style="width: *;" />
+            <col style="width: 87px;" />
+            <col style="width: 377px;" />
+            <col style="width: 113px;" />
+            <col style="width: 105px;" />
+            <col style="width: 78px;" />
+            <col style="width: 116px;" />
          </colgroup>
          <thead>
             <tr>

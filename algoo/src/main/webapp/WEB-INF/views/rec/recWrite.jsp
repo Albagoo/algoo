@@ -1065,13 +1065,13 @@ style="width: 150px;height: 100px;border: 1px solid gray">
                  value="자사지원양식"> 
                <label for="recForm">자사지원양식</label> 
                <div style="display: inline-block;float: left;">
-               <span style="float: left;">(</span>
+               <span style="float: left;margin: 5px 0;">(</span>
                <input type="radio"  
                name="recForm" id="FormF"> 
                <label for="FormF" style="width: 35px">필수 ,</label> 
                <input type="radio" name="recForm" id="FormS"> 
                <label for="FormS" style="width: 35px">선택</label>
-               <span style="float: left;">)</span>
+               <span style="float: left;margin: 5px 0;">)</span>
                </div>
             </dt>
                

@@ -19,4 +19,12 @@ public class MainController {
 		
 		return "inc/leftSide";
 	}
+	
+	@RequestMapping("/sitemap.ag")
+	public String sitemap(){
+		//1.
+		logger.info("사이트맵 보여주기");
+		
+		return "mainOther/sitemap";
+	}
 }

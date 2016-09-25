@@ -64,13 +64,13 @@
 		<tr><td id="sideTitle">기간별</td></tr>
 		<tr><td id="sideContent">
 			<p id="subTit">
-			<a href="#">근무기간·요일·시간별</a></p>
-			<a href="#">날짜별</a> | 
-			<a href="#">하루알바</a><br>
-			<a href="#">단기</a> | 
-			<a href="#">장기</a> | 
-			<a href="#">주말</a> | 
-			<a href="#">주5일</a>
+			<a href="<c:url value='/rec/recList.ag'/>">근무기간·요일·시간별</a></p>
+			<a href="<c:url value='/rec/recList.ag'/>">날짜별</a> | 
+			<a href="<c:url value='/rec/recList.ag'/>">하루알바</a><br>
+			<a href="<c:url value='/rec/recList.ag'/>">단기</a> | 
+			<a href="<c:url value='/rec/recList.ag'/>">장기</a> | 
+			<a href="<c:url value='/rec/recList.ag'/>">주말</a> | 
+			<a href="<c:url value='/rec/recList.ag'/>">주5일</a>
 		</td></tr>
 	</table>
 	<div id="ani">

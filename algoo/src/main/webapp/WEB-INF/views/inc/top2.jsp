@@ -115,7 +115,9 @@
 						</div>
 					</div>
 					<div id="header_advertise">
+						<a href="http://www.findjob.co.kr/" target="_blank">
 						<img alt="광고" src="${pageContext.request.contextPath}/images/findjobLogo.png">
+						</a>
 					</div>
 				</div>
 				

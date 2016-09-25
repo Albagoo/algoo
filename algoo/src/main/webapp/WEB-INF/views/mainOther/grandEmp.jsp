@@ -14,7 +14,7 @@
 
 <div id="grandEmp">
 	<br><br>
-	<p id="divTitle">그랜드 채용공고(DB연동부분)</p>
+	<p id="divTitle">그랜드 채용공고</p>
 	
 	<div class="grandEmp" summary="그랜드 공고 리스트">
 		<c:if test="${empty alist}">

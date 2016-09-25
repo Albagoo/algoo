@@ -14,7 +14,7 @@
 
 <div id="superEmp">
 	<br><br>
-	<p id="divTitle">슈퍼 채용공고(DB연동부분)</p>
+	<p id="divTitle">슈퍼 채용공고</p>
 	
 	<div class="superEmp" summary="슈퍼 공고 리스트">
 		<c:if test="${empty alist}">

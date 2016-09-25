@@ -319,26 +319,26 @@
 					<!-- 브랜드 알바(페이지 슬라이드) -->
 					<div id="divRoll">
 						<ul id="scroller">
-						    <li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/BurgerKing_c.png'/>" alt=""/></a></li>
-							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/BR_c.png'/>" alt=""/></a></li>
-							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/Dunkin_c.png'/>" alt=""/></a></li>
-							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/GS25_c.png'/>" alt=""/></a></li>
-							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/Gyejul_c.png'/>" alt=""/></a></li>
-							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/Otoko_c.png'/>" alt=""/></a></li>
-							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/Joes_c.png'/>" alt=""/></a></li>
-							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/KFC_c.png'/>" alt=""/></a></li>
-							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/Outback_c.png'/>" alt=""/></a></li>
-							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/Vips_c.png'/>" alt=""/></a></li>
-							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/CJFood_c.png'/>" alt=""/></a></li>
-							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/LotteMart_c.png'/>" alt=""/></a></li>
-							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/Nike_c.png'/>" alt=""/></a></li>
-							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/PizzaHut_c.png'/>" alt=""/></a></li>
-							<li><a href="#" target="_self"><img src="<c:url value='/images/CircleBanner/ParisBagguet_c.png'/>" alt=""/></a></li>
+						    <li><a href="http://www.burgerking.co.kr/aboutbk/recruit/" target="_self"><img src="<c:url value='/images/CircleBanner/BurgerKing_c.png'/>" alt=""/></a></li>
+							<li><a href="http://www.baskinrobbins.co.kr/about/jobs.php" target="_self"><img src="<c:url value='/images/CircleBanner/BR_c.png'/>" alt=""/></a></li>
+							<li><a href="https://spc.recruiter.co.kr/appsite/company/index" target="_self"><img src="<c:url value='/images/CircleBanner/Dunkin_c.png'/>" alt=""/></a></li>
+							<li><a href="https://www.gsretail.com/gsretail/ko/corporation/recruit/employment/recruit-info" target="_self"><img src="<c:url value='/images/CircleBanner/GS25_c.png'/>" alt=""/></a></li>
+							<li><a href="https://www.cjfoodville.co.kr/recruit/field_list.asp" target="_self"><img src="<c:url value='/images/CircleBanner/Gyejul_c.png'/>" alt=""/></a></li>
+							<li><a href="http://www.namotoko.com/" target="_self"><img src="<c:url value='/images/CircleBanner/Otoko_c.png'/>" alt=""/></a></li>
+							<li><a href="http://www.jawsfood.com/?page_id=1334" target="_self"><img src="<c:url value='/images/CircleBanner/Joes_c.png'/>" alt=""/></a></li>
+							<li><a href="http://www.kfckorea.com/default.asp" target="_self"><img src="<c:url value='/images/CircleBanner/KFC_c.png'/>" alt=""/></a></li>
+							<li><a href="http://www.outback.co.kr/Recruit/NoticeList.aspx" target="_self"><img src="<c:url value='/images/CircleBanner/Outback_c.png'/>" alt=""/></a></li>
+							<li><a href="https://www.cjfoodville.co.kr/recruit/field_list.asp" target="_self"><img src="<c:url value='/images/CircleBanner/Vips_c.png'/>" alt=""/></a></li>
+							<li><a href="https://www.cjfoodville.co.kr/recruit/field_list.asp" target="_self"><img src="<c:url value='/images/CircleBanner/CJFood_c.png'/>" alt=""/></a></li>
+							<li><a href="https://recruit.lottemart.com/index.jsp" target="_self"><img src="<c:url value='/images/CircleBanner/LotteMart_c.png'/>" alt=""/></a></li>
+							<li><a href="http://www.nike.co.kr/" target="_self"><img src="<c:url value='/images/CircleBanner/Nike_c.png'/>" alt=""/></a></li>
+							<li><a href="http://www.pizzahut.co.kr/partner/intro.do" target="_self"><img src="<c:url value='/images/CircleBanner/PizzaHut_c.png'/>" alt=""/></a></li>
+							<li><a href="https://spc.recruiter.co.kr/appsite/company/index" target="_self"><img src="<c:url value='/images/CircleBanner/ParisBagguet_c.png'/>" alt=""/></a></li>
 						</ul>
 					</div>
 				</div>
 			</div>
-			<div class="divSuper">
+			<%-- <div class="divSuper">
 				<br><br>
 				<p id="divTitle">슈퍼 채용공고</p>
 				<div>
@@ -498,13 +498,6 @@
 						 <p id="pay">서울 동작구 <span id="time">월</span>
 						 <span id="money">1,500,000</span>원</p>
 						</div></a>
-						<%-- <a href="#"><div class="SpBox">
-						 <img src="<c:url value='/images/company/025.jpg'/>">
-						 <br><p id="title">앤젤리너스</p>
-						 <p id="content">[재택근무] 2016년 상반기 알바</p>
-						 <p id="pay">서울 동작구 <span id="time">월</span>
-						 <span id="money">1,500,000</span>원</p>
-						</div></a> --%>
 					</div>
 			</div>
 
@@ -563,7 +556,7 @@
 						 <p id="grayButton"> 상품 안내 및 신청 </p>
 						</div></a>
 				</div>
-			</div>
+			</div> --%>
 			
 			<div class="divSuper">
 				<!-- 슈퍼 공고 리스트 -->

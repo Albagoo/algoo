@@ -35,4 +35,19 @@ public class ProvisionController {
 		
 		return "provision/lprovision";
 	}
+	
+	@RequestMapping("/privacy.ag")
+	public String privacy(){
+		//1.
+		logger.info("개인정보처리방침 보여주기");
+		
+		return "provision/privacy";
+	}
+	@RequestMapping("/compinfo.ag")
+	public String compInfo(){
+		//1.
+		logger.info("회사소개 보여주기");
+		
+		return "provision/compinfo";
+	}
 }

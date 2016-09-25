@@ -50,55 +50,46 @@ public class LoginController2 {
 		
 		
 		int result=0;
-		String str="";
 		if(type.equals("personal")){
 			//개인회원
 			MemberVO memberVo = memberService.selectMemberByUserid(userid);
-			memberVo.setUserid(userid);
-			memberVo.setPassword(pwd);
 			
-			result = memberService.loginCheck(memberVo);
-			logger.info("ajax result={}",result);
-			
-			if(result==memberService.LOGIN_OK){
-				session.setAttribute("userid", userid);
-				session.setAttribute("userName", memberVo.getUserName());
-				session.setAttribute("nickName", memberVo.getNickName());
-				session.setAttribute("authCode", "1"); //1이면 개인회원
-				str="LOGIN_OK";
-			}else{
-				if(result==memberService.ID_NONE){
-					str="ID_NONE";
-				}else if(result==memberService.PWD_DISAGREE){
-					str="PWD_DISAGREE";
+			if(memberVo != null){
+				memberVo.setUserid(userid);
+				memberVo.setPassword(pwd);
+				
+				result = memberService.loginCheck(memberVo);
+				
+				logger.info("ajax result={}",result);
+				
+				if(result==memberService.LOGIN_OK){
+					session.setAttribute("userid", userid);
+					session.setAttribute("userName", memberVo.getUserName());
+					session.setAttribute("nickName", memberVo.getNickName());
+					session.setAttribute("authCode", "1"); //1이면 개인회원
 				}
-				return result;
+			}else{
+				return memberService.ID_NONE;
 			}
 		}else if(type.equals("company")){
 			//기업회원
 			CommemVO commemVo = commemService.selectMemberByUserid(userid);
-			commemVo.setUserid(userid);
-			commemVo.setPassword(pwd);
 			
-			result = commemService.loginCheck(commemVo);
-			
-			if(result==memberService.LOGIN_OK){
-				session.setAttribute("userid", userid);
-				session.setAttribute("userName", commemVo.getUserName());
-				session.setAttribute("nickName", commemVo.getNickName());
-				session.setAttribute("authCode", "2"); //2이면 기업회원
-				str="LOGIN_OK";
-			}else{
-				if(result==commemService.ID_NONE){
-					str="ID_NONE";
-				}else if(result==commemService.PWD_DISAGREE){
-					str="PWD_DISAGREE";
+			if(commemVo != null){
+				commemVo.setUserid(userid);
+				commemVo.setPassword(pwd);
+				
+				result = commemService.loginCheck(commemVo);
+				
+				if(result==memberService.LOGIN_OK){
+					session.setAttribute("userid", userid);
+					session.setAttribute("userName", commemVo.getUserName());
+					session.setAttribute("nickName", commemVo.getNickName());
+					session.setAttribute("authCode", "2"); //2이면 기업회원
 				}
-				return result;
+			}else{
+				return commemService.ID_NONE;
 			}
-			
-		}else{
-			//관리자
 		}
 		return result;
 	}

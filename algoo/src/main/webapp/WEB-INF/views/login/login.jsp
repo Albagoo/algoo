@@ -225,7 +225,7 @@
 		<a href="#">비밀번호 찾기</a> |
 		<a href="#" onclick="pageAgreement()">회원가입</a>
 	</div>
-	<div id="join_google" style="display:inline-block;">
+	<%-- <div id="join_google" style="display:inline-block;">
 		<img alt="구글로고" src="<c:url value='/images/icon_google.png'/>"/>
 		<input type="button" id="bt_google" value="구글로 로그인">
 	</div>
@@ -246,7 +246,7 @@
 	<div id="join_facebook" style="display:inline-block;">
 		<img alt="페이스북로고" src="<c:url value='/images/icon_facebook.png'/>"/>
 		<input type="button" id="bt_facebook" value="페이스북 로그인">
-	</div>
+	</div> --%>
 	<div id="close_div">
 		<img alt="닫기" id="close" 
 		src="<c:url value='/images/close.png'/>">

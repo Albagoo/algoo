@@ -123,6 +123,18 @@ input[name="outToExcel"]{
 </head>
 <body>
 <input type="hidden" value="" name="edith" id="edith">
+<div>
+	<form id="excelUpForm" method="post" action="<c:url value='/admin/compExcelUpload.ag'/>" 
+		enctype="multipart/form-data">
+		<div class="upload">
+			<label>엑셀업로드</label> 
+				<span>(업로드하고 DB에 INSERT)</span>
+			<input id="excel" name="excel" class="file" type="file">
+			<button type="button" id="excelUp" onclick="check()"
+			class="button white medium">등록</button>
+		</div>
+	</form>
+</div>
 <form name="frmPage" id="frmPage" method="post" 
    action="<c:url value='/admin/adminMember.ag'/>" >
    <input type="hidden" name="currentPage" value="1" >
@@ -130,19 +142,6 @@ input[name="outToExcel"]{
       value="${param.searchCondition }">
    <input type="hidden" name="searchKeyword" 
       value="${searchVO.searchKeyword }"> 
-<div>
-	<form id="excelUpForm" method="post" action="<c:url value='/admin/compExcelUpload.ag'/>" 
-		enctype="multipart/form-data">
-		<div class="upload">
-			<label>엑셀업로드</label> 
-				<span>(업로드하고 DB에 INSERT)</span>
-			<p>
-			<input id="excel" name="excel" class="file" type="file">
-			<button type="button" id="excelUp" onclick="check()"
-			class="button white medium">등록</button>
-		</div>
-	</form>
-</div>
 <div class="divListAll" align="right">
    <select name="RecordCountPerPage" id="RecordCountPerPage"
    	class="button white small">
@@ -234,12 +233,12 @@ input[name="outToExcel"]{
 			</c:if>
 		</tbody>
 	</table>
-	<div class="divOut">
-	<form action="<c:url value='/admin/memberExcel.ag'/>" method="post">
-		<input type="submit" name="outToExcel" value="엑셀파일로 보내기">
-	</form>
-	</div>
 </form>
+	<div class="divOut">
+		<form action="<c:url value='/admin/memberExcel.ag'/>" method="post">
+			<input type="submit" name="outToExcel" value="엑셀파일로 보내기">
+		</form>
+	</div>
 
 	<div class="divPage">
 		<!-- 이전 블럭으로 이동 -->

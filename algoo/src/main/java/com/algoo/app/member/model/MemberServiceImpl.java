@@ -84,5 +84,20 @@ public class MemberServiceImpl implements MemberService{
 		return memberDao.updatePwd(memberVo);
 	}
 
+	@Override
+	public int selectAllUserid(String userid) {
+		return memberDao.selectAllUserid(userid);
+	}
+
+	@Override
+	public int selectAllNickName(String userid) {
+		return memberDao.selectAllNickName(userid);
+	}
+
+	@Override
+	public int selectAllEmail(String userid) {
+		return memberDao.selectAllEmail(userid);
+	}
+
 	
 }

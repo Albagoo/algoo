@@ -69,4 +69,19 @@ public class MemberDAOMybatis extends SqlSessionDaoSupport implements MemberDAO{
 		return getSqlSession().update(namespace+".updatePwd", memberVo);
 	}
 
+	@Override
+	public int selectAllUserid(String userid) {
+		return getSqlSession().selectOne(namespace+".selectAllUserid", userid);
+	}
+
+	@Override
+	public int selectAllNickName(String userid) {
+		return getSqlSession().selectOne(namespace+".selectAllNickName", userid);
+	}
+
+	@Override
+	public int selectAllEmail(String userid) {
+		return getSqlSession().selectOne(namespace+".selectAllEmail", userid);
+	}
+
 }

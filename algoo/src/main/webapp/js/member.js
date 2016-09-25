@@ -52,11 +52,31 @@ $(document).ready(function(){
 		//pwd유효성 검사
 		$("#pwd").keyup(function(){
 			if($("#pwd").val().length<4 || $("#pwd").val().length>16){
-				$("#message2").html("비밀번호는 4~16자리로 입력하세요");	
+				$("#message2").html("비밀번호는 4~16자리로 입력하세요");
+				$("#chkPw").val("N");
 			}else{	
 				if(validate_userid($("#pwd").val()) && 
 						$("#pwd").val().length>=0){
-						$("#message2").html("비밀번호 중복확인을 하세요");	
+						$("#message2").html("비밀번호 중복확인을 하세요");
+						
+						$("#pwd2").keyup(function(){
+							if($("#pwd").val()==$("#pwd2").val()){
+								if($("#pwd").val().length>=4 && $("#pwd").val().length<=16
+										&& $("#pwd2").val().length>=4 && $("#pwd2").val().length<=16){
+									$("#message2").html("사용가능한 비밀번호입니다");
+									$("#chkPw").val("Y");
+								}else if(validate_userid($("#pwd").val()) || validate_userid($("#pwd2").val())){
+									$("#message2").html("비밀번호 규칙에 맞지 않습니다");
+									$("#chkPw").val("N");
+								}else{
+									$("#message2").html("비밀번호 규칙에 맞지 않습니다");
+									$("#chkPw").val("N");
+								}
+							}else{
+								$("#message2").html("비밀번호가 일치 하지 않습니다");
+								$("#chkPw").val("N");
+							}	
+						});
 				}else{
 					//유효성 검사를 통과하지 못한 경우
 					$("#message2").html("비밀번호 규칙에 맞지 않습니다");
@@ -64,19 +84,28 @@ $(document).ready(function(){
 				}
 			}	
 		});//pwd
-		$("#pwd2").keyup(function(){
+		/*$("#pwd2").keyup(function(){
 			if($("#pwd").val()==$("#pwd2").val()){
-				$("#message2").html("비밀번호가 일치합니다");	
-				$("#chkPw").val("Y");
+				if($("#pwd").val().length>=4 && $("#pwd").val().length<=16
+						&& $("#pwd2").val().length>=4 && $("#pwd2").val().length<=16){
+					$("#message2").html("사용가능한 비밀번호입니다");
+					$("#chkPw").val("Y");
+				}else{
+					$("#message2").html("비밀번호 규칙에 맞지 않습니다");
+					$("#chkPw").val("N");
+				}
 			}else{
 				$("#message2").html("비밀번호가 일치 하지 않습니다");
 				$("#chkPw").val("N");
 			}	
 		});//pwd2
-		
+*/		
 		$("#nickName").keyup(function(){
 			if($("#nickName").val().length<1){
 				$("#message3").html("닉네임을 입력하세요");	
+				$("#nick").val("N");
+			}else{
+				$("#message3").html("");
 				$("#nick").val("Y");
 			}
 		});//nickname
@@ -92,7 +121,7 @@ $(document).ready(function(){
 				return false;
 			}else if($("#nick").val()=="N"){
 				alert("닉네임을 입력해 주세요");
-				$("#pwd").focus();
+				$("#nickName").focus();
 				return false;
 			}
 			

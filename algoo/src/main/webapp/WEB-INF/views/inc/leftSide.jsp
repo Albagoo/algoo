@@ -51,14 +51,14 @@
 		<tr><td id="sideTitle">업직종별</td></tr>
 		<tr><td id="sideContent">
 			<p id="subTit">
-			<a href="#">업직종별 알바</a></p>
-			<a href="#">
+			<a href="<c:url value='/rec/recList.ag'/>">업직종별 알바</a></p>
+			<a href="<c:url value='/rec/recList.ag?jobs=고객상담·리서치·영업'/>">
 			<span id="pro">전문</span>텔레마케팅</a><br>
-			<a href="#">
+			<a href="<c:url value='/rec/recList.ag?jobs=생산·건설·운송'/>">
 			<span id="pro">전문</span>생산직</a><br>
-			<a href="#">
+			<a href="<c:url value='/rec/recList.ag?jobs=사무직'/>">
 			<span id="pro">전문</span>사무직</a><br>
-			<a href="#">
+			<a href="<c:url value='/rec/recList.ag?jobs=외식·음료'/>">
 			<span id="pro">전문</span>바(Bar)</a><span id="adult">19</span><br>
 		</td></tr>
 		<tr><td id="sideTitle">기간별</td></tr>

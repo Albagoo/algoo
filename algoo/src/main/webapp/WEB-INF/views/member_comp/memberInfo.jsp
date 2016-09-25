@@ -136,7 +136,7 @@
 	    </div>
 	   <div id="pwd_div">
 	        <label for="pwd">비밀번호</label>
-	        <input type="password" class="textBox" name="pwd" id="pwd">
+	        <input type="password" class="textBox" name="password" id="pwd">
 	    </div>
 	    <div id="pwd_div">
 	        <label for="pwd2">비밀번호 확인</label>

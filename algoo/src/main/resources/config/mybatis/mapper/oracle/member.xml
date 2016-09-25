@@ -34,7 +34,7 @@
 	
 	<update id="updateMember" parameterType="MemberVO">
 		update member
-		set nickname=#{nickName}, email1=#{email1},email2=#{email2},
+		set nickname=#{nickName},password=#{password},email1=#{email1},email2=#{email2},
 		hp1=#{hp1},hp2=#{hp2},hp3=#{hp3},zipcode=#{zipcode},
 		address=#{address}, address_detail=#{addressDetail}
 		where userid=#{userid} and out_date is null

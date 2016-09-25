@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.algoo.app.commem.model.CommemService;
+import com.algoo.app.commem.model.CommemVO;
 import com.algoo.app.common.FileUploadWebUtil;
 import com.algoo.app.email.EmailSender;
 import com.algoo.app.member.model.MemberService;
@@ -35,6 +37,9 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
+	
+	@Autowired
+	private CommemService commemService;
 	
 	@RequestMapping("/agreement.ag")
 	public String agreement(){
@@ -236,8 +241,10 @@ public class MemberController {
 			Model model){
 		String userid = (String)session.getAttribute("userid");
 		MemberVO memberVo = memberService.selectMemberByUserid(userid);
+		CommemVO commemVo = commemService.selectMemberByUserid(userid);
 		
 		model.addAttribute("memberVo", memberVo);
+		model.addAttribute("commemVo", commemVo);
 		logger.info("회원정보 읽어오기 memberVo={},",memberVo);
 		
 		return "member_comp/memberInfo";

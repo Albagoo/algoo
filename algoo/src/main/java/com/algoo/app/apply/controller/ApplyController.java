@@ -30,7 +30,7 @@ public class ApplyController {
 	@RequestMapping(value="/apply.ag", method=RequestMethod.POST)
 	public int apply_post(
 			@ModelAttribute ApplyVO applyVo,
-			@RequestParam String userid){
+			@RequestParam(required=false) String userid){
 		
 		MemberVO memberVo = memberService.selectMemberByUserid(userid);
 		

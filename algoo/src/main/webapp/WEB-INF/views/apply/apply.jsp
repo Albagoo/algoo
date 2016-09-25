@@ -39,7 +39,7 @@
 <body>
 	<form action="<c:url value='/apply/apply.ag'/>" method="post" id="frmApply">
 		<input type="hidden" name="recCode" value="${param.recCode }">
-		<input type="hidden" name="userid" value="${sessionScope.userid }">
+		<input type="hidden" name="userid" value="${param.userid }">
 		<h2 style="border-bottom: 3px solid #E70400; padding-bottom: 10px;">지원하기</h2>
 		<p>지원하기 전, 마지막으로 고용주에게 보낼 메모를 남겨주세요!</p>
 		<textarea cols="5" id="memo" name="memo" 

@@ -36,4 +36,21 @@
 .provCon{
 }
 
-/* 개인정보처리방침 */
+/* 회사소개 */
+#cpTitle{
+	font-size:20px;
+	font-weight:bold;
+	color:black;
+}
+.compinfo{
+	color:gray;
+}
+#compTb{
+	margin-left:10px;
+}
+#compTb td{
+	padding:10px;
+}
+#cpt{
+	font-weight:bold;
+}

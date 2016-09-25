@@ -231,10 +231,11 @@
 						</div></a>
 						<div class="selectLogin">
 							<a href="<c:url value='/jj/join.ag'/>">
-							<span style="font-weight:bold">
-								회원가입</span></a> |
-							<a href="<c:url value='/member/findMember.ag' /> ">아이디 찾기</a> |
-							<a href="<c:url value='/member/findMember.ag' /> ">비밀번호 찾기</a>
+							<span class="selectLoginSpan">회원가입</span></a> |
+							<a href="<c:url value='/member/findMember.ag' /> ">
+							<span class="selectLoginSpan">아이디 찾기</span></a> |
+							<a href="<c:url value='/member/findMember.ag' /> ">
+							<span class="selectLoginSpan">비밀번호 찾기</span></a>
 						</div>
 					</div>
 					</c:if>

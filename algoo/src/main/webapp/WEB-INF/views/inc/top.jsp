@@ -125,11 +125,10 @@
 					<a href="<c:url value='/rec/recList.ag'/>">굿잡 </a>
 					<a href="<c:url value='/freeboard/list.ag'/>">알바토크 </a>
 					<a href="<c:url value='/resume/list.ag'/>">인재정보	</a>
-					<a href="<c:url value='/login/mypageType.ag'/>">회원페이지 </a>
-					<a href="<c:url value='/resume/write.ag'/>">이력서등록 </a>
-					<a href="<c:url value='/rec/recWrite.ag'/>">공고등록 </a>
 					<a href="<c:url value='/faq/faqUserList.ag'/>">FAQ </a>
 					<a href="<c:url value='/notice/noticeUserList.ag'/>">공지사항 </a>
+					<a href="<c:url value='/resume/write.ag'/>">이력서등록 </a>
+					<a href="<c:url value='/rec/recWrite.ag'/>">공고등록 </a>
 				</div>
 			</div><!-- header_div -->
 		</div><!-- header -->

@@ -9,7 +9,7 @@
 	$(document).ready(function(){
 		$(".divSuper .SpBox")
 			.hover(function(){
-				$(this).css("border-color","red")
+				$(this).css("border-color","#E70400")
 					.css("border-width", "1px")
 					.css("cursor","pointer");
 			}, function(){
@@ -17,7 +17,7 @@
 			});
 		$(".divGrand .GrBox")
 		.hover(function(){
-			$(this).css("border-color","red")
+			$(this).css("border-color","#E70400")
 				.css("border-width", "1px")
 				.css("cursor","pointer");
 		}, function(){

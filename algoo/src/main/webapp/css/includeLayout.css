@@ -279,7 +279,7 @@
 	color:black;
 }
 #mJoin{
-	border:solid 1.5px silver;
+	border:solid 1px #ddd;
 	padding:5px;
 }
 #mJoin img{
@@ -287,10 +287,10 @@
 	width:18px;
 }
 #mJoin hr{
-	color:silver;
+	color:#ddd;
 }
 #mToday{
-	border:solid 1.5px silver;
+	border:solid 1px #ddd;
 }
 #mTitle{
 	background-color:white;
@@ -395,4 +395,8 @@
 }
 #ani{
 	margin-top:5px;
+}
+#areaLink a{
+	text-decoration:none;
+	color:gray;
 }

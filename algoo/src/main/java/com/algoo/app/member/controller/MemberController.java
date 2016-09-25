@@ -1,5 +1,6 @@
 package com.algoo.app.member.controller;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.algoo.app.common.FileUploadWebUtil;
+import com.algoo.app.email.EmailSender;
 import com.algoo.app.member.model.MemberService;
 import com.algoo.app.member.model.MemberVO;
 
@@ -24,6 +26,9 @@ import com.algoo.app.member.model.MemberVO;
 @RequestMapping("/member")
 public class MemberController {
 	private static final Logger logger=LoggerFactory.getLogger(MemberController.class);
+	
+	@Autowired
+	private EmailSender emailSender;
 	
 	@Autowired
 	private FileUploadWebUtil fileUtil;
@@ -243,11 +248,6 @@ public class MemberController {
 		
 	}
 	
-	@RequestMapping("findId.ag")
-	public void findId(){
-		
-	}
-	
 	@RequestMapping("/findIdDb.ag")
 	@ResponseBody
 	public String findMember_id(
@@ -259,5 +259,74 @@ public class MemberController {
 		logger.info("userid = {}", userid);
 		
 		return userid;
+	}
+	
+	@RequestMapping("/findPwd.ag")
+	public String findMember_pwd(
+			@ModelAttribute MemberVO memberVo,
+			@RequestParam(required=false) String email3,
+			Model model){
+		logger.info("비밀번호 찾기 파라미터 memberVo = {}", memberVo);
+		
+		String email1 = memberVo.getEmail1();
+		String email2 = memberVo.getEmail2();
+		
+		if(email1==null || email1.isEmpty()){
+			memberVo.setEmail1("");
+			memberVo.setEmail2("");
+		}else{
+			if(email2.equals("etc")){
+				if(email3!=null && !email3.isEmpty()){
+					memberVo.setEmail2(email3);
+				}else{
+					memberVo.setEmail1("");
+					memberVo.setEmail2("");
+				}
+			}
+		}
+		
+		String tempPwd = ""+(char)(Math.random()*26+'A')+(int)(Math.random()*10)
+				+(char)(Math.random()*26+'A')+(int)(Math.random()*10)
+				+(char)(Math.random()*26+'A')+(int)(Math.random()*10)
+				+(char)(Math.random()*26+'A')+(int)(Math.random()*10);
+		logger.info(tempPwd);
+		
+		int cnt = memberService.selectCount(memberVo);
+		
+		String msg = "", url = "/member/findMember.ag";
+		if(cnt == 1){
+			memberVo.setPassword(tempPwd);
+			
+			int result = memberService.updatePwd(memberVo);
+			
+			if(result > 0){
+				msg = "이메일로 임시 비밀번호가 발송되었습니다!"
+					+ "\n임시 비밀번호로 로그인 하신 후 비밀번호 변경 부탁드립니다!";
+				String subject = "[알구] 임시 비밀번호 발송 메일입니다";
+				String content = "비밀 번호는 1개월 단위로 변경을 권장합니다"
+						+ "\n임시 비밀번호 : " + tempPwd;
+				
+				String sender = "admin@algoo.com";
+				String receiver = email1+"@"+email2;
+				
+				try {
+					emailSender.sendEmail(subject, content,
+							receiver, sender);
+					logger.info("이메일 발송 성공!!");
+				} catch (MessagingException e) {
+					logger.info("이메일 발송 실패!!");
+					e.printStackTrace();
+				}
+			}else{
+				msg = "비밀번호 변경 실패!";
+			}
+		}else{
+			msg = "입력하신 정보와 일치하는 가입 정보가 없습니다!!";
+		}
+		
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		
+		return "common/message";
 	}
 }

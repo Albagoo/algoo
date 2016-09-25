@@ -74,5 +74,15 @@ public class MemberServiceImpl implements MemberService{
 		return memberDao.selectId(memberVo);
 	}
 
+	@Override
+	public int selectCount(MemberVO memberVo) {
+		return memberDao.selectCount(memberVo);
+	}
+
+	@Override
+	public int updatePwd(MemberVO memberVo) {
+		return memberDao.updatePwd(memberVo);
+	}
+
 	
 }

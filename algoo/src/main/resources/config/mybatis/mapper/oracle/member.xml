@@ -58,8 +58,19 @@
 		where member_code = #{memberCode}
 	</select>
 	
-	<select id="selectId" parameterType="MemberVo" resultType="String">
+	<select id="selectId" parameterType="MemberVO" resultType="String">
 		select userid from member
 		where userName = #{userName} and hp1 = #{hp1} and hp2 = #{hp2} and hp3 = #{hp3}
 	</select>
+	
+	<select id="selectCount" parameterType="MemberVO" resultType="int">
+		select count(*) from member	
+		where userid = #{userid} and userName = #{userName} and email1 = #{email1} and email2 = #{email2}	
+	</select>
+	
+	<update id="updatePwd" parameterType="MemberVO">
+		update member
+		set password = #{password}
+		where userid = #{userid}
+	</update>
 </mapper>

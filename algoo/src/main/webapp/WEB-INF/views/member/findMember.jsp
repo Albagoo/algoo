@@ -92,7 +92,7 @@
 				    width: 42%;
 				    height: 350px;
 				    border: 1px solid #e6e6e6;">
-			<form action="" method="post">
+			<form action="<c:url value='/member/findPwd.ag'/>" method="post">
 				<fieldset>
 					<h2 style="font-size: 16px;
 							    color: #222;
@@ -104,7 +104,7 @@
 					<table>
    						<tr>
    							<td style="padding: 10px; width: 70px;"><label for="userName">아이디</label></td>
-   							<td style="padding: 10px"><input type="text" id="userId" name="userId"
+   							<td style="padding: 10px"><input type="text" id="userid" name="userid"
    							maxlength="15"></td>
    						</tr>
    						<tr>

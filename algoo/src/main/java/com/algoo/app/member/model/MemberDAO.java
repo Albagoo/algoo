@@ -11,4 +11,6 @@ public interface MemberDAO {
 	public int updatePhoto(MemberVO memberVo);
 	public MemberVO selectMemberByCode(String memberCode);
 	public String selectId(MemberVO memberVo);
+	public int selectCount(MemberVO memberVo);
+	public int updatePwd(MemberVO memberVo);
 }

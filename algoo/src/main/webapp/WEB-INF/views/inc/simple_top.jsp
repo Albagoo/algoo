@@ -84,6 +84,7 @@
 					<li><a href="<c:url value='/resume/list.ag'/>">인재정보</a> |</li>
 					<li><a href="<c:url value='/freeboard/list.ag'/>">알바토크</a> |</li>
 					<li><a href="<c:url value='/faq/faqList.ag'/>">FAQ</a> |</li>
+					<li><a href="<c:url value='/notice/list.ag'/>">공지사항</a> |</li>
 					<li><a href="#">캠페인</a></li>
 				</ul>
 			</div>

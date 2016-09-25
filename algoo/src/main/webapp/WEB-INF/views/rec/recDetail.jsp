@@ -57,6 +57,10 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
 <script type="text/javascript">
    $(document).ready(function(){
       
+	   $("#apply").click(function(){
+		   window.open("<c:url value='/apply/apply.ag?recCode="+$("#recCode").val()+"'/>", "apply",
+				   "width=600,height=550,left=10, top=50,resizable=yes,location=yes");
+	   });
       
       $("#simple_top span").html("채용정보");
       //simple_top 이용시 자기가 맡은화면 명칭 innerHTML로 붙여주기
@@ -108,6 +112,7 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
   
    
 </script>
+<input type="hidden" value="${param.recCode }" id="recCode">
 <div class="Wrap">
    <p class="recDetail">채용정보 상세보기</p>
    <div>
@@ -218,7 +223,7 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
         </dt>
         <dt>
         <span class="titd">학      력</span>
-        <span class="txt_300">${recVo.educateLv }
+        <span class="txt_300">${recVo.educateLv }</span>
         </dt>
      <p class="right_title">&nbsp;</p>
         <dt>
@@ -245,7 +250,7 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
 
      </dl>
      <br class="br"><br class="br">
-     <a href="#" class="detail_left"><img  
+     <a href="#" class="detail_left" id="apply"><img  
      src="http://i.imgur.com/tu0kFGD.png" style="width: 100px;height: 30px"
      alt='온라인지원'></a>
      <a href="#" class="detail_left decoration_none">&nbsp;<img  

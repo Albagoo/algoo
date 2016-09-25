@@ -61,9 +61,9 @@
 					self.close();
 					opener.location.reload();
 				}else if(str==2){
-					alert("존재하지 않는 아이디입니다");
-				}else if(str==3){
 					alert("비밀번호가 올바르지 않습니다");
+				}else if(str==3){
+					alert("존재하지 않는 아이디입니다");
 				}
 			}
 			,error: function(xhr,status, error){

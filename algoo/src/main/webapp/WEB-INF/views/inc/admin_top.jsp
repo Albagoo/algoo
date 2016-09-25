@@ -14,7 +14,7 @@
 	src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-		$("th").hover(function(){
+		$("#white th").hover(function(){
 			$(this).css("background","#E70400").css("cursor","pointer");
 		
 		},function(){

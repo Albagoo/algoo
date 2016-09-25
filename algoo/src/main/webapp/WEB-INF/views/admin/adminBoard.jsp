@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ include file="../inc/simple_top.jsp" %>
+<%@ include file="../inc/boardManagement.jsp" %>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/simpleButton.css" />
 
 <script type="text/javascript" src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
@@ -234,16 +234,6 @@
 </style>
 <section>
 <div class="adminBoard">
-<div class="adminSearch">
-		<select class="button white medium">
-			<option>통합검색</option>
-			<option>제목</option>
-			<option>내용</option>
-			<option>작성자</option>
-		</select>
-		<input type="text" id="search" class="textBox">
-		<input type="button" value="검색" class="button white medium">
-</div>
 <div class="adminList">
 	<div class="boardPrint">
 		<form action="<c:url value='/admin/adminBoard.ag'/> " method="post" id="frmCount">	
@@ -483,4 +473,4 @@
 
 </section>
 
-<%@ include file="../inc/simple_bottom.jsp" %>
+<%@ include file="../inc/admin_bottom.jsp" %>

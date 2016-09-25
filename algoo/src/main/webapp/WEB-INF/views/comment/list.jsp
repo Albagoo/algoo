@@ -19,7 +19,7 @@
 		
 	};
 	
-		function del(no){
+		function delCmt(no){
 			if(confirm("댓글을 삭제하시겠습니까?")){
 				location.href
 			="<c:url value='/comment/delete.ag?commentNo="+no+"'/>";
@@ -77,7 +77,7 @@
 						<c:set var="i" value="${i+1 }"></c:set>
 						<span id="conDel">
 							<c:if test="${sessionScope.userid == cmtVo.userid }">
-								<a href="#" onclick=del(${cmtVo.commentNo })>
+								<a href="#" onclick=delCmt(${cmtVo.commentNo })>
 									<img src="<c:url value='/images/Delete-Button.png'/>" alt="삭제"
 									 align=absmiddle>삭제</a>
 							</c:if>

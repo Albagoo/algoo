@@ -18,5 +18,5 @@ public interface FreeboardService {
 	public FreeboardVO prevContent(int freeNo);
 	public FreeboardVO nextContent(int freeNo);
 	public List<FreeboardVO> selectAll();
-	/*public List<Map<String, String>> selectDelete(List<FreeboardVO> fList);*/
+	public int selectDelete(List<FreeboardVO> fList);
 }

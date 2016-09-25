@@ -13,7 +13,7 @@ src="<c:url value='/jquery/jquery-3.1.0.min.js' />"></script>
 	function del(no){
 		if(confirm("게시물을 삭제하시겠습니까?")){
 			location.href
-		="<c:url value='/freeboard/delete.ag?freeNo='/>"+${freeVo.freeNo};
+		="<c:url value='/freeboard/delete.ag?freeNo="+no+"'/>";
 		}
 	}
 </script>

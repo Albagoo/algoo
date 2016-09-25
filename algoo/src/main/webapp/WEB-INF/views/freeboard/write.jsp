@@ -52,7 +52,7 @@ type="text/javascript"></script>
 	</div>
 	<br>
     <div class="center">
-         <input class="button white medium" type = "submit" value="등록하기" style="margin-right: 10px"/>
+         <input class="button white medium" type = "submit" value="확인" style="margin-right: 10px"/>
          <input class="button white medium" type = "button" value="목록" 
    			onclick="location.href='<c:url value="/freeboard/list.ag"/>';" />         
     </div>

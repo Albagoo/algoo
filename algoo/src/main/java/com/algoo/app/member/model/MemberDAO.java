@@ -13,4 +13,7 @@ public interface MemberDAO {
 	public String selectId(MemberVO memberVo);
 	public int selectCount(MemberVO memberVo);
 	public int updatePwd(MemberVO memberVo);
+	public int selectAllUserid(String userid);
+	public int selectAllNickName(String userid);
+	public int selectAllEmail(String userid);
 }

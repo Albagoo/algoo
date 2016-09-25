@@ -73,4 +73,9 @@ public class FreeboardDAOMybatis extends SqlSessionDaoSupport implements Freeboa
 	public List<FreeboardVO> selectAll() {
 		return getSqlSession().selectList(namespace+".selectAll");
 	}
+
+	@Override
+	public List<FreeboardVO> selectAdmFreeboard() {
+		return getSqlSession().selectList(namespace+".selectAdmFreeboard");
+	}
 }

@@ -26,7 +26,7 @@
 			</textarea>
 			<span>
 			<input class="button white" type = "submit" value="등록" 
-				style="height: 68px;text-align: left;"/>
+				style="height: 68px;text-align: left;background-color:white;"/>
 			</span>
 		</div>
 	</div>

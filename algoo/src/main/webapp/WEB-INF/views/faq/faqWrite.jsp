@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="../inc/simple_top.jsp" %>
+<%@ include file="../inc/boardManagement.jsp" %>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/faq.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
 <script type="text/javascript" 
@@ -40,7 +40,7 @@ type="text/javascript"></script>
   action="<c:url value='/faq/faqWrite.ag'/>" >
  <fieldset>
 	<div id="Qmark">
-		<img src="<c:url value='/images/faqicon.png'/>" style="height: 50px;">
+		<span><img alt="공지사항" src="<c:url value='/images/faq.png'/>" style="height: 22px;"></span>
 	</div>
         <div class="category">
         	<label for="category">카테고리 분류</label>
@@ -82,4 +82,4 @@ type="text/javascript"></script>
 </form>
 </div>
 </section>
-<%@ include file="../inc/simple_bottom.jsp" %>
+<%@ include file="../inc/admin_bottom.jsp" %>

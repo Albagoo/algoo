@@ -129,14 +129,21 @@ public class MemberController {
 	@RequestMapping("/ajaxCheckUserid.ag")
 	@ResponseBody
 	public int ajaxCheckId(@RequestParam String userid){
-		logger.info("ajax-아이디 중복확인, 파라미터 userid={}",
-				userid);
-		
-		int result = memberService.checkUserid(userid);
-		logger.info("ajax 아이디 중복확인 결과, result={}",
-				result);
-		//해당 아이디가 존재하면 1, 존재하지 않으면 2를 리턴
-		
+		int result = memberService.selectAllUserid(userid);
+		return result;
+	}
+	
+	@RequestMapping("/ajaxCheckNickName.ag")
+	@ResponseBody
+	public int ajaxCheckNickName(@RequestParam String nickName){
+		int result = memberService.selectAllNickName(nickName);
+		return result;
+	}
+	
+	@RequestMapping("/ajaxCheckEmail.ag")
+	@ResponseBody
+	public int ajaxCheckEmail(@RequestParam String email){
+		int result = memberService.selectAllEmail(email);
 		return result;
 	}
 	

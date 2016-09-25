@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="../inc/simple_top.jsp" %>
+<%@ include file="../inc/top.jsp" %>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/faq.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
 <script type="text/javascript" 
@@ -47,7 +47,7 @@ type="text/javascript"></script>
 <input type="hidden" name="nickName" value="${sessionScope.nickName }">
  <fieldset>
 	<legend> 
-		<img src="<c:url value='/images/albatalk.png'/>" style="height: 48px;" align=absmiddle>
+		<img src="<c:url value='/images/albatalk.png'/>" style="height: 25px;" align=absmiddle>
 	</legend>
     <div class="firstDiv">
         <label for="title">제목</label>
@@ -68,4 +68,4 @@ type="text/javascript"></script>
 </form>
 </div>
 </section>
-<%@ include file="../inc/simple_bottom.jsp" %>
+<%@ include file="../inc/bottom.jsp" %>

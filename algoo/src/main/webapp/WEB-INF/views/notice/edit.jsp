@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../inc/simple_top.jsp" %>
+<%@ include file="../inc/boardManagement.jsp" %>
 
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/faq.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
@@ -47,15 +47,15 @@ type="text/javascript"></script>
 <input type="hidden" name="mainNo" value="${noticeVo.mainNo}">
 <fieldset>
 	<div id="Qmark">
-		<img src="<c:url value='/images/notice.png'/>" style="height: 50px;">
-	</div>
+	<span><img alt="공지사항" src="<c:url value='/images/notice11.png'/>" style="height: 22px;"></span>
+</div>
 	<div class="category">
         	<label for="category">카테고리 분류</label>
 			<select name="category" id="category" title="카테고리" class="textBox" style="font-size: 0.8em;">
-				<option value="공지"
-				 <c:if test="${noticeVo.category=='공지' }">
+				<option value="공지사항"
+				 <c:if test="${noticeVo.category=='공지사항' }">
             		selected
-            	</c:if>>공지</option>
+            	</c:if>>공지사항</option>
 				<option value="이벤트"
 				 <c:if test="${noticeVo.category=='이벤트' }">
             		selected
@@ -86,4 +86,4 @@ type="text/javascript"></script>
 </div>
 </section>
 
-<%@ include file="../inc/simple_bottom.jsp" %>
+<%@ include file="../inc/admin_bottom.jsp" %>

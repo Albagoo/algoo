@@ -145,7 +145,7 @@ public class AdminController {
 		List<FaqVO> flist=faqService.selectAll();
 		logger.info("관리자페이지 FAQ 리스트 flist = {}", flist);
 		
-		List<FreeboardVO> tlist=freeService.selectAll();
+		List<FreeboardVO> tlist=freeService.selectAdmFreeboard();
 		logger.info("관리자페이지 알바톡톡 리스트 tlist = {}", tlist);
 		
 		model.addAttribute("nlist", nlist);

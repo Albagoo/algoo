@@ -26,17 +26,17 @@
 	color:black;	
 }
 .faqSearch{
-	margin: 17px 0 30px 0;
+	margin: 18px 0 30px 0;
 	padding: 30px 0 30px 0;
 	border: 5px solid lightgray;
 	float: right;
-	width: 75.5%;
+	width: 75%;
 }
 .faqSearch span{
 	font-weight: bold; 
 	font-size: 1.2em;
 	margin-right: 10px;
-	padding-left: 180px;
+	padding-left: 160px;
 }
 .faqSearch input[type="text"]{
 	
@@ -50,6 +50,9 @@
 .center{
 	width:100%;
 	text-align: center;
+}
+.divForm{
+	margin-top: 20px;
 }
 .divForm div{
 	clear: both;
@@ -72,11 +75,15 @@
 	line-height: 16px;
 }
 
+
 /*faqList*/
 .divList legend{
 	padding: 10px 0;
 	margin:10px 0;
 	font-size: 1.4em; 
+}
+.divList{
+	margin-top: 30px;
 }
 /*table*/
 table{
@@ -115,6 +122,15 @@ table.box2 td a{
 .divSearch, .divPage{
 	text-align: center;
 	padding-top: 20px;
+}
+.divSearch{
+	margin-bottom: 180px;
+}
+.divFSearch{
+	text-align: center;
+	padding-top: 20px;
+	margin-bottom: 180px;
+	margin-left: 240px;
 }
 .divBtn{
 	float: right;
@@ -166,7 +182,7 @@ table.box2 td a{
 }
 .secondDiv{
 	border: 1px solid #ffeaea;
-	height:500px;
+	height:300px;
 }
 .firstDiv2 .sp2{
 	float: right;
@@ -202,6 +218,9 @@ table.box2 td a{
 .contentBox{
 	margin-top: 20px;
 }
+.showContent{
+	margin-bottom: 100px;
+}
 /*게시글 수 바꾸기*/
 input[name="num"]{
 	width: 20px;
@@ -233,6 +252,9 @@ input[name="num"]{
 /* comment */
 #cmtWrite{
 	padding: 20px 0 20px 0;
+}
+.comments{
+	background-color: #ffeaea;
 }
 .commentList{
 	width: 93%;
@@ -274,8 +296,10 @@ input[name="num"]{
 	margin-top: 10px;
 }
 .cmtCount{
-	border: 1px solid #ffeaea;
+	margin-left: 30px;
+	color: blue;
+	font-weight: bold;
 }
 .cmtCount span{
-	font-size: 0.95em;
+	font-size: 0.8em;
 }

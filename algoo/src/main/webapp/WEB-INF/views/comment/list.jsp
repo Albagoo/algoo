@@ -5,10 +5,20 @@
 <script type="text/javascript" 
 	src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 <script type="text/javascript">
+	$(document).ready(function(){
+		$(".cmtInside #replyCmt")
+		.hover(function(){
+			$(this).css("cursor","pointer");
+		}, function(){
+			$(this).css("cursor","");
+		});
+	});
+		
 	function reply(i) {
 		if($("#replyB"+i).val() == "N"){
 			$("#p"+i).append("<div id='p_"+i+"'><textarea id='content' name='content'"
-					+" style='width: 86%;height: 60px;vertical-align: middle;margin-right: 15px;'>"
+					+" style='width: 86%;height: 60px;vertical-align: middle;margin-right: 15px;"
+					+"margin-top:5px;'>"
 					+"</textarea><span><input class='button white' type = 'submit' value='등록'" 
 					+"	style='height: 68px;text-align: left;'/></span></div>");
 			$("#replyB"+i).val("Y");
@@ -65,7 +75,8 @@
 					
 					<c:if test="${!empty sessionScope.userid}">
 						<img alt="답글이미지" src="../images/reply.png" style="height: 10px;padding-left:5px;">
-						<span onclick="reply(${i})" style="font-size: 0.9em">답글</span>
+							<span onclick="reply(${i})" style="font-size: 0.9em" id="replyCmt">답글</span>
+					
 					</c:if>
 					<p id="p${i}" class="cmtP">
 						 <c:if test="${cmtVo.step>0 }">
@@ -84,8 +95,9 @@
 						</span>
 					</p>
 				</c:if>
-				</div >
+				</div>
 			</form>
 		</c:forEach>		
 	</c:if>
+	</div>
 </div>

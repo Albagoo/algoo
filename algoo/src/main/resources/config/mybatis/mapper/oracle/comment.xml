@@ -44,8 +44,8 @@
 			select comments_SEQ.nextval from dual
 		</selectKey>
 		insert into comments
-      	values(#{commentNo} ,#{content}, sysdate, #{groupNo},
-         #{sortNo}, #{step}, 'N', #{nickName}, #{freeNo}, #{userid})
+      	values(#{commentNo}, #{userid}, #{content}, sysdate, #{groupNo},
+         #{sortNo}, #{step}, 'N', #{nickName}, #{freeNo})
 	</insert>
 	
 	<delete id="deleteComment" parameterMap="delParamMap">

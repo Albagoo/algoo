@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="top.jsp" %>
+<%-- <%@ include file="top.jsp" %> --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/mainPage.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/mainPage.css'/>" />
 
@@ -43,9 +44,9 @@
 			<a href="<c:url value='/rec/recList.ag?areas=%EC%A0%84%EB%9D%BC%EB%B6%81%EB%8F%84'/>">전북</a> | 
 			<a href="<c:url value='/rec/recList.ag?areas=%EC%A0%9C%EC%A3%BC%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84'/>">제주</a><br>
 			<a href="<c:url value='/rec/recList.ag'/>">전국</a></p><br>
-			<a href="#">지도로 찾는 알바</a><br>
+			<!-- <a href="#">지도로 찾는 알바</a><br>
 			<a href="#">역세권 알바</a><br>
-			<a href="#">대학가 알바</a>
+			<a href="#">대학가 알바</a> -->
 		</td></tr>
 		<tr><td id="sideTitle">업직종별</td></tr>
 		<tr><td id="sideContent">
@@ -70,46 +71,6 @@
 			<a href="#">장기</a> | 
 			<a href="#">주말</a> | 
 			<a href="#">주5일</a>
-		</td></tr>
-		<tr><td id="sideTitle">스펙UP</td></tr>
-		<tr><td id="sideContent">
-			<a href="#">취업맛보기 알바</a><br>
-			<a href="#">능력활용 알바</a><br>
-			<a href="#">취업가산점 알바</a><br>
-			<a href="#">취업가산점 제공 기업</a><br>
-			<a href="#">스펙업 자소서팁</a>
-		</td></tr>
-		<tr><td id="sideTitle">급여·복지별</td></tr>
-		<tr><td id="sideContent">
-			<p id="subTit">
-			<a href="#">급여별 알바</a></p>
-			<a href="#">식대별도</a> | 
-			<a href="#">당일지급</a><br>
-			<a href="#">주급가능</a><br>
-			<a href="#">복리후생별 알바</a>
-		</td></tr>
-		<tr><td id="sideTitle">대상별</td></tr>
-		<tr><td id="sideContent">
-			<a href="#">청소년</a> | 
-			<a href="#">대학생</a><br>
-			<a href="#">주부</a> | 
-			<a href="#">장년</a> | 
-			<a href="#">장애인</a>
-		</td></tr>
-		<tr><td id="sideTitle">테마별</td></tr>
-		<tr><td id="sideContent">
-			<a href="#">우대조건별 알바</a><br>
-			<a href="#">초보가능</a> | 
-			<a href="#">주목 알바</a><br>
-			<a href="#">재택 알바</a> | 
-			<a href="#">친구와 함께</a><br>
-			<a href="#">접수방법별 알바</a>
-		</td></tr>
-		<tr><td id="sideTitle">맞춤알바정보</td></tr>
-		<tr><td id="sideContent">
-			<a href="#">오늘 본 채용정보</a><br>
-			<a href="#">스크랩 알바정보</a><span id="star">★</span><br>
-			<a href="#">나의 맞춤알바</a>
 		</td></tr>
 	</table>
 	<div id="ani">

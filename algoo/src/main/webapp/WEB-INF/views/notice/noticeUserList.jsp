@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ include file="../inc/simple_top.jsp" %>
+<%@ include file="../inc/top.jsp" %>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/faq.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
 
@@ -44,11 +44,11 @@ action="<c:url value='/notice/noticeUserList.ag'/>">
 	<input type="hidden" name="currentPage" id="currentPage2" value="1" >	
 	<input type="hidden" name="searchKeyword" id="searchKeyword" value="${listNoticeVO.searchKeyword }" >
 </form>
-<div class="title">
+<%-- <div class="title">
 	<legend>
 		<a href="<c:url value='/notice/noticeUserList.ag'/>"><img src="<c:url value='/images/notice.png'/>" style="height: 48px;" align=absmiddle></a>
 	</legend>
-</div>
+</div> --%>
 <div class="divListAll" align="center">
 <div class="noticeSearch">
 	<form name="frmSearch" method="post" action="<c:url value='/notice/noticeUserList.ag' />" >
@@ -62,9 +62,9 @@ action="<c:url value='/notice/noticeUserList.ag'/>">
 		<select name="categoryInput" id="categoryInput" title="카테고리"
      	 class="button white small">
      		<option value="">선택하세요</option>
-			<option value="공지"
-			 <c:if test="${param.categoryName=='공지' }">selected</c:if>>
-			 공지</option>
+			<option value="공지사항"
+			 <c:if test="${param.categoryName=='공지사항' }">selected</c:if>>
+			 공지사항</option>
 			<option value="이벤트"
 			 <c:if test="${param.categoryName=='이벤트' }">selected</c:if>>
 			 이벤트</option>
@@ -184,11 +184,11 @@ action="<c:url value='/notice/noticeUserList.ag'/>">
 	        	title="검색어 입력" value="${param.searchKeyword}" >
 			<input type="submit" value="검색"
 				 class="button white medium"
-	        	style="font-size: 0.85em;">
+	        	style="font-size: 0.8em;">
 			</div>
 	    </form>
 	</div>
 </div>
 </section>
 
-<%@ include file="../inc/simple_bottom.jsp" %> 
+<%@ include file="../inc/bottom.jsp" %> 

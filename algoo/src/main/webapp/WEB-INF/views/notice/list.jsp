@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ include file="../inc/simple_top.jsp" %>
+<%@ include file="../inc/boardManagement.jsp" %>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/faq.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
 
@@ -71,7 +71,7 @@ action="<c:url value='/notice/list.ag'/>">
 	action="<c:url value='/notice/list.ag'/>" >
 <div class="divList">
 <div id="Qmark">
-		<img src="<c:url value='/images/notice.png'/>" style="height: 48px;" align=absmiddle>
+	<span><img alt="공지사항" src="<c:url value='/images/notice11.png'/>" style="height: 22px;"></span>
 </div>
 <div class="list">
 	<c:if test="${!empty param.searchKeyword }">
@@ -109,9 +109,9 @@ action="<c:url value='/notice/list.ag'/>">
 		       	style="font-size: 0.9em;">
 		    <!--  onchange="location.href=this.value"> -->
 			<option value="">구분</option>
-			<option value="공지"
-			 <c:if test="${param.categoryName=='공지' }">selected</c:if>>
-			 공지</option>
+			<option value="공지사항"
+			 <c:if test="${param.categoryName=='공지사항' }">selected</c:if>>
+			 공지사항</option>
 			<option value="이벤트"
 			 <c:if test="${param.categoryName=='이벤트' }">selected</c:if>>
 			 이벤트</option>
@@ -163,7 +163,11 @@ action="<c:url value='/notice/list.ag'/>">
 		</tbody>	
 	</table>
 	<br>
-	<input type="button" id="btDel" value="선택한 공지사항 삭제">
+	<input type="button" id="btDel" value="선택한 공지사항 삭제" class="button white medium">
+	<div class="divBtn">
+	    <input type = "Button" class="button white medium" value="공지 등록" 
+	      	onclick="location.href='<c:url value="/notice/write.ag"/>';" />
+	</div>
 </div>
 </div>
 </form>
@@ -229,13 +233,7 @@ action="<c:url value='/notice/list.ag'/>">
 		<input type="submit" class="button white medium" value="검색">
     </form>
 </div>
-	
-	<br>
-	<div class="divBtn">
-	    <input type = "Button" class="button white medium" value="공지 등록" 
-	      	onclick="location.href='<c:url value="/notice/write.ag"/>';" />
-	</div>
 <p class="clearboth"></p> 
 </section>
 
-<%@ include file="../inc/simple_bottom.jsp" %> 
+<%@ include file="../inc/admin_bottom.jsp" %> 

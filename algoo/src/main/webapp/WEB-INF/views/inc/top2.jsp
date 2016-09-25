@@ -10,7 +10,7 @@
 <meta charset="utf-8" />
 <title>알바의 새로운 패러다임 - 알구</title>
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/clear.css" />
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/includeLayout.css" />
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/includeLayout2.css" />
 <script type="text/javascript" 
 	src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
 <script type="text/javascript">
@@ -141,7 +141,7 @@
 			</a></div>
 			
 			<!-- 좌측 고정배너 -->
-			<div id="leftBanner">
+			<%-- <div id="leftBanner">
 				<script type="text/javascript">
 					var how_many_ads = 2; 
 					var now = new Date() 
@@ -166,8 +166,16 @@
 					document.write('</a>'); 
 					document.write('</center>'); 
 				</script>
-				<%-- <img src="<c:url value='/images/banner/banner4_2.jpg'/>"> --%>
+				<img src="<c:url value='/images/banner/banner4_2.jpg'/>">
+			</div> --%>
+			
+			
+			<div>
+				<article id="divLeftSide">
+				<c:import url="/leftSide.ag"></c:import>
+				</article>
 			</div>
+			
 			
 		<!-- container시작 -->
 		<div id="container">

@@ -3,7 +3,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ include file="../inc/simple_top.jsp" %>
+<%@ include file="../inc/boardManagement.jsp" %>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/faq.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
 
@@ -67,7 +67,7 @@
 	action="<c:url value='/faq/faqList.ag'/>" >
 <div class="divList">
 <div id="Qmark">
-	<img src="<c:url value='/images/faqicon.png'/>" style="height: 50px;">
+	<span><img alt="공지사항" src="<c:url value='/images/faq.png'/>" style="height: 22px;"></span>
 </div>
 <div class="list">
 <c:if test="${!empty param.searchKeyword }">
@@ -182,7 +182,10 @@
 	</tbody>
 </table>
 <div style="margin: 10px 0 0 3px;">
-	<input type="button" id="btFaqDel" value="선택한 FAQ 삭제" class="button white medium">   
+	<input type="button" id="btFaqDel" value="선택한 FAQ 삭제" class="button white medium">  
+	<div class="divBtn">
+    <input type = "Button" class="button white medium" value="FAQ 쓰기" 
+      	onclick="location.href='<c:url value="/faq/faqWrite.ag"/>';" />
 </div>
 </div>
 </form>
@@ -246,12 +249,7 @@
 		<input type="submit" class="button white medium" value="검색">
     </form>
 </div>
-<br>
-<div class="divBtn">
-    <input type = "Button" class="button white medium" value="FAQ 쓰기" 
-      	onclick="location.href='<c:url value="/faq/faqWrite.ag"/>';" />
-</div>
 <p class="clearboth"></p> 
 </section>
 
-<%@ include file="../inc/simple_bottom.jsp" %>
+<%@ include file="../inc/admin_bottom.jsp" %>

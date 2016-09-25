@@ -16,11 +16,11 @@ $(document).ready(function(){
 	$("#userid").keyup(function(){
 		//1 <= 해당 아이디가 존재하는 경우
 		//2 <= 존재하지 않는 경우
-	if($("#userid").val().length<8 || $("#userid").val().length>16 ){
-		$("#message").html("아이디는 8~16자 사이로 입력하세요");
+	if($("#userid").val().length<6 || $("#userid").val().length>16 ){
+		$("#message").html("아이디는 6~16자 사이로 입력하세요");
 	}else{
 		if(validate_userid($("#userid").val()) && 
-			$("#userid").val().length>=2){
+			$("#userid").val().length>=6){
 			$.ajax({
 				url:"<c:url value='/member/ajaxCheckUserid.ag'/>",
 				type:"GET",
@@ -30,8 +30,8 @@ $(document).ready(function(){
 					if(res==1){
 						result="이미 등록된 아이디입니다.";
 						$("#chkId").val("N");
-					}else if(res==2){
-						result = "사용가능한 아이디입니다.";
+					}else if(res!=1){
+						result="사용가능한 아이디입니다.";
 						$("#chkId").val("Y");
 					}
 					$("#message").html(result);
@@ -49,6 +49,38 @@ $(document).ready(function(){
 		
 	});//id
 	
+	$("#nickName").keyup(function(){
+	if($("#nickName").val().length<1 ){
+		$("#message").html("닉네임을 입력하세요");
+	}else{
+		if($("#nickName").val().length>=1){ //여기서부터 닉네임 에이잭스작업해라
+			$.ajax({
+				url:"<c:url value='/member/ajaxCheckUserid.ag'/>",
+				type:"GET",
+				data:"userid="+$("#userid").val(),
+				success:function(res){
+					var result="";
+					if(res==1){
+						result="이미 등록된 아이디입니다.";
+						$("#chkId").val("N");
+					}else if(res!=1){
+						result="사용가능한 아이디입니다.";
+						$("#chkId").val("Y");
+					}
+					$("#message").html(result);
+				},
+				error:function(xhr, status, error){
+					alert(status+":"+error);
+				}
+			});
+		}else{
+			//유효성 검사를 통과하지 못한 경우
+			$("#message").html("아이디 규칙에 맞지 않습니다");
+			$("#chkId").val("N");
+		}
+	}	
+		
+	});//id
 	
 	$("#bt_zipcode").click(function(){
 		getZipcode();
@@ -72,7 +104,7 @@ function getZipcode(){
 	.width_350{
 		width:350px;
 	}
-	#message, #message2{
+	#message, #message2, #message3{
 		color:red;
 		font-size:13px;
 	}	
@@ -94,29 +126,31 @@ function getZipcode(){
 		
 		<div class="regi_group">
 			<div id="id_div">
-				<input type="text" name="userid" id="userid" placeholder="아이디" style="width:180px"
-					style="ime-mode:inactive">&nbsp;
+				<input type="text" name="userid" id="userid" placeholder="* 아이디" style="width:180px"
+					style="ime-mode:inactive">
 					<span id="message"></span>
 			</div>
 			
 			<div id="nickName_div">
-				<input type="text" name="nickName" id="nickName" placeholder="닉네임" style="width:180px">
+				<input type="text" name="nickName" id="nickName" placeholder="* 닉네임" style="width:180px">
 				<span id="message3"></span>
 			</div>
 			
 			<div id="pwd_div">
-				<input type="password" name="password" id="pwd" placeholder="비밀번호" style="width:180px">
+				<input type="password" name="password" id="pwd" placeholder="* 비밀번호" style="width:180px">
 				<span id="message2"></span>
 			</div>
 			
 			<div id="pwd2_div">
-				<input type="password" name="password2" id="pwd2" placeholder="비밀번호 확인" style="width:180px"
-					style="width:220px">
+				<input type="password" name="password2" id="pwd2" placeholder="* 비밀번호 확인" style="width:180px"
+					style="width:180px">
 			</div>
 		</div>
 		<div class="regi_group">
 			<div id="info_div">
-				<input type="text" name="userName" id="userName" placeholder="이름">
+				<input type="text" name="userName" id="userName" placeholder="* 이름"
+				style="width:180px">
+				<span id="message4"></span>
 			</div>
 			
 			<div id="gender_div">
@@ -135,7 +169,7 @@ function getZipcode(){
 			
 			<div id="email_div">
 				<div>
-					<input type="text" name="email1" id="email1" placeholder="이메일" width="10px">
+					<input type="text" name="email1" id="email1" placeholder="* 이메일" width="10px">
 				</div>
 				<div>
 					<select name="email2" id="email2">
@@ -149,14 +183,15 @@ function getZipcode(){
 					<input type="text" name="email3" id="email3" placeholder="직접입력"
 					style="visibility:hidden">
 				</div>
+				<span id="message6"></span>
 			</div>
 			
 			<div id="birth_div" >
 				<div class="birth_title">
-					<label>생일</label>
+					<label>* 생일</label>
 				</div>
 				<div class="birth_yy">
-					<input type="text" name="bi1" id="b_yy" placeholder="년(4자)" maxlength="4">
+					<input type="text" name="bi1" id="b_yy" placeholder="ex)1990" maxlength="4">
 				</div>
 				<div class="birth_mm">
 					<select name="bi2" id="b_mm">
@@ -175,10 +210,10 @@ function getZipcode(){
 		</div>
 		<div class="regi_group">
 			<div id="hp_div">
-				<input type="text" name="hp1" id="hp1" placeholder="ex) 010" maxlength="3"> -
-				<input type="text" name="hp2" id="hp2" maxlength="4"> -
+				<input type="text" name="hp1" id="hp1" placeholder="ex) 010" maxlength="3">
+				<input type="text" name="hp2" id="hp2" maxlength="4">
 				<input type="text" name="hp3" id="hp3" maxlength="4">
-				<input type="button" id="btHp" value="인증">
+				<span id="message5"></span>
 			</div>
 			<div id="zipcode_div">
 				<input type="text" name="zipcode" id="zipcode" placeholder="우편번호" readonly="readonly">
@@ -197,6 +232,8 @@ function getZipcode(){
 	<input type ="hidden" name="chkId" id="chkId" value="N">
 	<input type ="hidden" name="chkPw" id="chkPw" value="N">
 	<input type ="hidden" name="nick" id="nick" value="N">
+	<input type ="hidden" name="chkEmail" id="chkEmail" value="N">
+	<input type ="hidden" name="chkBirth" id="chkBirth" value="N">
 		<div class="regi_group" id="regi_submit" >
 			<input type="submit" id="bt_register" value="가입하기">
 		</div>

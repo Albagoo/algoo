@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../inc/simple_top.jsp" %>
+<%@ include file="../inc/boardManagement.jsp" %>
 
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/simpleButton.css" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/faq.css'/>" />
@@ -45,13 +45,13 @@ type="text/javascript"></script>
 <form name="frmWrite" id="frmWrite" method="post"  action="<c:url value='/notice/write.ag'/>" > 
 <fieldset>
 <div id="Qmark">
-		<img src="<c:url value='/images/notice.png'/>" style="height: 50px;">
-	</div>
+	<span><img alt="공지사항" src="<c:url value='/images/notice11.png'/>" style="height: 22px;"></span>
+</div>
  <div class="divForm">
 		<div class="category">
 			<label for="category">카테고리 분류</label>
 			<select name="category" id="category" title="카테고리" class="textBox" style="font-size: 0.85em;">
-				<option value="공지">공지</option>
+				<option value="공지사항">공지사항</option>
 				<option value="이벤트">이벤트</option>
 				<option value="서비스">서비스</option>
 			</select>
@@ -75,4 +75,4 @@ type="text/javascript"></script>
 </div>
 </section>
 
-<%@ include file="../inc/simple_bottom.jsp" %> 
+<%@ include file="../inc/admin_bottom.jsp" %> 

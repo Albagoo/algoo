@@ -19,4 +19,5 @@ public interface FreeboardService {
 	public FreeboardVO nextContent(int freeNo);
 	public List<FreeboardVO> selectAll();
 	public int selectDelete(List<FreeboardVO> fList);
+	public List<FreeboardVO> selectAdmFreeboard();
 }

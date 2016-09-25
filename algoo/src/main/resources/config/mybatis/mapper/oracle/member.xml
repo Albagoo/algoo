@@ -73,4 +73,43 @@
 		set password = #{password}
 		where userid = #{userid}
 	</update>
+	
+	<select id="selectAllUserid" parameterType="string" resultType="int">
+		select count(*)
+		from
+		(
+		select userid,nickname, (email1||'@'||email2) as email from  MEMBER
+		union
+		select userid,nickname, (email1||'@'||email2) as email from  comp_MEMBER
+		union
+		select userid,nickname, (email1||'@'||email2) as email from  admin_MEMBER
+		)
+		where userid = #{userid}
+	</select>
+	
+	<select id="selectAllNickName" parameterType="string" resultType="int">
+		select count(*)
+		from
+		(
+		select userid,nickname, (email1||'@'||email2) as email from  MEMBER
+		union
+		select userid,nickname, (email1||'@'||email2) as email from  comp_MEMBER
+		union
+		select userid,nickname, (email1||'@'||email2) as email from  admin_MEMBER
+		)
+		where nickname = #{nickName}
+	</select>
+	
+	<select id="selectAllEmail" parameterType="string" resultType="int">
+		select count(*)
+		from
+		(
+		select userid,nickname, (email1||'@'||email2) as email from  MEMBER
+		union
+		select userid,nickname, (email1||'@'||email2) as email from  comp_MEMBER
+		union
+		select userid,nickname, (email1||'@'||email2) as email from  admin_MEMBER
+		)
+		where email = #{email1}@#{email2}
+	</select>
 </mapper>

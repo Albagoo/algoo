@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ include file="../inc/admin_top.jsp" %>
+<%@ include file="../inc/boardManagement.jsp" %>
 
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/faq.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
@@ -20,8 +20,8 @@
 <section>
 	<div class="divForm">
 	<div id="Qmark">
-		<img src="<c:url value='/images/notice.png'/>" style="height: 50px;">
-	</div>
+	<span><img alt="공지사항" src="<c:url value='/images/notice11.png'/>" style="height: 22px;"></span>
+</div>
 		<div class="firstDiv2">
 			<span class="sp1">[${noticeVo.category }] ${noticeVo.title }</span>
 			<span class="sp2">등록일 <fmt:formatDate value="${noticeVo.regdate }" pattern="yyyy-MM-dd"/></span>

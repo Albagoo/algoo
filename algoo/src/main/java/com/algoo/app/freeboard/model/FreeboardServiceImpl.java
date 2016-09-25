@@ -109,4 +109,9 @@ public class FreeboardServiceImpl implements FreeboardService{
 		return cnt;
 		
 	}
+
+	@Override
+	public List<FreeboardVO> selectAdmFreeboard() {
+		return freeDao.selectAdmFreeboard();
+	}
 }

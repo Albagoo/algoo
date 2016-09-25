@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
-<%@ include file="../inc/admin_top.jsp" %>
+<%@ include file="../inc/boardManagement.jsp" %>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/faq.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
 
@@ -16,7 +16,7 @@ action="<c:url value='/faq/faqDelete.ag'/>">
 		
 		<fieldset>
 		<div id="Qmark">
-			<img src="<c:url value='/images/faqicon.png'/>" style="height: 50px;">
+			<span><img alt="공지사항" src="<c:url value='/images/faq.png'/>" style="height: 22px;"></span>
 		</div>
 	        <div>           
 	        	<span class="sp">FAQ ${param.faqNo }번 질문을 삭제하겠습니까?</span>                        

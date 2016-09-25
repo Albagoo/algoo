@@ -62,9 +62,9 @@ action="<c:url value='/notice/noticeUserList.ag'/>">
 		<select name="categoryInput" id="categoryInput" title="카테고리"
      	 class="button white small">
      		<option value="">선택하세요</option>
-			<option value="공지"
-			 <c:if test="${param.categoryName=='공지' }">selected</c:if>>
-			 공지</option>
+			<option value="공지사항"
+			 <c:if test="${param.categoryName=='공지사항' }">selected</c:if>>
+			 공지사항</option>
 			<option value="이벤트"
 			 <c:if test="${param.categoryName=='이벤트' }">selected</c:if>>
 			 이벤트</option>

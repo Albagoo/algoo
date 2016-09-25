@@ -246,7 +246,7 @@
 	
 	<form name="frmNList" method="post" action="<c:url value='/admin/adminBoard.ag'/>" >
 	<div class="adminNotice">
-	<span><img alt="공지사항" src="<c:url value='/images/notice11.png'/>"></span>
+		<span><img alt="공지사항" src="<c:url value='/images/notice11.png'/>"></span>
 	<span class="talkList">
 			<a href="<c:url value='/notice/list.ag'/>">
 			<img alt="손가락" src="<c:url value='/images/finger.png'/>" align=absmiddle>

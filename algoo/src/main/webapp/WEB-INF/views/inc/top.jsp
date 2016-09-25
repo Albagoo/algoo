@@ -83,16 +83,16 @@
 					<!-- 로그인이 안된 경우 -->
 					<c:if test="${empty sessionScope.userid }">
 						<a href="#" onclick="login()">로그인</a> |
-						<a href="<c:url value='/jj/join.ag'/>">회원가입</a> |
+						<a href="<c:url value='/jj/join.ag'/>">회원가입</a>
 					</c:if>
 					<!-- 로그인이된 경우 -->
 					<c:if test="${!empty sessionScope.userid }">
 						<span style="font-size:1em">${sessionScope.userName}님</span>
 						<a href="<c:url value='/member/logout.ag' />">로그아웃</a>
-						<a href="<c:url value='/login/mypageType.ag'/>">마이페이지</a> |
+						<a href="<c:url value='/login/mypageType.ag'/>">마이페이지</a>
 					</c:if>
-						<a href="#">고객센터</a> |
-						<a href="#">이벤트</a>
+						<!-- <a href="#">고객센터</a> |
+						<a href="#">이벤트</a> -->
 					</div>
 				</div>
 				<div id="header_search">

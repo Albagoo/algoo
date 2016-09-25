@@ -44,9 +44,9 @@
 			<a href="<c:url value='/rec/recList.ag?areas=%EC%A0%84%EB%9D%BC%EB%B6%81%EB%8F%84'/>">전북</a> | 
 			<a href="<c:url value='/rec/recList.ag?areas=%EC%A0%9C%EC%A3%BC%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84'/>">제주</a><br>
 			<a href="<c:url value='/rec/recList.ag'/>">전국</a></p><br>
-			<a href="#">지도로 찾는 알바</a><br>
+			<!-- <a href="#">지도로 찾는 알바</a><br>
 			<a href="#">역세권 알바</a><br>
-			<a href="#">대학가 알바</a>
+			<a href="#">대학가 알바</a> -->
 		</td></tr>
 		<tr><td id="sideTitle">업직종별</td></tr>
 		<tr><td id="sideContent">

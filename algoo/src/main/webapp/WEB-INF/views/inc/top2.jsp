@@ -83,16 +83,16 @@
 					<!-- 로그인이 안된 경우 -->
 					<c:if test="${empty sessionScope.userid }">
 						<a href="#" onclick="login()">로그인</a> |
-						<a href="<c:url value='/jj/join.ag'/>">회원가입</a> |
+						<a href="<c:url value='/jj/join.ag'/>">회원가입</a>
 					</c:if>
 					<!-- 로그인이된 경우 -->
 					<c:if test="${!empty sessionScope.userid }">
 						<span style="font-size:1em">${sessionScope.userName}님</span>
 						<a href="<c:url value='/member/logout.ag' />">로그아웃</a>
-						<a href="<c:url value='/login/mypageType.ag'/>">마이페이지</a> |
+						<a href="<c:url value='/login/mypageType.ag'/>">마이페이지</a>
 					</c:if>
-						<a href="#">고객센터</a> |
-						<a href="#">이벤트</a>
+						<!-- <a href="#">고객센터</a> |
+						<a href="#">이벤트</a> -->
 					</div>
 				</div>
 				<div id="header_search">
@@ -141,7 +141,7 @@
 			</a></div>
 			
 			<!-- 좌측 고정배너 -->
-			<div id="leftBanner">
+			<%-- <div id="leftBanner">
 				<script type="text/javascript">
 					var how_many_ads = 2; 
 					var now = new Date() 
@@ -166,8 +166,8 @@
 					document.write('</a>'); 
 					document.write('</center>'); 
 				</script>
-				<%-- <img src="<c:url value='/images/banner/banner4_2.jpg'/>"> --%>
-			</div>
+				<img src="<c:url value='/images/banner/banner4_2.jpg'/>">
+			</div> --%>
 			
 			
 			<div>

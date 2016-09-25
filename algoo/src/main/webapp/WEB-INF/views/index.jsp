@@ -190,8 +190,8 @@
 						</table>
 					</div>
 					<div class="divJob3">
-						<!-- 테마별 알바 -->
-						<span>테마별 알바</span>
+						<!-- 기간별 알바 -->
+						<span>기간별 알바</span>
 						<hr width="90px">
 						<table>
 							<tr>

@@ -7,7 +7,7 @@
 
 /* 기업회원약관 */
 .provision hr{
-	border:solid 2px #e70400;
+	border:solid 1px #ff9f9d;
 }
 .provision a{
 	text-decoration:none;
@@ -15,17 +15,13 @@
 }
 
 .provTitle{
-	width:250px;
+	width:398px;
+	height:50px;
 	background-color:#f7f7f7;
-	padding:10px 20px 10px 20px;
 	border:solid 1px silver;
 }
-.provTitle span a{
-	font-weight:bold;
-	color:#e70400;
-}
 .provision h2{
-	font-size:30px;
+	font-size:20px;
 }
 .provDay{
 	text-align:right;
@@ -34,6 +30,21 @@
 	font-weight:bold;
 }
 .provCon{
+}
+.clickProvision{
+	display: inline-block;
+	float:left;
+	width:132px;
+	height:100%;
+	text-align: center;
+}
+.clickProvision a{
+	font-size: 0.9em;
+	display:block;
+	margin-top:15px;
+}
+.clickProvision:nth-of-type(1),.clickProvision:nth-of-type(2){
+	border-right: 1px solid silver;
 }
 
 /* 회사소개 */

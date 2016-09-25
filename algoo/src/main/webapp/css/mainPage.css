@@ -1,4 +1,8 @@
 @CHARSET "UTF-8";
+@font-face{
+   font-family:'bon godic';
+   src:url('../font/NotoSans-Regular.ttf') format('truetype');
+}
 .divMain{
 	position:static;
 	margin:auto;
@@ -207,7 +211,7 @@
 	float: left;
 }
 .loginBox1{
-	border:solid 1px LightGray;
+	border:none;
 	text-align:center;
 	margin-bottom:5px;
 	font-size:16px;
@@ -220,18 +224,25 @@
 .personalLogin{
 	width:49%;
 	height:60px;
-	padding-top:12px;
-	border:solid 1px LightGray;
+	padding-top:16px;
+	border-top:1px solid #ddd;
+	border-right:1px solid #ddd;
+	border-left:1px solid #ddd;
 	float:left;
-	color:DimGray;
+	color:#333;
+	font-size:14px;
+	font-family:함초롬돋움;
 }
 .companyLogin{
+	border-top:1px solid #ddd;
+	border-right:1px solid #ddd;
 	width:49%;
 	height:60px;
-	padding-top:12px;
-	border:solid 1px LightGray;
+	padding-top:16px;
 	float:left;
-	color:DimGray;
+	color:#333;
+	font-size:14px;
+	font-family:함초롬돋움;
 }
 .selectLogin{
 	width:99%;
@@ -241,6 +252,10 @@
 	background-color:#f7f7f7;
 	font-size:12px;
 	float:left;
+}
+.selectLogin a .selectLoginSpan{
+	color:#333;
+	font-size: 0.5em;
 }
 
 .loginBox2{

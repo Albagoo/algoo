@@ -6,7 +6,17 @@
 <script type="text/javascript" 
 	src="<c:url value='/naver/naverLogin_implicit-1.0.2.js'/>" charset="utf-8"></script>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/provision.css'/>" />
-
+<style type="text/css">
+	.compinfo #compTb tr td{
+		color:#333;
+	}
+	#cpt{
+		font-size: 0.9em;
+	}
+	#cpc{
+		font-size: 0.8em;
+	}
+</style>
 <div class="compinfo">
 	<h2 id="cpTitle">회사소개</h2>
 	<hr>
@@ -44,7 +54,6 @@
 			<td id="cpc">2016-서울영등포-0287호</td>
 		</tr>
 	</table>
-
 </div>
 
 <%@ include file="../inc/simple_bottom.jsp" %> 

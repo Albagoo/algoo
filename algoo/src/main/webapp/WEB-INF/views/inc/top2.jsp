@@ -102,9 +102,9 @@
 					</div>
 					<div id="header_searchBar">
 						<div>
-							<a href="#">시간선택제</a> | 
-							<a href="#">당일알바</a> |
-							<a href="#">임금체불주신고</a>
+							<a href="<c:url value='/rec/recList.ag'/>">시간선택제</a> | 
+							<a href="<c:url value='/rec/recList.ag'/>">당일알바</a> |
+							<a href="http://www.alba.co.kr/story/albahelper/laboroverduelist.asp">임금체불주신고</a>
 							<form name="frmSearch" id="frmSearch" action="a.jsp" method="post">
 								<fieldset>
 									<span id="span_keyword">

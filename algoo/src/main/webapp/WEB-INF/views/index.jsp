@@ -263,7 +263,7 @@
 					</c:if>
 					
 					<div class="">
-						<a href="http://www.mova.co.kr/ "><img src="<c:url value='/images/spam.jpg'/>"
+						<a href="http://www.mova.co.kr/" target="_blank"><img src="<c:url value='/images/spam.jpg'/>"
 						 width="220px"></a>
 					</div>
 					<div class="divCommercial2">
@@ -276,7 +276,7 @@
 							ad +=1;
 							if (ad==1) { 
 								url="http://mcdonalds.co.kr/ "; 
-								banner="<c:url value='/images/banner/banner3_2.jpg'/>"; 
+								banner="<c:url value='/images/banner/banner3_2.jpg'/>";
 								height="111px"; 
 							}
 							if (ad==2) { 
@@ -290,7 +290,7 @@
 								height="111px"; 
 							}
 							document.write('<center>'); 
-							document.write('<a href="' + url + '" target="_top">'); 
+							document.write('<a href="' + url + '" target="_blank">'); 
 							document.write('<img src="' + banner + '"'); 
 							document.write(' height=' + height + ' '); 
 							document.write(' border=0><br>'); 
@@ -299,7 +299,7 @@
 						</script>
 						<%-- <img src="<c:url value='/images/banner/banner3.jpg'/>"
 						 width="220px" height="65px"> --%>
-						<a href="http://bossam.co.kr/ "><img src="<c:url value='/images/banner/banner5.jpg'/>"
+						<a href="http://bossam.co.kr/" target="_blank"><img src="<c:url value='/images/banner/banner5.jpg'/>"
 						 width="220px" height="65px"></a>
 					</div>
 				</div><!-- divFunction -->

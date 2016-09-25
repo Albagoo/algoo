@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ include file="../inc/simple_top.jsp"%>
+<%@ include file="../inc/top.jsp"%>
 <script type="text/javascript" 
 	src="<c:url value='/naver/naverLogin_implicit-1.0.2.js'/>" charset="utf-8"></script>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/provision.css'/>" />
@@ -17,6 +17,6 @@
 	<div class="provCon">
 		<iframe src="<c:url value='/inc/privacy.html'/>"
 		 frameborder="0" scrolling=no width="880" height="4700">
-</div>
+	</div>
 
-<%@ include file="../inc/simple_bottom.jsp" %> 
+<%@ include file="../inc/bottom.jsp" %> 

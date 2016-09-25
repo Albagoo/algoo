@@ -13,7 +13,7 @@
 					<a href="#">제휴문의</a>
 					<a href="#">배너광고안내</a>
 					<a href="<c:url value='/provision/pProvision.ag'/>">이용약관</a>
-					<a href="<c:url value='provision/privacy.ag'/>">개인정보취급방침</a>
+					<a href="<c:url value='/provision/privacy.ag'/>">개인정보취급방침</a>
 					<a href="<c:url value='/faq/faqUserList.ag'/>">고객센터</a>
 					<a href="#">사이트맵</a>
 				</div>

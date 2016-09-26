@@ -60,6 +60,22 @@
 		where userid=#{userid} and out_date is null
 	</update>
 	
+	<select id="selectId" parameterType="CommemVO" resultType="String">
+		select userid from comp_member
+		where userName = #{userName} and hp1 = #{hp1} and hp2 = #{hp2} and hp3 = #{hp3}
+	</select>
+	
+	<select id="selectCount" parameterType="CommemVO" resultType="int">
+		select count(*) from comp_member	
+		where userid = #{userid} and userName = #{userName} and email1 = #{email1} and email2 = #{email2}	
+	</select>
+	
+	<update id="updatePwd" parameterType="CommemVO">
+		update comp_member
+		set password = #{password}
+		where userid = #{userid}
+	</update>
+	
 	<select id="selectAllUserid" parameterType="string" resultType="int">
 		select count(*)
 		from

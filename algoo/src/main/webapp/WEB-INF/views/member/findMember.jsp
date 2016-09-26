@@ -62,6 +62,10 @@
 							    padding-bottom: 20px;">아이디 찾기</h2>
 					<p style="color: #787878;
    								 height: 30px; font-size: 0.9em">회원가입시 등록한 이름과<br>휴대폰 번호를 입력해 주세요</p>
+   					<div style="padding: 10px;">
+	   					<input type="radio" name="type_id" id="per" checked="checked" value="personal"><label for="per">개인회원</label>
+	   					<input type="radio" name="type_id" id="com" value="company"><label for="com">기업회원</label>
+   					</div>
    					<table>
    						<tr>
    							<td style="padding: 10px"><label for="userName">이름</label></td>
@@ -81,7 +85,7 @@
    					<p id="result_id" style="padding: 5px; margin-top: 15px">
    					
    					</p>
-   					<p style="text-align: center; margin:50px 0 0 140px;display:inline-block;">
+   					<p style="text-align: center; margin:10px 0 0 140px;display:inline-block;">
    					<input type="button" value="아이디 찾기" id="bt_id"
    						style="width: 100px; height: 40px; background: #494949;
    							color: white" class="textBox">
@@ -102,6 +106,10 @@
 					<p style="color: #787878;
    								 height: 30px; font-size:0.9em;">회원가입시 등록한 아이디, 이름, E-mail을 통해<br>
    								 비밀번호를 찾을 수 있습니다</p>
+   					<div style="padding: 10px;">
+	   					<input type="radio" name="type_pwd" id="pers" checked="checked" value="personal"><label for="pers">개인회원</label>
+	   					<input type="radio" name="type_pwd" id="comp" value="company"><label for="comp">기업회원</label>
+   					</div>
 					<table>
    						<tr>
    							<td style="padding: 10px; width: 70px;"><label for="userName">아이디</label></td>
@@ -130,7 +138,7 @@
         						style="visibility:hidden"></td>
    						</tr>
    					</table>
-   					<p style="text-align: center; margin:40px 0 0 140px;display: inline-block;">
+   					<p style="text-align: center; margin:10px 0 0 140px;display: inline-block;">
    					<input type="submit" value="비밀번호 찾기" class="textBox"
    						style="width: 100px; height: 40px; background: #494949;
    							color: white">

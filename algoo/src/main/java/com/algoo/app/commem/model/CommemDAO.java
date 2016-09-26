@@ -12,4 +12,7 @@ public interface CommemDAO {
 	public int selectAllUserid(String userid);
 	public int selectAllNickName(String userid);
 	public int selectAllEmail(String userid);
+	public String selectId(CommemVO commemVo);
+	public int selectCount(CommemVO commemVo);
+	public int updatePwd(CommemVO commemVo);
 }

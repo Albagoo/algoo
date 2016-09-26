@@ -268,12 +268,17 @@ public class MemberController {
 	@RequestMapping("/findIdDb.ag")
 	@ResponseBody
 	public String findMember_id(
-			@ModelAttribute MemberVO memberVo){
+			@ModelAttribute MemberVO memberVo,
+			@ModelAttribute CommemVO commemVo,
+			@RequestParam(required=false) String type_id){
 		logger.info("아이디 찾기 파라미터 memberVo = {}", memberVo);
+		String userid = "";
 		
-		String userid = memberService.selectId(memberVo);
-		
-		logger.info("userid = {}", userid);
+		if(type_id.equals("personal")){
+			userid = memberService.selectId(memberVo);
+		}else if(type_id.equals("company")){
+			userid = commemService.selectId(commemVo);
+		}
 		
 		return userid;
 	}
@@ -281,66 +286,127 @@ public class MemberController {
 	@RequestMapping("/findPwd.ag")
 	public String findMember_pwd(
 			@ModelAttribute MemberVO memberVo,
+			@ModelAttribute CommemVO commemVo,
 			@RequestParam(required=false) String email3,
+			@RequestParam(required=false) String type_pwd,
 			Model model){
 		logger.info("비밀번호 찾기 파라미터 memberVo = {}", memberVo);
+		String msg = "", url = "/member/findMember.ag";
 		
-		String email1 = memberVo.getEmail1();
-		String email2 = memberVo.getEmail2();
-		
-		if(email1==null || email1.isEmpty()){
-			memberVo.setEmail1("");
-			memberVo.setEmail2("");
-		}else{
-			if(email2.equals("etc")){
-				if(email3!=null && !email3.isEmpty()){
-					memberVo.setEmail2(email3);
-				}else{
-					memberVo.setEmail1("");
-					memberVo.setEmail2("");
+		if(type_pwd.equals("personal")){
+			String email1 = memberVo.getEmail1();
+			String email2 = memberVo.getEmail2();
+			
+			if(email1==null || email1.isEmpty()){
+				memberVo.setEmail1("");
+				memberVo.setEmail2("");
+			}else{
+				if(email2.equals("etc")){
+					if(email3!=null && !email3.isEmpty()){
+						memberVo.setEmail2(email3);
+					}else{
+						memberVo.setEmail1("");
+						memberVo.setEmail2("");
+					}
 				}
 			}
-		}
-		
-		String tempPwd = ""+(char)(Math.random()*26+'A')+(int)(Math.random()*10)
-				+(char)(Math.random()*26+'A')+(int)(Math.random()*10)
-				+(char)(Math.random()*26+'A')+(int)(Math.random()*10)
-				+(char)(Math.random()*26+'A')+(int)(Math.random()*10);
-		logger.info(tempPwd);
-		
-		int cnt = memberService.selectCount(memberVo);
-		
-		String msg = "", url = "/member/findMember.ag";
-		if(cnt == 1){
-			memberVo.setPassword(tempPwd);
 			
-			int result = memberService.updatePwd(memberVo);
+			String tempPwd = ""+(char)(Math.random()*26+'A')+(int)(Math.random()*10)
+					+(char)(Math.random()*26+'A')+(int)(Math.random()*10)
+					+(char)(Math.random()*26+'A')+(int)(Math.random()*10)
+					+(char)(Math.random()*26+'A')+(int)(Math.random()*10);
+			logger.info(tempPwd);
 			
-			if(result > 0){
-				msg = "이메일로 임시 비밀번호가 발송되었습니다!"
-					+ "\n임시 비밀번호로 로그인 하신 후 비밀번호 변경 부탁드립니다!";
-				String subject = "[알구] 임시 비밀번호 발송 메일입니다";
-				String content = "비밀 번호는 1개월 단위로 변경을 권장합니다"
-						+ "\n임시 비밀번호 : " + tempPwd;
+			int cnt = memberService.selectCount(memberVo);
+			
+			if(cnt == 1){
+				memberVo.setPassword(tempPwd);
 				
-				String sender = "admin@algoo.com";
-				String receiver = email1+"@"+email2;
+				int result = memberService.updatePwd(memberVo);
 				
-				try {
-					emailSender.sendEmail(subject, content,
-							receiver, sender);
-					logger.info("이메일 발송 성공!!");
-				} catch (MessagingException e) {
-					logger.info("이메일 발송 실패!!");
-					e.printStackTrace();
+				if(result > 0){
+					msg = "이메일로 임시 비밀번호가 발송되었습니다!"
+						+ "\n임시 비밀번호로 로그인 하신 후 비밀번호 변경 부탁드립니다!";
+					String subject = "[알구] 임시 비밀번호 발송 메일입니다";
+					String content = "비밀 번호는 1개월 단위로 변경을 권장합니다"
+							+ "\n임시 비밀번호 : " + tempPwd;
+					
+					String sender = "admin@algoo.com";
+					String receiver = email1+"@"+email2;
+					
+					try {
+						emailSender.sendEmail(subject, content,
+								receiver, sender);
+						logger.info("이메일 발송 성공!!");
+					} catch (MessagingException e) {
+						logger.info("이메일 발송 실패!!");
+						e.printStackTrace();
+					}
+				}else{
+					msg = "비밀번호 변경 실패!";
 				}
 			}else{
-				msg = "비밀번호 변경 실패!";
+				msg = "입력하신 정보와 일치하는 가입 정보가 없습니다!!";
 			}
-		}else{
-			msg = "입력하신 정보와 일치하는 가입 정보가 없습니다!!";
+			
+		}else if(type_pwd.equals("company")){
+			String email1 = commemVo.getEmail1();
+			String email2 = commemVo.getEmail2();
+			
+			if(email1==null || email1.isEmpty()){
+				commemVo.setEmail1("");
+				commemVo.setEmail2("");
+			}else{
+				if(email2.equals("etc")){
+					if(email3!=null && !email3.isEmpty()){
+						commemVo.setEmail2(email3);
+					}else{
+						commemVo.setEmail1("");
+						commemVo.setEmail2("");
+					}
+				}
+			}
+			
+			String tempPwd = ""+(char)(Math.random()*26+'A')+(int)(Math.random()*10)
+					+(char)(Math.random()*26+'A')+(int)(Math.random()*10)
+					+(char)(Math.random()*26+'A')+(int)(Math.random()*10)
+					+(char)(Math.random()*26+'A')+(int)(Math.random()*10);
+			logger.info(tempPwd);
+			
+			int cnt = commemService.selectCount(commemVo);
+			
+			
+			if(cnt == 1){
+				commemVo.setPassword(tempPwd);
+				
+				int result = commemService.updatePwd(commemVo);
+				
+				if(result > 0){
+					msg = "이메일로 임시 비밀번호가 발송되었습니다!"
+						+ "\n임시 비밀번호로 로그인 하신 후 비밀번호 변경 부탁드립니다!";
+					String subject = "[알구] 임시 비밀번호 발송 메일입니다";
+					String content = "비밀 번호는 1개월 단위로 변경을 권장합니다"
+							+ "\n임시 비밀번호 : " + tempPwd;
+					
+					String sender = "admin@algoo.com";
+					String receiver = email1+"@"+email2;
+					
+					try {
+						emailSender.sendEmail(subject, content,
+								receiver, sender);
+						logger.info("이메일 발송 성공!!");
+					} catch (MessagingException e) {
+						logger.info("이메일 발송 실패!!");
+						e.printStackTrace();
+					}
+				}else{
+					msg = "비밀번호 변경 실패!";
+				}
+			}else{
+				msg = "입력하신 정보와 일치하는 가입 정보가 없습니다!!";
+			}
+			
 		}
-		
 		model.addAttribute("msg", msg);
 		model.addAttribute("url", url);
 		

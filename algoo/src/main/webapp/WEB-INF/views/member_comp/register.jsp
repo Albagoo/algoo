@@ -278,7 +278,7 @@
 						<option value="naver.com" selected="selected">naver.com</option>
 						<option value="nate.com">nate.com</option>
 						<option value="hanmail.net">hanmail.net</option>
-						<option value="google.com">google.com</option>
+						<option value="gmail.com">gmail.com</option>
 						<option value="etc">직접입력</option>
 					</select>
 					<input type="text" name="email3" id="email3" placeholder="직접입력"

@@ -66,4 +66,19 @@ public class CommemDAOMybatis extends SqlSessionDaoSupport
 	public int selectAllEmail(String userid) {
 		return getSqlSession().selectOne(namespace+".selectAllEmail", userid);
 	}
+
+	@Override
+	public String selectId(CommemVO commemVo) {
+		return getSqlSession().selectOne(namespace+".selectId", commemVo);
+	}
+
+	@Override
+	public int selectCount(CommemVO commemVo) {
+		return getSqlSession().selectOne(namespace+".selectCount", commemVo);
+	}
+
+	@Override
+	public int updatePwd(CommemVO commemVo) {
+		return getSqlSession().update(namespace+".updatePwd", commemVo);
+	}
 }

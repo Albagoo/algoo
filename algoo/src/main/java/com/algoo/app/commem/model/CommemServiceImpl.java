@@ -79,5 +79,17 @@ public class CommemServiceImpl implements CommemService {
 	public int selectAllEmail(String userid) {
 		return commemDao.selectAllEmail(userid);
 	}
+	@Override
+	public String selectId(CommemVO commemVo) {
+		return commemDao.selectId(commemVo);
+	}
+	@Override
+	public int selectCount(CommemVO commemVo) {
+		return commemDao.selectCount(commemVo);
+	}
+	@Override
+	public int updatePwd(CommemVO commemVo) {
+		return commemDao.updatePwd(commemVo);
+	}
 
 }

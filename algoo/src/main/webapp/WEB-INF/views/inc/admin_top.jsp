@@ -66,18 +66,10 @@
 				<a href="<c:url value='/admin/adminIndex.ag'/>"><img alt="로고" src="<c:url value='/images/simple_Logo.png'/> ">
 				</a>
 				<span>관리자</span>
-				<c:if test="${empty sessionScope.userid }">
+				<c:if test="${!empty sessionScope.adminUserid }">
 					<ul>
-						<li><a href="<c:url value='/admin/adminIndex.ag'/>">홈</a> |</li>
-						<li><a href="<c:url value='/admin/login/adminLogin.ag'/>">로그인</a></li>
-					</ul>
-				</c:if>
-				<c:if test="${!empty sessionScope.userid }">
-					<ul>
-						<li><span style="font-size:1.0em;color:black;font-weight:bold;margin-right: 10px;"> ${sessionScope.userName}님</span></li>
-						<li><a href="<c:url value='/admin/adminIndex.ag'/>">홈</a> |</li>
-						<li><a href="<c:url value='/admin/login/adminLogout.ag'/>">로그아웃</a> |</li>
-						<li><a href="<c:url value='/admin/adminMember.ag'/>">관리자메뉴</a></li>
+						<li><span style="font-size:1.0em;color:black;font-weight:bold;margin-right: 10px;"> ${sessionScope.adminUserName}님</span></li>
+						<li><a href="<c:url value='/admin/login/adminLogout.ag'/>">로그아웃</a></li>
 					</ul>
 				</c:if>
 				

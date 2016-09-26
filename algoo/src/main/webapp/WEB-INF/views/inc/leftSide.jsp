@@ -67,11 +67,11 @@
 			<p id="subTit">
 			<a href="<c:url value='/rec/recList.ag'/>">근무기간·요일·시간별</a></p>
 			<a href="<c:url value='/rec/recList.ag'/>">날짜별</a> | 
-			<a href="<c:url value='/rec/recList.ag'/>">하루알바</a><br>
-			<a href="<c:url value='/rec/recList.ag'/>">단기</a> | 
-			<a href="<c:url value='/rec/recList.ag'/>">장기</a> | 
-			<a href="<c:url value='/rec/recList.ag'/>">주말</a> | 
-			<a href="<c:url value='/rec/recList.ag'/>">주5일</a>
+			<a href="<c:url value='/rec/recList.ag?workDays=%EC%A3%BC1%EC%9D%BC'/>">하루알바</a><br>
+			<a href="<c:url value='/rec/recList.ag?workTerm=1%EC%A3%BC%EC%9D%BC~1%EA%B0%9C%EC%9B%94'/>">단기</a> | 
+			<a href="<c:url value='/rec/recList.ag?workTerm=6%EA%B0%9C%EC%9B%94~1%EB%85%84'/>">장기</a> | 
+			<a href="<c:url value='/rec/recList.ag?workDays=%EC%A3%BC%EB%A7%90'/>">주말</a> | 
+			<a href="<c:url value='/rec/recList.ag?workDays=%EC%A3%BC5%EC%9D%BC'/>">주5일</a>
 		</td></tr>
 	</table>
 	<div id="ani">

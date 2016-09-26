@@ -21,6 +21,12 @@
 	
 	/* top버튼 나타내기 */
 	$(document).ready(function(){
+		$('#bt_search').click(function(){
+			var res = $("#keyword").val();
+			$('#frmSearch').attr("action", "<c:url value='/rec/recList.ag?searchCondition=title&searchKeyword="+res+"'/>");
+			$('#frmSearch').submit();
+		});		
+		
 	    $(".upMark").hide(); // 탑 버튼 숨김
 	    $(function () {
 	                 
@@ -106,10 +112,10 @@
 							<a href="<c:url value='/rec/recList.ag'/>">당일알바</a> |
 							<a href="http://www.alba.co.kr/story/albahelper/laboroverduelist.asp">임금체불주신고</a>
 							<form name="frmSearch" id="frmSearch"
-							 action="<c:url value='/rec/recList.ag?searchCondition=title&searchKeyword="keyword"'/>" method="post">
+							 action="#" method="post">
 								<fieldset>
 									<span id="span_keyword">
-									<input type="text" name="keyword" id="keyword"></span>
+									<input type="text" name="searchKeyword" id="keyword"></span>
 									<input type="submit" id="bt_search" value="검색">
 								</fieldset>
 							</form>

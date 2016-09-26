@@ -48,7 +48,7 @@ public class MainRecController {
 		//2
 		PaginationInfo pagingInfo = new PaginationInfo();
 		pagingInfo.setBlockSize(10);
-		pagingInfo.setRecordCountPerPage(25);
+		pagingInfo.setRecordCountPerPage(20);
 		pagingInfo.setCurrentPage(searchVo.getCurrentPage());
 		
 		searchVo.setBlockSize(pagingInfo.getBlockSize());
@@ -80,7 +80,7 @@ public class MainRecController {
 		//2
 		PaginationInfo pagingInfo = new PaginationInfo();
 		pagingInfo.setBlockSize(10);
-		pagingInfo.setRecordCountPerPage(25);
+		pagingInfo.setRecordCountPerPage(12);
 		pagingInfo.setCurrentPage(searchVo.getCurrentPage());
 		
 		searchVo.setBlockSize(pagingInfo.getBlockSize());

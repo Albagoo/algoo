@@ -203,11 +203,13 @@ public class ResumeController {
 		List<ResumeListVO> alist = resumeService.selectResume(resumeSearchVo);
 		List<ResumeListVO> tlist = resumeService.selectResumeCount(resumeSearchVo);
 		int cnt=0;
+		if(tlist!=null){
 		for(int i=0;i<tlist.size();i++){
 			String peri=tlist.get(i).getPeriod();
 			if(peri.indexOf(period_checks)!=-1){
 				cnt++;
 			};
+		}
 		}
 		logger.info("궁금해서찍어봄={},cnt={}",tlist.size(),cnt);
 		int totalRecord = cnt;

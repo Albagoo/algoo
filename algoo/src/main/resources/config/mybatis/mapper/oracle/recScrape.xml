@@ -8,7 +8,13 @@
          userid = #{userid}
       </where> 
    </sql>
-
+      <insert id="insertRecScrape" parameterType="RecScrapeVO" >
+      insert into REC_SCRAPE (scrape_code, comp_name, 
+      userid, rec_title, work_area,deadline,rec_code ) 
+      values(rec_scrape_seq.nextval, #{compName},#{userid},
+      #{recTitle},#{workArea},#{deadline},#{recCode} )
+      </insert>
+   
       <select id="selectRecScrape" resultType="RecScrapeVO"
       parameterType="RecScrapeSearchVO">
       select * from

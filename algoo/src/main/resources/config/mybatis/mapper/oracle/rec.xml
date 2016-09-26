@@ -201,4 +201,24 @@
 		select job_name2 from jobs
 		where job_name=${jobName}
 	</select>
+	
+	<!-- <update id="">
+	insert into RECRUITMENT
+      (rec_code,comp_Name,title,job_Name,job_Name2,
+      zipcode,address,address_Detail,sub_Region,
+      sub_Num,sub_Name,sub_Info,work_Term,work_Days,
+      work_Time,work_Time2,work_Time3,work_Time4,pay_type,pay,
+      recruit_Type,welfare,gender,age,educate_Lv,
+      career,preference,recruit_Member,recruit_Person,recruit_Method,
+      documents,detail_Recruit,comp_Code,service_Code,RECRUIT_DEADLINE
+      )
+      values(RECRUITMENT_seq.nextval, #{compName},#{title},#{jobName},#{jobName2},
+      #{zipcode},#{address},#{addressDetail},#{subRegion},
+      #{subNum},#{subName},#{subInfo},#{workTerm},#{workDays},
+      #{workTime},#{workTime2},#{workTime3},#{workTime4},#{payType},#{pay},
+      #{recruitType},#{welfare},#{gender},#{age},#{educateLv},
+      #{career},#{preference},#{recruitMember},#{recruitPerson},#{recruitMethod},
+      #{documents},#{detailRecruit},#{compCode},#{serviceCode},#{recruitDeadline}
+      )
+	</update> -->
 </mapper>

@@ -1456,10 +1456,10 @@ dt label{
 									경력 : 
 								</span>
 								<span class="align_left" style="color: #5b75ff" id="period${i}">
-									<c:if test="${empty vo.period }">
+									<c:if test="${vo.period.indexOf('신입') != -1  }">
 										신입
 									</c:if>
-									<c:if test="${!empty vo.period }">
+									<c:if test="${vo.period.indexOf('신입') == -1  }">
 										<c:if test="${vo.period.indexOf('부터') == -1 }">
 											<c:if test="${vo.period.indexOf('일') != -1 }">
 												1개월 미만

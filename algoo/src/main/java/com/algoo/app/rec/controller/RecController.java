@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.mail.Session;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.algoo.app.commem.model.CommemService;
+import com.algoo.app.commem.model.CommemVO;
 import com.algoo.app.common.PaginationInfo;
 import com.algoo.app.company.model.CompanyService;
 import com.algoo.app.company.model.CompanyVO;
@@ -36,7 +41,8 @@ public class RecController {
 	private CompanyService companyService;
 	@Autowired
 	private ServiceService serviceService;
-	
+	@Autowired
+	private CommemService commemService;
 	
 	@RequestMapping("/recDetail.ag")
 	public String recDetail(@RequestParam int recCode,
@@ -67,13 +73,18 @@ public class RecController {
 	@RequestMapping(value="/recWrite.ag",
 			method=RequestMethod.GET)
 	public String recWrite_get(
+			HttpSession session,
 			Model model){
 		//채용공고 입력창 보여주기
 		//1
 		logger.info("채용공고 입력창 보여주기");
 		//테스트용 회사코드 2
-		int compCode=2;
+		/*int compCode=2;*/
 		//2
+		String userid= (String) session.getAttribute("userid"); 
+		CommemVO commemVo= commemService.selectMemberByUserid(userid);
+		int compCode=commemVo.getCompCode();
+		
 		CompanyVO compVo
 		=companyService.selectCompanyByCode(compCode);
 		logger.info("compVo={}",compVo);

@@ -1,7 +1,5 @@
 package com.algoo.app.scrape.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -27,11 +25,16 @@ public class RecScrapeController {
 	
 	@RequestMapping(value="/addScrape.ag")
 	public String Scrapeadd(
+			
 			@ModelAttribute RecScrapeVO recScrapeVo,
 			HttpSession session,
 			Model model){
 		String userid = (String) session.getAttribute("userid");
 
+		recScrapeVo.setUserid(userid);
+		
+		
+		rsService.insertRecScrape(recScrapeVo);
 		
 		/*List<RecScrapeVO> alist = rsService.selectRecScrape(recScrapeVo);*/
 		

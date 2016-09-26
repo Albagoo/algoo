@@ -13,12 +13,20 @@ implements RecScrapeDAO{
 
 		@Override
 	public List<RecScrapeVO> selectRecScrape(RecScrapeSearchVO vo) {
-		return getSqlSession().selectList(namespace+".selectRecScrape",vo);
+		return getSqlSession().selectList(namespace
+				+".selectRecScrape",vo);
 	}
 
 	@Override
 	public int selectRecScrapeCount(RecScrapeSearchVO vo) {
-		return getSqlSession().selectOne(namespace+".selectRecScrapeCount",vo);
+		return getSqlSession().selectOne(namespace
+				+".selectRecScrapeCount",vo);
+	}
+
+	@Override
+	public int insertRecScrape(RecScrapeVO vo) {
+		return getSqlSession().insert(namespace
+				+".insertRecScrape",vo);
 	}
 	
 	

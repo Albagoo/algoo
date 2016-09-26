@@ -21,6 +21,11 @@ public class RecScrapeServiceImpl implements RecScrapeService{
 		return recScrapeDao.selectRecScrapeCount(vo);
 	}
 
+	@Override
+	public int insertRecScrape(RecScrapeVO vo) {
+		return recScrapeDao.insertRecScrape(vo);
+	}
+
 
 	
 

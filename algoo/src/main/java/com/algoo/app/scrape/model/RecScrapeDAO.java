@@ -5,4 +5,5 @@ import java.util.List;
 public interface RecScrapeDAO {
 	public List<RecScrapeVO> selectRecScrape(RecScrapeSearchVO vo);
 	public int selectRecScrapeCount(RecScrapeSearchVO vo);
+	public int insertRecScrape(RecScrapeVO vo);
 }

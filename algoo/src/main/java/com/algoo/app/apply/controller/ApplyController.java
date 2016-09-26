@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.algoo.app.apply.model.ApplyService;
 import com.algoo.app.apply.model.ApplyVO;
 import com.algoo.app.apply.model.ApplyViewVO;
+import com.algoo.app.commem.model.CommemService;
+import com.algoo.app.commem.model.CommemVO;
 import com.algoo.app.member.model.MemberService;
 import com.algoo.app.member.model.MemberVO;
 import com.algoo.app.resume.model.ResumeService;
@@ -38,6 +40,8 @@ public class ApplyController {
 	@Autowired
 	private ResumeService resumeService;
 	
+	@Autowired
+	private CommemService commemService;
 	@RequestMapping(value="/apply.ag", method=RequestMethod.GET)
 	public String apply_get(
 			@RequestParam String userid,
@@ -76,5 +80,35 @@ public class ApplyController {
 		model.addAttribute("alist", alist);
 		
 		return "apply/applyList";
+	}
+	
+	@RequestMapping("/applyListComp.ag")
+	public String applyListComp(
+			HttpSession session,
+			Model model){
+		String userid = (String)session.getAttribute("userid");
+		
+		CommemVO commemVo = commemService.selectMemberByUserid(userid);
+		
+		List<ApplyViewVO> alist = applyService.selectCompMemberCode(commemVo.getCompMemberCode());
+		
+		model.addAttribute("alist", alist);
+		
+		return "apply/applyListComp";
+	}	
+	
+	@RequestMapping("/updateReadCheck.ag")
+	public String updateReadCheck(
+			@ModelAttribute ApplyViewVO applyViewVo,
+			Model model){
+		
+		if(applyViewVo.getReadCheck().equals("N")){
+			applyViewVo.setReadCheck("Y");
+			
+			int cnt = applyService.updateReadCheck(applyViewVo);
+		}
+		
+		return "redirect:/resume/detail.ag?hisCode="+applyViewVo.getHisCode();
+		
 	}
 }

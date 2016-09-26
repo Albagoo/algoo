@@ -15,4 +15,15 @@
 		select * from applyView
 		where member_code = #{memberCode}
 	</select>
+	
+	<select id="selectCompMemberCode" parameterType="String" resultType="ApplyViewVO">
+		select * from applyView
+		where comp_member_code = #{compMemberCode}
+	</select>
+	
+	<update id="updateReadCheck" parameterType="ApplyViewVO">
+		update apply
+		set read_check = #{readCheck}
+		where apply_code = #{applyCode}
+	</update>
 </mapper>

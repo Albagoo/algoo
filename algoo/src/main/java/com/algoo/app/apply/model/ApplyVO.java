@@ -9,7 +9,14 @@ public class ApplyVO {
 	private String memo;
 	private int hisCode;
 	private int recCode;
+	private String compMemberCode;
 	
+	public String getCompMemberCode() {
+		return compMemberCode;
+	}
+	public void setCompMemberCode(String compMemberCode) {
+		this.compMemberCode = compMemberCode;
+	}
 	public int getApplyCode() {
 		return applyCode;
 	}
@@ -50,7 +57,7 @@ public class ApplyVO {
 	@Override
 	public String toString() {
 		return "ApplyVO [applyCode=" + applyCode + ", days=" + days + ", readCheck=" + readCheck + ", memo=" + memo
-				+ ", hisCode=" + hisCode + ", recCode=" + recCode + "]";
+				+ ", hisCode=" + hisCode + ", recCode=" + recCode + ", compMemberCode=" + compMemberCode + "]";
 	}
 	
 	

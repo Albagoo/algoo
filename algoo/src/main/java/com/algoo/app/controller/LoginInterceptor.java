@@ -26,6 +26,19 @@ public class LoginInterceptor
 		
 		HttpSession session= request.getSession();
 		String userid = (String)session.getAttribute("userid");
+		String authCode = (String)session.getAttribute("authCode");
+		
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		
+		if(!(userid==null || userid.isEmpty()) && !authCode.equals("1")){
+			out.println("<html><head><script type='text/javascript'>"
+					+ "alert('개인회원이 이용 가능한 서비스 입니다!');"
+					+ "history.back();"
+					+ "</script></head><body></body></html>");
+			
+			return false;
+		}
 		
 		if(userid==null || userid.isEmpty()){
 			/*request.setAttribute("msg", "먼저 로그인하세요");
@@ -35,9 +48,7 @@ public class LoginInterceptor
 				=request.getRequestDispatcher("/WEB-INF/views/common/message.jsp");
 			dispatcher.forward(request, response);*/
 			
-			response.setContentType("text/html; charset=UTF-8");
 			
-			PrintWriter out = response.getWriter();
 			
 			out.println("<html><head><script type='text/javascript'>"
 					+ "alert('로그인 하셔야 이용 가능한 서비스 입니다!!');window.open('/algoo/login/login.ag?type=Personal', 'login',"

@@ -9,8 +9,29 @@ public class ApplyViewVO {
 	private String memberCode;
 	private int recCode;
 	private int hisCode;
+	private String username;
+	private String compMemberCode;
+	private int applyCode;
 	
 	
+	public int getApplyCode() {
+		return applyCode;
+	}
+	public void setApplyCode(int applyCode) {
+		this.applyCode = applyCode;
+	}
+	public String getCompMemberCode() {
+		return compMemberCode;
+	}
+	public void setCompMemberCode(String compMemberCode) {
+		this.compMemberCode = compMemberCode;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 	public int getHisCode() {
 		return hisCode;
 	}
@@ -51,7 +72,8 @@ public class ApplyViewVO {
 	@Override
 	public String toString() {
 		return "ApplyViewVO [days=" + days + ", readCheck=" + readCheck + ", title=" + title + ", memberCode="
-				+ memberCode + ", recCode=" + recCode + ", hisCode=" + hisCode + "]";
+				+ memberCode + ", recCode=" + recCode + ", hisCode=" + hisCode + ", username=" + username
+				+ ", compMemberCode=" + compMemberCode + ", applyCode=" + applyCode + "]";
 	}
 	
 	

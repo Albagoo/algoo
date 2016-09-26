@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ include file="../inc/simple_top.jsp" %>
+<%@ include file="../inc/top.jsp" %>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/leftNavi.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/memberinfo.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
@@ -29,19 +29,19 @@
 	}
 </style>
 <div id="naviDiv">
-	<div id="mark">
-		<img src="<c:url value='/images/faq-1.png'/>" style="height: 70px;">
-	</div>
 	<nav>
 		<dl id="leftNavi">
-			<dt><a href="#">회원페이지</a></dt>
+			<dt><a href="<c:url value='/member/memInfo.ag'/>">회원페이지</a></dt>
 			<dd><a href="<c:url value='/login/mypageType.ag'/>">내정보관리</a></dd>
 			<c:if test="${sessionScope.authCode==2 }">
-			<dd><a href="<c:url value='/company/compRegister.ag'/>">기업정보 등록 및 수정</a></dd>
+				<dd><a href="<c:url value='/company/compRegister.ag'/>">기업정보 등록 및 수정</a></dd>
+				<dd><a href="<c:url value='/apply/applyListComp.ag'/>">채용 공고 관리</a></dd>
 			</c:if>
-			<dd><a href="#">이력서 관리 및 활용</a></dd>
+			<c:if test="${sessionScope.authCode==1 }">
+				<dd><a href="<c:url value='/apply/applyList.ag'/>">지원 현황</a></dd>
+				<dd><a href="#">이력서 관리</a></dd>
+			</c:if>
 			<dd><a href="<c:url value='/member_comp/memberWithdraw.ag'/>">회원탈퇴</a></dd>
-			<dd><a href="#">기타문의</a></dd>
 		</dl>
 	</nav>
 </div>
@@ -66,4 +66,4 @@
 	</form>
 </div>
 
-<%@ include file="../inc/simple_bottom.jsp" %>
+<%@ include file="../inc/bottom.jsp" %>

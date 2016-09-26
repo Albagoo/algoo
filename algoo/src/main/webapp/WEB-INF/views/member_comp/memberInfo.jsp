@@ -85,7 +85,7 @@
 			<dd><a href="<c:url value='/login/mypageType.ag'/>">내정보관리</a></dd>
 			<c:if test="${sessionScope.authCode==2 }">
 				<dd><a href="<c:url value='/company/compRegister.ag'/>">기업정보 등록 및 수정</a></dd>
-				<dd><a href="#">채용 공고 관리</a></dd>
+				<dd><a href="<c:url value='/apply/applyListComp.ag'/>">채용 공고 관리</a></dd>
 			</c:if>
 			<c:if test="${sessionScope.authCode==1 }">
 				<dd><a href="<c:url value='/apply/applyList.ag'/>">지원 현황</a></dd>

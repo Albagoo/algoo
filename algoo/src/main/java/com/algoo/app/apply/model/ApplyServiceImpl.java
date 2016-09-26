@@ -21,4 +21,14 @@ public class ApplyServiceImpl implements ApplyService{
 		return applyDao.selectMemberCode(memberCode);
 	}
 
+	@Override
+	public List<ApplyViewVO> selectCompMemberCode(String compMemberCode) {
+		return applyDao.selectCompMemberCode(compMemberCode);
+	}
+
+	@Override
+	public int updateReadCheck(ApplyViewVO applyViewVo) {
+		return applyDao.updateReadCheck(applyViewVo);
+	}
+
 }

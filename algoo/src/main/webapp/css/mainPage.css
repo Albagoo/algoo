@@ -405,6 +405,7 @@
 	width: 100%;
 	float: left;
 	height: 600px;
+	overflow-y:hidden;
 }
 .divGrand p{
 	padding-left:10px;
@@ -472,6 +473,7 @@
 .divSpecial{
 	float:left;
 	height:840px;
+	overflow-y:hidden;
 }
 
 .specialEmp{
@@ -498,6 +500,7 @@
 	width:160px;
 	font-size:14px;
 	height:840px;
+	overflow-y:hidden;
 }
 .speedCon{
 	border:solid 1px silver;

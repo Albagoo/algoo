@@ -404,6 +404,7 @@
 .divGrand{
 	width: 100%;
 	float: left;
+	height: 600px;
 }
 .divGrand p{
 	padding-left:10px;
@@ -470,6 +471,7 @@
 /* 스페셜 공고 */
 .divSpecial{
 	float:left;
+	height:840px;
 }
 
 .specialEmp{
@@ -495,6 +497,7 @@
 	margin:10px;
 	width:160px;
 	font-size:14px;
+	height:840px;
 }
 .speedCon{
 	border:solid 1px silver;

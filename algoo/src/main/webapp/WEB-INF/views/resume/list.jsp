@@ -1422,8 +1422,7 @@ dt label{
 								height="60px" align="absmiddle" width="30px">
 						</c:if>
 						<c:if test="${!empty vo.photo }">
-							<img alt="회원이미지" src="/algoo/algoo_images/${vo.photo }"
-								height="60px" align="absmiddle" width="50px">
+							<img alt="회원이미지" src="/algoo/algoo_images/${memberVo.photo }" 	height="60px" align="absmiddle" width="50px">
 						</c:if>
 					</td>
 					<td scope="row">

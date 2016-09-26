@@ -404,7 +404,7 @@
 .divGrand{
 	width: 100%;
 	float: left;
-	height: 600px;
+	height: 680px;
 	overflow-y:hidden;
 }
 .divGrand p{
@@ -472,7 +472,7 @@
 /* 스페셜 공고 */
 .divSpecial{
 	float:left;
-	height:840px;
+	height:865px;
 	overflow-y:hidden;
 }
 

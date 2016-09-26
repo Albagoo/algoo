@@ -19,11 +19,17 @@
 	font-size:14px;
 }
 #subTitle{
+	width:150px;
 	color:darkblue;
 	font-weight:bold;
 	background-color:lightblue;
 	margin:0px 10px 0px 10px;
 	padding:2px;
+	font-size:14px;
+}
+#smCC{
+	margin-right:16px;
+	font-weight:normal;
 }
 table{
 	width:880px;
@@ -31,6 +37,7 @@ table{
 	margin-bottom:20px;
 }
 td{
+	width:220px;
 	border-left:dashed 1px gray;
 	border-right:dashed 1px gray;
 }

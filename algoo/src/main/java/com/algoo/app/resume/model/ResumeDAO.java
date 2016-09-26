@@ -8,4 +8,5 @@ public interface ResumeDAO {
 	public List<ResumeListVO> selectResume(ResumeSearchVO resumeSearchVo);
 	public ResumeVO selectResumeByCode(int hisCode);
 	public List<ResumeListVO> selectResumeCount(ResumeSearchVO resumeSearchVo);
+	public List<ResumeVO> selectResumeByMemberCode(String memberCode);
 }

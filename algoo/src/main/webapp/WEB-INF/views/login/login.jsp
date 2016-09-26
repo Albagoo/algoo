@@ -76,6 +76,11 @@
 		opener.location.href = "/algoo/jj/join.ag";
 		self.close();
 	}
+	
+	function pageFind() {
+		opener.location.href = "/algoo/member/findMember.ag";
+		self.close();
+	}
 </script>
 <style>
 	body{
@@ -221,8 +226,8 @@
 			<input type="password" class="textBox" name="pwd" id="pwd" placeholder="비밀번호">
 			<input type="submit" id="submit" value="로그인">
 		</form>
-		<a href="#">아이디 찾기</a> |
-		<a href="#">비밀번호 찾기</a> |
+		<a href="#" onclick="pageFind()">아이디 찾기</a> |
+		<a href="#" onclick="pageFind()">비밀번호 찾기</a> |
 		<a href="#" onclick="pageAgreement()">회원가입</a>
 	</div>
 	<%-- <div id="join_google" style="display:inline-block;">

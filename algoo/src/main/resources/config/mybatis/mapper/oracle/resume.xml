@@ -103,6 +103,9 @@
 		where his_code = #{hisCode}
 	</select>
 	
-	
+	<select id="selectResumeByMemberCode" resultType="ResumeVO" parameterType="String">
+		select * from history
+		where member_code = #{memberCode}
+	</select>
 	
 </mapper>

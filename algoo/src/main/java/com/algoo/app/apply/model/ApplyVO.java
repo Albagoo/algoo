@@ -7,7 +7,7 @@ public class ApplyVO {
 	private Timestamp days;
 	private String readCheck;
 	private String memo;
-	private String memberCode;
+	private int hisCode;
 	private int recCode;
 	
 	public int getApplyCode() {
@@ -34,23 +34,23 @@ public class ApplyVO {
 	public void setMemo(String memo) {
 		this.memo = memo;
 	}
-	public String getMemberCode() {
-		return memberCode;
-	}
-	public void setMemberCode(String memberCode) {
-		this.memberCode = memberCode;
-	}
 	public int getRecCode() {
 		return recCode;
 	}
 	public void setRecCode(int recCode) {
 		this.recCode = recCode;
 	}
+	public int getHisCode() {
+		return hisCode;
+	}
+	public void setHisCode(int hisCode) {
+		this.hisCode = hisCode;
+	}
 	
 	@Override
 	public String toString() {
 		return "ApplyVO [applyCode=" + applyCode + ", days=" + days + ", readCheck=" + readCheck + ", memo=" + memo
-				+ ", memberCode=" + memberCode + ", recCode=" + recCode + "]";
+				+ ", hisCode=" + hisCode + ", recCode=" + recCode + "]";
 	}
 	
 	

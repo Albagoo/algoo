@@ -21,4 +21,6 @@ public interface ResumeService {
 	public Map<String, Object> selectResumeByCode(int hisCode);
 	
 	public List<ResumeListVO> selectResumeCount(ResumeSearchVO resumeSearchVo);
+	
+	public List<ResumeVO> selectResumeByMemberCode(String memberCode);
 }

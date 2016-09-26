@@ -153,4 +153,9 @@ public class ResumeServiceImpl implements ResumeService{
 		return resumeDao.selectResumeCount(resumeSearchVo);
 	}
 
+	@Override
+	public List<ResumeVO> selectResumeByMemberCode(String memberCode) {
+		return resumeDao.selectResumeByMemberCode(memberCode);
+	}
+
 }

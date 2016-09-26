@@ -59,7 +59,7 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
       
 	   $("#apply").click(function(){
 		   window.open("<c:url value='/apply/apply.ag?recCode="+$("#recCode").val()+"&userid="+$("#userid").val()+"'/>", "apply",
-				   "width=600,height=550,left=10, top=50,resizable=yes,location=yes");
+				   "width=600,height=420,left=10, top=50,resizable=yes,location=yes");
 	   });
       
       $("#simple_top span").html("채용정보");

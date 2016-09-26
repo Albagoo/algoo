@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../inc/simple_top.jsp" %>
+<%@ include file="../inc/top.jsp" %>
 <%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/clear.css'/>" />
 <link rel="stylesheet" type="text/css" href="<c:url value='/css/simpleButton.css'/>" />
@@ -199,7 +199,7 @@
 </div>
 </article>
 
-<%@ include file="../inc/simple_bottom.jsp"%>
+<%@ include file="../inc/bottom.jsp"%>
 
 
 

@@ -140,7 +140,7 @@ public class ResumeController {
 		String msg = "", url = "";
 		if(cnt>0){
 			msg = "이력서 등록 성공!!";
-			url = "/resume/list.ag";
+			url = "/index.ag";
 		}else{
 			msg = "이력서 등록 실패";
 			url = "/resume/write.ag";

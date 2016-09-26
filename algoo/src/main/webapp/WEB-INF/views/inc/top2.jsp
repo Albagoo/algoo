@@ -105,7 +105,8 @@
 							<a href="<c:url value='/rec/recList.ag'/>">시간선택제</a> | 
 							<a href="<c:url value='/rec/recList.ag'/>">당일알바</a> |
 							<a href="http://www.alba.co.kr/story/albahelper/laboroverduelist.asp">임금체불주신고</a>
-							<form name="frmSearch" id="frmSearch" action="a.jsp" method="post">
+							<form name="frmSearch" id="frmSearch"
+							 action="<c:url value='/rec/recList.ag?searchCondition=title&searchKeyword=""'/>" method="post">
 								<fieldset>
 									<span id="span_keyword">
 									<input type="text" name="keyword" id="keyword"></span>

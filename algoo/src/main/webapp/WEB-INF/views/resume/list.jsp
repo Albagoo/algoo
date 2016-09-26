@@ -1195,8 +1195,8 @@ dt label{
                  style="width: 70px;">경력무관</label> 
            
                  <input id="period_check2" name="period_checks" 
-                  type="radio" value="일" 
-                  <c:if test="${perioded=='일' }">
+                  type="radio" value="신입" 
+                  <c:if test="${perioded=='신입' }">
                   checked="checked"
                   </c:if>
                   />

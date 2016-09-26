@@ -363,6 +363,8 @@
 /* 스페셜 공고 */
 .divSuper{
 	width: 100%;
+	height: 920px;
+	overflow-y:hidden;
 	float: left;
 }
 .divSuper p{

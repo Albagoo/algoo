@@ -735,7 +735,7 @@ $(document).ready(function(){
          </div>
 
             <!-- 선택한 지역 정보(서울, 인천, 경기 등..) -->
-            <input type="text" size="200" id="areaSido"
+            <input type="hidden" size="200" id="areaSido"
              name="areaSido" value="서울">
             <!-- 선택한 지역 Controller로 보낼 값 저장 -->
             <input type="hidden" size="200" id="areas"

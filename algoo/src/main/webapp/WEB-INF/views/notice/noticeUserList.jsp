@@ -10,7 +10,7 @@
 	$(document).ready(function(){
 	
 		 //09-06
-		$(".divList .box2 tbody td:nth-of-type(2)")
+		$(".divList .box2 tbody td:nth-of-type(3)")
 		.hover(function(){
 			$(this).css("background","#fff7f7").css("cursor","pointer");
 		}, function(){

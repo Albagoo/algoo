@@ -18,5 +18,6 @@
 		<iframe src="<c:url value='/inc/privacy.html'/>"
 		 frameborder="0" scrolling=no width="880" height="4700">
 	</div>
+</div>
 
 <%@ include file="../inc/bottom.jsp" %> 

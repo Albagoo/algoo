@@ -142,8 +142,11 @@ public class MemberController {
 	
 	@RequestMapping("/ajaxCheckEmail.ag")
 	@ResponseBody
-	public int ajaxCheckEmail(@RequestParam String email){
-		int result = memberService.selectAllEmail(email);
+	public int ajaxCheckEmail(@RequestParam(required=false) String email){
+		int result=0; 
+		if(email!=null){
+			result = memberService.selectAllEmail(email);
+		}
 		return result;
 	}
 	

@@ -51,37 +51,156 @@ $(document).ready(function(){
 	
 	$("#nickName").keyup(function(){
 	if($("#nickName").val().length<1 ){
-		$("#message").html("닉네임을 입력하세요");
+		$("#message3").html("닉네임을 입력하세요");
 	}else{
-		if($("#nickName").val().length>=1){ //여기서부터 닉네임 에이잭스작업해라
+		if($("#nickName").val().length>=1){ 
 			$.ajax({
-				url:"<c:url value='/member/ajaxCheckUserid.ag'/>",
+				url:"<c:url value='/member/ajaxCheckNickName.ag'/>",
 				type:"GET",
-				data:"userid="+$("#userid").val(),
+				data:"nickName="+$("#nickName").val(),
 				success:function(res){
 					var result="";
 					if(res==1){
-						result="이미 등록된 아이디입니다.";
-						$("#chkId").val("N");
+						result="이미 등록된 닉네임입니다.";
+						$("#nick").val("N");
 					}else if(res!=1){
-						result="사용가능한 아이디입니다.";
-						$("#chkId").val("Y");
+						result="사용가능한 닉네임입니다.";
+						$("#nick").val("Y");
 					}
-					$("#message").html(result);
+					$("#message3").html(result);
 				},
 				error:function(xhr, status, error){
 					alert(status+":"+error);
 				}
 			});
 		}else{
-			//유효성 검사를 통과하지 못한 경우
-			$("#message").html("아이디 규칙에 맞지 않습니다");
-			$("#chkId").val("N");
+			$("#message3").html("사용 불가능한 닉네임입니다");
+			$("#nick").val("N");
 		}
 	}	
 		
-	});//id
+	});//nickName
 	
+	var email="";
+	$("#email1").keyup(function(){
+		
+		if($("#email1").val().length<1 ){
+			$("#email_div").css("height","50px");
+			$("#message5").html("이메일을 입력하세요");
+		}else{
+			$("#email_div").css("height","50px");
+			$("#message5").html("이메일을 입력하세요");
+			if($("#email1").val().length>=1){
+				if($("#email2").val()=="etc"){
+					email = $("#email1").val()+"@"+$("#email3").val();
+				}else{
+					email = $("#email1").val()+"@"+$("#email2").val();
+				}
+				$.ajax({
+					url:"<c:url value='/member/ajaxCheckEmail.ag'/>",
+					type:"GET",
+					data:"email="+email,
+					success:function(res){
+						var result="";
+						if(res==1){
+							result="이미 등록된 이메일입니다.";
+							$("#chkEmail").val("N");
+						}else if(res!=1){
+							result="사용가능한 이메일입니다.";
+							$("#chkEmail").val("Y");
+						}
+						$("#message5").html(result);
+					},
+					error:function(xhr, status, error){
+						alert(status+":"+error);
+					}
+				});
+			}else{
+				$("#message5").html("사용 불가능한 이메일입니다");
+				$("#chkEmail").val("N");
+			}
+		}	
+			
+	});//Email
+	$("#email2").change(function(){
+		if($("#email1").val().length<1 ){
+			$("#email_div").css("height","50px");
+			$("#message5").html("이메일을 입력하세요");
+		}else{
+			$("#email_div").css("height","50px");
+			$("#message5").html("이메일을 입력하세요");
+			if($("#email1").val().length>=1){
+				if($("#email2").val()=="etc"){
+					email = $("#email1").val()+"@"+$("#email3").val();
+				}else{
+					email = $("#email1").val()+"@"+$("#email2").val();
+				}
+				$.ajax({
+					url:"<c:url value='/member/ajaxCheckEmail.ag'/>",
+					type:"GET",
+					data:"email="+email,
+					success:function(res){
+						var result="";
+						if(res==1){
+							result="이미 등록된 이메일입니다.";
+							$("#chkEmail").val("N");
+						}else if(res!=1){
+							result="사용가능한 이메일입니다.";
+							$("#chkEmail").val("Y");
+						}
+						$("#message5").html(result);
+					},
+					error:function(xhr, status, error){
+						alert(status+":"+error);
+					}
+				});
+			}else{
+				$("#message5").html("사용 불가능한 이메일입니다");
+				$("#chkEmail").val("N");
+			}
+		}	
+			
+	});//Email
+	$("#email3").keyup(function(){
+		
+		if($("#email1").val().length<1 ){
+			$("#email_div").css("height","50px");
+			$("#message5").html("이메일을 입력하세요");
+		}else{
+			$("#email_div").css("height","50px");
+			$("#message5").html("이메일을 입력하세요");
+			if($("#email1").val().length>=1){
+				if($("#email2").val()=="etc"){
+					email = $("#email1").val()+"@"+$("#email3").val();
+				}else{
+					email = $("#email1").val()+"@"+$("#email2").val();
+				}
+				$.ajax({
+					url:"<c:url value='/member/ajaxCheckEmail.ag'/>",
+					type:"GET",
+					data:"email="+email,
+					success:function(res){
+						var result="";
+						if(res==1){
+							result="이미 등록된 이메일입니다.";
+							$("#chkEmail").val("N");
+						}else if(res!=1){
+							result="사용가능한 이메일입니다.";
+							$("#chkEmail").val("Y");
+						}
+						$("#message5").html(result);
+					},
+					error:function(xhr, status, error){
+						alert(status+":"+error);
+					}
+				});
+			}else{
+				$("#message5").html("사용 불가능한 이메일입니다");
+				$("#chkEmail").val("N");
+			}
+		}	
+			
+	});//Email
 	$("#bt_zipcode").click(function(){
 		getZipcode();
 	});
@@ -104,7 +223,7 @@ function getZipcode(){
 	.width_350{
 		width:350px;
 	}
-	#message, #message2, #message3{
+	#message, #message2, #message3, #message4, #message5, #message6{
 		color:red;
 		font-size:13px;
 	}	
@@ -123,7 +242,6 @@ function getZipcode(){
 		</div>
 	</div>
 	<div id="content">
-		
 		<div class="regi_group">
 			<div id="id_div">
 				<input type="text" name="userid" id="userid" placeholder="* 아이디" style="width:180px"
@@ -173,17 +291,16 @@ function getZipcode(){
 				</div>
 				<div>
 					<select name="email2" id="email2">
-						<option value="naver.com">naver.com</option>
+						<option value="naver.com" selected="selected">naver.com</option>
 						<option value="nate.com">nate.com</option>
 						<option value="hanmail.net">hanmail.net</option>
 						<option value="google.com">google.com</option>
 						<option value="etc">직접입력</option>
 					</select>
-				
 					<input type="text" name="email3" id="email3" placeholder="직접입력"
 					style="visibility:hidden">
 				</div>
-				<span id="message6"></span>
+				<span id="message5"></span>
 			</div>
 			
 			<div id="birth_div" >
@@ -195,10 +312,9 @@ function getZipcode(){
 				</div>
 				<div class="birth_mm">
 					<select name="bi2" id="b_mm">
-						<option value="">월</option>
+						<option value="null">월</option>
 						<c:forEach var="i" begin="1" end="12" step="1">
 							<option value="${i }">${i }</option>
-						
 						</c:forEach>
 					</select>
 				</div>
@@ -213,7 +329,7 @@ function getZipcode(){
 				<input type="text" name="hp1" id="hp1" placeholder="ex) 010" maxlength="3">
 				<input type="text" name="hp2" id="hp2" maxlength="4">
 				<input type="text" name="hp3" id="hp3" maxlength="4">
-				<span id="message5"></span>
+				<span id="message6"></span>
 			</div>
 			<div id="zipcode_div">
 				<input type="text" name="zipcode" id="zipcode" placeholder="우편번호" readonly="readonly">
@@ -232,8 +348,10 @@ function getZipcode(){
 	<input type ="hidden" name="chkId" id="chkId" value="N">
 	<input type ="hidden" name="chkPw" id="chkPw" value="N">
 	<input type ="hidden" name="nick" id="nick" value="N">
+	<input type ="hidden" name="chkName" id="chkName" value="N">
 	<input type ="hidden" name="chkEmail" id="chkEmail" value="N">
 	<input type ="hidden" name="chkBirth" id="chkBirth" value="N">
+	<input type ="hidden" name="chkHp" id="chkHp" value="N">
 		<div class="regi_group" id="regi_submit" >
 			<input type="submit" id="bt_register" value="가입하기">
 		</div>

@@ -101,7 +101,7 @@ $(document).ready(function(){
 		});//pwd2
 */		
 		$("#nickName").keyup(function(){
-			if($("#nickName").val().length<1){
+			if($("#nickName").val().length<1 || $("#nickName").val()==""){
 				$("#message3").html("닉네임을 입력하세요");	
 				$("#nick").val("N");
 			}else{
@@ -109,54 +109,109 @@ $(document).ready(function(){
 				$("#nick").val("Y");
 			}
 		});//nickname
+		$("#userName").keyup(function(){
+			if($("#userName").val().length<1 || $("#userName").val()==""){
+				$("#message4").html("이름을 입력하세요");	
+				$("#chkName").val("N");
+			}else{
+				$("#message4").html("");
+				$("#chkName").val("Y");
+			}
+		});//nickname
+		$("#b_yy").keyup(function(){
+			if($("#b_yy").val().length==4 && $("#b_mm").val()!="null" && $("#b_dd").val()>=1 && $("#b_dd").val()<=31 ){
+				$("#chkBirth").val("Y");
+			}else{
+				$("#chkBirth").val("N");
+			}
+		});
+		$("#b_mm").change(function(){
+			if($("#b_yy").val().length==4 && $("#b_mm").val()!="null" && $("#b_dd").val()>=1 && $("#b_dd").val()<=31 ){
+				$("#chkBirth").val("Y");
+			}else{
+				$("#chkBirth").val("N");
+			}
+		});
+		$("#b_dd").keyup(function(){
+			if($("#b_yy").val().length==4 && $("#b_mm").val()!="null" && $("#b_dd").val()>=1 && $("#b_dd").val()<=31 ){
+				$("#chkBirth").val("Y");
+			}else{
+				$("#chkBirth").val("N");
+			}
+		});
+		$("#hp1").keyup(function(){
+			if($("#hp1").val().length==3 && $("#hp2").val().length==4 && $("#hp3").val().length==4){
+				$("#chkHp").val("Y");
+				$("#message6").html("");
+			}else if(!validate_hp($("#hp1").val()) ||
+					!validate_hp($("#hp2").val()) || 
+					!validate_hp($("#hp3").val()) ){
+				$("#chkHp").val("N");
+				$("#message6").html("숫자만 입력하세요");
+			}else{
+				$("#chkHp").val("N");
+				$("#message6").html("휴대폰번호를 입력하세요");
+			}
+		});
+		$("#hp2").keyup(function(){
+			if($("#hp1").val().length==3 && $("#hp2").val().length==4 && $("#hp3").val().length==4){
+				$("#chkHp").val("Y");
+				$("#message6").html("");
+			}else if(!validate_hp($("#hp1").val()) ||
+					!validate_hp($("#hp2").val()) || 
+					!validate_hp($("#hp3").val()) ){
+				$("#chkHp").val("N");
+				$("#message6").html("숫자만 입력하세요");
+			}else{
+				$("#chkHp").val("N");
+				$("#message6").html("휴대폰번호를 입력하세요");
+			}
+		});
+		$("#hp3").keyup(function(){
+			if($("#hp1").val().length==3 && $("#hp2").val().length==4 && $("#hp3").val().length==4){
+				$("#chkHp").val("Y");
+				$("#message6").html("");
+			}else if(!validate_hp($("#hp1").val()) ||
+					!validate_hp($("#hp2").val()) || 
+					!validate_hp($("#hp3").val()) ){
+				$("#chkHp").val("N");
+				$("#message6").html("숫자만 입력하세요");
+			}else{
+				$("#chkHp").val("N");
+				$("#message6").html("휴대폰번호를 입력하세요");
+			}
+		});
 		
 		$("#bt_register").click(function(event){
 			if($("#chkId").val()=="N"){
 				alert("아이디를 확인해 주세요");
 				$("#userid").focus();
 				return false;
+			}else if($("#nick").val()=="N"){
+				alert("닉네임을 확인해 주세요");
+				$("#nickName").focus();
+				return false;
 			}else if($("#chkPw").val()=="N"){
 				alert("비밀번호를 확인해 주세요");
 				$("#pwd").focus();
 				return false;
-			}else if($("#nick").val()=="N"){
-				alert("닉네임을 입력해 주세요");
-				$("#nickName").focus();
-				return false;
-			}
-			
-			if($("#userName").val().length<1 || $("#userName").val()==""){
-				alert("이름을 입력하세요")
+			}else if($("#chkName").val()=="N"){
+				alert("이름을 확인해 주세요");
 				$("#userName").focus();
 				return false;
-			}/*else if($(':radio[name="gender"]:checked').length < 1){
-				alert("성별을 입력하세요");
+			}else if($("#chkEmail").val()=="N"){
+				alert("이메일을 확인해 주세요");
+				$("#email1").focus();
 				return false;
-			}*/else if($("#b_yy").val().length<1){
-				alert("생일 연도를 입력하세요");
+			}else if($("#chkBirth").val()=="N"){
+				alert("생일을 확인해 주세요");
 				$("#b_yy").focus();
 				return false;
-			}else if($("#b_mm").val()=='0'){
-				alert("월을 입력하세요");
-				$("#b_mm").focus();
-				return false;
-			}else if($("#b_dd").val().length<1){
-				alert("일을 입력하세요");
-				$("#b_dd").focus();
-				return false;
-			}else if($("#hp1").val().length<1 || $("#hp2").val().length<1
-					|| $("#hp3").val().length<1){
-				alert("휴대폰 번호를 입력하세요")
-				$("#hp1").focus();
-				return false;
-			}else if(!validate_hp($("#hp1").val()) ||
-					!validate_hp($("#hp2").val()) || 
-					!validate_hp($("#hp3").val()) ){
-				alert("휴대폰 번호는 숫자여야 합니다");
+			}else if($("#chkHp").val()=="N"){
+				alert("휴대폰 번호를 확인해 주세요");
 				$("#hp1").focus();
 				return false;
 			}
-			
 		});
 		
 });//document.ready

@@ -65,5 +65,19 @@ public class CommemServiceImpl implements CommemService {
 	public int withdrawCommem(String userid) {
 		return commemDao.withdrawCommem(userid);
 	}
+	@Override
+	public int selectAllUserid(String userid) {
+		return commemDao.selectAllUserid(userid);
+	}
+
+	@Override
+	public int selectAllNickName(String userid) {
+		return commemDao.selectAllNickName(userid);
+	}
+
+	@Override
+	public int selectAllEmail(String userid) {
+		return commemDao.selectAllEmail(userid);
+	}
 
 }

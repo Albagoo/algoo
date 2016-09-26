@@ -52,4 +52,18 @@ public class CommemDAOMybatis extends SqlSessionDaoSupport
 	public int withdrawCommem(String userid) {
 		return getSqlSession().update(namespace+".withDrawCommem",userid);
 	}
+	@Override
+	public int selectAllUserid(String userid) {
+		return getSqlSession().selectOne(namespace+".selectAllUserid", userid);
+	}
+
+	@Override
+	public int selectAllNickName(String userid) {
+		return getSqlSession().selectOne(namespace+".selectAllNickName", userid);
+	}
+
+	@Override
+	public int selectAllEmail(String userid) {
+		return getSqlSession().selectOne(namespace+".selectAllEmail", userid);
+	}
 }

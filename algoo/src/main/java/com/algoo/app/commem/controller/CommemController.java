@@ -36,7 +36,8 @@ public class CommemController {
 	//기업회원 - insert
 	@RequestMapping("/memberAdd.ag")
 	public String memberAdd(@ModelAttribute CommemVO commemVo,
-			@RequestParam(required=false) String email3){
+			@RequestParam(required=false) String email3,
+			Model model){
 		
 		logger.info("기업회원 처리 파라미터 commemVo={},email3={}"
 				,commemVo,email3);
@@ -77,18 +78,41 @@ public class CommemController {
 		int result = commemService.insertCompMember(commemVo);
 		logger.info("기업회원가입 처리, result={}",result);
 		
-		return "redirect:/index.ag";
+		String msg="",url="";
+		if(result>0){
+			msg="회원가입되었습니다.";
+			url="/index.ag";
+		}else{
+			msg="회원가입 실패"; 
+			url="/member_comp/register.ag";
+		}
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		
+		return "common/message";
 	}
 	
 	@RequestMapping("/ajaxCheckUserid.ag")
 	@ResponseBody
 	public int ajaxCheckId(@RequestParam String userid){
-		logger.info("ajax-아이디 중복확인, 파라미터 userid={}", userid);
-		
-		int result=commemService.checkUserid(userid);
-		logger.info("ajax 아이디 중복 확인 결과, result={}",result);
-		
-		//해당 아이디가 존재하면 1, 존재하지 않으면 2를 리턴
+		int result = commemService.selectAllUserid(userid);
+		return result;
+	}
+	
+	@RequestMapping("/ajaxCheckNickName.ag")
+	@ResponseBody
+	public int ajaxCheckNickName(@RequestParam String nickName){
+		int result = commemService.selectAllNickName(nickName);
+		return result;
+	}
+	
+	@RequestMapping("/ajaxCheckEmail.ag")
+	@ResponseBody
+	public int ajaxCheckEmail(@RequestParam(required=false) String email){
+		int result=0; 
+		if(email!=null){
+			result = commemService.selectAllEmail(email);
+		}
 		return result;
 	}
 	@RequestMapping("/commemInfo.ag")

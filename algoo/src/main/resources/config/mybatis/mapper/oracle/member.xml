@@ -110,6 +110,6 @@
 		union
 		select userid,nickname, (email1||'@'||email2) as email from  admin_MEMBER
 		)
-		where email = #{email1}@#{email2}
+		where email = #{email}
 	</select>
 </mapper>

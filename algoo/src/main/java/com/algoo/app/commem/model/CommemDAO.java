@@ -9,4 +9,7 @@ public interface CommemDAO {
 	public int selectCompCode(String userid);
 	public int updateCompMember(CommemVO commemVo);
 	public int withdrawCommem(String userid);
+	public int selectAllUserid(String userid);
+	public int selectAllNickName(String userid);
+	public int selectAllEmail(String userid);
 }

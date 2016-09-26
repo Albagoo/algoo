@@ -11,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -293,6 +292,12 @@ public class MemberController {
 		logger.info("비밀번호 찾기 파라미터 memberVo = {}", memberVo);
 		String msg = "", url = "/member/findMember.ag";
 		
+		String tempPwd = ""+(char)(Math.random()*26+'A')+(int)(Math.random()*10)
+				+(char)(Math.random()*26+'A')+(int)(Math.random()*10)
+				+(char)(Math.random()*26+'A')+(int)(Math.random()*10)
+				+(char)(Math.random()*26+'A')+(int)(Math.random()*10);
+		logger.info(tempPwd);
+		
 		if(type_pwd.equals("personal")){
 			String email1 = memberVo.getEmail1();
 			String email2 = memberVo.getEmail2();
@@ -311,12 +316,6 @@ public class MemberController {
 				}
 			}
 			
-			String tempPwd = ""+(char)(Math.random()*26+'A')+(int)(Math.random()*10)
-					+(char)(Math.random()*26+'A')+(int)(Math.random()*10)
-					+(char)(Math.random()*26+'A')+(int)(Math.random()*10)
-					+(char)(Math.random()*26+'A')+(int)(Math.random()*10);
-			logger.info(tempPwd);
-			
 			int cnt = memberService.selectCount(memberVo);
 			
 			if(cnt == 1){
@@ -326,7 +325,7 @@ public class MemberController {
 				
 				if(result > 0){
 					msg = "이메일로 임시 비밀번호가 발송되었습니다!"
-						+ "\n임시 비밀번호로 로그인 하신 후 비밀번호 변경 부탁드립니다!";
+						+ "임시 비밀번호로 로그인 하신 후 비밀번호 변경 부탁드립니다!";
 					String subject = "[알구] 임시 비밀번호 발송 메일입니다";
 					String content = "비밀 번호는 1개월 단위로 변경을 권장합니다"
 							+ "\n임시 비밀번호 : " + tempPwd;
@@ -349,6 +348,7 @@ public class MemberController {
 				msg = "입력하신 정보와 일치하는 가입 정보가 없습니다!!";
 			}
 			
+			
 		}else if(type_pwd.equals("company")){
 			String email1 = commemVo.getEmail1();
 			String email2 = commemVo.getEmail2();
@@ -367,11 +367,7 @@ public class MemberController {
 				}
 			}
 			
-			String tempPwd = ""+(char)(Math.random()*26+'A')+(int)(Math.random()*10)
-					+(char)(Math.random()*26+'A')+(int)(Math.random()*10)
-					+(char)(Math.random()*26+'A')+(int)(Math.random()*10)
-					+(char)(Math.random()*26+'A')+(int)(Math.random()*10);
-			logger.info(tempPwd);
+			
 			
 			int cnt = commemService.selectCount(commemVo);
 			
@@ -383,7 +379,7 @@ public class MemberController {
 				
 				if(result > 0){
 					msg = "이메일로 임시 비밀번호가 발송되었습니다!"
-						+ "\n임시 비밀번호로 로그인 하신 후 비밀번호 변경 부탁드립니다!";
+						+ "임시 비밀번호로 로그인 하신 후 비밀번호 변경 부탁드립니다!";
 					String subject = "[알구] 임시 비밀번호 발송 메일입니다";
 					String content = "비밀 번호는 1개월 단위로 변경을 권장합니다"
 							+ "\n임시 비밀번호 : " + tempPwd;
@@ -407,6 +403,8 @@ public class MemberController {
 			}
 			
 		}
+		
+		logger.info("msg = {}, url = {}", msg, url);
 		model.addAttribute("msg", msg);
 		model.addAttribute("url", url);
 		

@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <style type="text/css">
-	th:nth-of-type(1){
+	#white th:nth-of-type(1){
 		background:#E70400;
 	}
-	th:nth-of-type(1) a{
+	#white th:nth-of-type(1) a{
 		color:white;
 	}
 </style>
@@ -19,7 +19,7 @@
 			</colgroup>
 			<thead>
 				<tr>
-					<th class="menuStyle" scope="col"><a href="<c:url value='/admin/menu/memberManagement.ag'/> ">회원관리</a></th>
+					<th class="menuStyle" scope="col"><a href="<c:url value='/admin/adminMember.ag'/> ">회원관리</a></th>
 					<th class="menuStyle" scope="col"><a href="<c:url value='/admin/menu/recManagement.ag'/> ">채용공고관리</a></th>
 					<th class="menuStyle" scope="col"><a href="<c:url value='/admin/menu/resumeManagement.ag'/> ">인재정보관리</a></th>
 					<th class="menuStyle" scope="col"><a href="<c:url value='/admin/adminBoard.ag'/> ">게시판관리</a></th>

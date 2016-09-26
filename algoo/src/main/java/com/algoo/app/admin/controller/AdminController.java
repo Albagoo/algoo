@@ -49,8 +49,9 @@ public class AdminController {
 	public String adminIndex(){
 		logger.info("관리자 홈페이지 보여주기");
 		
-		return "admin/adminIndex";
+		return "admin/login/adminLogin";
 	}
+	
 	/*로그인,로그아웃*/
 	@RequestMapping(value="/login/adminLogin.ag", method=RequestMethod.GET)
 	public String adminLogin_get(){
@@ -81,7 +82,7 @@ public class AdminController {
 			session.setAttribute("adminAuthCode", "3"); //3 관리자
 			
 			msg = adminMemberVo.getName()+"님 관리자로 로그인되었습니다";
-			url = "/admin/adminIndex.ag";
+			url = "/admin/adminMember.ag";
 		}else{
 			if(result==adminMemberService.ID_NONE){
 				msg = "존재하지 않는 아이디입니다";
@@ -106,7 +107,7 @@ public class AdminController {
 		session.removeAttribute("adminAuthCode");
 		//3.
 		model.addAttribute("msg", "로그아웃되었습니다");
-		model.addAttribute("url", "/admin/adminIndex.ag");
+		model.addAttribute("url", "/admin/login/adminLogin.ag");
 		
 		return "common/message";
 	}

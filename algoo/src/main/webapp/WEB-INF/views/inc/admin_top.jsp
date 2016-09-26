@@ -25,27 +25,33 @@
 <style>
 	#white{
 		width:100%;
-		height:30px;
+		height:25px;
 		border:1px solid #ccc;
 		box-shadow:2px 5px 5px #ccc;
+		margin:0;
 	}
-	#white th{
+	#white .menuStyle{
 		border:1px solid #ccc;
 		height:30px;
-		
+		background: white;
 	}
 	.menu{
 		width:100%;
+		height:25px;
 		display: inline-block;
 	}
 	.menu a{
 		cursor:pointer;
+		
 	}
 	.menu .hide{
 		display:none;
 	}
 	.menuStyle a{
 		color:black;
+		font-size: 16px;
+		font-weight: bold;
+		text-decoration: none;
 	}
 </style>
 <!--[if lt IE 9]>
@@ -57,21 +63,17 @@
 		<!-- 헤더영역 -->
 		<header>
 			<div id="simple_top">
-				<a href="<c:url value='/admin/adminIndex.ag'/>"><img alt="로고" src="<c:url value='/images/simple_Logo.png'/> ">
-				</a>
-				<span>관리자</span>
-				<c:if test="${empty sessionScope.userid }">
-					<ul>
-						<li><a href="<c:url value='/admin/adminIndex.ag'/>">홈</a> |</li>
-						<li><a href="<c:url value='/admin/login/adminLogin.ag'/>">로그인</a></li>
-					</ul>
+				<c:if test="${empty sessionScope.adminUserid }">
+					<a href="<c:url value='/admin/adminIndex.ag'/>"><img alt="로고" src="<c:url value='/images/simple_Logo.png'/> ">
+				</a></c:if>
+				<c:if test="${!empty sessionScope.adminUserid }">
+					<a href="<c:url value='/admin/adminMember.ag'/>"><img alt="로고" src="<c:url value='/images/simple_Logo.png'/> ">
 				</c:if>
-				<c:if test="${!empty sessionScope.userid }">
+				<span>관리자</span>
+				<c:if test="${!empty sessionScope.adminUserid }">
 					<ul>
-						<li><span style="font-size:1.0em;color:black;font-weight:bold;margin-right: 10px;"> ${sessionScope.userName}님</span></li>
-						<li><a href="<c:url value='/admin/adminIndex.ag'/>">홈</a> |</li>
-						<li><a href="<c:url value='/admin/login/adminLogout.ag'/>">로그아웃</a> |</li>
-						<li><a href="<c:url value='/admin/menu/memberManagement.ag'/>">관리자메뉴</a></li>
+						<li><span style="font-size:1.0em;color:black;font-weight:bold;margin-right: 10px;"> ${sessionScope.adminUserName}님</span></li>
+						<li><a href="<c:url value='/admin/login/adminLogout.ag'/>">로그아웃</a></li>
 					</ul>
 				</c:if>
 				

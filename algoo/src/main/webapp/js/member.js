@@ -212,6 +212,19 @@ $(document).ready(function(){
 				$("#hp1").focus();
 				return false;
 			}
+			var yy = $("#b_yy").val();
+	        if($("#b_mm").val().length<2){
+	           var mm="0"+$("#b_mm").val();
+	        }else{
+	           var mm=$("#b_mm").val();
+	        }
+	        if($("#b_dd").val().length<2){
+	           var dd="0"+$("#b_dd").val();
+	        }else{
+	           var dd=$("#b_dd").val();
+	        }
+	        
+	        $("#birth").val(yy+"-"+mm+"-"+dd);
 		});
 		
 });//document.ready

@@ -131,6 +131,7 @@
 						 <a href="<c:url value='/rec/recList.ag?areas=%EC%B6%A9%EC%B2%AD%EB%82%A8%EB%8F%84'/>" class="chungnam">충남</a>
 						 <a href="<c:url value='/rec/recList.ag?areas=%EC%B6%A9%EC%B2%AD%EB%B6%81%EB%8F%84'/>" class="chungbuk">충북</a>
 						 <a href="<c:url value='/rec/recList.ag?areas=%EB%8C%80%EC%A0%84%EA%B4%91%EC%97%AD%EC%8B%9C'/>" class="daejeon" id="spCity">대전</a>
+						 <a href="<c:url value='/rec/recList.ag?areas=%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C'/>" class="sejong" id="spCity">세종</a>
 						 <a href="<c:url value='/rec/recList.ag?areas=%EA%B2%BD%EC%83%81%EB%B6%81%EB%8F%84'/>" class="kyungbuk">경북</a>
 						 <a href="<c:url value='/rec/recList.ag?areas=%EC%A0%84%EB%9D%BC%EB%B6%81%EB%8F%84'/>" class="jeonbuk">전북</a>
 						 <a href="<c:url value='/rec/recList.ag?areas=%EB%8C%80%EA%B5%AC%EA%B4%91%EC%97%AD%EC%8B%9C'/>" class="daegu" id="spCity">대구</a>

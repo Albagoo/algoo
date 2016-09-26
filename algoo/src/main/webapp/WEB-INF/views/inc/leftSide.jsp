@@ -43,6 +43,7 @@
 			<a href="<c:url value='/rec/recList.ag?areas=%EC%A0%84%EB%9D%BC%EB%82%A8%EB%8F%84'/>">전남</a> | 
 			<a href="<c:url value='/rec/recList.ag?areas=%EC%A0%84%EB%9D%BC%EB%B6%81%EB%8F%84'/>">전북</a> | 
 			<a href="<c:url value='/rec/recList.ag?areas=%EC%A0%9C%EC%A3%BC%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84'/>">제주</a><br>
+			<a href="<c:url value='/rec/recList.ag?areas=%EC%84%B8%EC%A2%85%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EC%8B%9C'/>">세종</a><br>
 			<a href="<c:url value='/rec/recList.ag'/>">전국</a></p><br>
 			<!-- <a href="#">지도로 찾는 알바</a><br>
 			<a href="#">역세권 알바</a><br>

@@ -164,7 +164,7 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
       기업정보
       </span>
       <input type="button" class="white button small" value="?">
-      <a href="" class="detail_right font_11 ">자세히보기></a> <br class="br">
+      <!-- <a href="" class="detail_right font_11 ">자세히보기></a> <br class="br"> -->
       <div class="">
          <dl style="display: block;" class="clearBoth">
             <dt>
@@ -258,11 +258,11 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
      src="http://i.imgur.com/7p0pSoh.png" style="width: 100px;height: 30px"
      alt="e-메일지원"></a>
      <br class="clearBoth">
-     <div class="font_10 bon bold">e-메일 지원 시 자사양식 다운로드후 지원해 주세요.
+     <!-- <div class="font_10 bon bold">e-메일 지원 시 자사양식 다운로드후 지원해 주세요.
      <a href="#" id="downBt"><img style="width: 20px;height: 20px"
      src="http://icons.iconarchive.com/icons/graphicloads/100-flat-2/256/arrow-download-icon.png"
      alt="양식다운로드"
-     ></a>
+     ></a> -->
      </div>
    </div>
    

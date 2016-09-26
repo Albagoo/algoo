@@ -95,6 +95,7 @@ public class LoginController {
 		//session.invalidate();
 		session.removeAttribute("userid");
 		session.removeAttribute("userName");
+		session.removeAttribute("nickName");
 		session.removeAttribute("authCode");
 		//3.
 		model.addAttribute("msg", "로그아웃되었습니다");

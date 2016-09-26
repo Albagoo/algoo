@@ -39,13 +39,17 @@
 			<mapping path="/comment/write.ag" />
 			<beans:ref bean ="loginInterceptor" />
 		</interceptor>
-	</interceptors>
 	
-   <interceptors>
 		<interceptor>
 			<mapping path="/rec/recWrite.ag" />
 			<mapping path="/resume/list.ag" />
 			<beans:ref bean ="companyLoginInterceptor" />
+		</interceptor>
+		
+		<interceptor>
+			<mapping path="/admin/*" />
+			<mapping path="/admin/*/*" />
+			<beans:ref bean ="adminLoginInterceptor" />
 		</interceptor>
 	</interceptors>
    

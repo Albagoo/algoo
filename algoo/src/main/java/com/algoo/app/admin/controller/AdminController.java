@@ -75,10 +75,10 @@ public class AdminController {
 		String msg="", url="";
 		if(result==adminMemberService.LOGIN_OK){
 			adminMemberVo = adminMemberService.selectAdminByUserid(userid);
-			session.setAttribute("userid", userid);
-			session.setAttribute("userName", adminMemberVo.getName());
-			session.setAttribute("nickName", adminMemberVo.getNickName());
-			session.setAttribute("authCode", "3"); //3 관리자
+			session.setAttribute("adminUserid", userid);
+			session.setAttribute("adminUserName", adminMemberVo.getName());
+			session.setAttribute("adminNickName", adminMemberVo.getNickName());
+			session.setAttribute("adminAuthCode", "3"); //3 관리자
 			
 			msg = adminMemberVo.getName()+"님 관리자로 로그인되었습니다";
 			url = "/admin/adminIndex.ag";
@@ -100,9 +100,10 @@ public class AdminController {
 	@RequestMapping("/login/adminLogout.ag")
 	public String adminLogout(HttpSession session, Model model){
 		logger.info("로그아웃 처리");
-		session.removeAttribute("userid");
-		session.removeAttribute("userName");
-		session.removeAttribute("authCode");
+		session.removeAttribute("adminUserid");
+		session.removeAttribute("adminUserName");
+		session.removeAttribute("adminNickName");
+		session.removeAttribute("adminAuthCode");
 		//3.
 		model.addAttribute("msg", "로그아웃되었습니다");
 		model.addAttribute("url", "/admin/adminIndex.ag");

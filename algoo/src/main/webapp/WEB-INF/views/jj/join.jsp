@@ -31,7 +31,7 @@
 				<p>원하는 기업을 쏙쏙</p>
 				<img alt="개인이미지" src="<c:url value='/images/suit.png'/>"><br>
 				<input type="button" id="bt_personal" value="개인 회원가입">
-				<p style="color:sliver;font-size:14px;font-weight:normal;">간편하게 가입하는 방법도 있어요</p>
+				<%-- <p style="color:sliver;font-size:14px;font-weight:normal;">간편하게 가입하는 방법도 있어요</p>
 				
 				<div id="join_google">
 					<img alt="구글로고" src="<c:url value='/images/icon_google.png'/>"/>
@@ -51,7 +51,7 @@
 				<div id="join_facebook">
 					<img alt="페이스북로고" src="<c:url value='/images/icon_facebook.png'/>"/>
 					<input type="button" id="bt_facebook" value="페이스북 로그인">
-				</div>
+				</div> --%>
 			</div>
 			<div id="join_business" style="margin-right: 16px;">
 				<h2><span class="point_b">기업&nbsp;</span>회원가입</h2>

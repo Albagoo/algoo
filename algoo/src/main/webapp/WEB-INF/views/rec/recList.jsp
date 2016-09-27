@@ -54,8 +54,8 @@ $(document).ready(function(){
 		var SIDO= $(this).text();
 		$("#areaSido").val(SIDO);
 	
-	
 	});
+	
 	
 
 	
@@ -295,6 +295,7 @@ $(document).ready(function(){
     function GU(guAtag){
        guName =$(guAtag).text();
       $(function() {
+    	  $("#areadong").val(guName);
          $("#recListArea p>div>a").css("background-color","#rgba(255, 255, 255, 0.0)").css("color","#000");
          $(guAtag).css("background-color","#687EA7").css("color","#FFF");
          test(guName);
@@ -323,7 +324,9 @@ $(document).ready(function(){
     
     //동읍면 셋팅-1
     function dongSet(res,code,dongTab,SI) {
-           dongRes="";
+           dongRes="<div><a href='#' onclick='dong(this)'>"+
+           "전체 "
+           +"</a></div>";
            $.each(res.DATA,function() {
                  if(this.GU==code&&this.SI==SI){
                    dongRes+="<div><a href='#' onclick='dong(this)'>"+
@@ -346,28 +349,43 @@ $(document).ready(function(){
          return;
       }
       var areaToSido=$("#areaSido").val();
+      var areaTodong=$("#areadong").val();
       //사용자에게 보여지는 값
       aeraTemp=$(aa).text();
-      if(areaName!='전체'){
-      
-      selectArea=$("#test").html()+"<label name='areased'"+"style='color=#D50C0C'"+
-      " onclick='removeArea(this)'  for="+areaName+
-      ">"+"<input type='button' class='white2' title='"+areaToSido+
-      "' value='"+areaToSido+"'>"+areaName+
-      "<input type='button' class='white' title='"+areaName+
-      " 제거' id='"+areaName+"' value='x'>"+"</label>";
-      selectArea=selectArea.replace("지역을 선택하세요 (최대 5개 지역 선택가능)","　");
-      $("#test").html(selectArea);
-      
-      $("#recListArea p>div>a").css("background-color","#rgba(255, 255, 255, 0.0)").css("color","#000");
-      $(aa).css("background-color","#687EA7").css("color","#FFF");
-      }else{
+      if(areaName=='전체'){
     	  selectArea=$("#test").html()+"<label name='areased'"+"style='color=#D50C0C'"+
           " onclick='removeArea(this)'  for="+areaToSido+
           ">"+areaToSido+"<input type='button' class='white2' title='"+       
           areaName+"' value='"+areaName+
           "'>"+"<input type='button' class='white' title='"+areaToSido+
           " 제거' id='"+areaToSido+"' value='x'>"+"</label>";
+          selectArea=selectArea.replace("지역을 선택하세요 (최대 5개 지역 선택가능)","　");
+          $("#test").html(selectArea);
+          
+          $("#recListArea p>div>a").css("background-color","#rgba(255, 255, 255, 0.0)").css("color","#000");
+          $(aa).css("background-color","#687EA7").css("color","#FFF");
+      
+      }else if(areaName=='전체 '){
+    	  selectArea=$("#test").html()+"<label name='areased'"+"style='color=#D50C0C'"+
+          " onclick='removeArea(this)'  for="+areaTodong+
+          ">"+areaTodong+"<input type='button' class='white2' title='"+       
+          areaName+"' value='"+areaName+
+          "'>"+"<input type='button' class='white' title='"+areaTodong+
+          " 제거' id='"+areaTodong+"' value='x'>"+"</label>";
+          selectArea=selectArea.replace("지역을 선택하세요 (최대 5개 지역 선택가능)","　");
+          $("#test").html(selectArea);
+          
+          $("#recListArea p>div>a").css("background-color","#rgba(255, 255, 255, 0.0)").css("color","#000");
+          $(aa).css("background-color","#687EA7").css("color","#FFF");
+      }else {
+        
+          selectArea=$("#test").html()+
+          "<label name='areased'"+"style='color=#D50C0C'"+
+          " onclick='removeArea(this)'  for="+areaName+
+          ">"+"<input type='button' class='white2' title='"+
+          areaToSido+ "' value='"+ areaToSido+"'>"+ areaName+
+          "<input type='button' class='white' title='"+areaName+
+          " 제거' id='"+areaName+"' value='x'>"+"</label>";
           selectArea=selectArea.replace("지역을 선택하세요 (최대 5개 지역 선택가능)","　");
           $("#test").html(selectArea);
           
@@ -737,6 +755,9 @@ $(document).ready(function(){
             <!-- 선택한 지역 정보(서울, 인천, 경기 등..) -->
             <input type="hidden" size="200" id="areaSido"
              name="areaSido" value="서울">
+            <!-- 선택한 지역 구정보(서울, 인천, 경기 등..) -->
+            <input type="hidden" size="200" id="areadong"
+             name="areadong" value="강남구">
             <!-- 선택한 지역 Controller로 보낼 값 저장 -->
             <input type="hidden" size="200" id="areas"
              name="areas" value="">

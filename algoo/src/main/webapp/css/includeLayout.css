@@ -129,11 +129,12 @@
 	text-align: center;
 }
 #keyword{
-	width:90%;
+	width:96%;
 	height:20px;
-	margin-top:3px;
+	margin-top:2px;
 	border:1px solid white;
 	outline:none;
+	border-radius:0px;
 }
 #bt_search{
 	display: inline-block;

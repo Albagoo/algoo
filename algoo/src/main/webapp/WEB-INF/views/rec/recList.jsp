@@ -893,7 +893,8 @@ $(document).ready(function(){
                            value="${vo.pay }" />원</td>
                      <!-- 근무시간 -->
                      <td>
-                        ${vo.workTime}:${vo.workTime2}-${vo.workTime3}:${vo.workTime4}</td>
+                        ${vo.workTime}<c:if test=
+            "${!empty vo.workTime2}">:${vo.workTime2}-${vo.workTime3}:${vo.workTime4}</c:if></td>
                      <td>
                         <!-- 등록일 --> <fmt:formatDate value="${vo.regdate}"
                            pattern="yyyy-MM-dd" />

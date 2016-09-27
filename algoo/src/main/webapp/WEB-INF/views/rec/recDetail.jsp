@@ -105,11 +105,18 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
       });
       
         //[출처] [AngularJS, Jquery] URL 또는 TEXT 복사하기 |작성자 지니고
-      
-   }); 
-   
-   
+   $("#scrapeBt").click(function() {
+	   
+	   //주소복사
+	   var juso =location.href;
+	   	   
+	   $("#mTitle").append("<br><a href="+juso+">"+$("#recTitle").text()+"</a>");
+	   
+	});
   
+   
+      
+}); 
    
 </script>
 <input type="hidden" value="${param.recCode }" id="recCode">
@@ -134,7 +141,8 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
       
       
       
-         <input type="button" class="button rosy small" value="스크랩">
+         <input type="button" id="scrapeBt" 
+         class="button rosy small" value="스크랩">
          
          <input type="button" class="button rosy small" value="인쇄"
          onclick="window.print()">
@@ -197,7 +205,7 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
       </div>
    </div>
    <div class="main_right detail_right">
-     <p class="right_title">${recVo.compName }</p>
+     <p id=recTitle class="right_title">${recVo.compName }</p>
      <dl class="clearBoth">
         <dt>
         <span class="titd">마감일</span>
@@ -212,19 +220,26 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
         <c:set value="${recVo.recruitMember }" var="recruitMember" />
         <c:set value="," var="comar" />
          ${fn:replace(recruitMember,comar,"")}
+        <c:if test="${empty recVo.recruitMember }">
+        0명
+        </c:if>
         </span>
         </dt>
         <dt>
         <span class="titd">성      별</span>
-        <span class="txt_300">${recVo.gender }</span>
+        <span class="txt_300">${recVo.gender }<c:if test=
+        "${empty recVo.gender }">성별무관</c:if>
+        </span>
         </dt>
         <dt>
         <span class="titd">연      령</span>
-        <span class="txt_300">${recVo.age }</span>
+        <span class="txt_300">${recVo.age }<c:if test=
+        "${empty recVo.age }">연령무관</c:if></span>
         </dt>
         <dt>
         <span class="titd">학      력</span>
-        <span class="txt_300">${recVo.educateLv }</span>
+        <span class="txt_300">${recVo.educateLv }<c:if test=
+        "${empty recVo.educateLv }">학력무관</c:if></span>
         </dt>
      <p class="right_title">&nbsp;</p>
         <dt>
@@ -276,7 +291,8 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
       <dl class="clearBoth">
          <dt>
             <span class="titc">고용형태</span> 
-            <span class="txt_150">${recVo.recruitType }</span>
+            <span class="txt_150">${recVo.recruitType }<c:if test=
+            "${empty recVo.recruitType }">알바</c:if></span>
          </dt>
          <dt>
             <span class="titc">업직종</span> 
@@ -305,9 +321,10 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
          <dt>
             <span class="titc">근무시간</span> 
             <span class="txt_150">
-            ${recVo.workTime }:${recVo.workTime2 }
+            ${recVo.workTime }<c:if test=
+            "${!empty recVo.workTime2 }">:${recVo.workTime2 }
             ~
-            ${recVo.workTime3 }:${recVo.workTime4 }
+            ${recVo.workTime3 }:${recVo.workTime4 }</c:if>
             </span>
          </dt>
          <dt>

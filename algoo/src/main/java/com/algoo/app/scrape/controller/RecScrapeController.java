@@ -25,7 +25,6 @@ public class RecScrapeController {
 	
 	@RequestMapping(value="/addScrape.ag")
 	public String Scrapeadd(
-			
 			@ModelAttribute RecScrapeVO recScrapeVo,
 			HttpSession session,
 			Model model){

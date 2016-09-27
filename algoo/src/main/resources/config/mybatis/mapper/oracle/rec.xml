@@ -202,6 +202,22 @@
 		where job_name=${jobName}
 	</select>
 	
+	<select id="selectCountRec" resultType="MonthVO">
+		SELECT count(DECODE(TO_CHAR(regdate,'MM'), '01', 0)) AS Jan
+	        , count(DECODE(TO_CHAR(regdate,'MM'), '02', 0)) AS Feb
+	        , count(DECODE(TO_CHAR(regdate,'MM'), '03', 0)) AS Mar
+	        , count(DECODE(TO_CHAR(regdate,'MM'), '04', 0)) AS Apr
+	        , count(DECODE(TO_CHAR(regdate,'MM'), '05', 0)) AS May
+	        , count(DECODE(TO_CHAR(regdate,'MM'), '06', 0)) AS Jun
+	        , count(DECODE(TO_CHAR(regdate,'MM'), '07', 0)) AS Jul
+	        , count(DECODE(TO_CHAR(regdate,'MM'), '08', 0)) AS Aug
+	        , count(DECODE(TO_CHAR(regdate,'MM'), '09', 0)) AS Sep
+	        , count(DECODE(TO_CHAR(regdate,'MM'), '10', 0)) AS Oct
+	        , count(DECODE(TO_CHAR(regdate,'MM'), '11', 0)) AS Nov
+	        , count(DECODE(TO_CHAR(regdate,'MM'), '12', 0)) AS Dec
+		FROM RECRUITMENT
+	</select>
+	
 	<!-- <update id="">
 	insert into RECRUITMENT
       (rec_code,comp_Name,title,job_Name,job_Name2,

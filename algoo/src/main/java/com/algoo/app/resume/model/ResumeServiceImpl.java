@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.algoo.app.career.model.CareerService;
 import com.algoo.app.career.model.CareerVO;
+import com.algoo.app.common.MonthVO;
 import com.algoo.app.computerability.model.ComputerAbilityService;
 import com.algoo.app.computerability.model.ComputerAbilityVO;
 import com.algoo.app.hope.model.HopeService;
@@ -156,6 +157,11 @@ public class ResumeServiceImpl implements ResumeService{
 	@Override
 	public List<ResumeVO> selectResumeByMemberCode(String memberCode) {
 		return resumeDao.selectResumeByMemberCode(memberCode);
+	}
+
+	@Override
+	public MonthVO selectCountResume() {
+		return resumeDao.selectCountResume();
 	}
 
 }

@@ -5,6 +5,8 @@ import java.util.List;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.stereotype.Repository;
 
+import com.algoo.app.common.MonthVO;
+
 @Repository
 public class ResumeDAOMybatis extends SqlSessionDaoSupport
 	implements ResumeDAO{
@@ -37,6 +39,11 @@ public class ResumeDAOMybatis extends SqlSessionDaoSupport
 	@Override
 	public List<ResumeVO> selectResumeByMemberCode(String memberCode) {
 		return getSqlSession().selectList(namespace+".selectResumeByMemberCode", memberCode);
+	}
+
+	@Override
+	public MonthVO selectCountResume() {
+		return getSqlSession().selectOne(namespace+".selectCountResume");
 	}
 
 }

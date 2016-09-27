@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.algoo.app.career.model.CareerVO;
+import com.algoo.app.common.MonthVO;
 import com.algoo.app.computerability.model.ComputerAbilityVO;
 import com.algoo.app.hope.model.HopeVO;
 import com.algoo.app.language.model.LanguageVO;
@@ -23,4 +24,6 @@ public interface ResumeService {
 	public List<ResumeListVO> selectResumeCount(ResumeSearchVO resumeSearchVo);
 	
 	public List<ResumeVO> selectResumeByMemberCode(String memberCode);
+	
+	public MonthVO selectCountResume();
 }

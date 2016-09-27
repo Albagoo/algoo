@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.algoo.app.admin.model.AdminMemberService;
 import com.algoo.app.admin.model.AdminMemberVO;
+import com.algoo.app.common.MonthVO;
 import com.algoo.app.faq.model.FaqListVO;
 import com.algoo.app.faq.model.FaqService;
 import com.algoo.app.faq.model.FaqVO;
@@ -25,6 +26,8 @@ import com.algoo.app.freeboard.model.FreeboardVO;
 import com.algoo.app.notice.model.NoticeListVO;
 import com.algoo.app.notice.model.NoticeService;
 import com.algoo.app.notice.model.NoticeVO;
+import com.algoo.app.rec.model.RecService;
+import com.algoo.app.resume.model.ResumeService;
 
 @Controller
 @RequestMapping("/admin")
@@ -45,11 +48,23 @@ public class AdminController {
 	@Autowired
 	private AdminMemberService adminMemberService;
 	
+	@Autowired
+	private RecService recService;
+	
+	@Autowired
+	private ResumeService resumeService;
+	
 	@RequestMapping("/adminIndex.ag")
-	public String adminIndex(){
+	public String adminIndex(Model model){
 		logger.info("관리자 홈페이지 보여주기");
 		
-		return "admin/login/adminLogin";
+		MonthVO monthVo = recService.selectCountRec();
+		model.addAttribute("rec", monthVo);
+		
+		MonthVO monthVo2 = resumeService.selectCountResume();
+		model.addAttribute("resume", monthVo2);
+		
+		return "admin/adminIndex";
 	}
 	
 	/*로그인,로그아웃*/
@@ -82,7 +97,7 @@ public class AdminController {
 			session.setAttribute("adminAuthCode", "3"); //3 관리자
 			
 			msg = adminMemberVo.getName()+"님 관리자로 로그인되었습니다";
-			url = "/admin/adminMember.ag";
+			url = "/admin/adminIndex.ag";
 		}else{
 			if(result==adminMemberService.ID_NONE){
 				msg = "존재하지 않는 아이디입니다";

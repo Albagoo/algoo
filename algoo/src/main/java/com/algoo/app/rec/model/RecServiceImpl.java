@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.algoo.app.common.MonthVO;
 import com.algoo.app.company.model.CompanyVO;
 import com.algoo.app.service.model.ServiceDAO;
 import com.algoo.app.service.model.ServiceVO;
@@ -73,6 +74,11 @@ public class RecServiceImpl implements RecService{
 	@Override
 	public List<Map<String, Object>> selectJobName2(String jobName) {
 		return recDao.selectJobName2(jobName);
+	}
+
+	@Override
+	public MonthVO selectCountRec() {
+		return recDao.selectCountRec();
 	}
 
 }

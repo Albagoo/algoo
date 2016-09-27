@@ -6,6 +6,7 @@ import java.util.Map;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.springframework.stereotype.Repository;
 
+import com.algoo.app.common.MonthVO;
 import com.algoo.app.company.model.CompanyVO;
 import com.algoo.app.service.model.ServiceVO;
 
@@ -74,6 +75,11 @@ implements RecDAO{
 	public List<Map<String, Object>> selectJobName2(String jobName) {
 		return getSqlSession().selectList(namespace+
 				".selectJobName2",jobName);
+	}
+
+	@Override
+	public MonthVO selectCountRec() {
+		return getSqlSession().selectOne(namespace+".selectCountRec");
 	}
 
 

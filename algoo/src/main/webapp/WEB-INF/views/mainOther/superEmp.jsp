@@ -31,7 +31,7 @@
 		
 			   <a href="<c:url value='/rec/updateCount.ag?recCode=${vo.recCode}'/>">
 			   <div class="SpBox">
-			   	  <img src="<c:url value='/algoo_images/000.jpg'/>">
+			   	  <img src="${vo.imgURL }" style="width: 126px;height: 49px;">
                   <br><p id="title">${vo.compName }</p>
                   <p id="content">${vo.title}</p>
                   <p id="pay">

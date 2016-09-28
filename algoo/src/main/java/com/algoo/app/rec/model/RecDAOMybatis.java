@@ -82,5 +82,11 @@ implements RecDAO{
 		return getSqlSession().selectOne(namespace+".selectCountRec");
 	}
 
+	@Override
+	public int deleteByRecCode(int recCode) {
+		return getSqlSession().delete(namespace+
+				".deleteByRecCode",recCode);
+	}
+
 
 }

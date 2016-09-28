@@ -19,5 +19,5 @@ public interface RecDAO {
 	public List<Map<String, Object>> selectJobName();
 	public List<Map<String, Object>> selectJobName2(String jobName);
 	public MonthVO selectCountRec();
-	
+	public int deleteByRecCode(int recCode);
 }

@@ -304,6 +304,27 @@ public class RecController {
 		
 	}
 	
+	@RequestMapping("/recDelete.ag")
+	public String delete(
+			@ModelAttribute RecVO recVo,
+			Model model){
+		
+		int recCode=recVo.getRecCode();
+		int res=recService.deleteByRecCode(recCode);
+		String msg="",url="";
+		if(res>0){
+			msg="삭제성공";
+			url="/rec/recList.ag";
+		}else{
+			msg="삭제실패";
+			url="/rec/recDetail.ag?recCode="+recCode;
+		}
+		
+		model.addAttribute("msg", msg);
+		model.addAttribute("url", url);
+		
+		return "common/message";
+	}
 	
 	
 	/*@RequestMapping("/getSubwayStation.ag")

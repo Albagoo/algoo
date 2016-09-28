@@ -20,4 +20,6 @@ public interface RecService{
 	public List<Map<String, Object>> selectJobName();
 	public List<Map<String, Object>> selectJobName2(String jobName);
 	public MonthVO selectCountRec();
+	public int deleteByRecCode(int recCode);
+	public int selectDelete(List<RecVO> recList);
 }

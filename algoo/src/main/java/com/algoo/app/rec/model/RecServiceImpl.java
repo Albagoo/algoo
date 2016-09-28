@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.algoo.app.common.MonthVO;
 import com.algoo.app.company.model.CompanyVO;
+import com.algoo.app.faq.model.FaqVO;
 import com.algoo.app.service.model.ServiceDAO;
 import com.algoo.app.service.model.ServiceVO;
 
@@ -79,6 +80,29 @@ public class RecServiceImpl implements RecService{
 	@Override
 	public MonthVO selectCountRec() {
 		return recDao.selectCountRec();
+	}
+
+	@Override
+	public int deleteByRecCode(int recCode) {
+		return recDao.deleteByRecCode(recCode);
+	}
+
+	@Override
+	public int selectDelete(List<RecVO> recList) {
+		 int cnt=0;
+		try{
+			for(RecVO vo : recList){
+				int recCode=vo.getRecCode();
+				if(recCode!=0){  
+					cnt=recDao.deleteByRecCode(recCode);
+				}
+			}//for
+		}catch(RuntimeException e){
+			e.printStackTrace();
+			cnt=-1;
+		}
+		
+		return cnt;
 	}
 
 }

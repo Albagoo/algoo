@@ -218,6 +218,12 @@
 		FROM RECRUITMENT
 	</select>
 	
+	<delete id="deleteByRecCode" parameterType="int">
+	delete from RECRUITMENT 
+	where rec_code=#{recCode}
+	
+	</delete>
+	
 	<!-- <update id="">
 	insert into RECRUITMENT
       (rec_code,comp_Name,title,job_Name,job_Name2,

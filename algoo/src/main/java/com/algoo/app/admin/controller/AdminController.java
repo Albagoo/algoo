@@ -145,12 +145,7 @@ public class AdminController {
 		
 		return "admin/menu/recManagement";
 	}
-	@RequestMapping("/menu/resumeManagement.ag")
-	public String resumeManagement(){
-		logger.info("관리자 인재정보관리 페이지 보여주기");
-		
-		return "admin/menu/resumeManagement";
-	}
+	
 	@RequestMapping("/menu/boardManagement.ag")
 	public String boardManagement(){
 		logger.info("관리자 게시판관리 페이지 보여주기");

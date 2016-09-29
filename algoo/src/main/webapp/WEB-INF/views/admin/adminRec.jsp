@@ -306,7 +306,7 @@
 				</thead>
 				<tbody class="noticeBody">
 					<c:if test="${param.nco==null || param.nco==0 || empty param.nco}">
-						<c:set var="print" value="7" />
+						<c:set var="print" value="5" />
 					</c:if>
 					<c:if test="${param.nco!=null && param.nco!=0 && !empty param.nco}">
 						<c:set var="print" value="${param.nco }" />

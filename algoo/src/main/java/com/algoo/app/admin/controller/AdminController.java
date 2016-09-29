@@ -54,15 +54,22 @@ public class AdminController {
 	@Autowired
 	private ResumeService resumeService;
 	
-	@RequestMapping("/adminIndex.ag")
-	public String adminIndex(Model model){
-		logger.info("관리자 홈페이지 보여주기");
-		
+	@RequestMapping("/adminCharts.ag")
+	public String adminCharts(Model model){
 		MonthVO monthVo = recService.selectCountRec();
 		model.addAttribute("rec", monthVo);
 		
 		MonthVO monthVo2 = resumeService.selectCountResume();
 		model.addAttribute("resume", monthVo2);
+		
+		return "admin/adminCharts";
+	}
+	
+	@RequestMapping("/adminIndex.ag")
+	public String adminIndex(Model model){
+		logger.info("관리자 홈페이지 보여주기");
+		
+		
 		
 		return "admin/adminIndex";
 	}

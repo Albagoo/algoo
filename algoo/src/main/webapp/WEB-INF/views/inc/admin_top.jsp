@@ -67,8 +67,8 @@
 					<a href="<c:url value='/admin/adminIndex.ag'/>"><img alt="로고" src="<c:url value='/images/simple_Logo.png'/> ">
 				</a></c:if>
 				<c:if test="${!empty sessionScope.adminUserid }">
-					<a href="<c:url value='/admin/adminMember.ag'/>"><img alt="로고" src="<c:url value='/images/simple_Logo.png'/> ">
-				</c:if>
+					<a href="<c:url value='/admin/adminIndex.ag'/>"><img alt="로고" src="<c:url value='/images/simple_Logo.png'/> ">
+				</a></c:if>
 				<span>관리자</span>
 				<c:if test="${!empty sessionScope.adminUserid }">
 					<ul>

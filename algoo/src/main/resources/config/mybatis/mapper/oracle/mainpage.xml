@@ -3,13 +3,27 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.mybatis.mapper.oracle.mainpage">
-	<select id="searchByGrade" parameterType="MainSearchVO"
+	<!-- <select id="searchByGrade" parameterType="MainSearchVO"
 	 resultType="RecVO">
 		select *
 		from recruitment r, service s
 		where r.service_code = s.service_code
 		and s.grade like #{MainGrade}
 		order by r.rec_code desc
+	</select> -->
+	<select id="searchByGrade" parameterType="MainSearchVO"
+	 resultType="RecVO">
+		<![CDATA[
+		select K.*
+      from
+      (select rec_code,comp_name,title,pay_type,pay,regdate,imgurl,grade
+      from recruitment r, service s
+      where r.service_code = s.service_code
+      and s.grade like #{MainGrade}
+      order by r.rec_code desc)K
+      
+      where rownum>0 and rownum<=30
+      ]]>
 	</select>
 	
 	<select id="selectTotalCount" parameterType="MainSearchVO"

@@ -140,7 +140,7 @@ input[name="outToExcel"]{
 			<thead>
 				<tr>
 					<th class="menuStyle" scope="col"><a href="<c:url value='/admin/adminMember.ag'/> ">회원관리</a></th>
-					<th class="menuStyle" scope="col"><a href="<c:url value='/admin/menu/recManagement.ag'/> ">채용공고관리</a></th>
+					<th class="menuStyle" scope="col"><a href="<c:url value='/admin/admin/adminRec.ag'/> ">채용공고관리</a></th>
 					<th class="menuStyle" scope="col"><a href="<c:url value='/admin/menu/resumeManagement.ag'/> ">인재정보관리</a></th>
 					<th class="menuStyle" scope="col"><a href="<c:url value='/admin/adminBoard.ag'/> ">게시판관리</a></th>
 				</tr>

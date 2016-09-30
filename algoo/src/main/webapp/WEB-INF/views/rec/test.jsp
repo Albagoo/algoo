@@ -1,11 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
-<%@ include file="../inc/simple_top.jsp"%>
+<%-- <%@ include file="../inc/simple_top.jsp"%> --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<script type="text/javascript"
-   src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script>
-
-
+<%-- <script type="text/javascript"
+   src="<c:url value='/jquery/jquery-3.1.0.min.js'/>"></script> --%>
 
 <title>이미지 업로더 (imgur API v3) :: 아키버드의 블로그</title>
 <![if !IE]>
@@ -20,24 +18,24 @@
 <link type="text/css" rel="stylesheet" href="//s1.daumcdn.net/cfs.tistory/custom/blog/153/1538088/skin/images/ie.css" />
 <![endif]-->
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
+<!-- <script>
   (adsbygoogle = window.adsbygoogle || []).push({
     google_ad_client: "ca-pub-2952373429063804",
     enable_page_level_ads: true
-  });
+  }); -->
 </script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
-<!-- <script src="//s1.daumcdn.net/cfs.tistory/custom/blog/153/1538088/skin/images/clipboard.min.js" type="text/javascript"></script> 
+<script src="//s1.daumcdn.net/cfs.tistory/custom/blog/153/1538088/skin/images/clipboard.min.js" type="text/javascript"></script> 
 <script src="//s1.daumcdn.net/cfs.tistory/custom/blog/153/1538088/skin/images/jquery.noty.js" type="text/javascript"></script>
 <script src="//s1.daumcdn.net/cfs.tistory/custom/blog/153/1538088/skin/images/default.js" type="text/javascript"></script>
 <script src="//s1.daumcdn.net/cfs.tistory/custom/blog/153/1538088/skin/images/bottomRight.js" type="text/javascript"></script>
 <script src="//s1.daumcdn.net/cfs.tistory/custom/blog/153/1538088/skin/images/dough-script-0.2.0.js" type="text/javascript"></script>
-<link rel="stylesheet" type="text/css" href="//s1.daumcdn.net/cfs.tistory/resource/8313/blog/plugins/A_ShareEntryWithSNS/css/shareEntryWithSNS.css"/>
-<script type="text/javascript" src="//s1.daumcdn.net/cfs.tistory/resource/8313/blog/plugins/A_ShareEntryWithSNS/script/shareEntryWithSNS.js"></script>
+<link rel="stylesheet" type="text/css" href="//s1.daumcdn.net/cfs.tistory/resource/8534/blog/plugins/A_ShareEntryWithSNS/css/shareEntryWithSNS.css"/>
+<script type="text/javascript" src="//s1.daumcdn.net/cfs.tistory/resource/8534/blog/plugins/A_ShareEntryWithSNS/script/shareEntryWithSNS.js"></script>
 
-<link rel="stylesheet" type="text/css" href="//s1.daumcdn.net/cfs.tistory/resource/8313/blog/plugins/TistoryProfileLayer/style.css" />
-<script type="text/javascript" src="//s1.daumcdn.net/cfs.tistory/resource/8313/blog/plugins/TistoryProfileLayer/profile.js"></script>
- -->   <style type="text/css">
+<link rel="stylesheet" type="text/css" href="//s1.daumcdn.net/cfs.tistory/resource/8534/blog/plugins/TistoryProfileLayer/style.css" />
+<script type="text/javascript" src="//s1.daumcdn.net/cfs.tistory/resource/8534/blog/plugins/TistoryProfileLayer/profile.js"></script>
+   <style type="text/css">
       .another_category { border: 1px solid #E5E5E5; padding: 10px 10px 5px; margin:10px 0; clear: both; }
       .another_category h4 { font-size: 12px !important; margin: 0 !important; border-bottom: 1px solid #E5E5E5 !important; padding: 2px 0 6px !important; }
       .another_category h4 a { font-weight: bold !important; }
@@ -86,18 +84,18 @@ var servicePath = "";
 var blogURL = "";
 //]]>
 </script>
-<script type="text/javascript" src="//s1.daumcdn.net/cfs.tistory/resource/8313/blog/script/lib/jigu/jigu-latest.min.js"></script>
-<script type="text/javascript" src="//s1.daumcdn.net/cfs.tistory/resource/8313/blog/script/T.js"></script>
-<script type="text/javascript" src="//s1.daumcdn.net/cfs.tistory/resource/8313/blog/script/EAF2.js"></script>
-<script type="text/javascript" src="//s1.daumcdn.net/cfs.tistory/resource/8313/blog/script/common.js"></script>
-<script type="text/javascript" src="//s1.daumcdn.net/cfs.tistory/resource/8313/blog/script/gallery.js"></script>
-<script type="text/javascript" src="//s1.daumcdn.net/cfs.tistory/resource/8313/blog/script/flash.js"></script>
-<script type="text/javascript" src="//s1.daumcdn.net/cfs.tistory/resource/8313/blog/script/sha256.js"></script>
-<script type="text/javascript" src="//s1.daumcdn.net/cfs.tistory/resource/8313/blog/script/md5.min.js"></script>
-<script type="text/javascript" src="//s1.daumcdn.net/cfs.tistory/resource/8313/blog/script/swfobject.js"></script>
+<!-- <script type="text/javascript" src="//s1.daumcdn.net/cfs.tistory/resource/8534/blog/script/lib/jigu/jigu-latest.min.js"></script> -->
+<script type="text/javascript" src="//s1.daumcdn.net/cfs.tistory/resource/8534/blog/script/T.js"></script>
+<script type="text/javascript" src="//s1.daumcdn.net/cfs.tistory/resource/8534/blog/script/EAF2.js"></script>
+<script type="text/javascript" src="//s1.daumcdn.net/cfs.tistory/resource/8534/blog/script/common.js"></script>
+<script type="text/javascript" src="//s1.daumcdn.net/cfs.tistory/resource/8534/blog/script/gallery.js"></script>
+<script type="text/javascript" src="//s1.daumcdn.net/cfs.tistory/resource/8534/blog/script/flash.js"></script>
+<script type="text/javascript" src="//s1.daumcdn.net/cfs.tistory/resource/8534/blog/script/sha256.js"></script>
+<script type="text/javascript" src="//s1.daumcdn.net/cfs.tistory/resource/8534/blog/script/md5.min.js"></script>
+<script type="text/javascript" src="//s1.daumcdn.net/cfs.tistory/resource/8534/blog/script/swfobject.js"></script>
 
-<link rel="stylesheet" type="text/css" href="//s1.daumcdn.net/cfs.tistory/resource/8313/blog/style/dialog.css" />
-<link rel="stylesheet" type="text/css" href="//s1.daumcdn.net/cfs.tistory/resource/8313/blog/style/menubar.css"/><style type="text/css">.tt_article_useless_p_margin p {padding-top:0 !important;padding-bottom:0 !important;margin-top:0 !important;margin-bottom:0 !important;}</style><meta name="referrer" content="always"><link rel="shortcut icon" href="http://i1.daumcdn.net/cfs.tistory/static/top/favicon_0630.ico"/><meta name="description" content="Upload (Drag &amp; Drop Here↓) Img HTML tag">
+<link rel="stylesheet" type="text/css" href="//s1.daumcdn.net/cfs.tistory/resource/8534/blog/style/dialog.css" />
+<link rel="stylesheet" type="text/css" href="//s1.daumcdn.net/cfs.tistory/resource/8534/blog/style/menubar.css"/><style type="text/css">.tt_article_useless_p_margin p {padding-top:0 !important;padding-bottom:0 !important;margin-top:0 !important;margin-bottom:0 !important;}</style><meta name="referrer" content="always"><link rel="shortcut icon" href="http://i1.daumcdn.net/cfs.tistory/static/top/favicon_0630.ico"/><meta name="description" content="Upload (Drag &amp; Drop Here↓) Img HTML tag">
 
 <!-- BEGIN OPENGRAPH -->
 <link rel="canonical" href="http://rrss.tistory.com/13" /><meta property="og:type" content="article"><meta property="og:url" content="http://rrss.tistory.com/13" ><meta property="og:site_name" content="아키버드의 블로그" ><meta property="og:title" content="이미지 업로더 (imgur API v3)" ><meta name="by" content="아키버드" ><meta property="og:description" content="Upload (Drag &amp; Drop Here↓) Img HTML tag" ><meta property="og:image" content="http://cfile9.uf.tistory.com/image/2176203E53FC211D1199FD" >
@@ -128,20 +126,19 @@ var blogURL = "";
 <body>
 
 <script type="text/javascript">
-   T.config = {"TOP_SSL_URL":"https:\/\/www.tistory.com","PREVIEW":false,"ROLE":"guest","PREV_PAGE":"\/17","NEXT_PAGE":"\/11","BLOG":{"isDormancy":false,"title":"\uc544\ud0a4\ubc84\ub4dc\uc758 \ube14\ub85c\uadf8"},"NEED_COMMENT_LOGIN":false,"COMMENT_LOGIN_CONFIRM_MESSAGE":"","LOGIN_URL":"https:\/\/www.tistory.com\/login\/?requestURI=http%3A%2F%2Frrss.tistory.com%2F13","TRACKBACK_COPY_URL":"\/\/s1.daumcdn.net\/cfs.tistory\/resource\/8313\/blog\/script\/copyTrackback","TRACKBACK_BUTTON":"whiteButton","DEFAULT_URL":"http:\/\/rrss.tistory.com","USER":{"name":null,"homepage":null}};
+   T.config = {"TOP_SSL_URL":"https:\/\/www.tistory.com","PREVIEW":false,"ROLE":"guest","PREV_PAGE":"\/17","NEXT_PAGE":"\/11","BLOG":{"isDormancy":false,"title":"\uc544\ud0a4\ubc84\ub4dc\uc758 \ube14\ub85c\uadf8"},"NEED_COMMENT_LOGIN":false,"COMMENT_LOGIN_CONFIRM_MESSAGE":"","LOGIN_URL":"https:\/\/www.tistory.com\/login\/?requestURI=http%3A%2F%2Frrss.tistory.com%2F13","TRACKBACK_COPY_URL":"\/\/s1.daumcdn.net\/cfs.tistory\/resource\/8534\/blog\/script\/copyTrackback","TRACKBACK_BUTTON":"whiteButton","DEFAULT_URL":"http:\/\/rrss.tistory.com","USER":{"name":null,"homepage":null}};
 </script>
 
-<script type="text/javascript" src="//s1.daumcdn.net/cfs.tistory/resource/8313/blog/script/blog/common.js"></script>
-   <script type="text/javascript" src="http://www.tistory.com/api/secondaryDomain/?callback=secondaryDomainLogin&amp;dummy=1269244600"></script>
+<script type="text/javascript" src="//s1.daumcdn.net/cfs.tistory/resource/8534/blog/script/blog/common.js"></script>
 <div style="margin:0; padding:0; border:none; background:none; float:none; clear:none; z-index:0"></div>
-
+<!-- 
 
    <div id="top">
       <div class="wrap tw">
          <h1 id="logo"><a href="/" title="아키버드의 블로그">아키버드의 블로그</a></h1>
          <div  class="trb">
             <ul>  
-               <!--li>
+               li>
                   <a href="/guestbook">GUEST</a>
                </li>
                <li>
@@ -149,7 +146,7 @@ var blogURL = "";
                </li>
                <li>
                   <a href="/admin">ADMIN</a>
-               </li-->
+               </li
                <li class="last">
                
                <form class="searchform cf">
@@ -165,7 +162,58 @@ var blogURL = "";
 
    <div class="tab_line">
       <div class="wrap">
-      <ul class="tt_category"><li><a class="link_tit" href="/category">분류 전체보기 <span class="c_cnt">(14)</span></a><ul class="category_list"><li><a class="link_item" href="/category/구글드라이브">구글드라이브 <span class="c_cnt">(3)</span></a></li><li><a class="link_item" href="/category/HTML5">HTML5 <span class="c_cnt">(4)</span></a></li><li><a class="link_item" href="/category/이미지">이미지 <span class="c_cnt">(1)</span></a></li><li><a class="link_item" href="/category/북마클릿">북마클릿 <span class="c_cnt">(3)</span></a></li><li><a class="link_item" href="/category/ETC">ETC <span class="c_cnt">(3)</span></a></li></ul></li></ul>
+      <ul class="tt_category">
+   <li class="">
+      <a class="link_tit" href="/category">
+         분류 전체보기                    <span class="c_cnt">(14)</span>
+         
+               </a>
+
+            <ul class="category_list">
+                     <li class="">
+               <a class="link_item" href="/category/구글드라이브">
+                  구글드라이브                                       <span class="c_cnt">(3)</span>
+                  
+                                 </a>
+
+               
+            </li>
+                     <li class="">
+               <a class="link_item" href="/category/HTML5">
+                  HTML5                                     <span class="c_cnt">(4)</span>
+                  
+                                 </a>
+
+               
+            </li>
+                     <li class="">
+               <a class="link_item" href="/category/이미지">
+                  이미지                                       <span class="c_cnt">(1)</span>
+                  
+                                 </a>
+
+               
+            </li>
+                     <li class="">
+               <a class="link_item" href="/category/북마클릿">
+                  북마클릿                                      <span class="c_cnt">(3)</span>
+                  
+                                 </a>
+
+               
+            </li>
+                     <li class="">
+               <a class="link_item" href="/category/ETC">
+                  ETC                                       <span class="c_cnt">(3)</span>
+                  
+                                 </a>
+
+               
+            </li>
+               </ul>
+         </li>
+</ul>
+
       </div>
    </div>
    <div id="container">
@@ -175,7 +223,7 @@ var blogURL = "";
       <div id="content">
       
       
-
+ -->
    
 
    
@@ -186,7 +234,7 @@ var blogURL = "";
 
    
 
-   
+<!--    
    <div class="entry">
       <div class="tdiv">
       <h2><a href="/13">이미지 업로더 (imgur API v3)</a></h2>
@@ -204,7 +252,7 @@ var blogURL = "";
       <div class="article">
          <p id="ddd" style="padding:20px 0px;">
          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- rrss 반응형 -->
+rrss 반응형
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-2952373429063804"
@@ -214,8 +262,10 @@ var blogURL = "";
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
          </p>
-         <!-- article st -->
+         article st
          <div class="tt_article_useless_p_margin"><p style="text-align: left; clear: none; float: none;"><span class="imageblock" style="display:inline-block;width:0px;width: 0px; height: 0px;;height:auto;max-width:100%"><img src="http://cfile9.uf.tistory.com/image/2176203E53FC211D1199FD" style="cursor: pointer;max-width:100%;height:auto" onclick="open_img('http://cfile9.uf.tistory.com/original/2176203E53FC211D1199FD')" width="0" height="0" filename="3.jpg" filemime="image/jpeg" style="width: 0px; height: 0px;" /></span></p>
+-->   
+      
 <style>
    #box.loading {background:url(http://cfile29.uf.tistory.com/image/242AD43E526BCE2A27BB0A) no-repeat center center;}.hero-unit{padding:40px 0;width:600px;border:1px solid #b8c9c2;background:#f7f7f7}.hero-unit h1{margin-bottom:0;font-size:60px;line-height:1;letter-spacing:-1px;color:inherit}.hero-unit p{font-size:18px;font-weight:200;line-height:27px;color:inherit}.pull-right{float:right}.pull-left{float:left}.hide{display:none}.show{display:block}.invisible{visibility:hidden}#preview{padding:10px 0;width:600px}.tip_box {position:absolute;padding:1em;_background:#333;*background:#333;background:rgba(0,0,0,0.6);-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";color:#fff;border-radius:1.5em 1.5em 1.5em 0;box-shadow:0.25em 0.25em 1em rgba(0,0,0,0.25);text-shadow:0 -1px 0 rgba(0,0,0,0.6);}
 </style>
@@ -229,7 +279,8 @@ var _0x17a7=["\x23\x62\x6F\x78","\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x2D\x6
 <br /><b><span data-tip-event="mouseover" title="아래의 코드를 복사하여 게시판 HTML에 '붙여넣기' 하세요." style="cursor:help;">Img&nbsp;HTML tag</span></b><br />
 </p><textarea class="copyTrigger" data-clipboard-target="#result" id="result" style="width:600px;height:100px;border:1px solid #b8c9c2;background:#f7f7f7;padding:0" readonly="readonly" onclick="this.select();"></textarea>
 <div id="preview"></div><div style="width:100%;margin-top:30px;clear:both;height:30px"><div style="width:31px;float:left;"><a href="/toolbar/popup/abuseReport/?entryId=13" onclick="window.open(this.href, 'tistoryThisBlogPopup', 'width=550, height=510, toolbar=no, menubar=no, status=no, scrollbars=no'); return false;"><img style="border:0" src="//t1.daumcdn.net/tistory_admin/static/ico/ico_spam_report.png" alt="신고"></a></div></div><div class="tt-plugin tt-share-entry-with-sns tt-sns-icon-alignment-right tt-sns-icon-size-big">
-   <div class="tt-sns-wrap" id="ttSnsWrap-13">
+   
+   <!--  <div class="tt-sns-wrap" id="ttSnsWrap-13">
       <ul class="tt-sns-service-default">
          <li class="tt-sns-service-kakaostory"><a href="javascript:;" onclick="ShareEntryWithSNS.share('kakaostory', '13', '%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%97%85%EB%A1%9C%EB%8D%94%20%28imgur%20API%20v3%29');">카카오스토리</a></li>
          <li class="tt-sns-service-twitter"><a href="javascript:;" onclick="ShareEntryWithSNS.share('twitter', '13', '%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%97%85%EB%A1%9C%EB%8D%94%20%28imgur%20API%20v3%29');">트위터</a></li>
@@ -249,10 +300,10 @@ var _0x17a7=["\x23\x62\x6F\x78","\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x2D\x6
 2013.10.26</td>
 </tr>
 </table></div></div>
-         <!-- article ed -->
+         article ed
          <p style="padding:20px 0px;">
          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- rrss 반응형 -->
+rrss 반응형
 <ins class="adsbygoogle"
      style="display:block"
      data-ad-client="ca-pub-2952373429063804"
@@ -275,7 +326,7 @@ var _0x17a7=["\x23\x62\x6F\x78","\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x2D\x6
       
       <h1 id="ycmt" class="hx cmt"><a href="javascript:void(0)" onclick="toggleLayerForEntry('13', 'comment'); return false"><span id="commentCount13">Comment <span class="cnt">+2</span></span></a></h1>
       <div id="entry13Comment" style="display:none"></div>
-      <!-- entry close -->
+      entry close
 
    
 
@@ -311,86 +362,313 @@ var _0x17a7=["\x23\x62\x6F\x78","\x62\x61\x63\x6B\x67\x72\x6F\x75\x6E\x64\x2D\x6
 </div>
 </div>
 
+   <div class="wrap">
+      <div id="sidebar">
+         
+            최근에 올라온 글
+               <div class="section">
+               <h2 class="hx">최근에 올라온 글</h2>
+                  <ul>
+                  
+                  <li><a href="/30"> 네이버 카페 로그인 우회, 로그인 없이..</a></li>
+                  
+                  <li><a href="/29"> QR코드 생성기 / QR코드 만들기</a></li>
+                  
+                  <li><a href="/28"> 이모티콘, 특수문자 모음 777개</a></li>
+                  
+                  <li><a href="/27"> 최신가요 TOP100 무료 듣기 사이트</a></li>
+                  
+                  <li><a href="/25"> HTML5 오디오 태그 생성기</a></li>
+                  
+                  <li><a href="/23"> Gfycat 동영상 다운로드, 북마클릿</a></li>
+                  
+                  <li><a href="/22"> 웹 페이지 내 동영상(플짤) 쉽게 저장하..</a></li>
+                  
+                  <li><a href="/21"> JW Player XML Playlist Downloader</a></li>
+                  
+                  <li><a href="/19"> HTML5 비디오 태그 생성기</a></li>
+                  
+                  <li><a href="/17"> gfycat 태그 생성기</a></li>
+                  
+                  <li><a href="/13"> 이미지 업로더 (imgur API v3)</a></li>
+                  
+                  <li><a href="/11"> 구글 드라이브 이미지 태그 생성기</a></li>
+                  
+                  </ul>
+               </div>
+            
+            최근에 달린 댓글
+               <div class="section">
+               <h2 class="hx">최근에 달린 댓글</h2>
+                  <ul>
+                  
+                  <li><a href="/10#comment11244340"> 구글드라이브 대체는 없는건가요 ㅜㅜ</a> 
+                  
+                  <li><a href="/10#comment11243838"> 아키버드님은 아니지만.. 구글이 구글 드..</a> 
+                  
+                  <li><a href="/10#comment11243740"> 항상 감사하게 쓰고있습니다
+잘써오고 있..</a> 
+                  
+                  <li><a href="/10#comment11243306"> 아키버드님 위에분 얘기 처럼 온라인이..</a> 
+                  
+                  <li><a href="/30#comment11216140"> Gif 녹화를 뭘로하신건지 궁금하네요 엄..</a> 
+                  
+                  <li><a href="/30#comment11204943"> 안녕하세요~
+좋은 정보 감사합니다.
 
-<%-- 
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
-    <!-- <link rel="stylesheet" href="style.css"> -->
- <link rel="stylesheet" type="text/css"
-   href="<c:url value='/css/style.css'/>" />   
-    
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script type="text/javascript"
-   src="<c:url value='/js/app.js'/>"></script>
-    <script type="text/javascript"
-   src="<c:url value='/js/gifie.js'/>"></script>
-    
-    
-    <!-- <script src="app.js"></script>
-    <script src="gifie.js"></script> -->
+혹..</a> 
+                  
+                  <li><a href="/29#comment11190844"> 우와 이런건 어떻게 만드시는지 ㄷㄷㄷ..</a> 
+                  
+                  <li><a href="/19#comment11189650"> 정말 감사합니다 !!!!</a> 
+                  
+                  <li><a href="/19#comment11186376"> 넵 ㅠㅠㅠ 답변 감사합니다..! 열심히 노..</a> 
+                  
+                  <li><a href="/19#comment11186093"> 죄송하지만, 제가 예시를 든다고 하더라..</a> 
+                  
+                  <li><a href="/19#comment11185877"> 제가 자바스크립트에 관해 잘 몰라서요....</a> 
+                  
+                  <li><a href="/19#comment11185482"> 쉬운 방법으로는 자바스크립트의 pc와 모..</a> 
+                  
+                  </ul>
+               </div>
+            
+      </div>
+   </div>
+   <div id="footer">
+      <div class="copyright">
+         <p><a href="/"> This</a> blog is powered by <a href="http://www.tistory.com/" onclick="window.open(this.href); return false">Tistory</a> / <span class="tistory">designed by <a href="http://www.yongzz.com/tist.php?bbs=skin" target="_blank">yongzz.com</a></span></p>
+      </div>
+   </div>
+</div> -->
+<script type="text/javascript">
+var _tiq = 'undefined' !== typeof _tiq ? _tiq : []; // Global Variables
+_tiq.push(["__setParam", "title", "아키버드의 블로그 :: 이미지 업로더 (imgur API v3)"]);
+_tiq.push(["__setParam", "svcdomain", "user.tistory.com"]);
+_tiq.push(["__setParam", "category", ""]);
+_tiq.push(["__setParam", "articleno", "13"]);
+_tiq.push(["__setParam", "plink", "http://rrss.tistory.com/13"]);
+_tiq.push(["__setParam", "date", "2013-10-26 23:21:37"]);
+_tiq.push(["__setParam", "author", "rrss"]);
+_tiq.push(["__setParam", "length", "6426"]);
+_tiq.push(["__setParam", "isauthor", "N"]);
+_tiq.push(["__setParam", "ishidden", "1"]);
+_tiq.push(["__setParam", "comments", "2"]);
+_tiq.push(["__setParam", "param1", "0"]);
+_tiq.push(["__setParam", "param2", "e"]);
+_tiq.push(["__setParam", "param3", ""]);
+_tiq.push(["__trackPageview"]);
+(function(d) {
+   var se = d.createElement('script'); se.type = 'text/javascript'; se.async = true;
+   se.src = location.protocol + '//m2.daumcdn.net/tiara/js/td.min.js';
+   var s = d.getElementsByTagName('head')[0]; s.appendChild(se);
+})(document);
+</script>
+<!-- <script type="text/javascript">
+var __TiaraObj = __TiaraObj || {}; if ('undefined' === typeof __TiaraObj.startTime) { __TiaraObj.startTime = new Date(); }
+var addEvent = function (evt, fn) { window.addEventListener ? window.addEventListener(evt, fn, false) : window.attachEvent('on' + evt, fn); };
+var ua = navigator.userAgent.toLowerCase(); var isIOS = /iP[ao]d|iPhone/i.test(ua); var contentStat = function() {
+_tiq.push(['__content', 't_content', {
+"c_id":"1538088_13", 
+"c_title":"아키버드의 블로그 :: 이미지 업로더 (imgur API v3)", 
+"type":"article", 
+"author":"아키버드", 
+"author_id":"235409", 
+"cp":"rrss", 
+"cp_id":"1538088", 
+"regdata":"2013-10-26 23:21:37", 
+"plink":"http://localhost:9090/algoo/rec/test.ag", 
+"media":"pcweb", 
+"comment_cnt":2, 
+"duration": (new Date()).getTime() - __TiaraObj.startTime.getTime()
+}]); };
+addEvent(isIOS ? "pagehide" : "beforeunload", contentStat);
+</script>
+<script type="text/javascript">window.roosevelt_params_queue = window.roosevelt_params_queue || []; window.roosevelt_params_queue.push({channel_id: "dk", channel_label: "tistory"});</script>
+<script type="text/javascript" src="//adimg.daumcdn.net/rt/dk_bt/roosevelt_dk_bt.js" async></script><script type="text/javascript">if(window.console!=undefined){setTimeout(console.log.bind(console,"%cTISTORY","font:8em Arial;color:#EC6521;font-weight:bold"),0);setTimeout(console.log.bind(console,"%c  나를 표현하는 블로그","font:2em sans-serif;color:#333;"),0);}</script>      <div id="tistorytoolbarid"
+          style="position:absolute;height:20px;top:4px;right:0px;background-color:transparent;background-image:none;z-index:11;">
+         <div class="tistorytoolbar tt_menubar_login">
+            <div
+               class="tt_menubar_whiteBar">
+               <div id="ttMenubarInnerWrap" class="tt_menubar_inner">
+                  <div class="tt_menubar_bg_toolbar"></div>
+                  <h2 style="display:none;">티스토리 툴바</h2>
+                  <div class="tt_menubar_mainmenu"><a
+                        class="tt_menubar_link_tit tt_menubar_link_tit_daum tt_menubar_link_tit_eng"
+                        href="http://www.daum.net/?nil_ref=tistory"
+                        target="_blank">Daum</a></div>
+                  <div class="tt_menubar_bg_bar"></div>
+                  <div class="tt_menubar_mainmenu"><a class="tt_menubar_link_tit tt_menubar_link_tit_eng"
+                                             href="http://www.tistory.com">Tistory</a>
+                  </div>
+                  <div class="tt_menubar_bg_bar"></div>
+                  <div class="tt_menubar_logout"><a class="tt_menubar_link_tit"
+                                            href="https://www.tistory.com/login">로그인</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      </body>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
+<script type="text/javascript" src="//s1.daumcdn.net/cfs.tistory/custom/blog/153/1538088/skin/images/jquery.slimscroll.min.js"></script>
+<script type="text/javascript">
+var ie7 = 0;
+</script>
+[if lte IE 7]>
+<script type="text/javascript">
+    ie7 = 1;
+</script>
+<![endif]
+-->
+<script>
+$(document).ready(function () {
+   var $all = $(".tab_line ul li a").eq(0);
+   if($all.length > 0){
+      $all.parent().find("ul").eq(0).prepend('<li class="on"><a href="/category">'+$all.html()+'</a></li>');
+      $all.remove();
 
- <title>imgur oauth</title>
-    <script src="http://code.jquery.com/jquery.min.js"></script>
-    <script>
-      $(function () {
-        var extractToken = function(hash) {
-          var match = hash.match(/access_token=(\w+)/);
-          return !!match && match[1];
-        };
- 
-        var $post = $('.post');
-        var $msg = $('.hidden');
-        var $img = $('img');
- 
-        $post.click(function() {
-          localStorage.doUpload = true;
-          localStorage.imageBase64 = $img.attr('src').replace(/.*,/, '');
-        });
- 
-        var token = extractToken(document.location.hash);
-        if (token && JSON.parse(localStorage.doUpload)) {
-          localStorage.doUpload = false;
-          $post.hide();
-          $msg.show();
- 
-          $.ajax({
-            url: 'https://api.imgur.com/3/image',
-            method: 'POST',
-            headers: {
-              Authorization: 'Bearer ' + token,
-              Accept: 'application/json'
-            },
-            data: {
-              image: localStorage.imageBase64,
-              type: 'base64'
-            },
-            success: function(result) {
-              var id = result.data.id;
-              window.location = 'https://imgur.com/gallery/' + id;
-            }
-          });
-        }
-      });
-    </script>
-    <style>
-      .hidden {
-        display: none;
+      var url = (window.location.href).replace("http://","");
+
+      var uarr = url.split("/");
+      var s = false;
+      if(uarr.length > 1){
+         if(uarr[1] != "category"){
+            s = true;
+            var tmp = "com"+$("div.ect a#category").attr("href");
+            uarr = tmp.split("/");
+         }
       }
-    </style>
-  </head>
+      
+      if(uarr.length > 2 && !s){
+         if(uarr[2].length > 0) s = true;
+      }
+      if(s){
+         //uarr[2] = uarr[2].replace(" ","%20");
+         //var cate = $('.tab_line ul li a[href*="'+uarr[2]+'"]');
+         var cate = $('.tab_line ul li a[href="/category/'+uarr[2]+'"]');
+         if(cate.length > 0){
+            $(".tab_line ul li.on").removeClass("on");
+            cate.addClass("on");
+         }
+         uarr[2] = decodeURIComponent(uarr[2]);
+         cate = $('.tab_line ul li a[href*="'+uarr[2]+'"]');
+         if(cate.length > 0){
+            $(".tab_line ul li.on").removeClass("on");
+            cate.parent().addClass("on");
+         }
+      }
+
+      $(".tab_line ul li a").mouseenter(function(){
+         $(this).parent().find("ul").show();
+         if(ie7 == 1){
+            $(this).parent().find("ul").css("margin-left",-$(this).parent().width());
+         }
+      }).mouseleave(function(){
+         $(this).parent().find("ul").hide();
+      });
+
+      $(".tab_line ul li ul li ul").mouseenter(function(){
+         $(this).show();
+      }).mouseleave(function(){
+         $(this).hide();
+      });
+
+      var res_tab = $(".res_tab");
+      $(".tab_line a").each(function(i){
+         var name = $(this).text();
+         var href = $(this).attr("href");
+         
+         res_tab.append($("<option></option>").attr("value",href).text(name));
+      });
+   }
+});
+
+function fsch(){
+ $("#searchBox").toggleClass("dno");
+}
+
+$(document).ready(function () {
+   var t_href = location.href;
+   var t_arr = t_href.split("/");
+   var t_last = t_arr[(t_arr.length-1)].split("#");
+   if(t_last.length > 1){
+      if(t_last[1] == 'yview'){
+         $("#container").addClass("yview");
+         $("#top").addClass("dno");
+         $("#footer").hide();
+         $(".tistorytoolbar").hide();
+         $(".tab_line").hide();
+         $("#sidebar").hide();
+         $("#paging a").each(function(i){
+            $(this).attr('href',$(this).attr('href')+"#yview");
+         });
+      }
+   }
+
+   var pn = 0;
+   var anh = $("a#prevPage").attr("href");
+   var anp = $("a#a_prev");
+   if(anh != "undefined" && anh != undefined){
+      anp.attr("href",anh);
+      pn++;
+   }else{
+      anp.attr("title","이전글이 없습니다");
+      anp.html("이전글").addClass("nohr");
+   }
+
+   anh = $("a#nextPage").attr("href");
+   anp = $("a#a_next");
+   if(anh != "undefined" && anh != undefined){
+      anp.attr("href",anh);
+      pn++;
+   }else{
+      anp.attr("title","다음글이 없습니다");
+      anp.html("다음글").addClass("nohr");
+   }
+
+   if(pn > 0){
+      $("#pnn").removeClass("dno");
+   }
+});
  
-  <body>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==" alt="Red dot"> 
-    <div>
-      <a class="post" href="https://api.imgur.com/oauth2/authorize?response_type=token&client_id=66e4c2353272c13">
-        Post image to imgur
-      </a>
-    </div>
- 
-    <div class="hidden">
-      <p>Posting to imgur...</p>
-    </div> --%>
+function cw_open(url){
+   width = 1024;
+   height = $(window).height();
+   var sst = window.open(url,'popwin','top='+((screen.availHeight - height)/2 - 40) +', left='+(screen.availWidth - width)/2+', width='+width+', height='+height+', toolbar=0, directories=0, status=0, menubar=0, scrollbars=1, resizable=1');
+   if(sst){
+   sst.focus();
+   }
+}
+   
+$(document).ready(function(){
+   $('div#box, div>textarea, div>input:not(input[type="checkbox"])').width('92%');
+});
+
+var pp = '<div class="section"><h2 class="hx">인기 글</h2><ul> <li><a href="/10"> 구글드라이브 플짤(동영상) 태그 생성기</a> </li> <li><a href="/11"> 구글드라이브 이미지 태그 생성기</a> </li> <li><a href="/17"> Gfycat 태그 생성기</a> </li> <li><a href="/19"> HTML5 비디오 태그 생성기</a> </li> <li><a href="/25"> HTML5 오디오 태그 생성기</a> </li> <li><a href="/29"> QR CODE 생성기</a> </li> </ul> </div>';
+$('#sidebar').append(pp);
+   
+</script>
+<script type="text/javascript">
+   var adblock = true;
+   if(T.config.USER.name==="아키버드"){
+      adblock = false;
+   }
+</script>
+<script type="text/javascript" src="http://cfs.tistory.com/custom/blog/153/1538088/skin/images/ads.js"></script>
+<script type="text/javascript">
+if(adblock) {
+  $('div.article').html('<img src="//s1.daumcdn.net/cfs.tistory/custom/blog/153/1538088/skin/images/abwarn.png"/>');
+}
+</script>
+<script src="//s1.daumcdn.net/cfs.tistory/custom/blog/153/1538088/skin/images/jquery.masonry.min.js"></script>
+<script src="//s1.daumcdn.net/cfs.tistory/custom/blog/153/1538088/skin/images/ygaln.js?time=15"></script>
+<script>
+      var clipboard = new Clipboard('.copyTrigger');  
+</script>
+[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js"></script>
+<![endif]>
 
 <%@ include file="../inc/simple_bottom.jsp"%>

@@ -94,28 +94,28 @@
 	function delNotice(nNo){
 		if(confirm("슈퍼채용을 삭제하시겠습니까?")){
 			location.href
-		="<c:url value='/rec/recAdminDelete.ag?recCode="+nNo+"'/>"
+		="<c:url value='/admin/recAdminDelete.ag?recCode="+nNo+"'/>"
 		}
 	}
 	
 	function delFaq(fNo){
 		if(confirm("그랜드채용을 삭제하시겠습니까?")){
 			location.href
-		="<c:url value='/rec/recAdminDelete.ag?recCode="+fNo+"'/>"
+		="<c:url value='/admin/recAdminDelete.ag?recCode="+fNo+"'/>"
 		}
 	}
 	
 	function delFree(tNo){
 		if(confirm("스페셜채용을 삭제하시겠습니까?")){
 			location.href
-		="<c:url value='/rec/recAdminDelete.ag?recCode="+tNo+"'/>"
+		="<c:url value='/admin/recAdminDelete.ag?recCode="+tNo+"'/>"
 		}
 	}
 	
 	function delFaq2(fNo){
 		if(confirm("스피드채용을 삭제하시겠습니까?")){
 			location.href
-		="<c:url value='/rec/recAdminDelete.ag?recCode="+fNo+"'/>"
+		="<c:url value='/admin/recAdminDelete.ag?recCode="+fNo+"'/>"
 		}
 	}
 </script>

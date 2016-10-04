@@ -383,7 +383,7 @@ src="//apis.daum.net/maps/maps3.js?apikey=f06943e7a65fb3d3ded3394d978e6b56&libra
         </a>
     </em>
 </p>
-<!-- <div id="map" style="width:100%;height:350px;"></div> -->
+ <div id="map" style="width:100%;height:350px;"></div> 
 <input type="hidden" id="recCompName" value="${recVo.compName }">
 
 <script>

@@ -155,8 +155,11 @@
 	</tbody>
 </table>	   
 </div>
+
 <div style="margin: 10px 0 0 3px;">
-	<input type="button" id="btFreeDel" value="선택한 게시글 삭제" class="button white medium">
+	<c:if test="${sessionScope.authCode==3 }">
+		<input type="button" id="btFreeDel" value="선택한 게시글 삭제" class="button white medium">
+	</c:if>
 	<div class="divBtn">
     <input type = "Button" class="button white medium" value="글쓰기" 
       	onclick="location.href='<c:url value="/freeboard/write.ag"/>';" />
